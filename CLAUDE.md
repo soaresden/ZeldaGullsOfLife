@@ -182,5 +182,7 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   bruitages de Link et la vague du film sont retirés).
 - Denis accepte qu'on reprenne sons, musiques et objets de Link's Awakening DX
   (https://github.com/zladx/LADX-Disassembly) ; pas la VF de Nintendo pour les textes.
+- Le désassemblage de LADX est sur la machine : D:\DOCS\Documents\GitHub\ZeldaOracleCombinedFR\LADX-Disassembly-main
+  (sons : src/code/audio/, musiques, sprites : src/gfx/...). Le lire là plutôt que sur GitHub.
 - Aperçu à écouter : `python tools/record_music.py [SECONDES]` -> out/phare_apercu.wav (salle 4:24)
   et out/film_apercu.wav. Denis veut ÉCOUTER une musique avant qu'on la pousse.

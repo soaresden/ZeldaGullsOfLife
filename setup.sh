@@ -25,4 +25,11 @@ if [ ! -x "$WLA/build/binaries/wla-gb.exe" ]; then
     cmake -S "$WLA" -B "$WLA/build" -G "MSYS Makefiles" -DCMAKE_BUILD_TYPE=Release -DCMAKE_POLICY_VERSION_MINIMUM=3.5
     cmake --build "$WLA/build" --target wla-gb wlalink -j8
 fi
+# Le désassemblage de Link's Awakening DX (pour reprendre ses sons, musiques et graphismes) : celui
+# de ZeldaOracleCombinedFR s'il est là, sinon on le clone
+LADX="$ROOT/../ZeldaOracleCombinedFR/LADX-Disassembly-main"
+if [ ! -d "$LADX" ] && [ ! -d "$ROOT/tools-build/LADX-Disassembly" ]; then
+    git clone --depth 1 https://github.com/zladx/LADX-Disassembly.git "$ROOT/tools-build/LADX-Disassembly"
+fi
+
 echo "Prêt : ./build.sh compile le jeu dans out/gulls_of_life.gbc"
