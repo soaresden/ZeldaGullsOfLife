@@ -1,8 +1,17 @@
 """Enregistre le son du jeu (PyBoy) en .wav, pour écouter sans lancer d'émulateur.
 
-Usage : python tools/record_music.py [SECONDES]
-  out/film_apercu.wav  : le film d'ouverture (bruitages, cri de la mouette)
-  out/phare_apercu.wav : le Phare Éteint (salle d'entrée 4:24), SECONDES secondes (45 par défaut)
+Usage : python tools/record_music.py [NOM ...]   (sans nom : tout)
+  film      out/film_apercu.wav      le film d'ouverture (bruitages, cri de la mouette)
+  titre     out/titre_apercu.wav     l'écran titre (42 s)
+  phare     out/phare_apercu.wav     le Phare Éteint (salle 4:24)
+  ile       out/ile_apercu.wav       l'île de la Brume (Port-Veille, 1:9a)
+  auberge   out/auberge_apercu.wav   l'auberge (3:9e)
+  boss      out/boss_apercu.wav      MUS_BOSS ($2e) = le thème du jeu
+  veilleur  out/veilleur_apercu.wav  le Veilleur Creux ($45, pour un autre boss)
+  miniboss  out/miniboss_apercu.wav  MUS_MINIBOSS ($2d)
+  theme     out/theme_apercu.wav     le thème du jeu (MUS_BALLADE_THEME, $44)
+Pour le boss et le miniboss (pas de salle où ils jouent d'office), l'appel à playSound qui lance
+la musique du Phare est détourné vers la leur (crochet PyBoy sur playSound, ROM intacte).
 """
 import os
 import sys
@@ -12,11 +21,33 @@ import numpy as np
 from pyboy import PyBoy
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SECONDS = float(sys.argv[1]) if len(sys.argv) > 1 else 45
+PLAY_SOUND = 0x0c09   # playSound (banque 0, voir oracles-disasm/ages.sym)
+MUS_PHARE = 0x41
+# nom : (groupe, salle, position, musique à la place de celle du Phare, secondes)
+TRACKS = {
+    'phare': (4, 0x24, 0x51, None, 45),
+    'ile': (1, 0x9a, 0x55, None, 50),
+    'auberge': (3, 0x9e, 0x57, None, 46),
+    'boss': (4, 0x24, 0x51, 0x2e, 46),
+    'veilleur': (4, 0x24, 0x51, 0x45, 31),
+    'miniboss': (4, 0x24, 0x51, 0x2d, 24),
+    'theme': (4, 0x24, 0x51, 0x44, 46),
+}
+wanted = sys.argv[1:] or ['film', 'titre'] + list(TRACKS)
 
-pb = PyBoy(os.path.join(ROOT, 'out', 'gulls_of_life.gbc'), window='null', sound_emulated=True)
+ROM = os.environ.get('ROM', os.path.join(ROOT, 'out', 'gulls_of_life.gbc'))   # ROM=... pour une autre ROM
+pb = PyBoy(ROM, window='null', sound_emulated=True)
 pb.set_emulation_speed(0)
 rec = None
+swap = [None]
+
+
+def on_play_sound(_):
+    if swap[0] is not None and pb.register_file.A == MUS_PHARE:
+        pb.register_file.A = swap[0]
+
+
+pb.hook_register(0, PLAY_SOUND, on_play_sound, None)
 
 
 def w(n):
@@ -29,6 +60,11 @@ def w(n):
 def press(b, n=4):
     pb.button(b, 3)
     w(n)
+
+
+def warp(g, r, pos):
+    for i, v in enumerate((0x80 | g, r, 0x00, pos, 0x03)):
+        pb.memory[0xcc47 + i] = v
 
 
 def save(name):
@@ -46,12 +82,20 @@ def save(name):
 
 
 # Le film d'ouverture (du logo à l'écran titre)
-rec = []
+if 'film' in wanted:
+    rec = []
 w(1500)
-save('film_apercu.wav')
+if 'film' in wanted:
+    save('film_apercu.wav')
 rec = None
+# L'écran titre (sa musique), si demandé
+if 'titre' in wanted:
+    rec = []
+    w(42 * 60)
+    save('titre_apercu.wav')
+    rec = None
 
-# Nouvelle partie, scène de la plage, puis le Phare
+# Nouvelle partie, scène de la plage
 for c in 'start w150 start w60 a w60 a w80 a w10 start w20 a w60 a w60 a'.split():
     w(int(c[1:])) if c[0] == 'w' else press(c)
 w(400)
@@ -60,12 +104,20 @@ for i in range(160):
     if pb.memory[0xcc8a] == 0 and i > 60:
         break
 w(60)
-for i, v in enumerate((0x80 | 4, 0x24, 0x00, 0x51, 0x03)):
-    pb.memory[0xcc47 + i] = v
-w(30)
-rec = []
-w(int(SECONDS * 60))
-print('salle', pb.memory[0xcc2d], hex(pb.memory[0xcc30]), 'musique', hex(pb.memory[0xcc35]))
-pb.screen.image.save(os.path.join(ROOT, 'out', 'phare_apercu.png'))
-save('phare_apercu.wav')
+
+for name, (g, r, pos, music, seconds) in TRACKS.items():
+    if name not in wanted:
+        continue
+    # Passer d'abord par une autre musique, pour que la salle relance la sienne
+    warp(3, 0x9e, 0x57) if g != 3 else warp(1, 0x9a, 0x55)
+    w(120)
+    swap[0] = music
+    warp(g, r, pos)
+    w(30)
+    rec = []
+    w(int(seconds * 60))
+    print(name, ': salle', pb.memory[0xcc2d], hex(pb.memory[0xcc30]), 'musique', hex(pb.memory[0xcc35]))
+    save(name + '_apercu.wav')
+    rec = None
+    swap[0] = None
 pb.stop(save=False)

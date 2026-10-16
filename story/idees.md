@@ -41,10 +41,16 @@ Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, ave
   indique un endroit en mer ; il faut y rester **plus de 10 secondes** (en plongée) pour l'avoir.
 
 ## Musique
-- Un remix de *La Ballade du Poisson-Rêve* (la chanson de Marine) pour le thème principal.
-- S'inspirer des **thèmes orchestraux de *Hyrule Warriors*** (idée de Denis) : de la grandeur,
-  des cuivres et des percussions, transposés aux 4 voix du Game Boy (pour le Phare, les
-  boss, la carte de l'archipel).
+- Fait : la Ballade chantée par Marine en mouette (écran titre), la Ballade énervée (boss),
+  le miniboss façon *Hyrule Warriors*, l'île de la Brume, l'auberge jazzy, le Phare (music/).
+- À venir : les autres îles, la carte de l'archipel ; garder les **thèmes orchestraux de
+  *Hyrule Warriors*** en tête (grandeur, cuivres, percussions).
+- **Le boss de fin en rythme** (idée de Denis) : la musique se tait, il ne reste qu'un tic-tac
+  de métronome ; on frappe l'épée dans le vent (A) sur le rythme de la Ballade (« A A A... A A
+  A... A A A A A... »). Chaque coup juste fait entendre une note de plus de la chanson, et plus
+  on est dans le rythme, plus la chanson revient ; à la fin, Marine la chante par-dessus et le
+  boss en meurt. Faisable : métronome sur le bruit, appuis comparés au compteur d'images, la
+  mélodie jouée note à note (ou son volume monté) à chaque coup réussi.
 
 ## Le Songe
 - Écran bleuté et qui ondule doucement, comme sous l'eau dans *Ages* (demandé par Denis).

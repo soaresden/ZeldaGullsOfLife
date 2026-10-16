@@ -17,12 +17,35 @@ import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, 'oracles-disasm', 'audio', 'ages', 'mus', 'ballade.s')
+# Tables des canaux : dans la banque du code audio (incluses par soundChannelPointers.s)
+OUT_PTR = os.path.join(ROOT, 'oracles-disasm', 'audio', 'ages', 'balladeChannelPointers.s')
 
-# (fichier, nom des étiquettes)
-SONGS = [('phare.txt', 'musBalladePhare')]
+# (fichier, nom des étiquettes) ; numéros dans audio/ages/soundPointers.s et
+# constants/common/music.s : Phare $41, île $42, auberge $43, thème $44 (aussi MUS_BOSS $2e),
+# Veilleur Creux $45 (boss.txt, pour un autre boss), miniboss $2d (MUS_MINIBOSS),
+# écran titre $01 (MUS_TITLESCREEN, titre.txt)
+SONGS = [
+    ('auberge.txt', 'musBalladeAuberge'),
+    ('phare.txt', 'musBalladePhare'),
+    ('ile.txt', 'musBalladeIle'),
+    ('boss.txt', 'musBalladeBoss'),
+    ('miniboss.txt', 'musBalladeMiniboss'),
+    ('theme.txt', 'musBalladeTheme'),
+    ('titre.txt', 'musBalladeTitre'),
+]
 
 # (groupe, musique, salles) : le Phare Éteint (donjon 1) -> MUS_BALLADE_PHARE ($41)
-ROOM_MUSIC = [(4, 0x41, [0x24, 0x1b, 0x1c, 0x15, 0x14, 0x12])]
+ILE_BRUME = [0x79, 0x7a, 0x7b, 0x7c, 0x89, 0x8a, 0x8b, 0x8c,
+             0x99, 0x9a, 0x9b, 0x9c, 0xa9, 0xaa, 0xab, 0xac]
+ROOM_MUSIC = [
+    # le Phare / temple (plan d'un seul étage : pied 1b-14-15, tour 16-18-17, galerie 19-12-1a,
+    # Jack 13 avant le combat ; 24 et 1c de l'ancien plan)
+    (4, 0x41, [0x24, 0x1b, 0x1c, 0x14, 0x15, 0x16, 0x17, 0x18, 0x19, 0x1a, 0x12, 0x13]),
+    (1, 0x42, ILE_BRUME),   # l'île de la Brume dans le Réel (Port-Veille compris)
+    (0, 0x42, ILE_BRUME),   # et dans le Songe
+    (3, 0x43, [0x9e]),      # l'auberge de Port-Veille
+    (2, 0x43, [0x9e]),      # et celle du Songe
+]
 
 VOICES = {  # voix -> (canal du moteur, genre)
     'accordeon': (0, 'carre'),
@@ -117,15 +140,19 @@ def events(name, voice, kind, tokens, bar, tempo):
     evs, in_bar, bars = [], 0.0, 0
     for t in expand(tokens):
         if t == '|':
-            if abs(in_bar - bar) > 1e-6:
+            # Une barre peut fermer plusieurs mesures d'un coup (notes liées d'une mesure à l'autre)
+            n = round(in_bar / bar)
+            if n < 1 or abs(in_bar - n * bar) > 1e-6:
                 raise ScoreError('%s/%s : mesure %d = %g croches au lieu de %d'
                                  % (name, voice, bars + 1, in_bar, bar))
-            in_bar, bars = 0.0, bars + 1
+            in_bar, bars = 0.0, bars + n
         elif t.startswith('['):
             parts = t[1:-1].split()
             m = re.fullmatch(r'v(\d+)', parts[0])
             if m:
                 evs.append(('cmd', 'vol', int(m.group(1))))
+            elif parts[0] == 'chant':
+                evs.append(('cmd', 'chant', parts[1] == 'mouette'))
             elif parts[0] in ('duty', 'onde', 'vib', 'detune', 'gate'):
                 v = parts[1]
                 if parts[0] in ('onde', 'vib'):
@@ -141,9 +168,19 @@ def events(name, voice, kind, tokens, bar, tempo):
             what, _, dur = t.partition(':')
             if not dur:
                 raise ScoreError('%s/%s : durée manquante dans « %s »' % (name, voice, t))
-            dur = float(dur[:-1]) / tempo if dur.endswith('f') else float(dur)
+            if dur.endswith('f'):
+                dur = float(dur[:-1]) / tempo
+            elif '/' in dur:  # triolets : 2/3 de croche
+                a, b = dur.split('/')
+                dur = float(a) / float(b)
+            else:
+                dur = float(dur)
             if what == '-':
                 p = None
+            elif what == 'mouette':
+                if kind != 'carre':
+                    raise ScoreError('%s/%s : la mouette crie sur un carré' % (name, voice))
+                p = 'mouette'
             elif kind == 'bruit':
                 p = NOISE.get(what)
                 if p is None:
@@ -159,6 +196,29 @@ def events(name, voice, kind, tokens, bar, tempo):
     if in_bar > 1e-6:
         raise ScoreError('%s/%s : dernière mesure sans « | »' % (name, voice))
     return evs, bars
+
+
+ECHO = re.compile(r'<(\w+)\+(\d+(?:\.\d+)?)>')
+
+
+def echo_events(s, v, toks, tok, parsed, bar, tempo):
+    """<melodie+2> : les notes d'une autre voix, retardées de 2 croches (écho), coupées à la fin
+    de la section. Les commandes écrites avant (volume, timbre...) restent celles de cette voix."""
+    src, delay = ECHO.fullmatch(tok).groups()
+    if (s, src) not in parsed:
+        raise ScoreError('%s/%s : écho d\'une voix inconnue ou elle-même en écho : %s' % (s, v, src))
+    src_evs, bars = parsed[s, src]
+    i = toks.index(tok)
+    before, _ = events(s, v, VOICES[v][1], toks[:i], bar, tempo)
+    after, _ = events(s, v, VOICES[v][1], toks[i + 1:], bar, tempo)
+    left = bars * bar - float(delay)
+    evs = before + [('note', None, float(delay))]
+    for e in src_evs:
+        if e[0] != 'note' or left <= 1e-6:
+            continue
+        evs.append(('note', e[1], min(e[2], left)))
+        left -= min(e[2], left)
+    return evs + after, bars
 
 
 class Channel:
@@ -178,7 +238,7 @@ class Channel:
     def cmd(self, name, value, record=True):
         if record:
             self.state[name] = value
-        if name == 'gate':
+        if name in ('gate', 'chant'):
             return
         self.flush_rest()
         if name == 'vol':
@@ -201,13 +261,75 @@ class Channel:
         if p is None:
             self.pending_rest += total
             return
+        if p == 'mouette':
+            self.gull(total)
+            return
         play = total if self.state['gate'] >= 1 else max(1, round(total * self.state['gate']))
         if play > 255:
             raise ScoreError('note trop longue (%d images)' % play)
+        if self.state.get('chant') and self.kind == 'carre':
+            self.sung(p, total, play)
+            return
         self.flush_rest()
         name = note_name(p) if self.kind != 'bruit' else '$%02x' % p
         self.lines.append('\tnote %-4s $%02x' % (name, play))
         self.pending_rest += total - play
+
+    def sung(self, p, total, play):
+        """Une note « chantée par la mouette » : attaque qui plonge d'un ton au-dessus vers la
+        note en gonflant (comme le début du cri de LADX), la note tenue, puis une fin qui retombe
+        d'un demi-ton en s'éteignant (« kyaaa »). Hauteurs par le décalage cmdfd, une image par
+        entrée au début et à la fin seulement (sinon la musique prendrait trop de place)."""
+        x = FREQ[p - 12]
+        room = 2048 - x
+
+        def units(semis):  # décalage du registre pour monter de « semis » demi-tons
+            return round(room * (1 - 2 ** (-semis / 12)))
+
+        vol = self.state.get('vol', 6)
+        name = note_name(p)
+        attack = min(5, play)
+        tail = min(4, (play - attack) // 2)
+        hold = play - attack - tail
+        self.flush_rest()
+        cur = None
+        for k in range(attack):
+            off = round(units(2) * (attack - 1 - k) / max(1, attack - 1))
+            v = max(1, round(vol * (k + 1) / attack))
+            self.lines.append('\tcmdfd $%02x' % (off & 0xff))
+            if v != cur:
+                self.lines.append('\tvol $%x' % v)
+                cur = v
+            self.lines.append('\tnote %-4s $01' % name)
+        if hold > 0:
+            self.lines += ['\tcmdfd $00', '\tvol $%x' % vol, '\tnote %-4s $%02x' % (name, hold)]
+            cur = vol
+        for k in range(tail):
+            off = -round(units(1) * (k + 1) / tail)
+            v = max(1, round(vol * (tail - k) / (tail + 1)))
+            self.lines.append('\tcmdfd $%02x' % (off & 0xff))
+            if v != cur:
+                self.lines.append('\tvol $%x' % v)
+                cur = v
+            self.lines.append('\tnote %-4s $01' % name)
+        self.lines.append('\tcmdfd $%02x' % (self.state.get('detune', 0) & 0xff))
+        self.lines.append('\tvol $%x' % vol)
+        self.pending_rest += total - play
+
+    def gull(self, total):
+        """Le cri de mouette de LADX (voir gull_cry) joué dans la musique : sol#6 ($7b1), abaissé
+        image par image avec le décalage de hauteur (cmdfd), le volume refait à chaque image ;
+        puis on rend au canal son volume, son timbre, son vibrato et son décalage."""
+        if total < len(GULL_FRAMES):
+            raise ScoreError('mouette : il faut au moins %d images' % len(GULL_FRAMES))
+        self.flush_rest()
+        self.lines += ['\tduty $00', '\tvibrato $00']
+        for x, v in GULL_FRAMES:
+            self.lines += ['\tcmdfd $%02x' % ((x - 0x7b1) & 0xff), '\tvol $%x' % v, '\tnote gs6  $01']
+        self.pending_rest += total - len(GULL_FRAMES)
+        self.flush_rest()
+        for k in ('vol', 'duty', 'vib', 'detune'):
+            self.cmd(k, self.state.get(k, {'vol': 0, 'duty': 2, 'vib': 0, 'detune': 0}[k]), record=False)
 
     def snapshot(self):
         """Réécrit l'état courant (début de boucle : identique au 1er passage et aux suivants)."""
@@ -224,8 +346,16 @@ def build_song(path, label):
     parsed = {}
     for s, voices in sections.items():
         lengths = set()
+        echoes = []
         for v, toks in voices.items():
+            echo = [t for t in toks if ECHO.fullmatch(t)]
+            if echo:
+                echoes.append((v, toks, echo[0]))
+                continue
             parsed[s, v] = events(s, v, VOICES[v][1], toks, bar, tempo)
+            lengths.add(parsed[s, v][1])
+        for v, toks, tok in echoes:
+            parsed[s, v] = echo_events(s, v, toks, tok, parsed, bar, tempo)
             lengths.add(parsed[s, v][1])
         if len(lengths) > 1:
             raise ScoreError('section %s : les voix n\'ont pas le même nombre de mesures %s'
@@ -261,6 +391,36 @@ def build_song(path, label):
     return out, report[0][1], report[0][2]
 
 
+def gull_frames():
+    """Le cri de LADX image par image : (registre de fréquence, volume)."""
+    frames = []
+    for k in range(9):  # attaque : volume 1, +1 tous les 1/64 s
+        frames.append((0x7b0 - k, 1 + int(k * 64 / 60)))
+    for k in range(11):  # le cri : volume 6, -1 tous les 2/64 s
+        frames.append((0x7a7 - k, 6 - int(k * 64 / 120)))
+    for k in range(11):  # l'écho
+        frames.append((0x7a7 - k, 1))
+    return frames
+
+
+GULL_FRAMES = gull_frames()
+
+
+def freq_table():
+    """soundFrequencyTable du moteur (registre de fréquence des carrés, à partir de c2)."""
+    s = open(os.path.join(ROOT, 'oracles-disasm', 'code', 'audio.s'), encoding='utf-8').read()
+    vals = []
+    for line in s[s.index('soundFrequencyTable:'):].splitlines()[1:]:
+        line = line.strip()
+        if not line.startswith('.dw'):
+            break
+        vals.append(int(line.split('$')[1], 16))
+    return vals
+
+
+FREQ = freq_table()
+
+
 def gull_cry():
     """Cri de mouette de Link's Awakening DX (JINGLE_SEAGULL, plage de Marin), porté au moteur
     d'Ages. D'après LADX-Disassembly (src/code/audio/sfx.asm, BeginJingleSeagull) : canal 1, carré
@@ -268,13 +428,7 @@ def gull_cry():
     NR12=$19 ; cri à $7a7 qui retombe, NR12=$62 ; écho tout bas à $7a7, NR12=$10), 31 images.
     Ici : fréquences brutes (.db poids_fort poids_faible durée), une image par entrée, l'enveloppe
     du volume recalculée à chaque image ; joué deux fois (« kyaa... kyaa »)."""
-    frames = []  # (registre de fréquence, volume)
-    for k in range(9):  # attaque : volume 1, +1 tous les 1/64 s
-        frames.append((0x7b0 - k, 1 + int(k * 64 / 60)))
-    for k in range(11):  # le cri : volume 6, -1 tous les 2/64 s
-        frames.append((0x7a7 - k, 6 - int(k * 64 / 120)))
-    for k in range(11):  # l'écho
-        frames.append((0x7a7 - k, 1))
+    frames = GULL_FRAMES
     lines = ['sndBalladeGullStart:', '', 'sndBalladeGullChannel2:',
              '	cmdf0 $00 ; carré 12,5 %, fréquences brutes']
     for rep in range(2):
@@ -301,19 +455,25 @@ def assign_rooms():
 
 def main():
     assign_rooms()
-    out = ['; Généré par tools/make_music.py depuis music/*.txt : ne pas éditer à la main.', '',
-           'm_section_superfree BalladeAudio', '']
+    head = '; Généré par tools/make_music.py depuis music/*.txt : ne pas éditer à la main.'
+    out, ptr = [head, ''], [head, '']
     for fname, label in SONGS:
         try:
             lines, intro, loop = build_song(os.path.join(ROOT, 'music', fname), label)
         except ScoreError as e:
             sys.exit('music/%s : %s' % (fname, e))
-        out += lines
+        # Une section par morceau : ses données restent dans la banque de son étiquette Start
+        out += ['m_section_superfree Ballade_%s' % label, ''] + lines + ['.ends', '']
+        ptr += ['%s:' % label]
+        for chan in (0, 1, 4, 6):
+            ptr += ['\t.db $%02x' % chan, '\t.dw %sChannel%d' % (label, chan)]
+        ptr += ['\t.db $ff', '']
         print('music/%s : intro %.1f s, boucle %.1f s' % (fname, intro / 60, loop / 60))
-    out += gull_cry()
-    out += ['.ends', '']
-    with open(OUT, 'w', encoding='utf-8', newline='\n') as f:
-        f.write('\n'.join(out))
+    out += ['m_section_superfree Ballade_sndGull', ''] + gull_cry() + ['.ends', '']
+    ptr += ['sndBalladeGull:', '\t.db $02', '\t.dw sndBalladeGullChannel2', '\t.db $ff', '']
+    for path, lines in ((OUT, out), (OUT_PTR, ptr)):
+        with open(path, 'w', encoding='utf-8', newline='\n') as f:
+            f.write('\n'.join(lines))
 
 
 if __name__ == '__main__':

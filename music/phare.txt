@@ -8,15 +8,22 @@
 #   d5:2      note (do ré mi = c d e f g a b, dièse # ou s, bémol b) + octave,
 #             puis la durée en croches (1 = croche, 3 = noire pointée, 6 = mesure)
 #   -:3       silence    d4:8f   durée en images (60 par seconde ; 9 images = 1 croche)
-#   |         barre de mesure (vérifiée : 6 croches par mesure)
+#   e6:2/3    durée en fraction de croche (triolets)
+#   |         barre de mesure (vérifiée : 6 croches par mesure ; une barre peut en fermer
+#             plusieurs quand des notes passent d'une mesure à l'autre)
 #   ( ... )x8 répéter
+#   <melodie+2> (seul sur sa ligne de voix) : les notes de la mélodie, 2 croches plus tard (écho)
 #   [v6]      volume (0 à 15 ; les carrés d'Ages sonnent bien entre 2 et 7)
 #   [duty 1]  timbre des carrés : 0 = 12,5 %, 1 = 25 % (anche d'accordéon), 2 = 50 %
 #   [onde 0e] forme d'onde du canal 3 (audio/common/waveforms.s)
 #   [vib e1]  vibrato (délai, intensité), comme le soufflet de l'accordéon
 #   [gate .8] part jouée de chaque note (le reste est un silence) : détaché
 #   [detune 1] décale un peu la hauteur (2 anches désaccordées = son « musette »)
+#   mouette:3 (voix carrée) : le cri de mouette de LADX (31 images), puis silence jusqu'au bout
+#   [chant mouette] / [chant 0] (voix carrée) : chaque note est « chantée » comme un cri de mouette
 #   batterie : h = charleston léger (bruit $2a), s = caisse claire ($2e), nXX = bruit $XX
+#             (types dans audio/common/noise.s ; un silence ne coupe PAS le bruit : prendre un
+#             bruit qui s'éteint seul, pas $22/$28/$30 qui tiennent indéfiniment)
 #
 # Voix
 #   melodie   = carré 2 (canal 1)      accordeon = carré 1 (canal 0)

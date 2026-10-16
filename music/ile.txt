@@ -1,0 +1,49 @@
+# L'île de la Brume — musique originale du monde extérieur (île 1, Réel et Songe, Port-Veille)
+#
+# Esprit : on avance dans la brume. Flottant, un peu mystérieux, mais on a envie d'explorer.
+# La mi mineur avec une lueur (l'accord de ré majeur, couleur dorienne) ; arpèges de harpe sur
+# l'onde douce, mélodie qui flotte avec un écho (la brume renvoie le son), percussions à peine
+# là. Même notation que music/phare.txt.
+
+tempo 16         # images par croche (noire = 32 images, environ 112 à la minute)
+mesure 8
+
+== INTRO ==
+# La brume : la harpe seule.
+melodie:   [v5] [duty 2] [vib 71] [gate 1] [detune 0]
+melodie:   -:8 | -:8 |
+accordeon: [v2] [duty 2] [vib 71] [gate 1] [detune 0]
+accordeon: -:8 | -:8 |
+basse:     [onde 16] [vib 00] [gate .9]
+basse:     ( a1:1 e2:1 a2:1 c3:1 )x2 | ( a1:1 e2:1 a2:1 c3:1 )x2 |
+batterie:  [v1] h:4 h:4 | h:4 h:2 h:2 |
+
+== A ==
+# La mélodie qui flotte ; l'accordéon (carré 1) en est l'écho, trois croches plus tard.
+melodie:   e5:4 a5:2 g5:2 | f5:3 e5:1 c5:4 | e5:2 g5:2 c6:3 b5:1 | b5:2 a5:2 g5:4 |
+melodie:   a5:4 e5:2 a4:2 | c5:2 f5:2 a5:3 g5:1 | f5:3 e5:1 d5:2 a4:2 | g#4:2 b4:2 e5:4 |
+accordeon: <melodie+3>
+basse:     ( a1:1 e2:1 a2:1 c3:1 )x2 | ( f1:1 c2:1 f2:1 a2:1 )x2 | ( c2:1 g2:1 c3:1 e3:1 )x2 | ( g1:1 d2:1 g2:1 b2:1 )x2 |
+basse:     ( a1:1 e2:1 a2:1 c3:1 )x2 | ( f1:1 c2:1 f2:1 a2:1 )x2 | ( d2:1 a2:1 d3:1 f3:1 )x2 | ( e2:1 b2:1 e3:1 g#3:1 )x2 |
+batterie:  ( [v1] h:2 h:2 [v2] h:2 [v1] h:2 | )x8
+
+== B ==
+# Une éclaircie : le ré majeur, la lumière perce un peu.
+melodie:   c6:3 b5:1 a5:4 | f#5:3 g5:1 a5:4 | c6:2 a5:2 f5:3 g5:1 | e5:6 d5:1 e5:1 |
+melodie:   c6:3 b5:1 a5:4 | f#5:2 a5:2 d6:3 c6:1 | a5:3 g5:1 f5:2 e5:2 | b4:4 g#4:2 b4:2 |
+accordeon: <melodie+3>
+basse:     ( a1:1 e2:1 a2:1 c3:1 )x2 | ( d2:1 a2:1 d3:1 f#3:1 )x2 | ( f1:1 c2:1 f2:1 a2:1 )x2 | ( c2:1 g2:1 c3:1 e3:1 )x2 |
+basse:     ( a1:1 e2:1 a2:1 c3:1 )x2 | ( d2:1 a2:1 d3:1 f#3:1 )x2 | ( f1:1 c2:1 f2:1 a2:1 )x2 | ( e2:1 b2:1 e3:1 g#3:1 )x2 |
+batterie:  ( [v1] h:2 h:2 [v2] h:2 [v1] h:2 | )x7 [v1] h:2 h:2 [v2] h:1 h:1 [v2] s:2 |
+
+== C ==
+# La brume s'épaissit : de longues notes, la harpe continue.
+melodie:   [vib 51]
+melodie:   a5:8 | g5:8 | f5:8 | g#5:8 | a5:4 c6:4 | b5:4 d6:4 | c6:8 | b5:4 g#5:4 |
+melodie:   [vib 71]
+accordeon: <melodie+3>
+basse:     ( f1:1 c2:1 f2:1 a2:1 )x2 | ( e2:1 b2:1 e3:1 g3:1 )x2 | ( d2:1 a2:1 d3:1 f3:1 )x2 | ( e2:1 b2:1 e3:1 g#3:1 )x2 |
+basse:     ( f1:1 c2:1 f2:1 a2:1 )x2 | ( g1:1 d2:1 g2:1 b2:1 )x2 | ( a1:1 e2:1 a2:1 c3:1 )x2 | ( e2:1 b2:1 e3:1 g#3:1 )x2 |
+batterie:  ( [v1] h:4 h:4 | )x8
+
+ordre: INTRO | A B C

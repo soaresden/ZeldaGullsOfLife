@@ -163,26 +163,40 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 
 ## Musique et bruitages
 - Partitions lisibles dans `music/*.txt` (notation en tête de music/phare.txt : `d5:2` = note + durée
-  en croches, `-:3` silence, `4f` = durée en images, `[v6] [duty 1] [onde 0e] [vib e1] [gate .8]
-  [detune 1]`, `( ... )x8`). `tools/make_music.py` (build.sh) vérifie les mesures et la durée des 4
-  voix, écrit `audio/ages/mus/ballade.s` (section superfree BalladeAudio) et la musique des salles
-  (`audio/ages/groupNIDs.bin`, un octet par salle ; liste ROOM_MUSIC).
+  en croches, `-:3` silence, `4f` = images, `2/3` = triolet, `[v6] [duty 1] [onde 0e] [vib e1]
+  [gate .8] [detune 1]`, `( ... )x8`, `<melodie+3>` = écho d'une autre voix, `mouette:3` = cri de
+  mouette, `[chant mouette]` = notes chantées comme un cri). `tools/make_music.py` (build.sh) vérifie
+  mesures et durées des 4 voix, écrit `audio/ages/mus/ballade.s` (une section superfree par morceau),
+  `audio/ages/balladeChannelPointers.s` (tables des canaux, incluses par soundChannelPointers.s) et
+  la musique des salles (`audio/ages/groupNIDs.bin`, un octet par salle ; liste ROOM_MUSIC).
 - Moteur d'Ages : canaux 0/1 = carrés (accordéon / mélodie), 4 = onde (basse ; `duty` = n° de forme
   d'onde, le volume y est ignoré), 6 = bruit (`note $2a` charleston, `$2e` caisse claire ; types dans
-  audio/common/noise.s) ; durées en images (60/s) ; les carrés jouent à partir de c2. Bruitages :
-  canaux 2/3/5/7 ; `cmdf0 $X0` passe en fréquences brutes (`.db poids_fort poids_faible durée`).
-- La table des canaux (soundChannelPointers.s) est dans la banque du code audio, les données dans
-  n'importe quelle banque (m_soundPointer stocke un écart de banque).
-- MUS_BALLADE_PHARE = $41 (case vide d'Ages) : salles 4:24 1b 1c 15 14 12 ; tempo croche = 9 images,
-  boucle de 36 s ; « HEY ! » de l'équipage à la fin de A2 (forme d'onde « voix » $2e ajoutée à
-  audio/common/waveforms.s, NUM_WAVEFORMS $2f ; cri qui retombe la4 -> do#4, d'après l'enregistrement
-  de Denis).
-- SND_BALLADE_GULL = $d6 : cri de mouette de LADX (JINGLE_SEAGULL, d'après LADX-Disassembly
-  src/code/audio/sfx.asm) porté image par image ; joué au clin d'œil de Marine dans le film (les
-  bruitages de Link et la vague du film sont retirés).
+  audio/common/noise.s). Un silence NE coupe PAS le bruit : prendre un bruit qui s'éteint seul
+  (pas $22/$28/$30). Durées en images (60/s) ; les carrés jouent à partir de c2 ; `cmdfd` décale la
+  hauteur (en unités du registre de fréquence). Bruitages : canaux 2/3/5/7 ; `cmdf0 $X0` passe en
+  fréquences brutes (`.db poids_fort poids_faible durée`).
+- La table des canaux est dans la banque du code audio, les données dans n'importe quelle banque
+  (m_soundPointer stocke un écart de banque).
+- Les morceaux (tous validés par Denis à l'écoute) :
+  - $01 MUS_TITLESCREEN : music/titre.txt, la Ballade du Poisson-Rêve chantée par Marine en mouette
+    (notes de LADX, MusicMarinSing), rythme 3+3+2, vrais cris de mouette dans les silences.
+  - $2e MUS_BOSS : music/theme.txt (= MUS_BALLADE_THEME $44), la Ballade en version énervée façon
+    Ninja Gaiden, puis « Marine est déterminée ». Tous les boss la jouent (commonBossCode).
+  - $2d MUS_MINIBOSS : music/miniboss.txt, façon Hyrule Warriors. Tout miniboss d'Ages la joue
+    (le Ghini géant du temple compris) ; sinon `setmusic MUS_MINIBOSS`.
+  - $41 MUS_BALLADE_PHARE : music/phare.txt, chant de marins en 6/8 avec « HEY ! » (forme d'onde
+    « voix » $2e de audio/common/waveforms.s, d'après l'enregistrement de Denis).
+  - $42 MUS_BALLADE_ILE : music/ile.txt, l'île de la Brume (1:79-ac et 0:79-ac), brume et écho.
+  - $43 MUS_BALLADE_AUBERGE : music/auberge.txt, swing jazzy et chaleureux (3:9e et 2:9e).
+  - $45 MUS_BALLADE_VEILLEUR : music/boss.txt, combat façon Zelda, en réserve pour un autre boss.
+- SND_BALLADE_GULL = $d6 : cri de mouette de LADX (JINGLE_SEAGULL) porté image par image ; joué au
+  clin d'œil de Marine dans le film. Le même cri existe dans la musique (`mouette:3`).
 - Denis accepte qu'on reprenne sons, musiques et objets de Link's Awakening DX
   (https://github.com/zladx/LADX-Disassembly) ; pas la VF de Nintendo pour les textes.
 - Le désassemblage de LADX est sur la machine : D:\DOCS\Documents\GitHub\ZeldaOracleCombinedFR\LADX-Disassembly-main
   (sons : src/code/audio/, musiques, sprites : src/gfx/...). Le lire là plutôt que sur GitHub.
-- Aperçu à écouter : `python tools/record_music.py [SECONDES]` -> out/phare_apercu.wav (salle 4:24)
-  et out/film_apercu.wav. Denis veut ÉCOUTER une musique avant qu'on la pousse.
+- Aperçus à écouter : `python tools/record_music.py [film titre phare ile auberge boss veilleur
+  miniboss theme]` -> out/NOM_apercu.wav ; `ROM=chemin` pour une autre ROM ; les morceaux sans
+  salle sont lancés en détournant playSound (crochet PyBoy). Denis veut ÉCOUTER une musique avant
+  qu'on la pousse ; ses références : Wind Waker / Linebeck (marin), Resident Evil (salle de
+  sauvegarde), Hyrule Warriors, Ninja Gaiden NES.

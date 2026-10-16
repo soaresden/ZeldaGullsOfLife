@@ -1,0 +1,46 @@
+# Gulls of Life — l'écran titre (MUS_TITLESCREEN, $01)
+#
+# Esprit : c'est Marine, la mouette, qui chante la Ballade du Poisson-Rêve : chaque note est
+# attaquée comme un cri de mouette (elle plonge d'au-dessus, gonfle, puis la fin retombe),
+# sur le carré fin du cri de LADX. Et du rythme, pour qu'on ait envie d'appuyer sur Start :
+# basse qui balance en 3+3+2 (un air de bord de mer ensoleillé), batterie légère, harpe ; de
+# vrais cris de mouette répondent dans les silences de la chanson.
+# La version énervée (music/theme.txt) est pour les boss.
+# Notes de la Ballade d'après LADX-Disassembly (MusicMarinSing). Même notation que
+# music/phare.txt.
+
+tempo 12         # images par croche (noire = 24 images, 150 à la minute)
+mesure 8
+
+== VAGUES ==
+# Les mouettes arrivent, le rythme démarre.
+melodie:   [v7] [duty 0] [vib 42] [gate .95] [detune 0] [chant mouette]
+melodie:   -:8 | -:6 b4:1 c#5:1 |
+accordeon: [v2] [duty 2] [vib 00] [gate .6] [detune 0]
+accordeon: mouette:3 -:1 mouette:3 -:1 | ( f#3:1 a#3:1 c#4:1 a#3:1 )x2 |
+basse:     [onde 0e] [vib 00] [gate .6]
+basse:     b1:3 b1:3 f#2:2 | f#1:3 f#1:3 c#2:2 |
+batterie:  [v1] h:1 h:1 h:1 h:1 [v2] h:1 h:1 h:1 h:1 | [v2] h:1 [v1] h:1 h:1 [v2] h:1 [v3] s:1 [v1] h:1 [v3] s:1 s:1 |
+
+== A ==
+# La Ballade. si m, sol, mi m, fa# | si m, sol, ré, la | fa#, sol, la, mi m | la m, ré, sol, fa# | si m, fa#
+melodie:   d5:6 b4:1 c#5:1 | d5:6 c#5:1 b4:1 | f#4:1 a4:3 b4:8 -:2 b4:1 c#5:1 |
+melodie:   d5:6 a4:1 d5:1 | g5:6 f#5:1 e5:1 | f#5:8 | -:8 |
+melodie:   -:3 c#6:2 b5:2 f#5:2 f#5:3 g5:8 e6:1 d6:1 c#6:1 b5:1 f#5:1 e5:1 f#5:1 b5:1 g5:3 g5:1 a5:4 -:1 c5:1 e5:1 a5:1 f#5:6 -:1 d5:1 b5:8 -:1 a#5:3 g6:3 f#6:3 -:3 -:8 -:3 |
+# La harpe ; les vraies mouettes crient quand Marine se tait.
+accordeon: ( b3:1 d4:1 f#4:1 d4:1 )x2 | ( g3:1 b3:1 d4:1 b3:1 )x2 | ( e4:1 g4:1 b4:1 g4:1 )x2 | ( f#3:1 a#3:1 c#4:1 a#3:1 )x2 |
+accordeon: ( b3:1 d4:1 f#4:1 d4:1 )x2 | ( g3:1 b3:1 d4:1 b3:1 )x2 | ( d4:1 f#4:1 a4:1 f#4:1 )x2 | mouette:3 -:1 mouette:3 -:1 |
+accordeon: ( f#3:1 a#3:1 c#4:1 a#3:1 )x2 | ( g3:1 b3:1 d4:1 b3:1 )x2 | ( a3:1 c#4:1 e4:1 c#4:1 )x2 | ( e4:1 g4:1 b4:1 g4:1 )x2 |
+accordeon: ( a3:1 c4:1 e4:1 c4:1 )x2 | ( d4:1 f#4:1 a4:1 f#4:1 )x2 | ( g3:1 b3:1 d4:1 b3:1 )x2 | ( f#3:1 a#3:1 c#4:1 a#3:1 )x2 |
+accordeon: ( b3:1 d4:1 f#4:1 d4:1 )x2 | mouette:3 -:1 mouette:3 -:1 |
+# La basse balance en 3+3+2.
+basse:     b1:3 b1:3 f#2:2 | g1:3 g1:3 d2:2 | e2:3 e2:3 b2:2 | f#1:3 f#1:3 c#2:2 |
+basse:     b1:3 b1:3 f#2:2 | g1:3 g1:3 d2:2 | d2:3 d2:3 a2:2 | a1:3 a1:3 e2:2 |
+basse:     f#1:3 f#1:3 c#2:2 | g1:3 g1:3 d2:2 | a1:3 a1:3 e2:2 | e2:3 e2:3 b2:2 |
+basse:     a1:3 a1:3 e2:2 | d2:3 d2:3 a2:2 | g1:3 g1:3 d2:2 | f#1:3 f#1:3 c#2:2 |
+basse:     b1:3 b1:3 f#2:2 | f#1:3 f#1:3 c#2:2 |
+# Batterie légère : charleston en croches, caisse claire sur le 3e temps.
+batterie:  ( [v2] h:1 [v1] h:1 h:1 [v2] h:1 [v3] s:1 [v1] h:1 [v2] h:1 [v1] h:1 | )x17
+batterie:  [v2] h:1 [v1] h:1 h:1 [v2] h:1 [v3] s:1 [v1] h:1 [v3] s:1 s:1 |
+
+ordre: | VAGUES A

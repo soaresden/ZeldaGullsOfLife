@@ -1,0 +1,64 @@
+# Gulls of Life — le thème du jeu (MUS_BALLADE_THEME $44 ; joué contre les boss : MUS_BOSS $2e)
+#
+# Esprit : la Ballade du Poisson-Rêve (la chanson de Marine dans Link's Awakening), mais en
+# version énervée : Marine en veut, elle veut réussir sa vie, déterminée. Énergie à la Ninja
+# Gaiden (NES) : basse qui saute d'octave en croches, batterie qui pousse, arpèges de doubles,
+# cadence si m -> sol -> la -> fa# (i, VI, VII, V).
+# - A : la Ballade, notes et rythme d'origine (d'après LADX-Disassembly, MusicMarinSing), en si
+#   mineur ; dans ses silences, un riff de l'accordéon.
+# - B : « Marine est déterminée » : à nous ; ça grimpe, en doubles croches, l'accordéon à
+#   l'unisson.
+# Même notation que music/phare.txt (des barres peuvent fermer plusieurs mesures).
+
+tempo 12         # images par croche (noire = 24 images, 150 à la minute ; double = 6 images)
+mesure 8
+
+== INTRO ==
+# L'orage gronde, Marine se lève.
+melodie:   [v7] [duty 1] [vib 32] [gate .95] [detune 0]
+melodie:   -:8 | -:6 b4:1 c#5:1 |
+accordeon: [v3] [duty 2] [vib 00] [gate .7] [detune 0]
+accordeon: ( b3:.5 d4:.5 f#4:.5 b4:.5 )x4 | ( a#3:.5 c#4:.5 f#4:.5 a#4:.5 )x4 |
+basse:     [onde 0e] [vib 00] [gate .7]
+basse:     ( b1:1 b2:1 )x4 | ( f#1:1 f#2:1 )x4 |
+batterie:  [v3] h:1 h:1 [v4] s:1 [v2] h:1 [v3] h:1 h:1 [v4] s:1 [v2] h:1 | [v4] s:.5 s:.5 s:.5 s:.5 s:.5 s:.5 s:.5 s:.5 s:1 s:1 s:1 s:1 |
+
+== A ==
+# La Ballade. si m, sol, mi m, fa# | si m, sol, ré, la | fa#, sol, la, mi m | la m, ré, sol, fa# | si m, fa#
+melodie:   d5:6 b4:1 c#5:1 | d5:6 c#5:1 b4:1 | f#4:1 a4:3 b4:8 -:2 b4:1 c#5:1 |
+melodie:   d5:6 a4:1 d5:1 | g5:6 f#5:1 e5:1 | f#5:8 | -:8 |
+melodie:   -:3 c#6:2 b5:2 f#5:2 f#5:3 g5:8 e6:1 d6:1 c#6:1 b5:1 f#5:1 e5:1 f#5:1 b5:1 g5:3 g5:1 a5:4 -:1 c5:1 e5:1 a5:1 f#5:6 -:1 d5:1 b5:8 -:1 a#5:3 g6:3 f#6:3 -:3 -:8 -:1 b4:1 c#5:1 |
+# Arpèges de doubles croches ; dans le silence de la Ballade (mesures 8 et 9), le riff de Marine.
+accordeon: ( b3:.5 d4:.5 f#4:.5 b4:.5 )x4 | ( g3:.5 b3:.5 d4:.5 g4:.5 )x4 | ( e4:.5 g4:.5 b4:.5 e5:.5 )x4 | ( f#3:.5 a#3:.5 c#4:.5 f#4:.5 )x4 |
+accordeon: ( b3:.5 d4:.5 f#4:.5 b4:.5 )x4 | ( g3:.5 b3:.5 d4:.5 g4:.5 )x4 | ( d4:.5 f#4:.5 a4:.5 d5:.5 )x4 |
+accordeon: [v5] [gate .9] a4:.5 c#5:.5 e5:.5 a5:.5 e5:.5 a5:.5 c#6:.5 e6:.5 d6:1 c#6:1 a5:1 e5:1 |
+accordeon: f#5:.5 e5:.5 c#5:.5 a#4:.5 f#4:2 [v3] [gate .7] ( c#4:.5 f#4:.5 a#4:.5 c#5:.5 )x2 |
+accordeon: ( g3:.5 b3:.5 d4:.5 g4:.5 )x4 | ( a3:.5 c#4:.5 e4:.5 a4:.5 )x4 | ( e4:.5 g4:.5 b4:.5 e5:.5 )x4 |
+accordeon: ( a3:.5 c4:.5 e4:.5 a4:.5 )x4 | ( d4:.5 f#4:.5 a4:.5 d5:.5 )x4 | ( g3:.5 b3:.5 d4:.5 g4:.5 )x4 | ( f#3:.5 a#3:.5 c#4:.5 f#4:.5 )x4 |
+accordeon: ( b3:.5 d4:.5 f#4:.5 b4:.5 )x4 | ( f#3:.5 a#3:.5 c#4:.5 f#4:.5 )x4 |
+# La basse saute d'octave en croches.
+basse:     ( b1:1 b2:1 )x4 | ( g1:1 g2:1 )x4 | ( e2:1 e3:1 )x4 | ( f#1:1 f#2:1 )x4 |
+basse:     ( b1:1 b2:1 )x4 | ( g1:1 g2:1 )x4 | ( d2:1 d3:1 )x4 | ( a1:1 a2:1 )x4 |
+basse:     ( f#1:1 f#2:1 )x4 | ( g1:1 g2:1 )x4 | ( a1:1 a2:1 )x4 | ( e2:1 e3:1 )x4 |
+basse:     ( a1:1 a2:1 )x4 | ( d2:1 d3:1 )x4 | ( g1:1 g2:1 )x4 | ( f#1:1 f#2:1 )x4 |
+basse:     ( b1:1 b2:1 )x4 | ( f#1:1 f#2:1 )x4 |
+batterie:  ( [v3] h:.5 [v1] h:.5 h:.5 h:.5 [v4] s:1 [v1] h:.5 h:.5 [v3] h:.5 [v1] h:.5 [v3] h:.5 h:.5 [v4] s:1 [v1] h:.5 h:.5 | )x17
+batterie:  [v4] s:1 s:1 s:.5 s:.5 s:1 s:.5 s:.5 s:.5 s:.5 s:1 s:1 |
+
+== B ==
+# Marine est déterminée : ça grimpe. si m, sol, la, fa# (deux fois).
+melodie:   [vib 21]
+melodie:   f#5:2 f#5:1 e5:.5 f#5:.5 b5:3 a5:1 | g5:2 f#5:1 d5:1 g5:2 b5:2 | a5:3 c#6:.5 d6:.5 e6:2 c#6:2 | a#5:2 c#6:2 f#6:4 |
+melodie:   f#6:2 e6:1 d6:1 c#6:1 d6:1 b5:2 | d6:2 c#6:1 b5:1 g5:2 b5:2 | c#6:1 b5:1 a5:1 g5:1 f#5:1 e5:1 d5:1 c#5:1 | a#4:2 c#5:2 f#5:2 b4:1 c#5:1 |
+melodie:   [vib 32]
+# L'accordéon à l'unisson, une anche un peu désaccordée : ça sonne large.
+accordeon: [v4] [duty 1] [gate .95] [detune 1]
+accordeon: f#5:2 f#5:1 e5:.5 f#5:.5 b5:3 a5:1 | g5:2 f#5:1 d5:1 g5:2 b5:2 | a5:3 c#6:.5 d6:.5 e6:2 c#6:2 | a#5:2 c#6:2 f#6:4 |
+accordeon: f#6:2 e6:1 d6:1 c#6:1 d6:1 b5:2 | d6:2 c#6:1 b5:1 g5:2 b5:2 | c#6:1 b5:1 a5:1 g5:1 f#5:1 e5:1 d5:1 c#5:1 | a#4:2 c#5:2 f#5:2 b4:1 c#5:1 |
+accordeon: [v3] [duty 2] [gate .7] [detune 0]
+basse:     ( b1:1 b2:1 )x4 | ( g1:1 g2:1 )x4 | ( a1:1 a2:1 )x4 | ( f#1:1 f#2:1 )x4 |
+basse:     ( b1:1 b2:1 )x4 | ( g1:1 g2:1 )x4 | ( a1:1 a2:1 )x4 | ( f#1:1 f#2:1 )x4 |
+batterie:  ( [v3] h:.5 [v1] h:.5 h:.5 h:.5 [v4] s:1 [v1] h:.5 h:.5 [v3] h:.5 [v1] h:.5 [v3] h:.5 h:.5 [v4] s:1 [v1] h:.5 h:.5 | )x7
+batterie:  [v4] s:.5 s:.5 s:.5 s:.5 s:1 s:1 s:.5 s:.5 s:.5 s:.5 s:1 s:1 |
+
+ordre: INTRO | A B

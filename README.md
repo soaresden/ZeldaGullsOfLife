@@ -73,8 +73,8 @@ anglais).
 - ✅ Démo jouable v0.3
 - ⬜ Les sept autres îles
 - ⬜ Des jeux, des secrets et des quarts de cœur
-- ✅ Une première musique originale : le Phare Éteint
-- ⬜ Les autres musiques
+- ✅ Des musiques originales : l'écran titre, l'île de la Brume, l'auberge, le Phare Éteint, le miniboss et le boss
+- ⬜ Les musiques des autres îles
 - ⬜ Et la suite de l'histoire…
 
 <details>
@@ -125,5 +125,5 @@ La ROM sort dans `out/gulls_of_life.gbc`.
 
 - Moteur et désassemblage : [oracles-disasm](https://github.com/Stewmath/oracles-disasm) de Stewmath et ses contributeurs.
 - Sprites de Marine : branche `sprites/marin` d'oracles-disasm.
-- Cri de la mouette : celui de *Link's Awakening DX*, retrouvé grâce au désassemblage [LADX-Disassembly](https://github.com/zladx/LADX-Disassembly).
+- Cri de la mouette et notes de la Ballade du Poisson-Rêve : ceux de *Link's Awakening DX*, retrouvés grâce au désassemblage [LADX-Disassembly](https://github.com/zladx/LADX-Disassembly).
 - *The Legend of Zelda* appartient à Nintendo ; ce projet est un hack fait par des fans, sans ROM.

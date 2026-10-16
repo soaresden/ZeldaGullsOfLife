@@ -71,8 +71,8 @@ beach, and the save remembers it (only the very first start is in English).
 - ✅ Playable demo v0.3
 - ⬜ The other seven islands
 - ⬜ Games, secrets and heart pieces
-- ✅ A first original tune: the Dark Lighthouse
-- ⬜ The other tunes
+- ✅ Original music: the title screen, Mist Island, the inn, the Dark Lighthouse, the miniboss and the boss
+- ⬜ The music of the other islands
 - ⬜ And the rest of the story…
 
 <details>
@@ -123,5 +123,5 @@ The ROM is written to `out/gulls_of_life.gbc`.
 
 - Engine and disassembly: [oracles-disasm](https://github.com/Stewmath/oracles-disasm) by Stewmath and contributors.
 - Marin's sprites: oracles-disasm's `sprites/marin` branch.
-- The seagull's cry: the one from *Link's Awakening DX*, found thanks to the [LADX-Disassembly](https://github.com/zladx/LADX-Disassembly) project.
+- The seagull's cry and the notes of the Ballad of the Wind Fish: those of *Link's Awakening DX*, found thanks to the [LADX-Disassembly](https://github.com/zladx/LADX-Disassembly) project.
 - *The Legend of Zelda* belongs to Nintendo; this is a fan-made hack, with no ROM.
