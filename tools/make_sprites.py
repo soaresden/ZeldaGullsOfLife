@@ -43,12 +43,15 @@ def main():
     out.save(dst)
     print('->', os.path.relpath(dst, ROOT))
 
-    # Marine humaine (le Songe) : ses 4 poses de villageoise (face, dos, profil x2), prises dans
-    # la branche sprites/marin d'oracles-disasm (Marine dessinée au format Oracle par ses auteurs)
-    human = Image.open(os.path.join(ROOT, 'art', 'marine_humaine.png'))
+    # Marine humaine (le Songe) : ses 4 poses de villageoise (face, dos, profil x2), d'après la
+    # branche sprites/marin d'oracles-disasm (Marine dessinée au format Oracle par ses auteurs)
     sheet = Image.new('P', (128, 16), 0)
-    sheet.putpalette(human.getpalette())
-    sheet.paste(human, (0, 0))
+    sheet.putpalette(pal + [0] * (768 - len(pal)))
+    index = {'.': 0, 'k': 1, 'r': 2, 'w': 3}
+    for n, frame in enumerate(read_frames(os.path.join(ROOT, 'art', 'marine_humaine.txt'))):
+        for y, row in enumerate(frame):
+            for x, c in enumerate(row):
+                sheet.putpixel((n * 16 + x, y), index[c])
     dst = os.path.join(DISASM, 'gfx_compressible', 'ages', 'spr_marine_human.png')
     sheet.save(dst)
     print('->', os.path.relpath(dst, ROOT))

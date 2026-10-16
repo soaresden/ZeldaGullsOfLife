@@ -67,7 +67,8 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   wBigBuffer à chaque image : PAS de « loadscript » dans le Songe (ces scripts tournent depuis
   wBigBuffer) ; et elle se met en pause pendant les textes (le mode « vague » cache les boîtes).
 - Tests : BALLADE_SANS_ONDULATION=1 ./build.sh compile sans l'ondulation.
-- Marine humaine : art/marine_humaine.png (4 poses de villageoise, branche sprites/marin), gfx $e2.
+- Marine humaine : art/marine_humaine.txt (4 poses de villageoise d'après la branche sprites/marin, robe
+  redessinée : orange, ceinture et ourlet clairs ; palette 3 = cheveux orange), gfx $e2.
 
 ## Choix de conception (Denis)
 - Marine ne suit PAS Link à l'écran (trop de sprites, ça bloquerait des choses) : elle voyage au chaud
