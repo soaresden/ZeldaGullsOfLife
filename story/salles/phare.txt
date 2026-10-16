@@ -2,7 +2,8 @@
 # Grandes salles : 11 lignes de 15 briques. Voir out/catalog/decor_36.png (tools/render_room.py).
 #
 # Briques : b8 b0 b9 / b3 b1 / ba b2 bb = murs ; a0 = sol ; a3 a4 = mosaïque ;
-#   portes ouvertes : bc (haut), bd (droite), be (bas), bf (gauche) ;
+#   passage entre deux salles : un trou dans le mur (a0, du sol), comme la salle de l'essence d'Ages
+#   (bc-bf et 78-7b sont des portes pleines ou à volets : Link ne passe pas) ;
 #   porte à petite clé : 70 71 72 73 (haut, droite, bas, gauche) ; porte du boss : 74 75 76 77 ;
 #   f1 = coffre (contenu : data/ages/chestData.s) ; 44 = escalier qui monte, 45 = qui descend ;
 #   10 = pot ; e0-e6 = l'arche de l'entrée.
@@ -16,12 +17,12 @@
 # --- Hall d'entrée : on arrive du cap par l'arche du bas ---
 # Nord : vers la salle de la Lanterne. Ouest : salle de la clé. Est : porte à clé.
 salle 4:24 decor 36
-b8 b0 b0 b0 b0 b0 b0 bc b0 b0 b0 b0 b0 b0 b9
+b8 b0 b0 b0 b0 b0 b0 a0 b0 b0 b0 b0 b0 b0 b9
 b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
 b3 a0 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a0 b1
 b3 a0 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 a0 b1
 b3 a0 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 a0 b1
-bf a0 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 a0 71
+a0 a0 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 a0 71
 b3 a0 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 a0 b1
 b3 a0 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a0 b1
 b3 10 a0 a0 a0 a0 e0 e1 e2 a0 a0 a0 a0 10 b1
@@ -35,7 +36,7 @@ b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a3 a3 a3 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a3 a4 a3 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a3 f1 a3 a0 a0 a0 a0 a0 a0 a0 a0 bd
+b3 a0 a0 a3 f1 a3 a0 a0 a0 a0 a0 a0 a0 a0 a0
 b3 a0 a0 a3 a4 a3 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a3 a3 a3 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
@@ -59,7 +60,7 @@ ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 # --- Salle de la Lanterne : le coffre au centre de la mosaïque ---
 # Sud : vers le hall. Nord : vers l'escalier.
 salle 4:15 decor 36
-b8 b0 b0 b0 b0 b0 b0 bc b0 b0 b0 b0 b0 b0 b9
+b8 b0 b0 b0 b0 b0 b0 a0 b0 b0 b0 b0 b0 b0 b9
 b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a3 a3 a3 a3 a3 a3 a3 a0 a0 a0 b1
@@ -69,7 +70,7 @@ b3 a0 a0 a0 a3 a4 a4 a4 a4 a4 a3 a0 a0 a0 b1
 b3 a0 a0 a0 a3 a3 a3 a3 a3 a3 a3 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
-ba b2 b2 b2 b2 b2 b2 be b2 b2 b2 b2 b2 b2 bb
+ba b2 b2 b2 b2 b2 b2 a0 b2 b2 b2 b2 b2 b2 bb
 
 # --- Escalier du phare : on monte au sommet ---
 salle 4:14 decor 36
@@ -83,7 +84,7 @@ b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
-ba b2 b2 b2 b2 b2 b2 be b2 b2 b2 b2 b2 b2 bb
+ba b2 b2 b2 b2 b2 b2 a0 b2 b2 b2 b2 b2 b2 bb
 
 # --- Sommet : l'antichambre, la porte du boss à droite (ligne 7, comme la salle du boss) ---
 salle 4:12 decor 36
