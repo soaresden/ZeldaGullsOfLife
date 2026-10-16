@@ -59,6 +59,7 @@ def goto(y=None, x=None, limit=400):
 
 
 def warp(g, r, pos):
+    pb.memory[0xc6aa] = pb.memory[0xc6ab]   # vie pleine : le test traverse le donjon au pas de course
     for i, v in enumerate((0x80 | g, r, 0x00, pos, 0x03)):
         pb.memory[0xcc47 + i] = v
     w(220)
@@ -82,6 +83,11 @@ press('a', 60)
 for i in range(6):
     press('a', 30)
 warp(4, 0x12, 0x7c)
+# Les fantômes de l'antichambre repoussent Link : on les fait disparaître
+for h in range(0xd0, 0xe0):
+    if pb.memory[h * 0x100 + 0x80]:
+        pb.memory[h * 0x100 + 0xa9] = 0
+w(60)
 walk('right', 60)
 w(150)
 walk('right', 40)

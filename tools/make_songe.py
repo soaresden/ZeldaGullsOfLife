@@ -99,8 +99,9 @@ def main():
     hdr_lines.append(END)
     pal_lines.append(END)
 
+    # (+ 2 : l'en-tête PALH_TITLE, $cf, suit ceux du Songe)
     headers = re.sub(r'\.define NUM_PALETTE_HEADERS \$[0-9a-f]+[^\n]*',
-                     '.define NUM_PALETTE_HEADERS $%02x ; BALLADE: + film, Songe' % (SONGE[-1][2] + 1), headers)
+                     '.define NUM_PALETTE_HEADERS $%02x ; BALLADE: + film, Songe, titre' % (SONGE[-1][2] + 2), headers)
     headers = replace_block(headers, '\n'.join(hdr_lines))
     data = replace_block(data, '\n'.join(pal_lines))
     for name, text in (('paletteHeaders.s', headers), ('paletteData.s', data), ('tilesets.s', tilesets)):

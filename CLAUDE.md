@@ -98,6 +98,33 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Ne plus réécrire l'historique (amend / force) : une autre session travaille dans ce dépôt
   (index.html, page du jeu).
 
+- Songe : la vague (INTERAC_BALLADE_DREAM_FX) remplace le défilement horizontal ligne par ligne ;
+  elle y ajoute wGfxRegs2.SCX en une seule passe (sinon écran figé ou déchiré entre deux salles).
+  L'objet est invisible (sinon une image au hasard en haut à gauche).
+- Ages modifie des cases de certaines salles au chargement (code/ages/roomSpecificTileChanges.s,
+  data/ages/singleTileChanges.s) : désactivé pour les salles qu'on réutilise. À vérifier pour
+  toute nouvelle salle.
+- tools/check_edges.py [--fix] : bords entre salles (pas de buisson coupable face à un mur).
+- Un script chargé par loadscript ne peut pas afficher de texte avant la fin de l'arrivée dans la
+  salle (la boîte est effacée aussitôt) : attendre (ex. que Link soit allongé).
+- Case B/A : la harpe (Lanterne) prend la « petite version » de l'icône (demi-tuiles $ad-$ae de
+  spr_item_icons_3.png, x = 104), 8 pixels de large ; l'inventaire et le coffre prennent $ab-$ac.
+
+## Deux langues (une seule ROM)
+- Langue 0 = anglais (story/textes.en.yaml), 1 = français (story/textes.yaml), choisie au réveil sur
+  la plage (TX_5a17), gardée dans la sauvegarde (wActiveLanguage, $c62a).
+- tools/make_text.py écrit text/ages/text.yaml et text_fr.yaml ; le français est compilé à part
+  (tools/build/parseTextLang.py, banques $71+) ; code/textbox.s choisit la table.
+- Les textes d'Ages non remplacés restent en anglais ; on traduit nous-mêmes ceux que la démo
+  montre (pas de copie de la VF de Nintendo dans le patch). Menus graphiques : encore en anglais.
+- tools/check_text.py vérifie les deux fichiers (16 caractères, mêmes noms, police).
+- Police : « ô » dessiné par tools/make_font.py (code $d1, parseText --EU).
+
+## Écran titre
+- Après le film, plus de montée de l'arbre : introCinematic_gotoTitle -> écran titre.
+- tools/make_title.py : image en bandes (ciel, logo, aube, mer), 6 palettes, GFXH_TITLE /
+  PALH_TITLE ; lettres du logo dans art/titre_logo.txt (tools/draw_title_logo.py, une fois).
+
 ## Choix de conception (Denis)
 - Marine ne suit PAS Link à l'écran (trop de sprites, ça bloquerait des choses) : elle voyage au chaud
   dans sa tunique. Elle parle depuis la tunique ; pour ses pouvoirs (planer, repérer, porter une bombe)
