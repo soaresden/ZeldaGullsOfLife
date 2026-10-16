@@ -29,7 +29,16 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Sprites `spr_*` : couleurs inversées (noir = transparent, gris foncé = couleur 1, gris clair = 2,
   blanc = 3). Marine = palette 2 (noir / rouge / crème), animations du perroquet (INTERAC_KNOW_IT_ALL_BIRD).
 
+- Banque 3 (cinématiques) pleine : le film est dans sa propre section superfree (`balladeFilm`),
+  appelée par `jpab` depuis `introCinematic_filmCaller` ; n'y utiliser que des fonctions de la banque 0.
+- `jr` limité à ±127 octets : utiliser `jp` vers les fonctions communes d'un fichier long.
+- Sprites OAM : le premier écrit passe devant (dessiner du premier plan vers le fond).
+- Film : `tools/play.py "w560 ..."` arrive vers l'arrivée de la mouette (le film dure ~1100 images).
+
 ## Repères dans Ages
 - Groupes : 0 présent, 1 passé (extérieurs), 2/3 intérieurs. Plage du réveil = salle 1:aa.
 - Lit qui fait dormir Link : `checkLinkPushingAgainstBed` (link.s), LINK_STATE_SLEEPING -> futur passage au Songe.
-- Naufrage en radeau : INTERAC_RAFTWRECK_CUTSCENE (1:a8) -> réutilisable pour le film d'ouverture.
+- Intro : runIntroCinematic (bank3Cutscenes.s) : 0 = notre film (à la place de la chevauchée), 1 = temple
+  (sauté), 2 = montée de l'arbre puis écran titre.
+- Idée suivante pour le film : le visage de Marine dans les nuages quand Link lève les yeux (fin secrète
+  de LA ; références montrées par Denis : portrait pixel de Hyrule Warriors, fin du remake Switch).

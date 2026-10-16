@@ -14,6 +14,8 @@ personne ne rêve.
 la morale du jeu : on réalise ses rêves, on n'y reste pas, et on avance malgré
 les obstacles.
 
+![Film d'ouverture : la mouette se pose sur le rondin de Link](docs/film_ouverture.png)
+
 ![Chapitre 1 : Marine réveille Link sur la plage](docs/chapitre1_plage.png)
 
 ## Où on en est
@@ -24,7 +26,9 @@ les obstacles.
 | Marine en mouette (sprite dessiné pour le jeu, avec sa fleur d'hibiscus) | ✅ |
 | Chapitre 1 : Link évanoui, Marine arrive en volant, se pose et lui parle (choix de réponse) | ✅ |
 | Textes en français, avec les accents | ✅ |
-| Film d'ouverture avant l'écran titre (Link sur son rondin, la mouette se pose, clin d'œil) | à faire |
+| Film d'ouverture avant l'écran titre : à l'aube, Link dérive sur son rondin, une mouette se pose, « ? », clin d'œil, « ! », ils sautent de joie tous les deux et leurs cœurs s'envolent | ✅ |
+| Dans le film, le visage de Marine dans les nuages (comme à la fin secrète de *Link's Awakening*) | à faire |
+| Écran titre *Gulls of Life* (aujourd'hui : celui d'*Ages*) | à faire |
 | Marine qui suit Link et donne des indices | à faire |
 | Dormir pour passer dans le Songe (Marine y redevient humaine) | à faire |
 | Port-Veille, le Phare Éteint et son boss, le premier couplet de la chanson de Marine | à faire |
@@ -42,6 +46,7 @@ présent/passé d'*Ages* servira au Réel et au Songe.
 | Code, scripts, données | Branche [`hack/gulls-of-life`](https://github.com/soaresden/oracles-disasm/tree/hack/gulls-of-life) du fork (ajouts marqués `BALLADE`) : `scripts/ages/ballade.s`, `object_code/ages/interactions/marine.s` |
 | Dialogues | `story/textes.yaml`, en français normal ; `tools/make_text.py` les ajoute au jeu, `tools/check_text.py` vérifie la largeur des lignes (16 caractères) |
 | Sprites | Dessins en texte dans `art/` ; `tools/make_sprites.py` les convertit |
+| Film d'ouverture | `code/ages/cutscenes/film.s` (fork) ; décor et sprites fabriqués par `tools/make_film.py` (ciel, soleil, mer, rondin, poses de Link prises dans le jeu) |
 | Tests | `tools/play.py` joue la ROM dans PyBoy et prend des captures |
 
 Aucune ROM n'est distribuée ici : il faudra un patch à appliquer sur sa propre

@@ -11,6 +11,7 @@ export PATH="$WLA:/c/msys64/usr/bin:$PATH"
 export PYTHONUTF8=1
 "$PYTHON" "$ROOT/tools/make_text.py"
 "$PYTHON" "$ROOT/tools/make_sprites.py"
+"$PYTHON" -W ignore "$ROOT/tools/make_film.py"
 cd "$ROOT/oracles-disasm"
 make -j8 PYTHON="$PYTHON" ages
 cp -f ages.gbc "$ROOT/out/gulls_of_life.gbc"

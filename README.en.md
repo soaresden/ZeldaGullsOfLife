@@ -13,6 +13,8 @@ made a wish: to have wings and fly beyond the sea. She comes back as a
 you make your dreams come true instead of staying in them, and you keep going
 no matter what.
 
+![Opening film: the seagull lands on Link's log](docs/film_ouverture.png)
+
 ![Chapter 1: Marin wakes Link up on the beach](docs/chapitre1_plage.png)
 
 ## Status
@@ -23,7 +25,9 @@ no matter what.
 | Marin as a seagull (sprite drawn for the game, with her hibiscus flower) | ✅ |
 | Chapter 1: Link lies unconscious, Marin flies in, lands and talks to him (with a choice) | ✅ |
 | French text, with accents (the game is in French first) | ✅ |
-| Opening film before the title screen (Link on his log, the seagull lands, winks) | to do |
+| Opening film before the title screen: at dawn, Link drifts on his log, a seagull lands, "?", a wink, "!", they both jump for joy and their hearts fly up | ✅ |
+| In the film, Marin's face in the clouds (like *Link's Awakening*'s secret ending) | to do |
+| *Gulls of Life* title screen (currently *Ages*') | to do |
 | Marin following Link and giving hints | to do |
 | Sleeping to enter the Dream World (where Marin is human again) | to do |
 | Port-Veille, the Dark Lighthouse and its boss, the first verse of Marin's song | to do |
@@ -41,6 +45,7 @@ become the Real World / Dream World switch.
 | Code, scripts, data | [`hack/gulls-of-life`](https://github.com/soaresden/oracles-disasm/tree/hack/gulls-of-life) branch of the fork (additions tagged `BALLADE`): `scripts/ages/ballade.s`, `object_code/ages/interactions/marine.s` |
 | Dialogue | `story/textes.yaml`, plain French; `tools/make_text.py` adds it to the game, `tools/check_text.py` checks line width (16 characters) |
 | Sprites | Text drawings in `art/`; `tools/make_sprites.py` converts them |
+| Opening film | `code/ages/cutscenes/film.s` (fork); background and sprites made by `tools/make_film.py` (sky, sun, sea, log, Link poses taken from the game) |
 | Tests | `tools/play.py` plays the ROM in PyBoy and takes screenshots |
 
 No ROM is distributed here: there will be a patch to apply to your own
