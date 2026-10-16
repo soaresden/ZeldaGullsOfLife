@@ -13,6 +13,8 @@ made a wish: to have wings and fly beyond the sea. She comes back as a
 you make your dreams come true instead of staying in them, and you keep going
 no matter what.
 
+![Map of the Sleepless Archipelago and plan of Mist Island](docs/carte_archipel.png)
+
 ![Opening film: the seagull lands on Link's log](docs/film_ouverture.png)
 
 ![Chapter 1: Marin wakes Link up on the beach](docs/chapitre1_plage.png)
@@ -46,6 +48,7 @@ become the Real World / Dream World switch.
 | Dialogue | `story/textes.yaml`, plain French; `tools/make_text.py` adds it to the game, `tools/check_text.py` checks line width (16 characters) |
 | Sprites | Text drawings in `art/`; `tools/make_sprites.py` converts them |
 | Opening film | `code/ages/cutscenes/film.s` (fork); background and sprites made by `tools/make_film.py` (sky and clouds, sun, sea, log, Link poses taken from the game, Marin's face); `tools/preview_film.py` previews it without building |
+| Map | `tools/make_map.py` draws `docs/carte_archipel.png` (the 8 islands, the Log-Boat routes, the plan of Mist Island) |
 | Tests | `tools/play.py` plays the ROM in PyBoy and takes screenshots |
 
 No ROM is distributed here: there will be a patch to apply to your own

@@ -14,6 +14,8 @@ personne ne rêve.
 la morale du jeu : on réalise ses rêves, on n'y reste pas, et on avance malgré
 les obstacles.
 
+![Carte de l'archipel des Sans-Sommeil et plan de l'île de la Brume](docs/carte_archipel.png)
+
 ![Film d'ouverture : la mouette se pose sur le rondin de Link](docs/film_ouverture.png)
 
 ![Chapitre 1 : Marine réveille Link sur la plage](docs/chapitre1_plage.png)
@@ -47,6 +49,7 @@ présent/passé d'*Ages* servira au Réel et au Songe.
 | Dialogues | `story/textes.yaml`, en français normal ; `tools/make_text.py` les ajoute au jeu, `tools/check_text.py` vérifie la largeur des lignes (16 caractères) |
 | Sprites | Dessins en texte dans `art/` ; `tools/make_sprites.py` les convertit |
 | Film d'ouverture | `code/ages/cutscenes/film.s` (fork) ; décor et sprites fabriqués par `tools/make_film.py` (ciel et nuages, soleil, mer, rondin, poses de Link prises dans le jeu, visage de Marine) ; `tools/preview_film.py` en donne un aperçu sans compiler |
+| Carte | `tools/make_map.py` dessine `docs/carte_archipel.png` (les 8 îles, les routes du Bateau-Rondin, le plan de l'île de la Brume) |
 | Tests | `tools/play.py` joue la ROM dans PyBoy et prend des captures |
 
 Aucune ROM n'est distribuée ici : il faudra un patch à appliquer sur sa propre
