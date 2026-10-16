@@ -27,7 +27,8 @@ no matter what.
 | French text, with accents (the game is in French first) | ✅ |
 | Opening film before the title screen: at dawn, Link drifts on his log and looks up; Marin's face appears in the clouds (like *Link's Awakening*'s secret ending) and fades away; a seagull flies out of it and lands, "?", a wink, "!", they both jump for joy and their hearts fly up | ✅ |
 | *Gulls of Life* title screen (currently *Ages*') | to do |
-| Marin travels in Link's tunic: she speaks at key moments, you can ask her for a hint | to do |
+| Talking to Marin: a short press on **Select** (a line for the current place, otherwise a random one); holding Select opens the map | ✅ |
+| Marin's lines and hints for every place in the adventure | to do |
 | Sleeping to enter the Dream World (where Marin is human again) | to do |
 | Port-Veille, the Dark Lighthouse and its boss, the first verse of Marin's song | to do |
 | Music: Marin's song | to do |

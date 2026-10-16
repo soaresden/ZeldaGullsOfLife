@@ -28,7 +28,8 @@ les obstacles.
 | Textes en français, avec les accents | ✅ |
 | Film d'ouverture avant l'écran titre : à l'aube, Link dérive sur son rondin et lève les yeux ; le visage de Marine apparaît dans les nuages (comme à la fin secrète de *Link's Awakening*) et s'efface ; une mouette s'en envole et se pose, « ? », clin d'œil, « ! », ils sautent de joie tous les deux et leurs cœurs s'envolent | ✅ |
 | Écran titre *Gulls of Life* (aujourd'hui : celui d'*Ages*) | à faire |
-| Marine voyage dans la tunique de Link : elle parle aux moments clés, on peut lui demander un indice | à faire |
+| Parler à Marine : un appui court sur **Select** (réplique selon l'endroit, sinon au hasard) ; Select maintenu ouvre la carte | ✅ |
+| Répliques et indices de Marine pour chaque lieu de l'aventure | à faire |
 | Dormir pour passer dans le Songe (Marine y redevient humaine) | à faire |
 | Port-Veille, le Phare Éteint et son boss, le premier couplet de la chanson de Marine | à faire |
 | Musiques : la chanson de Marine | à faire |

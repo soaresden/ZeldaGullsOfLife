@@ -138,4 +138,63 @@ groups:
       Et ne casse pas
       toutes leurs
       jarres, cette
-      fois!
+      fois!\stop
+      Si tu veux me
+      parler, appuie
+      sur \col(1)SELECT\col(0).\stop
+      Pour ta carte,
+      garde \col(1)SELECT\col(0)
+      enfoncé.
+
+  # ============================================================================
+  # Select (appui court) : Marine parle depuis la tunique (code/ages/balladeMarine.s)
+  # ============================================================================
+
+  # Sur la plage du réveil
+  - name: TX_5a07
+    index: 0x07
+    text: |-
+      Personne sur la
+      plage...\stop
+      Les gens doivent
+      vivre plus loin.
+      Allons voir!
+
+  # Partout ailleurs : une réplique au hasard
+  - name: TX_5a10
+    index: 0x10
+    text: |-
+      Oui? Tu as
+      besoin de moi?\stop
+      Je faisais une
+      petite sieste...
+
+  - name: TX_5a11
+    index: 0x11
+    text: |-
+      Hé! Arrête de
+      me secouer!\stop
+      Je suis très
+      bien installée,
+      moi!
+
+  - name: TX_5a12
+    index: 0x12
+    text: |-
+      Tu sais que tu
+      ronfles, quand
+      tu dors?\stop
+      Comme mon père.\stop
+      ...Ça me fait
+      un peu de bien,
+      en fait.
+
+  - name: TX_5a13
+    index: 0x13
+    text: |-
+      Perdu? Garde
+      \col(1)SELECT\col(0) enfoncé
+      pour ta carte.\stop
+      Et pour moi, un
+      petit appui
+      suffit!

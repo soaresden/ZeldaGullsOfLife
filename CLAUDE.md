@@ -33,6 +33,10 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   appelée par `jpab` depuis `introCinematic_filmCaller` ; n'y utiliser que des fonctions de la banque 0.
 - `jr` limité à ±127 octets : utiliser `jp` vers les fonctions communes d'un fichier long.
 - Sprites OAM : le premier écrit passe devant (dessiner du premier plan vers le fond).
+- WLA-DX : `.db $aa <TX_xxxx` est lu comme une comparaison (`$aa < TX`) : séparer par des virgules.
+- Select : appui court = Marine parle (`code/ages/balladeMarine.s`, table groupe/salle/texte, sinon
+  TX_5a10-13 au hasard), maintenu BALLADE_SELECT_HOLD_FRAMES images = carte (bank2.s, b2_updateMenus ;
+  compteur wBalladeSelectTimer en $cde5).
 - Film : `tools/play.py "w560 ..."` arrive vers l'arrivée de la mouette (le film dure ~1100 images).
 
 ## Choix de conception (Denis)
