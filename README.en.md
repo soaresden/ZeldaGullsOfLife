@@ -23,11 +23,11 @@ no matter what.
 | --- | --- |
 | New game: no *Ages* intro, Link wakes up on a beach | ✅ |
 | Marin as a seagull (sprite drawn for the game, with her hibiscus flower) | ✅ |
-| Chapter 1: Link lies unconscious, Marin flies in, lands and talks to him (with a choice) | ✅ |
+| Chapter 1: Link lies unconscious, Marin flies in, lands and talks to him (with a choice), then snuggles into Link's tunic | ✅ |
 | French text, with accents (the game is in French first) | ✅ |
 | Opening film before the title screen: at dawn, Link drifts on his log and looks up; Marin's face appears in the clouds (like *Link's Awakening*'s secret ending) and fades away; a seagull flies out of it and lands, "?", a wink, "!", they both jump for joy and their hearts fly up | ✅ |
 | *Gulls of Life* title screen (currently *Ages*') | to do |
-| Marin following Link and giving hints | to do |
+| Marin travels in Link's tunic: she speaks at key moments, you can ask her for a hint | to do |
 | Sleeping to enter the Dream World (where Marin is human again) | to do |
 | Port-Veille, the Dark Lighthouse and its boss, the first verse of Marin's song | to do |
 | Music: Marin's song | to do |

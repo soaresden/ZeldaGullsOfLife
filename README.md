@@ -24,11 +24,11 @@ les obstacles.
 | --- | --- |
 | Nouvelle partie : plus d'intro d'*Ages*, Link se réveille sur une plage | ✅ |
 | Marine en mouette (sprite dessiné pour le jeu, avec sa fleur d'hibiscus) | ✅ |
-| Chapitre 1 : Link évanoui, Marine arrive en volant, se pose et lui parle (choix de réponse) | ✅ |
+| Chapitre 1 : Link évanoui, Marine arrive en volant, se pose et lui parle (choix de réponse), puis se glisse au chaud dans la tunique de Link | ✅ |
 | Textes en français, avec les accents | ✅ |
 | Film d'ouverture avant l'écran titre : à l'aube, Link dérive sur son rondin et lève les yeux ; le visage de Marine apparaît dans les nuages (comme à la fin secrète de *Link's Awakening*) et s'efface ; une mouette s'en envole et se pose, « ? », clin d'œil, « ! », ils sautent de joie tous les deux et leurs cœurs s'envolent | ✅ |
 | Écran titre *Gulls of Life* (aujourd'hui : celui d'*Ages*) | à faire |
-| Marine qui suit Link et donne des indices | à faire |
+| Marine voyage dans la tunique de Link : elle parle aux moments clés, on peut lui demander un indice | à faire |
 | Dormir pour passer dans le Songe (Marine y redevient humaine) | à faire |
 | Port-Veille, le Phare Éteint et son boss, le premier couplet de la chanson de Marine | à faire |
 | Musiques : la chanson de Marine | à faire |

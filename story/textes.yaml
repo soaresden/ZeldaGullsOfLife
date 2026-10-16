@@ -108,7 +108,7 @@ groups:
       chose de bizarre
       sur cette île...
 
-  # Quand on lui parle ensuite
+  # Elle a froid : elle va se mettre dans la tunique de Link
   - name: TX_5a05
     index: 0x05
     text: |-
@@ -116,6 +116,23 @@ groups:
       \Link?
       Cet archipel est
       trop calme.\stop
+      Brr! Et le vent
+      de la mer est
+      glacé...\stop
+      Bon. Je me mets
+      au chaud dans ta
+      tunique!\stop
+      Et pas de
+      commentaire!
+
+  # Depuis la tunique (elle y passera toute l'aventure)
+  - name: TX_5a06
+    index: 0x06
+    text: |-
+      Mmh... Ça sent
+      le sel et
+      l'aventure,
+      là-dedans.\stop
       Allons voir s'il
       y a quelqu'un.\stop
       Et ne casse pas

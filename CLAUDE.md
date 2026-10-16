@@ -35,6 +35,11 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Sprites OAM : le premier écrit passe devant (dessiner du premier plan vers le fond).
 - Film : `tools/play.py "w560 ..."` arrive vers l'arrivée de la mouette (le film dure ~1100 images).
 
+## Choix de conception (Denis)
+- Marine ne suit PAS Link à l'écran (trop de sprites, ça bloquerait des choses) : elle voyage au chaud
+  dans sa tunique. Elle parle depuis la tunique ; pour ses pouvoirs (planer, repérer, porter une bombe)
+  elle en sort le temps de l'action, puis y retourne.
+
 ## Repères dans Ages
 - Groupes : 0 présent, 1 passé (extérieurs), 2/3 intérieurs. Plage du réveil = salle 1:aa.
 - Lit qui fait dormir Link : `checkLinkPushingAgainstBed` (link.s), LINK_STATE_SLEEPING -> futur passage au Songe.
