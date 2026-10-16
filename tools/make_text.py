@@ -1,9 +1,14 @@
-"""Ajoute les textes du jeu (story/textes.yaml) au texte d'Oracle of Ages.
+"""Prépare les textes du jeu dans les deux langues, à partir du texte (anglais) d'Oracle of Ages.
 
-- Le groupe 0x5a (libre dans Ages) contient tous nos textes ; il est ajouté à la fin.
-- Les entrées des autres groupes remplacent le texte d'Ages du même nom (ex. TX_001c, « Tu as
-  trouvé l'épée ») : ainsi les objets qu'on trouve parlent français.
+- text/ages/text.yaml    : anglais (langue 0), avec story/textes.en.yaml
+- text/ages/text_fr.yaml : français (langue 1), avec story/textes.yaml
 
+Dans chaque fichier de story/ :
+- le groupe 0x5a (libre dans Ages) contient tous nos textes ; il est ajouté à la fin ;
+- les entrées des autres groupes remplacent le texte d'Ages du même nom (ex. TX_001c, « Tu as
+  retrouvé ton épée ») ; les textes d'Ages qu'on ne remplace pas restent en anglais.
+
+Les deux langues ont les mêmes numéros de textes (le jeu choisit la table selon wActiveLanguage).
 Le texte d'origine est relu dans git (branche hack-base) : on peut relancer le script autant de
 fois qu'on veut.
 
@@ -17,8 +22,9 @@ import yaml
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DISASM = os.path.join(ROOT, 'oracles-disasm')
-YAML = 'text/ages/text.yaml'
+BASE = 'text/ages/text.yaml'
 OUR_GROUP = 0x5a
+LANGUAGES = (('textes.en.yaml', 'text/ages/text.yaml'), ('textes.yaml', 'text/ages/text_fr.yaml'))
 
 
 def entry_block(text):
@@ -27,10 +33,8 @@ def entry_block(text):
     return '\n'.join(lines) + '\n'
 
 
-def main():
-    base = subprocess.run(['git', 'show', 'upstream/hack-base:' + YAML], cwd=DISASM,
-                          capture_output=True, check=True).stdout.decode('utf-8')
-    source = open(os.path.join(ROOT, 'story', 'textes.yaml'), encoding='utf-8').read()
+def build(base, source_name, out_name):
+    source = open(os.path.join(ROOT, 'story', source_name), encoding='utf-8').read()
     doc = yaml.safe_load(source)
 
     # Remplacements de textes d'Ages
@@ -38,10 +42,15 @@ def main():
         if group['group'] == OUR_GROUP:
             continue
         for e in group['data']:
-            m = re.search(r'(  - name: %s\n    index: [^\n]+\n)    text: [^\n]*\n((?:      [^\n]*\n|\n)*?)(?=  - name:|\n- group:|\Z)'
-                          % e['name'], base)
+            # Le nom seul (« - name: TX_0002 ») ou dans une liste (« - name: » puis « - TX_0000 »)
+            head = (re.search(r'^  - name: %s\n' % e['name'], base, re.M)
+                    or re.search(r'^    - %s\n' % e['name'], base, re.M))
+            assert head, e['name']
+            start = base.index('\n    text: ', head.start()) + 1
+            m = re.compile(r'    text: [^\n]*\n((?:      [^\n]*\n|\n)*?)(?=  - name:|  #|    \w+:|\n- group:|\Z)').match(base, start)
             assert m, e['name']
-            base = base[:m.start()] + m.group(1) + entry_block(e['text']) + '\n' + base[m.end():]
+            # (une propriété comme « null_terminator: False » reste à sa place, après le texte)
+            base = base[:start] + entry_block(e['text']) + base[m.end():]
 
     # Notre groupe, à la fin (copie du texte source, commentaires compris)
     ours = source.split('\ngroups:\n', 1)[1]
@@ -49,10 +58,17 @@ def main():
     nxt = re.search(r'\n- group:', ours[1:])
     if nxt:
         ours = ours[:nxt.start() + 1]
-    with open(os.path.join(DISASM, YAML), 'w', encoding='utf-8', newline='\n') as f:
-        f.write(base.rstrip('\n') + '\n\n# ===== Gulls of Life (story/textes.yaml) =====\n')
+    with open(os.path.join(DISASM, out_name), 'w', encoding='utf-8', newline='\n') as f:
+        f.write(base.rstrip('\n') + '\n\n# ===== Gulls of Life (story/%s) =====\n' % source_name)
         f.write(ours.rstrip('\n') + '\n')
-    print('textes ajoutés ->', YAML)
+    print('textes ->', out_name)
+
+
+def main():
+    base = subprocess.run(['git', 'show', 'upstream/hack-base:' + BASE], cwd=DISASM,
+                          capture_output=True, check=True).stdout.decode('utf-8')
+    for source_name, out_name in LANGUAGES:
+        build(base, source_name, out_name)
 
 
 main()

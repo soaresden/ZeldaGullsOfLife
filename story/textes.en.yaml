@@ -1,0 +1,768 @@
+# The game's text, in English. Same text names as story/textes.yaml (French): the game picks
+# one or the other with the language chosen at the start of a new game (wActiveLanguage).
+#
+# Engine rules: 16 characters per line at most (tools/check_text.py), \stop = wait for A then
+# clear the box, \opt() = choice, \Link = the player's name. Texts of Ages that aren't listed
+# here keep their original English.
+
+groups:
+- group: 0x5a
+  data:
+
+  # Prologue (opening film)
+  - name: TX_5a00
+    index: 0x00
+    text: |-
+      The Wind Fish
+      had awoken.
+      Koholint Island
+      had vanished
+      into the foam.\stop
+      Clinging to a
+      wreck, the hero
+      drifted for long
+      days...\stop
+      ...until he
+      reached islands
+      where no one
+      dreamed anymore.
+
+  # The seagull lands next to Link
+  - name: TX_5a01
+    index: 0x01
+    text: |-
+      Hey!
+      Wake up,
+      sleepyhead!\stop
+      ...\stop
+      Don't you
+      recognize me?\stop
+      I've already
+      pulled you out
+      of the water
+      once, you know.\stop
+      It's becoming a
+      habit!
+
+  # Link stands up
+  - name: TX_5a02
+    index: 0x02
+    text: |-
+      It's me,
+      \col(1)Marin\col(0)!\stop
+      Remember? On the
+      beach, I told
+      you that if I
+      were a seagull,
+      I'd fly beyond
+      the sea...\stop
+      Before waking
+      up, the Wind
+      Fish heard my
+      wish.\stop
+      He told me:
+      "What is dreamed
+      strongly enough
+      never truly
+      disappears."\stop
+      And there you
+      go: wish granted
+      word for word!\stop
+      Maybe I should
+      have said I
+      wanted to keep
+      my hands...\stop
+      But I won't
+      complain!\stop
+      Are you happy
+      to see me?
+        \opt()Yes \opt()Totally!
+
+  - name: TX_5a03
+    index: 0x03
+    text: |-
+      Just "yes"?\stop
+      Chatty as ever,
+      aren't you?\stop
+      I missed that,
+      you know.\stop
+      Come on.
+      Something is
+      strange about
+      this island...
+
+  - name: TX_5a04
+    index: 0x04
+    text: |-
+      Hee hee!
+      Me too,
+      you know.\stop
+      Come on.
+      Something is
+      strange about
+      this island...
+
+  # Where did all the items of Link's Awakening go?
+  - name: TX_5a15
+    index: 0x15
+    text: |-
+      Wait...
+      Where's all
+      your gear?\stop
+      Your feather,
+      your bracelet,
+      your boots, your
+      flippers...\stop
+      The hookshot,
+      the boomerang,
+      the mirror
+      shield, the
+      fire rod...\stop
+      The bow, the
+      bombs, and even
+      the magic
+      powder?!\stop
+      You lost it all
+      at sea?!\stop
+      ...\stop
+      Well. You've got
+      me, that's not
+      bad, right?
+
+  # She's cold: she slips into Link's tunic
+  - name: TX_5a05
+    index: 0x05
+    text: |-
+      Do you feel it,
+      \Link?
+      These islands
+      are too quiet.\stop
+      Brr! And the sea
+      wind is
+      freezing...\stop
+      Right. I'm
+      getting warm in
+      your tunic!\stop
+      And no comments!
+
+  # From the tunic (where she spends the whole adventure)
+  - name: TX_5a06
+    index: 0x06
+    text: |-
+      Mmh... It smells
+      of salt and
+      adventure in
+      here.\stop
+      Let's see if
+      anyone's around.\stop
+      And don't break
+      all their pots
+      this time!\stop
+      If you want to
+      talk to me, hold
+      \col(1)SELECT\col(0).\stop
+      For your map,
+      just tap it.
+
+  # ============================================================================
+  # SELECT held: Marin talks from the tunic (code/ages/balladeMarine.s)
+  # ============================================================================
+
+  # On the beach where Link woke up
+  - name: TX_5a07
+    index: 0x07
+    text: |-
+      Nobody on the
+      beach...\stop
+      People must live
+      further in.
+      Let's go see!
+
+  # Port-Veille, in front of the inn (1:9a)
+  - name: TX_5a08
+    index: 0x08
+    text: |-
+      An inn!\stop
+      They must have
+      beds, right? A
+      bed is for
+      sleeping...\stop
+      And when you
+      sleep, you
+      dream. That's
+      your real
+      talent.
+
+  # The square of Port-Veille (1:9b)
+  - name: TX_5a09
+    index: 0x09
+    text: |-
+      They all have
+      bags under their
+      eyes...\stop
+      Doesn't anyone
+      sleep on this
+      island? Brr. It
+      gives me chills.
+
+  # The east beach (1:9c)
+  - name: TX_5a0a
+    index: 0x0a
+    text: |-
+      Children who
+      don't play...
+      That's not
+      normal.\stop
+      On Koholint, we
+      spent our days
+      pretending!
+
+  # The fishing port (1:ab)
+  - name: TX_5a0b
+    index: 0x0b
+    text: |-
+      A lighthouse...
+      Did you see it,
+      up north? It's
+      completely dark.\stop
+      A dark
+      lighthouse is
+      like a song no
+      one sings
+      anymore.
+
+  # The path with the broken bridge (1:8a)
+  - name: TX_5a0c
+    index: 0x0c
+    text: |-
+      The bridge is
+      broken...\stop
+      If only we could
+      cross it in a
+      dream!\stop
+      ...Wait. What if
+      we could?
+
+  # Inside the inn (3:9e)
+  - name: TX_5a0d
+    index: 0x0d
+    text: |-
+      The bed, over
+      there! Stand in
+      front of it and
+      press \col(1)A\col(0) to
+      lie down.\stop
+      Me, I'm not
+      moving. It's so
+      cozy in your
+      tunic!
+
+  # Anywhere else: a random line
+  - name: TX_5a10
+    index: 0x10
+    text: |-
+      Yes? Do you
+      need me?\stop
+      I was taking a
+      little nap...
+
+  - name: TX_5a11
+    index: 0x11
+    text: |-
+      Hey! Stop
+      shaking me!\stop
+      I'm very
+      comfortable
+      in here!
+
+  - name: TX_5a12
+    index: 0x12
+    text: |-
+      Did you know you
+      snore when you
+      sleep?\stop
+      Just like my
+      dad.\stop
+      ...It actually
+      feels kind of
+      nice.
+
+  - name: TX_5a13
+    index: 0x13
+    text: |-
+      Lost? Tap
+      \col(1)SELECT\col(0) for the
+      map.\stop
+      And for me,
+      hold it down!
+
+  # ============================================================================
+  # The people of Port-Veille (INTERAC_BALLADE_NPC, scripts/ages/ballade.s)
+  # ============================================================================
+
+  # The innkeeper (3:9e)
+  - name: TX_5a20
+    index: 0x20
+    text: |-
+      Welcome to the
+      Mist Inn...\stop
+      A room?
+      What for...\stop
+      Nobody sleeps
+      here anymore.
+      Not since the
+      lighthouse went
+      dark.\stop
+      We close our
+      eyes, and...
+      nothing. Black.
+      As if our heads
+      were emptied.\stop
+      But you look
+      exhausted. The
+      bed is in the
+      back. Free:
+      no one uses it
+      anymore.
+
+  # The old fisherman (1:ab)
+  - name: TX_5a21
+    index: 0x21
+    text: |-
+      The lighthouse
+      light used to
+      guide our
+      boats...\stop
+      ...and it
+      rocked our
+      nights.\stop
+      Since it went
+      out, the mist
+      never leaves
+      the island.\stop
+      And neither does
+      sleeplessness.\stop
+      The lighthouse
+      is up north,
+      past the cliffs.
+      But the path's
+      bridge has
+      collapsed.
+
+  # A boy (1:9c)
+  - name: TX_5a22
+    index: 0x22
+    text: |-
+      Play? What's
+      playing?\stop
+      Mom says we used
+      to pretend to
+      be knights.\stop
+      Me, I can't
+      pretend anymore.
+
+  # Another child (1:9c)
+  - name: TX_5a23
+    index: 0x23
+    text: |-
+      I wanted to
+      build a sand
+      castle.\stop
+      But I don't
+      remember what a
+      castle looks
+      like...\stop
+      I'd have to
+      dream of one.
+
+  # The sleepless lady (1:9b)
+  - name: TX_5a24
+    index: 0x24
+    text: |-
+      Three weeks
+      without a wink
+      of sleep.\stop
+      I counted the
+      stars, the
+      waves, the
+      grains of
+      sand...\stop
+      I was always
+      one short.
+
+  # The old man counting sheep (1:9b)
+  - name: TX_5a25
+    index: 0x25
+    text: |-
+      One hundred and
+      forty-two
+      sheep...
+      One hundred and
+      forty-three...\stop
+      Ah! You made me
+      lose count!\stop
+      And there aren't
+      even any sheep
+      on this island!\stop
+      \col(1)Marin\col(0):
+      Pfft! Hee hee!
+
+  # The teen who dreams of being a sailor (1:9a)
+  - name: TX_5a26
+    index: 0x26
+    text: |-
+      They say a
+      lantern once
+      burned atop the
+      lighthouse, and
+      it made all the
+      islands dream.\stop
+      I want to become
+      a sailor.\stop
+      But for that, I
+      would have to
+      dream of it
+      first, right?
+
+  # ============================================================================
+  # The Dream World: human Marin (the dream inn, 2:9e)
+  # ============================================================================
+
+  # The first meeting: the hands scene
+  - name: TX_5a27
+    index: 0x27
+    text: |-
+      ...\stop
+      Oh.\stop
+      Oh!\stop
+      I have hands!
+      And feet!\stop
+      I forgot how
+      bad feet are
+      for balance!\stop
+      \Link!
+
+  # The reunion hug
+  - name: TX_5a2c
+    index: 0x2c
+    text: |-
+      ...\stop
+      I'm here.
+      I'm alive.
+      I have a body!\stop
+      I can hold you
+      in my arms...
+      At last!\stop
+      Don't move.
+      Just a little
+      longer.\stop
+      ...\stop
+      Okay! Sorry.
+      It's just...
+      I was so scared
+      of disappearing
+      forever.
+
+  # What she never dared to ask
+  - name: TX_5a2d
+    index: 0x2d
+    text: |-
+      You know... on
+      Koholint, I
+      never knew if
+      you really saw
+      me.\stop
+      Or if I was
+      just the girl
+      singing on the
+      beach.
+        \opt()I saw you
+        \opt()...
+
+  - name: TX_5a28
+    index: 0x28
+    text: |-
+      ...Dummy.\stop
+      I'm going to
+      cry, and even
+      in a dream, it's
+      still wet.
+
+  - name: TX_5a29
+    index: 0x29
+    text: |-
+      Chatty as
+      ever.\stop
+      It's okay. I
+      understood
+      anyway.
+
+  # Afterwards, when you talk to her
+  - name: TX_5a2a
+    index: 0x2a
+    text: |-
+      This is the
+      \col(1)Dream World\col(0):
+      the world as we
+      dream it.\stop
+      I can only be
+      myself when you
+      sleep. So don't
+      stay up too
+      late, okay?\stop
+      The broken
+      bridge on the
+      path... Here, it
+      must be whole!\stop
+      On the other
+      side, hold
+      \col(1)SELECT\col(0): I'll
+      wake you up.
+
+  # At the inn, A in front of the bed
+  - name: TX_5a16
+    index: 0x16
+    text: |-
+      This bed looks
+      really cozy...
+      Take a nap?
+        \opt()Yes \opt()No
+
+  # In the Dream World, SELECT: wake up?
+  - name: TX_5a14
+    index: 0x14
+    text: |-
+      Do you want to
+      wake up?
+        \opt()Yes \opt()No
+
+  # ============================================================================
+  # The old fisherman gives Link his sword back (the first time you talk to him)
+  # ============================================================================
+  - name: TX_5a2b
+    index: 0x2b
+    text: |-
+      Hey, you! You're
+      the castaway,
+      right?\stop
+      I fished this
+      out yesterday,
+      in my nets.\stop
+      A sword! It must
+      be yours.\stop
+      The rest of your
+      stuff? Oh, I saw
+      things floating,
+      far out...\stop
+      But row all the
+      way out there?
+      Too lazy!\stop
+      Heh heh! You'll
+      have to start
+      from scratch,
+      pal!\stop
+      Take it. The
+      lighthouse up
+      north isn't safe
+      since it went
+      dark.
+
+  # Right after: Marin, from the tunic, about the sword
+  - name: TX_5a2e
+    index: 0x2e
+    text: |-
+      \col(1)Marin\col(0):
+      Wait... Wasn't
+      your sword a
+      level 3 sword?\stop
+      This says
+      level 1!\stop
+      Did the sea salt
+      rust it? Or did
+      you pack it
+      badly...\stop
+      No backpack,
+      that's the
+      problem!
+
+  # ============================================================================
+  # The Dark Lighthouse
+  # ============================================================================
+
+  # Marin, entering the lighthouse (SELECT)
+  - name: TX_5a0e
+    index: 0x0e
+    text: |-
+      Brr... It's cold
+      in here.\stop
+      The lighthouse
+      should shine all
+      the way up
+      there. Shall we
+      climb?
+
+  # ============================================================================
+  # After the lighthouse: on a black screen, Marin talks, then "To be continued"
+  # ============================================================================
+  - name: TX_5a30
+    index: 0x30
+    text: |-
+      \Link... Did you
+      see? The Keeper
+      is finally
+      asleep.\stop
+      Tonight, all of
+      Port-Veille will
+      dream.\stop
+      But other
+      islands have
+      lost their
+      dreams... I can
+      feel it.\stop
+      The wind tells
+      me so.\stop
+      We'll go, right?
+      Together.
+
+  - name: TX_5a31
+    index: 0x31
+    text: |-
+
+       To be continued
+
+  # The language choice, at the start of a new game (the same in both files)
+  - name: TX_5a17
+    index: 0x17
+    text: |-
+         \opt()Français
+         \opt()English
+
+# ==============================================================================
+# Ages texts replaced (same name)
+# ==============================================================================
+- group: 0x00
+  data:
+
+  # The first dungeon's essence becomes the first verse of Marin's song
+  - name: TX_000e
+    index: 0x0e
+    text: |-
+      \pos(2)\slow()The Keeper is
+      finally asleep.
+      He dreams of his
+      wife, bringing
+      him soup...\stop
+      You found the
+      \col(1)first verse\col(0) of
+      Marin's song!\stop
+      \col(1)Marin\col(0): Do you
+      hear it? It's
+      not the Ballad
+      of the Wind
+      Fish...\stop
+      It's mine.
+      My very own
+      song!
+
+  - name: TX_001c
+    index: 0x1c
+    text: |-
+      You got your
+      \col(1)sword\col(0) back!\stop
+      Hold \abtn or \bbtn
+      to charge it,
+      then let go for
+      a spin attack.
+
+  - name: TX_0071
+    index: 0x71
+    text: |-
+      You got the
+      \col(1)Lantern of
+      Dreams\col(0)!\stop
+      Its light comes
+      from the world
+      of dreams...
+
+# Map place names (SELECT): three Ages names reused for Mist Island
+- group: 0x03
+  data:
+  - name: TX_0336
+    index: 0x36
+    text: |-
+      Mist Island
+  - name: TX_0337
+    index: 0x37
+    text: |-
+      Port-Veille
+  - name: TX_0338
+    index: 0x38
+    text: |-
+      Lighthouse Cape
+
+# Item descriptions (inventory)
+- group: 0x09
+  data:
+  - name: TX_0901
+    index: 0x01
+    text: |-
+      First Verse
+      Marin's song,
+      starting to come
+      back.
+  - name: TX_0923
+    index: 0x23
+    text: |-
+      Wooden Sword
+      Fished out of
+      the sea by an
+      old fisherman.
+  - name: TX_0941
+    index: 0x41
+    text: |-
+      Lantern of
+      Dreams
+      Outdoors, its
+      light opens the
+      way of dreams.
+  - name: TX_0965
+    index: 0x65
+    text: |-
+      You are in the
+      \col(1)Dream World\col(0).
+  - name: TX_0966
+    index: 0x66
+    text: |-
+      You are in the
+      real world.
+
+# Signs nailed on the doors of the Port-Veille square (data/ages/signText.s)
+- group: 0x2e
+  data:
+  - name: TX_2e1f
+    index: 0x1f
+    text: |-
+      "Showman's
+      Stall"\stop
+      CLOSED!
+      Back soon, with
+      my shovels and
+      my monsters.
+  - name: TX_2e20
+    index: 0x20
+    text: |-
+      "Do not
+      disturb."\stop
+      Behind the door,
+      you hear someone
+      pacing around.
+
+# Dungeon and item messages
+- group: 0x51
+  data:
+  - name: TX_5110
+    index: 0x10
+    text: |-
+      The \col(1)Lantern\col(0)
+      won't shine
+      here.

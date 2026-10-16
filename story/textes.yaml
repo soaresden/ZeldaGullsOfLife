@@ -257,8 +257,9 @@ groups:
     index: 0x0d
     text: |-
       Le lit, là-bas!
-      Pousse-le un
-      moment pour te
+      Mets-toi devant
+      et appuie sur
+      \col(1)A\col(0) pour te
       coucher.\stop
       Moi, je ne bouge
       pas d'ici. Il
@@ -649,6 +650,13 @@ groups:
       
          À suivre...
 
+  # Le choix de la langue, au début d'une nouvelle partie (le même dans les deux fichiers)
+  - name: TX_5a17
+    index: 0x17
+    text: |-
+         \opt()Français
+         \opt()English
+
 # ==============================================================================
 # Textes d'Ages remplacés (même nom) : les objets qu'on trouve parlent français
 # ==============================================================================
@@ -722,9 +730,172 @@ groups:
       du monde des
       rêves...
 
+  # Rubis, cœurs, carte, boussole (traduits pour la démo)
+  - name: TX_0000
+    index: 0x00
+    text: |-
+      Tu as trouvé
+      \col(1)1 rubis\col(0)!\stop
+      ...
+      C'est un début.
+  - name: TX_0002
+    index: 0x02
+    text: |-
+      Tu as trouvé
+      \col(1)5 rubis\col(0)!
+  - name: TX_0003
+    index: 0x03
+    text: |-
+      Tu as trouvé
+      \col(1)10 rubis\col(0)!
+  - name: TX_0004
+    index: 0x04
+    text: |-
+      Tu as trouvé
+      \col(1)20 rubis\col(0)!
+      Pas mal!
+  - name: TX_0005
+    index: 0x05
+    text: |-
+      Tu as trouvé
+      \col(1)30 rubis\col(0)!
+      Joli!
+  - name: TX_0006
+    index: 0x06
+    text: |-
+      Tu as trouvé
+      \col(1)50 rubis\col(0)!
+      Quelle chance!
+  - name: TX_0007
+    index: 0x07
+    text: |-
+      Tu as trouvé
+      \col(1)100 rubis\col(0)!
+      Tu dois être
+      ravi!
+  - name: TX_0008
+    index: 0x08
+    text: |-
+      Tu as trouvé
+      \col(1)150 rubis\col(0)!
+      Bravo!!!
+  - name: TX_0009
+    index: 0x09
+    text: |-
+      Tu as trouvé
+      \col(1)200 rubis\col(0)!
+      Le bonheur!
+  - name: TX_0017
+    index: 0x17
+    text: |-
+      Tu as trouvé un
+      \col(1)quart de cœur\col(0)!
+      \heartpiece
+      Réunis-en quatre
+      pour gagner un
+      cœur de plus!
+  - name: TX_0018
+    index: 0x18
+    text: |-
+      C'est la \col(1)carte
+      du donjon\col(0)!
+      Appuie sur
+      \col(1)SELECT\col(0) pour la
+      voir.
+  - name: TX_0019
+    index: 0x19
+    text: |-
+      Tu as trouvé la
+      \col(1)boussole\col(0)!\stop
+      Elle montre les
+      coffres et le
+      repaire du boss.
+  - name: TX_0051
+    index: 0x51
+    text: |-
+      Tu n'as récupéré
+      qu'un cœur.
+  - name: TX_0053
+    index: 0x53
+    text: |-
+      Ta vie est
+      au maximum!
+
+# Noms des lieux sur la carte (SELECT) : trois noms d'Ages repris pour l'île de la Brume
+# (data/ages/mapTextAndPopups.s)
+- group: 0x03
+  data:
+  - name: TX_0336
+    index: 0x36
+    text: |-
+      Île de la
+      Brume
+  - name: TX_0337
+    index: 0x37
+    text: |-
+      Port-Veille
+  - name: TX_0338
+    index: 0x38
+    text: |-
+      Cap du Phare
+
 # Description des objets (inventaire)
 - group: 0x09
   data:
+  - name: TX_0901
+    index: 0x01
+    text: |-
+      Premier couplet
+      La chanson de
+      Marine, qui
+      commence à
+      revenir.
+  - name: TX_0923
+    index: 0x23
+    text: |-
+      Épée de bois
+      Repêchée en mer
+      par un vieux
+      pêcheur.
+  - name: TX_0960
+    index: 0x60
+    text: |-
+      Sauvegarder
+      Aller à l'écran
+      de sauvegarde.
+  - name: TX_0961
+    index: 0x61
+    text: |-
+      Quarts de cœur
+      4 font un cœur.
+  - name: TX_0962
+    index: 0x62
+    text: |-
+      Quarts de cœur
+      Encore 3 pour
+      un cœur.
+  - name: TX_0963
+    index: 0x63
+    text: |-
+      Quarts de cœur
+      Encore 2 pour
+      un cœur.
+  - name: TX_0964
+    index: 0x64
+    text: |-
+      Quarts de cœur
+      Encore 1 pour
+      un cœur!
+  - name: TX_0965
+    index: 0x65
+    text: |-
+      Tu es dans le
+      \col(1)Songe\col(0).
+  - name: TX_0966
+    index: 0x66
+    text: |-
+      Tu es dans le
+      monde réel.
   - name: TX_0941
     index: 0x41
     text: |-
@@ -741,8 +912,8 @@ groups:
   - name: TX_2e1f
     index: 0x1f
     text: |-
-      « Baraque du
-      forain »\stop
+      "Baraque du
+      forain"\stop
       FERMÉ!
       Je reviens vite,
       avec mes pelles
@@ -750,9 +921,116 @@ groups:
   - name: TX_2e20
     index: 0x20
     text: |-
-      « Ne pas
-      déranger. »\stop
+      "Ne pas
+      déranger."\stop
       Derrière la
       porte, on entend
       quelqu'un
       tourner en rond.
+
+# Messages du donjon et des objets (traduits pour la démo)
+- group: 0x51
+  data:
+  - name: TX_5100
+    index: 0x00
+    text: |-
+      Il faut une
+      \col(1)clé\col(0) pour cette
+      porte!
+  - name: TX_5101
+    index: 0x01
+    text: |-
+      Cette serrure
+      est différente!
+  - name: TX_5102
+    index: 0x02
+    text: |-
+      Hein? Ce bloc
+      a une serrure.
+  - name: TX_5103
+    index: 0x03
+    text: |-
+      Ouf! C'est
+      lourd!
+  - name: TX_5104
+    index: 0x04
+    text: |-
+      Ouf! C'est dur
+      comme de la
+      pierre!
+  - name: TX_5105
+    index: 0x05
+    text: |-
+      Ce bloc est
+      fissuré.
+      \jump(TX_5107)
+  - name: TX_5106
+    index: 0x06
+    text: |-
+      Ce mur est
+      fissuré.\n
+  - name: TX_5107
+    index: 0x07
+    text: |-
+      On dirait qu'il
+      peut se casser!
+  - name: TX_5108
+    index: 0x08
+    text: |-
+      Il faut allumer
+      cette torche.
+  - name: TX_5109
+    index: 0x09
+    text: |-
+      Hein? Il y a
+      une serrure.
+  - name: TX_510a
+    index: 0x0a
+    text: |-
+      Ouf! Bien trop
+      lourd à bouger!
+  - name: TX_510b
+    index: 0x0b
+    text: |-
+      Ton \col(1)bouclier\col(0)
+      a été mangé!
+  - name: TX_510c
+    index: 0x0c
+    text: |-
+      Ta \col(1)flûte\col(0) sonne
+      faux.
+  - name: TX_510d
+    index: 0x0d
+    text: |-
+      Ça ne s'ouvre
+      pas de ce côté!
+  - name: TX_510e
+    index: 0x0e
+    text: |-
+      Impossible de
+      lire d'ici!
+  - name: TX_510f
+    index: 0x0f
+    text: |-
+      Ta mélodie
+      résonne dans
+      le vide...
+  - name: TX_5110
+    index: 0x10
+    text: |-
+      La \col(1)Lanterne\col(0)
+      ne brille pas,
+      ici.
+  - name: TX_5111
+    index: 0x11
+    text: |-
+      On dirait que
+      quelque chose
+      rentre dans ce
+      trou.
+  - name: TX_5112
+    index: 0x12
+    text: |-
+      Une force
+      étrange t'a
+      renvoyé!
