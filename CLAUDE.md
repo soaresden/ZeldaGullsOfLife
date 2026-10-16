@@ -160,3 +160,27 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Film : visage de Marine dans les nuages (art/film_sprites.txt @face, palette 5, scintillement
   pour l'effet de vision ; minuteur en $cbc0). Références de Denis : portrait pixel de Hyrule
   Warriors, fin du remake Switch.
+
+## Musique et bruitages
+- Partitions lisibles dans `music/*.txt` (notation en tête de music/phare.txt : `d5:2` = note + durée
+  en croches, `-:3` silence, `4f` = durée en images, `[v6] [duty 1] [onde 0e] [vib e1] [gate .8]
+  [detune 1]`, `( ... )x8`). `tools/make_music.py` (build.sh) vérifie les mesures et la durée des 4
+  voix, écrit `audio/ages/mus/ballade.s` (section superfree BalladeAudio) et la musique des salles
+  (`audio/ages/groupNIDs.bin`, un octet par salle ; liste ROOM_MUSIC).
+- Moteur d'Ages : canaux 0/1 = carrés (accordéon / mélodie), 4 = onde (basse ; `duty` = n° de forme
+  d'onde, le volume y est ignoré), 6 = bruit (`note $2a` charleston, `$2e` caisse claire ; types dans
+  audio/common/noise.s) ; durées en images (60/s) ; les carrés jouent à partir de c2. Bruitages :
+  canaux 2/3/5/7 ; `cmdf0 $X0` passe en fréquences brutes (`.db poids_fort poids_faible durée`).
+- La table des canaux (soundChannelPointers.s) est dans la banque du code audio, les données dans
+  n'importe quelle banque (m_soundPointer stocke un écart de banque).
+- MUS_BALLADE_PHARE = $41 (case vide d'Ages) : salles 4:24 1b 1c 15 14 12 ; tempo croche = 9 images,
+  boucle de 36 s ; « HEY ! » de l'équipage à la fin de A2 (forme d'onde « voix » $2e ajoutée à
+  audio/common/waveforms.s, NUM_WAVEFORMS $2f ; cri qui retombe la4 -> do#4, d'après l'enregistrement
+  de Denis).
+- SND_BALLADE_GULL = $d6 : cri de mouette de LADX (JINGLE_SEAGULL, d'après LADX-Disassembly
+  src/code/audio/sfx.asm) porté image par image ; joué au clin d'œil de Marine dans le film (les
+  bruitages de Link et la vague du film sont retirés).
+- Denis accepte qu'on reprenne sons, musiques et objets de Link's Awakening DX
+  (https://github.com/zladx/LADX-Disassembly) ; pas la VF de Nintendo pour les textes.
+- Aperçu à écouter : `python tools/record_music.py [SECONDES]` -> out/phare_apercu.wav (salle 4:24)
+  et out/film_apercu.wav. Denis veut ÉCOUTER une musique avant qu'on la pousse.

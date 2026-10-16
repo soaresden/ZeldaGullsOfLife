@@ -1,0 +1,91 @@
+# Le Phare Éteint — musique originale du donjon 1 (Gulls of Life)
+#
+# Esprit : chant de marins, exploration, mer qui tangue ; un peu de mystère
+# (le phare est éteint). 6/8 en ré mineur (dorien), refrain en fa majeur.
+# Converti en assembleur par tools/make_music.py (lancé par build.sh).
+#
+# Notation
+#   d5:2      note (do ré mi = c d e f g a b, dièse # ou s, bémol b) + octave,
+#             puis la durée en croches (1 = croche, 3 = noire pointée, 6 = mesure)
+#   -:3       silence    d4:8f   durée en images (60 par seconde ; 9 images = 1 croche)
+#   |         barre de mesure (vérifiée : 6 croches par mesure)
+#   ( ... )x8 répéter
+#   [v6]      volume (0 à 15 ; les carrés d'Ages sonnent bien entre 2 et 7)
+#   [duty 1]  timbre des carrés : 0 = 12,5 %, 1 = 25 % (anche d'accordéon), 2 = 50 %
+#   [onde 0e] forme d'onde du canal 3 (audio/common/waveforms.s)
+#   [vib e1]  vibrato (délai, intensité), comme le soufflet de l'accordéon
+#   [gate .8] part jouée de chaque note (le reste est un silence) : détaché
+#   [detune 1] décale un peu la hauteur (2 anches désaccordées = son « musette »)
+#   batterie : h = charleston léger (bruit $2a), s = caisse claire ($2e), nXX = bruit $XX
+#
+# Voix
+#   melodie   = carré 2 (canal 1)      accordeon = carré 1 (canal 0)
+#   basse     = onde (canal 4)         batterie  = bruit (canal 6)
+
+tempo 9          # images par croche (mesure = 54 images = 0,9 s)
+mesure 6
+
+== INTRO ==
+# La corne de brume, la houle, et les arpèges qui cherchent la lumière.
+melodie:   [v6] [duty 1] [vib e1] [gate .85] [detune 0]
+melodie:   -:6 | -:6 | -:6 | -:4 a4:1 c5:1 |
+accordeon: [v2] [duty 2] [vib 00] [gate .9] [detune 0]
+accordeon: d4:1 a4:1 d5:1 f5:1 d5:1 a4:1 | d4:1 bb4:1 d5:1 f5:1 d5:1 bb4:1 |
+accordeon: [v3] d4:1 g4:1 bb4:1 d5:1 bb4:1 g4:1 | c#4:1 e4:1 a4:1 c#5:1 e5:1 -:1 |
+basse:     [onde 0e] [vib 00] [gate 1]
+basse:     d2:6 | bb1:6 | g1:6 | a1:6 |
+batterie:  [v1] h:6 | [v2] h:6 | [v1] h:6 | [v2] h:3 [v1] h:1 h:1 [v3] s:1 |
+
+== A ==
+# Le thème : on monte à bord.
+melodie:   [v6] [gate .85]
+melodie:   d5:2 a4:1 d5:1 e5:1 f5:1 | e5:2 c5:1 g4:3 | f5:2 e5:1 d5:1 e5:1 f5:1 | e5:2 d5:1 c5:1 a4:2 |
+melodie:   d5:2 a4:1 d5:1 e5:1 f5:1 | g5:2 f5:1 e5:1 c5:1 e5:1 | f5:1 e5:1 d5:1 c#5:2 e5:1 | d5:5 -:1 |
+# Les « pah-pah » de la main droite de l'accordéon, sur les temps faibles.
+accordeon: [v3] [duty 2] [gate .5] [detune 0]
+accordeon: -:1 f4:1 a4:1 -:1 f4:1 a4:1 | -:1 e4:1 g4:1 -:1 e4:1 g4:1 | -:1 f4:1 a4:1 -:1 f4:1 a4:1 | -:1 e4:1 a4:1 -:1 e4:1 a4:1 |
+accordeon: -:1 f4:1 a4:1 -:1 f4:1 a4:1 | -:1 e4:1 g4:1 -:1 e4:1 g4:1 | -:1 f4:1 bb4:1 -:1 e4:1 g4:1 | -:1 f4:1 a4:1 -:1 f4:1 a4:1 |
+# La basse qui balance : fondamentale, quinte.
+basse:     [gate .7]
+basse:     d3:3 a2:3 | c3:3 g2:3 | d3:3 a2:3 | a2:3 e3:3 | d3:3 a2:3 | c3:3 g2:3 | bb2:3 a2:3 | d3:3 a2:2 c#3:1 |
+batterie:  ( [v3] h:1 [v1] h:1 h:1 [v3] s:1 [v1] h:1 h:1 | )x8
+
+== A2 ==
+# Le thème encore, qui finit plus haut.
+melodie:   d5:2 a4:1 d5:1 e5:1 f5:1 | e5:2 c5:1 g4:3 | f5:2 e5:1 d5:1 e5:1 f5:1 | e5:2 d5:1 c5:1 a4:2 |
+melodie:   a5:2 g5:1 f5:1 e5:1 d5:1 | e5:2 c5:1 g5:3 | f5:2 d5:1 e5:2 c#5:1 | d5:3 -:3 |
+accordeon: -:1 f4:1 a4:1 -:1 f4:1 a4:1 | -:1 e4:1 g4:1 -:1 e4:1 g4:1 | -:1 f4:1 a4:1 -:1 f4:1 a4:1 | -:1 e4:1 a4:1 -:1 e4:1 a4:1 |
+accordeon: -:1 f4:1 a4:1 -:1 f4:1 a4:1 | -:1 e4:1 g4:1 -:1 e4:1 g4:1 | -:1 f4:1 bb4:1 -:1 e4:1 g4:1 | -:1 f4:1 a4:1 -:3 |
+# Tout s'arrête un temps : « HEY ! » de l'équipage. Le souffle « H » sur le bruit, puis la voyelle
+# sur l'onde (forme d'onde « voix » $2e), un cri aigu qui retombe (la4 -> do#4 en 0,3 s, comme
+# l'enregistrement de Denis). Durées en images : 2f = 2 images.
+basse:     d3:3 a2:3 | c3:3 g2:3 | d3:3 a2:3 | a2:3 e3:3 | d3:3 a2:3 | c3:3 g2:3 | bb2:3 a2:3 |
+basse:     d3:3 [gate 1] [onde 2e] -:3f a4:2f g#4:2f g4:2f f#4:2f f4:2f e4:2f d#4:2f d4:2f c#4:2f -:6f [onde 0e] [gate .7] |
+batterie:  ( [v3] h:1 [v1] h:1 h:1 [v3] s:1 [v1] h:1 h:1 | )x7 [v3] h:1 [v1] h:1 h:1 [v5] n24:3f -:24f |
+
+== B ==
+# Le refrain en fa majeur : le large, l'exploration.
+melodie:   c6:2 a5:1 f5:2 a5:1 | g5:2 e5:1 c5:2 e5:1 | f5:1 g5:1 a5:1 d6:2 c6:1 | bb5:2 a5:1 f5:3 |
+melodie:   a5:1 bb5:1 c6:1 a5:2 f5:1 | g5:1 a5:1 bb5:1 g5:2 e5:1 | f5:1 g5:1 f5:1 e5:2 c#5:1 | e5:1 f5:1 e5:1 a4:3 |
+# L'accordéon double la mélodie avec une anche un peu désaccordée (son musette).
+accordeon: [v3] [duty 1] [gate .85] [detune 1]
+accordeon: c6:2 a5:1 f5:2 a5:1 | g5:2 e5:1 c5:2 e5:1 | f5:1 g5:1 a5:1 d6:2 c6:1 | bb5:2 a5:1 f5:3 |
+accordeon: a5:1 bb5:1 c6:1 a5:2 f5:1 | g5:1 a5:1 bb5:1 g5:2 e5:1 | f5:1 g5:1 f5:1 e5:2 c#5:1 | e5:1 f5:1 e5:1 a4:3 |
+basse:     f2:3 c3:3 | c3:3 g2:3 | d3:3 a2:3 | bb2:3 f2:3 | f2:3 c3:3 | c3:3 g2:3 | bb2:3 a2:3 | a2:3 c#3:1 e3:1 c#3:1 |
+batterie:  ( [v3] h:1 [v1] h:1 [v2] h:1 [v3] s:1 [v1] h:1 [v2] h:1 | )x8
+
+== C ==
+# Le phare éteint : la mer se calme, on cherche la lumière.
+melodie:   [vib 41] [gate .95]
+melodie:   d5:3 a4:3 | f5:3 d5:3 | g5:3 bb5:1 a5:1 g5:1 | a5:6 |
+melodie:   d6:3 a5:3 | f5:2 g5:1 bb5:3 | g5:2 f5:1 e5:2 c#5:1 | e5:3 c#5:2 -:1 |
+melodie:   [vib e1] [gate .85]
+accordeon: [v2] [duty 2] [gate .9] [detune 0]
+accordeon: d4:1 a4:1 d5:1 f5:1 d5:1 a4:1 | d4:1 bb4:1 d5:1 f5:1 d5:1 bb4:1 | d4:1 g4:1 bb4:1 d5:1 bb4:1 g4:1 | c#4:1 e4:1 a4:1 c#5:1 e5:1 a4:1 |
+accordeon: [v3] d4:1 a4:1 d5:1 f5:1 d5:1 a4:1 | d4:1 bb4:1 d5:1 f5:1 d5:1 bb4:1 | d4:1 g4:1 bb4:1 c#4:1 e4:1 a4:1 | c#4:1 e4:1 a4:1 c#5:1 a4:1 e4:1 |
+basse:     [gate 1]
+basse:     d2:6 | bb1:6 | g1:6 | a1:6 | d2:6 | bb1:6 | g1:3 a1:3 | a1:6 |
+basse:     [gate .7]
+batterie:  ( [v2] h:3 [v1] h:3 | )x7 [v2] h:1 h:1 h:1 [v3] s:1 s:1 s:1 |
+
+ordre: INTRO | A A2 B C A2

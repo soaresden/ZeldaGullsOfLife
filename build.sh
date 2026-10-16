@@ -16,6 +16,7 @@ export PYTHONUTF8=1
 "$PYTHON" "$ROOT/tools/make_menus_fr.py"
 "$PYTHON" "$ROOT/tools/make_songe.py"
 "$PYTHON" "$ROOT/tools/make_rooms.py"
+"$PYTHON" "$ROOT/tools/make_music.py"
 cd "$ROOT/oracles-disasm"
 make -j8 PYTHON="$PYTHON" ages
 cp -f ages.gbc "$ROOT/out/gulls_of_life.gbc"

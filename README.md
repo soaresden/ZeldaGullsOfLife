@@ -73,7 +73,8 @@ anglais).
 - ✅ Démo jouable v0.3
 - ⬜ Les sept autres îles
 - ⬜ Des jeux, des secrets et des quarts de cœur
-- ⬜ La musique
+- ✅ Une première musique originale : le Phare Éteint
+- ⬜ Les autres musiques
 - ⬜ Et la suite de l'histoire…
 
 <details>
@@ -93,6 +94,7 @@ présent/passé d'*Ages* sert au Réel et au Songe.
 | Salles | Plans texte dans `story/salles/` (10 x 8 briques par écran) et leurs objets dans `story/salles/objets.txt` ; `tools/make_rooms.py` les met dans le jeu ; `tools/catalog.py` photographie les briques d'un décor ou des salles avec leurs numéros |
 | Carte | `tools/make_map.py` dessine `docs/carte_archipel.png` (les 8 îles, les routes du Bateau-Rondin, le plan de l'île de la Brume) |
 | Tests | `tools/play.py` joue la ROM dans PyBoy et prend des captures ; `tools/test_phare.py`, `tools/test_lanterne.py`, `tools/test_fin.py` |
+| Musique | Partitions en texte dans `music/` ; `tools/make_music.py` les convertit pour le moteur d'*Ages*, `tools/record_music.py` enregistre un aperçu `.wav` |
 | Patch | `tools/make_patch.py` fabrique `out/gulls_of_life.bps` à partir de la ROM *Ages* (USA) |
 
 Aucune ROM n'est distribuée ici : seulement le patch, à appliquer sur sa propre
@@ -123,4 +125,5 @@ La ROM sort dans `out/gulls_of_life.gbc`.
 
 - Moteur et désassemblage : [oracles-disasm](https://github.com/Stewmath/oracles-disasm) de Stewmath et ses contributeurs.
 - Sprites de Marine : branche `sprites/marin` d'oracles-disasm.
+- Cri de la mouette : celui de *Link's Awakening DX*, retrouvé grâce au désassemblage [LADX-Disassembly](https://github.com/zladx/LADX-Disassembly).
 - *The Legend of Zelda* appartient à Nintendo ; ce projet est un hack fait par des fans, sans ROM.

@@ -71,7 +71,8 @@ beach, and the save remembers it (only the very first start is in English).
 - ✅ Playable demo v0.3
 - ⬜ The other seven islands
 - ⬜ Games, secrets and heart pieces
-- ⬜ The music
+- ✅ A first original tune: the Dark Lighthouse
+- ⬜ The other tunes
 - ⬜ And the rest of the story…
 
 <details>
@@ -91,6 +92,7 @@ the Real World / Dream World switch.
 | Rooms | Text plans in `story/salles/` (10 x 8 metatiles per screen) and their objects in `story/salles/objets.txt`; `tools/make_rooms.py` puts them in the game; `tools/catalog.py` photographs a tileset's metatiles or rooms with their numbers |
 | Map | `tools/make_map.py` draws `docs/carte_archipel.png` (the 8 islands, the Log-Boat routes, the plan of Mist Island) |
 | Tests | `tools/play.py` plays the ROM in PyBoy and takes screenshots; `tools/test_phare.py`, `tools/test_lanterne.py`, `tools/test_fin.py` |
+| Music | Text scores in `music/`; `tools/make_music.py` converts them for the *Ages* engine, `tools/record_music.py` records a `.wav` preview |
 | Patch | `tools/make_patch.py` makes `out/gulls_of_life.bps` from the *Ages* (USA) ROM |
 
 No ROM is distributed here: only the patch, to apply to your own
@@ -121,4 +123,5 @@ The ROM is written to `out/gulls_of_life.gbc`.
 
 - Engine and disassembly: [oracles-disasm](https://github.com/Stewmath/oracles-disasm) by Stewmath and contributors.
 - Marin's sprites: oracles-disasm's `sprites/marin` branch.
+- The seagull's cry: the one from *Link's Awakening DX*, found thanks to the [LADX-Disassembly](https://github.com/zladx/LADX-Disassembly) project.
 - *The Legend of Zelda* belongs to Nintendo; this is a fan-made hack, with no ROM.
