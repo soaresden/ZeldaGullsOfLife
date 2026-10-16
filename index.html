@@ -122,7 +122,19 @@
   .row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
   .strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
   .strip img { width: 100%; display: block; border: 3px solid var(--ink); border-radius: 6px; image-rendering: pixelated; cursor: zoom-in; }
-  @media (max-width: 640px) { .strip { grid-template-columns: repeat(2, 1fr); } }
+  .strip.five { grid-template-columns: repeat(5, 1fr); }
+  .strip.six { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 640px) { .strip, .strip.five, .strip.six { grid-template-columns: repeat(2, 1fr); } .strip.five img:last-child { grid-column: span 2; } }
+
+  /* bouton « Jouer à la démo » */
+  .play { display: inline-block; font: 700 clamp(18px, 2.8vw, 22px) var(--pix); color: var(--ink); background: #ffe08a; border: 4px solid var(--ink);
+          border-radius: 10px; padding: 8px 20px; text-decoration: none; box-shadow: 0 5px 0 var(--ink); }
+  .play:hover { background: #fff3c8; }
+  .play:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--ink); }
+  .play small { display: block; font: 600 13px var(--pix); letter-spacing: .08em; opacity: .75; }
+  header .play { margin-top: 22px; }
+  .steps { margin: 0 0 16px; padding-left: 22px; }
+  .steps li { margin: 6px 0; }
   .map img { display: block; width: 100%; border: 4px solid var(--ink); border-radius: 12px; box-shadow: 0 6px 0 var(--ink); cursor: zoom-in; }
 
   /* journal : cœurs pleins (fait) et vides (à faire) */
@@ -178,6 +190,7 @@
     <p class="ballad" data-en="The sequel to Link's Awakening · Game Boy Color">La suite de Link's Awakening · Game Boy Color</p>
     <div class="hearts" aria-hidden="true"><span>♥</span><span>♥</span><span>♥</span></div>
     <div class="say" id="hello"><span class="who">Marine</span><br><span id="helloText"></span></div>
+    <a class="play" href="https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.1" data-en="▶ Play the demo&lt;small&gt;v0.1 · chapter 1 + the Dark Lighthouse&lt;/small&gt;">▶ Jouer à la démo<small>v0.1 · chapitre 1 + le Phare Éteint</small></a>
   </div>
   <div class="sun" aria-hidden="true"></div>
 </header>
@@ -241,6 +254,75 @@
   </div>
 </section>
 
+<section id="phare">
+  <div class="wrap">
+    <h2><small data-en="The first dungeon">Le premier donjon</small><span data-en="The Dark Lighthouse">Le Phare Éteint</span></h2>
+    <p class="intro" data-en="The old fisherman gives Link back his sword, fished out after the shipwreck. On Lighthouse Cape, the lighthouse has gone out: two floors, a small key, the boss key, a brand-new treasure… and, at the top, the &lt;b&gt;Hollow Keeper&lt;/b&gt;.">Le vieux pêcheur rend à Link son épée, repêchée après le naufrage. Au cap, le phare s'est éteint : deux étages, une petite clé, la clé du boss, un trésor tout neuf… et, tout en haut, le <b>Veilleur Creux</b>.</p>
+    <div class="strip five">
+      <img src="docs/shots/phare1.png" alt="Le vieux pêcheur rend son épée à Link" data-en-alt="The old fisherman gives Link back his sword" loading="lazy">
+      <img src="docs/shots/phare2.png" alt="L'entrée du Phare Éteint" data-en-alt="The entrance of the Dark Lighthouse" loading="lazy">
+      <img src="docs/shots/phare3.png" alt="La petite clé" data-en-alt="The small key" loading="lazy">
+      <img src="docs/shots/phare4.png" alt="Tu as trouvé la Lanterne des Songes" data-en-alt="You found the Lantern of Dreams" loading="lazy">
+      <img src="docs/shots/phare5.png" alt="Le Veilleur Creux, le boss du phare" data-en-alt="The Hollow Keeper, the lighthouse boss" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section id="lanterne">
+  <div class="wrap two">
+    <div>
+      <h2><small data-en="The dungeon's treasure">Le trésor du donjon</small><span data-en="The Lantern of Dreams">La Lanterne des Songes</span></h2>
+      <p data-en="No more need for a bed: outside, Link plays a tune on the Lantern and goes from the &lt;b&gt;Real World&lt;/b&gt; to the &lt;b&gt;Dream World&lt;/b&gt; on the spot, then back again.">Plus besoin d'un lit : dehors, Link joue un air sur la Lanterne et passe du <b>Réel</b> au <b>Songe</b> sur place, puis revient.</p>
+      <p data-en="Careful where you land: if the spot on the other side is in the water, Link is sent back.">Attention à l'arrivée : si la case de l'autre côté est dans l'eau, Link est renvoyé.</p>
+      <div class="row">
+        <button class="btn dream" id="tune" type="button" data-en="🎵 Play the tune">🎵 Jouer l'air</button>
+      </div>
+    </div>
+    <figure class="gbc" id="lantern">
+      <div class="screen">
+        <img src="docs/shots/lanterne1.png" alt="Link joue un air sur la Lanterne, dans le Réel" data-en-alt="Link plays a tune on the Lantern, in the Real World">
+        <img src="docs/shots/lanterne2.png" alt="Le passage vers le Songe" data-en-alt="Crossing over to the Dream World" style="opacity:0">
+        <img src="docs/shots/lanterne3.png" alt="Le même endroit, dans le Songe" data-en-alt="The same place, in the Dream World" style="opacity:0">
+        <img src="docs/shots/lanterne4.png" alt="Le pont du rêve, dans le Songe" data-en-alt="The dream bridge, in the Dream World" style="opacity:0">
+      </div>
+      <figcaption><span class="led"></span><span id="lanternCap" data-en="Real World">Réel</span><span class="dots" id="lanternDots"></span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="fin">
+  <div class="wrap">
+    <h2><small data-en="End of the demo">Fin de la démo</small><span data-en="To be continued…">À suivre…</span></h2>
+    <p class="intro" data-en="Once the boss is beaten: a heart container, the first verse of a song, then a word from Marin on the cape… and the adventure goes on.">Le boss vaincu : un réceptacle de cœur, le premier couplet d'une chanson, puis quelques mots de Marine sur le cap… et l'aventure continue.</p>
+    <div class="strip six">
+      <img src="docs/shots/fin1.png" alt="Tu as trouvé un réceptacle de cœur" data-en-alt="You found a heart container" loading="lazy">
+      <img src="docs/shots/fin2.png" alt="Marine : Tu l'entends ?" data-en-alt="Marin: Do you hear it?" loading="lazy">
+      <img src="docs/shots/fin3.png" alt="Le premier couplet" data-en-alt="The first verse" loading="lazy">
+      <img src="docs/shots/fin4.png" alt="Marine sur le cap : le Veilleur dort enfin" data-en-alt="Marin on the cape: the Keeper is finally asleep" loading="lazy">
+      <img src="docs/shots/fin5.png" alt="On ira, hein ? Ensemble." data-en-alt="We'll go, right? Together." loading="lazy">
+      <img src="docs/shots/fin6.png" alt="À suivre..." data-en-alt="To be continued..." loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section id="jouer">
+  <div class="wrap two" style="align-items:start">
+    <div>
+      <h2><small data-en="Demo v0.1">Démo v0.1</small><span data-en="Play the demo">Jouer à la démo</span></h2>
+      <p data-en="Chapter 1 and the Dark Lighthouse, from the opening film to “To be continued…”. The demo is a &lt;b&gt;BPS patch&lt;/b&gt;: no ROM is provided, you apply it to your own cartridge's ROM. The game's text is in French.">Le chapitre 1 et le Phare Éteint, du film d'ouverture jusqu'à «&nbsp;À suivre…&nbsp;». La démo est un <b>patch BPS</b> : aucune ROM n'est fournie, on l'applique sur la ROM de sa propre cartouche.</p>
+    </div>
+    <div class="card">
+      <ol class="steps">
+        <li data-en="Download &lt;code&gt;gulls_of_life.bps&lt;/code&gt; from the v0.1 release.">Télécharger <code>gulls_of_life.bps</code> dans la version v0.1.</li>
+        <li data-en="Have your own &lt;i&gt;The Legend of Zelda: Oracle of Ages&lt;/i&gt; ROM, &lt;b&gt;USA&lt;/b&gt; version (CRC32 &lt;code&gt;3800a387&lt;/code&gt;).">Avoir sa propre ROM <i>The Legend of Zelda: Oracle of Ages</i>, version <b>USA</b> (CRC32 <code>3800a387</code>).</li>
+        <li data-en="Apply the patch with a BPS patcher, for example &lt;a href=&quot;https://www.marcrobledo.com/RomPatcher.js/&quot;&gt;Rom Patcher JS&lt;/a&gt; online.">Appliquer le patch avec un outil BPS, par exemple <a href="https://www.marcrobledo.com/RomPatcher.js/">Rom Patcher JS</a> en ligne.</li>
+        <li data-en="Play the result in any Game Boy Color emulator.">Jouer le fichier obtenu dans n'importe quel émulateur Game Boy Color.</li>
+      </ol>
+      <a class="play" href="https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.1" data-en="▶ Download the patch&lt;small&gt;v0.1 · gulls_of_life.bps&lt;/small&gt;">▶ Télécharger le patch<small>v0.1 · gulls_of_life.bps</small></a>
+    </div>
+  </div>
+</section>
+
 <section id="archipel">
   <div class="wrap">
     <h2><small data-en="The world">Le monde</small><span data-en="The Sleepless Archipelago">L'archipel des Sans-Sommeil</span></h2>
@@ -265,10 +347,14 @@
         <li data-en="The people of Port-Veille and their dialogue">Les habitants de Port-Veille et leurs dialogues</li>
         <li data-en="The inn and the Dream World, human Marin">L'auberge et le Songe, Marine humaine</li>
         <li data-en="First puzzle: the dream bridge">Première énigme : le pont du rêve</li>
+        <li data-en="The old fisherman gives Link back his sword">Le vieux pêcheur rend son épée à Link</li>
+        <li data-en="The Dark Lighthouse and its boss, the Hollow Keeper">Le Phare Éteint et son boss, le Veilleur Creux</li>
+        <li data-en="After the boss: the heart container, the first verse, Marin on the cape and “To be continued…”">Après le boss : le réceptacle de cœur, le premier couplet, Marine sur le cap et «&nbsp;À suivre…&nbsp;»</li>
+        <li data-en="The Lantern of Dreams: one tune, and Link goes from the Real World to the Dream World">La Lanterne des Songes : un air, et Link passe du Réel au Songe</li>
+        <li data-en="Playable demo v0.1 (BPS patch)">Démo jouable v0.1 (patch BPS)</li>
         <li class="todo" data-en="The &lt;i&gt;Gulls of Life&lt;/i&gt; title screen">L'écran titre <i>Gulls of Life</i></li>
         <li class="todo" data-en="Marin's lines and hints for every place">Les répliques et indices de Marine pour chaque lieu</li>
         <li class="todo" data-en="The showman's games: Rupee Dig and Mamono">Les jeux du forain : Creuse-Rubis et Mamono</li>
-        <li class="todo" data-en="The Dark Lighthouse and its boss">Le Phare Éteint et son boss</li>
         <li class="todo" data-en="Music: Marin's song">Musiques : la chanson de Marine</li>
       </ul>
     </div>
@@ -279,8 +365,8 @@
   <div class="wrap two" style="align-items:start">
     <div>
       <h2><small data-en="Behind the scenes">Les coulisses</small><span data-en="How it's made">Comment c'est fait</span></h2>
-      <p data-en="The game runs on the &lt;b&gt;Oracle of Ages engine&lt;/b&gt;, thanks to Stewmath's complete disassembly &lt;a href=&quot;https://github.com/Stewmath/oracles-disasm&quot;&gt;oracles-disasm&lt;/a&gt;. Ages' present/past switch will drive the Real World and the Dream World. Everything else is new: story, islands, rooms, film, sprites and dialogue.">Le jeu tourne sur le <b>moteur d'Oracle of Ages</b>, grâce au désassemblage complet <a href="https://github.com/Stewmath/oracles-disasm">oracles-disasm</a> de Stewmath. Le passage présent/passé d'<i>Ages</i> servira au Réel et au Songe. Tout le reste est nouveau : histoire, îles, salles, film, sprites et dialogues.</p>
-      <p data-en="No ROM is distributed here: there will be a patch to apply to your own &lt;i&gt;Oracle of Ages&lt;/i&gt; (USA) ROM.">Aucune ROM n'est distribuée ici : il y aura un patch à appliquer sur sa propre ROM <i>Oracle of Ages</i> (USA).</p>
+      <p data-en="The game runs on the &lt;b&gt;Oracle of Ages engine&lt;/b&gt;, thanks to Stewmath's complete disassembly &lt;a href=&quot;https://github.com/Stewmath/oracles-disasm&quot;&gt;oracles-disasm&lt;/a&gt;. Ages' present/past switch drives the Real World and the Dream World. Everything else is new: story, islands, rooms, film, sprites and dialogue.">Le jeu tourne sur le <b>moteur d'Oracle of Ages</b>, grâce au désassemblage complet <a href="https://github.com/Stewmath/oracles-disasm">oracles-disasm</a> de Stewmath. Le passage présent/passé d'<i>Ages</i> sert au Réel et au Songe. Tout le reste est nouveau : histoire, îles, salles, film, sprites et dialogues.</p>
+      <p data-en="No ROM is distributed here: the game is a &lt;a href=&quot;#jouer&quot;&gt;patch&lt;/a&gt; to apply to your own &lt;i&gt;Oracle of Ages&lt;/i&gt; (USA) ROM.">Aucune ROM n'est distribuée ici : le jeu est un <a href="#jouer">patch</a> à appliquer sur sa propre ROM <i>Oracle of Ages</i> (USA).</p>
     </div>
     <div class="card tblwrap">
       <table>
@@ -361,6 +447,28 @@
       setTimeout(() => s.show(1), 500); setTimeout(() => { s.show(2); busy = false; }, 1600);
     };
     document.getElementById('bridge').onclick = () => s.show(s.k === 3 ? 4 : 3);
+  })();
+
+  // la Lanterne des Songes : un air, et on passe du Réel au Songe
+  (function () {
+    const cap = document.getElementById('lanternCap'), dots = document.getElementById('lanternDots');
+    const names = [SBT('Réel', 'Real World'), SBT('L’air de la Lanterne…', 'The Lantern’s tune…'), SBT('Songe', 'Dream World'), SBT('Le pont · Songe', 'The bridge · Dream')];
+    const s = slides(document.querySelector('#lantern .screen'), (k) => {
+      cap.textContent = names[k]; dots.querySelectorAll('button').forEach((b, n) => b.classList.toggle('on', n === k));
+    });
+    for (let n = 0; n < s.n; n++) {
+      const b = document.createElement('button'); b.type = 'button'; b.setAttribute('aria-label', SBT('Image ', 'Frame ') + (n + 1));
+      b.onclick = () => s.show(n);
+      dots.append(b);
+    }
+    s.show(0);
+    let busy = false;
+    document.getElementById('tune').onclick = () => {
+      if (busy) return; busy = true;
+      const back = s.k === 2 || s.k === 3;   // déjà dans le Songe : l'air ramène au Réel
+      s.show(back ? 2 : 0);
+      setTimeout(() => s.show(1), 400); setTimeout(() => { s.show(back ? 0 : 2); busy = false; }, 1500);
+    };
   })();
 
   // journal : compte des cœurs
