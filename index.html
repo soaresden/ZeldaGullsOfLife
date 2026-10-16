@@ -187,8 +187,21 @@
   dialog::backdrop { background: rgba(5, 10, 30, .85); }
   dialog img { display: block; max-width: 100%; max-height: 86vh; image-rendering: pixelated; }
 
+  /* la musique de l'écran titre : bouton flottant, barres qui dansent pendant la lecture */
+  .music { position: fixed; right: 16px; bottom: 16px; z-index: 5; display: flex; align-items: center; gap: 8px;
+           font: 600 15px var(--pix); color: var(--ink); background: var(--sand); border: 3px solid var(--ink); border-radius: 999px;
+           padding: 6px 14px 6px 10px; box-shadow: 0 4px 0 var(--ink); cursor: pointer; }
+  .music:hover { background: #fff3c8; }
+  .music:active { transform: translateY(2px); box-shadow: 0 2px 0 var(--ink); }
+  .music .bars { display: flex; align-items: flex-end; gap: 2px; height: 16px; }
+  .music .bars i { width: 3px; height: 4px; background: var(--heart); border-radius: 1px; }
+  .music.on .bars i { animation: eq .9s ease-in-out infinite; }
+  .music.on .bars i:nth-child(2) { animation-delay: .15s; } .music.on .bars i:nth-child(3) { animation-delay: .3s; } .music.on .bars i:nth-child(4) { animation-delay: .45s; }
+  @keyframes eq { 0%, 100% { height: 4px; } 50% { height: 16px; } }
+  .music[hidden] { display: none; }
+
   @media (prefers-reduced-motion: reduce) {
-    main::before, .cloud, .gull, .gull .wing, .hearts span, .say::after { animation: none; }
+    main::before, .cloud, .gull, .gull .wing, .hearts span, .say::after, .music.on .bars i { animation: none; }
     .gull { display: none; }
   }
 </style>
@@ -398,6 +411,9 @@
 
 <dialog id="zoom"><img alt=""></dialog>
 
+<audio id="bgm" src="docs/titre.ogg" loop preload="auto"></audio>
+<button class="music" id="music" type="button" hidden><span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span id="musicLabel"></span></button>
+
 <script>
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -445,6 +461,44 @@
   (function () {
     const all = document.querySelectorAll('#quest li'), todo = document.querySelectorAll('#quest li.todo').length;
     document.getElementById('tally').textContent = SBT(`♥ ${all.length - todo} / ${all.length} cœurs`, `♥ ${all.length - todo} / ${all.length} hearts`);
+  })();
+
+  // la musique de l'écran titre (docs/titre.ogg, tools/make_page_music.py) : en lecture automatique ;
+  // si le navigateur refuse le son avant un geste, elle démarre au premier clic ou à la première touche.
+  // Couper le son est retenu (préférence de ce navigateur seulement).
+  (function () {
+    const audio = document.getElementById('bgm'), btn = document.getElementById('music'), label = document.getElementById('musicLabel');
+    if (!audio.canPlayType('audio/ogg; codecs="vorbis"')) return;
+    let muted = false;
+    try { muted = localStorage.getItem('gulls.music') === 'off'; } catch (_) {}
+    audio.volume = 0.5;
+    btn.hidden = false;
+    const render = () => {
+      const on = !audio.paused;
+      btn.classList.toggle('on', on);
+      label.textContent = on ? SBT('Couper la musique', 'Mute the music') : SBT('♪ Musique', '♪ Music');
+      btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    };
+    const remember = (v) => { try { localStorage.setItem('gulls.music', v); } catch (_) {} };
+    const start = () => audio.play().then(render, render);
+    const onFirstGesture = (e) => {
+      if (e.target.closest && e.target.closest('#music')) return;   // le bouton s'en occupe lui-même
+      off();
+      if (!muted && audio.paused) start();
+    };
+    const off = () => ['pointerdown', 'keydown', 'touchstart'].forEach((t) => removeEventListener(t, onFirstGesture, true));
+    btn.addEventListener('click', () => {
+      off();
+      if (audio.paused) { muted = false; remember('on'); start(); }
+      else { audio.pause(); muted = true; remember('off'); render(); }
+    });
+    audio.addEventListener('play', render); audio.addEventListener('pause', render);
+    render();
+    if (!muted) {
+      audio.play().then(render).catch(() => {
+        ['pointerdown', 'keydown', 'touchstart'].forEach((t) => addEventListener(t, onFirstGesture, true));
+      });
+    }
   })();
 
   // agrandir les captures et la carte
