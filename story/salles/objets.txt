@@ -23,9 +23,9 @@ salle 9c
 	obj_Interaction INTERAC_BALLADE_NPC $02 $38 $38
 	obj_Interaction INTERAC_BALLADE_NPC $03 $48 $68
 
-# Le port de pêche : le vieux pêcheur, au bout du ponton
+# Le port de pêche : le vieux pêcheur, au début du ponton
 salle ab
-	obj_Interaction INTERAC_BALLADE_NPC $01 $38 $88
+	obj_Interaction INTERAC_BALLADE_NPC $01 $38 $58
 
 # L'auberge (la maison de Nayru d'Ages) : l'aubergiste
 salle 3:9e
@@ -34,3 +34,21 @@ salle 3:9e
 # L'auberge du Songe : Marine humaine, près du lit (Link se réveille dans le rêve en case $17)
 salle 2:9e
 	obj_Interaction INTERAC_BALLADE_NPC $07 $28 $68
+
+# --- Le Phare Éteint (donjon 1, groupe 4) ---
+# La salle de la clé : des Zols
+salle 4:1b
+	obj_RandomEnemy $60 ENEMY_ZOL $00
+# La salle de la clé du boss : deux Stalfos
+salle 4:1c
+	obj_SpecificEnemyA $00 ENEMY_STALFOS $00 $38 $58
+	obj_SpecificEnemyA     ENEMY_STALFOS $00 $78 $58
+# L'escalier : des chauves-souris
+salle 4:14
+	obj_RandomEnemy $40 ENEMY_KEESE $00
+# L'antichambre : des fantômes
+salle 4:12
+	obj_RandomEnemy $40 ENEMY_GHINI $00
+# Le hall et la salle de la Lanterne : vides
+salle 4:24
+salle 4:15

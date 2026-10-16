@@ -11,7 +11,8 @@ Un plan décrit une salle :
 Le Songe (groupe 0, le « présent » d'Ages) reprend automatiquement chaque salle du Réel avec le
 décor bleuté correspondant (voir SONGE ci-dessous et tools/make_songe.py), sauf si un plan
 « salle 0:XX » la redessine. Chaque salle du Songe (groupes 0 et 2) reçoit l'ondulation de
-l'écran (INTERAC_BALLADE_DREAM_FX).
+l'écran (INTERAC_BALLADE_DREAM_FX), sauf les intérieurs : leurs longs scripts tournent dans
+la mémoire que la vague réécrit.
 
 Voir out/catalog/decor_XX.png (tools/catalog.py) pour les numéros des briques. Le script
 écrit rooms/ages/small/roomGGSS.bin (GG dépend du groupe : voir LAYOUT_GROUP) et les décors dans
@@ -36,11 +37,18 @@ def tilesets_path(group):
 
 # Dans hack-base, le fichier de disposition dépend du groupe de la salle, pas du décor
 # (code/bank0.s, @getLayoutGroup) : rooms/ages/small/roomGGSS.bin avec GG = LAYOUT_GROUP[groupe]
-LAYOUT_GROUP = {0: 0x00, 1: 0x02, 2: 0x01, 3: 0x03}
+# Groupes 4 et 5 (donjons) : grandes salles de 15 x 11 briques, rangées sur 16 colonnes.
+LAYOUT_GROUP = {0: 0x00, 1: 0x02, 2: 0x01, 3: 0x03, 4: 0x04, 5: 0x05}
+LARGE = (4, 5)
+
+
+def room_size(group):
+    return (15, 11) if group in LARGE else (10, 8)
 
 
 def room_file(group, room):
-    return os.path.join(DISASM, 'rooms', 'ages', 'small', 'room%02x%02x.bin' % (LAYOUT_GROUP[group], room))
+    return os.path.join(DISASM, 'rooms', 'ages', 'large' if group in LARGE else 'small',
+                        'room%02x%02x.bin' % (LAYOUT_GROUP[group], room))
 
 
 def parse_room(name):
@@ -72,10 +80,12 @@ def read_plans():
                 copy = parse_room(words[4]) if len(words) > 4 and words[3] == 'copie' else None
                 decors[parse_room(words[1])] = (int(words[2], 16), copy)
                 continue
-            assert len(words) == 10, '%s:%d : 10 briques par ligne' % (path, n)
+            w, h = room_size(cur['key'][0])
+            assert len(words) == w, '%s:%d : %d briques par ligne' % (path, n, w)
             cur['rows'].append([int(w, 16) for w in words])
     for p in plans:
-        assert len(p['rows']) == 8, '%s : 8 lignes par salle' % p['where']
+        h = room_size(p['key'][0])[1]
+        assert len(p['rows']) == h, '%s : %d lignes par salle' % (p['where'], h)
     # Le Songe : copie de chaque salle du Réel qui n'est pas redessinée
     drawn = {p['key'] for p in plans}
     for p in list(plans):
@@ -115,7 +125,7 @@ def write_objects(keys):
     for k in keys:
         out.append('group%dMap%02xObjectData:' % k)
         out += objects.get(k, [])
-        if k[0] in (0, 2) and not os.environ.get('BALLADE_SANS_ONDULATION'):
+        if k[0] == 0 and not os.environ.get('BALLADE_SANS_ONDULATION'):
             out.append(DREAM_FX)
         out.append('\tobj_End')
     with open(os.path.join(DISASM, path), 'w', encoding='utf-8', newline='\n') as f:
@@ -124,13 +134,15 @@ def write_objects(keys):
 
 def main():
     plans, decors = read_plans()
-    tilesets = {g: bytearray(open(tilesets_path(g), 'rb').read()) for g in range(4)}
+    tilesets = {g: bytearray(open(tilesets_path(g), 'rb').read()) for g in range(6)}
     write_objects([p['key'] for p in plans] + list(decors))
     for p in plans:
         (g, r), ts = p['key'], p['tileset']
         tilesets[g][r] = (tilesets[g][r] & 0x80) | ts
+        # Grandes salles : 16e colonne de remplissage à 0, comme les salles d'Ages
+        pad = [0] if g in LARGE else []
         with open(room_file(g, r), 'wb') as f:
-            f.write(bytes(b for row in p['rows'] for b in row))
+            f.write(bytes(b for row in p['rows'] for b in row + pad))
     for (g, r), (ts, copy) in decors.items():
         tilesets[g][r] = (tilesets[g][r] & 0x80) | ts
         if copy:

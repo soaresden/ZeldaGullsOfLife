@@ -19,6 +19,8 @@ def main():
         for entry in group['data']:
             for line in entry['text'].split('\n'):
                 visible = COMMANDS.sub('', line).replace('\\Link', 'X' * 5)
+                # Les boutons A et B font 2 caractères à l'écran
+                visible = visible.replace('\\abtn', 'AA').replace('\\bbtn', 'BB')
                 if len(visible) > 16:
                     print('%s : %d caractères : %s' % (entry['name'], len(visible), line))
                     bad += 1

@@ -7,7 +7,7 @@ l'en-tête de palette du décor (data/ages/paletteHeaders.s). Marche pour les pe
 
 Usage :
   python tools/render_room.py SORTIE.png G:SS [G:SS ...]    (ex. 1:9a 4:10)
-  python tools/render_room.py SORTIE.png --plan FICHIER     (toutes les salles d'un plan)
+  python tools/render_room.py SORTIE.png --decor 36        (planche des 256 briques d'un décor)
 Options : --numeros  écrit le numéro de chaque brique.
 """
 import os
@@ -117,8 +117,24 @@ def render(group, room, numbers=False):
     return img, ts
 
 
+def catalog(out, ts):
+    """Planche des 256 briques d'un décor, numérotées."""
+    sheet = Image.new('RGB', (16 * 36, 16 * 36), 'black')
+    d = ImageDraw.Draw(sheet)
+    f = ImageFont.truetype('C:/Windows/Fonts/consolab.ttf', 10)
+    for n in range(256):
+        x, y = (n % 16) * 36, (n // 16) * 36
+        sheet.paste(metatile(ts, n).resize((32, 32), Image.NEAREST), (x + 2, y + 2))
+        d.rectangle([x + 2, y + 2, x + 15, y + 11], fill=(0, 0, 0))
+        d.text((x + 3, y + 1), '%02x' % n, font=f, fill=(255, 255, 0))
+    sheet.save(out)
+    print('->', out)
+
+
 def main():
     out, args = sys.argv[1], sys.argv[2:]
+    if args[0] == '--decor':
+        return catalog(out, int(args[1], 16))
     numbers = '--numeros' in args
     args = [a for a in args if a != '--numeros']
     rooms = [(int(a.split(':')[0]), int(a.split(':')[1], 16)) for a in args]

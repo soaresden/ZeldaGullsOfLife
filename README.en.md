@@ -23,6 +23,8 @@ no matter what.
 
 ![The inn, sleep, the Dream World and the dream bridge](docs/auberge_songe.png)
 
+![The Dark Lighthouse: the sword, the entrance, the small key, the Lantern, the Hollow Keeper](docs/phare.png)
+
 ## Status
 
 | Part | Status |
@@ -41,7 +43,10 @@ no matter what.
 | The Dream World: the island in blue tones, the screen gently waving like underwater, human Marin (the hands scene); Select in the Dream World = wake up at the same spot | ✅ |
 | First puzzle: the path's broken bridge is whole in the Dream World; cross it in a dream and wake up on the other side | ✅ |
 | The showman's games: Rupee Dig and Mamono (minesweepers, heart pieces on the hardest levels) | to do |
-| The Dark Lighthouse and its boss, the first verse of Marin's song | to do |
+| The old fisherman gives Link his sword back (fished out after the shipwreck) | ✅ |
+| The Dark Lighthouse, on 2 floors: small key, locked door, boss key, the **Lantern of Dreams**, the stairs, the boss door and the **Hollow Keeper** | ✅ |
+| After the boss: the first verse (text ready, full fight not tested yet), the Lantern switching to the Dream World anywhere | to do |
+| The reunion in the Dream World: Marin throws herself into Link's arms (hearts fly up) | ✅ |
 | Music: Marin's song | to do |
 
 ## How it's made

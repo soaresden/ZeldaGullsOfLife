@@ -24,6 +24,8 @@ les obstacles.
 
 ![L'auberge, le sommeil, le Songe et le pont du rêve](docs/auberge_songe.png)
 
+![Le Phare Éteint : l'épée, l'entrée, la petite clé, la Lanterne, le Veilleur Creux](docs/phare.png)
+
 ## Où on en est
 
 | Partie | État |
@@ -42,7 +44,10 @@ les obstacles.
 | Le Songe : l'île en bleuté, l'écran qui ondule comme sous l'eau, Marine humaine (scène des mains) ; Select dans le Songe = se réveiller au même endroit | ✅ |
 | Première énigme : le pont cassé du sentier est entier dans le Songe ; on le traverse en rêve et on se réveille de l'autre côté | ✅ |
 | Les jeux du forain : Creuse-Rubis et Mamono (démineurs, quarts de cœur aux niveaux les plus durs) | à faire |
-| Le Phare Éteint et son boss, le premier couplet de la chanson de Marine | à faire |
+| Le vieux pêcheur rend son épée à Link (repêchée après le naufrage) | ✅ |
+| Le Phare Éteint, sur 2 étages : petite clé, porte à clé, clé du boss, la **Lanterne des Songes**, l'escalier, la porte du boss et le **Veilleur Creux** | ✅ |
+| Après le boss : le premier couplet (texte prêt, combat complet pas encore testé), la Lanterne qui fait passer au Songe partout | à faire |
+| Les retrouvailles dans le Songe : Marine se jette dans les bras de Link (des cœurs s'envolent) | ✅ |
 | Musiques : la chanson de Marine | à faire |
 
 ## Comment c'est fait

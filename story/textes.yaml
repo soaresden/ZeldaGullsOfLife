@@ -430,7 +430,32 @@ groups:
       pour
       l'équilibre,
       des pieds!\stop
+      \Link!
+
+  # Le câlin des retrouvailles
+  - name: TX_5a2c
+    index: 0x2c
+    text: |-
       ...\stop
+      Je suis là.
+      Je suis vivante.
+      J'ai un corps!\stop
+      Je peux te
+      serrer dans mes
+      bras... Enfin!\stop
+      Ne bouge pas.
+      Encore un peu.\stop
+      ...\stop
+      Bon! Pardon.
+      C'est que...
+      j'ai eu si peur
+      de disparaître
+      pour toujours.
+
+  # Ce qu'elle n'a jamais osé demander
+  - name: TX_5a2d
+    index: 0x2d
+    text: |-
       Tu sais... sur
       Cocolint, je
       n'ai jamais su
@@ -492,3 +517,104 @@ groups:
       Tu veux te
       réveiller?
         \opt()Oui \opt()Non
+
+  # ============================================================================
+  # Le vieux pêcheur rend son épée à Link (la 1re fois qu'on lui parle)
+  # ============================================================================
+  - name: TX_5a2b
+    index: 0x2b
+    text: |-
+      Hé, toi! C'est
+      bien toi, le
+      naufragé?\stop
+      J'ai repêché ça
+      hier, dans mes
+      filets.\stop
+      Une épée! Elle
+      doit être à toi.\stop
+      Prends-la. Le
+      phare, au nord,
+      n'est plus sûr
+      depuis qu'il
+      s'est éteint.
+
+  # ============================================================================
+  # Le Phare Éteint
+  # ============================================================================
+
+  # Marine, en entrant dans le phare (Select)
+  - name: TX_5a0e
+    index: 0x0e
+    text: |-
+      Brr... Il fait
+      froid, là-
+      dedans.\stop
+      Le phare devrait
+      briller tout là-
+      haut. On monte?
+
+# ==============================================================================
+# Textes d'Ages remplacés (même nom) : les objets qu'on trouve parlent français
+# ==============================================================================
+- group: 0x00
+  data:
+
+  # L'essence du 1er donjon devient le premier couplet de la chanson de Marine
+  - name: TX_000e
+    index: 0x0e
+    text: |-
+      \pos(2)\slow()Le Veilleur dort
+      enfin. Il rêve
+      de sa femme, qui
+      lui apporte la
+      soupe...\stop
+      Tu as trouvé le
+      \col(1)premier couplet\col(0)
+      de la chanson de
+      Marine!\stop
+      \col(1)Marine\col(0): Tu
+      l'entends? Ce
+      n'est pas la
+      Ballade du
+      Poisson-Rêve...\stop
+      C'est la mienne.
+      Ma chanson à
+      moi!
+
+  - name: TX_001a
+    index: 0x1a
+    text: |-
+      Tu as trouvé une
+      \col(1)petite clé\col(0)!\stop
+      Elle ouvre une
+      porte ou un bloc
+      verrouillé de ce
+      donjon.
+
+  - name: TX_001b
+    index: 0x1b
+    text: |-
+      Tu as trouvé la
+      \col(1)clé du boss\col(0)!
+
+  - name: TX_001c
+    index: 0x1c
+    text: |-
+      Tu as retrouvé
+      ton \col(1)épée\col(0)!\stop
+      Garde \abtn ou \bbtn
+      enfoncé pour la
+      charger, puis
+      lâche pour une
+      attaque
+      tournoyante.
+
+  - name: TX_0071
+    index: 0x71
+    text: |-
+      Tu as trouvé la
+      \col(1)Lanterne des
+      Songes\col(0)!\stop
+      Sa lumière vient
+      du monde des
+      rêves...

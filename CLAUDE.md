@@ -70,6 +70,24 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Marine humaine : art/marine_humaine.txt (4 poses de villageoise d'après la branche sprites/marin, robe
   redessinée : orange, ceinture et ourlet clairs ; palette 3 = cheveux orange), gfx $e2.
 
+## Le Phare Éteint (donjon 1)
+- Emplacement du 1er donjon d'Ages (index 1, groupe 4, décor 36), plan sur 2 étages
+  (dungeon01LayoutPhare). Salles : story/salles/phare.txt (grandes salles 15 x 11) ; on garde la
+  salle du boss (4:13, Pumpkin Head = le Veilleur Creux) et celle de l'essence (4:11).
+- Briques du décor 36 : tools/render_room.py SORTIE --decor 36 (portes à clé 70-73, du boss 74-77,
+  coffre f1, escaliers 44/45 ; f4-f7 sont des trous). Coffres : data/ages/chestData.s (groupe 4).
+- Objet de coffre : mode d'apparition $38 (TREASURE_OBJECT_HARP_02 = la Lanterne ; les harpes
+  d'origine, mode $0a, ne sortent pas d'un coffre).
+- Entrée : porte 1:7b -> destination 4:$02 ; sortie 4:24 -> 1:$4a.
+- tools/render_room.py dessine n'importe quelle salle sans lancer le jeu (adresse des tuiles = idx ^ $80).
+
+## Pièges (suite)
+- Un PNJ posé sur les planches du ponton (0e) ne réagit pas au bouton A : le mettre sur le sable.
+- Banque des scripts (mainScripts, banque $0c) presque pleine : les longs scripts vont dans
+  scripts/ages/balladeLong.s (loadscript), sauf dans les salles du Songe avec ondulation.
+- Ne plus réécrire l'historique (amend / force) : une autre session travaille dans ce dépôt
+  (index.html, page du jeu).
+
 ## Choix de conception (Denis)
 - Marine ne suit PAS Link à l'écran (trop de sprites, ça bloquerait des choses) : elle voyage au chaud
   dans sa tunique. Elle parle depuis la tunique ; pour ses pouvoirs (planer, repérer, porter une bombe)
