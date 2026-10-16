@@ -75,5 +75,45 @@ def main():
     icons.save(dst)
     print('->', os.path.relpath(dst, ROOT))
 
+    # Le symbole qui glisse en haut de l'écran en passant du Réel au Songe : une lune (le Songe) et
+    # un soleil (le Réel) à la place des sabliers d'Ages (art/epoque.txt)
+    blocks, name = {}, None
+    for line in open(os.path.join(ROOT, 'art', 'epoque.txt'), encoding='utf-8').read().split('\n'):
+        if line.startswith('@'):
+            name = line[1:].strip()
+            blocks[name] = []
+        elif name and line.strip() and not line.startswith('#'):
+            blocks[name].append(line)
+    era = Image.new('P', (64, 16), 0)
+    era.putpalette(pal + [0] * (768 - len(pal)))
+    for left, name in ((0, 'songe'), (32, 'reel')):
+        for y, row in enumerate(blocks[name]):
+            for x, c in enumerate(row):
+                era.putpixel((left + x, y), index[c])
+    dst = os.path.join(DISASM, 'gfx_compressible', 'ages', 'spr_present_past_symbols.png')
+    era.save(dst)
+    print('->', os.path.relpath(dst, ROOT))
+
+    # Barre d'état : une petite lune (tuile $03, la flèche des saisons de Seasons, inutile ici)
+    # devant les secondes du noctambule ; mêmes couleurs que les chiffres (fond 2, trait 3)
+    png = subprocess.run(['git', 'show', 'upstream/hack-base:gfx_compressible/common/gfx_hud.png'],
+                         cwd=DISASM, capture_output=True, check=True).stdout
+    hud = Image.open(io.BytesIO(png))
+    hud.load()
+    moon = ['22222222',
+            '22233222',
+            '22332222',
+            '23322222',
+            '23322222',
+            '22332222',
+            '22233222',
+            '22222222']
+    for y, row in enumerate(moon):
+        for x, c in enumerate(row):
+            hud.putpixel((24 + x, y), int(c))
+    dst = os.path.join(DISASM, 'gfx_compressible', 'common', 'gfx_hud.png')
+    hud.save(dst)
+    print('->', os.path.relpath(dst, ROOT))
+
 
 main()
