@@ -32,7 +32,9 @@ no matter what.
 | Talking to Marin: a short press on **Select** (a line for the current place, otherwise a random one); holding Select opens the map | ✅ |
 | Marin's lines and hints for every place in the adventure | to do |
 | Sleeping to enter the Dream World (where Marin is human again) | to do |
-| Port-Veille, the Dark Lighthouse and its boss, the first verse of Marin's song | to do |
+| Mist Island (16 screens): beach, fishing port, Port-Veille and its inn, path with a broken bridge, woods, rocks, cliffs, Lighthouse Cape | ✅ |
+| Port-Veille's people and their dialogue | to do |
+| The Dark Lighthouse and its boss, the first verse of Marin's song | to do |
 | Music: Marin's song | to do |
 
 ## How it's made
@@ -48,6 +50,7 @@ become the Real World / Dream World switch.
 | Dialogue | `story/textes.yaml`, plain French; `tools/make_text.py` adds it to the game, `tools/check_text.py` checks line width (16 characters) |
 | Sprites | Text drawings in `art/`; `tools/make_sprites.py` converts them |
 | Opening film | `code/ages/cutscenes/film.s` (fork); background and sprites made by `tools/make_film.py` (sky and clouds, sun, sea, log, Link poses taken from the game, Marin's face); `tools/preview_film.py` previews it without building |
+| Rooms | Text plans in `story/salles/` (10 x 8 metatiles per screen) and their objects in `story/salles/objets.txt`; `tools/make_rooms.py` puts them in the game; `tools/catalog.py` photographs a tileset's metatiles or rooms with their numbers |
 | Map | `tools/make_map.py` draws `docs/carte_archipel.png` (the 8 islands, the Log-Boat routes, the plan of Mist Island) |
 | Tests | `tools/play.py` plays the ROM in PyBoy and takes screenshots |
 

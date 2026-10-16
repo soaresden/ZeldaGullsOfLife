@@ -33,7 +33,9 @@ les obstacles.
 | Parler à Marine : un appui court sur **Select** (réplique selon l'endroit, sinon au hasard) ; Select maintenu ouvre la carte | ✅ |
 | Répliques et indices de Marine pour chaque lieu de l'aventure | à faire |
 | Dormir pour passer dans le Songe (Marine y redevient humaine) | à faire |
-| Port-Veille, le Phare Éteint et son boss, le premier couplet de la chanson de Marine | à faire |
+| L'île de la Brume (16 écrans) : plage, port de pêche, Port-Veille et son auberge, sentier au pont cassé, bois, rochers, falaises, cap du Phare | ✅ |
+| Les habitants de Port-Veille et leurs dialogues | à faire |
+| Le Phare Éteint et son boss, le premier couplet de la chanson de Marine | à faire |
 | Musiques : la chanson de Marine | à faire |
 
 ## Comment c'est fait
@@ -49,6 +51,7 @@ présent/passé d'*Ages* servira au Réel et au Songe.
 | Dialogues | `story/textes.yaml`, en français normal ; `tools/make_text.py` les ajoute au jeu, `tools/check_text.py` vérifie la largeur des lignes (16 caractères) |
 | Sprites | Dessins en texte dans `art/` ; `tools/make_sprites.py` les convertit |
 | Film d'ouverture | `code/ages/cutscenes/film.s` (fork) ; décor et sprites fabriqués par `tools/make_film.py` (ciel et nuages, soleil, mer, rondin, poses de Link prises dans le jeu, visage de Marine) ; `tools/preview_film.py` en donne un aperçu sans compiler |
+| Salles | Plans texte dans `story/salles/` (10 x 8 briques par écran) et leurs objets dans `story/salles/objets.txt` ; `tools/make_rooms.py` les met dans le jeu ; `tools/catalog.py` photographie les briques d'un décor ou des salles avec leurs numéros |
 | Carte | `tools/make_map.py` dessine `docs/carte_archipel.png` (les 8 îles, les routes du Bateau-Rondin, le plan de l'île de la Brume) |
 | Tests | `tools/play.py` joue la ROM dans PyBoy et prend des captures |
 

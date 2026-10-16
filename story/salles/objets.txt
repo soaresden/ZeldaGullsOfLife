@@ -1,0 +1,7 @@
+# Objets (personnages, Marine, ennemis...) des salles de nos îles, groupe 1 (le Réel).
+# Une ligne « salle XX », puis les objets au format d'oracles-disasm (objects/macros.s) :
+#   obj_Interaction TYPE SOUS-TYPE Y X     un personnage ou un objet animé
+# Les salles du plan (story/salles/*.txt) absentes d'ici n'ont aucun objet.
+
+salle aa
+	obj_Interaction INTERAC_MARINE $00 $08 $98

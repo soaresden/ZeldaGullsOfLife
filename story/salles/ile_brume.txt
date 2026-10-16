@@ -1,0 +1,186 @@
+# Île de la Brume, le Réel (groupe 1). Voir docs/carte_archipel.png.
+# Chaque salle : 8 lignes de 10 briques. Décor 18 = plage de l'île Croissant, 10 = village.
+# Passages entre salles : mêmes colonnes / lignes ouvertes des deux côtés.
+
+# --- La mer autour de l'île ---
+salle 79 decor 10
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+salle 7c decor 10
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+salle 8c decor 10
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+salle a9 decor 10
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+salle ac decor 10
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- Plage du réveil (Link apparaît en ligne 4, colonne 2) ---
+# Nord : colonnes 4-5 vers Port-Veille. Est : lignes 3-4 vers le port de pêche.
+salle aa decor 18
+fc 26 c5 c5 bf bf c5 c5 c5 c5
+fc 26 bf bf bf bf bf bf bf c5
+fc 26 bf bf bf bf bf bf bf c5
+fc 26 bf bf bf bf bf bf bf bf
+fc 26 bf bf bf bf bf bf bf bf
+fc 26 bf bf bf bf bf bf bf c5
+fc 28 24 24 24 24 24 24 24 24
+fc fc fc fc fc fc fc fc fc fc
+
+# --- Port de pêche : le ponton du vieux pêcheur ---
+# Ouest : lignes 3-4. Nord : colonnes 4-5 vers la place.
+salle ab decor 18
+c5 c5 c5 c5 bf bf c5 c5 c5 c5
+c5 bf bf bf bf bf bf bf 27 fc
+c5 bf bf bf bf bf bf bf 27 fc
+bf bf bf bf bf bf 0e 0e 0e fc
+bf bf bf bf bf bf 0e 0e 0e fc
+c5 bf bf bf bf bf bf bf 27 fc
+24 24 24 24 24 24 24 24 2a fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- Le Ponton (le Bateau-Rondin, après le phare) ---
+# Est : lignes 4-5 vers Port-Veille.
+salle 99 decor 18
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc 26 bf c5 c5 c5 c5
+fc fc fc fc 26 bf bf bf bf c5
+fc fc fc fc 26 bf bf bf bf c5
+fc 0e 0e 0e 0e bf bf bf bf bf
+fc 0e 0e 0e 0e bf bf bf bf bf
+fc fc fc fc 26 bf bf bf bf c5
+fc fc fc fc 28 24 24 24 24 c5
+
+# --- Port-Veille ouest : l'auberge (porte en ligne 3, colonne 5) ---
+# Sud : colonnes 4-5. Est et ouest : lignes 4-5. Nord : colonnes 2-3 vers le sentier.
+salle 9a decor 10
+08 09 3b 3b 08 09 08 09 08 09
+2c 3c 3b 3b 2c 3c 2c 3c 2c 3c
+cd 3b 3b 8f 8f 8f 8f 8f 3b cd
+cd 3b 3b f6 a3 de a3 f6 3b cd
+3b 3b 3b 3b 0c 0c 3b 3b 3b 3b
+3b 3b 3b 3b 0c 0c 3b 3b 3b 3b
+08 09 08 09 0c 0c 08 09 08 09
+2c 3c 2c 3c 0c 0c 2c 3c 2c 3c
+
+# --- Port-Veille, la place : deux maisons ---
+# Ouest et est : lignes 4-5. Sud : colonnes 4-5 vers le port de pêche.
+salle 9b decor 10
+08 09 08 09 08 09 08 09 08 09
+cd 8a 81 82 3b 3b 8a 81 82 cd
+cd 90 91 92 3b 3b 90 91 92 cd
+cd f6 de f6 0c 0c f6 de f6 cd
+3b 3b 0c 0c 0c 0c 0c 0c 3b 3b
+3b 3b 3b 3b 0c 0c 3b 3b 3b 3b
+08 09 08 09 0c 0c 08 09 08 09
+2c 3c 2c 3c 0c 0c 2c 3c 2c 3c
+
+# --- Plage est : les enfants qui ne jouent plus ---
+# Ouest : lignes 4-5.
+salle 9c decor 18
+fc fc fc fc fc fc fc fc fc fc
+c5 21 21 21 21 21 21 21 22 fc
+c5 bf bf bf bf bf bf bf 27 fc
+c5 bf bf bf bf bf bf bf 27 fc
+bf bf bf bf bf bf bf bf 27 fc
+bf bf bf bf bf bf bf bf 27 fc
+c5 24 24 24 24 24 24 24 2a fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- Sentier : la rivière au pont cassé (entier dans le Songe) ---
+# Sud : colonnes 2-3. Ouest et est : lignes 3-4. Nord : colonnes 7-8.
+salle 8a decor 10
+cd cd cd cd fa fa fa 3b 3b cd
+cd 3b 3b cd fa fa fa 3b 3b cd
+cd 3b 3b 3b fa fa fa 3b 3b cd
+3b 3b 3b 3b 1d fa 1d 3b 3b 3b
+3b 3b 3b 3b 1e fa 1e 3b 3b 3b
+cd 3b 3b 3b fa fa fa 3b 3b cd
+cd cd 3b 3b fa fa fa cd cd cd
+cd cd 3b 3b fa fa fa cd cd cd
+
+# --- Bois de la Brume ---
+# Est : lignes 3-4.
+salle 89 decor 10
+08 09 08 09 08 09 08 09 08 09
+2c 3c 2c 3c 2c 3c 2c 3c 2c 3c
+08 09 3b 3b 3b 3b 3b 3b cd cd
+2c 3c 3b 2b 2b 2b 3b 3b 3b 3b
+08 09 3b 2b f8 2b 3b 3b 3b 3b
+2c 3c 3b 2b 2b 2b 3b 3b cd cd
+08 09 08 09 08 09 08 09 08 09
+2c 3c 2c 3c 2c 3c 2c 3c 2c 3c
+
+# --- Rochers aux mouettes ---
+# Ouest : lignes 3-4.
+salle 8b decor 10
+cd cd cd cd cd fc fc fc fc fc
+cd 3b 3b 3b cd fc fc fc fc fc
+cd 3b 3b 3b 3b fa f4 fa fc fc
+3b 3b 3b 3b 3b fa fa f4 fc fc
+3b 3b 3b 3b 3b fa f4 fa fc fc
+cd 3b 3b 3b cd fa fa fa fc fc
+cd cd cd cd cd fc fc fc fc fc
+cd cd cd cd cd fc fc fc fc fc
+
+# --- Falaises nord ---
+# Sud : colonnes 7-8. Est : lignes 3-4.
+salle 7a decor 10
+fc fc fc fc fc fc fc fc fc fc
+fa fa fa fa fa fa fa fa fa fa
+cd 3b 3b 3b 3b 3b 3b 3b 3b cd
+cd 3b 3b 3b 3b 3b 3b 3b 3b 3b
+cd 3b 3b fa fa fa 3b 3b 3b 3b
+cd 3b 3b fa fa fa fa 3b 3b cd
+cd cd cd cd fa fa fa 3b 3b cd
+cd cd cd cd fa fa fa 3b 3b cd
+
+# --- Cap du Phare : l'entrée du Phare Éteint (porte en ligne 3, colonne 4) ---
+# Ouest : lignes 3-4.
+salle 7b decor 10
+fc fc fc fc fc fc fc fc fc fc
+fc fa fa fa fa fa fa fa fa fc
+fa 3b 3b 99 99 99 99 3b 3b fa
+3b 3b 3b f6 de f6 f6 3b 3b fa
+3b 3b 3b 3b 0c 3b 3b 3b 3b fa
+fa 3b 3b 3b 0c 3b 3b 3b 3b fa
+fa fa 3b 3b 3b 3b 3b 3b fa fa
+fc fa fa fa fa fa fa fa fa fc

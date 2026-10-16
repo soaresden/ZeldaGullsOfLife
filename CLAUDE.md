@@ -39,6 +39,20 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   compteur wBalladeSelectTimer en $cde5).
 - Film : `tools/play.py "w560 ..."` arrive vers l'arrivée de la mouette (le film dure ~1100 images).
 
+## Salles
+- Plans : `story/salles/*.txt` (salle XX decor YY + 8 lignes de 10 briques), objets dans
+  `story/salles/objets.txt` ; `tools/make_rooms.py` (appelé par build.sh) écrit roomGGSS.bin et
+  group1Tilesets.bin, et redéfinit les objets de nos salles à la fin de objects/ages/mainData.s
+  (régénéré depuis upstream/hack-base : ne pas éditer ce fichier à la main pour nos salles).
+- Les salles du passé sont lues dans rooms/ages/small/room02SS.bin (groupe de disposition = octet 6
+  du décor dans data/ages/tilesets.s), pas room01SS.
+- `python tools/catalog.py 10 18` : planche numérotée des briques ; `--salles 9a 9b` : photos de
+  salles avec les numéros. Décor 10 = village du passé (maisons 8a 81 82 / 90 91 92 / f6 de f6,
+  toit long 8f + f6 a3 de, arbres 08 09 / 2c 3c, buisson cd, sol 3b, pavés 0c, eau fa/fc, pont 1d/1e,
+  colonnes 99) ; décor 18 = plage (sable bf, rivages 21/24/26/27, coins 22/28/2a, buisson c5,
+  planches 0e, palmier 80 81 / 90 91).
+- Téléporter Link dans PyBoy : écrire $81, salle, $00, position, $03 en wWarpDestVariables ($cc47).
+
 ## Choix de conception (Denis)
 - Marine ne suit PAS Link à l'écran (trop de sprites, ça bloquerait des choses) : elle voyage au chaud
   dans sa tunique. Elle parle depuis la tunique ; pour ses pouvoirs (planer, repérer, porter une bombe)
