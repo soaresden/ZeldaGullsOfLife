@@ -1,0 +1,96 @@
+"""Photographie toutes les salles de l'île (Réel et Songe) et le passage plage -> port dans PyBoy.
+
+Usage : python tools/test_salles.py DOSSIER_CAPTURES
+"""
+import os
+import sys
+
+from pyboy import PyBoy
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUT = sys.argv[1]
+os.makedirs(OUT, exist_ok=True)
+pb = PyBoy(os.path.join(ROOT, 'out', 'gulls_of_life.gbc'), window='null', sound_emulated=True)
+pb.set_emulation_speed(0)
+shots = [0]
+
+
+def w(n):
+    pb.tick(n, True)
+
+
+def press(b, n=4):
+    pb.button(b, 3)
+    w(n)
+
+
+def walk(b, n):
+    pb.button_press(b)
+    w(n)
+    pb.button_release(b)
+    w(4)
+
+
+def shot():
+    pb.screen.image.save(os.path.join(OUT, '%02d.png' % shots[0]))
+    shots[0] += 1
+
+
+def where(t):
+    m = pb.memory
+    print(t, 'groupe', m[0xcc2d], 'salle', hex(m[0xcc30]), 'y', hex(m[0xd00b]), 'x', hex(m[0xd00d]))
+
+
+def goto(y=None, x=None, limit=400):
+    """Guide Link jusqu'à une position (en pixels), un axe puis l'autre."""
+    for axis, target, minus, plus in (('x', x, 'left', 'right'), ('y', y, 'up', 'down')):
+        if target is None:
+            continue
+        addr = 0xd00d if axis == 'x' else 0xd00b
+        for _ in range(limit):
+            cur = pb.memory[addr]
+            if abs(cur - target) <= 1:
+                break
+            b = minus if cur > target else plus
+            pb.button_press(b)
+            w(2)
+            pb.button_release(b)
+
+
+def warp(g, r, pos):
+    for i, v in enumerate((0x80 | g, r, 0x00, pos, 0x03)):
+        pb.memory[0xcc47 + i] = v
+    w(220)
+
+
+# Nouvelle partie, scène de la plage
+for c in 'w900 start w150 start w60 a w60 a w80 a w10 start w20 a w60 a w60 a'.split():
+    w(int(c[1:])) if c[0] == 'w' else press(c)
+w(400)
+for i in range(160):
+    press('a', 22)
+    if pb.memory[0xcc8a] == 0 and i > 60:
+        break
+w(60)
+# Passage plage -> port de pêche, à pied (Réel puis Songe)
+for g in (1, 0):
+    warp(g, 0xaa, 0x46)
+    w(30)
+    pb.button_press('right')
+    for i in range(40):
+        w(4)
+        if i % 4 == 0:
+            pb.screen.image.save(os.path.join(OUT, 'passage_%d_%02d.png' % (g, i)))
+    pb.button_release('right')
+    where('après le passage %d' % g)
+ROOMS = [0x79, 0x7a, 0x7b, 0x7c, 0x89, 0x8a, 0x8b, 0x8c, 0x99, 0x9a, 0x9b, 0x9c, 0xa9, 0xaa, 0xab, 0xac]
+for g in (1, 0):
+    for r in ROOMS:
+        pb.memory[0xc6aa] = pb.memory[0xc6ab]   # vie pleine (la mer noie Link)
+        warp(g, r, 0x44)
+        w(30)
+        pb.screen.image.save(os.path.join(OUT, 'salle_%d_%02x.png' % (g, r)))
+# Retour dans le Réel après le Songe : les couleurs d'origine reviennent
+warp(1, 0x9a, 0x44)
+w(30)
+pb.screen.image.save(os.path.join(OUT, 'retour_reel_9a.png'))

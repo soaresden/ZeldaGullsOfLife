@@ -28,6 +28,18 @@ Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, ave
   donnent un quart de cœur** (la première fois qu'on les gagne), comme toujours dans Zelda.
 - Marine commente (« Vert = rien autour. Rouge... cours ! »).
 
+## La plongée (idée de Denis, plongeur)
+- Un mini-jeu de **plongée en apnée** : descendre récupérer des trucs au fond, de plus en plus
+  profond. **Chaque cœur augmente le temps d'apnée** (donc la profondeur qu'on peut atteindre).
+  Un peu comme la Maison des Coquillages de *Link's Awakening*, mais animé.
+- Quart de cœur à gagner, comme les deux autres mini-jeux.
+
+## Les cœurs : 12 au maximum
+- 3 au départ + 7 réceptacles (un par boss) = 10 ; + 2 cœurs en quarts (8 quarts).
+- Les quarts : le mini-jeu de plongée, le démineur (Creuse-Rubis / Mamono), un dans un coffre
+  (endroit à choisir), et un **trésor à déterrer** : on trouve une **carte au trésor** qui
+  indique un endroit en mer ; il faut y rester **plus de 10 secondes** (en plongée) pour l'avoir.
+
 ## Musique
 - Un remix de *La Ballade du Poisson-Rêve* (la chanson de Marine) pour le thème principal.
 - S'inspirer des **thèmes orchestraux de *Hyrule Warriors*** (idée de Denis) : de la grandeur,

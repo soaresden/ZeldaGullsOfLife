@@ -9,7 +9,9 @@ noir = transparent, gris foncé = couleur 1, gris clair = couleur 2, blanc = cou
 
 Usage : python tools/make_sprites.py   (depuis la racine du dépôt)
 """
+import io
 import os
+import subprocess
 
 from PIL import Image
 
@@ -54,6 +56,23 @@ def main():
                 sheet.putpixel((n * 16 + x, y), index[c])
     dst = os.path.join(DISASM, 'gfx_compressible', 'ages', 'spr_marine_human.png')
     sheet.save(dst)
+    print('->', os.path.relpath(dst, ROOT))
+
+    # La Lanterne des Songes (la harpe d'Ages) : à la place de l'icône de l'air des Âges,
+    # dans l'image d'origine relue dans git (on peut relancer le script)
+    png = subprocess.run(['git', 'show', 'upstream/hack-base:gfx/common/spr_item_icons_3.png'],
+                         cwd=DISASM, capture_output=True, check=True).stdout
+    icons = Image.open(io.BytesIO(png))
+    icons.load()
+    # x = 88 : inventaire et coffre (demi-tuiles $ab-$ac) ; x = 104 : la case du bouton B ou A
+    # (le jeu y prend la « petite version » de l'icône de la harpe, demi-tuiles $ad-$ae)
+    big, small = read_frames(os.path.join(ROOT, 'art', 'lanterne.txt'))
+    for left, frame in ((88, big), (104, small)):
+        for y, row in enumerate(frame):
+            for x, c in enumerate(row):
+                icons.putpixel((left + x, y), index[c])
+    dst = os.path.join(DISASM, 'gfx', 'common', 'spr_item_icons_3.png')
+    icons.save(dst)
     print('->', os.path.relpath(dst, ROOT))
 
 

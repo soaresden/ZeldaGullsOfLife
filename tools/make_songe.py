@@ -46,6 +46,15 @@ def dream(r, g, b):
     return tuple(max(0, min(31, round(o * k + t * (1 - k)))) for o, t in ((r, tr), (g, tg), (b, tb)))
 
 
+OUTDOOR = (0x7d, 0x7e, 0x7f)   # palette 0 propre au Songe partout (aussi à l'auberge)
+
+
+def palette(data, label):
+    """Couleurs (r, g, b) d'une étiquette de paletteData.s."""
+    colors = re.search(r'^%s:\n((?:\tm_RGB16 .*\n|\n)+)' % label, data, re.M).group(1)
+    return [tuple(int(v[1:], 16) for v in l.split()[1:4]) for l in colors.split('\n') if 'm_RGB16' in l]
+
+
 def replace_block(text, block):
     if BEGIN in text:
         a, b = text.index(BEGIN), text.index(END) + len(END)
@@ -62,17 +71,29 @@ def main():
     for tileset, orig, idx, name, line in SONGE:
         m = re.search(r'm_PaletteHeaderStart \$[0-9a-f]+, %s\n\tm_PaletteHeaderBg  (\d), (\d), (\w+)' % orig, headers)
         first, count, label = int(m.group(1)), int(m.group(2)), m.group(3)
-        colors = re.search(r'^%s:\n((?:\tm_RGB16 .*\n|\n)+)' % label, data, re.M).group(1)
-        rgb = [tuple(int(v[1:], 16) for v in l.split()[1:4]) for l in colors.split('\n') if 'm_RGB16' in l]
-        rgb = rgb[:count * 4]
+        rgb = palette(data, label)[:count * 4]
+        short = name[5:].title().replace('_', '')
         hdr_lines += ['m_PaletteHeaderStart $%02x, %s' % (idx, name),
-                      '\tm_PaletteHeaderBg  %d, %d, paletteData%s' % (first, count, name[5:].title().replace('_', '')),
-                      '\tm_PaletteHeaderEnd', '']
-        pal_lines.append('paletteData%s: ; Songe : %s en bleuté' % (name[5:].title().replace('_', ''), label))
+                      '\tm_PaletteHeaderBg  %d, %d, paletteData%s' % (first, count, short)]
+        if tileset in OUTDOOR:
+            # Dehors, la palette 0 (les toits rouges...) est commune à tout le jeu : le Songe a la
+            # sienne, et le décor du Réel remet celle d'origine en revenant du Songe
+            hdr_lines.append('\tm_PaletteHeaderBg  0, 1, paletteData%s0' % short)
+            start = m.group(0) + '\n'
+            restore = '\tm_PaletteHeaderBg  0, 1, paletteData48e0 ; BALLADE: après le Songe\n'
+            if start + restore not in headers:
+                headers = headers.replace(start, start + restore, 1)
+        hdr_lines += ['\tm_PaletteHeaderEnd', '']
+        pal_lines.append('paletteData%s: ; Songe : %s en bleuté' % (short, label))
         for i, c in enumerate(rgb):
             pal_lines.append('\tm_RGB16 $%02x $%02x $%02x' % dream(*c))
             if i % 4 == 3:
                 pal_lines.append('')
+        if tileset in OUTDOOR:
+            pal_lines.append('paletteData%s0: ; Songe : la palette 0 (paletteData48e0) en bleuté' % short)
+            for c in palette(data, 'paletteData48e0')[:4]:
+                pal_lines.append('\tm_RGB16 $%02x $%02x $%02x' % dream(*c))
+            pal_lines.append('')
         tilesets = re.sub(r'\t\.db [^\n]*; Tileset 0x%02x\n' % tileset,
                           '\t.db %s ; Tileset 0x%02x BALLADE: Songe\n' % (line, tileset), tilesets)
     hdr_lines.append(END)

@@ -81,7 +81,7 @@ groups:
       pas me plaindre!\stop
       Tu es content
       de me revoir?
-        \opt()Oui \opt()Bien sûr
+        \opt()Oui \opt()Carrément!
 
   - name: TX_5a03
     index: 0x03
@@ -107,6 +107,33 @@ groups:
       Il y a quelque
       chose de bizarre
       sur cette île...
+
+  # Juste avant : où sont passés tous les objets de Link's Awakening ?
+  - name: TX_5a15
+    index: 0x15
+    text: |-
+      Attends...
+      Il est où, ton
+      barda?\stop
+      Ta plume, ton
+      bracelet, tes
+      bottes, tes
+      palmes...\stop
+      Le grappin, le
+      boomerang, le
+      bouclier miroir,
+      le bâton de
+      feu...\stop
+      L'arc, les
+      bombes, et même
+      la poudre
+      magique?!\stop
+      Tu as tout perdu
+      en mer?!\stop
+      ...\stop
+      Bon. Tu m'as
+      moi, c'est déjà
+      pas mal, non?
 
   # Elle a froid : elle va se mettre dans la tunique de Link
   - name: TX_5a05
@@ -140,14 +167,14 @@ groups:
       jarres, cette
       fois!\stop
       Si tu veux me
-      parler, appuie
-      sur \col(1)SELECT\col(0).\stop
+      parler, garde
+      \col(1)SELECT\col(0) enfoncé.\stop
       Pour ta carte,
-      garde \col(1)SELECT\col(0)
-      enfoncé.
+      un petit appui
+      suffit.
 
   # ============================================================================
-  # Select (appui court) : Marine parle depuis la tunique (code/ages/balladeMarine.s)
+  # Select gardé enfoncé : Marine parle depuis la tunique (code/ages/balladeMarine.s)
   # ============================================================================
 
   # Sur la plage du réveil
@@ -271,12 +298,13 @@ groups:
   - name: TX_5a13
     index: 0x13
     text: |-
-      Perdu? Garde
-      \col(1)SELECT\col(0) enfoncé
-      pour ta carte.\stop
-      Et pour moi, un
-      petit appui
-      suffit!
+      Perdu? Un petit
+      appui sur
+      \col(1)SELECT\col(0): la
+      carte.\stop
+      Et pour moi,
+      garde-le
+      enfoncé!
 
   # ============================================================================
   # Les habitants de Port-Veille (INTERAC_BALLADE_NPC, scripts/ages/ballade.s)
@@ -506,9 +534,18 @@ groups:
       il doit être
       entier!\stop
       De l'autre côté,
-      appuie sur
-      \col(1)SELECT\col(0): je te
+      garde \col(1)SELECT\col(0)
+      enfoncé: je te
       réveillerai.
+
+  # À l'auberge, A devant le lit
+  - name: TX_5a16
+    index: 0x16
+    text: |-
+      Ce lit a l'air
+      bien douillet...
+      Dormir un peu?
+        \opt()Oui \opt()Non
 
   # Dans le Songe, Select : se réveiller ?
   - name: TX_5a14
@@ -532,11 +569,43 @@ groups:
       filets.\stop
       Une épée! Elle
       doit être à toi.\stop
+      Le reste de ton
+      matos? Oh, j'ai
+      bien vu des
+      trucs flotter,
+      au loin...\stop
+      Mais ramer
+      jusque-là?
+      Flemme!\stop
+      Hé hé! Tu vas
+      tout recommencer
+      à zéro, mon
+      gars!\stop
       Prends-la. Le
       phare, au nord,
       n'est plus sûr
       depuis qu'il
       s'est éteint.
+
+  # Juste après : Marine, depuis la tunique, sur l'épée retrouvée
+  - name: TX_5a2e
+    index: 0x2e
+    text: |-
+      \col(1)Marine\col(0):
+      Attends... Ton
+      épée, ce n'était
+      pas une épée de
+      niveau 3?\stop
+      Là, c'est écrit
+      niveau 1!\stop
+      Le sel de la mer
+      l'a rouillée?
+      Ou alors tu
+      l'as mal
+      rangée...\stop
+      Pas de sac à
+      dos, voilà le
+      problème!
 
   # ============================================================================
   # Le Phare Éteint
@@ -652,3 +721,38 @@ groups:
       Sa lumière vient
       du monde des
       rêves...
+
+# Description des objets (inventaire)
+- group: 0x09
+  data:
+  - name: TX_0941
+    index: 0x41
+    text: |-
+      Lanterne des
+      Songes
+      Dehors, sa
+      lumière ouvre
+      le chemin des
+      rêves.
+
+# Pancartes clouées sur les portes de la place de Port-Veille (data/ages/signText.s)
+- group: 0x2e
+  data:
+  - name: TX_2e1f
+    index: 0x1f
+    text: |-
+      « Baraque du
+      forain »\stop
+      FERMÉ!
+      Je reviens vite,
+      avec mes pelles
+      et mes monstres.
+  - name: TX_2e20
+    index: 0x20
+    text: |-
+      « Ne pas
+      déranger. »\stop
+      Derrière la
+      porte, on entend
+      quelqu'un
+      tourner en rond.
