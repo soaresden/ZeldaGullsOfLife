@@ -1,6 +1,6 @@
 """Test du lit de l'auberge : A devant le lit, « Dormir un peu ? », oui, Link s'endort et passe dans le Songe (retrouvailles avec Marine).
 
-Usage : python tools/test_lit.py DOSSIER_CAPTURES
+Usage : python tools/test_lit.py DOSSIER_CAPTURES [dessous]
 """
 import os
 import sys
@@ -73,8 +73,13 @@ for i in range(160):
         break
 w(60)
 # Devant le lit de l'auberge (3:9e), tourné vers lui
-warp(3, 0x9e, 0x17)
-walk('right', 6)
+# Devant l'oreiller (par défaut) ou sous le lit (argument « dessous »)
+if len(sys.argv) > 2 and sys.argv[2] == 'dessous':
+    warp(3, 0x9e, 0x38)
+    walk('up', 6)
+else:
+    warp(3, 0x9e, 0x17)
+    walk('right', 6)
 where('devant le lit')
 press('a', 30)
 shot_n = [0]

@@ -160,7 +160,42 @@ def draw():
             if ((x + d * 3) // 6 + d // 3) % 7 == 0 and d % 5 == 1:
                 c = 3 if d < 12 else 2
             put(x, y, SEA, c)
+
+    # En bas à droite, en petites lettres (police 3x5 dessinée ici) : la version et l'auteur.
+    # v1.0/N : on reste en 1.0 jusqu'à la fin du jeu, N = nombre de niveaux jouables.
+    for i, line in enumerate((VERSION, 'BY SOARESDEN 2026')):
+        width = sum(len(TINY[c][0]) + 1 for c in line) - 1
+        x, y = W - 3 - width, H - 15 + i * 7
+        for c in line:
+            for dy, row in enumerate(TINY[c]):
+                for dx, bit in enumerate(row):
+                    if bit == '#':
+                        put(x + dx, y + dy, SEA, 3)
+            x += len(TINY[c][0]) + 1
     return pix, pal
+
+
+VERSION = 'V1.0/1'
+# Petite police (3x5, un peu plus large pour M, N, W)
+TINY = {
+    ' ': ['..', '..', '..', '..', '..'],
+    '.': ['.', '.', '.', '.', '#'],
+    '/': ['..#', '..#', '.#.', '#..', '#..'],
+    '0': ['###', '#.#', '#.#', '#.#', '###'],
+    '1': ['.#', '##', '.#', '.#', '.#'],
+    '2': ['###', '..#', '###', '#..', '###'],
+    '6': ['###', '#..', '###', '#.#', '###'],
+    'A': ['###', '#.#', '###', '#.#', '#.#'],
+    'B': ['##.', '#.#', '##.', '#.#', '##.'],
+    'D': ['##.', '#.#', '#.#', '#.#', '##.'],
+    'E': ['###', '#..', '##.', '#..', '###'],
+    'N': ['#..#', '##.#', '#.##', '#..#', '#..#'],
+    'O': ['###', '#.#', '#.#', '#.#', '###'],
+    'R': ['##.', '#.#', '##.', '##.', '#.#'],
+    'S': ['###', '#..', '###', '..#', '###'],
+    'V': ['#.#', '#.#', '#.#', '#.#', '.#.'],
+    'Y': ['#.#', '#.#', '.#.', '.#.', '.#.'],
+}
 
 
 def build():
