@@ -26,6 +26,20 @@ les obstacles.
 
 ![Le Phare Éteint : l'épée, l'entrée, la petite clé, la Lanterne, le Veilleur Creux](docs/phare.png)
 
+![La Lanterne des Songes : un air, et Link passe du Réel au Songe](docs/lanterne.png)
+
+![Fin du chapitre 1 : le réceptacle de cœur, le premier couplet, Marine sur le cap, « À suivre... »](docs/fin_chapitre1.png)
+
+## Jouer
+
+**La démo (chapitre 1 et le Phare Éteint) :** télécharger `gulls_of_life.bps` dans les
+[versions publiées](https://github.com/soaresden/ZeldaGullsOfLife/releases/latest), puis
+l'appliquer sur sa propre ROM *The Legend of Zelda: Oracle of Ages* (USA, CRC32 `3800a387`)
+avec un outil de patch BPS, par exemple [Rom Patcher JS](https://www.marcrobledo.com/RomPatcher.js/)
+en ligne. Le fichier obtenu se joue dans n'importe quel émulateur Game Boy Color.
+
+Aucune ROM n'est fournie ici.
+
 ## Où on en est
 
 | Partie | État |
@@ -46,16 +60,17 @@ les obstacles.
 | Les jeux du forain : Creuse-Rubis et Mamono (démineurs, quarts de cœur aux niveaux les plus durs) | à faire |
 | Le vieux pêcheur rend son épée à Link (repêchée après le naufrage) | ✅ |
 | Le Phare Éteint, sur 2 étages : petite clé, porte à clé, clé du boss, la **Lanterne des Songes**, l'escalier, la porte du boss et le **Veilleur Creux** | ✅ |
-| Après le boss : le premier couplet (texte prêt, combat complet pas encore testé), la Lanterne qui fait passer au Songe partout | à faire |
+| Après le boss : le réceptacle de cœur, le premier couplet, la sortie sur le cap où Marine parle, puis « À suivre... » | ✅ |
+| La Lanterne des Songes : dehors, un air fait passer du Réel au Songe et retour (si la case d'arrivée est dans l'eau, Link est renvoyé) | ✅ |
 | Les retrouvailles dans le Songe : Marine se jette dans les bras de Link (des cœurs s'envolent) | ✅ |
-| Musiques : la chanson de Marine | à faire |
+| Musiques : la chanson de Marine, des thèmes inspirés des orchestres de *Hyrule Warriors* | à faire |
 
 ## Comment c'est fait
 
 Le jeu repose sur le **moteur d'Oracle of Ages**, grâce au désassemblage
 complet [oracles-disasm](https://github.com/Stewmath/oracles-disasm) de
 Stewmath (branche `hack-base`, prévue pour les hacks). Le passage
-présent/passé d'*Ages* servira au Réel et au Songe.
+présent/passé d'*Ages* sert au Réel et au Songe.
 
 | Quoi | Où |
 | --- | --- |
@@ -65,9 +80,10 @@ présent/passé d'*Ages* servira au Réel et au Songe.
 | Film d'ouverture | `code/ages/cutscenes/film.s` (fork) ; décor et sprites fabriqués par `tools/make_film.py` (ciel et nuages, soleil, mer, rondin, poses de Link prises dans le jeu, visage de Marine) ; `tools/preview_film.py` en donne un aperçu sans compiler |
 | Salles | Plans texte dans `story/salles/` (10 x 8 briques par écran) et leurs objets dans `story/salles/objets.txt` ; `tools/make_rooms.py` les met dans le jeu ; `tools/catalog.py` photographie les briques d'un décor ou des salles avec leurs numéros |
 | Carte | `tools/make_map.py` dessine `docs/carte_archipel.png` (les 8 îles, les routes du Bateau-Rondin, le plan de l'île de la Brume) |
-| Tests | `tools/play.py` joue la ROM dans PyBoy et prend des captures |
+| Tests | `tools/play.py` joue la ROM dans PyBoy et prend des captures ; `tools/test_phare.py` (le Phare jusqu'à la fin), `tools/test_lanterne.py`, `tools/test_fin.py` |
+| Patch | `tools/make_patch.py` fabrique `out/gulls_of_life.bps` à partir de la ROM *Ages* (USA) |
 
-Aucune ROM n'est distribuée ici : il faudra un patch à appliquer sur sa propre
+Aucune ROM n'est distribuée ici : seulement le patch, à appliquer sur sa propre
 ROM *Oracle of Ages* (USA).
 
 ## Compiler (Windows)

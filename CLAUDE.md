@@ -79,9 +79,19 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Objet de coffre : mode d'apparition $38 (TREASURE_OBJECT_HARP_02 = la Lanterne ; les harpes
   d'origine, mode $0a, ne sortent pas d'un coffre).
 - Entrée : porte 1:7b -> destination 4:$02 ; sortie 4:24 -> 1:$4a.
+- Après l'essence : essence.s (@essenceWarps, ligne du donjon 1) ramène sur le cap 1:7b, où
+  INTERAC_MARINE $02 (objets.txt) joue la fin si l'essence 1 est là, une seule fois (ROOMFLAG $40).
+- Lanterne des Songes = la harpe d'Ages : harpFluteParent.s saute directement au voyage dans le
+  temps (groupe xor 1, même salle), dehors seulement ; le coffre donne l'air des Âges (paramètre $03).
+  L'eau de nos îles ($fa) est dans timewarpInvalidTiles.s (sinon Link se noie à l'arrivée).
+  La table « renvoyé par une force étrange » (miscCutscenes.s) est vidée.
+- Tests : tools/test_phare.py, tools/test_lanterne.py, tools/test_fin.py (DOSSIER_CAPTURES).
+- Patch : python tools/make_patch.py "chemin/ROM Ages (USA).gbc" -> out/gulls_of_life.bps.
 - tools/render_room.py dessine n'importe quelle salle sans lancer le jeu (adresse des tuiles = idx ^ $80).
 
 ## Pièges (suite)
+- wTextboxFlags (ex. TEXTBOXFLAG_ALTPALETTE1 sur fond noir) est remis à zéro après chaque texte :
+  le réécrire avant chaque showtext.
 - Un PNJ posé sur les planches du ponton (0e) ne réagit pas au bouton A : le mettre sur le sable.
 - Banque des scripts (mainScripts, banque $0c) presque pleine : les longs scripts vont dans
   scripts/ages/balladeLong.s (loadscript), sauf dans les salles du Songe avec ondulation.

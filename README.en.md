@@ -25,6 +25,20 @@ no matter what.
 
 ![The Dark Lighthouse: the sword, the entrance, the small key, the Lantern, the Hollow Keeper](docs/phare.png)
 
+![The Lantern of Dreams: one tune, and Link goes from the Real World to the Dream World](docs/lanterne.png)
+
+![End of chapter 1: the heart container, the first verse, Marin on the cape, "To be continued..."](docs/fin_chapitre1.png)
+
+## Play
+
+**The demo (chapter 1 and the Dark Lighthouse):** download `gulls_of_life.bps` from the
+[releases](https://github.com/soaresden/ZeldaGullsOfLife/releases/latest), then apply it to
+your own *The Legend of Zelda: Oracle of Ages* (USA, CRC32 `3800a387`) ROM with a BPS
+patcher, for example [Rom Patcher JS](https://www.marcrobledo.com/RomPatcher.js/) online.
+The result plays in any Game Boy Color emulator. The game's text is in French.
+
+No ROM is provided here.
+
 ## Status
 
 | Part | Status |
@@ -45,16 +59,17 @@ no matter what.
 | The showman's games: Rupee Dig and Mamono (minesweepers, heart pieces on the hardest levels) | to do |
 | The old fisherman gives Link his sword back (fished out after the shipwreck) | ✅ |
 | The Dark Lighthouse, on 2 floors: small key, locked door, boss key, the **Lantern of Dreams**, the stairs, the boss door and the **Hollow Keeper** | ✅ |
-| After the boss: the first verse (text ready, full fight not tested yet), the Lantern switching to the Dream World anywhere | to do |
+| After the boss: the heart container, the first verse, the exit onto the cape where Marin talks, then "To be continued..." | ✅ |
+| The Lantern of Dreams: outdoors, a tune switches between the Real World and the Dream World (if Link would land in water, he is sent back) | ✅ |
 | The reunion in the Dream World: Marin throws herself into Link's arms (hearts fly up) | ✅ |
-| Music: Marin's song | to do |
+| Music: Marin's song, themes inspired by *Hyrule Warriors*' orchestral scores | to do |
 
 ## How it's made
 
 The game runs on the **Oracle of Ages engine**, thanks to Stewmath's complete
 disassembly [oracles-disasm](https://github.com/Stewmath/oracles-disasm)
-(`hack-base` branch, meant for hacks). The present/past switch of *Ages* will
-become the Real World / Dream World switch.
+(`hack-base` branch, meant for hacks). The present/past switch of *Ages* is
+the Real World / Dream World switch.
 
 | What | Where |
 | --- | --- |
@@ -64,9 +79,10 @@ become the Real World / Dream World switch.
 | Opening film | `code/ages/cutscenes/film.s` (fork); background and sprites made by `tools/make_film.py` (sky and clouds, sun, sea, log, Link poses taken from the game, Marin's face); `tools/preview_film.py` previews it without building |
 | Rooms | Text plans in `story/salles/` (10 x 8 metatiles per screen) and their objects in `story/salles/objets.txt`; `tools/make_rooms.py` puts them in the game; `tools/catalog.py` photographs a tileset's metatiles or rooms with their numbers |
 | Map | `tools/make_map.py` draws `docs/carte_archipel.png` (the 8 islands, the Log-Boat routes, the plan of Mist Island) |
-| Tests | `tools/play.py` plays the ROM in PyBoy and takes screenshots |
+| Tests | `tools/play.py` plays the ROM in PyBoy and takes screenshots; `tools/test_phare.py` (the Lighthouse to the end), `tools/test_lanterne.py`, `tools/test_fin.py` |
+| Patch | `tools/make_patch.py` makes `out/gulls_of_life.bps` from the *Ages* (USA) ROM |
 
-No ROM is distributed here: there will be a patch to apply to your own
+No ROM is distributed here: only the patch, to apply to your own
 *Oracle of Ages* (USA) ROM.
 
 ## Building (Windows)

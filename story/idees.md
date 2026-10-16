@@ -28,6 +28,12 @@ Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, ave
   donnent un quart de cœur** (la première fois qu'on les gagne), comme toujours dans Zelda.
 - Marine commente (« Vert = rien autour. Rouge... cours ! »).
 
+## Musique
+- Un remix de *La Ballade du Poisson-Rêve* (la chanson de Marine) pour le thème principal.
+- S'inspirer des **thèmes orchestraux de *Hyrule Warriors*** (idée de Denis) : de la grandeur,
+  des cuivres et des percussions, transposés aux 4 voix du Game Boy (pour le Phare, les
+  boss, la carte de l'archipel).
+
 ## Le Songe
 - Écran bleuté et qui ondule doucement, comme sous l'eau dans *Ages* (demandé par Denis).
 

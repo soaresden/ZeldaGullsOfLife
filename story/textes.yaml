@@ -553,6 +553,33 @@ groups:
       briller tout là-
       haut. On monte?
 
+  # ============================================================================
+  # Après le Phare : sur fond noir, Marine parle depuis la tunique, puis « À suivre »
+  # ============================================================================
+  - name: TX_5a30
+    index: 0x30
+    text: |-
+      \Link... Tu as
+      vu? Le Veilleur
+      dort enfin.\stop
+      Ce soir, tout
+      Port-Veille va
+      rêver.\stop
+      Mais d'autres
+      îles ont perdu
+      leurs rêves...
+      Je le sens.\stop
+      Le vent me le
+      dit.\stop
+      On ira, hein?
+      Ensemble.
+
+  - name: TX_5a31
+    index: 0x31
+    text: |-
+      
+         À suivre...
+
 # ==============================================================================
 # Textes d'Ages remplacés (même nom) : les objets qu'on trouve parlent français
 # ==============================================================================
@@ -580,6 +607,13 @@ groups:
       C'est la mienne.
       Ma chanson à
       moi!
+
+  - name: TX_0016
+    index: 0x16
+    text: |-
+      Tu as trouvé un
+      \col(1)réceptacle de
+      cœur\col(0)!
 
   - name: TX_001a
     index: 0x1a

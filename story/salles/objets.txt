@@ -36,6 +36,11 @@ salle 2:9e
 	obj_Interaction INTERAC_BALLADE_NPC $07 $28 $68
 
 # --- Le Phare Éteint (donjon 1, groupe 4) ---
+# Le cap, au pied du Phare : après l'essence, Marine parle puis « À suivre... »
+# (une seule fois : son script vérifie l'essence et marque la salle)
+salle 7b
+	obj_Interaction INTERAC_MARINE $02 $48 $48
+
 # La salle de la clé : des Zols
 salle 4:1b
 	obj_RandomEnemy $60 ENEMY_ZOL $00
