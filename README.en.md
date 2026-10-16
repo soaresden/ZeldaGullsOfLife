@@ -15,7 +15,7 @@ made a wish: to have wings and fly beyond the sea. She comes back as a
 you make your dreams come true instead of staying in them, and you keep going
 no matter what.
 
-<p align="center"><img src="docs/shots/v02_1.png" width="480" alt="Gulls of Life title screen"></p>
+<p align="center"><img src="docs/shots/v03_1.png" width="480" alt="Gulls of Life title screen"></p>
 
 ![Map of the Sleepless Archipelago](docs/carte_archipel.png)
 
@@ -26,14 +26,12 @@ eyes? The rest is for you to find.
 
 ## Play
 
-**[▶ Demo v0.2](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.2)**
+**[▶ Demo v0.3](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.3)**
 (the whole first chapter): a `gulls_of_life.bps` patch to apply to your own
 *The Legend of Zelda: Oracle of Ages* (USA) ROM. No ROM is provided.
 
-In **English or French**: you choose when you wake up on the beach, and the
-save remembers it. In v0.2 the menus (file select, save screen) are still in
-English; in the next version they follow the language (file select, save screen,
-Game Over, inventory), except on the very first start.
+In **English or French**, menus included: you choose when you wake up on the
+beach, and the save remembers it (only the very first start is in English).
 
 | Button | |
 | --- | --- |
@@ -44,20 +42,22 @@ Game Over, inventory), except on the very first start.
 <details>
 <summary><b>How to apply the patch</b></summary>
 
-1. Download `gulls_of_life.bps` from the [v0.2 release](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.2).
+1. Download `gulls_of_life.bps` from the [v0.3 release](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.3).
 2. Have your own *Oracle of Ages* ROM, **USA** version (CRC32 `3800a387`).
 3. Apply the patch with a BPS patcher, for example [Rom Patcher JS](https://www.marcrobledo.com/RomPatcher.js/) online.
-4. Play the result (CRC32 `2d2973ff`) in any Game Boy Color emulator.
+4. Play the result (CRC32 `d9c110d5`) in any Game Boy Color emulator.
 
 </details>
 
 <details>
-<summary><b>What's new in v0.2</b></summary>
+<summary><b>What's new in v0.3</b></summary>
 
-- The *Gulls of Life* title screen, right after the opening film
-- The game in English and in French
-- Select: tap for the map, hold to talk to Marin
-- Fixes: no more freezes between screens, no more white tiles or invisible walls, no more getting stuck on the island's edges, and the Lantern gets its real icon
+- An animated title screen: a seagull comes to land on it…
+- Menus in French too: file select, save, Game Over, inventory
+- The sleepwalker: in the Dream World, time is short; a little moon at the top counts down the seconds
+- In the Dream World, anything is possible… even parting the sea
+- The Dark Lighthouse introduces itself: "Level 1 – Dark Lighthouse"
+- Fixes: no more getting stuck on the lighthouse's ground floor, right status bar colours in the Dream World
 
 </details>
 
@@ -67,8 +67,8 @@ Game Over, inventory), except on the very first start.
 - ✅ Chapter 1: Mist Island
 - ✅ The first dungeon
 - ✅ The *Gulls of Life* title screen
-- ✅ English and French
-- ✅ Playable demo v0.2
+- ✅ English and French, menus included
+- ✅ Playable demo v0.3
 - ⬜ The other seven islands
 - ⬜ Games, secrets and heart pieces
 - ⬜ The music

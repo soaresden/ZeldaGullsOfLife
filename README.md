@@ -16,7 +16,7 @@ personne ne rêve.
 la morale du jeu : on réalise ses rêves, on n'y reste pas, et on avance malgré
 les obstacles.
 
-<p align="center"><img src="docs/shots/v02_1.png" width="480" alt="Écran titre de Gulls of Life"></p>
+<p align="center"><img src="docs/shots/v03_1.png" width="480" alt="Écran titre de Gulls of Life"></p>
 
 ![Carte de l'archipel des Sans-Sommeil](docs/carte_archipel.png)
 
@@ -27,14 +27,13 @@ on ferme les yeux ? Le reste, c'est à vous de le découvrir.
 
 ## Jouer
 
-**[▶ Démo v0.2](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.2)**
+**[▶ Démo v0.3](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.3)**
 (tout le premier chapitre) : un patch `gulls_of_life.bps` à appliquer sur sa
 propre ROM *The Legend of Zelda: Oracle of Ages* (USA). Aucune ROM n'est fournie.
 
-En **français ou en anglais** : on choisit en se réveillant sur la plage, et la
-sauvegarde s'en souvient. Dans la v0.2, les menus (choix du fichier, sauvegarde)
-sont encore en anglais ; dans la prochaine version ils suivent la langue (choix du
-fichier, sauvegarde, Game Over, inventaire), sauf au tout premier démarrage.
+En **français ou en anglais**, menus compris : on choisit en se réveillant sur
+la plage, et la sauvegarde s'en souvient (seul le tout premier démarrage est en
+anglais).
 
 | Touche | |
 | --- | --- |
@@ -45,20 +44,22 @@ fichier, sauvegarde, Game Over, inventaire), sauf au tout premier démarrage.
 <details>
 <summary><b>Comment appliquer le patch</b></summary>
 
-1. Télécharger `gulls_of_life.bps` dans la [version v0.2](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.2).
+1. Télécharger `gulls_of_life.bps` dans la [version v0.3](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.3).
 2. Avoir sa propre ROM *Oracle of Ages* version **USA** (CRC32 `3800a387`).
 3. Appliquer le patch avec un outil BPS, par exemple [Rom Patcher JS](https://www.marcrobledo.com/RomPatcher.js/) en ligne.
-4. Jouer le fichier obtenu (CRC32 `2d2973ff`) dans n'importe quel émulateur Game Boy Color.
+4. Jouer le fichier obtenu (CRC32 `d9c110d5`) dans n'importe quel émulateur Game Boy Color.
 
 </details>
 
 <details>
-<summary><b>Quoi de neuf dans la v0.2</b></summary>
+<summary><b>Quoi de neuf dans la v0.3</b></summary>
 
-- L'écran titre *Gulls of Life*, juste après le film d'ouverture
-- Le jeu en français et en anglais
-- Select : un appui pour la carte, maintenu pour parler à Marine
-- Corrections : plus de gel entre deux écrans, plus de tuiles blanches ni de murs invisibles, plus de blocage au bord de l'île, et la Lanterne a sa vraie icône
+- Un écran titre animé : une mouette vient s'y poser…
+- Les menus en français aussi : choix du fichier, sauvegarde, Game Over, inventaire
+- Le noctambule : dans le Songe, le temps est compté ; une petite lune en haut de l'écran égrène les secondes
+- Dans le Songe, tout est possible… même ouvrir la mer
+- Le Phare Éteint s'annonce : « Niveau 1 – Phare Éteint »
+- Corrections : plus de blocage au rez-de-chaussée du phare, les bonnes couleurs de la barre d'état dans le Songe
 
 </details>
 
@@ -68,8 +69,8 @@ fichier, sauvegarde, Game Over, inventaire), sauf au tout premier démarrage.
 - ✅ Chapitre 1 : l'île de la Brume
 - ✅ Le premier donjon
 - ✅ L'écran titre *Gulls of Life*
-- ✅ Français et anglais
-- ✅ Démo jouable v0.2
+- ✅ Français et anglais, menus compris
+- ✅ Démo jouable v0.3
 - ⬜ Les sept autres îles
 - ⬜ Des jeux, des secrets et des quarts de cœur
 - ⬜ La musique
