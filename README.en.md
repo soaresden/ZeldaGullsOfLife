@@ -15,56 +15,51 @@ made a wish: to have wings and fly beyond the sea. She comes back as a
 you make your dreams come true instead of staying in them, and you keep going
 no matter what.
 
-![Map of the Sleepless Archipelago and plan of Mist Island](docs/carte_archipel.png)
+![Map of the Sleepless Archipelago](docs/carte_archipel.png)
 
-![Opening film: the seagull lands on Link's log](docs/film_ouverture.png)
+![The opening film](docs/film_ouverture.png)
 
-![Chapter 1: Marin wakes Link up on the beach](docs/chapitre1_plage.png)
-
-![The inn, sleep, the Dream World and the dream bridge](docs/auberge_songe.png)
-
-![The Dark Lighthouse: the sword, the entrance, the small key, the Lantern, the Hollow Keeper](docs/phare.png)
-
-![The Lantern of Dreams: one tune, and Link goes from the Real World to the Dream World](docs/lanterne.png)
-
-![End of chapter 1: the heart container, the first verse, Marin on the cape, "To be continued..."](docs/fin_chapitre1.png)
+Why did the dreams go out? And what is left of Koholint… when you close your
+eyes? The rest is for you to find.
 
 ## Play
 
-**The demo (chapter 1 and the Dark Lighthouse):** download `gulls_of_life.bps` from the
-[releases](https://github.com/soaresden/ZeldaGullsOfLife/releases/latest), then apply it to
-your own *The Legend of Zelda: Oracle of Ages* (USA, CRC32 `3800a387`) ROM with a BPS
-patcher, for example [Rom Patcher JS](https://www.marcrobledo.com/RomPatcher.js/) online.
-The result plays in any Game Boy Color emulator. The game's text is in French.
+**[▶ Demo v0.1](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.1)**
+(the whole first chapter): a `gulls_of_life.bps` patch to apply to your own
+*The Legend of Zelda: Oracle of Ages* (USA) ROM. No ROM is provided. The game's
+text is in French.
 
-No ROM is provided here.
+| Button | |
+| --- | --- |
+| **Select** | the map |
+| Hold **Select** | Marin has something to say |
+
+*(In demo v0.1 it's still the other way round.)*
+
+<details>
+<summary><b>How to apply the patch</b></summary>
+
+1. Download `gulls_of_life.bps` from the [v0.1 release](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.1).
+2. Have your own *Oracle of Ages* ROM, **USA** version (CRC32 `3800a387`).
+3. Apply the patch with a BPS patcher, for example [Rom Patcher JS](https://www.marcrobledo.com/RomPatcher.js/) online.
+4. Play the result in any Game Boy Color emulator.
+
+</details>
 
 ## Status
 
-| Part | Status |
-| --- | --- |
-| New game: no *Ages* intro, Link wakes up on a beach | ✅ |
-| Marin as a seagull (sprite drawn for the game, with her hibiscus flower) | ✅ |
-| Chapter 1: Link lies unconscious, Marin flies in, lands and talks to him (with a choice), then snuggles into Link's tunic | ✅ |
-| French text, with accents (the game is in French first) | ✅ |
-| Opening film before the title screen: at dawn, Link drifts on his log and looks up; Marin's face appears in the clouds (like *Link's Awakening*'s secret ending) and fades away; a seagull flies out of it and lands, "?", a wink, "!", they both jump for joy and their hearts fly up | ✅ |
-| *Gulls of Life* title screen (currently *Ages*') | to do |
-| Talking to Marin: a short press on **Select** (a line for the current place, otherwise a random one); holding Select opens the map | ✅ |
-| Marin's lines and hints for every place in the adventure | to do |
-| Mist Island (16 screens): beach, fishing port, Port-Veille and its inn, path with a broken bridge, woods, rocks, cliffs, Lighthouse Cape | ✅ |
-| Port-Veille's people and their dialogue: the innkeeper, the old fisherman, the children who no longer play, the sleepless lady, the old man counting sheep, the teen who dreams of sailing | ✅ |
-| The inn: push the bed, Link falls asleep and wakes up in the **Dream World** | ✅ |
-| The Dream World: the island in blue tones, the screen gently waving like underwater, human Marin (the hands scene); Select in the Dream World = wake up at the same spot | ✅ |
-| First puzzle: the path's broken bridge is whole in the Dream World; cross it in a dream and wake up on the other side | ✅ |
-| The showman's games: Rupee Dig and Mamono (minesweepers, heart pieces on the hardest levels) | to do |
-| The old fisherman gives Link his sword back (fished out after the shipwreck) | ✅ |
-| The Dark Lighthouse, on 2 floors: small key, locked door, boss key, the **Lantern of Dreams**, the stairs, the boss door and the **Hollow Keeper** | ✅ |
-| After the boss: the heart container, the first verse, the exit onto the cape where Marin talks, then "To be continued..." | ✅ |
-| The Lantern of Dreams: outdoors, a tune switches between the Real World and the Dream World (if Link would land in water, he is sent back) | ✅ |
-| The reunion in the Dream World: Marin throws herself into Link's arms (hearts fly up) | ✅ |
-| Music: Marin's song, themes inspired by *Hyrule Warriors*' orchestral scores | to do |
+- ✅ The opening film
+- ✅ Chapter 1: Mist Island
+- ✅ The first dungeon
+- ✅ Playable demo v0.1
+- ⬜ The *Gulls of Life* title screen
+- ⬜ The other seven islands
+- ⬜ Games, secrets and heart pieces
+- ⬜ The music
+- ⬜ And the rest of the story…
 
-## How it's made
+<details>
+<summary><b>How it's made</b></summary>
 
 The game runs on the **Oracle of Ages engine**, thanks to Stewmath's complete
 disassembly [oracles-disasm](https://github.com/Stewmath/oracles-disasm)
@@ -79,13 +74,16 @@ the Real World / Dream World switch.
 | Opening film | `code/ages/cutscenes/film.s` (fork); background and sprites made by `tools/make_film.py` (sky and clouds, sun, sea, log, Link poses taken from the game, Marin's face); `tools/preview_film.py` previews it without building |
 | Rooms | Text plans in `story/salles/` (10 x 8 metatiles per screen) and their objects in `story/salles/objets.txt`; `tools/make_rooms.py` puts them in the game; `tools/catalog.py` photographs a tileset's metatiles or rooms with their numbers |
 | Map | `tools/make_map.py` draws `docs/carte_archipel.png` (the 8 islands, the Log-Boat routes, the plan of Mist Island) |
-| Tests | `tools/play.py` plays the ROM in PyBoy and takes screenshots; `tools/test_phare.py` (the Lighthouse to the end), `tools/test_lanterne.py`, `tools/test_fin.py` |
+| Tests | `tools/play.py` plays the ROM in PyBoy and takes screenshots; `tools/test_phare.py`, `tools/test_lanterne.py`, `tools/test_fin.py` |
 | Patch | `tools/make_patch.py` makes `out/gulls_of_life.bps` from the *Ages* (USA) ROM |
 
 No ROM is distributed here: only the patch, to apply to your own
 *Oracle of Ages* (USA) ROM.
 
-## Building (Windows)
+</details>
+
+<details>
+<summary><b>Building (Windows)</b></summary>
 
 Requirements: [MSYS2](https://www.msys2.org/) in `C:\msys64` (with `cmake`,
 `make`, `mingw-w64-x86_64-gcc`) and Python 3 with
@@ -101,8 +99,10 @@ Requirements: [MSYS2](https://www.msys2.org/) in `C:\msys64` (with `cmake`,
 
 The ROM is written to `out/gulls_of_life.gbc`.
 
+</details>
+
 ## Credits
 
 - Engine and disassembly: [oracles-disasm](https://github.com/Stewmath/oracles-disasm) by Stewmath and contributors.
-- Human Marin: graphics from oracles-disasm's `sprites/marin` branch.
+- Marin's sprites: oracles-disasm's `sprites/marin` branch.
 - *The Legend of Zelda* belongs to Nintendo; this is a fan-made hack, with no ROM.
