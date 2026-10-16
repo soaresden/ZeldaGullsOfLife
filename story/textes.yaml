@@ -160,6 +160,85 @@ groups:
       vivre plus loin.
       Allons voir!
 
+  # Port-Veille, devant l'auberge (1:9a)
+  - name: TX_5a08
+    index: 0x08
+    text: |-
+      Une auberge!\stop
+      Ils doivent
+      avoir des lits,
+      non? Un lit,
+      c'est fait pour
+      dormir...\stop
+      Et toi, quand tu
+      dors, tu rêves.
+      C'est ton vrai
+      talent, ça.
+
+  # La place de Port-Veille (1:9b)
+  - name: TX_5a09
+    index: 0x09
+    text: |-
+      Ils ont tous des
+      cernes jusqu'au
+      menton...\stop
+      Personne ne dort
+      sur cette île?
+      Brr. Ça me donne
+      des frissons.
+
+  # La plage est (1:9c)
+  - name: TX_5a0a
+    index: 0x0a
+    text: |-
+      Des enfants qui
+      ne jouent pas...
+      Ce n'est pas
+      normal.\stop
+      Sur Cocolint, on
+      passait nos
+      journées à
+      faire semblant!
+
+  # Le port de pêche (1:ab)
+  - name: TX_5a0b
+    index: 0x0b
+    text: |-
+      Un phare...
+      Tu l'as vu, au
+      nord? Il est
+      tout éteint.\stop
+      Un phare éteint,
+      c'est comme une
+      chanson qu'on
+      ne chante plus.
+
+  # Le sentier au pont cassé (1:8a)
+  - name: TX_5a0c
+    index: 0x0c
+    text: |-
+      Le pont est
+      cassé...\stop
+      Si seulement on
+      pouvait passer
+      en rêve!\stop
+      ...Attends. Et
+      si on pouvait?
+
+  # L'auberge, dedans (3:9e)
+  - name: TX_5a0d
+    index: 0x0d
+    text: |-
+      Le lit, là-bas!
+      Pousse-le un
+      moment pour te
+      coucher.\stop
+      Moi, je ne bouge
+      pas d'ici. Il
+      fait tellement
+      bon, dans ta
+      tunique!
+
   # Partout ailleurs : une réplique au hasard
   - name: TX_5a10
     index: 0x10
@@ -198,3 +277,218 @@ groups:
       Et pour moi, un
       petit appui
       suffit!
+
+  # ============================================================================
+  # Les habitants de Port-Veille (INTERAC_BALLADE_NPC, scripts/ages/ballade.s)
+  # ============================================================================
+
+  # L'aubergiste (3:9e)
+  - name: TX_5a20
+    index: 0x20
+    text: |-
+      Bienvenue à
+      l'auberge de la
+      Brume...\stop
+      Une chambre?
+      À quoi bon...\stop
+      Personne ne dort
+      plus, ici. Pas
+      depuis que le
+      phare s'est
+      éteint.\stop
+      On ferme les
+      yeux, et...
+      rien. Le noir.
+      Comme si on
+      avait vidé
+      nos têtes.\stop
+      Mais toi, tu as
+      l'air épuisé.
+      Le lit est au
+      fond. Gratuit:
+      plus personne
+      ne s'en sert.
+
+  # Le vieux pêcheur (1:ab)
+  - name: TX_5a21
+    index: 0x21
+    text: |-
+      Avant, la
+      lumière du phare
+      guidait nos
+      bateaux...\stop
+      ...et elle
+      berçait nos
+      nuits.\stop
+      Depuis qu'elle
+      s'est éteinte,
+      la brume ne
+      quitte plus
+      l'île.\stop
+      Et le sommeil
+      non plus.\stop
+      Le phare est au
+      nord, au bout
+      des falaises.
+      Mais le pont du
+      sentier s'est
+      écroulé.
+
+  # Un garçon (1:9c)
+  - name: TX_5a22
+    index: 0x22
+    text: |-
+      Jouer? C'est
+      quoi, jouer?\stop
+      Maman dit
+      qu'avant, on
+      faisait semblant
+      d'être des
+      chevaliers.\stop
+      Moi, je n'arrive
+      plus à faire
+      semblant.
+
+  # Un autre enfant (1:9c)
+  - name: TX_5a23
+    index: 0x23
+    text: |-
+      Je voulais faire
+      un château de
+      sable.\stop
+      Mais je ne sais
+      plus à quoi ça
+      ressemble, un
+      château...\stop
+      Il faudrait que
+      j'en rêve.
+
+  # La dame insomniaque (1:9b)
+  - name: TX_5a24
+    index: 0x24
+    text: |-
+      Trois semaines
+      que je n'ai pas
+      fermé l'œil.\stop
+      J'ai compté les
+      étoiles, les
+      vagues, les
+      grains de
+      sable...\stop
+      Il m'en manquait
+      toujours un.
+
+  # Le vieux qui compte les moutons (1:9b)
+  - name: TX_5a25
+    index: 0x25
+    text: |-
+      Cent quarante-
+      deux moutons...
+      Cent quarante-
+      trois...\stop
+      Ah! Tu m'as fait
+      perdre le
+      compte!\stop
+      Et il n'y a même
+      pas de moutons,
+      sur cette île!\stop
+      \col(1)Marine\col(0):
+      Pff! Hi hi!
+
+  # L'ado qui rêve d'être marin (1:9a)
+  - name: TX_5a26
+    index: 0x26
+    text: |-
+      On dit qu'en
+      haut du phare
+      brûlait une
+      lanterne qui
+      faisait rêver
+      tout l'archipel.\stop
+      Moi, je voudrais
+      devenir marin.\stop
+      Mais pour ça,
+      il faudrait
+      d'abord que j'en
+      rêve, non?
+
+  # ============================================================================
+  # Le Songe : Marine humaine (auberge du Songe, 2:9e)
+  # ============================================================================
+
+  # La première rencontre : la scène des mains
+  - name: TX_5a27
+    index: 0x27
+    text: |-
+      ...\stop
+      Oh.\stop
+      Oh!\stop
+      J'ai des mains!
+      Et des pieds!\stop
+      J'avais oublié
+      comme c'est nul
+      pour
+      l'équilibre,
+      des pieds!\stop
+      ...\stop
+      Tu sais... sur
+      Cocolint, je
+      n'ai jamais su
+      si tu m'avais
+      vraiment vue.\stop
+      Ou si j'étais
+      juste la fille
+      qui chante sur
+      la plage.
+        \opt()Je t'ai vue
+        \opt()...
+
+  - name: TX_5a28
+    index: 0x28
+    text: |-
+      ...Idiot.\stop
+      Je vais pleurer,
+      et dans un rêve,
+      ça mouille quand
+      même.
+
+  - name: TX_5a29
+    index: 0x29
+    text: |-
+      Toujours aussi
+      bavard.\stop
+      Ce n'est pas
+      grave. J'ai
+      compris quand
+      même.
+
+  # Ensuite, quand on lui parle
+  - name: TX_5a2a
+    index: 0x2a
+    text: |-
+      Ici, c'est le
+      \col(1)Songe\col(0): le
+      monde tel qu'on
+      le rêve.\stop
+      Je ne peux être
+      moi-même que
+      quand tu dors.
+      Alors ne te
+      couche pas trop
+      tard, d'accord?\stop
+      Le pont cassé du
+      sentier... Ici,
+      il doit être
+      entier!\stop
+      De l'autre côté,
+      appuie sur
+      \col(1)SELECT\col(0): je te
+      réveillerai.
+
+  # Dans le Songe, Select : se réveiller ?
+  - name: TX_5a14
+    index: 0x14
+    text: |-
+      Tu veux te
+      réveiller?
+        \opt()Oui \opt()Non

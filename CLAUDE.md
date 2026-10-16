@@ -44,14 +44,30 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   `story/salles/objets.txt` ; `tools/make_rooms.py` (appelé par build.sh) écrit roomGGSS.bin et
   group1Tilesets.bin, et redéfinit les objets de nos salles à la fin de objects/ages/mainData.s
   (régénéré depuis upstream/hack-base : ne pas éditer ce fichier à la main pour nos salles).
-- Les salles du passé sont lues dans rooms/ages/small/room02SS.bin (groupe de disposition = octet 6
-  du décor dans data/ages/tilesets.s), pas room01SS.
+- Fichier de disposition = selon le GROUPE de la salle (hack-base, @getLayoutGroup) : groupe 0 ->
+  room00SS, 1 -> room02SS, 2 -> room01SS, 3 -> room03SS (l'octet 6 du décor est ignoré).
+- hack-base : chaque décor a ses propres images (gfx/ages/gfx_tilesetXX.png), briques
+  (tileset_layouts_expanded/ages/tilesetMappingsXX.bin) et collisions : un nouveau décor doit les
+  avoir (tools/make_songe.py les copie pour $7d-$7f).
 - `python tools/catalog.py 10 18` : planche numérotée des briques ; `--salles 9a 9b` : photos de
   salles avec les numéros. Décor 10 = village du passé (maisons 8a 81 82 / 90 91 92 / f6 de f6,
   toit long 8f + f6 a3 de, arbres 08 09 / 2c 3c, buisson cd, sol 3b, pavés 0c, eau fa/fc, pont 1d/1e,
   colonnes 99) ; décor 18 = plage (sable bf, rivages 21/24/26/27, coins 22/28/2a, buisson c5,
   planches 0e, palmier 80 81 / 90 91).
 - Téléporter Link dans PyBoy : écrire $81, salle, $00, position, $03 en wWarpDestVariables ($cc47).
+
+## Le Songe
+- Réel = groupes 1 (dehors) et 3 (dedans) ; Songe = groupes 0 et 2, mêmes numéros de salles.
+  Décors du Songe $7d (village), $7e (plage), $7f (auberge), palettes bleutées (tools/make_songe.py).
+  Les salles du Songe sont des copies automatiques (tools/make_rooms.py) sauf story/salles/songe.txt.
+- Passage : balladeMarine.switchDream (groupe xor 1, même salle, case de Link). Le lit de l'auberge
+  (3:9e, case $17 vers la droite, LINK_STATE_SLEEPING) envoie dans le Songe (2:9e) ; Select dans le
+  Songe crée INTERAC_MARINE $01 qui propose le réveil.
+- Ondulation : INTERAC_BALLADE_DREAM_FX ($e9), ajoutée d'office à chaque salle du Songe. Elle écrit
+  wBigBuffer à chaque image : PAS de « loadscript » dans le Songe (ces scripts tournent depuis
+  wBigBuffer) ; et elle se met en pause pendant les textes (le mode « vague » cache les boîtes).
+- Tests : BALLADE_SANS_ONDULATION=1 ./build.sh compile sans l'ondulation.
+- Marine humaine : art/marine_humaine.png (4 poses de villageoise, branche sprites/marin), gfx $e2.
 
 ## Choix de conception (Denis)
 - Marine ne suit PAS Link à l'écran (trop de sprites, ça bloquerait des choses) : elle voyage au chaud

@@ -15,6 +15,22 @@ Notées au fil des discussions avec Denis. Pas de spoil du twist ici.
     > « Mais attends… il n'y avait personne avec nous ce jour-là ! Qui a pris cette photo ?! »
     Et Marine remarque qu'il y avait déjà des mouettes sur la photo… (petit frisson).
 
+## Les jeux du forain (demandés par Denis)
+Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, avec **deux modes** :
+- **Creuse-Rubis** : un démineur comme le « Creuse-Frissons » de *Skyward Sword*. On creuse des
+  trous avec la pelle ; chaque trou donne un rubis dont la **couleur dit combien de bombes il y a
+  autour** ; tomber sur une bombe = perdu. But : gagner de l'argent.
+- **Mamono** : un démineur à monstres, comme le mode Mamono de *Xplosive Adventures* (le jeu de
+  Denis) : chaque case cache un ennemi d'un niveau (du petit ennemi nul jusqu'au **Lynel**, très
+  résistant) ; les chiffres donnent la somme des niveaux autour ; on bat les plus faibles pour
+  monter de niveau avant d'oser s'attaquer aux gros.
+- **Plusieurs niveaux de difficulté** dans chaque mode ; **les deux plus durs de chaque mode
+  donnent un quart de cœur** (la première fois qu'on les gagne), comme toujours dans Zelda.
+- Marine commente (« Vert = rien autour. Rouge... cours ! »).
+
+## Le Songe
+- Écran bleuté et qui ondule doucement, comme sous l'eau dans *Ages* (demandé par Denis).
+
 ## Graphismes de Marine humaine (Songe)
 - Base possible : la branche `sprites/marin` d'oracles-disasm (Marine au format Oracle).
 - Denis a trouvé des sprites étendus de Marine par **gekiganger3** sur DeviantArt

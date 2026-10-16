@@ -8,7 +8,7 @@ Usage : python tools/catalog.py DECOR [DECOR ...]   (DECOR en hexadécimal, ex. 
 Sortie : out/catalog/decor_XX.png
 
 Autre mode, sans rien modifier : photographier des salles existantes du passé (groupe 1) avec
-le numéro de chaque brique : python tools/catalog.py --salles 79 7a 89
+le numéro de chaque brique : python tools/catalog.py --salles 79 7a 3:9e
 Sortie : out/catalog/salles.png
 """
 import os
@@ -80,25 +80,25 @@ def shoot_rooms(rooms):
     pb.set_emulation_speed(0)
     run(pb, NEW_GAME)
     pb.tick(300, True)
-    t = open(TILESETS, 'rb').read()
     sc, cols = 3, 3
     rows = (len(rooms) + cols - 1) // cols
     sheet = Image.new('RGB', (160 * sc * cols, (128 * sc + 20) * rows), 'black')
     d = ImageDraw.Draw(sheet)
     f = ImageFont.truetype('C:/Windows/Fonts/consolab.ttf', 13)
     big = ImageFont.truetype('C:/Windows/Fonts/consolab.ttf', 16)
-    for i, room in enumerate(rooms):
-        for j, v in enumerate((0x81, room, 0x00, 0x00, 0x03)):
+    for i, (group, room) in enumerate(rooms):
+        t = open(os.path.join(DISASM, 'rooms', 'ages', 'group%dTilesets.bin' % group), 'rb').read()
+        for j, v in enumerate((0x80 | group, room, 0x00, 0x00, 0x03)):
             pb.memory[WARP + j] = v
         pb.tick(150, True)
         im = pb.screen.image.convert('RGB').crop((0, 16, 160, 144))
         x0, y0 = (i % cols) * 160 * sc, (i // cols) * (128 * sc + 20)
         sheet.paste(im.resize((160 * sc, 128 * sc), Image.NEAREST), (x0, y0 + 20))
-        global LAYOUT
-        LAYOUT = layout_group(t[room] & 0x7f)
-        ids = open(room_path(room), 'rb').read()
+        # Le fichier de disposition dépend du groupe de la salle (voir tools/make_rooms.py)
+        ids = open(os.path.join(DISASM, 'rooms', 'ages', 'small', 'room%02x%02x.bin'
+                                % ({0: 0, 1: 2, 2: 1, 3: 3}[group], room)), 'rb').read()
         label(d, f, x0, y0 + 20, sc, ids)
-        d.text((x0 + 4, y0 + 2), 'salle 1:%02x  decor %02x' % (room, t[room] & 0x7f), font=big, fill=(255, 255, 255))
+        d.text((x0 + 4, y0 + 2), 'salle %d:%02x  decor %02x' % (group, room, t[room] & 0x7f), font=big, fill=(255, 255, 255))
     pb.stop(save=False)
     os.makedirs(OUT, exist_ok=True)
     out = os.path.join(OUT, 'salles.png')
@@ -140,7 +140,9 @@ def shoot(tileset):
 
 def main():
     if sys.argv[1] == '--salles':
-        shoot_rooms([int(a, 16) for a in sys.argv[2:]])
+        # « 9a » = salle 1:9a (le Réel) ; « 3:9e » = salle 9e du groupe 3
+        shoot_rooms([(int(a.split(':')[0]), int(a.split(':')[1], 16)) if ':' in a else (1, int(a, 16))
+                     for a in sys.argv[2:]])
         return
     for arg in sys.argv[1:]:
         tileset = int(arg, 16)

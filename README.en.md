@@ -19,6 +19,8 @@ no matter what.
 
 ![Chapter 1: Marin wakes Link up on the beach](docs/chapitre1_plage.png)
 
+![The inn, sleep, the Dream World and the dream bridge](docs/auberge_songe.png)
+
 ## Status
 
 | Part | Status |
@@ -31,9 +33,12 @@ no matter what.
 | *Gulls of Life* title screen (currently *Ages*') | to do |
 | Talking to Marin: a short press on **Select** (a line for the current place, otherwise a random one); holding Select opens the map | ✅ |
 | Marin's lines and hints for every place in the adventure | to do |
-| Sleeping to enter the Dream World (where Marin is human again) | to do |
 | Mist Island (16 screens): beach, fishing port, Port-Veille and its inn, path with a broken bridge, woods, rocks, cliffs, Lighthouse Cape | ✅ |
-| Port-Veille's people and their dialogue | to do |
+| Port-Veille's people and their dialogue: the innkeeper, the old fisherman, the children who no longer play, the sleepless lady, the old man counting sheep, the teen who dreams of sailing | ✅ |
+| The inn: push the bed, Link falls asleep and wakes up in the **Dream World** | ✅ |
+| The Dream World: the island in blue tones, the screen gently waving like underwater, human Marin (the hands scene); Select in the Dream World = wake up at the same spot | ✅ |
+| First puzzle: the path's broken bridge is whole in the Dream World; cross it in a dream and wake up on the other side | ✅ |
+| The showman's games: Rupee Dig and Mamono (minesweepers, heart pieces on the hardest levels) | to do |
 | The Dark Lighthouse and its boss, the first verse of Marin's song | to do |
 | Music: Marin's song | to do |
 
@@ -72,3 +77,9 @@ Requirements: [MSYS2](https://www.msys2.org/) in `C:\msys64` (with `cmake`,
 ```
 
 The ROM is written to `out/gulls_of_life.gbc`.
+
+## Credits
+
+- Engine and disassembly: [oracles-disasm](https://github.com/Stewmath/oracles-disasm) by Stewmath and contributors.
+- Human Marin: graphics from oracles-disasm's `sprites/marin` branch.
+- *The Legend of Zelda* belongs to Nintendo; this is a fan-made hack, with no ROM.

@@ -20,6 +20,8 @@ les obstacles.
 
 ![Chapitre 1 : Marine réveille Link sur la plage](docs/chapitre1_plage.png)
 
+![L'auberge, le sommeil, le Songe et le pont du rêve](docs/auberge_songe.png)
+
 ## Où on en est
 
 | Partie | État |
@@ -32,9 +34,12 @@ les obstacles.
 | Écran titre *Gulls of Life* (aujourd'hui : celui d'*Ages*) | à faire |
 | Parler à Marine : un appui court sur **Select** (réplique selon l'endroit, sinon au hasard) ; Select maintenu ouvre la carte | ✅ |
 | Répliques et indices de Marine pour chaque lieu de l'aventure | à faire |
-| Dormir pour passer dans le Songe (Marine y redevient humaine) | à faire |
 | L'île de la Brume (16 écrans) : plage, port de pêche, Port-Veille et son auberge, sentier au pont cassé, bois, rochers, falaises, cap du Phare | ✅ |
-| Les habitants de Port-Veille et leurs dialogues | à faire |
+| Les habitants de Port-Veille et leurs dialogues : l'aubergiste, le vieux pêcheur, les enfants qui ne jouent plus, la dame insomniaque, le vieux qui compte les moutons, l'ado qui rêve d'être marin | ✅ |
+| L'auberge : on pousse le lit, Link s'endort et se réveille dans le **Songe** | ✅ |
+| Le Songe : l'île en bleuté, l'écran qui ondule comme sous l'eau, Marine humaine (scène des mains) ; Select dans le Songe = se réveiller au même endroit | ✅ |
+| Première énigme : le pont cassé du sentier est entier dans le Songe ; on le traverse en rêve et on se réveille de l'autre côté | ✅ |
+| Les jeux du forain : Creuse-Rubis et Mamono (démineurs, quarts de cœur aux niveaux les plus durs) | à faire |
 | Le Phare Éteint et son boss, le premier couplet de la chanson de Marine | à faire |
 | Musiques : la chanson de Marine | à faire |
 
@@ -73,3 +78,9 @@ Prérequis : [MSYS2](https://www.msys2.org/) dans `C:\msys64` (avec `cmake`,
 ```
 
 La ROM sort dans `out/gulls_of_life.gbc`.
+
+## Crédits
+
+- Moteur et désassemblage : [oracles-disasm](https://github.com/Stewmath/oracles-disasm) de Stewmath et ses contributeurs.
+- Marine humaine : graphismes de la branche `sprites/marin` d'oracles-disasm.
+- *The Legend of Zelda* appartient à Nintendo ; ce projet est un hack fait par des fans, sans ROM.

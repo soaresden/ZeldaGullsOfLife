@@ -1,14 +1,22 @@
 """Construit les salles de nos îles à partir des plans texte de story/salles/*.txt.
 
-Un plan décrit une salle du Réel (groupe 1, le « passé » d'Ages) :
+Un plan décrit une salle :
 
-    salle 9a decor 10        # salle 1:9a, décor (tileset) $10 = village du passé
+    salle 9a decor 10        # salle 1:9a (le Réel), décor (tileset) $10 = village du passé
+    salle 0:8a decor 7d      # salle 0:8a (le Songe), décor $7d = village du Songe
     3b 3b 0c 0c 3b ...       # 8 lignes de 10 briques (numéros en hexadécimal)
 
+    decor 2:9e 7f copie 3:9e # changer le décor d'une salle et reprendre la disposition d'une autre
+
+Le Songe (groupe 0, le « présent » d'Ages) reprend automatiquement chaque salle du Réel avec le
+décor bleuté correspondant (voir SONGE ci-dessous et tools/make_songe.py), sauf si un plan
+« salle 0:XX » la redessine. Chaque salle du Songe (groupes 0 et 2) reçoit l'ondulation de
+l'écran (INTERAC_BALLADE_DREAM_FX).
+
 Voir out/catalog/decor_XX.png (tools/catalog.py) pour les numéros des briques. Le script
-écrit rooms/ages/small/roomGGSS.bin (GG = groupe de disposition du décor) et le décor de la
-salle dans group1Tilesets.bin. Il retire aussi les objets d'Ages de ces salles (ennemis,
-personnages) en les remplaçant par ceux de story/salles/objets.txt.
+écrit rooms/ages/small/roomGGSS.bin (GG dépend du groupe : voir LAYOUT_GROUP) et les décors dans
+groupNTilesets.bin. Il retire aussi les objets d'Ages de nos salles et les remplace par ceux de
+story/salles/objets.txt.
 
 Usage : python tools/make_rooms.py
 """
@@ -18,17 +26,33 @@ import subprocess
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DISASM = os.path.join(ROOT, 'oracles-disasm')
-TILESETS = os.path.join(DISASM, 'rooms', 'ages', 'group1Tilesets.bin')
+SONGE = {0x10: 0x7d, 0x18: 0x7e}   # décor du Réel -> décor du Songe
+DREAM_FX = '\tobj_Interaction INTERAC_BALLADE_DREAM_FX $00'
 
 
-def layout_group(tileset):
-    lines = open(os.path.join(DISASM, 'data', 'ages', 'tilesets.s'), encoding='utf-8').read().split('\n')
-    i = lines.index('\t; 0x%02x' % tileset)
-    return int(lines[i + 5].replace('.db', '').split(',')[1].strip()[1:], 16)
+def tilesets_path(group):
+    return os.path.join(DISASM, 'rooms', 'ages', 'group%dTilesets.bin' % group)
+
+
+# Dans hack-base, le fichier de disposition dépend du groupe de la salle, pas du décor
+# (code/bank0.s, @getLayoutGroup) : rooms/ages/small/roomGGSS.bin avec GG = LAYOUT_GROUP[groupe]
+LAYOUT_GROUP = {0: 0x00, 1: 0x02, 2: 0x01, 3: 0x03}
+
+
+def room_file(group, room):
+    return os.path.join(DISASM, 'rooms', 'ages', 'small', 'room%02x%02x.bin' % (LAYOUT_GROUP[group], room))
+
+
+def parse_room(name):
+    """« 9a » -> (1, 0x9a) ; « 0:8a » -> (0, 0x8a)."""
+    if ':' in name:
+        g, r = name.split(':')
+        return int(g), int(r, 16)
+    return 1, int(name, 16)
 
 
 def read_plans():
-    plans = []
+    plans, decors = [], {}
     for path in sorted(glob.glob(os.path.join(ROOT, 'story', 'salles', '*.txt'))):
         if os.path.basename(path) == 'objets.txt':
             continue
@@ -39,15 +63,27 @@ def read_plans():
                 continue
             words = line.split()
             if words[0] == 'salle':
-                cur = {'room': int(words[1], 16), 'tileset': int(words[3], 16), 'rows': [],
+                cur = {'key': parse_room(words[1]), 'tileset': int(words[3], 16), 'rows': [],
                        'where': '%s:%d' % (os.path.basename(path), n)}
                 plans.append(cur)
+                continue
+            if words[0] == 'decor':
+                # « decor 2:9e 7f copie 3:9e » : même disposition qu'une autre salle
+                copy = parse_room(words[4]) if len(words) > 4 and words[3] == 'copie' else None
+                decors[parse_room(words[1])] = (int(words[2], 16), copy)
                 continue
             assert len(words) == 10, '%s:%d : 10 briques par ligne' % (path, n)
             cur['rows'].append([int(w, 16) for w in words])
     for p in plans:
         assert len(p['rows']) == 8, '%s : 8 lignes par salle' % p['where']
-    return plans
+    # Le Songe : copie de chaque salle du Réel qui n'est pas redessinée
+    drawn = {p['key'] for p in plans}
+    for p in list(plans):
+        g, r = p['key']
+        if g == 1 and (0, r) not in drawn:
+            plans.append({'key': (0, r), 'tileset': SONGE[p['tileset']], 'rows': p['rows'],
+                          'where': p['where'] + ' (Songe)'})
+    return plans, decors
 
 
 def read_objects():
@@ -56,44 +92,53 @@ def read_objects():
         if line.startswith('#') or not line.strip():
             continue
         if line.startswith('salle'):
-            cur = int(line.split()[1], 16)
+            cur = parse_room(line.split()[1])
             objects[cur] = []
         else:
             objects[cur].append(line.rstrip('\n'))
     return objects
 
 
-def write_objects(rooms):
+def write_objects(keys):
     """Nos salles ont leurs propres objets : on retire leurs étiquettes des données d'Ages
     (souvent partagées entre plusieurs salles) et on les redéfinit à la fin du fichier."""
     path = 'objects/ages/mainData.s'
     base = subprocess.run(['git', 'show', 'upstream/hack-base:' + path], cwd=DISASM,
                           capture_output=True, check=True).stdout.decode('utf-8')
-    labels = {'group1Map%02xObjectData:' % r for r in rooms}
-    lines = [l for l in base.split('\n') if l.strip() not in labels]
     objects = read_objects()
+    keys = sorted(set(keys) | set(objects))
+    labels = {'group%dMap%02xObjectData:' % k for k in keys}
+    lines = [l for l in base.split('\n') if l.strip() not in labels]
     out = ['', '; ' + '=' * 98,
            '; BALLADE: objets des salles de nos îles (générés par tools/make_rooms.py depuis',
            '; story/salles/objets.txt)', '; ' + '=' * 98]
-    for r in sorted(rooms):
-        out.append('group1Map%02xObjectData:' % r)
-        out += objects.get(r, [])
+    for k in keys:
+        out.append('group%dMap%02xObjectData:' % k)
+        out += objects.get(k, [])
+        if k[0] in (0, 2) and not os.environ.get('BALLADE_SANS_ONDULATION'):
+            out.append(DREAM_FX)
         out.append('\tobj_End')
     with open(os.path.join(DISASM, path), 'w', encoding='utf-8', newline='\n') as f:
         f.write('\n'.join(lines).rstrip('\n') + '\n' + '\n'.join(out) + '\n')
 
 
 def main():
-    tilesets = bytearray(open(TILESETS, 'rb').read())
-    write_objects([p['room'] for p in read_plans()])
-    for p in read_plans():
-        room, ts = p['room'], p['tileset']
-        tilesets[room] = (tilesets[room] & 0x80) | ts
-        path = os.path.join(DISASM, 'rooms', 'ages', 'small', 'room%02x%02x.bin' % (layout_group(ts), room))
-        with open(path, 'wb') as f:
+    plans, decors = read_plans()
+    tilesets = {g: bytearray(open(tilesets_path(g), 'rb').read()) for g in range(4)}
+    write_objects([p['key'] for p in plans] + list(decors))
+    for p in plans:
+        (g, r), ts = p['key'], p['tileset']
+        tilesets[g][r] = (tilesets[g][r] & 0x80) | ts
+        with open(room_file(g, r), 'wb') as f:
             f.write(bytes(b for row in p['rows'] for b in row))
-    open(TILESETS, 'wb').write(tilesets)
-    print('%d salles construites' % len(read_plans()))
+    for (g, r), (ts, copy) in decors.items():
+        tilesets[g][r] = (tilesets[g][r] & 0x80) | ts
+        if copy:
+            with open(room_file(g, r), 'wb') as f:
+                f.write(open(room_file(*copy), 'rb').read())
+    for g, t in tilesets.items():
+        open(tilesets_path(g), 'wb').write(t)
+    print('%d salles construites (Réel et Songe)' % len(plans))
 
 
 main()

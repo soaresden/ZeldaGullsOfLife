@@ -1,0 +1,17 @@
+# Le Songe de l'île de la Brume (groupe 0 dehors, groupe 2 dedans).
+# Chaque salle du Réel a sa copie bleutée automatique (tools/make_rooms.py) ; on ne redessine ici
+# que les salles qui changent dans le rêve.
+
+# Le sentier : dans le Songe, le pont est entier
+salle 0:8a decor 7d
+cd cd cd cd fa fa fa 3b 3b cd
+cd 3b 3b cd fa fa fa 3b 3b cd
+cd 3b 3b 3b fa fa fa 3b 3b cd
+3b 3b 3b 3b 1d 1d 1d 3b 3b 3b
+3b 3b 3b 3b 1e 1e 1e 3b 3b 3b
+cd 3b 3b 3b fa fa fa 3b 3b cd
+cd cd 3b 3b fa fa fa cd cd cd
+cd cd 3b 3b fa fa fa cd cd cd
+
+# L'auberge du Songe : même disposition que l'auberge du Réel (3:9e), décor bleuté
+decor 2:9e 7f copie 3:9e

@@ -1,7 +1,36 @@
-# Objets (personnages, Marine, ennemis...) des salles de nos îles, groupe 1 (le Réel).
-# Une ligne « salle XX », puis les objets au format d'oracles-disasm (objects/macros.s) :
+# Objets (personnages, Marine, ennemis...) des salles de nos îles.
+# Une ligne « salle XX » (groupe 1, le Réel) ou « salle G:XX » (autre groupe, ex. 3:9e pour un
+# intérieur), puis les objets au format d'oracles-disasm (objects/macros.s) :
 #   obj_Interaction TYPE SOUS-TYPE Y X     un personnage ou un objet animé
-# Les salles du plan (story/salles/*.txt) absentes d'ici n'ont aucun objet.
+# Y et X sont en pixels : ligne L, colonne C -> Y = L*16+8, X = C*16+8.
+# Les salles des plans (story/salles/*.txt) absentes d'ici n'ont aucun objet.
 
+# La plage du réveil : Marine arrive
 salle aa
 	obj_Interaction INTERAC_MARINE $00 $08 $98
+
+# Port-Veille ouest : l'ado qui rêve d'être marin
+salle 9a
+	obj_Interaction INTERAC_BALLADE_NPC $06 $58 $78
+
+# La place : la dame insomniaque, le vieux qui compte les moutons
+salle 9b
+	obj_Interaction INTERAC_BALLADE_NPC $04 $58 $28
+	obj_Interaction INTERAC_BALLADE_NPC $05 $58 $78
+
+# La plage est : les enfants qui ne jouent plus
+salle 9c
+	obj_Interaction INTERAC_BALLADE_NPC $02 $38 $38
+	obj_Interaction INTERAC_BALLADE_NPC $03 $48 $68
+
+# Le port de pêche : le vieux pêcheur, au bout du ponton
+salle ab
+	obj_Interaction INTERAC_BALLADE_NPC $01 $38 $88
+
+# L'auberge (la maison de Nayru d'Ages) : l'aubergiste
+salle 3:9e
+	obj_Interaction INTERAC_BALLADE_NPC $00 $48 $38
+
+# L'auberge du Songe : Marine humaine, près du lit (Link se réveille dans le rêve en case $17)
+salle 2:9e
+	obj_Interaction INTERAC_BALLADE_NPC $07 $28 $68
