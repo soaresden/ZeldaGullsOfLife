@@ -26,7 +26,7 @@ eyes? The rest is for you to find.
 
 ## Play
 
-**[▶ Demo v0.3](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.3)**
+**[▶ Demo v0.3.1](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.3.1)**
 (the whole first chapter): a `gulls_of_life.bps` patch to apply to your own
 *The Legend of Zelda: Oracle of Ages* (USA) ROM. No ROM is provided.
 
@@ -42,7 +42,7 @@ beach, and the save remembers it (only the very first start is in English).
 <details>
 <summary><b>How to apply the patch</b></summary>
 
-1. Download `gulls_of_life.bps` from the [v0.3 release](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.3).
+1. Download `gulls_of_life.bps` from the [v0.3.1 release](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.3.1).
 2. Have your own *Oracle of Ages* ROM, **USA** version (CRC32 `3800a387`).
 3. Apply the patch with a BPS patcher, for example [Rom Patcher JS](https://www.marcrobledo.com/RomPatcher.js/) online.
 4. Play the result (CRC32 `d9c110d5`) in any Game Boy Color emulator.

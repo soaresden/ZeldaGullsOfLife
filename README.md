@@ -27,7 +27,7 @@ on ferme les yeux ? Le reste, c'est à vous de le découvrir.
 
 ## Jouer
 
-**[▶ Démo v0.3](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.3)**
+**[▶ Démo v0.3.1](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.3.1)**
 (tout le premier chapitre) : un patch `gulls_of_life.bps` à appliquer sur sa
 propre ROM *The Legend of Zelda: Oracle of Ages* (USA). Aucune ROM n'est fournie.
 
@@ -44,7 +44,7 @@ anglais).
 <details>
 <summary><b>Comment appliquer le patch</b></summary>
 
-1. Télécharger `gulls_of_life.bps` dans la [version v0.3](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.3).
+1. Télécharger `gulls_of_life.bps` dans la [version v0.3.1](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.3.1).
 2. Avoir sa propre ROM *Oracle of Ages* version **USA** (CRC32 `3800a387`).
 3. Appliquer le patch avec un outil BPS, par exemple [Rom Patcher JS](https://www.marcrobledo.com/RomPatcher.js/) en ligne.
 4. Jouer le fichier obtenu (CRC32 `d9c110d5`) dans n'importe quel émulateur Game Boy Color.
