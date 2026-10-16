@@ -93,6 +93,12 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - wTextboxFlags (ex. TEXTBOXFLAG_ALTPALETTE1 sur fond noir) est remis à zéro après chaque texte :
   le réécrire avant chaque showtext.
 - Un PNJ posé sur les planches du ponton (0e) ne réagit pas au bouton A : le mettre sur le sable.
+- Superposer un PNJ et Link (câlin) : `writememory wLinkCanPassNpcs, $01` sinon le PNJ solide
+  pousse Link ; le jeu dessine Link DEVANT tout objet moins de 11 pixels plus bas que lui
+  (objectSetPriorityRelativeToLink) : pour un vrai câlin, Marine passe derrière (au-dessus de
+  Link, son visage par-dessus son épaule). Remettre $00 après.
+- Le Songe ouvre la mer en deux là où était le pont du sentier (0:8a : murs de vagues fe/ff, fond
+  de la mer 1a/1b) ; dans le Réel (1:8a) l'île est coupée en deux, sans ouvriers pour réparer.
 - Banque des scripts (mainScripts, banque $0c) presque pleine : les longs scripts vont dans
   scripts/ages/balladeLong.s (loadscript), sauf dans les salles du Songe avec ondulation.
 - Ne plus réécrire l'historique (amend / force) : une autre session travaille dans ce dépôt

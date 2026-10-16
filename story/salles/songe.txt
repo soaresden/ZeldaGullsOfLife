@@ -2,14 +2,15 @@
 # Chaque salle du Réel a sa copie bleutée automatique (tools/make_rooms.py) ; on ne redessine ici
 # que les salles qui changent dans le rêve.
 
-# Le sentier : dans le Songe, le pont est entier
+# Le sentier : dans le Songe, tout est possible... la mer s'ouvre en deux là où était le pont
+# (murs de vagues fe/ff, fond de la mer 1a/1b)
 salle 0:8a decor 7d
 cd cd cd cd fa fa fa 3b 3b cd
 cd 3b 3b cd fa fa fa 3b 3b cd
-cd 3b 3b 3b fa fa fa 3b 3b cd
-3b 3b 3b 3b 1d 1d 1d 3b 3b 3b
-3b 3b 3b 3b 1e 1e 1e 3b 3b 3b
-cd 3b 3b 3b fa fa fa 3b 3b cd
+cd 3b 3b 3b fe fe fe 3b 3b cd
+3b 3b 3b 3b 1a 1b 1a 3b 3b 3b
+3b 3b 3b 3b 1b 1a 1b 3b 3b 3b
+cd 3b 3b 3b ff ff ff 3b 3b cd
 cd cd 3b 3b fa fa fa cd cd cd
 cd cd 3b 3b fa fa fa cd cd cd
 

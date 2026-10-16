@@ -235,10 +235,19 @@ groups:
   - name: TX_5a0c
     index: 0x0c
     text: |-
-      The bridge is
-      broken...\stop
+      The bridge fell
+      apart... There's
+      nothing left!\stop
+      The island is
+      cut in two, with
+      the sea running
+      between.\stop
+      And not a single
+      worker on this
+      island to build
+      it again!\stop
       If only we could
-      cross it in a
+      cross in a
       dream!\stop
       ...Wait. What if
       we could?
@@ -347,7 +356,14 @@ groups:
       past the cliffs.
       But the path's
       bridge has
-      collapsed.
+      collapsed.\stop
+      Nothing's left:
+      the island is
+      cut in two!\stop
+      Workers, here?
+      There aren't
+      any. We're
+      fishermen.
 
   # A boy (1:9c)
   - name: TX_5a22
@@ -450,9 +466,16 @@ groups:
       I'm here.
       I'm alive.
       I have a body!\stop
-      I can hold you
-      in my arms...
-      At last!\stop
+      So I can finally
+      hold you in my
+      arms!
+
+  # In his arms
+  - name: TX_5a2f
+    index: 0x2f
+    text: |-
+      I'm so, so,
+      so happy!\stop
       Don't move.
       Just a little
       longer.\stop
@@ -462,6 +485,18 @@ groups:
       I was so scared
       of disappearing
       forever.
+
+  # She steps back... and teases him
+  - name: TX_5a32
+    index: 0x32
+    text: |-
+      But hey...\stop
+      I'm in YOUR
+      dream!\stop
+      What does that
+      mean, huh?\stop
+      You dream about
+      me?! Hee hee!
 
   # What she never dared to ask
   - name: TX_5a2d
@@ -510,10 +545,15 @@ groups:
       sleep. So don't
       stay up too
       late, okay?\stop
-      The broken
-      bridge on the
-      path... Here, it
-      must be whole!\stop
+      In the world of
+      dreams, anything
+      is possible!\stop
+      Even parting the
+      sea in two, like
+      Moses!\stop
+      Go and look
+      where the bridge
+      used to be!\stop
       On the other
       side, hold
       \col(1)SELECT\col(0): I'll

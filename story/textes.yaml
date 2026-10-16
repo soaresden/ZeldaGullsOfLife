@@ -244,8 +244,17 @@ groups:
   - name: TX_5a0c
     index: 0x0c
     text: |-
-      Le pont est
-      cassé...\stop
+      Le pont s'est
+      effondré... Il
+      n'en reste rien!\stop
+      L'île est coupée
+      en deux, et la
+      mer passe au
+      milieu.\stop
+      Et pas un seul
+      ouvrier sur
+      cette île pour
+      le reconstruire!\stop
       Si seulement on
       pouvait passer
       en rêve!\stop
@@ -361,7 +370,14 @@ groups:
       des falaises.
       Mais le pont du
       sentier s'est
-      écroulé.
+      écroulé.\stop
+      Il n'en reste
+      rien: l'île est
+      coupée en deux!\stop
+      Et des ouvriers,
+      ici? Il n'y en a
+      pas. On est des
+      pêcheurs, nous.
 
   # Un garçon (1:9c)
   - name: TX_5a22
@@ -461,7 +477,7 @@ groups:
       des pieds!\stop
       \Link!
 
-  # Le câlin des retrouvailles
+  # Le câlin des retrouvailles : elle le dit, puis elle se jette dans ses bras
   - name: TX_5a2c
     index: 0x2c
     text: |-
@@ -469,9 +485,18 @@ groups:
       Je suis là.
       Je suis vivante.
       J'ai un corps!\stop
-      Je peux te
-      serrer dans mes
-      bras... Enfin!\stop
+      Alors je peux
+      enfin te serrer
+      dans mes bras!
+
+  # Dans ses bras
+  - name: TX_5a2f
+    index: 0x2f
+    text: |-
+      Je suis
+      tellement,
+      tellement
+      heureuse!\stop
       Ne bouge pas.
       Encore un peu.\stop
       ...\stop
@@ -480,6 +505,18 @@ groups:
       j'ai eu si peur
       de disparaître
       pour toujours.
+
+  # Elle recule d'un pas... et le taquine
+  - name: TX_5a32
+    index: 0x32
+    text: |-
+      Mais hé...\stop
+      Je suis dans
+      TON rêve!\stop
+      Qu'est-ce que ça
+      veut dire, ça?\stop
+      Tu rêves de
+      moi?! Hi hi!
 
   # Ce qu'elle n'a jamais osé demander
   - name: TX_5a2d
@@ -530,10 +567,15 @@ groups:
       Alors ne te
       couche pas trop
       tard, d'accord?\stop
-      Le pont cassé du
-      sentier... Ici,
-      il doit être
-      entier!\stop
+      Dans le monde
+      des rêves, tout
+      est possible!\stop
+      Même ouvrir la
+      mer en deux,
+      comme Moïse!\stop
+      Va donc voir là
+      où il y avait
+      le pont!\stop
       De l'autre coté,
       garde \col(1)SELECT\col(0)
       enfoncé: je te
