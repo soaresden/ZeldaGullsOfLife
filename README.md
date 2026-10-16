@@ -111,7 +111,7 @@ présent/passé d'*Ages* sert au Réel et au Songe.
 | Sprites | Dessins en texte dans `art/` ; `tools/make_sprites.py` les convertit |
 | Film d'ouverture | `code/ages/cutscenes/film.s` (fork) ; décor et sprites fabriqués par `tools/make_film.py` (ciel et nuages, soleil, mer, rondin, poses de Link prises dans le jeu, visage de Marine) ; `tools/preview_film.py` en donne un aperçu sans compiler |
 | Salles | Plans texte dans `story/salles/` (10 x 8 briques par écran) et leurs objets dans `story/salles/objets.txt` ; `tools/make_rooms.py` les met dans le jeu ; `tools/catalog.py` photographie les briques d'un décor ou des salles avec leurs numéros |
-| Carte | `tools/make_map.py` dessine `docs/carte_archipel.png` (les 8 îles, les routes du Bateau-Rondin, le plan de l'île de la Brume) |
+| Carte | `tools/make_map.py` dessine `docs/carte_archipel.png` (les 8 îles, les routes du Bateau-Rondin, le plan de l'île de la Brume) ; `tools/make_plans.py` dessine `docs/iles_plans.png` (les écrans de chaque île et la forme de son donjon, d'après `story/iles.md`) |
 | Tests | `tools/play.py` joue la ROM dans PyBoy et prend des captures ; `tools/test_temple.py`, `tools/test_lanterne.py`, `tools/test_fin.py` |
 | Musique | Partitions en texte dans `music/` ; `tools/make_music.py` les convertit pour le moteur d'*Ages*, `tools/record_music.py` enregistre un aperçu `.wav`, `tools/make_page_music.py` la boucle de l'écran titre jouée sur la page (`docs/titre.ogg`) |
 | Patch | `tools/make_patch.py` fabrique `out/gulls_of_life.bps` à partir de la ROM *Ages* (USA) |

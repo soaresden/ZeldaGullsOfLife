@@ -2,6 +2,9 @@
 
 Notées au fil des discussions avec Denis. Pas de spoil du twist ici.
 
+Le plan des sept autres îles (formes, habitants, donjons, objets, musiques) : `story/iles.md`,
+dessiné dans `docs/iles_plans.png` par `tools/make_plans.py`.
+
 ## Les photos de Cocolint
 - Clin d'œil à l'album de la souris photographe de *Link's Awakening DX*. Dans une veillée ou
   dans le Songe, Marine fouille la poche de Link :

@@ -55,6 +55,39 @@ def blob(cx, cy, r, seed, n=48):
     return pts
 
 
+def shape(kind, cx, cy, r, seed, n=96):
+    """Le contour d'une île selon sa forme (story/iles.md) : grelot rond, atoll, cône, cloche,
+    plume, flocon, œil ; les autres restent des taches."""
+    rnd = random.Random(seed)
+    ph = [rnd.uniform(0, math.tau) for _ in range(3)]
+    pts = []
+    for i in range(n):
+        a = math.tau * i / n
+        wob = 1 + 0.05 * math.sin(5 * a + ph[0]) + 0.03 * math.sin(9 * a + ph[1])
+        x, y = math.cos(a), math.sin(a)
+        if kind == 'jouet':          # grelot : rond, la jetée dessinée à part
+            k = 1.0
+        elif kind == 'cloche':       # cloche : large en bas, arrondie en haut
+            k = 1.0
+            y = y * 0.9
+            x = x * (0.62 + 0.38 * (y + 1) / 2) * (1.25 if y > 0.6 else 1)
+        elif kind == 'nuage':        # plume : longue, fine, pointue, de travers
+            x, y = x * 1.5, y * 0.42 * (1 - 0.35 * x)
+            t = math.radians(-28)
+            x, y = x * math.cos(t) - y * math.sin(t), x * math.sin(t) + y * math.cos(t)
+            k = 1.0
+        elif kind == 'flocon':       # flocon : six branches
+            k = 0.5 + 0.55 * abs(math.cos(3 * (a + 0.26))) ** 6
+            wob = 1
+        elif kind == 'oeil':         # œil : une amande
+            x, y = x * 1.45, y * 0.62 * (1 - 0.15 * abs(x))
+            k = 1.0
+        else:
+            return blob(cx, cy, r, seed)
+        pts.append((cx + x * r * k * wob, cy + y * r * k * wob * 0.85))
+    return pts
+
+
 def scaled(pts, cx, cy, f):
     return [(cx + (x - cx) * f, cy + (y - cy) * f) for x, y in pts]
 
@@ -123,13 +156,20 @@ def draw_archipelago(img):
             d.line([p1, p2], fill=(250, 240, 200), width=3)
     # Îles
     for i, (name, sub, (cx, cy), r, green, icon) in enumerate(ISLANDS):
-        pts = blob(cx, cy, r, seed=i * 13 + 5)
+        pts = shape(icon, cx, cy, r, seed=i * 13 + 5)
         if icon == 'nuage':
             # île flottante : son ombre sur la mer
             d.ellipse([cx - r, cy + r * 0.9, cx + r, cy + r * 1.3], fill=(36, 84, 140))
         d.polygon(scaled(pts, cx, cy, 1.18), fill=SEA_LIGHT)
+        if icon == 'jouet':
+            # la poignée du grelot : la jetée
+            d.rectangle([cx - 7, cy + r * 0.8, cx + 7, cy + r * 1.35], fill=(165, 115, 60), outline=INK)
         d.polygon(pts, fill=SAND, outline=INK)
         d.polygon(scaled(pts, cx, cy, 0.78), fill=green)
+        if icon == 'coquillage':
+            # l'atoll : une lagune turquoise au milieu de l'anneau
+            d.polygon(scaled(pts, cx, cy, 0.5), fill=SAND)
+            d.polygon(scaled(pts, cx, cy, 0.42), fill=(110, 200, 205))
         draw_icon(d, icon, cx, cy - 6)
         tw = d.textlength(name, font=NAME)
         ty = cy + r * 0.95 + 8
@@ -196,7 +236,7 @@ def draw_plan(img, x0, y0):
              "2. Port-Veille : personne ne dort ; l'aubergiste prête un lit",
              '3. Dans le Songe, Marine redevient humaine ; un pont de rêve',
              '   traverse la brume vers le sentier des falaises',
-             '4. Le Phare Éteint : la Lanterne des Songes, le Veilleur Creux',
+             '4. Le Phare Éteint : la Lanterne des Songes, Jack la citrouille',
              '5. Premier couplet de la chanson de Marine ; le Ponton s\'ouvre']
     yy = y0 + 4 * ch + 22
     for s in steps:

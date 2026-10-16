@@ -109,7 +109,7 @@ the Real World / Dream World switch.
 | Sprites | Text drawings in `art/`; `tools/make_sprites.py` converts them |
 | Opening film | `code/ages/cutscenes/film.s` (fork); background and sprites made by `tools/make_film.py` (sky and clouds, sun, sea, log, Link poses taken from the game, Marin's face); `tools/preview_film.py` previews it without building |
 | Rooms | Text plans in `story/salles/` (10 x 8 metatiles per screen) and their objects in `story/salles/objets.txt`; `tools/make_rooms.py` puts them in the game; `tools/catalog.py` photographs a tileset's metatiles or rooms with their numbers |
-| Map | `tools/make_map.py` draws `docs/carte_archipel.png` (the 8 islands, the Log-Boat routes, the plan of Mist Island) |
+| Map | `tools/make_map.py` draws `docs/carte_archipel.png` (the 8 islands, the Log-Boat routes, the plan of Mist Island); `tools/make_plans.py` draws `docs/iles_plans.png` (each island's screens and the shape of its dungeon, from `story/iles.md`) |
 | Tests | `tools/play.py` plays the ROM in PyBoy and takes screenshots; `tools/test_temple.py`, `tools/test_lanterne.py`, `tools/test_fin.py` |
 | Music | Text scores in `music/`; `tools/make_music.py` converts them for the *Ages* engine, `tools/record_music.py` records a `.wav` preview, `tools/make_page_music.py` makes the title-screen loop played on the page (`docs/titre.ogg`) |
 | Patch | `tools/make_patch.py` makes `out/gulls_of_life.bps` from the *Ages* (USA) ROM |
