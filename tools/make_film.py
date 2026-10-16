@@ -4,7 +4,7 @@
 - gfx_film_bg.png : tuiles du décor (ciel à l'aube, horizon, mer), sans doublons ;
 - map_film_bg.bin / flg_film_bg.bin : carte du décor (32 x 18 tuiles) et attributs (palettes) ;
 - spr_film.png : sprites (poses de Link prises dans spr_link.png, Marine en mouette,
-  rondin, soleil, bulles « ! » et « ? », cœur).
+  rondin, soleil, bulles « ! » et « ? », cœur, visage de Marine dans les nuages et sa fleur).
 
 La mer se répète tous les 32 pixels : le jeu peut faire défiler tout le décor (le ciel est
 uni sur chaque ligne, on ne voit bouger que les vagues).
@@ -28,8 +28,28 @@ SPR_GREY = {'.': 0, 'k': 85, 'r': 170, 'w': 255}  # spr_* : couleurs inversées
 HORIZON = 80   # ligne de l'horizon (pixels)
 
 
+# Nuages : cercles (x, y, rayon) ; le décor fait 256 pixels de large et se répète
+CLOUDS = [
+    [(20, 34, 7), (30, 30, 9), (42, 32, 8), (52, 35, 6), (36, 37, 7)],
+    [(138, 44, 5), (147, 41, 7), (157, 44, 5)],
+    [(196, 26, 6), (207, 22, 8), (219, 25, 7), (229, 28, 5), (210, 29, 6)],
+]
+
+
+def in_cloud(x, y):
+    for cloud in CLOUDS:
+        for (cx, cy, r) in cloud:
+            dx = (x - cx + 128) % 256 - 128
+            if dx * dx + (y - cy) * (y - cy) * 2 <= r * r:
+                return True
+    return False
+
+
 def sky_color(x, y):
-    """Dégradé du haut (bleu nuit) vers l'horizon (lueur), avec un tramage entre les bandes."""
+    """Dégradé du haut (bleu nuit) vers l'horizon (lueur), avec un tramage entre les bandes.
+    Les nuages sont bleu clair, dorés par le soleil levant sur leur bord inférieur."""
+    if in_cloud(x, y):
+        return 3 if not in_cloud(x, y + 2) else 2
     t = (y - 16) / (HORIZON - 16) * 3.0   # 0 en haut du ciel, 3 à l'horizon
     base = int(t)
     frac = t - base
@@ -132,7 +152,7 @@ def read_gull_frames():
 
 
 def build_sprites():
-    im = Image.new('L', (128, 32), 0)
+    im = Image.new('L', (128, 64), 0)
     link = Image.open(LINK_PNG).convert('L')
 
     def put_cell(cell, row, rows=None, link_cell=None):
@@ -167,6 +187,11 @@ def build_sprites():
         put_cell(3 + i, 1, [r[i * 16:i * 16 + 16] for r in art['sun']])
     put_cell(5, 1, art['heart'])
     put_cell(6, 1, art['question'])
+    # Lignes 2-3 : visage de Marine (2x2 cases), sa fleur
+    for i in range(2):
+        for j in range(2):
+            put_cell(i, 2 + j, [r[i * 16:i * 16 + 16] for r in art['face'][j * 16:j * 16 + 16]])
+    put_cell(2, 2, art['flower'])
 
     out = Image.new('P', im.size)
     out.putpalette([0, 0, 0, 85, 85, 85, 170, 170, 170, 255, 255, 255] + [0] * (768 - 12))

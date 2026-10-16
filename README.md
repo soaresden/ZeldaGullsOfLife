@@ -26,8 +26,7 @@ les obstacles.
 | Marine en mouette (sprite dessiné pour le jeu, avec sa fleur d'hibiscus) | ✅ |
 | Chapitre 1 : Link évanoui, Marine arrive en volant, se pose et lui parle (choix de réponse) | ✅ |
 | Textes en français, avec les accents | ✅ |
-| Film d'ouverture avant l'écran titre : à l'aube, Link dérive sur son rondin, une mouette se pose, « ? », clin d'œil, « ! », ils sautent de joie tous les deux et leurs cœurs s'envolent | ✅ |
-| Dans le film, le visage de Marine dans les nuages (comme à la fin secrète de *Link's Awakening*) | à faire |
+| Film d'ouverture avant l'écran titre : à l'aube, Link dérive sur son rondin et lève les yeux ; le visage de Marine apparaît dans les nuages (comme à la fin secrète de *Link's Awakening*) et s'efface ; une mouette s'en envole et se pose, « ? », clin d'œil, « ! », ils sautent de joie tous les deux et leurs cœurs s'envolent | ✅ |
 | Écran titre *Gulls of Life* (aujourd'hui : celui d'*Ages*) | à faire |
 | Marine qui suit Link et donne des indices | à faire |
 | Dormir pour passer dans le Songe (Marine y redevient humaine) | à faire |
@@ -46,7 +45,7 @@ présent/passé d'*Ages* servira au Réel et au Songe.
 | Code, scripts, données | Branche [`hack/gulls-of-life`](https://github.com/soaresden/oracles-disasm/tree/hack/gulls-of-life) du fork (ajouts marqués `BALLADE`) : `scripts/ages/ballade.s`, `object_code/ages/interactions/marine.s` |
 | Dialogues | `story/textes.yaml`, en français normal ; `tools/make_text.py` les ajoute au jeu, `tools/check_text.py` vérifie la largeur des lignes (16 caractères) |
 | Sprites | Dessins en texte dans `art/` ; `tools/make_sprites.py` les convertit |
-| Film d'ouverture | `code/ages/cutscenes/film.s` (fork) ; décor et sprites fabriqués par `tools/make_film.py` (ciel, soleil, mer, rondin, poses de Link prises dans le jeu) |
+| Film d'ouverture | `code/ages/cutscenes/film.s` (fork) ; décor et sprites fabriqués par `tools/make_film.py` (ciel et nuages, soleil, mer, rondin, poses de Link prises dans le jeu, visage de Marine) ; `tools/preview_film.py` en donne un aperçu sans compiler |
 | Tests | `tools/play.py` joue la ROM dans PyBoy et prend des captures |
 
 Aucune ROM n'est distribuée ici : il faudra un patch à appliquer sur sa propre

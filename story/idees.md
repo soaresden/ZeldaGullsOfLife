@@ -2,12 +2,6 @@
 
 Notées au fil des discussions avec Denis. Pas de spoil du twist ici.
 
-## Film d'ouverture
-- Quand Link lève les yeux vers le ciel : le **visage de Marine se dessine dans les nuages**,
-  s'efface, puis la mouette apparaît (clin d'œil à la fin secrète de *Link's Awakening*, quand
-  on finit sans mourir). Références : le portrait pixel de Marine dans *Hyrule Warriors*, la
-  fin en dessin animé du remake Switch. Il faudra des nuages dans le ciel du film.
-
 ## Les photos de Cocolint
 - Clin d'œil à l'album de la souris photographe de *Link's Awakening DX*. Dans une veillée ou
   dans le Songe, Marine fouille la poche de Link :

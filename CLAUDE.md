@@ -40,5 +40,6 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Lit qui fait dormir Link : `checkLinkPushingAgainstBed` (link.s), LINK_STATE_SLEEPING -> futur passage au Songe.
 - Intro : runIntroCinematic (bank3Cutscenes.s) : 0 = notre film (à la place de la chevauchée), 1 = temple
   (sauté), 2 = montée de l'arbre puis écran titre.
-- Idée suivante pour le film : le visage de Marine dans les nuages quand Link lève les yeux (fin secrète
-  de LA ; références montrées par Denis : portrait pixel de Hyrule Warriors, fin du remake Switch).
+- Film : visage de Marine dans les nuages (art/film_sprites.txt @face, palette 5, scintillement
+  pour l'effet de vision ; minuteur en $cbc0). Références de Denis : portrait pixel de Hyrule
+  Warriors, fin du remake Switch.
