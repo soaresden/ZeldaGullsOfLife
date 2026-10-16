@@ -534,10 +534,17 @@ groups:
       sentier... Ici,
       il doit être
       entier!\stop
-      De l'autre côté,
+      De l'autre coté,
       garde \col(1)SELECT\col(0)
       enfoncé: je te
-      réveillerai.
+      réveillerai.\stop
+      Hi hi! Te voilà
+      noctambule: tu
+      te promènes en
+      dormant!\stop
+      Et tu te
+      réveilleras pile
+      là où tu seras.
 
   # À l'auberge, A devant le lit
   - name: TX_5a16
@@ -839,6 +846,15 @@ groups:
     text: |-
       Cap du Phare
 
+# Nom du donjon (en entrant, et sur sa carte)
+- group: 0x02
+  data:
+  - name: TX_0201
+    index: 0x01
+    text: |-
+       Niveau 1
+        Phare Éteint
+
 # Description des objets (inventaire)
 - group: 0x09
   data:
@@ -1003,7 +1019,7 @@ groups:
     index: 0x0d
     text: |-
       Ça ne s'ouvre
-      pas de ce côté!
+      pas de ce coté!
   - name: TX_510e
     index: 0x0e
     text: |-

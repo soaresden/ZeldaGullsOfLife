@@ -1,6 +1,6 @@
-"""Dessine (une fois) les lettres du logo « GULLS OF LIFE » dans art/titre_logo.txt.
+"""Dessine (une fois) les lettres du logo « Gulls of Life » dans art/titre_logo.txt.
 
-Les mots sont tracés avec la police Georgia Bold de Windows, sans lissage, puis enregistrés en
+Les mots sont tracés avec la police Palatino gras italique de Windows, sans lissage, puis enregistrés en
 dessin texte (# = lettre) : la compilation (tools/make_title.py) n'a plus besoin de la police.
 À relancer seulement pour changer le texte ou la taille du logo.
 
@@ -11,8 +11,8 @@ import os
 from PIL import Image, ImageDraw, ImageFont
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-FONT = 'C:/Windows/Fonts/georgiab.ttf'
-WORDS = (('GULLS', 30), ('OF LIFE', 18))
+FONT = 'C:/Windows/Fonts/palabi.ttf'   # Palatino gras italique : plus doux, c'est Marine !
+WORDS = (('Gulls', 42), ('of Life', 25))
 
 
 def mask(text, size):
@@ -26,8 +26,8 @@ def mask(text, size):
 
 
 def main():
-    out = ['# Lettres du logo de l\'écran titre (tools/draw_title_logo.py, police Georgia Bold).',
-           '# # = lettre ; tools/make_title.py ajoute le contour et le dégradé doré.']
+    out = ['# Lettres du logo de l\'écran titre (tools/draw_title_logo.py, police Palatino gras italique).',
+           '# # = lettre ; tools/make_title.py ajoute le contour et le dégradé rose.']
     for text, size in WORDS:
         im = mask(text, size)
         px = im.load()

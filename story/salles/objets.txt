@@ -54,6 +54,8 @@ salle 4:14
 # L'antichambre : des fantômes
 salle 4:12
 	obj_RandomEnemy $40 ENEMY_GHINI $00
-# Le hall et la salle de la Lanterne : vides
+# Le hall : le nom du donjon en entrant ; la salle de la Lanterne : vide
 salle 4:24
+	; « Niveau 1 - Phare Éteint » en entrant (INTERAC_DUNGEON_STUFF $00, texte TX_0201)
+	obj_Interaction $12 $00 $88 $78
 salle 4:15

@@ -517,7 +517,13 @@ groups:
       On the other
       side, hold
       \col(1)SELECT\col(0): I'll
-      wake you up.
+      wake you up.\stop
+      Hee hee! You're
+      a sleepwalker
+      now!\stop
+      And you'll wake
+      up right where
+      you are.
 
   # At the inn, A in front of the bed
   - name: TX_5a16
@@ -699,6 +705,15 @@ groups:
     index: 0x38
     text: |-
       Lighthouse Cape
+
+# Dungeon name (on entering, and on its map)
+- group: 0x02
+  data:
+  - name: TX_0201
+    index: 0x01
+    text: |-
+       Level 1
+       Dark Lighthouse
 
 # Item descriptions (inventory)
 - group: 0x09

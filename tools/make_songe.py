@@ -46,7 +46,9 @@ def dream(r, g, b):
     return tuple(max(0, min(31, round(o * k + t * (1 - k)))) for o, t in ((r, tr), (g, tg), (b, tb)))
 
 
-OUTDOOR = (0x7d, 0x7e, 0x7f)   # palette 0 propre au Songe partout (aussi à l'auberge)
+# Décors du Songe qui auraient leur propre palette 0 (toits) : aucun, car la barre d'état (cœurs, fond
+# des cases B et A) utilise aussi cette palette et doit rester la même partout.
+OUTDOOR = ()
 
 
 def palette(data, label):
@@ -91,13 +93,24 @@ def main():
                 pal_lines.append('')
         if tileset in OUTDOOR:
             pal_lines.append('paletteData%s0: ; Songe : la palette 0 (paletteData48e0) en bleuté' % short)
-            for c in palette(data, 'paletteData48e0')[:4]:
-                pal_lines.append('\tm_RGB16 $%02x $%02x $%02x' % dream(*c))
+            # sauf la couleur 2, la crème de la barre d'état : elle sert aussi de fond derrière
+            # l'objet des cases B et A (sinon l'épée a un fond coloré dans le Songe)
+            for i, c in enumerate(palette(data, 'paletteData48e0')[:4]):
+                pal_lines.append('\tm_RGB16 $%02x $%02x $%02x' % (c if i == 2 else dream(*c)))
             pal_lines.append('')
         tilesets = re.sub(r'\t\.db [^\n]*; Tileset 0x%02x\n' % tileset,
                           '\t.db %s ; Tileset 0x%02x BALLADE: Songe\n' % (line, tileset), tilesets)
     hdr_lines.append(END)
     pal_lines.append(END)
+
+    # Les autres décors où l'on peut arriver depuis le Songe remettent aussi la palette 0
+    # (le Phare Éteint : on y entre par sa porte du Songe)
+    for orig in ('PALH_TILESET_SPIRITS_GRAVE',):
+        m = re.search(r'm_PaletteHeaderStart \$[0-9a-f]+, %s\n\tm_PaletteHeaderBg  [^\n]+' % orig, headers)
+        start = m.group(0) + '\n'
+        restore = '\tm_PaletteHeaderBg  0, 1, paletteData48e0 ; BALLADE: après le Songe\n'
+        if start + restore not in headers:
+            headers = headers.replace(start, start + restore, 1)
 
     # (+ 2 : l'en-tête PALH_TITLE, $cf, suit ceux du Songe)
     headers = re.sub(r'\.define NUM_PALETTE_HEADERS \$[0-9a-f]+[^\n]*',

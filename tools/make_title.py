@@ -28,7 +28,7 @@ W, H = 160, 144
 # Palettes de l'écran titre (couleurs 0 à 3, en RGB 8 bits), dans l'ordre des attributs
 PALETTES = [
     ('ciel de la nuit, texte', [(16, 24, 74), (40, 60, 132), (255, 255, 255), (128, 144, 200)]),
-    ('logo doré', [(60, 88, 168), (58, 28, 8), (248, 192, 48), (255, 244, 176)]),
+    ('logo rose corail, contour prune', [(60, 88, 168), (80, 24, 56), (240, 104, 144), (255, 220, 236)]),
     ('Marine en mouette', [(60, 88, 168), (32, 24, 32), (220, 40, 40), (255, 244, 220)]),
     ('aube', [(244, 168, 120), (232, 112, 40), (252, 216, 72), (255, 248, 208)]),
     ('soleil levant', [(244, 168, 120), (232, 112, 40), (252, 216, 72), (255, 248, 208)]),
@@ -36,6 +36,9 @@ PALETTES = [
 ]
 SKY, LOGO, GULL, DAWN, SUN, SEA = range(6)
 ART = {'k': 1, 'r': 2, 'w': 3}
+# Là où Marine se pose, sur le « s » de « Gulls » (doit suivre TITLE_GULL_LAND_X/Y de
+# code/ages/cutscenes/titleGull.s)
+LAND_X, LAND_Y = 109, 18
 
 
 def dither(x, y):
@@ -56,10 +59,37 @@ def read_blocks(path):
     return blocks
 
 
-def gull_flying():
+def gull_frames():
+    """Images de Marine en mouette pour l'animation, dans l'ordre de spr_title_gull.png (code :
+    code/ages/cutscenes/titleGull.s) : posée, tassée, ailes levées, ailes baissées, clin d'œil,
+    et un cœur."""
     rows = [l for l in open(os.path.join(ROOT, 'art', 'marine_mouette.txt'), encoding='utf-8').read().split('\n')
             if l.strip() and not l.startswith('#')]
-    return rows[32:48]   # image 3 : en vol
+    perched, crouch, flying = rows[0:16], rows[16:32], rows[32:48]
+    wink = [list(r) for r in perched]
+    wink[3][5], wink[4][4], wink[4][5], wink[4][6] = 'k', 'k', 'w', 'k'   # œil fermé, content
+    wink = [''.join(r) for r in wink]
+    glide = read_blocks(os.path.join(ROOT, 'art', 'titre_mouette.txt'))['glide']
+    heart = read_blocks(os.path.join(ROOT, 'art', 'film_sprites.txt'))['heart']
+    return [perched, crouch, flying, glide, wink, heart]
+
+
+# Palettes des sprites : 0 = « PRESS START » (celle d'Ages), 1 = Marine, 2 = le cœur
+SPRITE_PALETTES = [
+    ('Marine en mouette', [(0, 0, 0), (32, 24, 32), (220, 40, 40), (255, 244, 220)]),
+    ('cœur', [(0, 0, 0), (64, 8, 24), (232, 40, 72), (255, 255, 255)]),
+]
+
+
+def build_sprites():
+    sheet = Image.new('P', (128, 16), 0)
+    sheet.putpalette([0, 0, 0, 85, 85, 85, 170, 170, 170, 255, 255, 255] + [0] * (768 - 12))
+    for n, frame in enumerate(gull_frames()):
+        for y, row in enumerate(frame):
+            for x, c in enumerate(row):
+                if c != '.':
+                    sheet.putpixel((n * 16 + x, y), ART[c])
+    sheet.save(os.path.join(GFX, 'spr_title_gull.png'))
 
 
 def draw():
@@ -89,7 +119,7 @@ def draw():
                     if Y + 1 < 24 and X + 1 < W and pix[Y + 1][X + 1] != 2:
                         put(X + 1, Y + 1, SKY, 3)
 
-    # Le logo, doré : clair en haut, contour sombre
+    # Le logo, rose corail : clair en haut, contour prune
     for y in range(24, 88):
         for x in range(W):
             put(x, y, LOGO, 0)
@@ -107,17 +137,10 @@ def draw():
                     put(X, Y, LOGO, 3 if y < h * 0.42 else 2)
                 elif any(inside(x + dx, y + dy) for dx in (-1, 0, 1) for dy in (-1, 0, 1)):
                     put(X, Y, LOGO, 1)
-    gulls, oflife = words['GULLS'], words['OF']
-    stamp(gulls, (W - len(gulls[0])) // 2, 29)
-    stamp(oflife, (W - len(oflife[0])) // 2 - 12, 62)
-
-    # Marine en mouette, agrandie deux fois, qui vole vers le logo
-    for yy, row in enumerate(gull_flying()):
-        for xx, ch in enumerate(row):
-            if ch != '.':
-                for dy in range(2):
-                    for dx in range(2):
-                        put(128 + (15 - xx) * 2 + dx, 56 + yy * 2 + dy, GULL, ART[ch])
+    gulls, oflife = words['Gulls'], words['of']
+    stamp(gulls, (W - len(gulls[0])) // 2 - 6, 26)
+    stamp(oflife, (W - len(oflife[0])) // 2 + 14, 60)
+    # (Marine en mouette n'est plus dans le décor : c'est un sprite animé, voir build_sprites)
 
     # L'aube et le soleil levant
     sun = read_blocks(os.path.join(ROOT, 'art', 'film_sprites.txt'))['sun']
@@ -190,8 +213,15 @@ def build():
     for name, colors in PALETTES:
         lines.append('\t; %s' % name)
         lines += ['\tm_RGB16 $%02x $%02x $%02x' % tuple(v >> 3 for v in c) for c in colors]
-    lines.append(END)
     data = open(PALDATA, encoding='utf-8').read()
+    lines.append('paletteDataTitleSpr: ; écran titre : sprites')
+    lines.append('\t; « PRESS START » (comme Ages, paletteData4058)')
+    press = re.search(r'^paletteData4058:\n((?:\tm_RGB16 .*\n){4})', data, re.M).group(1)
+    lines += press.rstrip('\n').split('\n')
+    for name, colors in SPRITE_PALETTES:
+        lines.append('\t; %s' % name)
+        lines += ['\tm_RGB16 $%02x $%02x $%02x' % tuple(v >> 3 for v in c) for c in colors]
+    lines.append(END)
     block = '\n'.join(lines)
     if BEGIN in data:
         data = data[:data.index(BEGIN)] + block + data[data.index(END) + len(END):]
@@ -206,7 +236,14 @@ def build():
         for x in range(W):
             preview.putpixel((x, y), PALETTES[pal[y][x]][1][pix[y][x]])
     os.makedirs(os.path.join(ROOT, 'out'), exist_ok=True)
+    # Marine posée sur le logo, comme dans l'animation (titleGull.s : TITLE_GULL_LAND_X/Y)
+    perched = gull_frames()[0]
+    for y, row in enumerate(perched):
+        for x, c in enumerate(row):
+            if c != '.':
+                preview.putpixel((LAND_X + x, LAND_Y + y), SPRITE_PALETTES[0][1][ART[c]])
     preview.save(os.path.join(ROOT, 'out', 'titre.png'))
 
 
 build()
+build_sprites()

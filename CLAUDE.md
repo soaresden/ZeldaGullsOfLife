@@ -118,12 +118,17 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Les textes d'Ages non remplacés restent en anglais ; on traduit nous-mêmes ceux que la démo
   montre (pas de copie de la VF de Nintendo dans le patch). Menus graphiques : encore en anglais.
 - tools/check_text.py vérifie les deux fichiers (16 caractères, mêmes noms, police).
-- Police : « ô » dessiné par tools/make_font.py (code $d1, parseText --EU).
+- Police : seulement les accents de la version US (pas de « ô » : écrire « coté »), vérifié par
+  tools/check_text.py.
 
 ## Écran titre
 - Après le film, plus de montée de l'arbre : introCinematic_gotoTitle -> écran titre.
 - tools/make_title.py : image en bandes (ciel, logo, aube, mer), 6 palettes, GFXH_TITLE /
   PALH_TITLE ; lettres du logo dans art/titre_logo.txt (tools/draw_title_logo.py, une fois).
+- Logo rose corail en Palatino gras italique (Denis : pas de jaune, féminin, c'est Marine).
+- Marine en mouette est un sprite animé (code/ages/cutscenes/titleGull.s, spr_title_gull) : elle
+  arrive, se pose sur le « s », sautille, clin d'œil + cœur, repart. Point de pose : LAND_X/Y
+  (make_title.py) = TITLE_GULL_LAND_X/Y (titleGull.s).
 
 ## Choix de conception (Denis)
 - Marine ne suit PAS Link à l'écran (trop de sprites, ça bloquerait des choses) : elle voyage au chaud

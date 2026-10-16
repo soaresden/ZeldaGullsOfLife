@@ -14,8 +14,9 @@ import yaml
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 COMMANDS = re.compile(r'\\(stop|opt|col|pos|sfx|wait|speed|slow|heartpiece|jump|n\b)(\([^)]*\))?')
-# Lettres accentuées de la police (US, plus ô dessiné pour le jeu : tools/make_font.py)
-FONT_EXTRA = set('ÀÂÄÆÇÈÉÊËÎÏÑÖŒÙÛÜàâäæçèéêëîïñöœùûüô')
+# Lettres accentuées de la police du jeu (version US). Les autres (ô...) ne s'affichent pas :
+# écrire sans l'accent (« coté »).
+FONT_EXTRA = set('ÀÂÄÆÇÈÉÊËÎÏÑÖŒÙÛÜàâäæçèéêëîïñöœùûü')
 FILES = ('textes.yaml', 'textes.en.yaml')
 
 
