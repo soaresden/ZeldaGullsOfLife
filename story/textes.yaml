@@ -1,0 +1,117 @@
+# Textes du jeu, en français (UTF-8 : é, è, à, ç, œ... sont acceptés tels quels).
+# tools/make_text.py les ajoute au texte d'Oracle of Ages (groupe 0x5a, libre).
+#
+# Règles du moteur : 16 caractères par ligne au maximum (le style ">-" coupe
+# les lignes tout seul, mais le style "|-" avec des
+# retours à la ligne choisis à la main rend mieux), \stop = attendre A puis vider la boîte, \opt() = choix,
+# \Link = nom du joueur. Pas d'espace avant ! et ? (comme la VF officielle).
+#
+# Chapitre 1 : la plage
+
+groups:
+- group: 0x5a
+  data:
+
+  # Prologue (film d'ouverture)
+  - name: TX_5a00
+    index: 0x00
+    text: |-
+      Le Poisson-Rêve
+      s'était éveillé.
+      L'île Cocolint
+      avait disparu
+      dans l'écume.\stop
+      Accroché à une
+      épave, le héros
+      dériva de longs
+      jours...\stop
+      ...jusqu'à un
+      archipel où plus
+      personne ne
+      rêvait.
+
+  # La mouette se pose à côté de Link
+  - name: TX_5a01
+    index: 0x01
+    text: |-
+      Hé!
+      Réveille-toi,
+      gros dormeur!\stop
+      ...\stop
+      Tu ne me
+      reconnais pas?\stop
+      Pourtant, je
+      t'ai déjà sorti
+      de l'eau une
+      fois.\stop
+      Ça devient une
+      habitude!
+
+  # Link est debout
+  - name: TX_5a02
+    index: 0x02
+    text: |-
+      C'est moi,
+      \col(1)Marine\col(0)!\stop
+      Avant de se
+      réveiller, le
+      Poisson-Rêve a
+      entendu mon vœu.\stop
+      Il m'a dit:
+      "Ce qui est rêvé
+      assez fort ne
+      disparaît jamais
+      vraiment."\stop
+      Je voulais des
+      ailes, pour
+      partir au-delà
+      de la mer...\stop
+      Bon, je ne
+      pensais pas que
+      ce serait avec
+      un bec.\stop
+      Mais je ne vais
+      pas me plaindre!\stop
+      Tu es content
+      de me revoir?
+        \opt()Oui \opt()Bien sûr
+
+  - name: TX_5a03
+    index: 0x03
+    text: |-
+      Juste "oui"?\stop
+      Toujours aussi
+      bavard, toi.\stop
+      Ça m'avait
+      manqué,
+      figure-toi.\stop
+      Allez, viens.
+      Il y a quelque
+      chose de bizarre
+      sur cette île...
+
+  - name: TX_5a04
+    index: 0x04
+    text: |-
+      Hi hi!
+      Moi aussi,
+      tu sais.\stop
+      Allez, viens.
+      Il y a quelque
+      chose de bizarre
+      sur cette île...
+
+  # Quand on lui parle ensuite
+  - name: TX_5a05
+    index: 0x05
+    text: |-
+      Tu sens ça,
+      \Link?
+      Cet archipel est
+      trop calme.\stop
+      Allons voir s'il
+      y a quelqu'un.\stop
+      Et ne casse pas
+      toutes leurs
+      jarres, cette
+      fois!

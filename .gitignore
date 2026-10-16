@@ -1,0 +1,6 @@
+out/
+tools-build/
+oracles-disasm/
+*.gbc
+*.sav
+__pycache__/
