@@ -3,31 +3,54 @@
 #
 # Briques : b8 b0 b9 / b3 b1 / ba b2 bb = murs ; a0 = sol ; a3 a4 = mosaïque ;
 #   passage entre deux salles : un trou dans le mur (a0, du sol), comme la salle de l'essence d'Ages
-#   (bc-bf et 78-7b sont des portes pleines ou à volets : Link ne passe pas) ;
-#   porte à petite clé : 70 71 72 73 (haut, droite, bas, gauche) ; porte du boss : 74 75 76 77 ;
-#   f1 = coffre (contenu : data/ages/chestData.s) ; 44 = escalier qui monte, 45 = qui descend ;
+#   (bc-bf sont des portes pleines : Link ne passe pas) ;
+#   volets (fermés tant qu'il reste des ennemis, ou que les torches sont éteintes) : 78 79 7a 7b
+#   (haut, droite, bas, gauche ; c'est l'objet INTERAC_DOOR_CONTROLLER $1e qui les ouvre) ;
+#   porte à petite clé : 70 71 72 73 ; porte du boss : 74 75 76 77 ;
+#   08 = torche éteinte (la Lanterne l'allume) ; f1 = coffre (contenu : data/ages/chestData.s) ;
 #   10 = pot ; e0-e6 = l'arche de l'entrée.
+# Après « decor 36 » : « sombre » = salle dans le noir tant que ses torches sont éteintes ;
+#   « boss » = la salle du boss (sur la mini-carte).
+# La mini-carte (portes, salle sombre) est calculée par tools/make_rooms.py.
 #
-# Plan (dungeon01Layout) :
-#   Rez-de-chaussée :            (2,1) escalier
-#                                (2,2) salle de la Lanterne
-#        (1,3) salle de la clé — (2,3) hall d'entrée — (3,3) salle de la clé du boss
-#   Sommet : (2,1) antichambre — (3,1) salle du boss (4:13 d'Ages) ; (3,0) salle du couplet (4:11)
+# Plan (dungeon01LayoutPhare, un seul étage, tout en hauteur comme un phare) :
+#
+#                       (3,0) la lumière (essence, 4:11 d'Ages)
+#                       (3,1) Jack, le boss (4:13)
+#   (2,2) balcon ouest — (3,2) la galerie — (4,2) balcon est
+#                       (3,3) la tour, haut : 3 torches -> la clé du boss
+#                       (3,4) la tour, milieu : le mini-boss (Ghini géant)
+#                       (3,5) la tour, bas : 2 torches -> le volet s'ouvre
+#   (2,6) salle de la clé — (3,6) le pied du phare — (4,6) salle de la Lanterne
+#                       (3,7) l'entrée
 
-# --- Hall d'entrée : on arrive du cap par l'arche du bas ---
-# Nord : vers la salle de la Lanterne. Ouest : salle de la clé. Est : porte à clé.
+# --- L'entrée : on arrive du cap par l'arche du bas ---
 salle 4:24 decor 36
 b8 b0 b0 b0 b0 b0 b0 a0 b0 b0 b0 b0 b0 b0 b9
 b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
 b3 a0 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a0 b1
 b3 a0 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 a0 b1
 b3 a0 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 a0 b1
-a0 a0 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 a0 71
+b3 a0 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 a0 b1
 b3 a0 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 a0 b1
 b3 a0 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a0 b1
 b3 10 a0 a0 a0 a0 e0 e1 e2 a0 a0 a0 a0 10 b1
 b3 a0 a0 a0 a0 a0 e3 e4 e5 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 e6 00 e6 b2 b2 b2 b2 b2 bb
+
+# --- Le pied du phare : ouest la clé, est la Lanterne, au nord la porte à clé de la tour ---
+salle 4:14 decor 36
+b8 b0 b0 b0 b0 b0 b0 70 b0 b0 b0 b0 b0 b0 b9
+b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
+b3 a0 a0 a0 a0 a0 a3 a3 a3 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a3 a4 a4 a4 a3 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a3 a4 a4 a4 a3 a0 a0 a0 a0 b1
+a0 a0 a0 a0 a0 a3 a4 a4 a4 a3 a0 a0 a0 a0 a0
+b3 a0 a0 a0 a0 a3 a4 a4 a4 a3 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a3 a3 a3 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
+ba b2 b2 b2 b2 b2 b2 a0 b2 b2 b2 b2 b2 b2 bb
 
 # --- Salle de la clé (ouest) : des Zols, le coffre de la petite clé ---
 salle 4:1b decor 36
@@ -43,59 +66,113 @@ b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
-# --- Salle de la clé du boss (est) : derrière la porte à clé, deux Stalfos ---
-salle 4:1c decor 36
-b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
-b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a3 a3 a3 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a3 a4 a3 a0 a0 b1
-73 a0 a0 a0 a0 a0 a0 a0 a0 a3 f1 a3 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a3 a4 a3 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a3 a3 a3 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
-ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
-
-# --- Salle de la Lanterne : le coffre au centre de la mosaïque ---
-# Sud : vers le hall. Nord : vers l'escalier.
+# --- Salle de la Lanterne (est) : deux Stalfos, le coffre au centre de la mosaïque ---
 salle 4:15 decor 36
-b8 b0 b0 b0 b0 b0 b0 a0 b0 b0 b0 b0 b0 b0 b9
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
 b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a3 a3 a3 a3 a3 a3 a3 a0 a0 a0 b1
 b3 a0 a0 a0 a3 a4 a4 a4 a4 a4 a3 a0 a0 a0 b1
-b3 a0 a0 a0 a3 a4 a4 f1 a4 a4 a3 a0 a0 a0 b1
+a0 a0 a0 a0 a3 a4 a4 f1 a4 a4 a3 a0 a0 a0 b1
 b3 a0 a0 a0 a3 a4 a4 a4 a4 a4 a3 a0 a0 a0 b1
 b3 a0 a0 a0 a3 a3 a3 a3 a3 a3 a3 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
-ba b2 b2 b2 b2 b2 b2 a0 b2 b2 b2 b2 b2 b2 bb
-
-# --- Escalier du phare : on monte au sommet ---
-salle 4:14 decor 36
-b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a3 a3 a3 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a3 44 a3 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a3 a0 a3 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
-ba b2 b2 b2 b2 b2 b2 a0 b2 b2 b2 b2 b2 b2 bb
-
-# --- Sommet : l'antichambre, la porte du boss à droite (ligne 7, comme la salle du boss) ---
-salle 4:12 decor 36
-b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
-b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
-b3 a0 a0 a0 a0 a0 a3 a3 a3 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a3 45 a3 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a3 a0 a3 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 75
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- La tour, bas : dans le noir ; deux torches à allumer de part et d'autre du volet ---
+salle 4:16 decor 36 sombre
+b8 b0 b0 b0 b0 b0 b0 78 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 08 a0 a0 a0 08 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a3 a3 a3 a3 a3 a3 a3 a3 a3 a0 a0 b1
+b3 a0 a0 a3 a0 a0 a0 a0 a0 a0 a0 a3 a0 a0 b1
+b3 a0 a0 a3 a0 a0 a0 a0 a0 a0 a0 a3 a0 a0 b1
+b3 a0 a0 a3 a0 a0 a0 a0 a0 a0 a0 a3 a0 a0 b1
+b3 a0 a0 a3 a3 a3 a3 a3 a3 a3 a3 a3 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
+ba b2 b2 b2 b2 b2 b2 a0 b2 b2 b2 b2 b2 b2 bb
+
+# --- La tour, milieu : le mini-boss (le Ghini géant d'Ages) ; volets fermés tant qu'il vit ---
+salle 4:18 decor 36
+b8 b0 b0 b0 b0 b0 b0 78 b0 b0 b0 b0 b0 b0 b9
+b3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 b1
+b3 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 b1
+b3 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 b1
+b3 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 b1
+b3 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 b1
+b3 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 b1
+b3 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 b1
+b3 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 b1
+b3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 b1
+ba b2 b2 b2 b2 b2 b2 7a b2 b2 b2 b2 b2 b2 bb
+
+# --- La tour, haut : dans le noir ; trois torches font apparaître le coffre de la clé du boss ---
+salle 4:17 decor 36 sombre
+b8 b0 b0 b0 b0 b0 b0 a0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 08 a0 a0 a0 a0 a0 a0 a0 a0 a0 08 a0 b1
+b3 a0 a0 a0 a0 a3 a3 a3 a3 a3 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a3 a4 a4 a4 a3 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a3 a4 a4 a4 a3 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a3 a4 a4 a4 a3 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a3 a3 a3 a3 a3 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 08 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 a0 b2 b2 b2 b2 b2 b2 bb
+
+# --- La galerie, en haut du phare : la porte du boss au nord, les balcons de chaque côté ---
+salle 4:12 decor 36
+b8 b0 b0 b0 b0 b0 b0 74 b0 b0 b0 b0 b0 b0 b9
+b3 10 a0 a0 a0 a0 a3 a0 a3 a0 a0 a0 a0 10 b1
+b3 a0 a0 a0 a0 a0 a3 a0 a3 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a3 a0 a3 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a3 a0 a3 a0 a0 a0 a0 a0 b1
+a0 a0 a0 a0 a0 a0 a3 a0 a3 a0 a0 a0 a0 a0 a0
+b3 a0 a0 a0 a0 a0 a3 a0 a3 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a3 a0 a3 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a3 a0 a3 a0 a0 a0 a0 a0 b1
+b3 10 a0 a0 a0 a0 a3 a0 a3 a0 a0 a0 a0 10 b1
+ba b2 b2 b2 b2 b2 b2 a0 b2 b2 b2 b2 b2 b2 bb
+
+# --- Les balcons : des pots (des cœurs avant le boss) ---
+salle 4:19 decor 36
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 10 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 10 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+salle 4:1a decor 36
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 10 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 10 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- Jack, le boss (la salle 4:13 d'Ages, la porte en bas) : volets fermés tant qu'il vit ---
+salle 4:13 decor 36 boss
+b8 b0 b0 b0 b0 b0 b0 78 b0 b0 b0 b0 b0 b0 b9
+b3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 b1
+b3 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 b1
+b3 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 b1
+b3 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 b1
+b3 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 b1
+b3 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 b1
+b3 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 b1
+b3 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 b1
+b3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 b1
+ba b2 b2 b2 b2 b2 b2 7a b2 b2 b2 b2 b2 b2 bb

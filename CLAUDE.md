@@ -71,9 +71,23 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   redessinée : orange, ceinture et ourlet clairs ; palette 3 = cheveux orange), gfx $e2.
 
 ## Le Phare Éteint (donjon 1)
-- Emplacement du 1er donjon d'Ages (index 1, groupe 4, décor 36), plan sur 2 étages
-  (dungeon01LayoutPhare). Salles : story/salles/phare.txt (grandes salles 15 x 11) ; on garde la
-  salle du boss (4:13, Pumpkin Head = le Veilleur Creux) et celle de l'essence (4:11).
+- Emplacement du 1er donjon d'Ages (index 1, groupe 4, décor 36), un seul étage tout en hauteur
+  comme un phare (dungeon01LayoutPhare : pied 1b-14-15, tour 16-18-17, galerie 19-12-1a, Jack 13,
+  la lumière/essence 11). Dans un donjon, la salle voisine vient du plan (wDungeonMapPosition ±1/±8),
+  pas du numéro de salle. Salles : story/salles/phare.txt (« sombre », « boss » après le décor) ;
+  make_rooms.py écrit aussi group4DungeonProperties.bin (mini-carte, bit $80 = salle sombre).
+- Le temple : la Lanterne, dans un donjon, crée une graine de feu (ITEM_EMBER_SEED sous-type 0,
+  comme la sacoche) : elle allume les torches (tuile 08 -> 09 ; PART_LIGHTABLE_TORCH). Salle sombre
+  = bit $80 + obj_Part $08 $00 $00 (s'éclaire torche après torche, rend les torches allumables).
+  Volet ouvert par N torches : INTERAC_DOOR_CONTROLLER $1e $14 (2 torches, haut) ; coffre :
+  INTERAC_TRIGGER_TRANSLATOR $24 $02 N $01 + INTERAC_DUNGEON_SCRIPT $20 $00 Y X.
+- Jack (Pumpkin Head, boss 4:13) : la citrouille tombe (épée sur le corps) ; la flamme de la
+  Lanterne la brûle (pumpkinHead_head_checkBurned : var2a = $9b, état $17 pendant 240 images) et le
+  fantôme sort, touchable. Plus besoin du bracelet. Banque 15 (Enemy_Code_Bank0f) pleine à
+  quelques octets près. En entrant, INTERAC_MARINE $04 : Jack menace (TX_5a34), Marine réplique
+  (TX_5a35), une fois (ROOMFLAG $40). Le boss attend que les volets se ferment derrière Link
+  (wcc93) : un test doit entrer en marchant, pas par téléportation.
+- Mini-boss : le Ghini géant d'Ages (salle 4:18, ses objets d'origine).
 - Briques du décor 36 : tools/render_room.py SORTIE --decor 36 (portes à clé 70-73, du boss 74-77,
   coffre f1, escaliers 44/45 ; f4-f7 sont des trous). Coffres : data/ages/chestData.s (groupe 4).
 - Objet de coffre : mode d'apparition $38 (TREASURE_OBJECT_HARP_02 = la Lanterne ; les harpes
@@ -85,7 +99,8 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   temps (groupe xor 1, même salle), dehors seulement ; le coffre donne l'air des Âges (paramètre $03).
   L'eau de nos îles ($fa) est dans timewarpInvalidTiles.s (sinon Link se noie à l'arrivée).
   La table « renvoyé par une force étrange » (miscCutscenes.s) est vidée.
-- Tests : tools/test_phare.py, tools/test_lanterne.py, tools/test_fin.py (DOSSIER_CAPTURES).
+- Tests : tools/test_temple.py (torches, Jack, essence), tools/test_lanterne.py, tools/test_fin.py
+  (DOSSIER_CAPTURES).
 - Patch : python tools/make_patch.py "chemin/ROM Ages (USA).gbc" -> out/gulls_of_life.bps.
 - tools/render_room.py dessine n'importe quelle salle sans lancer le jeu (adresse des tuiles = idx ^ $80).
 

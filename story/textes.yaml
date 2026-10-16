@@ -709,6 +709,32 @@ groups:
       Tu vas te
       réveiller!
 
+  # Le Phare, salle du boss : Jack (la citrouille) menace, Marine réplique
+  - name: TX_5a34
+    index: 0x34
+    text: |-
+      \col(2)Jack\col(0): Hé hé
+      hé... Un petit
+      héros et sa
+      mouette?\stop
+      Ce phare est à
+      moi! Il restera
+      éteint pour
+      toujours!\stop
+      Je vais vous
+      souffler comme
+      deux bougies!
+
+  - name: TX_5a35
+    index: 0x35
+    text: |-
+      \col(1)Marine\col(0): C'est
+      ça! J'aime pas
+      la citrouille,
+      mais on va te
+      piquer quand
+      même, Jack!
+
   # Le choix de la langue, au début d'une nouvelle partie (le même dans les deux fichiers)
   - name: TX_5a17
     index: 0x17

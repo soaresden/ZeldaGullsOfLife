@@ -686,6 +686,32 @@ groups:
       You're about to
       wake up!
 
+  # The Lighthouse, boss room: Jack (the pumpkin) threatens, Marin answers back
+  - name: TX_5a34
+    index: 0x34
+    text: |-
+      \col(2)Jack\col(0): Heh
+      heh heh... A
+      little hero and
+      his seagull?\stop
+      This lighthouse
+      is mine! It will
+      stay dark
+      forever!\stop
+      I'll snuff you
+      both out like
+      candles!
+
+  - name: TX_5a35
+    index: 0x35
+    text: |-
+      \col(1)Marin\col(0): Oh
+      yeah?! I don't
+      even like
+      pumpkin, but
+      we'll carve you
+      up anyway, Jack!
+
   # The language choice, at the start of a new game (the same in both files)
   - name: TX_5a17
     index: 0x17

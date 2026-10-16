@@ -72,7 +72,7 @@ def read_plans():
             words = line.split()
             if words[0] == 'salle':
                 cur = {'key': parse_room(words[1]), 'tileset': int(words[3], 16), 'rows': [],
-                       'where': '%s:%d' % (os.path.basename(path), n)}
+                       'flags': words[4:], 'where': '%s:%d' % (os.path.basename(path), n)}
                 plans.append(cur)
                 continue
             if words[0] == 'decor':
@@ -94,6 +94,25 @@ def read_plans():
             plans.append({'key': (0, r), 'tileset': SONGE[p['tileset']], 'rows': p['rows'],
                           'where': p['where'] + ' (Songe)'})
     return plans, decors
+
+
+# Donjons : un octet par salle dans rooms/ages/groupNDungeonProperties.bin
+# (constants/common/dungeonRoomProperties.s) : les ouvertures pour la mini-carte, coffre, boss, noir
+WALLS = {0xb0, 0xb1, 0xb2, 0xb3, 0xb8, 0xb9, 0xba, 0xbb}
+DARK, BOSS, CHEST = 0x80, 0x40, 0x20
+
+
+def dungeon_property(p):
+    rows = p['rows']
+    middle = [rows[0][7], rows[5][14], rows[10][7], rows[5][0]]   # haut, droite, bas, gauche
+    prop = sum(1 << i for i, t in enumerate(middle) if t not in WALLS)
+    if any(0xf1 in row for row in rows):
+        prop |= CHEST
+    if 'boss' in p['flags']:
+        prop |= BOSS
+    if 'sombre' in p['flags']:
+        prop |= DARK
+    return prop
 
 
 def read_objects():
@@ -150,6 +169,13 @@ def main():
                 f.write(open(room_file(*copy), 'rb').read())
     for g, t in tilesets.items():
         open(tilesets_path(g), 'wb').write(t)
+    for g in LARGE:
+        path = os.path.join(DISASM, 'rooms', 'ages', 'group%dDungeonProperties.bin' % g)
+        props = bytearray(open(path, 'rb').read())
+        for p in plans:
+            if p['key'][0] == g:
+                props[p['key'][1]] = dungeon_property(p)
+        open(path, 'wb').write(props)
     print('%d salles construites (Réel et Songe)' % len(plans))
 
 
