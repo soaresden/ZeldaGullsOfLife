@@ -1,5 +1,7 @@
 🇬🇧 [English version](README.en.md)
 
+**▶ [La page du jeu](https://soaresden.github.io/ZeldaGullsOfLife/)**
+
 # The Legend of Zelda: Gulls of Life
 
 *La Ballade de la Mouette* : la suite de **Link's Awakening**, en ROM hack

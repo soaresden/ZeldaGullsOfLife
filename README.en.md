@@ -1,5 +1,7 @@
 🇫🇷 [Version française](README.md)
 
+**▶ [The game's page](https://soaresden.github.io/ZeldaGullsOfLife/)**
+
 # The Legend of Zelda: Gulls of Life
 
 *The Ballad of the Seagull*: the sequel to **Link's Awakening**, as a Game Boy
