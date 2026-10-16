@@ -24,6 +24,24 @@ no matter what.
 Why did the dreams go out? And what is left of Koholint… when you close your
 eyes? The rest is for you to find.
 
+## What awaits you
+
+A real Zelda, made for the Game Boy Color: new islands, new dungeons, new
+music. And a seagull who has plenty to say.
+
+- ♪ **Original music**, composed note by note for the game: a tender ballad on
+  the title screen, the air of the islands, the warmth of the inn, the wind
+  around the lighthouse…
+- ★ **Epic music**: when the fight starts, the orchestra goes all in, squeezed
+  into the Game Boy's four channels.
+- ♫ **A brand-new theme**: *The Ballad of the Seagull*, gentle then fierce, which
+  you will hear in many forms.
+- ☾ **New mechanics**: dreaming and waking don't play by the same rules. Learn
+  both… and use them against each other.
+- ◆ **New minigames**: an island without games isn't a Zelda island.
+- ⚔ **Real temples**: one key item, puzzles built around it, and bosses with a
+  lot to say. Short, dense, made to be cleared in one go.
+
 ## Play
 
 **[▶ Demo v0.3.1](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.3.1)**
@@ -65,13 +83,14 @@ beach, and the save remembers it (only the very first start is in English).
 
 - ✅ The opening film
 - ✅ Chapter 1: Mist Island
-- ✅ The first dungeon
+- ✅ The first dungeon: a real temple, its key item and its boss
 - ✅ The *Gulls of Life* title screen
 - ✅ English and French, menus included
 - ✅ Playable demo v0.3
 - ⬜ The other seven islands
-- ⬜ Games, secrets and heart pieces
 - ✅ Original music: the title screen, Mist Island, the inn, the Dark Lighthouse, the miniboss and the boss
+- ⬜ New minigames
+- ⬜ Secrets and heart pieces
 - ⬜ The music of the other islands
 - ⬜ And the rest of the story…
 

@@ -25,6 +25,24 @@ les obstacles.
 Pourquoi les rêves se sont-ils éteints ? Et que reste-t-il de Cocolint… quand
 on ferme les yeux ? Le reste, c'est à vous de le découvrir.
 
+## Ce qui vous attend
+
+Un vrai Zelda, fait pour la Game Boy Color : de nouvelles îles, de nouveaux
+donjons, de nouvelles musiques. Et une mouette qui a son mot à dire.
+
+- ♪ **Des musiques originales**, composées note à note pour le jeu : une ballade
+  tendre à l'écran titre, l'air des îles, la chaleur de l'auberge, le vent
+  autour du phare…
+- ★ **Une musique épique** : quand le combat commence, l'orchestre se déchaîne,
+  tenu dans les quatre voix de la Game Boy.
+- ♫ **Un nouveau thème** : la *Ballade de la Mouette*, douce puis furieuse, que
+  vous entendrez sous bien des formes.
+- ☾ **De nouvelles mécaniques** : le rêve et l'éveil ne jouent pas selon les
+  mêmes règles. Apprenez les deux… et servez-vous de l'un contre l'autre.
+- ◆ **De nouveaux mini-jeux** : une île sans jeux, ce n'est pas une île de Zelda.
+- ⚔ **De vrais temples** : un objet clé, des énigmes taillées pour lui, et des
+  boss qui ont la langue bien pendue. Courts, denses, à finir d'une traite.
+
 ## Jouer
 
 **[▶ Démo v0.3.1](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.3.1)**
@@ -67,13 +85,14 @@ anglais).
 
 - ✅ Le film d'ouverture
 - ✅ Chapitre 1 : l'île de la Brume
-- ✅ Le premier donjon
+- ✅ Le premier donjon : un vrai temple, son objet et son boss
 - ✅ L'écran titre *Gulls of Life*
 - ✅ Français et anglais, menus compris
 - ✅ Démo jouable v0.3
 - ⬜ Les sept autres îles
-- ⬜ Des jeux, des secrets et des quarts de cœur
 - ✅ Des musiques originales : l'écran titre, l'île de la Brume, l'auberge, le Phare Éteint, le miniboss et le boss
+- ⬜ De nouveaux mini-jeux
+- ⬜ Des secrets et des quarts de cœur
 - ⬜ Les musiques des autres îles
 - ⬜ Et la suite de l'histoire…
 

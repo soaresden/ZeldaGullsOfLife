@@ -131,6 +131,19 @@
   .gbc.hero { width: min(400px, 100%); margin: 22px auto 0; }
   .gbc.hero figcaption { justify-content: center; }
   .shot { display: block; width: min(320px, 100%); margin-top: 16px; border: 3px solid var(--ink); border-radius: 6px; image-rendering: pixelated; box-shadow: 0 4px 0 var(--ink); cursor: zoom-in; }
+  /* les promesses du jeu : pastilles dans l'en-tête, cartes « Ce qui vous attend » */
+  .tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; margin: 16px auto 0; padding: 0; list-style: none; max-width: 640px; }
+  .tags li { font: 600 15px var(--pix); color: var(--ink); background: #ffe08a; border: 3px solid var(--ink); border-radius: 999px; padding: 2px 12px; box-shadow: 0 3px 0 var(--ink); }
+  .feats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  @media (max-width: 860px) { .feats { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .feats { grid-template-columns: 1fr; } }
+  .feat { display: grid; grid-template-columns: 48px 1fr; gap: 4px 14px; align-content: start; }
+  .feat .ico { grid-row: span 2; width: 48px; height: 48px; display: grid; place-items: center; font: 700 26px/1 var(--pix);
+               color: #fff; background: var(--sea1); border: 3px solid var(--ink); border-radius: 10px; box-shadow: 0 3px 0 var(--ink); }
+  .feat:nth-child(2) .ico { background: var(--heart); } .feat:nth-child(3) .ico { background: var(--sun2); }
+  .feat:nth-child(4) .ico { background: #6a4fb3; } .feat:nth-child(5) .ico { background: #2f9d5a; } .feat:nth-child(6) .ico { background: var(--wood); }
+  .feat h3 { margin: 0; font: 700 20px/1.2 var(--pix); }
+  .feat p { margin: 0; font-size: 15.5px; line-height: 1.5; }
   .news { margin: 4px 0 0; padding-left: 20px; } .news li { margin: 5px 0; }
   .keys { margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 6px; }
   .keys li { display: grid; grid-template-columns: 8.5em 1fr; gap: 8px; align-items: baseline; }
@@ -203,6 +216,12 @@
     <h1>Gulls of Life<em data-en="The Ballad of the Seagull">La Ballade de la Mouette</em></h1>
     <p class="ballad" data-en="The sequel to Link's Awakening · Game Boy Color">La suite de Link's Awakening · Game Boy Color</p>
     <div class="hearts" aria-hidden="true"><span>♥</span><span>♥</span><span>♥</span></div>
+    <ul class="tags">
+      <li data-en="♪ Original music">♪ Musiques originales</li>
+      <li data-en="★ Epic fights">★ Combats épiques</li>
+      <li data-en="◆ New minigames">◆ Nouveaux mini-jeux</li>
+      <li data-en="☾ New mechanics">☾ Nouvelles mécaniques</li>
+    </ul>
     <figure class="gbc hero">
       <div class="screen"><img src="docs/shots/v03_1.png" alt="Écran titre de The Legend of Zelda: Gulls of Life, une mouette posée sur le logo" data-en-alt="The Legend of Zelda: Gulls of Life title screen, a seagull perched on the logo" style="cursor:zoom-in"></div>
       <figcaption><span class="led"></span><span data-en="Title screen">Écran titre</span></figcaption>
@@ -232,6 +251,27 @@
       </div>
       <figcaption><span class="led"></span><span data-en="Opening film">Film d'ouverture</span><span class="dots" id="filmDots"></span></figcaption>
     </figure>
+  </div>
+</section>
+
+<section id="promesses">
+  <div class="wrap">
+    <h2><small data-en="The promise">La promesse</small><span data-en="What awaits you">Ce qui vous attend</span></h2>
+    <p class="intro" data-en="A real Zelda, made for the Game Boy Color: new islands, new dungeons, new music. And a seagull who has plenty to say.">Un vrai Zelda, fait pour la Game Boy Color : de nouvelles îles, de nouveaux donjons, de nouvelles musiques. Et une mouette qui a son mot à dire.</p>
+    <div class="feats">
+      <div class="card feat"><span class="ico" aria-hidden="true">♪</span><h3 data-en="Original music">Des musiques originales</h3>
+        <p data-en="Composed for the game, note by note: a tender ballad on the title screen, the air of the islands, the warmth of the inn, the wind around the lighthouse…">Composées pour le jeu, note à note : une ballade tendre à l'écran titre, l'air des îles, la chaleur de l'auberge, le vent autour du phare…</p></div>
+      <div class="card feat"><span class="ico" aria-hidden="true">★</span><h3 data-en="Epic music">Une musique épique</h3>
+        <p data-en="When the fight starts, the orchestra goes all in. Themes in the spirit of the great orchestral scores, squeezed into four Game Boy channels.">Quand le combat commence, l'orchestre se déchaîne. Des thèmes dans l'esprit des grandes orchestrations, tenus dans les quatre voix de la Game Boy.</p></div>
+      <div class="card feat"><span class="ico" aria-hidden="true">♫</span><h3 data-en="A brand-new theme">Un nouveau thème</h3>
+        <p data-en="&lt;i&gt;The Ballad of the Seagull&lt;/i&gt;, the game's own theme. Gentle, then fierce: you will hear it in many forms.">La <i>Ballade de la Mouette</i>, le thème du jeu. Douce, puis furieuse : vous l'entendrez sous bien des formes.</p></div>
+      <div class="card feat"><span class="ico" aria-hidden="true">☾</span><h3 data-en="New mechanics">De nouvelles mécaniques</h3>
+        <p data-en="Dreaming and waking don't play by the same rules. Learn both… and use them against each other.">Le rêve et l'éveil ne jouent pas selon les mêmes règles. Apprenez les deux… et servez-vous de l'un contre l'autre.</p></div>
+      <div class="card feat"><span class="ico" aria-hidden="true">◆</span><h3 data-en="New minigames">De nouveaux mini-jeux</h3>
+        <p data-en="Because an island without games isn't a Zelda island. Expect a few surprises.">Parce qu'une île sans jeux, ce n'est pas une île de Zelda. Attendez-vous à quelques surprises.</p></div>
+      <div class="card feat"><span class="ico" aria-hidden="true">⚔</span><h3 data-en="Real dungeons">De vrais temples</h3>
+        <p data-en="One key item, puzzles that use it, and bosses with a lot to say. Short, dense, made to be cleared in one go.">Un objet clé, des énigmes taillées pour lui, et des boss qui ont la langue bien pendue. Courts, denses, à finir d'une traite.</p></div>
+    </div>
   </div>
 </section>
 
@@ -307,13 +347,15 @@
       <ul class="quest" id="quest">
         <li data-en="The opening film">Le film d'ouverture</li>
         <li data-en="Chapter 1: Mist Island">Chapitre 1 : l'île de la Brume</li>
-        <li data-en="The first dungeon">Le premier donjon</li>
+        <li data-en="The first dungeon: a real temple, its key item and its boss">Le premier donjon : un vrai temple, son objet et son boss</li>
         <li><span data-en="The &lt;i&gt;Gulls of Life&lt;/i&gt; title screen">L'écran titre <i>Gulls of Life</i></span></li>
         <li data-en="English and French, menus included">Français et anglais, menus compris</li>
         <li data-en="Playable demo v0.3">Démo jouable v0.3</li>
         <li class="todo" data-en="The other seven islands">Les sept autres îles</li>
-        <li class="todo" data-en="Games, secrets and heart pieces">Des jeux, des secrets et des quarts de cœur</li>
-        <li class="todo" data-en="The music">La musique</li>
+        <li data-en="Original music: title screen, Mist Island, the inn, the lighthouse, miniboss and boss">Des musiques originales : écran titre, île de la Brume, auberge, phare, miniboss et boss</li>
+        <li class="todo" data-en="New minigames">De nouveaux mini-jeux</li>
+        <li class="todo" data-en="Secrets and heart pieces">Des secrets et des quarts de cœur</li>
+        <li class="todo" data-en="The music of the other islands">Les musiques des autres îles</li>
         <li class="todo" data-en="And the rest of the story…">Et la suite de l'histoire…</li>
       </ul>
     </div>
