@@ -32,8 +32,9 @@ on ferme les yeux ? Le reste, c'est à vous de le découvrir.
 propre ROM *The Legend of Zelda: Oracle of Ages* (USA). Aucune ROM n'est fournie.
 
 En **français ou en anglais** : on choisit en se réveillant sur la plage, et la
-sauvegarde s'en souvient. Les menus (choix du fichier, sauvegarde) sont encore
-en anglais.
+sauvegarde s'en souvient. Dans la v0.2, les menus (choix du fichier, sauvegarde)
+sont encore en anglais ; dans la prochaine version ils suivent la langue (choix du
+fichier, sauvegarde, Game Over, inventaire), sauf au tout premier démarrage.
 
 | Touche | |
 | --- | --- |

@@ -116,7 +116,18 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - tools/make_text.py écrit text/ages/text.yaml et text_fr.yaml ; le français est compilé à part
   (tools/build/parseTextLang.py, banques $71+) ; code/textbox.s choisit la table.
 - Les textes d'Ages non remplacés restent en anglais ; on traduit nous-mêmes ceux que la démo
-  montre (pas de copie de la VF de Nintendo dans le patch). Menus graphiques : encore en anglais.
+  montre (pas de copie de la VF de Nintendo dans le patch).
+- Menus graphiques en français : tools/make_menus_fr.py (lancé par build.sh) écrit les gfx_*_fr.png
+  (gfx_compressible/common) en recomposant les mots avec les lettres des menus anglais (lettres
+  manquantes et accents dessinés dans le script, fond rayé recousu avec les vraies rayures) ;
+  aperçu out/menus_fr.png. Headers $bd-$c8 (data/ages/gfxHeaders.s) + table
+  balladeLangGfxHeaders : loadGfxHeader (bank0.s, balladeLangGfxHeader) prend la variante
+  française si wActiveLanguage = 1. Ne JAMAIS importer les images de la ROM européenne.
+- Choix du fichier (langue pas encore connue) : saveFile écrit wActiveLanguage en SRAM $bff0
+  (libre, après les 6 copies de fichiers) ; fileSelectMode0 (bank2.s, balladeMenuLanguage) la
+  relit. Premier démarrage = anglais. « Sauver et quitter » relance le jeu (logo, film, titre).
+- Test : python tools/test_menus.py DOSSIER [fr|en] [ROM] (nom, sauvegarde, retour au choix du
+  fichier, inventaire, Game Over).
 - tools/check_text.py vérifie les deux fichiers (16 caractères, mêmes noms, police).
 - Police : seulement les accents de la version US (pas de « ô » : écrire « coté »), vérifié par
   tools/check_text.py.

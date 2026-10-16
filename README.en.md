@@ -31,7 +31,9 @@ eyes? The rest is for you to find.
 *The Legend of Zelda: Oracle of Ages* (USA) ROM. No ROM is provided.
 
 In **English or French**: you choose when you wake up on the beach, and the
-save remembers it. The menus (file select, save screen) are still in English.
+save remembers it. In v0.2 the menus (file select, save screen) are still in
+English; in the next version they follow the language (file select, save screen,
+Game Over, inventory), except on the very first start.
 
 | Button | |
 | --- | --- |

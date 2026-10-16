@@ -13,6 +13,7 @@ export PYTHONUTF8=1
 "$PYTHON" "$ROOT/tools/make_sprites.py"
 "$PYTHON" -W ignore "$ROOT/tools/make_film.py"
 "$PYTHON" "$ROOT/tools/make_title.py"
+"$PYTHON" "$ROOT/tools/make_menus_fr.py"
 "$PYTHON" "$ROOT/tools/make_songe.py"
 "$PYTHON" "$ROOT/tools/make_rooms.py"
 cd "$ROOT/oracles-disasm"
