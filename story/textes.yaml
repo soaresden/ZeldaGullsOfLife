@@ -586,7 +586,12 @@ groups:
       dormant!\stop
       Et tu te
       réveilleras pile
-      là où tu seras.
+      là où tu seras.\stop
+      Mais fais vite!
+      Dehors, le jour
+      arrive vite...\stop
+      Cours, ne
+      traîne pas!
 
   # À l'auberge, A devant le lit
   - name: TX_5a16
@@ -698,6 +703,15 @@ groups:
     text: |-
       
          À suivre...
+
+  # Le noctambule : un peu avant de se réveiller (INTERAC_BALLADE_DREAM_FX)
+  - name: TX_5a33
+    index: 0x33
+    text: |-
+      \col(1)Marine\col(0): Le
+      jour se lève...
+      Tu vas te
+      réveiller!
 
   # Le choix de la langue, au début d'une nouvelle partie (le même dans les deux fichiers)
   - name: TX_5a17

@@ -563,7 +563,12 @@ groups:
       now!\stop
       And you'll wake
       up right where
-      you are.
+      you are.\stop
+      But hurry!
+      Outside, the sun
+      rises fast...\stop
+      Run, don't
+      dawdle!
 
   # At the inn, A in front of the bed
   - name: TX_5a16
@@ -675,6 +680,15 @@ groups:
     text: |-
 
        To be continued
+
+  # The sleepwalker: just before waking up (INTERAC_BALLADE_DREAM_FX)
+  - name: TX_5a33
+    index: 0x33
+    text: |-
+      \col(1)Marin\col(0): The
+      sun is rising...
+      You're about to
+      wake up!
 
   # The language choice, at the start of a new game (the same in both files)
   - name: TX_5a17
