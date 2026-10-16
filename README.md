@@ -16,6 +16,8 @@ personne ne rêve.
 la morale du jeu : on réalise ses rêves, on n'y reste pas, et on avance malgré
 les obstacles.
 
+<p align="center"><img src="docs/shots/v02_1.png" width="480" alt="Écran titre de Gulls of Life"></p>
+
 ![Carte de l'archipel des Sans-Sommeil](docs/carte_archipel.png)
 
 ![Le film d'ouverture](docs/film_ouverture.png)
@@ -25,24 +27,37 @@ on ferme les yeux ? Le reste, c'est à vous de le découvrir.
 
 ## Jouer
 
-**[▶ Démo v0.1](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.1)**
+**[▶ Démo v0.2](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.2)**
 (tout le premier chapitre) : un patch `gulls_of_life.bps` à appliquer sur sa
 propre ROM *The Legend of Zelda: Oracle of Ages* (USA). Aucune ROM n'est fournie.
+
+En **français ou en anglais** : on choisit en se réveillant sur la plage, et la
+sauvegarde s'en souvient. Les menus (choix du fichier, sauvegarde) sont encore
+en anglais.
 
 | Touche | |
 | --- | --- |
 | **Select** | la carte |
 | **Select** maintenu | Marine a son mot à dire |
-
-*(Dans la démo v0.1, c'est encore l'inverse.)*
+| **A** devant un lit | dormir |
 
 <details>
 <summary><b>Comment appliquer le patch</b></summary>
 
-1. Télécharger `gulls_of_life.bps` dans la [version v0.1](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.1).
+1. Télécharger `gulls_of_life.bps` dans la [version v0.2](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.2).
 2. Avoir sa propre ROM *Oracle of Ages* version **USA** (CRC32 `3800a387`).
 3. Appliquer le patch avec un outil BPS, par exemple [Rom Patcher JS](https://www.marcrobledo.com/RomPatcher.js/) en ligne.
-4. Jouer le fichier obtenu dans n'importe quel émulateur Game Boy Color.
+4. Jouer le fichier obtenu (CRC32 `2d2973ff`) dans n'importe quel émulateur Game Boy Color.
+
+</details>
+
+<details>
+<summary><b>Quoi de neuf dans la v0.2</b></summary>
+
+- L'écran titre *Gulls of Life*, juste après le film d'ouverture
+- Le jeu en français et en anglais
+- Select : un appui pour la carte, maintenu pour parler à Marine
+- Corrections : plus de gel entre deux écrans, plus de tuiles blanches ni de murs invisibles, plus de blocage au bord de l'île, et la Lanterne a sa vraie icône
 
 </details>
 
@@ -51,8 +66,9 @@ propre ROM *The Legend of Zelda: Oracle of Ages* (USA). Aucune ROM n'est fournie
 - ✅ Le film d'ouverture
 - ✅ Chapitre 1 : l'île de la Brume
 - ✅ Le premier donjon
-- ✅ Démo jouable v0.1
-- ⬜ L'écran titre *Gulls of Life*
+- ✅ L'écran titre *Gulls of Life*
+- ✅ Français et anglais
+- ✅ Démo jouable v0.2
 - ⬜ Les sept autres îles
 - ⬜ Des jeux, des secrets et des quarts de cœur
 - ⬜ La musique
@@ -69,7 +85,7 @@ présent/passé d'*Ages* sert au Réel et au Songe.
 | Quoi | Où |
 | --- | --- |
 | Code, scripts, données | Branche [`hack/gulls-of-life`](https://github.com/soaresden/oracles-disasm/tree/hack/gulls-of-life) du fork (ajouts marqués `BALLADE`) : `scripts/ages/ballade.s`, `object_code/ages/interactions/marine.s` |
-| Dialogues | `story/textes.yaml`, en français normal ; `tools/make_text.py` les ajoute au jeu, `tools/check_text.py` vérifie la largeur des lignes (16 caractères) |
+| Dialogues | `story/textes.yaml` en français normal, `story/textes.en.yaml` en anglais ; `tools/make_text.py` les ajoute au jeu, `tools/check_text.py` vérifie la largeur des lignes (16 caractères) |
 | Sprites | Dessins en texte dans `art/` ; `tools/make_sprites.py` les convertit |
 | Film d'ouverture | `code/ages/cutscenes/film.s` (fork) ; décor et sprites fabriqués par `tools/make_film.py` (ciel et nuages, soleil, mer, rondin, poses de Link prises dans le jeu, visage de Marine) ; `tools/preview_film.py` en donne un aperçu sans compiler |
 | Salles | Plans texte dans `story/salles/` (10 x 8 briques par écran) et leurs objets dans `story/salles/objets.txt` ; `tools/make_rooms.py` les met dans le jeu ; `tools/catalog.py` photographie les briques d'un décor ou des salles avec leurs numéros |

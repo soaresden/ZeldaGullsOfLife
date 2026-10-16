@@ -128,10 +128,13 @@
   .play:active { transform: translateY(3px); box-shadow: 0 2px 0 var(--ink); }
   .play small { display: block; font: 600 13px var(--pix); letter-spacing: .08em; opacity: .75; }
   header .play { margin-top: 22px; }
+  .gbc.hero { width: min(400px, 100%); margin: 22px auto 0; }
+  .gbc.hero figcaption { justify-content: center; }
+  .shot { display: block; width: min(320px, 100%); margin-top: 16px; border: 3px solid var(--ink); border-radius: 6px; image-rendering: pixelated; box-shadow: 0 4px 0 var(--ink); cursor: zoom-in; }
+  .news { margin: 4px 0 0; padding-left: 20px; } .news li { margin: 5px 0; }
   .keys { margin: 14px 0 0; padding: 0; list-style: none; display: grid; gap: 6px; }
   .keys li { display: grid; grid-template-columns: 8.5em 1fr; gap: 8px; align-items: baseline; }
-  .keys li:last-child { display: block; }
-  .keys b { font: 600 15px var(--pix); }
+    .keys b { font: 600 15px var(--pix); }
   .keys small { opacity: .7; }
   .steps { margin: 4px 0 0; padding-left: 22px; }
   .steps li { margin: 6px 0; }
@@ -200,8 +203,12 @@
     <h1>Gulls of Life<em data-en="The Ballad of the Seagull">La Ballade de la Mouette</em></h1>
     <p class="ballad" data-en="The sequel to Link's Awakening · Game Boy Color">La suite de Link's Awakening · Game Boy Color</p>
     <div class="hearts" aria-hidden="true"><span>♥</span><span>♥</span><span>♥</span></div>
+    <figure class="gbc hero">
+      <div class="screen"><img src="docs/shots/v02_1.png" alt="Écran titre de The Legend of Zelda: Gulls of Life" data-en-alt="The Legend of Zelda: Gulls of Life title screen" style="cursor:zoom-in"></div>
+      <figcaption><span class="led"></span><span data-en="Title screen">Écran titre</span></figcaption>
+    </figure>
     <div class="say" id="hello"><span class="who">Marine</span><br><span id="helloText"></span></div>
-    <a class="play" href="https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.1" data-en="▶ Play the demo&lt;small&gt;v0.1 · chapter 1&lt;/small&gt;">▶ Jouer à la démo<small>v0.1 · chapitre 1</small></a>
+    <a class="play" href="https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.2" data-en="▶ Play the demo&lt;small&gt;v0.2 · chapter 1 · English / French&lt;/small&gt;">▶ Jouer à la démo<small>v0.2 · chapitre 1 · français / anglais</small></a>
   </div>
   <div class="sun" aria-hidden="true"></div>
 </header>
@@ -235,7 +242,7 @@
     <div class="shots">
       <figure><img src="docs/shots/chapitre11.png" alt="Une plage, au petit matin" data-en-alt="A beach, at dawn" loading="lazy"><figcaption data-en="A beach, at dawn.">Une plage, au petit matin.</figcaption></figure>
       <figure><img src="docs/shots/chapitre12.png" alt="Quelqu'un arrive en volant" data-en-alt="Someone comes flying in" loading="lazy"><figcaption data-en="Someone comes flying in…">Quelqu'un arrive en volant…</figcaption></figure>
-      <figure><img src="docs/shots/auberge1.png" alt="Port-Veille" data-en-alt="Port-Veille" loading="lazy"><figcaption data-en="Port-Veille, where nobody sleeps anymore.">Port-Veille, où l'on ne dort plus.</figcaption></figure>
+      <figure><img src="docs/shots/v02_3.png" alt="L'auberge de Port-Veille" data-en-alt="The Port-Veille inn" loading="lazy"><figcaption data-en="Port-Veille, where nobody sleeps anymore.">Port-Veille, où l'on ne dort plus.</figcaption></figure>
       <figure><img src="docs/shots/auberge5.png" alt="Un pont cassé" data-en-alt="A broken bridge" loading="lazy"><figcaption data-en="Some paths are cut off…">Certains chemins sont coupés…</figcaption></figure>
       <figure><img src="docs/shots/lanterne3.png" alt="Le village, tout bleu" data-en-alt="The village, all blue" loading="lazy"><figcaption data-en="What if you closed your eyes?">Et si l'on fermait les yeux ?</figcaption></figure>
       <figure><img src="docs/shots/phare2.png" alt="L'entrée d'un phare" data-en-alt="A lighthouse door" loading="lazy"><figcaption data-en="A lighthouse gone dark.">Un phare qui s'est éteint.</figcaption></figure>
@@ -256,24 +263,35 @@
 <section id="jouer">
   <div class="wrap two" style="align-items:start">
     <div>
-      <h2><small data-en="Demo v0.1">Démo v0.1</small><span data-en="Play the demo">Jouer à la démo</span></h2>
-      <p data-en="The whole first chapter. It's a &lt;b&gt;patch&lt;/b&gt; to apply to your own &lt;i&gt;Oracle of Ages&lt;/i&gt; (USA) ROM: no ROM is provided. The game's text is in French.">Tout le premier chapitre. C'est un <b>patch</b> à appliquer sur sa propre ROM <i>Oracle of Ages</i> (USA) : aucune ROM n'est fournie.</p>
+      <h2><small data-en="Demo v0.2">Démo v0.2</small><span data-en="Play the demo">Jouer à la démo</span></h2>
+      <p data-en="The whole first chapter. It's a &lt;b&gt;patch&lt;/b&gt; to apply to your own &lt;i&gt;Oracle of Ages&lt;/i&gt; (USA) ROM: no ROM is provided.">Tout le premier chapitre. C'est un <b>patch</b> à appliquer sur sa propre ROM <i>Oracle of Ages</i> (USA) : aucune ROM n'est fournie.</p>
+      <p data-en="&lt;b&gt;English or French&lt;/b&gt;: you choose when you wake up on the beach, and the save remembers it. The menus (file select, save screen) are still in English.">En <b>français ou en anglais</b> : on choisit en se réveillant sur la plage, et la sauvegarde s'en souvient. Les menus (choix du fichier, sauvegarde) sont encore en anglais.</p>
+      <img class="shot" src="docs/shots/v02_2.png" alt="Choix de la langue : Français ou English" data-en-alt="Language choice: French or English" loading="lazy">
     </div>
     <div class="card">
-      <a class="play" href="https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.1" data-en="▶ Download the patch&lt;small&gt;v0.1 · gulls_of_life.bps&lt;/small&gt;">▶ Télécharger le patch<small>v0.1 · gulls_of_life.bps</small></a>
+      <a class="play" href="https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.2" data-en="▶ Download the patch&lt;small&gt;v0.2 · gulls_of_life.bps&lt;/small&gt;">▶ Télécharger le patch<small>v0.2 · gulls_of_life.bps</small></a>
       <ul class="keys">
         <li><b data-en="Select">Select</b><span data-en="the map">la carte</span></li>
         <li><b data-en="Hold Select">Select maintenu</b><span data-en="Marin has something to say">Marine a son mot à dire</span></li>
-        <li><small data-en="(in demo v0.1 it's still the other way round)">(dans la démo v0.1, c'est encore l'inverse)</small></li>
+        <li><b data-en="A, by a bed">A, devant un lit</b><span data-en="sleep">dormir</span></li>
       </ul>
       <details>
         <summary data-en="How to apply the patch">Comment appliquer le patch</summary>
         <ol class="steps">
-          <li data-en="Download &lt;code&gt;gulls_of_life.bps&lt;/code&gt; from the v0.1 release.">Télécharger <code>gulls_of_life.bps</code> dans la version v0.1.</li>
+          <li data-en="Download &lt;code&gt;gulls_of_life.bps&lt;/code&gt; from the v0.2 release.">Télécharger <code>gulls_of_life.bps</code> dans la version v0.2.</li>
           <li data-en="Have your own &lt;i&gt;The Legend of Zelda: Oracle of Ages&lt;/i&gt; ROM, &lt;b&gt;USA&lt;/b&gt; version (CRC32 &lt;code&gt;3800a387&lt;/code&gt;).">Avoir sa propre ROM <i>The Legend of Zelda: Oracle of Ages</i>, version <b>USA</b> (CRC32 <code>3800a387</code>).</li>
           <li data-en="Apply the patch with a BPS patcher, for example &lt;a href=&quot;https://www.marcrobledo.com/RomPatcher.js/&quot;&gt;Rom Patcher JS&lt;/a&gt; online.">Appliquer le patch avec un outil BPS, par exemple <a href="https://www.marcrobledo.com/RomPatcher.js/">Rom Patcher JS</a> en ligne.</li>
-          <li data-en="Play the result in any Game Boy Color emulator.">Jouer le fichier obtenu dans n'importe quel émulateur Game Boy Color.</li>
+          <li data-en="Play the result (CRC32 &lt;code&gt;2d2973ff&lt;/code&gt;) in any Game Boy Color emulator.">Jouer le fichier obtenu (CRC32 <code>2d2973ff</code>) dans n'importe quel émulateur Game Boy Color.</li>
         </ol>
+      </details>
+      <details>
+        <summary data-en="What's new in v0.2">Quoi de neuf dans la v0.2</summary>
+        <ul class="news">
+          <li data-en="The &lt;i&gt;Gulls of Life&lt;/i&gt; title screen, right after the opening film">L'écran titre <i>Gulls of Life</i>, juste après le film d'ouverture</li>
+          <li data-en="The game in English and in French">Le jeu en français et en anglais</li>
+          <li data-en="Select: tap for the map, hold to talk to Marin">Select : un appui pour la carte, maintenu pour parler à Marine</li>
+          <li data-en="Fixes: no more freezes between screens, no more white tiles or invisible walls, no more getting stuck on the island's edges, and the Lantern gets its real icon">Corrections : plus de gel entre deux écrans, plus de tuiles blanches ni de murs invisibles, plus de blocage au bord de l'île, et la Lanterne a sa vraie icône</li>
+        </ul>
       </details>
     </div>
   </div>
@@ -288,8 +306,9 @@
         <li data-en="The opening film">Le film d'ouverture</li>
         <li data-en="Chapter 1: Mist Island">Chapitre 1 : l'île de la Brume</li>
         <li data-en="The first dungeon">Le premier donjon</li>
-        <li data-en="Playable demo v0.1">Démo jouable v0.1</li>
-        <li class="todo"><span data-en="The &lt;i&gt;Gulls of Life&lt;/i&gt; title screen">L'écran titre <i>Gulls of Life</i></span></li>
+        <li><span data-en="The &lt;i&gt;Gulls of Life&lt;/i&gt; title screen">L'écran titre <i>Gulls of Life</i></span></li>
+        <li data-en="English and French">Français et anglais</li>
+        <li data-en="Playable demo v0.2">Démo jouable v0.2</li>
         <li class="todo" data-en="The other seven islands">Les sept autres îles</li>
         <li class="todo" data-en="Games, secrets and heart pieces">Des jeux, des secrets et des quarts de cœur</li>
         <li class="todo" data-en="The music">La musique</li>
@@ -310,7 +329,7 @@
         </div>
         <div class="card tblwrap">
           <table>
-            <tr><td data-en="Dialogue">Dialogues</td><td data-en="written in plain French in &lt;code&gt;story/textes.yaml&lt;/code&gt;, line width checked (16 characters)">écrits en français normal dans <code>story/textes.yaml</code>, largeur des lignes vérifiée (16 caractères)</td></tr>
+            <tr><td data-en="Dialogue">Dialogues</td><td data-en="written in plain French in &lt;code&gt;story/textes.yaml&lt;/code&gt; and in English in &lt;code&gt;story/textes.en.yaml&lt;/code&gt;, line width checked (16 characters)">écrits en français normal dans <code>story/textes.yaml</code> et en anglais dans <code>story/textes.en.yaml</code>, largeur des lignes vérifiée (16 caractères)</td></tr>
             <tr><td>Sprites</td><td data-en="drawn as text in &lt;code&gt;art/&lt;/code&gt;, converted by a script">dessinés en texte dans <code>art/</code>, convertis par un script</td></tr>
             <tr><td data-en="Rooms">Salles</td><td data-en="text plans in &lt;code&gt;story/salles/&lt;/code&gt; (10 × 8 tiles per screen)">plans texte dans <code>story/salles/</code> (10 × 8 briques par écran)</td></tr>
             <tr><td data-en="Film">Film</td><td data-en="sky, clouds, sun, sea and log made by &lt;code&gt;tools/make_film.py&lt;/code&gt;">ciel, nuages, soleil, mer et rondin fabriqués par <code>tools/make_film.py</code></td></tr>
@@ -386,7 +405,7 @@
 
   // agrandir les captures et la carte
   const zoom = document.getElementById('zoom');
-  document.querySelectorAll('.shots img, .map img').forEach((im) => im.addEventListener('click', () => {
+  document.querySelectorAll('.shots img, .map img, img.shot, .gbc.hero img').forEach((im) => im.addEventListener('click', () => {
     zoom.querySelector('img').src = im.src; zoom.querySelector('img').alt = im.alt; zoom.showModal();
   }));
   zoom.addEventListener('click', () => zoom.close());

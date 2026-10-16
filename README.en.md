@@ -15,6 +15,8 @@ made a wish: to have wings and fly beyond the sea. She comes back as a
 you make your dreams come true instead of staying in them, and you keep going
 no matter what.
 
+<p align="center"><img src="docs/shots/v02_1.png" width="480" alt="Gulls of Life title screen"></p>
+
 ![Map of the Sleepless Archipelago](docs/carte_archipel.png)
 
 ![The opening film](docs/film_ouverture.png)
@@ -24,25 +26,36 @@ eyes? The rest is for you to find.
 
 ## Play
 
-**[▶ Demo v0.1](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.1)**
+**[▶ Demo v0.2](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.2)**
 (the whole first chapter): a `gulls_of_life.bps` patch to apply to your own
-*The Legend of Zelda: Oracle of Ages* (USA) ROM. No ROM is provided. The game's
-text is in French.
+*The Legend of Zelda: Oracle of Ages* (USA) ROM. No ROM is provided.
+
+In **English or French**: you choose when you wake up on the beach, and the
+save remembers it. The menus (file select, save screen) are still in English.
 
 | Button | |
 | --- | --- |
 | **Select** | the map |
 | Hold **Select** | Marin has something to say |
-
-*(In demo v0.1 it's still the other way round.)*
+| **A** by a bed | sleep |
 
 <details>
 <summary><b>How to apply the patch</b></summary>
 
-1. Download `gulls_of_life.bps` from the [v0.1 release](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.1).
+1. Download `gulls_of_life.bps` from the [v0.2 release](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.2).
 2. Have your own *Oracle of Ages* ROM, **USA** version (CRC32 `3800a387`).
 3. Apply the patch with a BPS patcher, for example [Rom Patcher JS](https://www.marcrobledo.com/RomPatcher.js/) online.
-4. Play the result in any Game Boy Color emulator.
+4. Play the result (CRC32 `2d2973ff`) in any Game Boy Color emulator.
+
+</details>
+
+<details>
+<summary><b>What's new in v0.2</b></summary>
+
+- The *Gulls of Life* title screen, right after the opening film
+- The game in English and in French
+- Select: tap for the map, hold to talk to Marin
+- Fixes: no more freezes between screens, no more white tiles or invisible walls, no more getting stuck on the island's edges, and the Lantern gets its real icon
 
 </details>
 
@@ -51,8 +64,9 @@ text is in French.
 - ✅ The opening film
 - ✅ Chapter 1: Mist Island
 - ✅ The first dungeon
-- ✅ Playable demo v0.1
-- ⬜ The *Gulls of Life* title screen
+- ✅ The *Gulls of Life* title screen
+- ✅ English and French
+- ✅ Playable demo v0.2
 - ⬜ The other seven islands
 - ⬜ Games, secrets and heart pieces
 - ⬜ The music
@@ -69,7 +83,7 @@ the Real World / Dream World switch.
 | What | Where |
 | --- | --- |
 | Code, scripts, data | [`hack/gulls-of-life`](https://github.com/soaresden/oracles-disasm/tree/hack/gulls-of-life) branch of the fork (additions tagged `BALLADE`): `scripts/ages/ballade.s`, `object_code/ages/interactions/marine.s` |
-| Dialogue | `story/textes.yaml`, plain French; `tools/make_text.py` adds it to the game, `tools/check_text.py` checks line width (16 characters) |
+| Dialogue | `story/textes.yaml` in plain French, `story/textes.en.yaml` in English; `tools/make_text.py` adds it to the game, `tools/check_text.py` checks line width (16 characters) |
 | Sprites | Text drawings in `art/`; `tools/make_sprites.py` converts them |
 | Opening film | `code/ages/cutscenes/film.s` (fork); background and sprites made by `tools/make_film.py` (sky and clouds, sun, sea, log, Link poses taken from the game, Marin's face); `tools/preview_film.py` previews it without building |
 | Rooms | Text plans in `story/salles/` (10 x 8 metatiles per screen) and their objects in `story/salles/objets.txt`; `tools/make_rooms.py` puts them in the game; `tools/catalog.py` photographs a tileset's metatiles or rooms with their numbers |
