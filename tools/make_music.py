@@ -32,7 +32,18 @@ SONGS = [
     ('miniboss.txt', 'musBalladeMiniboss'),
     ('theme.txt', 'musBalladeTheme'),
     ('titre.txt', 'musBalladeTitre'),
+    ('rythme.txt', 'musBalladeRythme'),        # $47, le boss de fin en rythme (prototype)
+    ('rythme_fin.txt', 'musBalladeRythmeFin'),  # $48, sa fin : Marine chante
+    # Les niveaux 2 à 5 (la montée en puissance, comme les 5 étapes de Lorule Castle)
+    ('rythme2.txt', 'musBalladeRythme2'),      # $49, + la basse
+    ('rythme3.txt', 'musBalladeRythme3'),      # $4b, + la batterie
+    ('rythme4.txt', 'musBalladeRythme4'),      # $37, + les cuivres et les cymbales
+    ('rythme5.txt', 'musBalladeRythme5'),      # $3a, tout, épique
 ]
+# Niveaux du boss en rythme : mêmes notes à frapper que rythme.txt (vérifié)
+RHYTHM_LEVELS = ['rythme2.txt', 'rythme3.txt', 'rythme4.txt', 'rythme5.txt']
+# Boss en rythme : les notes de la mélodie à frapper (INTERAC_BALLADE_RHYTHM)
+OUT_RHYTHM = os.path.join(ROOT, 'oracles-disasm', 'data', 'ages', 'balladeRhythmNotes.s')
 
 # (groupe, musique, salles) : le Phare Éteint (donjon 1) -> MUS_BALLADE_PHARE ($41)
 ILE_BRUME = [0x79, 0x7a, 0x7b, 0x7c, 0x89, 0x8a, 0x8b, 0x8c,
@@ -45,6 +56,9 @@ ROOM_MUSIC = [
     (0, 0x42, ILE_BRUME),   # et dans le Songe
     (3, 0x43, [0x9e]),      # l'auberge de Port-Veille
     (2, 0x43, [0x9e]),      # et celle du Songe
+    # salle de test du boss en rythme (l'arène de l'ancien donjon 3 d'Ages) : silence en entrant
+    # (SNDCTRL_STOPMUSIC) ; le boss lance son morceau quand Marine a parlé
+    (4, 0xf0, [0x4a]),
 ]
 
 VOICES = {  # voix -> (canal du moteur, genre)
@@ -443,6 +457,60 @@ def gull_cry():
     return lines
 
 
+def rhythm_notes(path, fin_intro):
+    """Boss en rythme : la table des notes de la mélodie dans la boucle (celles qu'il faut frapper),
+    pour code/ages/balladeRhythm.s. Temps en images depuis le début de la boucle ; l'horloge
+    (wBalladeRhythmClock, comptée par le moteur son) vaut 1 au premier pas du morceau, d'où le +1."""
+    tempo, bar, sections, (intro, loop) = parse(path)
+
+    def croches(names):
+        return sum(sum(e[2] for e in events(s, 'melodie', 'carre', sections[s]['melodie'],
+                                            bar, tempo)[0] if e[0] == 'note') for s in names)
+
+    intro_frames = round(croches(intro) * tempo)
+    loop_frames = round(croches(loop) * tempo)
+    lines = ['; Généré par tools/make_music.py depuis music/%s : ne pas éditer à la main.'
+             % os.path.basename(path), '',
+             '; Horloge au début du premier tour de la boucle (pas du moteur son)',
+             '.define BALLADE_RHYTHM_INTRO $%04x' % (intro_frames + 1),
+             '; Durée d\'un tour (la section A de la boucle)',
+             '.define BALLADE_RHYTHM_LOOP $%04x' % loop_frames,
+             '; Fin du chant de Marine (MUS_BALLADE_RYTHME_FIN) : le boss meurt',
+             '.define BALLADE_RHYTHM_FIN_INTRO $%04x' % (fin_intro + 1), '',
+             '; .dw début de la note (images depuis le début du tour), .db durée ; $ffff = fin du tour',
+             'balladeRhythmNotes:']
+    notes = loop_notes(path)
+    for start, dur, p in notes:
+        lines.append('\t.dw $%04x\n\t.db $%02x ; %s' % (start, dur, note_name(p)))
+    lines += ['\t.dw $ffff', '']
+    # Les niveaux 2 et 3 : la même phrase à frapper, sans intro (le jeu y passe au début d'un tour)
+    for level in RHYTHM_LEVELS:
+        lp = os.path.join(os.path.dirname(path), level)
+        if [n[:2] for n in loop_notes(lp)] != [n[:2] for n in notes]:
+            sys.exit('music/%s : la mélodie doit avoir exactement le rythme de music/%s'
+                     % (level, os.path.basename(path)))
+        if parse(lp)[3][0]:
+            sys.exit('music/%s : pas d\'intro (le jeu y passe au début d\'un tour)' % level)
+    with open(OUT_RHYTHM, 'w', encoding='utf-8', newline='\n') as f:
+        f.write('\n'.join(lines))
+    print('boss en rythme : %d notes à frapper par tour' % len(notes))
+
+
+def loop_notes(path):
+    """Les notes de la mélodie dans la boucle : [(début en images, durée, hauteur)]."""
+    tempo, bar, sections, (intro, loop) = parse(path)
+    pos, notes = 0.0, []
+    for s in loop:
+        for e in events(s, 'melodie', 'carre', sections[s]['melodie'], bar, tempo)[0]:
+            if e[0] != 'note':
+                continue
+            start = round(pos * tempo)
+            pos += e[2]
+            if e[1] is not None:
+                notes.append((start, round(pos * tempo) - start, e[1]))
+    return notes
+
+
 def assign_rooms():
     """Musique de chaque salle : un octet par salle dans audio/ages/groupNIDs.bin."""
     for group, music, rooms in ROOM_MUSIC:
@@ -457,11 +525,13 @@ def main():
     assign_rooms()
     head = '; Généré par tools/make_music.py depuis music/*.txt : ne pas éditer à la main.'
     out, ptr = [head, ''], [head, '']
+    intros = {}
     for fname, label in SONGS:
         try:
             lines, intro, loop = build_song(os.path.join(ROOT, 'music', fname), label)
         except ScoreError as e:
             sys.exit('music/%s : %s' % (fname, e))
+        intros[fname] = intro
         # Une section par morceau : ses données restent dans la banque de son étiquette Start
         out += ['m_section_superfree Ballade_%s' % label, ''] + lines + ['.ends', '']
         ptr += ['%s:' % label]
@@ -474,6 +544,7 @@ def main():
     for path, lines in ((OUT, out), (OUT_PTR, ptr)):
         with open(path, 'w', encoding='utf-8', newline='\n') as f:
             f.write('\n'.join(lines))
+    rhythm_notes(os.path.join(ROOT, 'music', 'rythme.txt'), intros['rythme_fin.txt'])
 
 
 if __name__ == '__main__':

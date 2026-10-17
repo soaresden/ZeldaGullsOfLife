@@ -1,0 +1,491 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0d1b2a">
+<title>Taper le rythme</title>
+<script>
+  // Langue : choix mémorisé (sb.lang) sinon langue du navigateur ; les éléments data-en passent en anglais.
+  (function () {
+    var l = null; try { l = localStorage.getItem('sb.lang'); } catch (_) {}
+    if (l !== 'fr' && l !== 'en') l = /^fr/i.test(navigator.language || '') ? 'fr' : 'en';
+    window.SB_LANG = l; document.documentElement.lang = l;
+    if (l === 'en') document.title = 'Tap the rhythm';
+    document.addEventListener('DOMContentLoaded', function () {
+      if (l === 'en') document.querySelectorAll('[data-en]').forEach(function (e) { e.innerHTML = e.getAttribute('data-en'); });
+      var b = document.getElementById('lang');
+      b.textContent = l === 'en' ? '🇫🇷 FR' : '🇬🇧 EN';
+      b.onclick = function () { try { localStorage.setItem('sb.lang', l === 'en' ? 'fr' : 'en'); } catch (_) {} location.reload(); };
+    });
+  })();
+  function SBT(fr, en) { return window.SB_LANG === 'en' ? en : fr; }
+</script>
+<!--
+  Gulls of Life — outil pour Denis : jouer le boss de fin en rythme sur la partition, à la barre
+  d'espace. La partition (la Ballade, music/rythme.txt) défile avec un curseur ; un coup juste
+  (±12 images, comme dans le jeu) fait sonner sa note, barre tenue = épée maintenue. Le texte du
+  résultat se copie-colle à Claude. Rien à installer : ouvrir ce fichier dans le navigateur.
+-->
+<style>
+  :root{--bg:#0d1b2a;--panel:#13283d;--line:#24476a;--tx:#eef5fb;--mut:#9bb6cc;--acc:#ff8a80;
+        --ok:#7ee08a;--mid:#ffd166;--bad:#ff6b6b;--sand:#f3e2b3}
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(900px 500px at 80% -10%,#1f4e79 0,transparent 60%),var(--bg);
+       color:var(--tx);font:16px/1.5 "Segoe UI",system-ui,-apple-system,Roboto,sans-serif;min-height:100vh}
+  main{max-width:1060px;margin:0 auto;padding:40px 16px 60px}
+  h1{font-size:clamp(1.6rem,4vw,2.3rem);margin:0 0 4px;letter-spacing:-.3px}
+  h1 span{color:var(--acc)}
+  .lead{color:var(--mut);margin:0 0 18px;max-width:760px}
+  #lang{position:absolute;top:14px;right:14px;border:1px solid var(--line);background:var(--panel);color:var(--tx);
+        border-radius:11px;padding:8px 12px;font:700 14px system-ui;cursor:pointer;min-height:40px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin:0 0 14px}
+  .row{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center}
+  label{color:var(--mut);font-size:.95rem;display:inline-flex;gap:8px;align-items:center}
+  input[type=number]{width:72px;background:#0b1828;color:var(--tx);border:1px solid var(--line);border-radius:8px;padding:6px 8px;font:inherit}
+  input[type=checkbox]{width:18px;height:18px;accent-color:var(--acc)}
+  button.b{border:0;border-radius:11px;padding:10px 16px;font:700 15px system-ui;cursor:pointer;min-height:44px;
+           background:#1f3d5c;color:var(--tx)}
+  button.go{background:linear-gradient(135deg,#ff8a80,#ff5f8f);color:#1a0b10}
+  button.b:disabled{opacity:.45;cursor:default}
+  #pad{user-select:none;-webkit-user-select:none;touch-action:none;display:flex;align-items:center;justify-content:center;
+       gap:14px;flex-wrap:wrap;min-height:70px;border-radius:16px;border:2px dashed var(--line);background:#0b1828;
+       cursor:pointer;margin:0 0 14px;padding:8px 14px;transition:background .05s}
+  #pad.down{background:#3a2030;border-color:var(--acc)}
+  #pad.hold{background:#4a2a10;border-color:var(--mid)}
+  #status{font-size:clamp(1.15rem,3vw,1.6rem);font-weight:800}
+  #pad small{color:var(--mut)}
+  .sheet{background:#f6f1e3;border-radius:14px;padding:6px 4px;overflow:hidden}
+  canvas{width:100%;display:block}
+  .legend{display:flex;flex-wrap:wrap;gap:14px;color:var(--mut);font-size:.9rem;margin-top:10px}
+  .dot{display:inline-block;width:11px;height:11px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+  textarea{width:100%;min-height:180px;background:#0b1828;color:var(--sand);border:1px solid var(--line);border-radius:12px;
+           padding:12px;font:13px/1.45 ui-monospace,Consolas,monospace;resize:vertical}
+  #stats{color:var(--tx);font-weight:700;margin:0 0 8px}
+  kbd{background:#0b1828;border:1px solid var(--line);border-bottom-width:3px;border-radius:6px;padding:0 6px;font:700 .9em system-ui}
+</style>
+</head>
+<body>
+<button id="lang" title="Français / English">🇬🇧 EN</button>
+<main>
+  <h1 data-en="Play the <span>Ballad</span> to the beat">Jouer la <span>Ballade</span> en rythme</h1>
+  <p class="lead" data-en="The final boss of Gulls of Life, on paper. The metronome counts &laquo; 1 2 3 4 &raquo; twice, then the red cursor runs along the score: press <kbd>Space</kbd> (or the box below) on each note, like a sword swing. Space held down = sword held. A note hit on time turns green and plays, like in the game.">
+    Le boss de fin de Gulls of Life, sur papier. Le métronome compte « 1 2 3 4 » deux fois, puis le curseur rouge
+    avance sur la partition : appuie sur <kbd>Espace</kbd> (ou sur le cadre en dessous) sur chaque note, comme un
+    coup d'épée. Barre tenue = épée maintenue. Une note touchée à temps devient verte et sonne, comme dans le jeu.</p>
+
+  <div class="card row">
+    <label><span data-en="Tempo">Tempo</span> <input id="bpm" type="number" min="40" max="200" value="120"></label>
+    <label><span data-en="Times through the phrase">Tours de la phrase</span> <input id="rounds" type="number" min="1" max="8" value="5"></label>
+    <label><input id="guide" type="checkbox"> <span data-en="guide melody (quiet)">mélodie guide (tout bas)</span></label>
+  </div>
+
+  <div class="card row">
+    <button class="b go" id="start" data-en="▶ Start">▶ Commencer</button>
+    <button class="b" id="stop" disabled data-en="■ Stop">■ Arrêter</button>
+    <button class="b" id="replay" disabled data-en="🔁 Listen again">🔁 Réécouter</button>
+    <button class="b" id="copy" disabled data-en="📋 Copy the text">📋 Copier le texte</button>
+    <button class="b" id="save" disabled data-en="💾 Save .txt">💾 Enregistrer .txt</button>
+  </div>
+
+  <div id="pad">
+    <div id="status" data-en="Press Start">Appuie sur Commencer</div>
+    <small data-en="Space = swing · hold = sword held">Espace = coup · tenir = épée maintenue</small>
+  </div>
+
+  <div class="card">
+    <div class="sheet"><canvas id="tl" height="300"></canvas></div>
+    <div class="legend">
+      <span><i class="dot" style="background:#2f9e44"></i><span data-en="hit on time (±12 frames, like the game)">touchée à temps (±12 images, comme le jeu)</span></span>
+      <span><i class="dot" style="background:#e8590c"></i><span data-en="missed">ratée</span></span>
+      <span><i class="dot" style="background:#868e96"></i><span data-en="swing in the air (no note there)">coup dans le vide (pas de note là)</span></span>
+      <span data-en="The next note to play is circled in blue.">La prochaine note à jouer est entourée en bleu.</span>
+    </div>
+  </div>
+
+  <div class="card">
+    <p id="stats"></p>
+    <textarea id="out" readonly placeholder="…"></textarea>
+  </div>
+</main>
+
+<script>
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  // La Ballade du Poisson-Rêve, phrase du boss en rythme (music/rythme.txt, section A) : note, croches
+  var BALLAD = [['d5',6],['b4',1],['c#5',1],['d5',6],['c#5',1],['b4',1],['f#4',1],['a4',3],['b4',8],[null,2],
+                ['b4',1],['c#5',1],['d5',6],['a4',1],['d5',1],['g5',6],['f#5',1],['e5',1],['f#5',8],[null,8]];
+  var COUNT_IN = 2, PER_BAR = 8, PHRASE_BARS = 8, WINDOW = 12;  // fenêtre en images (60 par seconde), tolérante comme le jeu
+  var NAMES_FR = {c:'do',d:'ré',e:'mi',f:'fa',g:'sol',a:'la',b:'si'};
+
+  // Les notes de la partition : début (en croches depuis la 1re mesure de la phrase), durée, hauteur
+  var PHRASE = [], pos = 0;
+  BALLAD.forEach(function (n) { if (n[0]) PHRASE.push({ c: pos, len: n[1], n: n[0] }); else PHRASE.push({ c: pos, len: n[1], rest: true }); pos += n[1]; });
+
+  function freq(n) {
+    var m = n.match(/([a-g])(#?)(\d)/);
+    var semi = {c:0,d:2,e:4,f:5,g:7,a:9,b:11}[m[1]] + (m[2] ? 1 : 0);
+    return 440 * Math.pow(2, (12 * (+m[3] + 1) + semi - 69) / 12);
+  }
+  function noteName(n) {
+    var m = n.match(/([a-g])(#?)/);
+    return (SB_LANG === 'en' ? m[1].toUpperCase() : NAMES_FR[m[1]]) + (m[2] ? '♯' : '');
+  }
+
+  var ctx = null, noiseBuf = null;
+  function audio() {
+    if (!ctx) {
+      ctx = new (window.AudioContext || window.webkitAudioContext)();
+      noiseBuf = ctx.createBuffer(1, ctx.sampleRate * 0.2, ctx.sampleRate);
+      var d = noiseBuf.getChannelData(0);
+      for (var i = 0; i < d.length; i++) d[i] = Math.random() * 2 - 1;
+    }
+    if (ctx.state === 'suspended') ctx.resume();
+    return ctx;
+  }
+  function latency() { return (ctx.outputLatency || 0) + (ctx.baseLatency || 0); }
+
+  // Le métronome : « toc » sur le 1er temps, « tic » sur les autres (bruit filtré, comme le jeu)
+  function click(t, accent) {
+    var s = ctx.createBufferSource(), f = ctx.createBiquadFilter(), g = ctx.createGain();
+    s.buffer = noiseBuf; f.type = 'bandpass'; f.frequency.value = accent ? 1800 : 6500; f.Q.value = 1.2;
+    g.gain.setValueAtTime(accent ? 0.9 : 0.5, t); g.gain.exponentialRampToValueAtTime(0.001, t + 0.05);
+    s.connect(f); f.connect(g); g.connect(ctx.destination); s.start(t); s.stop(t + 0.06);
+  }
+  // Une note au son carré (Game Boy) ; renvoie une fonction pour l'arrêter
+  function tone(t, f, vol, dur) {
+    var o = ctx.createOscillator(), g = ctx.createGain();
+    o.type = 'square'; o.frequency.value = f;
+    g.gain.setValueAtTime(0, t); g.gain.linearRampToValueAtTime(vol, t + 0.01);
+    o.connect(g); g.connect(ctx.destination); o.start(t);
+    function end(at) {
+      at = Math.max(at, ctx.currentTime);
+      g.gain.cancelScheduledValues(at); g.gain.setValueAtTime(vol, at);
+      g.gain.exponentialRampToValueAtTime(0.0005, at + 0.1); o.stop(at + 0.11);
+    }
+    if (dur) end(t + dur);
+    return end;
+  }
+  // Le « fiou » de l'épée
+  function swish(t) {
+    var s = ctx.createBufferSource(), f = ctx.createBiquadFilter(), g = ctx.createGain();
+    s.buffer = noiseBuf; f.type = 'bandpass'; f.Q.value = 2;
+    f.frequency.setValueAtTime(900, t); f.frequency.exponentialRampToValueAtTime(3500, t + 0.09);
+    g.gain.setValueAtTime(0.22, t); g.gain.exponentialRampToValueAtTime(0.001, t + 0.1);
+    s.connect(f); f.connect(g); g.connect(ctx.destination); s.start(t); s.stop(t + 0.11);
+  }
+
+  // ---- État ----
+  // notes : toutes les notes à jouer (tours répétés) ; t = début en secondes depuis la 1re mesure
+  var S = { mode: 'idle', taps: [], notes: [], t0: 0, end: 0, croche: 0.25, rounds: 2, bpm: 120, timer: null,
+            next: 0, beat: 0, guideIdx: 0, held: null, cur: null, replay: null };
+
+  function settings() {
+    S.bpm = Math.min(200, Math.max(40, +$('bpm').value || 120));
+    S.rounds = Math.min(8, Math.max(1, Math.round(+$('rounds').value || 2)));
+    S.croche = 60 / S.bpm / 2;
+    S.notes = [];
+    for (var r = 0; r < S.rounds; r++) PHRASE.forEach(function (p) {
+      if (!p.rest) S.notes.push({ t: (r * PHRASE_BARS * PER_BAR + p.c) * S.croche, len: p.len * S.croche, n: p.n,
+                                  round: r, state: null, dev: null, held: 0 });
+    });
+  }
+  function totalBars() { return COUNT_IN + S.rounds * PHRASE_BARS; }
+
+  // Programme métronome, mélodie guide et (en réécoute) les coups, un peu en avance
+  function schedule() {
+    var ahead = ctx.currentTime + 0.12, beatDur = S.croche * 2;
+    while (S.next < S.end - 1e-6 && S.next < ahead) {
+      click(S.next, S.beat % 4 === 0);
+      S.next += beatDur; S.beat++;
+    }
+    while (S.guide && S.guideIdx < S.notes.length && S.t0 + S.notes[S.guideIdx].t < ahead) {
+      var gn = S.notes[S.guideIdx++];
+      tone(S.t0 + gn.t, freq(gn.n), 0.025, gn.len * 0.9);
+    }
+    if (S.replay) {
+      while (S.replay.i < S.taps.length && S.t0 + S.taps[S.replay.i].t < ahead) {
+        var tp = S.taps[S.replay.i++], at = S.t0 + Math.max(tp.t, -S.croche);
+        swish(at);
+        if (tp.note != null) { var nn = S.notes[tp.note]; tone(at, freq(nn.n), 0.09, Math.max(nn.len * 0.9 - (tp.t - nn.t), 0.1)); }
+      }
+    }
+    if (S.mode === 'rec') judgeMisses();
+    if (ctx.currentTime > S.end + 0.3) finish();
+  }
+
+  function begin(replay) {
+    audio();
+    if (!replay) { settings(); S.taps = []; }
+    var start = ctx.currentTime + 0.2;
+    S.t0 = start + COUNT_IN * PER_BAR * S.croche;
+    S.end = S.t0 + S.rounds * PHRASE_BARS * PER_BAR * S.croche;
+    S.next = start; S.beat = 0; S.guideIdx = 0;
+    S.guide = $('guide').checked;
+    S.replay = replay ? { i: 0 } : null;
+    S.mode = replay ? 'replay' : 'rec';
+    clearInterval(S.timer);
+    S.timer = setInterval(schedule, 25);
+    schedule(); buttons();
+    requestAnimationFrame(frame);
+  }
+
+  function finish() {
+    clearInterval(S.timer); S.timer = null;
+    if (S.held) release();
+    if (S.mode === 'rec') { S.notes.forEach(function (n) { if (!n.state) n.state = 'miss'; }); }
+    S.mode = 'idle'; S.replay = null;
+    $('status').textContent = S.taps.length ? SBT('Fini ! Le texte pour Claude est en bas', 'Done! The text for Claude is below')
+                                            : SBT('Appuie sur Commencer', 'Press Start');
+    buttons(); draw(); result();
+  }
+
+  function buttons() {
+    var busy = S.mode !== 'idle', has = S.taps.length > 0;
+    $('start').disabled = busy; $('stop').disabled = !busy;
+    $('replay').disabled = busy || !has; $('copy').disabled = busy || !has; $('save').disabled = busy || !has;
+    $('bpm').disabled = busy; $('rounds').disabled = busy;
+  }
+
+  // ---- Le jugement, comme dans le jeu ----
+  function nextNote() {
+    for (var i = 0; i < S.notes.length; i++) if (!S.notes[i].state) return i;
+    return -1;
+  }
+  // Une note passée de plus de 6 images sans coup : ratée
+  function judgeMisses() {
+    var t = ctx.currentTime - latency() - S.t0;
+    S.notes.forEach(function (n) { if (!n.state && (t - n.t) * 60 > WINDOW) n.state = 'miss'; });
+  }
+
+  // ---- La barre d'espace (et le cadre) ----
+  function press() {
+    if (S.held) return;
+    audio();
+    var now = ctx.currentTime;
+    S.held = { at: now };
+    $('pad').classList.add('down');
+    swish(now);
+    if (S.mode !== 'rec') return;
+    judgeMisses();
+    var t = now - latency() - S.t0, i = nextNote();
+    var tap = { t: t, dur: null, note: null, dev: null };
+    // En retard sur cette note mais plus près de la suivante : elle est ratée, le coup est pour la
+    // suivante (comme dans le jeu)
+    if (i >= 0 && i + 1 < S.notes.length && (t - S.notes[i].t) > (S.notes[i + 1].t - t)) {
+      S.notes[i].state = 'miss'; i++;
+    }
+    if (i >= 0) {
+      var n = S.notes[i], dev = (t - n.t) * 60;
+      tap.dev = dev;
+      if (Math.abs(dev) <= WINDOW) {
+        n.state = 'hit'; n.dev = dev; tap.note = i;
+        S.held.stop = tone(now, freq(n.n), 0.09);
+        S.held.noteEnd = S.t0 + n.t + n.len * 0.95;
+        S.held.note = n;
+      }
+    }
+    S.cur = tap;
+    if (t > -S.croche * 2) S.taps.push(tap);
+  }
+  function release() {
+    if (!S.held) return;
+    var now = ctx.currentTime, d = now - S.held.at;
+    // La note sonne jusqu'à sa fin (comme dans le jeu), même après un appui court
+    if (S.held.stop) S.held.stop(Math.max(now, S.held.noteEnd || now));
+    if (S.held.note) S.held.note.held = d;
+    if (S.cur) { S.cur.dur = d; S.cur = null; }
+    S.held = null;
+    $('pad').classList.remove('down', 'hold');
+    if (S.mode === 'idle') draw();
+  }
+  window.addEventListener('keydown', function (e) {
+    if (e.code !== 'Space') return;
+    e.preventDefault();
+    if (!e.repeat) press();
+  });
+  window.addEventListener('keyup', function (e) {
+    if (e.code !== 'Space') return;
+    e.preventDefault(); release();
+  });
+  $('pad').addEventListener('pointerdown', function (e) { e.preventDefault(); press(); });
+  window.addEventListener('pointerup', release);
+  window.addEventListener('blur', release);
+
+  function frame() {
+    if (S.mode === 'idle') return;
+    var t = ctx.currentTime - S.t0;
+    if (S.held && ctx.currentTime - S.held.at >= S.croche) $('pad').classList.add('hold');
+    var c = Math.floor(t / S.croche), beat = ((Math.floor(c / 2) % 4) + 4) % 4 + 1;
+    if (t < 0) {
+      $('status').textContent = (S.mode === 'replay' ? '🔁 ' : '') + SBT('Écoute le compte… ', 'Listen to the count… ') + beat;
+    } else {
+      var round = Math.floor(c / (PHRASE_BARS * PER_BAR)) + 1;
+      $('status').textContent = (S.mode === 'replay' ? '🔁 ' : '') + SBT('Tour ', 'Round ') + Math.min(round, S.rounds) +
+                                ' · ' + SBT('temps ', 'beat ') + beat;
+    }
+    draw(t);
+    requestAnimationFrame(frame);
+  }
+
+  // ---- La partition ----
+  function draw(playhead) {
+    var cv = $('tl'), w = cv.clientWidth, dpr = window.devicePixelRatio || 1;
+    var perRow = w < 620 ? 2 : 4, bars = totalBars(), rows = Math.ceil(bars / perRow);
+    var rowH = 118, left = 44, right = 10, sp = 9;              // sp = écart entre deux lignes de la portée
+    var h = rows * rowH + 6;
+    cv.width = w * dpr; cv.height = h * dpr; cv.style.height = h + 'px';
+    var g = cv.getContext('2d'); g.scale(dpr, dpr); g.clearRect(0, 0, w, h);
+    var barW = (w - left - right) / perRow, cW = barW / PER_BAR;
+    var INK = '#1d2330', FAINT = '#c9bfa5';
+    function rowTop(row) { return 6 + row * rowH; }
+    function staffBottom(row) { return rowTop(row) + 30 + 4 * sp; }    // ligne du bas (mi4)
+    // position d'un instant (secondes depuis la 1re mesure de la phrase ; négatif = décompte)
+    function place(t) {
+      var c = t / S.croche + COUNT_IN * PER_BAR, bar = Math.max(0, Math.min(bars - 1, Math.floor(c / PER_BAR)));
+      var row = Math.floor(bar / perRow);
+      return { x: left + (bar % perRow) * barW + (c - bar * PER_BAR) * cW + cW * 0.5, row: row };
+    }
+    function yOf(n, row) {
+      var m = n.match(/([a-g])#?(\d)/), dn = +m[2] * 7 + 'cdefgab'.indexOf(m[1]);
+      return staffBottom(row) - (dn - 30) * sp / 2;               // mi4 = 4*7+2 = 30
+    }
+
+    for (var row = 0; row < rows; row++) {
+      var y0 = rowTop(row), sb = staffBottom(row);
+      g.strokeStyle = INK; g.lineWidth = 1;
+      for (var k = 0; k < 5; k++) { g.beginPath(); g.moveTo(8, sb - k * sp); g.lineTo(w - right, sb - k * sp); g.stroke(); }
+      // la clé de sol, et l'armure : fa♯ et do♯ (si mineur)
+      g.fillStyle = INK; g.font = (sp * 6.4) + 'px "Segoe UI Symbol","Noto Music","Bravura",serif'; g.textBaseline = 'alphabetic';
+      g.fillText('𝄞', 8, sb + sp * 1.25);
+      g.font = 'bold ' + (sp * 1.8) + 'px serif';
+      g.fillText('♯', 29, sb - 4 * sp + sp * 0.6); g.fillText('♯', 35, sb - 2.5 * sp + sp * 0.6);
+      for (var b = row * perRow; b < Math.min(bars, (row + 1) * perRow); b++) {
+        var x0 = left + (b % perRow) * barW;
+        g.strokeStyle = INK; g.lineWidth = 1.2;
+        g.beginPath(); g.moveTo(x0 + barW, sb); g.lineTo(x0 + barW, sb - 4 * sp); g.stroke();
+        // les temps 1 2 3 4 au-dessus (en gros pendant le décompte)
+        g.textBaseline = 'top'; g.textAlign = 'center';
+        for (var bt = 0; bt < 4; bt++) {
+          var bx = x0 + (bt * 2 + 0.5) * cW;
+          if (b < COUNT_IN) { g.fillStyle = '#1f4e79'; g.font = 'bold 22px system-ui'; g.fillText(String(bt + 1), bx, sb - 3.6 * sp); }
+          else { g.fillStyle = '#8a7f63'; g.font = '11px system-ui'; g.fillText(String(bt + 1), bx, y0); }
+        }
+        g.textAlign = 'left';
+        if (b < COUNT_IN) { g.fillStyle = '#8a7f63'; g.font = '11px system-ui'; g.fillText(SBT('décompte', 'count-in'), x0 + 4, y0); }
+        else if ((b - COUNT_IN) % PHRASE_BARS === 0) { g.fillStyle = '#8a7f63'; g.font = 'bold 11px system-ui'; g.fillText(SBT('tour ', 'round ') + ((b - COUNT_IN) / PHRASE_BARS + 1), x0 + 4, y0 + 12); }
+      }
+    }
+
+    // les silences
+    for (var r = 0; r < S.rounds; r++) PHRASE.forEach(function (p) {
+      if (!p.rest) return;
+      var pl = place((r * PHRASE_BARS * PER_BAR + p.c) * S.croche), sb2 = staffBottom(pl.row);
+      g.fillStyle = INK;
+      if (p.len >= 8) g.fillRect(pl.x + barW * 0.35, sb2 - 3 * sp, sp * 1.2, sp * 0.55);       // pause
+      else { g.font = (sp * 3.2) + 'px "Segoe UI Symbol","Noto Music",serif'; g.textBaseline = 'alphabetic'; g.fillText('𝄽', pl.x - 3, sb2 - sp * 0.6); }
+    });
+
+    // les notes
+    var nxt = S.mode === 'rec' ? nextNote() : -1;
+    S.notes.forEach(function (n, i) {
+      var pl = place(n.t), y = yOf(n.n, pl.row), sb3 = staffBottom(pl.row);
+      var col = n.state === 'hit' ? '#2f9e44' : n.state === 'miss' ? '#e8590c' : INK;
+      var len = n.len / S.croche, hollow = len >= 6, up = y > sb3 - 2 * sp;
+      if (i === nxt) { g.strokeStyle = '#1c7ed6'; g.lineWidth = 2.5; g.beginPath(); g.arc(pl.x, y, 11, 0, Math.PI * 2); g.stroke(); }
+      // le dièse
+      if (/#/.test(n.n)) { g.fillStyle = col; g.font = 'bold ' + (sp * 1.6) + 'px serif'; g.textBaseline = 'middle'; g.fillText('♯', pl.x - 15, y); }
+      // la tête
+      g.save(); g.translate(pl.x, y); g.rotate(-0.35);
+      g.beginPath(); g.ellipse(0, 0, sp * 0.62, sp * 0.44, 0, 0, Math.PI * 2);
+      if (hollow) { g.strokeStyle = col; g.lineWidth = 1.8; g.stroke(); } else { g.fillStyle = col; g.fill(); }
+      g.restore();
+      // la hampe (pas pour la ronde), le crochet (croche), le point (noire ou blanche pointée)
+      if (len < 8) {
+        var sx = up ? pl.x + sp * 0.56 : pl.x - sp * 0.56, sy = up ? y - sp * 3.4 : y + sp * 3.4;
+        g.strokeStyle = col; g.lineWidth = 1.3; g.beginPath(); g.moveTo(sx, y); g.lineTo(sx, sy); g.stroke();
+        if (len === 1) {
+          g.beginPath(); g.moveTo(sx, sy);
+          g.quadraticCurveTo(sx + sp * 1.1, sy + (up ? sp * 1.2 : -sp * 1.2), sx + sp * 0.8, sy + (up ? sp * 2.3 : -sp * 2.3));
+          g.stroke();
+        }
+      }
+      if (len === 3 || len === 6) { g.fillStyle = col; g.beginPath(); g.arc(pl.x + sp * 1.1, y - (((sb3 - y) / (sp / 2)) % 2 === 0 ? sp / 2 : 0), 1.8, 0, Math.PI * 2); g.fill(); }
+      // le nom de la note en dessous
+      g.fillStyle = col; g.font = (n.state ? 'bold ' : '') + '12px system-ui'; g.textAlign = 'center'; g.textBaseline = 'top';
+      g.fillText(noteName(n.n), pl.x, sb3 + sp * 1.4);
+      g.textAlign = 'left';
+    });
+
+    // les coups de Denis : petits triangles sous la portée
+    S.taps.forEach(function (tp) {
+      var pl = place(tp.t), yy = staffBottom(pl.row) + sp * 3.3;
+      g.fillStyle = tp.note != null ? '#2f9e44' : '#868e96';
+      g.beginPath(); g.moveTo(pl.x, yy); g.lineTo(pl.x - 5, yy + 8); g.lineTo(pl.x + 5, yy + 8); g.closePath(); g.fill();
+      var dur = tp.dur == null ? (S.held && S.cur === tp ? ctx.currentTime - S.held.at : 0) : tp.dur;
+      if (dur >= S.croche) { var e = place(tp.t + dur); if (e.row === pl.row) { g.fillRect(pl.x, yy + 9, Math.max(3, e.x - pl.x), 3); } }
+    });
+
+    // le curseur
+    if (playhead != null && playhead > -COUNT_IN * PER_BAR * S.croche && playhead < S.rounds * PHRASE_BARS * PER_BAR * S.croche) {
+      var ph = place(playhead - S.croche * 0.5);
+      g.fillStyle = 'rgba(224,49,49,.85)'; g.fillRect(ph.x - 1.5, rowTop(ph.row) + 14, 3, rowH - 20);
+    }
+  }
+
+  // ---- Le texte pour Claude ----
+  function result() {
+    if (!S.taps.length) { $('out').value = ''; $('stats').textContent = ''; return; }
+    var lines = [], hits = S.notes.filter(function (n) { return n.state === 'hit'; });
+    var wild = S.taps.filter(function (t) { return t.note == null; });
+    var avg = hits.length ? hits.reduce(function (a, n) { return a + Math.abs(n.dev); }, 0) / hits.length : 0;
+    lines.push(SBT('# Denis joue la Ballade sur la partition (tools/rythme.html)', '# Denis plays the Ballad from the score (tools/rythme.html)'));
+    lines.push('# tempo ' + S.bpm + ', ' + SBT('croche', 'eighth') + ' = ' + (S.croche * 60).toFixed(1) + ' ' + SBT('images', 'frames') +
+               ', ' + SBT('fenêtre', 'window') + ' ±' + WINDOW + ' ' + SBT('images', 'frames') + ', ' + S.rounds + ' ' + SBT('tours', 'rounds'));
+    lines.push(SBT('# note +écart en images (+ = en retard) ; ~ = épée maintenue ; X = ratée',
+                   '# note +offset in frames (+ = late); ~ = sword held; X = missed'));
+    for (var r = 0; r < S.rounds; r++) {
+      var parts = S.notes.filter(function (n) { return n.round === r; }).map(function (n) {
+        var nm = noteName(n.n);
+        if (n.state !== 'hit') return nm + ' X';
+        return nm + (n.dev >= 0 ? ' +' : ' ') + Math.round(n.dev) + (n.held >= S.croche ? '~' : '');
+      });
+      lines.push(SBT('tour ', 'round ') + (r + 1) + ' : ' + parts.join(' · '));
+    }
+    lines.push('');
+    lines.push(SBT('# coups dans le vide : ', '# swings in the air: ') + wild.length +
+               (wild.length ? ' (' + wild.map(function (t) {
+                 var c = Math.round(t.t / S.croche); return SBT('mesure ', 'bar ') + (Math.floor(c / PER_BAR) + 1) + '.' + ((c % PER_BAR + PER_BAR) % PER_BAR + 1);
+               }).join(', ') + ')' : ''));
+    lines.push(SBT('# tous les coups, en images depuis la 1re mesure (~durée si maintenu) :', '# every swing, in frames from bar 1 (~length if held):'));
+    lines.push(S.taps.map(function (t) { return Math.round(t.t * 60) + ((t.dur || 0) >= S.croche ? '~' + Math.round(t.dur * 60) : ''); }).join(' '));
+    $('out').value = lines.join('\n');
+    $('stats').textContent = hits.length + ' / ' + S.notes.length + ' ' + SBT('notes touchées à temps', 'notes hit on time') +
+      ' · ' + SBT('écart moyen ', 'average offset ') + avg.toFixed(1) + ' ' + SBT('images', 'frames') +
+      ' · ' + wild.length + ' ' + SBT('coups dans le vide', 'swings in the air');
+  }
+
+  $('start').onclick = function () { this.blur(); begin(false); };
+  $('stop').onclick = function () { this.blur(); finish(); };
+  $('replay').onclick = function () { this.blur(); begin(true); };
+  $('copy').onclick = function () {
+    this.blur();
+    var b = this, t = $('out').value;
+    function done() { var o = b.textContent; b.textContent = SBT('✔ Copié !', '✔ Copied!'); setTimeout(function () { b.textContent = o; }, 1500); }
+    if (navigator.clipboard) navigator.clipboard.writeText(t).then(done, function () { $('out').select(); document.execCommand('copy'); done(); });
+    else { $('out').select(); document.execCommand('copy'); done(); }
+  };
+  $('save').onclick = function () {
+    this.blur();
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(new Blob([$('out').value], { type: 'text/plain' }));
+    a.download = 'rythme.txt'; a.click(); setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  };
+  ['bpm', 'rounds'].forEach(function (id) { $(id).addEventListener('change', function () { if (S.mode === 'idle') { settings(); S.taps = []; draw(); result(); buttons(); } }); });
+  window.addEventListener('resize', function () { if (S.mode === 'idle') draw(); });
+  settings(); draw();
+})();
+</script>
+</body>
+</html>

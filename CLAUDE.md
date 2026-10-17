@@ -215,3 +215,51 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   salle sont lancés en détournant playSound (crochet PyBoy). Denis veut ÉCOUTER une musique avant
   qu'on la pousse ; ses références : Wind Waker / Linebeck (marin), Resident Evil (salle de
   sauvegarde), Hyrule Warriors, Ninja Gaiden NES.
+
+## Boss de fin en rythme (boss du donjon 8, prototype)
+- Idée de Denis (story/idees.md) : la musique se tait, il reste un métronome ; A en rythme de la
+  Ballade fait revenir la chanson note à note ; Marine chante la suite et donne le coup de grâce.
+- INTERAC_BALLADE_RHYTHM ($ea) : code/ages/balladeRhythm.s (section à part ; banque $10 = 6 octets).
+  Salle de test 4:4a (arène de l'ancien donjon 3), silencieuse en entrant (musique de salle $f0 =
+  SNDCTRL_STOPMUSIC) : Marine parle (« Allez, donne-moi le 'La' ! »), puis le morceau commence.
+- 5 niveaux, comme les 5 étapes de Lorule Castle (A Link Between Worlds, la référence de Denis ;
+  analyse : étape 1 sans basse, 2 + basse, 3 + percussions, 4 + aigus/cuivres, 5 tout) : un bon tour
+  de la phrase = un niveau de plus = un autre morceau (même phrase, un instrument de plus), lancé au
+  début du tour suivant. MUS $47 (music/rythme.txt, avec 2 mesures de décompte), $49 (rythme2),
+  $4b (rythme3), $37 (rythme4), $3a (rythme5) ; puis $48 (rythme_fin.txt : Marine chante la 2e
+  moitié de la Ballade). make_music.py vérifie que les 5 niveaux ont exactement les mêmes notes à
+  frapper. Numéros pris parmi les musiques vides d'Ages (restent libres : $24, $3b, $3d).
+- Technique : le morceau joue en entier, le jeu coupe les voix avec NR51 ($ff25 ; le moteur d'Ages
+  ne l'écrit qu'au démarrage, et code/audio.s le remet à $ff à chaque nouvelle musique : sortir de
+  la salle rend le son). Bruit (métronome / batterie) toujours ; mélodie ouverte jusqu'à la fin de
+  la note après un coup juste ; harpe puis basse à 6 / 12 coups justes d'affilée.
+- Réglé tolérant (Denis : « c'est pas un jeu de rythme ») : fenêtre ±12 images ; un coup en retard
+  mais plus près de la note suivante compte pour la suivante ; note ratée = enchaînement / 2 ; coup
+  dans le vide = -2. Bon tour = notes justes - coups dans le vide >= 14 sur 18 (taper sans arrêt ne
+  marche pas). Constantes BALLADE_RHYTHM_* (constants/common/version.s).
+- Marine (TX_5a36-3d, 2 lignes seulement : une 3e attendrait A ; \wait(120) = bulle de ~3 s qui se
+  ferme seule, demandé par Denis) : en arrivant ; après chaque bon tour (« Ouais... Je
+  reconnais !... », « C'est ça ! Plus fort ! », « Je reprends mon souffle... », « Ma voix... Elle
+  revient ! », « Tu as retenu ♥ ! ») ; « Je vais me le faire ! » quand elle chante ; à la fin de son
+  chant, le coup de grâce « RETOURNE D'OÙ TU VIENS ! », puis le boss meurt. Pendant une bulle Link
+  ne bouge pas : pas de jugement (les bulles tombent dans les mesures sans note). \heart = cœur
+  (tools/check_text.py le compte pour 1 caractère).
+- Le temps : wBalladeRhythmClock ($cde9), compté dans updateSound (le son tourne sur
+  l'interruption du minuteur, pas sur les images) et remis à zéro quand le boss lance un morceau.
+  make_music.py écrit la table des notes à frapper (data/ages/balladeRhythmNotes.s, depuis la
+  mélodie de la boucle de music/rythme.txt) : changer la partition change le jeu.
+- Rien n'y mène dans le jeu normal. Accès secret pour le tester : à l'écran titre, TENIR SELECT et
+  appuyer sur START (petit son de secret), puis choisir un fichier : la partie commence dans 4:4a.
+  Après le boss, le jeu revient au début (logos, titre). Le code est en SRAM $bff1 (effacé à chaque
+  écran titre et à chaque début de partie) ; balladeRhythm.checkTestStart (appelé par
+  initializeGame, bank1.s) remplace le point de départ, et le vrai est rendu en arrivant dans la
+  salle (wBalladeRhythmSpawn) : sauvegarder pendant le test ne change pas le départ du fichier.
+- Test + aperçu : python tools/test_rythme.py [DOSSIER] (ROM=...) -> out/rythme_apercu.wav (un
+  joueur qui rate le 1er tour puis réussit les 5 niveaux, Marine, le coup de grâce) ; il rejoue
+  aussi les vrais coups de Denis et le code secret. Étape en $cdec, coups en $cdeb.
+- tools/rythme.html (navigateur) : la partition de la phrase avec un curseur ; Denis tape à la
+  barre d'espace (tenue = épée maintenue), mêmes règles que le jeu ; le texte du résultat (écart de
+  chaque note en images) se colle à Claude.
+- À faire pour le vrai boss : le boss lui-même (ici : tremblement + SND_BOSS_DEAD), un repère visuel
+  du rythme, qui donne l'épée (ici la salle de test la met sur A). Idée de Denis : le donjon final
+  en 5 étages aussi, comme Lorule Castle.

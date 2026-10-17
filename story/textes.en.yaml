@@ -712,6 +712,65 @@ groups:
       we'll carve you
       up anyway, Jack!
 
+  # The rhythm final boss (INTERAC_BALLADE_RHYTHM): Marin cheers Link on (Denis's ideas). Two
+  # lines only (a 3rd one would wait for A); she just talks: the box closes by itself after ~3
+  # seconds (\wait), during the bars with no note to hit.
+  # At the start, during the count-in
+  - name: TX_5a36
+    index: 0x36
+    text: |-
+      Come on, give me
+      an 'A'!\wait(120)
+
+  # A good round: the song comes back (level 2)
+  - name: TX_5a37
+    index: 0x37
+    text: |-
+      Yeah... I know
+      this one!...\wait(120)
+
+  # Another good round (level 3): she focuses, she catches her breath
+  - name: TX_5a38
+    index: 0x38
+    text: |-
+      I'm catching
+      my breath...\wait(120)
+
+  # The last good round: she is about to sing
+  - name: TX_5a39
+    index: 0x39
+    text: |-
+      You remembered
+      \heart!\wait(120)
+
+  # She starts singing
+  - name: TX_5a3a
+    index: 0x3a
+    text: |-
+      I'm gonna get
+      him!\wait(120)
+
+  # The finishing blow, at the end of her song
+  - name: TX_5a3b
+    index: 0x3b
+    text: |-
+      GO BACK WHERE
+      YOU CAME FROM!\wait(120)
+
+  # After level 2 (5 levels, like the 5 stages of Lorule Castle)
+  - name: TX_5a3c
+    index: 0x3c
+    text: |-
+      That's it!
+      Louder!\wait(120)
+
+  # After level 4: her voice is coming back
+  - name: TX_5a3d
+    index: 0x3d
+    text: |-
+      My voice... it's
+      coming back!\wait(120)
+
   # The language choice, at the start of a new game (the same in both files)
   - name: TX_5a17
     index: 0x17

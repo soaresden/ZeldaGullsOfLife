@@ -1,0 +1,25 @@
+# Gulls of Life — boss de fin en rythme, niveau 2 : MUS_BALLADE_RYTHME_2 ($49)
+#
+# La montée en puissance, en 5 niveaux comme les 5 étapes de Lorule Castle (A Link Between
+# Worlds) : un instrument de plus à chaque bon tour. Niveau 2 = la basse arrive (en 3+3+2, comme
+# la Ballade de l'écran titre), sous la harpe et le métronome du niveau 1.
+# Les notes à frapper sont EXACTEMENT celles de music/rythme.txt (make_music.py le vérifie).
+# Pas d'intro : le jeu passe à ce morceau au début d'un tour.
+
+tempo 15
+mesure 8
+
+== A ==
+melodie:   [v7] [duty 2] [vib 32] [gate .9] [detune 0]
+melodie:   d5:6 b4:1 c#5:1 | d5:6 c#5:1 b4:1 | f#4:1 a4:3 b4:8 -:2 b4:1 c#5:1 |
+melodie:   d5:6 a4:1 d5:1 | g5:6 f#5:1 e5:1 | f#5:8 | -:8 |
+accordeon: [v3] [duty 2] [vib 00] [gate .6] [detune 0]
+accordeon: ( b3:1 d4:1 f#4:1 d4:1 )x2 | ( g3:1 b3:1 d4:1 b3:1 )x2 | ( e4:1 g4:1 b4:1 g4:1 )x2 | ( f#3:1 a#3:1 c#4:1 a#3:1 )x2 |
+accordeon: ( b3:1 d4:1 f#4:1 d4:1 )x2 | ( g3:1 b3:1 d4:1 b3:1 )x2 | ( d4:1 f#4:1 a4:1 f#4:1 )x2 | ( a3:1 c#4:1 e4:1 c#4:1 )x2 |
+# La basse arrive
+basse:     [onde 0e] [vib 00] [gate .6]
+basse:     b1:3 b1:3 f#2:2 | g1:3 g1:3 d2:2 | e2:3 e2:3 b2:2 | f#1:3 f#1:3 c#2:2 |
+basse:     b1:3 b1:3 f#2:2 | g1:3 g1:3 d2:2 | d2:3 d2:3 a2:2 | a1:3 a1:3 e2:2 |
+batterie:  ( [v4] n24:2 [v2] h:2 h:2 h:2 | )x8
+
+ordre: | A

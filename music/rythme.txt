@@ -1,0 +1,43 @@
+# Gulls of Life — le boss de fin en rythme, niveau 1 : MUS_BALLADE_RYTHME ($47)
+#
+# Idée de Denis : la musique se tait, il ne reste qu'un tic-tac de métronome ; Link frappe
+# l'épée dans le vent (A) sur le rythme de la Ballade du Poisson-Rêve (« A A A... A A A...
+# A A A A A... »). Chaque coup juste fait entendre une note de la chanson ; plus on garde le
+# rythme, plus la chanson revient ; chaque bon tour monte d'un niveau (5 niveaux, comme les 5
+# étapes de Lorule Castle dans A Link Between Worlds : rythme.txt puis rythme2.txt à rythme5.txt,
+# un instrument de plus à chaque fois) ; à la fin, Marine la chante par-dessus
+# (music/rythme_fin.txt) et le boss en meurt.
+#
+# Ce morceau joue EN ENTIER tout le temps, mais le jeu coupe les voix (registre NR51 du Game Boy,
+# INTERAC_BALLADE_RHYTHM, code/ages/balladeRhythm.s) : au début on n'entend que le métronome
+# (la batterie), la mélodie s'ouvre le temps d'une note à chaque coup juste.
+# Les notes à frapper = les notes de la mélodie dans la boucle (section A) : make_music.py en
+# écrit la table (data/ages/balladeRhythmNotes.s). Même notation que music/phare.txt.
+
+tempo 15         # images par croche (noire = 30 images, 120 à la minute)
+mesure 8
+
+== TIC ==
+# Deux mesures de métronome seul pour prendre le rythme (« un, deux, trois, quatre »).
+melodie:   [v7] [duty 2] [vib 32] [gate .9] [detune 0]
+melodie:   -:8 | -:8 |
+accordeon: [v3] [duty 2] [vib 00] [gate .6] [detune 0]
+accordeon: -:8 | -:8 |
+basse:     [onde 0e] [vib 00] [gate .6]
+basse:     -:8 | -:8 |
+batterie:  ( [v4] n24:2 [v2] h:2 h:2 h:2 | )x2
+
+== A ==
+# La Ballade (les notes à frapper) : 3 + 3 + 5 + 3 + 3 + 1 = 18 coups, puis une mesure pour
+# respirer. Accords : si m, sol, mi m, fa# | si m, sol, ré, la.
+melodie:   d5:6 b4:1 c#5:1 | d5:6 c#5:1 b4:1 | f#4:1 a4:3 b4:8 -:2 b4:1 c#5:1 |
+melodie:   d5:6 a4:1 d5:1 | g5:6 f#5:1 e5:1 | f#5:8 | -:8 |
+# La harpe (revient quand on enchaîne les coups justes)
+accordeon: ( b3:1 d4:1 f#4:1 d4:1 )x2 | ( g3:1 b3:1 d4:1 b3:1 )x2 | ( e4:1 g4:1 b4:1 g4:1 )x2 | ( f#3:1 a#3:1 c#4:1 a#3:1 )x2 |
+accordeon: ( b3:1 d4:1 f#4:1 d4:1 )x2 | ( g3:1 b3:1 d4:1 b3:1 )x2 | ( d4:1 f#4:1 a4:1 f#4:1 )x2 | ( a3:1 c#4:1 e4:1 c#4:1 )x2 |
+# Pas encore de basse au niveau 1 (elle arrive au niveau 2, comme dans Lorule Castle)
+basse:     -:8 | -:8 | -:8 | -:8 | -:8 | -:8 | -:8 | -:8 |
+# Le métronome : « toc » sur le 1er temps, « tic » sur les autres
+batterie:  ( [v4] n24:2 [v2] h:2 h:2 h:2 | )x8
+
+ordre: TIC | A

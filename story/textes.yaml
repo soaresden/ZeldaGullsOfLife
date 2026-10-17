@@ -735,6 +735,65 @@ groups:
       piquer quand
       même, Jack!
 
+  # Le boss de fin en rythme (INTERAC_BALLADE_RHYTHM) : les encouragements de Marine (idées de
+  # Denis). Deux lignes seulement (une 3e attendrait A) ; elle parle juste : la bulle se ferme
+  # toute seule après ~3 secondes (\wait), pendant les mesures sans note à frapper.
+  # Au début, pendant le décompte
+  - name: TX_5a36
+    index: 0x36
+    text: |-
+      Allez, donne-moi
+      le 'La'!\wait(120)
+
+  # Un bon tour : la chanson revient (niveau 2)
+  - name: TX_5a37
+    index: 0x37
+    text: |-
+      Ouais...
+      Je reconnais!...\wait(120)
+
+  # Encore un bon tour (niveau 3) : elle se concentre, elle prend son souffle
+  - name: TX_5a38
+    index: 0x38
+    text: |-
+      Je reprends mon
+      souffle...\wait(120)
+
+  # Le dernier bon tour : elle va chanter
+  - name: TX_5a39
+    index: 0x39
+    text: |-
+      Tu as retenu
+      \heart!\wait(120)
+
+  # Elle commence à chanter
+  - name: TX_5a3a
+    index: 0x3a
+    text: |-
+      Je vais me le
+      faire!\wait(120)
+
+  # Le coup de grâce, à la fin de son chant
+  - name: TX_5a3b
+    index: 0x3b
+    text: |-
+      RETOURNE D'OÙ
+      TU VIENS!\wait(120)
+
+  # Après le niveau 2 (5 niveaux, comme les 5 étapes de Lorule Castle)
+  - name: TX_5a3c
+    index: 0x3c
+    text: |-
+      C'est ça!
+      Plus fort!\wait(120)
+
+  # Après le niveau 4 : sa voix revient
+  - name: TX_5a3d
+    index: 0x3d
+    text: |-
+      Ma voix...
+      Elle revient!\wait(120)
+
   # Le choix de la langue, au début d'une nouvelle partie (le même dans les deux fichiers)
   - name: TX_5a17
     index: 0x17

@@ -35,6 +35,8 @@ def main():
                     visible = COMMANDS.sub('', line).replace('\\Link', 'X' * 5)
                     # Les boutons A et B font 2 caractères à l'écran
                     visible = visible.replace('\\abtn', 'AA').replace('\\bbtn', 'BB')
+                    # Le cœur (\heart) : un caractère
+                    visible = visible.replace('\\heart', '#')
                     if len(visible) > 16:
                         print('%s %s : %d caractères : %s' % (name, entry['name'], len(visible), line))
                         bad += 1

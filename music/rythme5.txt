@@ -1,0 +1,26 @@
+# Gulls of Life — boss de fin en rythme, niveau 5 : MUS_BALLADE_RYTHME_5 ($3a)
+#
+# Niveau 5, le sommet (comme l'étape 5 de Lorule Castle, et façon Hyrule Warriors) : des cuivres qui frappent en 3+3+2, la basse
+# en octaves, les tambours de guerre et un roulement de caisse claire à la fin de la phrase.
+# Marine a presque retrouvé son souffle : encore un bon tour et elle chante.
+# Les notes à frapper sont EXACTEMENT celles de music/rythme.txt (make_music.py le vérifie).
+
+tempo 15
+mesure 8
+
+== A ==
+melodie:   [v9] [duty 2] [vib 42] [gate .95] [detune 0]
+melodie:   d5:6 b4:1 c#5:1 | d5:6 c#5:1 b4:1 | f#4:1 a4:3 b4:8 -:2 b4:1 c#5:1 |
+melodie:   d5:6 a4:1 d5:1 | g5:6 f#5:1 e5:1 | f#5:8 | -:8 |
+# Les cuivres : accords frappés en 3+3+2
+accordeon: [v6] [duty 1] [vib 00] [gate .75] [detune 1]
+accordeon: f#4:3 f#4:3 b4:2 | d4:3 d4:3 g4:2 | g4:3 g4:3 b4:2 | f#4:3 f#4:3 a#4:2 |
+accordeon: f#4:3 f#4:3 b4:2 | d4:3 d4:3 g4:2 | f#4:3 f#4:3 a4:2 | e4:3 e4:3 c#5:2 |
+basse:     [onde 0e] [vib 00] [gate .8]
+basse:     ( b1:1 b2:1 )x4 | ( g1:1 g2:1 )x4 | ( e2:1 e3:1 )x4 | ( f#1:1 f#2:1 )x4 |
+basse:     ( b1:1 b2:1 )x4 | ( g1:1 g2:1 )x4 | ( d2:1 d3:1 )x4 | ( a1:1 a2:1 )x4 |
+# Les tambours de guerre, puis le roulement qui annonce la suite
+batterie:  ( [v5] n24:1 [v2] h:1 [v5] s:1 [v2] h:1 [v5] n24:1 [v4] n24:1 [v5] s:1 [v3] s:1 | )x7
+batterie:  [v2] s:.5 s:.5 [v3] s:.5 s:.5 [v4] s:.5 s:.5 [v5] s:.5 s:.5 [v6] s:1 s:1 [v7] s:1 s:1 |
+
+ordre: | A

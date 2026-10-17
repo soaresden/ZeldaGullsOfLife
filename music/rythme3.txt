@@ -1,0 +1,24 @@
+# Gulls of Life — boss de fin en rythme, niveau 3 : MUS_BALLADE_RYTHME_3 ($4b)
+#
+# Niveau 3 (comme l'étape 3 de Lorule Castle) : la batterie arrive (toc sur le 1, caisse claire
+# sur le 3, charleston en croches), la basse saute d'octave, la harpe monte en croches.
+# Les notes à frapper sont EXACTEMENT celles de music/rythme.txt (make_music.py le vérifie).
+# Pas d'intro : le jeu passe à ce morceau au début d'un tour.
+
+tempo 15
+mesure 8
+
+== A ==
+melodie:   [v8] [duty 1] [vib 32] [gate .9] [detune 0]
+melodie:   d5:6 b4:1 c#5:1 | d5:6 c#5:1 b4:1 | f#4:1 a4:3 b4:8 -:2 b4:1 c#5:1 |
+melodie:   d5:6 a4:1 d5:1 | g5:6 f#5:1 e5:1 | f#5:8 | -:8 |
+accordeon: [v4] [duty 2] [vib 00] [gate .6] [detune 0]
+accordeon: ( b3:1 d4:1 f#4:1 b4:1 )x2 | ( g3:1 b3:1 d4:1 g4:1 )x2 | ( e4:1 g4:1 b4:1 e5:1 )x2 | ( f#3:1 a#3:1 c#4:1 f#4:1 )x2 |
+accordeon: ( b3:1 d4:1 f#4:1 b4:1 )x2 | ( g3:1 b3:1 d4:1 g4:1 )x2 | ( d4:1 f#4:1 a4:1 d5:1 )x2 | ( a3:1 c#4:1 e4:1 a4:1 )x2 |
+basse:     [onde 0e] [vib 00] [gate .7]
+basse:     ( b1:1 b2:1 )x4 | ( g1:1 g2:1 )x4 | ( e2:1 e3:1 )x4 | ( f#1:1 f#2:1 )x4 |
+basse:     ( b1:1 b2:1 )x4 | ( g1:1 g2:1 )x4 | ( d2:1 d3:1 )x4 | ( a1:1 a2:1 )x4 |
+batterie:  ( [v4] n24:1 [v1] h:1 [v2] h:1 [v1] h:1 [v4] s:1 [v1] h:1 [v2] h:1 [v1] h:1 | )x7
+batterie:  [v4] n24:1 [v1] h:1 [v2] h:1 [v1] h:1 [v3] s:1 [v4] s:1 [v5] s:1 s:1 |
+
+ordre: | A
