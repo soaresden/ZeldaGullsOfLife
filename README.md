@@ -16,7 +16,7 @@ personne ne rêve.
 la morale du jeu : on réalise ses rêves, on n'y reste pas, et on avance malgré
 les obstacles.
 
-<p align="center"><img src="docs/shots/v03_1.png" width="480" alt="Écran titre de Gulls of Life"></p>
+<p align="center"><img src="docs/shots/v10_1.png" width="480" alt="Écran titre de Gulls of Life"></p>
 
 ![Carte de l'archipel des Sans-Sommeil](docs/carte_archipel.png)
 
@@ -45,8 +45,8 @@ donjons, de nouvelles musiques. Et une mouette qui a son mot à dire.
 
 ## Jouer
 
-**[▶ Démo v0.3.1](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.3.1)**
-(tout le premier chapitre) : un patch `gulls_of_life.bps` à appliquer sur sa
+**[▶ Démo v1.0/1](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v1.0-1)**
+(tout le premier chapitre et son temple) : un patch `gulls_of_life.bps` à appliquer sur sa
 propre ROM *The Legend of Zelda: Oracle of Ages* (USA). Aucune ROM n'est fournie.
 
 En **français ou en anglais**, menus compris : on choisit en se réveillant sur
@@ -62,22 +62,26 @@ anglais).
 <details>
 <summary><b>Comment appliquer le patch</b></summary>
 
-1. Télécharger `gulls_of_life.bps` dans la [version v0.3.1](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.3.1).
+1. Télécharger `gulls_of_life.bps` dans la [version v1.0/1](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v1.0-1).
 2. Avoir sa propre ROM *Oracle of Ages* version **USA** (CRC32 `3800a387`).
 3. Appliquer le patch avec un outil BPS, par exemple [Rom Patcher JS](https://www.marcrobledo.com/RomPatcher.js/) en ligne.
-4. Jouer le fichier obtenu (CRC32 `d9c110d5`) dans n'importe quel émulateur Game Boy Color.
+4. Jouer le fichier obtenu (CRC32 `08932bbd`) dans n'importe quel émulateur Game Boy Color.
 
 </details>
 
 <details>
-<summary><b>Quoi de neuf dans la v0.3</b></summary>
+<summary><b>Quoi de neuf dans la v1.0/1</b></summary>
 
-- Un écran titre animé : une mouette vient s'y poser…
-- Les menus en français aussi : choix du fichier, sauvegarde, Game Over, inventaire
-- Le noctambule : dans le Songe, le temps est compté ; une petite lune en haut de l'écran égrène les secondes
-- Dans le Songe, tout est possible… même ouvrir la mer
-- Le Phare Éteint s'annonce : « Niveau 1 – Phare Éteint »
-- Corrections : plus de blocage au rez-de-chaussée du phare, les bonnes couleurs de la barre d'état dans le Songe
+- Le Phare Éteint devient un vrai temple : tout en hauteur, des salles plongées dans le noir, des torches à rallumer…
+- La Lanterne des Songes a enfin sa place dans le donjon
+- Un boss qui a la langue bien pendue… et Marine qui ne se laisse pas faire
+- Des musiques originales : l'écran titre, l'île de la Brume, l'auberge, le phare, le mini-boss et le boss
+- L'écran titre est signé, et la mouette ne le quitte plus
+- Dormir : A n'importe où contre le lit
+- Corrections : la Lanterne ne bloque plus le jeu en passant au Songe, une consigne en trop retirée
+
+*v1.0/1* : on reste en v1.0 jusqu'à la fin du jeu ; le chiffre après la barre, c'est le nombre de
+donjons jouables.
 
 </details>
 
@@ -88,7 +92,7 @@ anglais).
 - ✅ Le premier donjon : un vrai temple, son objet et son boss
 - ✅ L'écran titre *Gulls of Life*
 - ✅ Français et anglais, menus compris
-- ✅ Démo jouable v0.3
+- ✅ Démo jouable v1.0/1
 - ⬜ Les sept autres îles
 - ✅ Des musiques originales : l'écran titre, l'île de la Brume, l'auberge, le Phare Éteint, le miniboss et le boss
 - ⬜ De nouveaux mini-jeux

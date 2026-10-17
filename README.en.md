@@ -15,7 +15,7 @@ made a wish: to have wings and fly beyond the sea. She comes back as a
 you make your dreams come true instead of staying in them, and you keep going
 no matter what.
 
-<p align="center"><img src="docs/shots/v03_1.png" width="480" alt="Gulls of Life title screen"></p>
+<p align="center"><img src="docs/shots/v10_1.png" width="480" alt="Gulls of Life title screen"></p>
 
 ![Map of the Sleepless Archipelago](docs/carte_archipel.png)
 
@@ -44,8 +44,8 @@ music. And a seagull who has plenty to say.
 
 ## Play
 
-**[▶ Demo v0.3.1](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.3.1)**
-(the whole first chapter): a `gulls_of_life.bps` patch to apply to your own
+**[▶ Demo v1.0/1](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v1.0-1)**
+(the whole first chapter and its temple): a `gulls_of_life.bps` patch to apply to your own
 *The Legend of Zelda: Oracle of Ages* (USA) ROM. No ROM is provided.
 
 In **English or French**, menus included: you choose when you wake up on the
@@ -60,22 +60,26 @@ beach, and the save remembers it (only the very first start is in English).
 <details>
 <summary><b>How to apply the patch</b></summary>
 
-1. Download `gulls_of_life.bps` from the [v0.3.1 release](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v0.3.1).
+1. Download `gulls_of_life.bps` from the [v1.0/1 release](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v1.0-1).
 2. Have your own *Oracle of Ages* ROM, **USA** version (CRC32 `3800a387`).
 3. Apply the patch with a BPS patcher, for example [Rom Patcher JS](https://www.marcrobledo.com/RomPatcher.js/) online.
-4. Play the result (CRC32 `d9c110d5`) in any Game Boy Color emulator.
+4. Play the result (CRC32 `08932bbd`) in any Game Boy Color emulator.
 
 </details>
 
 <details>
-<summary><b>What's new in v0.3</b></summary>
+<summary><b>What's new in v1.0/1</b></summary>
 
-- An animated title screen: a seagull comes to land on it…
-- Menus in French too: file select, save, Game Over, inventory
-- The sleepwalker: in the Dream World, time is short; a little moon at the top counts down the seconds
-- In the Dream World, anything is possible… even parting the sea
-- The Dark Lighthouse introduces itself: "Level 1 – Dark Lighthouse"
-- Fixes: no more getting stuck on the lighthouse's ground floor, right status bar colours in the Dream World
+- The Dark Lighthouse becomes a real temple: tall and narrow, rooms plunged into darkness, torches to light again…
+- The Dream Lantern finally has its place in the dungeon
+- A boss with plenty to say… and Marin, who won't let it slide
+- Original music: the title screen, Mist Island, the inn, the lighthouse, the miniboss and the boss
+- The title screen is signed, and the seagull never leaves it
+- Sleeping: A anywhere against the bed
+- Fixes: the Lantern no longer freezes the game when entering the Dream World, one redundant hint removed
+
+*v1.0/1*: the game stays at v1.0 until it's finished; the number after the slash is how many
+dungeons are playable.
 
 </details>
 
@@ -86,7 +90,7 @@ beach, and the save remembers it (only the very first start is in English).
 - ✅ The first dungeon: a real temple, its key item and its boss
 - ✅ The *Gulls of Life* title screen
 - ✅ English and French, menus included
-- ✅ Playable demo v0.3
+- ✅ Playable demo v1.0/1
 - ⬜ The other seven islands
 - ✅ Original music: the title screen, Mist Island, the inn, the Dark Lighthouse, the miniboss and the boss
 - ⬜ New minigames
