@@ -6,42 +6,82 @@
 #   (bc-bf sont des portes pleines : Link ne passe pas) ;
 #   volets (fermés tant qu'il reste des ennemis, ou que les torches sont éteintes) : 78 79 7a 7b
 #   (haut, droite, bas, gauche ; c'est l'objet INTERAC_DOOR_CONTROLLER $1e qui les ouvre) ;
-#   porte à petite clé : 70 71 72 73 ; porte du boss : 74 75 76 77 ;
-#   08 = torche éteinte (la Lanterne l'allume) ; f1 = coffre (contenu : data/ages/chestData.s) ;
-#   10 = pot ; e0-e6 = l'arche de l'entrée.
+#   porte à petite clé : 70 71 72 73 ; porte du boss : 74 75 76 77 ; 1e = bloc à serrure ;
+#   08 = torche éteinte (la Lanterne l'allume) ; 68 / 69 = mur fissuré (à droite / à gauche) que
+#   la flamme de la Lanterne fait brûler ; 0a = cristal à frapper à l'épée ; 0c = bouton au sol ;
+#   2a = statue qu'on pousse (autant qu'on veut) ; 1c = bloc qu'on pousse une fois ; 26 27 = statues ;
+#   f5 = trou ; f1 = coffre (contenu : data/ages/chestData.s, un coffre par salle) ; 10 = pot ;
+#   e0-e6 = l'arche de l'entrée.
 # Après « decor 36 » : « sombre » = salle dans le noir tant que ses torches sont éteintes ;
 #   « boss » = la salle du boss (sur la mini-carte).
 # La mini-carte (portes, salle sombre) est calculée par tools/make_rooms.py.
 #
 # Plan (dungeon01LayoutPhare, un seul étage, tout en hauteur comme un phare) :
 #
-#                       (3,0) la lumière (essence, 4:11 d'Ages)
-#                       (3,1) Jack, le boss (4:13)
-#   (2,2) balcon ouest — (3,2) la galerie — (4,2) balcon est
-#                       (3,3) la tour, haut : 3 torches -> la clé du boss
-#                       (3,4) la tour, milieu : le mini-boss (Ghini géant)
-#                       (3,5) la tour, bas : 2 torches -> le volet s'ouvre
-#   (2,6) salle de la clé — (3,6) le pied du phare — (4,6) salle de la Lanterne
-#                       (3,7) l'entrée
+#                                   (3,0) la lumière (essence, 4:11 d'Ages)
+#                                   (3,1) Jack, le boss (4:13)
+#               (2,2) balcon ouest — (3,2) la galerie — (4,2) balcon est
+#                                   (3,3) la tour, haut : 3 torches -> une petite clé
+#                                   (3,4) la tour, milieu : le mini-boss (Ghini géant)
+#                                   (3,5) la tour, bas : un bloc à serrure, 2 torches
+# (1,6) la douve — (2,6) la garde — (3,6) le pied du phare — (4,6) la Lanterne — (5,6) le cristal
+#               (2,7) les Zols — (3,7) l'entrée — (4,7) la statue
+#
+# Le chemin (des allers-retours) : les Zols (petite clé 1) ; la statue sur le bouton (30 rubis) et
+# la porte à clé -> la Lanterne ; au pied du phare, les 2 torches ouvrent la tour, mais il faut une
+# 2e clé : brûler le mur fissuré de la salle de la Lanterne, frapper le cristal (un pont apparaît
+# dans la douve, à l'autre bout du rez-de-chaussée), la garde (volet), la douve (petite clé 2) ;
+# la tour : le bloc à serrure, les torches, le mini-boss, 3 torches (petite clé 3) ; la galerie :
+# la porte à clé du balcon ouest, la statue sur le bouton (la clé du boss) ; le balcon est (100
+# rubis) ; Jack.
 
-# --- L'entrée : on arrive du cap par l'arche du bas ---
+# --- L'entrée : on arrive du cap par l'arche du bas ; à gauche les Zols, à droite la statue ---
 salle 4:24 decor 36
 b8 b0 b0 b0 b0 b0 b0 a0 b0 b0 b0 b0 b0 b0 b9
 b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
 b3 a0 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a0 b1
 b3 a0 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 a0 b1
 b3 a0 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 a0 b1
-b3 a0 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 a0 b1
+a0 a0 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 a0 a0
 b3 a0 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 a0 b1
 b3 a0 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a0 b1
 b3 10 a0 a0 a0 a0 e0 e1 e2 a0 a0 a0 a0 10 b1
 b3 a0 a0 a0 a0 a0 e3 e4 e5 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 e6 00 e6 b2 b2 b2 b2 b2 bb
 
-# --- Le pied du phare : ouest la clé, est la Lanterne, au nord la porte à clé de la tour ---
-salle 4:14 decor 36
-b8 b0 b0 b0 b0 b0 b0 70 b0 b0 b0 b0 b0 b0 b9
+# --- Les Zols (sud-ouest) : le coffre de la petite clé 1 apparaît quand ils sont tous battus ---
+salle 4:1e decor 36
+b8 b0 b0 b0 b0 b0 b0 a0 b0 b0 b0 b0 b0 b0 b9
 b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 26 a0 a0 a0 a0 a0 a0 a0 26 a0 a0 b1
+b3 a0 a0 a0 a0 a3 a3 a3 a3 a3 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a3 a4 a4 a4 a3 a0 a0 a0 a0 a0
+b3 a0 a0 a0 a0 a3 a3 a3 a3 a3 a0 a0 a0 a0 b1
+b3 a0 a0 26 a0 a0 a0 a0 a0 a0 a0 26 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 10 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- La statue (sud-est) : la pousser sur le bouton fait apparaître 30 rubis ; en haut, la porte
+# à clé de la salle de la Lanterne ---
+salle 4:1f decor 36
+b8 b0 b0 b0 b0 b0 b0 70 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 26 a0 a0 a0 a0 a0 a0 a0 a0 a0 26 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 0c a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 2a a0 a0 a0 a0 27 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 26 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- Le pied du phare : la tour est fermée tant que ses 2 torches sont éteintes ---
+salle 4:14 decor 36
+b8 b0 b0 b0 b0 b0 b0 78 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 08 a0 a0 a0 08 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a3 a3 a3 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a3 a4 a4 a4 a3 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a3 a4 a4 a4 a3 a0 a0 a0 a0 b1
@@ -52,38 +92,68 @@ b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
 ba b2 b2 b2 b2 b2 b2 a0 b2 b2 b2 b2 b2 b2 bb
 
-# --- Salle de la clé (ouest) : des Zols, le coffre de la petite clé ---
-salle 4:1b decor 36
-b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
-b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a3 a3 a3 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a3 a4 a3 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a3 f1 a3 a0 a0 a0 a0 a0 a0 a0 a0 a0
-b3 a0 a0 a3 a4 a3 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a3 a3 a3 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
-ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
-
-# --- Salle de la Lanterne (est) : deux Stalfos, le coffre au centre de la mosaïque ---
+# --- La Lanterne (est) : deux Stalfos ; à droite, un mur fissuré (il brûle) ; en bas, la porte à clé ---
 salle 4:15 decor 36
 b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
 b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a3 a3 a3 a3 a3 a3 a3 a0 a0 a0 b1
 b3 a0 a0 a0 a3 a4 a4 a4 a4 a4 a3 a0 a0 a0 b1
-a0 a0 a0 a0 a3 a4 a4 f1 a4 a4 a3 a0 a0 a0 b1
+a0 a0 a0 a0 a3 a4 a4 f1 a4 a4 a3 a0 a0 a0 68
 b3 a0 a0 a0 a3 a4 a4 a4 a4 a4 a3 a0 a0 a0 b1
 b3 a0 a0 a0 a3 a3 a3 a3 a3 a3 a3 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
+ba b2 b2 b2 b2 b2 b2 72 b2 b2 b2 b2 b2 b2 bb
+
+# --- Le cristal (extrême est, derrière le mur qui brûle) : le frapper à l'épée fait apparaître le
+# pont de la douve (code/commonTileSubstitutions.s, @group4SwitchData) ; un coffre de 50 rubis ---
+salle 4:1d decor 36
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 f1 a0 b1
+b3 a0 a0 a3 a3 a3 a3 a3 a3 a3 a0 a0 a0 a0 b1
+b3 a0 a0 a3 a4 a4 a4 a4 a4 a3 a0 a0 a0 a0 b1
+69 a0 a0 a3 a4 a4 a4 a4 a4 a3 0a a0 a0 a0 b1
+b3 a0 a0 a3 a4 a4 a4 a4 a4 a3 a0 a0 a0 a0 b1
+b3 a0 a0 a3 a3 a3 a3 a3 a3 a3 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
-# --- La tour, bas : dans le noir ; deux torches à allumer de part et d'autre du volet ---
+# --- La garde (ouest) : deux Stalfos ; le volet de gauche reste fermé tant qu'ils vivent ---
+salle 4:1b decor 36
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 27 a0 a0 a0 a0 a0 a0 a0 27 a0 a0 b1
+b3 a0 a0 a0 a0 a3 a3 a3 a3 a3 a0 a0 a0 a0 b1
+7b a0 a0 a0 a0 a3 a4 a4 a4 a3 a0 a0 a0 a0 a0
+b3 a0 a0 a0 a0 a3 a3 a3 a3 a3 a0 a0 a0 a0 b1
+b3 a0 a0 27 a0 a0 a0 a0 a0 a0 a0 27 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
+ba b2 b2 b2 b2 b2 b2 a0 b2 b2 b2 b2 b2 b2 bb
+
+# --- La douve (extrême ouest) : la petite clé 2 sur une île ; le pont (ligne 5) n'apparaît
+# qu'une fois le cristal frappé ---
+salle 4:1c decor 36
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 f5 f5 f5 f5 f5 a0 a0 a0 10 b1
+b3 a0 a0 a0 a0 f5 f5 f5 f5 f5 a0 a0 a0 a0 b1
+b3 a0 a3 a3 a3 f5 f5 f5 f5 f5 a0 a0 a0 a0 b1
+b3 a0 a3 a4 a3 f5 f5 f5 f5 f5 a0 a0 a0 a0 b1
+b3 a0 a3 f1 a3 f5 f5 f5 f5 f5 a0 a0 a0 a0 a0
+b3 a0 a3 a4 a3 f5 f5 f5 f5 f5 a0 a0 a0 a0 b1
+b3 a0 a3 a3 a3 f5 f5 f5 f5 f5 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 f5 f5 f5 f5 f5 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 f5 f5 f5 f5 f5 a0 a0 a0 10 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- La tour, bas : dans le noir ; deux torches pour le volet, et un bloc à serrure devant ---
 salle 4:16 decor 36 sombre
 b8 b0 b0 b0 b0 b0 b0 78 b0 b0 b0 b0 b0 b0 b9
-b3 a0 a0 a0 a0 08 a0 a0 a0 08 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 08 a0 1e a0 08 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a3 a3 a3 a3 a3 a3 a3 a3 a3 a0 a0 b1
 b3 a0 a0 a3 a0 a0 a0 a0 a0 a0 a0 a3 a0 a0 b1
@@ -108,7 +178,7 @@ b3 a3 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a4 a3 b1
 b3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 b1
 ba b2 b2 b2 b2 b2 b2 7a b2 b2 b2 b2 b2 b2 bb
 
-# --- La tour, haut : dans le noir ; trois torches font apparaître le coffre de la clé du boss ---
+# --- La tour, haut : dans le noir ; trois torches font apparaître le coffre de la petite clé 3 ---
 salle 4:17 decor 36 sombre
 b8 b0 b0 b0 b0 b0 b0 a0 b0 b0 b0 b0 b0 b0 b9
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
@@ -122,38 +192,40 @@ b3 a0 a0 a0 a0 a0 a0 08 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 a0 b2 b2 b2 b2 b2 b2 bb
 
-# --- La galerie, en haut du phare : la porte du boss au nord, les balcons de chaque côté ---
+# --- La galerie, en haut du phare : la porte du boss au nord ; à gauche la porte à clé du balcon
+# ouest, à droite le balcon est ---
 salle 4:12 decor 36
 b8 b0 b0 b0 b0 b0 b0 74 b0 b0 b0 b0 b0 b0 b9
 b3 10 a0 a0 a0 a0 a3 a0 a3 a0 a0 a0 a0 10 b1
 b3 a0 a0 a0 a0 a0 a3 a0 a3 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a3 a0 a3 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a3 a0 a3 a0 a0 a0 a0 a0 b1
-a0 a0 a0 a0 a0 a0 a3 a0 a3 a0 a0 a0 a0 a0 a0
+73 a0 a0 a0 a0 a0 a3 a0 a3 a0 a0 a0 a0 a0 a0
 b3 a0 a0 a0 a0 a0 a3 a0 a3 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a3 a0 a3 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a3 a0 a3 a0 a0 a0 a0 a0 b1
 b3 10 a0 a0 a0 a0 a3 a0 a3 a0 a0 a0 a0 10 b1
 ba b2 b2 b2 b2 b2 b2 a0 b2 b2 b2 b2 b2 b2 bb
 
-# --- Les balcons : des pots (des cœurs avant le boss) ---
+# --- Le balcon ouest : la statue sur le bouton fait apparaître le coffre de la clé du boss ---
 salle 4:19 decor 36
 b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
 b3 10 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 10 0c a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 71
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 27 a0 2a a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 10 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
+# --- Le balcon est : des pots (des cœurs avant le boss), et 100 rubis derrière un bloc ---
 salle 4:1a decor 36
 b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 10 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 26 f1 26 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 1c a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
