@@ -14,6 +14,7 @@ export PYTHONUTF8=1
 "$PYTHON" -W ignore "$ROOT/tools/make_film.py"
 "$PYTHON" "$ROOT/tools/make_title.py"
 "$PYTHON" "$ROOT/tools/make_menus_fr.py"
+"$PYTHON" "$ROOT/tools/make_blurbs.py"
 "$PYTHON" "$ROOT/tools/make_songe.py"
 "$PYTHON" "$ROOT/tools/make_rooms.py"
 "$PYTHON" "$ROOT/tools/make_music.py"
