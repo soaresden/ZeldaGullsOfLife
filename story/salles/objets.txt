@@ -17,19 +17,23 @@ salle 9a
 salle 9b
 	obj_Interaction INTERAC_BALLADE_NPC $04 $58 $28
 	obj_Interaction INTERAC_BALLADE_NPC $05 $58 $78
+	obj_Interaction INTERAC_MARINE $05 $08 $08 ; la fin du chapitre 1 : le tour du village
 
 # La plage est : les enfants qui ne jouent plus
 salle 9c
 	obj_Interaction INTERAC_BALLADE_NPC $02 $38 $38
 	obj_Interaction INTERAC_BALLADE_NPC $03 $48 $68
+	obj_Interaction INTERAC_MARINE $05 $08 $08 ; la fin du chapitre 1 : le tour du village
 
 # Le port de pêche : le vieux pêcheur, au début du ponton
 salle ab
 	obj_Interaction INTERAC_BALLADE_NPC $01 $38 $58
+	obj_Interaction INTERAC_MARINE $05 $08 $08 ; la fin du chapitre 1 : le tour du village
 
 # L'auberge (la maison de Nayru d'Ages) : l'aubergiste
 salle 3:9e
 	obj_Interaction INTERAC_BALLADE_NPC $00 $48 $38
+	obj_Interaction INTERAC_MARINE $05 $08 $08 ; la fin du chapitre 1 : le tour du village
 
 # L'auberge du Songe : Marine humaine, près du lit (Link se réveille dans le rêve en case $17)
 salle 2:9e

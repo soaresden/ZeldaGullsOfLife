@@ -679,20 +679,15 @@ groups:
   - name: TX_5a30
     index: 0x30
     text: |-
-      \Link... Tu as
-      vu? Le Veilleur
-      dort enfin.\stop
+      \col(1)Marine\col(0): Link!
+      Regarde! Le
+      phare brille de
+      nouveau!\stop
       Ce soir, tout
       Port-Veille va
-      rêver.\stop
-      Mais d'autres
-      îles ont perdu
-      leurs rêves...
-      Je le sens.\stop
-      Le vent me le
-      dit.\stop
-      On ira, hein?
-      Ensemble.
+      rêver...\stop
+      Viens, allons
+      voir ça!
 
   - name: TX_5a31
     index: 0x31
@@ -793,6 +788,76 @@ groups:
     text: |-
       Ma voix...
       Elle revient!\wait(120)
+
+  # La fin du chapitre 1 : le tour du village (INTERAC_MARINE $05), puis les habitants gardent ces
+  # répliques (scripts/ages/ballade.s)
+  - name: TX_5a3e
+    index: 0x3e
+    text: |-
+      Zzz... Zzz...\stop
+      Mmh... Je
+      dors...
+      Je DORS!\stop
+      Merci... petit
+      gars... Zzz...
+
+  - name: TX_5a3f
+    index: 0x3f
+    text: |-
+      Plus besoin de
+      compter les
+      moutons...\stop
+      Je ferme les
+      yeux, et hop!
+      Je rêve d'un
+      grand pré tout
+      vert...\stop
+      ...Zzz...
+
+  - name: TX_5a40
+    index: 0x40
+    text: |-
+      On joue aux
+      chevaliers! Moi,
+      je suis Link!\stop
+      Et moi, je suis
+      la mouette qui
+      parle! Hi hi!
+
+  - name: TX_5a41
+    index: 0x41
+    text: |-
+      Des clients!
+      Toutes mes
+      chambres sont
+      prises!\stop
+      Tout le monde
+      veut dormir à
+      l'auberge de la
+      Brume!\stop
+      Et moi... je
+      bâille... Hooaa!
+
+  - name: TX_5a42
+    index: 0x42
+    text: |-
+      \col(1)Marine\col(0): Bien
+      joué! On a sauvé
+      ces gens!\stop
+      C'est ça que tu
+      as fait pendant
+      que j'étais au
+      village?\stop
+      Tu accomplissais
+      des donjons et
+      résolvais des
+      énigmes?\stop
+      Mais... c'est
+      palpitant!\stop
+      Je ne regrette
+      pas d'être avec
+      toi, finalement!\stop
+      À l'abordaaaage!
 
   # Le choix de la langue, au début d'une nouvelle partie (le même dans les deux fichiers)
   - name: TX_5a17

@@ -75,11 +75,20 @@ w(60)
 # Comme après le Phare : la première essence, puis le cap
 pb.memory[0xc6bf] |= 1
 warp(1, 0x7b, 0x44)
-for i in range(90):
+# Le tour du village : le cap, la place, la plage, l'auberge, le port (texte -> capture)
+rooms, last = [], None
+for i in range(500):
     w(10)
-    if i % 3 == 0:
+    room = (pb.memory[0xcc2d], pb.memory[0xcc30])
+    if room != last:
+        rooms.append('%d:%02x' % room)
+        last = room
+    if pb.memory[0xcba0] and i % 4 == 0:
         shot()
-        print(i, 'texte', pb.memory[0xcba0])
-    if i % 9 == 8:
+    if i % 6 == 5:
         press('a', 4)
+    if len(rooms) >= 5 and pb.memory[0xcdf4] == 0 and not pb.memory[0xcba0] and i > 60:
+        break
+print('salles', ' '.join(rooms))
+print('étape', pb.memory[0xcdf4], 'Link peut bouger', pb.memory[0xcc8a] == 0)
 where('fin')

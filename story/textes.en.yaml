@@ -654,22 +654,15 @@ groups:
   - name: TX_5a30
     index: 0x30
     text: |-
-      \Link... Did you
-      see? The Keeper
-      is finally
-      asleep.\stop
+      \col(1)Marin\col(0): Link!
+      Look! The
+      lighthouse is
+      shining again!\stop
       Tonight, all of
       Port-Veille will
-      dream.\stop
-      But other
-      islands have
-      lost their
-      dreams... I can
-      feel it.\stop
-      The wind tells
-      me so.\stop
-      We'll go, right?
-      Together.
+      dream...\stop
+      Come on, let's
+      go and see!
 
   - name: TX_5a31
     index: 0x31
@@ -770,6 +763,73 @@ groups:
     text: |-
       My voice... it's
       coming back!\wait(120)
+
+  # The end of chapter 1: the village tour (INTERAC_MARINE $05), then the villagers keep these
+  # lines (scripts/ages/ballade.s)
+  - name: TX_5a3e
+    index: 0x3e
+    text: |-
+      Zzz... Zzz...\stop
+      Mmm... I'm
+      sleeping...
+      I'm SLEEPING!\stop
+      Thank you... kid
+      ...Zzz...
+
+  - name: TX_5a3f
+    index: 0x3f
+    text: |-
+      No more counting
+      sheep...\stop
+      I close my
+      eyes, and poof!
+      I dream of a big
+      green meadow...\stop
+      ...Zzz...
+
+  - name: TX_5a40
+    index: 0x40
+    text: |-
+      Let's play
+      knights! I'm
+      Link!\stop
+      And I'm the
+      talking seagull!
+      Hee hee!
+
+  - name: TX_5a41
+    index: 0x41
+    text: |-
+      Customers! All
+      my rooms are
+      taken!\stop
+      Everyone wants
+      to sleep at the
+      Mist Inn!\stop
+      And me... I'm
+      yawning...
+      Hooaah!
+
+  - name: TX_5a42
+    index: 0x42
+    text: |-
+      \col(1)Marin\col(0): Well
+      done! We saved
+      these people!\stop
+      So that's what
+      you were doing
+      while I was in
+      the village?\stop
+      Clearing
+      dungeons and
+      solving
+      puzzles?\stop
+      But... that's
+      thrilling!\stop
+      I don't regret
+      coming with you
+      after all!\stop
+      All aboaaaard!
 
   # The language choice, at the start of a new game (the same in both files)
   - name: TX_5a17
