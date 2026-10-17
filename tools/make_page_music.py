@@ -1,8 +1,11 @@
 """Enregistre la musique de l'écran titre depuis la ROM et en fait une boucle pour la page du jeu.
 
-La musique est jouée dans PyBoy (comme tools/record_music.py), sa période est cherchée en comparant
-les spectres du morceau avec lui-même un tour plus tard, puis un seul tour est gardé (avec un court
-fondu enchaîné à la jointure, pour une boucle sans à-coup) et écrit en Ogg Vorbis : docs/titre.ogg.
+La musique est jouée dans PyBoy (comme tools/record_music.py). L'enregistrement commence avec la
+musique de l'écran titre ($01) et s'arrête quand le jeu la coupe : au bout d'une quarantaine de
+secondes sans appui, l'écran titre relance le film d'ouverture et sa musique, qu'il ne faut pas
+garder. La période du morceau est cherchée en comparant ses spectres avec lui-même un tour plus
+tard, puis un seul tour est gardé (avec un court fondu enchaîné à la jointure, pour une boucle sans
+à-coup) et écrit en Ogg Vorbis : docs/titre.ogg.
 
 Usage : python tools/make_page_music.py
 """
@@ -13,19 +16,33 @@ import soundfile
 from pyboy import PyBoy
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-FILM_FRAMES = 1500       # le film d'ouverture, avant l'écran titre
-SECONDS = 110            # assez pour entendre le morceau presque deux fois
+PLAY_SOUND = 0x0c09      # playSound (banque 0, voir oracles-disasm/ages.sym)
+MUS_TITLE = 0x01         # la musique de l'écran titre
+MAX_SECONDS = 90         # garde-fou
 FADE = 0.05              # fondu enchaîné à la jointure (secondes)
 
 
 def record():
+    """Le son de l'écran titre, du lancement de sa musique jusqu'au son suivant que le jeu demande."""
     pb = PyBoy(os.path.join(ROOT, 'out', 'gulls_of_life.gbc'), window='null', sound_emulated=True)
     pb.set_emulation_speed(0)
-    for _ in range(FILM_FRAMES):
+    state = {'title': False, 'end': False}
+
+    def on_play_sound(_):
+        a = pb.register_file.A
+        if a == MUS_TITLE:
+            state['title'] = True
+        elif state['title']:
+            state['end'] = True   # le film d'ouverture repart : on s'arrête avant sa musique
+
+    pb.hook_register(0, PLAY_SOUND, on_play_sound, None)
+    while not state['title']:
         pb.tick(1, False)
     rec = []
-    for _ in range(SECONDS * 60):
+    for _ in range(MAX_SECONDS * 60):
         pb.tick(1, False)
+        if state['end']:
+            break
         rec.append(pb.sound.ndarray.copy())
     rate = pb.sound.sample_rate
     pb.stop(save=False)
@@ -41,14 +58,15 @@ def spectra(mono, start, count, hop=1200, size=1024):
 
 def period(mono, rate):
     """Le décalage (en échantillons) pour lequel le morceau se ressemble le plus à lui-même."""
-    a = 5 * rate
-    ref = spectra(mono, a, 400)
+    a, count = 1 * rate, 160                       # 4 s comparées, à partir de la 1re seconde
+    ref = spectra(mono, a, count)
 
     def err(p):
-        return float(np.mean((ref - spectra(mono, a + p, 400)) ** 2))
+        return float(np.mean((ref - spectra(mono, a + p, count)) ** 2))
 
-    # D'abord grossièrement (tous les dixièmes de seconde, entre 15 et 70 s), puis finement
-    coarse = min(range(15 * rate, min(70 * rate, len(mono) - a - 400 * 1200 - 1024), rate // 10), key=err)
+    # D'abord grossièrement (tous les dixièmes de seconde, à partir de 15 s), puis finement
+    last = len(mono) - a - count * 1200 - 1024 - rate // 10
+    coarse = min(range(15 * rate, last, rate // 10), key=err)
     return min(range(coarse - rate // 10, coarse + rate // 10, 25), key=err)
 
 
