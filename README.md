@@ -45,7 +45,7 @@ donjons, de nouvelles musiques. Et une mouette qui a son mot à dire.
 
 ## Jouer
 
-**[▶ Démo v1.0/1](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v1.0-1)**
+**[▶ Démo v1.0/1.1](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v1.0-1.1)**
 (tout le premier chapitre et son temple) : un patch `gulls_of_life.bps` à appliquer sur sa
 propre ROM *The Legend of Zelda: Oracle of Ages* (USA). Aucune ROM n'est fournie.
 
@@ -62,26 +62,25 @@ anglais).
 <details>
 <summary><b>Comment appliquer le patch</b></summary>
 
-1. Télécharger `gulls_of_life.bps` dans la [version v1.0/1](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v1.0-1).
+1. Télécharger `gulls_of_life.bps` dans la [version v1.0/1.1](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v1.0-1.1).
 2. Avoir sa propre ROM *Oracle of Ages* version **USA** (CRC32 `3800a387`).
 3. Appliquer le patch avec un outil BPS, par exemple [Rom Patcher JS](https://www.marcrobledo.com/RomPatcher.js/) en ligne.
-4. Jouer le fichier obtenu (CRC32 `08932bbd`) dans n'importe quel émulateur Game Boy Color.
+4. Jouer le fichier obtenu (CRC32 `b9011dfa`) dans n'importe quel émulateur Game Boy Color.
 
 </details>
 
 <details>
-<summary><b>Quoi de neuf dans la v1.0/1</b></summary>
+<summary><b>Quoi de neuf dans la v1.0/1.1</b></summary>
 
-- Le Phare Éteint devient un vrai temple : tout en hauteur, des salles plongées dans le noir, des torches à rallumer…
-- La Lanterne des Songes a enfin sa place dans le donjon
-- Un boss qui a la langue bien pendue… et Marine qui ne se laisse pas faire
-- Des musiques originales : l'écran titre, l'île de la Brume, l'auberge, le phare, le mini-boss et le boss
-- L'écran titre est signé, et la mouette ne le quitte plus
-- Dormir : A n'importe où contre le lit
-- Corrections : la Lanterne ne bloque plus le jeu en passant au Songe, une consigne en trop retirée
+- Le Phare Éteint refait : des énigmes, des allers-retours, trois petites clés, des coffres de rubis, plus de salle vide
+- Jack est plus coriace
+- Une vraie fin : plus d'écran noir, on voit les gens qu'on a sauvés… et Marine a son mot à dire
+- La boutique de Port-Veille : des cœurs, et une fée en bouteille qui vous relève
+- Le Creuse-Rubis du forain : trois niveaux, et un quart de cœur à gagner
+- La carte du donjon dit enfin « Phare Éteint »
 
-*v1.0/1* : on reste en v1.0 jusqu'à la fin du jeu ; le chiffre après la barre, c'est le nombre de
-donjons jouables.
+*v1.0/1.1* : la v1.0/1 mise à jour. On reste en v1.0 jusqu'à la fin du jeu ; le chiffre après
+la barre, c'est le nombre de donjons jouables.
 
 </details>
 
@@ -92,10 +91,11 @@ donjons jouables.
 - ✅ Le premier donjon : un vrai temple, son objet et son boss
 - ✅ L'écran titre *Gulls of Life*
 - ✅ Français et anglais, menus compris
-- ✅ Démo jouable v1.0/1
+- ✅ Démo jouable v1.0/1.1
 - ⬜ Les sept autres îles
 - ✅ Des musiques originales : l'écran titre, l'île de la Brume, l'auberge, le Phare Éteint, le miniboss et le boss
-- ⬜ De nouveaux mini-jeux
+- ✅ Un premier mini-jeu : le Creuse-Rubis du forain
+- ⬜ D'autres mini-jeux
 - ⬜ Des secrets et des quarts de cœur
 - ⬜ Les musiques des autres îles
 - ⬜ Et la suite de l'histoire…

@@ -44,7 +44,7 @@ music. And a seagull who has plenty to say.
 
 ## Play
 
-**[▶ Demo v1.0/1](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v1.0-1)**
+**[▶ Demo v1.0/1.1](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v1.0-1.1)**
 (the whole first chapter and its temple): a `gulls_of_life.bps` patch to apply to your own
 *The Legend of Zelda: Oracle of Ages* (USA) ROM. No ROM is provided.
 
@@ -60,26 +60,25 @@ beach, and the save remembers it (only the very first start is in English).
 <details>
 <summary><b>How to apply the patch</b></summary>
 
-1. Download `gulls_of_life.bps` from the [v1.0/1 release](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v1.0-1).
+1. Download `gulls_of_life.bps` from the [v1.0/1.1 release](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v1.0-1.1).
 2. Have your own *Oracle of Ages* ROM, **USA** version (CRC32 `3800a387`).
 3. Apply the patch with a BPS patcher, for example [Rom Patcher JS](https://www.marcrobledo.com/RomPatcher.js/) online.
-4. Play the result (CRC32 `08932bbd`) in any Game Boy Color emulator.
+4. Play the result (CRC32 `b9011dfa`) in any Game Boy Color emulator.
 
 </details>
 
 <details>
-<summary><b>What's new in v1.0/1</b></summary>
+<summary><b>What's new in v1.0/1.1</b></summary>
 
-- The Dark Lighthouse becomes a real temple: tall and narrow, rooms plunged into darkness, torches to light again…
-- The Dream Lantern finally has its place in the dungeon
-- A boss with plenty to say… and Marin, who won't let it slide
-- Original music: the title screen, Mist Island, the inn, the lighthouse, the miniboss and the boss
-- The title screen is signed, and the seagull never leaves it
-- Sleeping: A anywhere against the bed
-- Fixes: the Lantern no longer freezes the game when entering the Dream World, one redundant hint removed
+- The Dark Lighthouse is rebuilt: puzzles, back-and-forth trips, three small keys, rupee chests, and no empty rooms
+- Jack is tougher
+- A real ending: no black screen, you see the people you saved… and Marin has something to say
+- The Port-Veille shop: hearts, and a fairy in a bottle that gets you back up
+- The fairground man's Rupee Dig: three levels, and a Piece of Heart to win
+- The dungeon map now says “Dark Lighthouse”
 
-*v1.0/1*: the game stays at v1.0 until it's finished; the number after the slash is how many
-dungeons are playable.
+*v1.0/1.1*: v1.0/1, updated. The game stays at v1.0 until it's finished; the number after
+the slash is how many dungeons are playable.
 
 </details>
 
@@ -90,10 +89,11 @@ dungeons are playable.
 - ✅ The first dungeon: a real temple, its key item and its boss
 - ✅ The *Gulls of Life* title screen
 - ✅ English and French, menus included
-- ✅ Playable demo v1.0/1
+- ✅ Playable demo v1.0/1.1
 - ⬜ The other seven islands
 - ✅ Original music: the title screen, Mist Island, the inn, the Dark Lighthouse, the miniboss and the boss
-- ⬜ New minigames
+- ✅ A first minigame: the fairground man's Rupee Dig
+- ⬜ More minigames
 - ⬜ Secrets and heart pieces
 - ⬜ The music of the other islands
 - ⬜ And the rest of the story…
