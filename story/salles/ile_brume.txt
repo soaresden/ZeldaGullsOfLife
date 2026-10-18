@@ -43,14 +43,16 @@ fc fc fc fc fc fc fc fc fc fc
 fc fc fc fc fc fc fc fc fc fc
 fc fc fc fc fc fc fc fc fc fc
 
-salle ac decor 10
+# --- La plage du forain : le Creuse-Rubis (le champ : lignes 2-5, colonnes 1-6) ---
+# Ouest : le port de pêche, par le sable (lignes 1-2).
+salle ac decor 18
 fc fc fc fc fc fc fc fc fc fc
-fc fc fc fc fc fc fc fc fc fc
-fc fc fc fc fc fc fc fc fc fc
-fc fc fc fc fc fc fc fc fc fc
-fc fc fc fc fc fc fc fc fc fc
-fc fc fc fc fc fc fc fc fc fc
-fc fc fc fc fc fc fc fc fc fc
+bf 21 21 21 21 21 21 21 22 fc
+bf 12 12 12 12 12 12 bf 27 fc
+fc 12 12 12 12 12 12 bf 27 fc
+fc 12 12 12 12 12 12 bf 27 fc
+fc 12 12 12 12 12 12 bf 27 fc
+fc 24 24 24 24 24 24 24 2a fc
 fc fc fc fc fc fc fc fc fc fc
 
 # --- Plage du réveil (Link apparaît en ligne 4, colonne 2) ---
@@ -65,12 +67,12 @@ fc 26 bf bf bf bf bf bf bf c5
 fc 28 24 24 24 24 24 24 24 24
 fc fc fc fc fc fc fc fc fc fc
 
-# --- Port de pêche : le ponton du vieux pêcheur ---
+# --- Port de pêche : le ponton du vieux pêcheur ; à l'est (lignes 1-2), la plage du forain ---
 # Ouest : lignes 3-4. Nord : colonnes 4-5 vers la place.
 salle ab decor 18
 4e 4e 4e 4e bf bf 4e 4e 4e 4e
-c5 bf bf bf bf bf bf bf 27 fc
-c5 bf bf bf bf bf bf bf 27 fc
+c5 bf bf bf bf bf bf bf bf bf
+c5 bf bf bf bf bf bf bf bf bf
 bf bf bf bf bf bf 0e 0e 0e fc
 bf bf bf bf bf bf 0e 0e 0e fc
 c5 bf bf bf bf bf bf bf 27 fc

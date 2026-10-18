@@ -831,6 +831,62 @@ groups:
       after all!\stop
       All aboaaaard!
 
+  # The fairground man's Rupee Dig (1:ac ; code/ages/balladeCreuse.s)
+  - name: TX_5a43
+    index: 0x43
+    text: |-
+      Step right up!
+      The Rupee Dig!\stop
+      Dig the sand,
+      grab the
+      rupees... but
+      watch for bombs!\stop
+      Easy: 10 rupees
+      Medium: 20
+      Hard: 30!\stop
+      \opt()Easy \opt()Medium
+      \opt()Hard \opt()No
+
+  - name: TX_5a44
+    index: 0x44
+    text: |-
+      Dig! Dig!
+      The sand won't
+      dig itself!
+
+  - name: TX_5a45
+    index: 0x45
+    text: |-
+      Not enough
+      rupees, kid!
+      Come back
+      richer!
+
+  - name: TX_5a46
+    index: 0x46
+    text: |-
+      \col(1)Marin\col(0): Green,
+      nothing around.
+      Blue, one bomb.
+      Red, two...\stop
+      Gold... run!
+
+  - name: TX_5a47
+    index: 0x47
+    text: |-
+      BOOM!\stop
+      Heh heh... The
+      house always
+      wins!
+
+  - name: TX_5a48
+    index: 0x48
+    text: |-
+      What?! You found
+      them all?!\stop
+      Well... nice
+      job, kid.
+
   # The language choice, at the start of a new game (the same in both files)
   - name: TX_5a17
     index: 0x17

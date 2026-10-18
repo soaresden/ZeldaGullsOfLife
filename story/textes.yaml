@@ -859,6 +859,64 @@ groups:
       toi, finalement!\stop
       À l'abordaaaage!
 
+  # Le Creuse-Rubis du forain (plage du forain, 1:ac ; code/ages/balladeCreuse.s)
+  - name: TX_5a43
+    index: 0x43
+    text: |-
+      Approche,
+      approche! Le
+      Creuse-Rubis!\stop
+      Creuse le sable,
+      ramasse les
+      rubis... mais
+      gare aux bombes!\stop
+      Facile: 10 rubis
+      Moyen: 20 rubis
+      Dur: 30 rubis\stop
+      \opt()Facile \opt()Moyen
+      \opt()Dur \opt()Non
+
+  - name: TX_5a44
+    index: 0x44
+    text: |-
+      Creuse! Creuse!
+      Le sable ne va
+      pas se creuser
+      tout seul!
+
+  - name: TX_5a45
+    index: 0x45
+    text: |-
+      Pas assez de
+      rubis, mon
+      petit! Reviens
+      plus riche!
+
+  - name: TX_5a46
+    index: 0x46
+    text: |-
+      \col(1)Marine\col(0): Vert,
+      rien autour.
+      Bleu, une bombe.
+      Rouge, deux...\stop
+      Doré... cours!
+
+  - name: TX_5a47
+    index: 0x47
+    text: |-
+      BOUM!\stop
+      Hé hé... La
+      maison gagne
+      toujours!
+
+  - name: TX_5a48
+    index: 0x48
+    text: |-
+      Quoi?! Tu as
+      tout trouvé?!\stop
+      Bon... bravo,
+      petit.
+
   # Le choix de la langue, au début d'une nouvelle partie (le même dans les deux fichiers)
   - name: TX_5a17
     index: 0x17
