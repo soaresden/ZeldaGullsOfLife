@@ -843,6 +843,14 @@ groups:
 # ==============================================================================
 - group: 0x00
   data:
+  - name: TX_006d
+    index: 0x6d
+    text: |-
+      You got a \col(1)Fairy
+      in a Bottle\col(0)! It
+      revives you when
+      you run out of
+      hearts!
 
   # The first dungeon's essence becomes the first verse of Marin's song
   - name: TX_000e
@@ -913,6 +921,12 @@ groups:
 # Item descriptions (inventory)
 - group: 0x09
   data:
+  - name: TX_0919
+    index: 0x19
+    text: |-
+      Fairy in Bottle
+      It revives you
+      when you fall.
   - name: TX_0901
     index: 0x01
     text: |-
@@ -976,3 +990,14 @@ groups:
       The \col(1)Lantern\col(0)
       won't shine
       here.
+
+# The Port-Veille shop: the bottled fairy (the potion of Ages)
+- group: 0x0e
+  data:
+  - name: TX_0e1d
+    index: 0x1d
+    text: |-
+      \col(1)Fairy in a
+      Bottle\col(0)\stop
+       \num1 Rupees
+      \jump(TX_0e2b)

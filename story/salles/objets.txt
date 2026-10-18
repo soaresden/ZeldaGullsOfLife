@@ -35,6 +35,13 @@ salle 3:9e
 	obj_Interaction INTERAC_BALLADE_NPC $00 $48 $38
 	obj_Interaction INTERAC_MARINE $05 $08 $08 ; la fin du chapitre 1 : le tour du village
 
+# La boutique : le marchand ($46), 3 cœurs (10 rubis, $47 $01) et la fée en bouteille
+# (60 rubis, $47 $09 : la potion d'Ages, devenue une fée)
+salle 3:5e
+	obj_Interaction $47 $01 $28 $80
+	obj_Interaction $47 $09 $28 $60
+	obj_Interaction $46 $00 $58 $88
+
 # L'auberge du Songe : Marine humaine, près du lit (Link se réveille dans le rêve en case $17)
 salle 2:9e
 	obj_Interaction INTERAC_BALLADE_NPC $07 $28 $68

@@ -94,6 +94,22 @@ def main():
     era.save(dst)
     print('->', os.path.relpath(dst, ROOT))
 
+    # La fée en bouteille (art/fee_bouteille.txt) à la place de la potion rouge d'Ages : l'icône de
+    # la boutique et de l'inventaire (spr_quest_items_5.png, colonnes 0-15)
+    png = subprocess.run(['git', 'show', 'upstream/hack-base:gfx_compressible/common/spr_quest_items_5.png'],
+                         cwd=DISASM, capture_output=True, check=True).stdout
+    items = Image.open(io.BytesIO(png))
+    items.load()
+    rows = [l.rstrip('\n') for l in open(os.path.join(ROOT, 'art', 'fee_bouteille.txt'), encoding='utf-8')
+            if l.strip() and not l.startswith('#')]
+    assert len(rows) == 16 and all(len(r) == 16 for r in rows), 'fee_bouteille.txt : 16 x 16'
+    for y, row in enumerate(rows):
+        for x, c in enumerate(row):
+            items.putpixel((x, y), {'.': 0, ':': 1, 'o': 2, '#': 3}[c])
+    dst = os.path.join(DISASM, 'gfx_compressible', 'common', 'spr_quest_items_5.png')
+    items.save(dst)
+    print('->', os.path.relpath(dst, ROOT))
+
     # Barre d'état : une petite lune (tuile $03, la flèche des saisons de Seasons, inutile ici)
     # devant les secondes du noctambule ; mêmes couleurs que les chiffres (fond 2, trait 3)
     png = subprocess.run(['git', 'show', 'upstream/hack-base:gfx_compressible/common/gfx_hud.png'],

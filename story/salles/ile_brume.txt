@@ -102,13 +102,14 @@ cd 3b 3b f6 a3 de a3 f6 3b cd
 2c 3c 2c 3c 0c 0c 2c 3c 2c 3c
 
 # --- Port-Veille, la place : deux maisons ---
-# Portes condamnées par une planche (f2, une pancarte : data/ages/signText.s, TX_2e1f et TX_2e20).
+# À gauche, la boutique (porte de en ligne 3, colonne 2 -> 3:5e) ; à droite, une porte condamnée
+# par une planche (f2, une pancarte : data/ages/signText.s, TX_2e20).
 # Ouest et est : lignes 4-5. Sud : colonnes 4-5 vers le port de pêche.
 salle 9b decor 10
 08 09 08 09 08 09 08 09 08 09
 cd 8a 81 82 3b 3b 8a 81 82 cd
 cd 90 91 92 3b 3b 90 91 92 cd
-cd f6 f2 f6 0c 0c f6 f2 f6 cd
+cd f6 de f6 0c 0c f6 f2 f6 cd
 3b 3b 0c 0c 0c 0c 0c 0c 3b 3b
 3b 3b 3b 3b 0c 0c 3b 3b 3b 3b
 08 09 08 09 0c 0c 08 09 08 09
@@ -185,3 +186,7 @@ fa 3b 3b 99 99 99 99 3b 3b fa
 fa 3b 3b 3b 0c 3b 3b 3b 3b fa
 fa fa 3b 3b 3b 3b 3b 3b fa fa
 fc fa fa fa fa fa fa fa fa fc
+
+# --- La boutique de Port-Veille (la maison de gauche de la place) : la boutique de Lynna
+# d'Ages (décor $28, disposition de 2:5e), dans une salle du Réel (groupe 3) ---
+decor 3:5e 28 copie 2:5e
