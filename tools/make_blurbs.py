@@ -4,10 +4,11 @@ Ce nom est une image par donjon (gfx_compressible/ages/gfx_blurb_dN.png, 128 x 2
 gauche (24 lignes) est le haut du cartouche (« L-1 » puis la 1re ligne du nom), la moitié droite
 (16 premières lignes) le bas (la 2e ligne du nom et le bord). Les lettres sont reprises des noms
 d'origine d'Ages (Dungeon, Moonlit, Grotto, Skull, Crown, Path, Spirit's, Grave), dans le même
-style ; le L, le E, le P (celui de « Path » est coupé en haut dans l'image d'origine) et l'accent
-de É sont dessinés ici, à leur image, et le h est fait d'un n et de la hampe du l.
+style ; le L, le E, le P (celui de « Path » est coupé en haut dans l'image d'origine), le T, le J,
+le f, le y et les accents de É et à sont dessinés ici, à leur image, et le h est fait d'un n et de
+la hampe du l.
 
-Écrit gfx_blurb_d1.png (anglais) et gfx_blurb_d1_fr.png (français : « N-1 », choisi au chargement
+Écrit gfx_blurb_dN.png (anglais) et gfx_blurb_dN_fr.png (français : « N-1 », choisi au chargement
 selon la langue, voir balladeLangGfxHeaders dans data/ages/gfxHeaders.s). Les images d'origine sont
 relues dans git (upstream/hack-base) : on peut relancer le script.
 
@@ -27,6 +28,7 @@ GFX = os.path.join(DISASM, 'gfx_compressible', 'ages')
 # Le nom de chaque donjon : (1re ligne, 2e ligne) en anglais et en français
 NAMES = {
     1: {'en': ('Dark', 'Lighthouse'), 'fr': ('Phare', 'Éteint')},
+    2: {'en': ('Toy', 'Chest'), 'fr': ('Coffre à', 'Jouets')},
 }
 
 # Lettres dessinées à la main (. vide, : contour clair, o ombre, # trait) ; la dernière ligne est
@@ -35,7 +37,13 @@ DRAWN = {
     'L': ['#o....', '#o....', '#o....', '#o....', '#o....', '#o....', '#####:'],
     'E': ['#####:', '#o....', '#o....', '####:.', '#o....', '#o....', '#####:'],
     'P': ['#####:', '#o.:##', '#o..#o', '#o##o:', '#o....', '#o....', '#o....'],
+    'T': ['######', '..#o..', '..#o..', '..#o..', '..#o..', '..#o..', '..#o..'],
+    'J': ['...##', '...#o', '...#o', '...#o', '#o.#o', '#o:#o', ':##o:'],
+    # 11 lignes : le f monte comme le l, le y descend sous la ligne de base
+    'f': ['....', '.:##', '.#o.', '.#o.', '##o#', '.#o.', '.#o.', '.#o.', '.#o.', '....', '....'],
+    'y': ['.....', '.....', '.....', '.....', '##.##', '#o.#o', '#o.#o', ':###o', '...#o', '...#o', ':##o:'],
 }
+GRAVE = ['.#o..', '..:#.']        # l'accent grave, au-dessus d'une minuscule (à)
 ACCENT = ['...:#', '..#o.']        # l'accent aigu, au-dessus d'une majuscule
 SMALL_N = ['##o.#o', '#o#o#o', '#o.##o', '#o..#o', '#o..#o']   # « N » de « N-1 », petite police
 
@@ -86,7 +94,8 @@ def font():
     code = {'.': 0, ':': 1, 'o': 2, '#': 3}
     for letter, rows in DRAWN.items():
         w = len(rows[0])
-        glyphs[letter] = [[0] * w] * 2 + [[code[c] for c in r] for r in rows] + [[0] * w] * 2
+        pad = [[0] * w] * ((11 - len(rows)) // 2)
+        glyphs[letter] = pad + [[code[c] for c in r] for r in rows] + pad
     # h : le n, avec la hampe du l au-dessus
     h = [list(r) for r in glyphs['n']]
     for y, row in enumerate(glyphs['l']):
@@ -97,6 +106,10 @@ def font():
     for i, r in enumerate(ACCENT):
         e[i] = [code[c] for c in r.ljust(len(e[i]), '.')]
     glyphs['É'] = e
+    a = [list(r) for r in glyphs['a']]
+    for i, r in enumerate(GRAVE):
+        a[1 + i] = [code[c] for c in r.ljust(len(a[1 + i]), '.')]
+    glyphs['à'] = a
     return glyphs
 
 

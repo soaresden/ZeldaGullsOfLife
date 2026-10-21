@@ -39,6 +39,8 @@ SONGS = [
     ('rythme3.txt', 'musBalladeRythme3'),      # $4b, + la batterie
     ('rythme4.txt', 'musBalladeRythme4'),      # $37, + les cuivres et les cymbales
     ('rythme5.txt', 'musBalladeRythme5'),      # $3a, tout, épique
+    ('grelot.txt', 'musBalladeGrelot'),        # $3d, Hameau-Grelot (île 2)
+    ('coffre.txt', 'musBalladeCoffre'),        # $3b, le Coffre à Jouets (donjon 2)
 ]
 # Niveaux du boss en rythme : mêmes notes à frapper que rythme.txt (vérifié)
 RHYTHM_LEVELS = ['rythme2.txt', 'rythme3.txt', 'rythme4.txt', 'rythme5.txt']
@@ -48,6 +50,9 @@ OUT_RHYTHM = os.path.join(ROOT, 'oracles-disasm', 'data', 'ages', 'balladeRhythm
 # (groupe, musique, salles) : le Phare Éteint (donjon 1) -> MUS_BALLADE_PHARE ($41)
 ILE_BRUME = [0x79, 0x7a, 0x7b, 0x7c, 0x89, 0x8a, 0x8b, 0x8c,
              0x99, 0x9a, 0x9b, 0x9c, 0xa9, 0xaa, 0xab, 0xac]
+# Hameau-Grelot (île 2) : 1:01-02, 10-13, 20-23, 31-32 (les coins sont la mer)
+ILE_GRELOT = [0x00, 0x01, 0x02, 0x03, 0x10, 0x11, 0x12, 0x13,
+              0x20, 0x21, 0x22, 0x23, 0x30, 0x31, 0x32, 0x33]
 ROOM_MUSIC = [
     # le Phare / temple (plan d'un seul étage : pied 1b-14-15, tour 16-18-17, galerie 19-12-1a,
     # Jack 13 avant le combat ; 24 et 1c de l'ancien plan)
@@ -56,6 +61,12 @@ ROOM_MUSIC = [
     (0, 0x42, ILE_BRUME),   # et dans le Songe
     (3, 0x43, [0x9e]),      # l'auberge de Port-Veille
     (2, 0x43, [0x9e]),      # et celle du Songe
+    (1, 0x3d, ILE_GRELOT),  # Hameau-Grelot dans le Réel
+    (0, 0x3d, ILE_GRELOT),  # et dans le Songe
+    (3, 0x3d, [0x21, 0x22]),  # la maison de Lila, l'école
+    (2, 0x3d, [0x21]),      # le rêve de Lila
+    # le Coffre à Jouets (donjon 2 ; Pantin-Sans-Fil lance la musique du boss en se réveillant)
+    (4, 0x3b, [0x39, 0x37, 0x3a, 0x3b, 0x33, 0x32, 0x31, 0x34, 0x2d, 0x2c, 0x2e, 0x2b]),
     # salle de test du boss en rythme (l'arène de l'ancien donjon 3 d'Ages) : silence en entrant
     # (SNDCTRL_STOPMUSIC) ; le boss lance son morceau quand Marine a parlé
     (4, 0xf0, [0x4a]),

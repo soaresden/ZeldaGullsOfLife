@@ -10,6 +10,8 @@ Usage : python tools/record_music.py [NOM ...]   (sans nom : tout)
   veilleur  out/veilleur_apercu.wav  le Veilleur Creux ($45, pour un autre boss)
   miniboss  out/miniboss_apercu.wav  MUS_MINIBOSS ($2d)
   theme     out/theme_apercu.wav     le thème du jeu (MUS_BALLADE_THEME, $44)
+  grelot    out/grelot_apercu.wav    Hameau-Grelot (la place, 1:11 ; $3d)
+  coffre    out/coffre_apercu.wav    le Coffre à Jouets (4:37 ; $3b)
 Pour le boss et le miniboss (pas de salle où ils jouent d'office), l'appel à playSound qui lance
 la musique du Phare est détourné vers la leur (crochet PyBoy sur playSound, ROM intacte).
 """
@@ -32,6 +34,8 @@ TRACKS = {
     'veilleur': (4, 0x24, 0x51, 0x45, 31),
     'miniboss': (4, 0x24, 0x51, 0x2d, 24),
     'theme': (4, 0x24, 0x51, 0x44, 46),
+    'grelot': (1, 0x11, 0x44, None, 48),
+    'coffre': (4, 0x37, 0x57, None, 50),
 }
 wanted = sys.argv[1:] or ['film', 'titre'] + list(TRACKS)
 

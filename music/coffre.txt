@@ -1,0 +1,61 @@
+# Le Coffre à Jouets — musique originale du donjon 2 (Gulls of Life)
+#
+# Esprit : dans le rêve d'une petite fille, un coffre plein de jouets. Un xylophone (carré, très
+# court), un tambour de jouet, une contrebasse pincée (l'onde) et, tout bas, un célesta qui tient
+# les notes (le 2e carré). Mystérieux mais gai : mi mineur avec la sensible (ré dièse) qui
+# intrigue, un refrain en sol majeur qui marche au pas comme des soldats de bois, et un pont où le
+# coffre grince (chromatismes qui descendent).
+# Même notation que music/phare.txt (ici en 4/4 : 8 croches par mesure).
+
+tempo 8          # images par croche (noire = 16 images, environ 112 à la minute)
+mesure 8
+
+== INTRO ==
+# Le tic-tac du coffre, la contrebasse qui cherche.
+melodie:   [v6] [duty 1] [vib 00] [gate .35] [detune 0]
+melodie:   -:8 | -:6 b5:1 d#6:1 |
+accordeon: [v2] [duty 2] [vib 00] [gate 1] [detune 0]
+accordeon: -:8 | -:8 |
+basse:     [onde 0e] [vib 00] [gate .45]
+basse:     e2:2 -:2 b1:2 -:2 | e2:2 -:2 b1:2 d#2:2 |
+batterie:  [v1] h:1 -:1 h:1 -:1 h:1 -:1 h:1 -:1 | h:1 -:1 h:1 -:1 [v2] s:1 s:1 [v3] s:1 s:1 |
+
+== A ==
+# Le thème au xylophone ; le célesta tient les accords, tout doucement.
+melodie:   [gate .35]
+melodie:   e5:1 g5:1 b5:1 e6:1 d6:2 b5:2 | c6:1 b5:1 a5:1 g5:1 a5:2 e5:2 | f#5:1 a5:1 c6:1 e6:1 d#6:2 b5:2 | e6:3 b5:1 g5:4 |
+melodie:   e5:1 g5:1 b5:1 e6:1 d6:2 b5:2 | c6:1 e6:1 g6:1 e6:1 f#6:2 d6:2 | b5:1 c6:1 d6:1 a5:1 b5:2 f#5:2 | e5:6 -:2 |
+accordeon: [v2] [gate 1]
+accordeon: g4:8 | a4:8 | f#4:8 | g4:4 b4:4 | g4:8 | e4:4 a4:4 | d4:4 d#4:4 | e4:8 |
+basse:     [gate .45]
+basse:     e2:2 b2:2 e3:2 b2:2 | a2:2 e3:2 a2:2 c3:2 | b2:2 f#2:2 b1:2 d#2:2 | e2:2 b2:2 e2:2 g2:2 |
+basse:     e2:2 b2:2 e3:2 b2:2 | c3:2 g2:2 a2:2 d3:2 | g2:2 d3:2 b2:2 b1:2 | e2:2 b2:2 e2:4 |
+batterie:  ( [v2] h:1 h:1 [v3] s:1 [v1] h:1 [v2] h:1 h:1 [v3] s:1 [v1] h:1 | )x8
+
+== B ==
+# Le refrain en sol majeur : une trompette de jouet (le 2e carré) mène la marche des soldats de
+# bois, le xylophone répond en contretemps.
+melodie:   [v5] [gate .3]
+melodie:   -:1 b5:1 -:1 d6:1 -:1 b5:1 -:1 d6:1 | -:1 c6:1 -:1 e6:1 -:1 b5:1 -:1 d6:1 | -:1 c6:1 -:1 e6:1 -:1 c6:1 -:1 e6:1 | -:1 a5:1 -:1 d6:1 -:1 a5:1 -:1 c6:1 |
+melodie:   -:1 b5:1 -:1 d6:1 -:1 b5:1 -:1 d6:1 | -:1 c6:1 -:1 e6:1 -:1 c6:1 -:1 g6:1 | -:1 c6:1 -:1 e6:1 -:1 b5:1 -:1 d#6:1 | -:1 b5:1 -:1 e6:1 -:4 |
+accordeon: [v4] [duty 2] [gate .8] [vib 41]
+accordeon: g5:2 g5:1 a5:1 b5:2 g5:2 | c6:2 b5:1 a5:1 g5:4 | a5:2 a5:1 b5:1 c6:2 a5:2 | d6:2 c6:1 b5:1 a5:4 |
+accordeon: b5:2 b5:1 c6:1 d6:2 b5:2 | e6:2 d6:1 c6:1 b5:2 g5:2 | a5:1 b5:1 c6:1 a5:1 f#5:2 d#5:2 | e5:6 -:2 |
+basse:     [gate .5]
+basse:     g2:2 d3:2 b2:2 d3:2 | c3:2 g2:2 g2:2 d3:2 | a2:2 e3:2 c3:2 e3:2 | d3:2 a2:2 d2:2 f#2:2 |
+basse:     g2:2 d3:2 b2:2 d3:2 | c3:2 g2:2 e3:2 g2:2 | a2:2 c3:2 b2:2 d#3:2 | e3:2 b2:2 e2:4 |
+batterie:  ( [v3] s:1 [v1] h:1 [v2] s:1 [v1] h:1 [v3] s:1 [v1] h:1 [v2] s:1 s:1 | )x7 [v3] s:1 s:1 s:1 s:1 s:1 [v1] h:3 |
+
+== C ==
+# Le coffre grince : le xylophone descend par demi-tons, la contrebasse ne bouge plus, le
+# tambour se tait presque... puis un roulement, et ça repart.
+melodie:   [v6] [gate .5]
+melodie:   b5:2 a#5:2 a5:2 g#5:2 | g5:4 -:4 | e6:1 d#6:1 e6:1 b5:1 -:4 | c6:2 b5:2 a5:2 f#5:2 |
+melodie:   b5:2 a#5:2 a5:2 g#5:2 | g5:2 f#5:2 f5:2 e5:2 | d#5:2 f#5:2 a5:2 c6:2 | b5:4 -:4 |
+accordeon: [v2] [duty 2] [gate 1] [vib 00]
+accordeon: e4:8 | e4:8 | g4:8 | f#4:8 | e4:8 | c4:8 | b3:4 a3:4 | b3:8 |
+basse:     [gate .45]
+basse:     ( e2:2 -:2 e2:2 -:2 | )x4 ( b1:2 -:2 b1:2 -:2 | )x4
+batterie:  ( [v1] h:1 -:1 h:1 -:1 h:1 -:1 h:1 -:1 | )x6 [v2] s:1 -:1 s:1 -:1 s:1 s:1 s:1 s:1 | [v3] s:1 s:1 s:1 s:1 s:2 [v1] h:2 |
+
+ordre: INTRO | A B A C

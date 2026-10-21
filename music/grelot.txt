@@ -1,0 +1,71 @@
+# Hameau-Grelot — musique originale de l'île 2 (Gulls of Life)
+#
+# Esprit : un village de jouets. Une boîte à musique (carré aigu, très détaché) et une petite
+# fanfare de jouets (carré « cuivre », tuba sur l'onde, tambour) en 6/8, sol majeur... un peu de
+# travers : des notes chromatiques qui « frottent », une mesure qui boite (deux temps au lieu de
+# trois, l'hémiole), et la boîte à musique qui s'essouffle comme un ressort à la fin du pont.
+# Même notation que music/phare.txt.
+
+tempo 8          # images par croche (mesure = 48 images, un 6/8 sautillant)
+mesure 6
+
+== INTRO ==
+# La boîte à musique qu'on remonte : quatre mesures seule, puis le tambour qui l'appelle.
+melodie:   [v5] [duty 0] [vib 00] [gate .45] [detune 0]
+melodie:   d6:1 b5:1 g5:1 d6:1 b5:1 g5:1 | e6:1 c6:1 a5:1 e6:1 c6:1 a5:1 | d6:1 b5:1 g5:1 b5:1 d6:1 g6:1 | f#6:2 e6:1 d6:2 -:1 |
+accordeon: [v0] [duty 2] [vib 00] [gate .5] [detune 0]
+accordeon: -:6 | -:6 | -:6 | -:6 |
+basse:     [onde 0e] [vib 00] [gate .6]
+basse:     -:6 | -:6 | -:6 | d2:3 d2:1 -:2 |
+batterie:  [v0] h:6 | h:6 | h:6 | [v2] s:1 s:1 s:1 [v3] s:3 |
+
+== A ==
+# Le thème à la boîte à musique ; la fanfare fait « pom-pah-pah » derrière.
+melodie:   [v6] [gate .5]
+melodie:   g5:1 b5:1 d6:1 b5:2 g5:1 | a5:1 c6:1 e6:1 c6:2 a5:1 | b5:1 d6:1 g6:1 f#6:1 e6:1 d6:1 | c6:3 a5:3 |
+melodie:   g5:1 b5:1 d6:1 b5:2 g5:1 | a5:1 c6:1 e6:1 d#6:1 e6:1 c6:1 | b5:2 a5:1 d5:2 f#5:1 | g5:5 -:1 |
+accordeon: [v3] [duty 2] [gate .5]
+accordeon: -:1 b4:1 d5:1 -:1 b4:1 d5:1 | -:1 c5:1 e5:1 -:1 c5:1 e5:1 | -:1 b4:1 d5:1 -:1 b4:1 d5:1 | -:1 a4:1 c5:1 -:1 f#4:1 c5:1 |
+accordeon: -:1 b4:1 d5:1 -:1 b4:1 d5:1 | -:1 c5:1 e5:1 -:1 c5:1 e5:1 | -:1 b4:1 d5:1 -:1 a4:1 c5:1 | -:1 b4:1 d5:1 -:3 |
+basse:     [gate .6]
+basse:     g2:3 d2:3 | c3:3 g2:3 | g2:3 b2:3 | d3:3 d2:3 | g2:3 d2:3 | a2:3 c3:3 | d3:3 d2:3 | g2:3 g2:1 a2:1 b2:1 |
+batterie:  ( [v3] s:1 [v1] h:1 h:1 [v2] h:1 [v1] h:1 h:1 | )x7 [v3] s:1 [v1] h:1 h:1 [v3] s:1 s:1 s:1 |
+
+== A2 ==
+# Le thème encore, la fanfare double la boîte à musique une octave plus bas (et rate une note).
+melodie:   g5:1 b5:1 d6:1 b5:2 g5:1 | a5:1 c6:1 e6:1 c6:2 a5:1 | b5:1 d6:1 g6:1 f#6:1 e6:1 d6:1 | c6:3 a5:3 |
+melodie:   e6:1 d6:1 c6:1 b5:1 a5:1 g5:1 | f#5:1 a5:1 c6:1 e6:2 d6:1 | c6:2 a5:1 f#5:2 a5:1 | g5:5 -:1 |
+accordeon: [v3] [duty 2] [gate .8]
+accordeon: g4:1 b4:1 d5:1 b4:2 g4:1 | a4:1 c5:1 e5:1 c5:2 a4:1 | b4:1 d5:1 g5:1 f#5:1 e5:1 d5:1 | c5:3 a4:3 |
+# (le cuivre de jouet qui frotte : un fa naturel au lieu du fa dièse, vite corrigé)
+accordeon: e5:1 d5:1 c5:1 b4:1 a4:1 g4:1 | f4:1 f#4:1 c5:1 e5:2 d5:1 | c5:2 a4:1 f#4:2 a4:1 | g4:5 -:1 |
+basse:     g2:3 d2:3 | c3:3 g2:3 | g2:3 b2:3 | d3:3 d2:3 | c3:3 e3:3 | d3:3 f#2:3 | d3:3 d2:3 | g2:3 d2:3 |
+batterie:  ( [v3] s:1 [v1] h:1 h:1 [v2] h:1 [v1] h:1 h:1 | )x7 [v3] s:1 [v1] h:1 h:1 [v3] s:3 |
+
+== B ==
+# La petite fanfare prend le thème (en do), la boîte à musique tourne en arpèges au-dessus.
+melodie:   [v4] [gate .4]
+melodie:   ( c6:1 e6:1 g6:1 e6:1 c6:1 e6:1 | b5:1 d6:1 g6:1 d6:1 b5:1 d6:1 | )x2
+melodie:   ( a5:1 c6:1 f6:1 c6:1 a5:1 c6:1 | b5:1 d6:1 g6:1 d6:1 b5:1 d6:1 | )x2
+accordeon: [v4] [duty 2] [gate .9] [vib 41]
+accordeon: e5:3 g5:2 e5:1 | d5:2 c5:1 d5:3 | e5:2 g5:1 c6:2 b5:1 | a5:3 g5:3 |
+accordeon: f5:2 a5:1 c6:2 a5:1 | g5:2 e5:1 c5:3 | d5:2 f#5:1 a5:2 c6:1 | b5:3 d5:3 |
+basse:     [gate .6]
+basse:     c3:3 g2:3 | g2:3 d3:3 | c3:3 e3:3 | f3:3 c3:3 | f2:3 a2:3 | c3:3 g2:3 | d3:3 a2:3 | g2:3 d2:3 |
+batterie:  ( [v3] s:1 [v1] h:1 [v2] h:1 [v3] s:1 [v1] h:1 [v2] h:1 | )x8
+
+== C ==
+# Le pont « de travers » : la mélodie marche par deux (2+2+2) pendant que le tuba compte par
+# trois (3+3) ; puis le ressort de la boîte à musique se détend : les notes s'espacent, et un
+# petit déclic avant la reprise.
+melodie:   [v6] [gate .5] [vib 00]
+melodie:   e6:2 d6:2 c6:2 | b5:2 a5:2 g5:2 | f#5:2 a5:2 c6:2 | e6:2 d6:2 -:2 |
+melodie:   [gate .7]
+melodie:   g5:2 b5:1 -:3 | a5:3 -:3 | f#5:4 -:2 | d5:6 |
+accordeon: [v2] [duty 2] [gate .5] [vib 00]
+accordeon: -:1 c5:1 e5:1 -:1 c5:1 e5:1 | -:1 b4:1 d5:1 -:1 b4:1 d5:1 | -:1 a4:1 c5:1 -:1 a4:1 c5:1 | -:1 a4:1 d5:1 -:1 f#4:1 c5:1 |
+accordeon: [v1] -:1 b4:1 d5:1 -:3 | -:1 c5:1 e5:1 -:3 | -:1 a4:1 c5:1 -:3 | -:6 |
+basse:     c3:3 a2:3 | g2:3 e2:3 | d2:3 f#2:3 | d3:3 d2:3 | g2:3 -:3 | c2:3 -:3 | d2:3 -:3 | d2:3 -:3 |
+batterie:  ( [v2] s:1 [v1] h:1 h:1 [v2] h:1 [v1] h:1 h:1 | )x4 [v1] h:6 | h:6 | -:6 | -:5 [v3] n24:1 |
+
+ordre: INTRO | A A2 B C A2
