@@ -1785,6 +1785,47 @@ groups:
       J'en ai marre
       de recopier.
 
+  # Fin du chapitre 4 : le village goron (1:2a), l'essence de la Forge Endormie
+  - name: TX_5a8c
+    index: 0x8c
+    text: |-
+      \col(1)Marine\col(0): Écoute!
+      Ça ne cogne plus
+      pareil. Bong!
+      Bing! Badaboum!\stop
+      Le volcan s'est
+      réveillé... mais
+      en douceur.
+
+  - name: TX_5a8d
+    index: 0x8d
+    text: |-
+      \col(1)Brasia\col(0): Une
+      épée-vague! Une
+      épée-nuage! Une
+      épée-mouette!\stop
+      \col(1)Les Cuivres\col(0):
+      Pouet-tagada-
+      boum-pouet!\stop
+      \col(1)Marine\col(0): Une
+      épée-mouette?
+      Ça me plaît!
+
+  - name: TX_5a8e
+    index: 0x8e
+    text: |-
+      \col(1)Marine\col(0): Chut...
+      le vent a
+      tourné.\stop
+      Il sent la
+      cloche, le
+      vieux papier...\stop
+      Une île, à
+      l'ouest, où tout
+      se répète deux
+      fois. Deux fois.
+
+
 
 # ==============================================================================
 # Textes d'Ages remplacés (même nom) : les objets qu'on trouve parlent français
@@ -2096,6 +2137,41 @@ groups:
       La peinture est
       encore fraîche.
 
+  # La Canne des Songes (la canne de Somaria d'Ages)
+  - name: TX_0073
+    index: 0x73
+    text: |-
+      La \col(1)Canne des
+      Songes\col(0)!\stop
+      Elle fait
+      apparaître un
+      bloc devant toi.
+      Un seul à la
+      fois!
+
+  # L'essence du 4e donjon : le quatrième couplet
+  - name: TX_0011
+    index: 0x11
+    text: |-
+      \pos(2)\slow()La Forge s'est
+      réveillée. Plus
+      deux épées
+      pareilles!\stop
+      Tu as trouvé le
+      \col(1)quatrième
+      couplet\col(0) de la
+      chanson de
+      Marine!\stop
+      \col(1)Marine\col(0):
+      "Invente-moi un
+      chemin que
+      personne n'a
+      pris."\stop
+      ...C'est joli,
+      hein? C'est de
+      moi!
+
+
 
 # Noms des lieux sur la carte (SELECT) : trois noms d'Ages repris pour l'île de la Brume
 # (data/ages/mapTextAndPopups.s)
@@ -2135,6 +2211,13 @@ groups:
     text: |-
        Niveau 1
         Phare Éteint
+
+  - name: TX_0204
+    index: 0x04
+    text: |2-
+       Niveau 4
+       Forge Endormie
+
 
 # Description des objets (inventaire)
 - group: 0x09
@@ -2291,6 +2374,23 @@ groups:
       Bracelet de
       force
       Pour soulever.
+
+  - name: TX_0904
+    index: 0x04
+    text: |-
+      Quatrième
+      couplet
+      Un chemin que
+      personne n'a
+      pris.
+
+  - name: TX_093c
+    index: 0x3c
+    text: |-
+      Canne des Songes
+      Un bloc, rien
+      qu'un.
+
 
 
 # Pancartes clouées sur les portes de la place de Port-Veille (data/ages/signText.s)
@@ -2565,3 +2665,25 @@ groups:
       ne dort jamais
       le saura!
       Hi hi hi!
+
+  # Copiator (Smog d'Ages, le boss de la Forge Endormie) ; Marine lui répond en chantant
+  - name: TX_2f26
+    index: 0x26
+    text: |-
+      \pos(2)Montre-moi. Tout
+      ce que tu fais,
+      je le refais.
+      En mieux.\stop
+      \col(1)Marine\col(0): Et
+      ça, tu sais le
+      faire?\stop
+      La la laaa...
+      la la LAAA!\stop
+      \col(1)Copiator\col(0): ...!\stop
+      Je me coupe en
+      morceaux!
+      Rassemble-moi,
+      puis souffle-
+      moi... si tu
+      peux!
+

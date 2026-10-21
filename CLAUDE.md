@@ -180,6 +180,28 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   rayon de lumière (~160 images) avant d'agir.
   Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/braise.png
 
+## La Forge Endormie (donjon 4)
+- story/salles/forge.txt (tracé par un script jetable) : groupe 4, les salles du Donjon de la
+  Couronne d'Ages (décor 3a passé à l'index de donjon 4 : tilesets.s $25 -> $24), un étage en
+  enclume (dungeon04LayoutForge) : ae af b0 b1 b2 / be bf b6 / b9 ba bb bc bd. Entrée : la bouche
+  du grand visage du cratère (1:0a, dd) -> 4:bb $97 ; sortie -> 1:0a $24.
+- Les Copies (mini-boss) = 4 Arm Mimics (la liste d'Ages group4Mapc8EnemyObjectData, en
+  obj_BeforeEvent : ils ne reviennent pas) ; volets $1e $08-$0b ; puis la Canne des Songes (la
+  canne de Somaria, TX_0073 / TX_093c). Copiator = Smog d'Ages dans sa salle (4:bf, volet du haut
+  muré), TX_2f26 réécrit (Marine lui répond en chantant) ; l'essence apparaît en (7, 3) (à l'écart
+  des blocs du combat ; elle ne tombe que si Link arrive juste en dessous, centré).
+- Boutons : PART_BUTTON avec le bit 7 du sous-type ($80, $81) ne reste pressé que sous un poids
+  (Link, bloc poussé, bloc de la Canne) ; sans le bit 7, un seul pas le bloque pour de bon. Le
+  coffre qui apparaît selon wActiveTriggers : INTERAC_DUNGEON_EVENTS $21 $17 Y=position X=valeur.
+  Un bloc de la Canne se pose une case devant Link (appui bref pour se tourner, sinon Link avance
+  sur le bouton).
+- Fin du chapitre 4 (@endings : 1:2a) : le village fête la Forge, Marine lit le vent (l'île des
+  Échos, GLOBALFLAG_BALLADE_ISLAND5).
+- Musiques : $26 (music/braise.txt, Mont-Braise, au lieu de la maison des Tokays), $17
+  (music/forge.txt, au lieu du Donjon de la Couronne).
+- Test : python tools/test_forge.py DOSSIER (tout le donjon, ennemis et boss retirés).
+  Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/forge.png
+
 ## Pièges déjà rencontrés
 - Les heredocs Bash de l'outil réduisent `\\` en `\` : écrire les fichiers avec des `\` via Write/Edit.
 - `parseText.py` lisait le texte avec l'encodage Windows : corrigé (UTF-8) dans le fork.
@@ -388,7 +410,7 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Le désassemblage de LADX est sur la machine : D:\DOCS\Documents\GitHub\ZeldaOracleCombinedFR\LADX-Disassembly-main
   (sons : src/code/audio/, musiques, sprites : src/gfx/...). Le lire là plutôt que sur GitHub.
 - Aperçus à écouter : `python tools/record_music.py [film titre phare ile auberge boss veilleur
-  miniboss theme grelot coffre lagune recif]` -> out/NOM_apercu.wav ; `ROM=chemin` pour une autre ROM ; les morceaux sans
+  miniboss theme grelot coffre lagune recif braise forge]` -> out/NOM_apercu.wav ; `ROM=chemin` pour une autre ROM ; les morceaux sans
   salle sont lancés en détournant playSound (crochet PyBoy). Denis veut ÉCOUTER une musique avant
   qu'on la pousse ; ses références : Wind Waker / Linebeck (marin), Resident Evil (salle de
   sauvegarde), Hyrule Warriors, Ninja Gaiden NES.

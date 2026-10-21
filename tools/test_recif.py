@@ -212,6 +212,8 @@ check(door('right', (5, 0x40)), "à l'est du hall (5:40)")
 g.clear_enemies()
 check(g.open_chest(2, 11), 'coffre ouvert : la carte')
 check(door('left', (5, 0x3f)), 'retour au hall')
+g.clear_enemies()   # les méduses du hall sont revenues
+full_life()
 
 # La porte à clé du nord du hall : l'antichambre, puis la porte du boss
 g.route((2, 12), (2, 7))

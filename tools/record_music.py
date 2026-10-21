@@ -14,6 +14,8 @@ Usage : python tools/record_music.py [NOM ...]   (sans nom : tout)
   coffre    out/coffre_apercu.wav    le Coffre à Jouets (4:37 ; $3b)
   lagune    out/lagune_apercu.wav    la Lagune des Serments (le ponton, 1:24 ; $25)
   recif     out/recif_apercu.wav     le Récif Murmurant (le hall, 5:3f ; $18)
+  braise    out/braise_apercu.wav    Mont-Braise (le village goron, 1:2a ; $26)
+  forge     out/forge_apercu.wav     la Forge Endormie (l'entrée, 4:bb ; $17)
 Pour le boss et le miniboss (pas de salle où ils jouent d'office), l'appel à playSound qui lance
 la musique du Phare est détourné vers la leur (crochet PyBoy sur playSound, ROM intacte).
 """
@@ -40,6 +42,8 @@ TRACKS = {
     'coffre': (4, 0x37, 0x57, None, 50),
     'lagune': (1, 0x24, 0x33, None, 52),
     'recif': (5, 0x3f, 0x57, None, 56),
+    'braise': (1, 0x2a, 0x55, None, 50),
+    'forge': (4, 0xbb, 0x57, None, 56),
 }
 wanted = sys.argv[1:] or ['film', 'titre'] + list(TRACKS)
 

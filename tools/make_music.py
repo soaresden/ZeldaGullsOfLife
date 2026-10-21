@@ -43,6 +43,8 @@ SONGS = [
     ('coffre.txt', 'musBalladeCoffre'),        # $3b, le Coffre à Jouets (donjon 2)
     ('lagune.txt', 'musBalladeLagune'),        # $25 (au lieu de Symétrie, passé), la Lagune (île 3)
     ('recif.txt', 'musBalladeRecif'),          # $18 (au lieu de la Grotte des Sirènes), le Récif Murmurant
+    ('braise.txt', 'musBalladeBraise'),        # $26 (au lieu de la maison des Tokays), Mont-Braise (île 4)
+    ('forge.txt', 'musBalladeForge'),          # $17 (au lieu du Donjon de la Couronne), la Forge Endormie
 ]
 # Niveaux du boss en rythme : mêmes notes à frapper que rythme.txt (vérifié)
 RHYTHM_LEVELS = ['rythme2.txt', 'rythme3.txt', 'rythme4.txt', 'rythme5.txt']
@@ -58,6 +60,8 @@ ILE_GRELOT = [0x00, 0x01, 0x02, 0x03, 0x10, 0x11, 0x12, 0x13,
 # La Lagune des Serments (île 3) : 1:04-37
 ILE_LAGUNE = [0x04, 0x05, 0x06, 0x07, 0x14, 0x15, 0x16, 0x17,
               0x24, 0x25, 0x26, 0x27, 0x34, 0x35, 0x36, 0x37]
+# Mont-Braise (île 4) : 1:08-3c
+ILE_BRAISE = [r + d for r in range(0x08, 0x0d) for d in (0x00, 0x10, 0x20, 0x30)]
 ROOM_MUSIC = [
     # le Phare / temple (plan d'un seul étage : pied 1b-14-15, tour 16-18-17, galerie 19-12-1a,
     # Jack 13 avant le combat ; 24 et 1c de l'ancien plan)
@@ -77,6 +81,11 @@ ROOM_MUSIC = [
     (5, 0x18, [0x44, 0x3f, 0x3e, 0x3b, 0x3a, 0x37, 0x38, 0x40, 0x3c, 0x3d, 0x39, 0x30, 0x2e, 0x35, 0x36, 0x2d]),
     # le Coffre à Jouets (donjon 2 ; Pantin-Sans-Fil lance la musique du boss en se réveillant)
     (4, 0x3b, [0x39, 0x37, 0x3a, 0x3b, 0x33, 0x32, 0x31, 0x34, 0x2d, 0x2c, 0x2e, 0x2b]),
+    (1, 0x26, ILE_BRAISE),  # Mont-Braise dans le Réel
+    (0, 0x26, ILE_BRAISE),  # et dans le Songe
+    (5, 0x26, [0xb2]),      # la mine abandonnée
+    # la Forge Endormie (donjon 4 ; Copiator lance la musique du boss)
+    (4, 0x17, [0xae, 0xaf, 0xb0, 0xb1, 0xb2, 0xb6, 0xb9, 0xba, 0xbb, 0xbc, 0xbd, 0xbe, 0xbf]),
     # salle de test du boss en rythme (l'arène de l'ancien donjon 3 d'Ages) : silence en entrant
     # (SNDCTRL_STOPMUSIC) ; le boss lance son morceau quand Marine a parlé
     (4, 0xf0, [0x4a]),

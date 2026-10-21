@@ -1725,6 +1725,48 @@ groups:
       Good! I'm sick
       of copying.
 
+  # End of chapter 4: the Goron village (1:2a), the Sleeping Forge's essence
+  - name: TX_5a8c
+    index: 0x8c
+    text: |-
+      \col(1)Marin\col(0): Listen!
+      The hammering
+      changed. Bong!
+      Bing! Kaboom!\stop
+      The volcano woke
+      up... but
+      gently.
+
+  - name: TX_5a8d
+    index: 0x8d
+    text: |-
+      \col(1)Brasia\col(0): A wave
+      sword! A cloud
+      sword! A seagull
+      sword!\stop
+      \col(1)The Brass\col(0):
+      Toot-ta-da-
+      boom-toot!\stop
+      \col(1)Marin\col(0): A
+      seagull sword?
+      I like that!
+
+  - name: TX_5a8e
+    index: 0x8e
+    text: |-
+      \col(1)Marin\col(0): Shh...
+      the wind has
+      turned.\stop
+      It smells of
+      bells, of old
+      paper...\stop
+      An island to the
+      west, where
+      everything
+      happens twice.
+      Twice.
+
+
 
 # ==============================================================================
 # Ages texts replaced (same name)
@@ -1899,6 +1941,37 @@ groups:
       sun... The paint
       is still wet.
 
+  # The Cane of Dreams (Ages' Cane of Somaria)
+  - name: TX_0073
+    index: 0x73
+    text: |-
+      The \col(1)Cane of
+      Dreams\col(0)!\stop
+      It makes a block
+      appear in front
+      of you. Just one
+      at a time!
+
+  # The 4th dungeon's essence: the fourth verse
+  - name: TX_0011
+    index: 0x11
+    text: |-
+      \pos(2)\slow()The Forge has
+      woken. No two
+      swords alike
+      anymore!\stop
+      You found the
+      \col(1)fourth verse\col(0)
+      of Marin's song!\stop
+      \col(1)Marin\col(0): "Make up
+      a path for me
+      that nobody has
+      taken."\stop
+      ...Pretty,
+      right? I wrote
+      that one!
+
+
 
 # Map place names (SELECT): three Ages names reused for Mist Island
 - group: 0x03
@@ -1936,6 +2009,13 @@ groups:
     text: |-
        Level 1
        Dark Lighthouse
+
+  - name: TX_0204
+    index: 0x04
+    text: |2-
+         Level 4
+       Sleeping Forge
+
 
 # Item descriptions (inventory)
 - group: 0x09
@@ -2056,6 +2136,21 @@ groups:
     text: |-
       Power Bracelet
       For lifting.
+
+  - name: TX_0904
+    index: 0x04
+    text: |-
+      Fourth verse
+      A path nobody
+      has taken.
+
+  - name: TX_093c
+    index: 0x3c
+    text: |-
+      Cane of Dreams
+      One block, just
+      one.
+
 
 
 # Signs nailed on the doors of the Port-Veille square (data/ages/signText.s)
@@ -2186,3 +2281,24 @@ groups:
       sleeps will hear
       of this!
       Hee hee!
+
+  # Copiator (Ages' Smog, the Sleeping Forge's boss); Marin answers by singing
+  - name: TX_2f26
+    index: 0x26
+    text: |-
+      \pos(2)Show me.
+      Everything you
+      do, I do again.
+      Better.\stop
+      \col(1)Marin\col(0): And
+      can you do
+      this?\stop
+      La la laaa...
+      la la LAAA!\stop
+      \col(1)Copiator\col(0): ...!\stop
+      I break into
+      pieces! Gather
+      me, then blow me
+      away... if you
+      can!
+

@@ -396,20 +396,15 @@ des orchestres de *Hyrule Warriors* : cuivres, percussions, grandeur.
 
 **Déjà fait** : l'écran titre (la Ballade chantée par Marine), l'île de la Brume, l'auberge, le
 Phare Éteint, le thème du jeu (la *Ballade de la Mouette*), le boss (la Ballade en colère), le
-mini-boss, le Veilleur Creux (en réserve), le boss en rythme (5 niveaux).
+mini-boss, le Veilleur Creux (en réserve), le boss en rythme (5 niveaux), Hameau-Grelot, le Coffre à
+Jouets, la Lagune des Serments, le Récif Murmurant, Mont-Braise, la Forge Endormie.
 
 **À écrire** :
 
 | Morceau | Où | L'idée |
 | --- | --- | --- |
 | La mer (Bateau-Rondin) | la carte de l'archipel, en voyage | large et marin, à la *Wind Waker* (le bateau) ; la Ballade cachée dans la basse |
-| Hameau-Grelot | île 2 | boîte à musique et petite fanfare, en 6/8, un peu de travers |
-| Le Coffre à Jouets | donjon 2 | xylophone et tambour de jouet, mystérieux mais gai |
-| Lagune des Serments | île 3 | lent, tendre, guitare de plage ; le thème d'Héloïse et Gaspard |
-| Le Récif Murmurant | donjon 3 | sous l'eau : nappes, échos, presque pas de mélodie (Link est seul) |
 | La plongée | mini-jeu | une boucle calme qui s'accélère avec la profondeur |
-| Mont-Braise | île 4 | enclumes en percussion (le bruit), cuivres goron |
-| La Forge Endormie | donjon 4 | lourd, la même phrase répétée… qui finit par changer |
 | Île des Échos | île 5 | une cloche, une mélodie qui revient en écho plus faible |
 | La Cathédrale (Nuit Blanche) | donjon 5 | tension d'infiltration : un tic-tac, des silences |
 | La maison de Tarkin | donjon 5 | le village des Mouettes de *Link's Awakening DX* (autorisé), ralenti |
@@ -425,8 +420,8 @@ mini-boss, le Veilleur Creux (en réserve), le boss en rythme (5 niveaux).
 | Le forain | mini-jeux de la Brume | orgue de foire, un peu louche |
 
 Numéros : les musiques d'*Ages* qu'on n'utilise plus (leurs lieux n'existent pas chez nous) sont
-libres de reprendre ; les numéros vides $24, $3b et $3d aussi. Le boss en rythme a pris $37,
-$3a, $47, $48, $49 et $4b.
+libres de reprendre (sans cas spécial dans le code : $24 en a un). Pris : le boss en rythme $37, $3a,
+$47, $48, $49, $4b ; Grelot $3d, Coffre $3b, Lagune $25, Récif $18, Braise $26, Forge $17.
 
 ---
 
