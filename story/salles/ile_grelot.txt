@@ -1,0 +1,199 @@
+# Hameau-Grelot (île 2), le Réel (groupe 1, écrans 1:00-33). Voir story/iles.md.
+# Décor 7b : la ville de Lynna du présent d'Ages (décor 00 ; toits de couleur, chemins, arbres
+# ronds), copié en décor du « passé » (le Réel) par tools/make_songe.py ; son Songe : le 7c.
+#
+# Briques : 3a sol, 0c chemin, 01 herbe, 2a 2b herbe fleurie, 3b sable, c5 buisson,
+#   arbres 2 x 2 : 2e 2f / 3e 3f ; mer fa ; côte (la terre au bord de l'eau) : 31 eau au-dessus,
+#   34 eau en dessous, 36 eau à gauche, 37 eau à droite ; coins 30 32 33 35 ;
+#   maisons : petite verte 86 87 88 / 96 a2 98 / f6 de f6 (de = porte) ; boutique bleue 8a 84 df
+#   84 9a / 93 8c 8d 8e 95 / f6 de f6 f6 f6 ; école grise 89 df 81 df 99 / 90 91 91 91 92 /
+#   f6 de f6 f6 f6 ; falaise 64 (coins 60 61) ; d1 rochers (une bombe -> dd, l'entrée d'une grotte) ;
+#   f7 piquets ; 9e plateau rond ; d3 château de sable ; 1d 1e ponton (2 lignes).
+#
+# Plan (une case = un écran) :
+#   ~  | 01 Colline aux cerfs-volants | 02 Manège arrêté       | ~
+#   10 Bois des cache-cache | 11 Place du Grelot | 12 Boutique de Pépin | 13 Plage aux châteaux
+#   20 Terrain de jeu vide  | 21 Maison de Lila  | 22 École des Bonnets | 23 Jardin des toupies
+#   ~  | 31 Jetée (Bateau-Rondin) | 32 Grotte de la Boîte | ~
+
+# --- La mer, aux quatre coins ---
+salle 00 decor 7b
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+
+salle 03 decor 7b
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+
+salle 30 decor 7b
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+
+salle 33 decor 7b
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+
+# --- La colline aux cerfs-volants : un vieux cerf-volant accroché à l'arbre (il parle dans le
+# Songe). Est : lignes 2-5 vers le manège. Sud : colonnes 4-7 vers la place. ---
+salle 01 decor 7b
+fa fa fa fa fa fa fa fa fa fa
+fa 30 31 31 31 31 31 31 31 31
+fa 36 2e 2f 3a 01 01 01 3a 3a
+fa 36 3e 3f 3a 01 2a 01 3a 3a
+fa 36 3a 3a 01 01 01 01 01 3a
+fa 36 c5 3a 3a 01 2b 3a 3a 3a
+fa 36 2e 2f 3a 0c 0c 3a 2e 2f
+fa f7 3e 3f 3a 0c 0c 3a 3e 3f
+
+# --- Le manège arrêté : des piquets en rond autour du plateau. Ouest : lignes 2-5. Sud :
+# colonnes 2-7 vers la boutique. ---
+salle 02 decor 7b
+fa fa fa fa fa fa fa fa fa fa
+31 31 31 31 31 31 31 31 32 fa
+3a 3a 3a f7 f7 f7 3a 3a 37 fa
+3a 3a f7 01 9e 01 f7 3a 37 fa
+3a 3a f7 01 01 01 f7 3a 37 fa
+3a 3a 3a f7 01 f7 3a 3a 37 fa
+2e 2f 3a 3a 0c 0c 3a 3a 37 fa
+3e 3f 3a 3a 0c 0c 3a 3a f7 fa
+
+# --- Le bois des cache-cache. Est : lignes 3-4 vers la place. Sud : colonnes 3-6. ---
+salle 10 decor 7b
+fa fa fa fa fa fa fa fa fa fa
+30 31 31 31 31 31 31 31 31 f7
+36 2e 2f 3a 2e 2f 3a 3a 2e 2f
+36 3e 3f 3a 3e 3f 3a 0c 3e 3f
+36 3a 3a 3a 3a 3a 3a 0c 0c 0c
+36 c5 2e 2f 3a 3a 2e 2f 0c 0c
+36 3a 3e 3f 3a 3a 3e 3f 3a f7
+36 2e 2f 3a 0c 0c 3a 2e 2f f7
+
+# --- La place du Grelot : le grand grelot au milieu (un objet), les enfants assis en rang.
+# Nord : colonnes 4-7. Ouest et est : lignes 3-4. Sud : colonnes 2-7. ---
+salle 11 decor 7b
+2e 2f f7 f7 0c 0c 3a 3a 2e 2f
+3e 3f 3a 3a 0c 0c 3a 3a 3e 3f
+f7 3a 2a 0c 0c 0c 0c 2a 3a 3a
+f7 0c 0c 0c 0c 0c 0c 0c 0c 0c
+0c 0c 0c 0c 0c 0c 0c 0c 0c 0c
+3a 3a 2a 0c 0c 0c 0c 2a 3a 3a
+2e 2f 3a 3a 0c 0c 3a 3a 2e 2f
+3e 3f 3a 3a 0c 0c 3a 3a 3e 3f
+
+# --- La boutique de Pépin (porte : ligne 3, colonne 4). Nord : colonnes 2-7. Ouest et est :
+# lignes 3-4. Sud : colonnes 2-7. ---
+salle 12 decor 7b
+2e 2f 3a 3a 0c 0c 3a 3a 2e 2f
+3e 3f 3a 8a 84 df 84 9a 3e 3f
+3a 3a 3a 93 8c 8d 8e 95 3a 3a
+0c 0c 0c f6 de f6 f6 f6 0c 0c
+0c 0c 0c 0c 0c 0c 0c 0c 0c 0c
+3a 3a 2a 3a 0c 0c 3a 2a 3a 3a
+2e 2f 3a 3a 0c 0c 3a 3a 2e 2f
+3e 3f 3a 3a 0c 0c 3a 3a 3e 3f
+
+# --- La plage aux châteaux de sable. Ouest : lignes 3-4. Sud : colonnes 1-6. ---
+salle 13 decor 7b
+fa fa fa fa fa fa fa fa fa fa
+f7 31 31 31 31 31 31 32 fa fa
+3b 3b 3b 3b d3 3b 3b 37 fa fa
+3b 3b 3b 3b 3b 3b 3b 37 fa fa
+3b 3b d3 3b 3b 3b 3b 37 fa fa
+3b 3b 3b 3b 3b d3 3b 37 fa fa
+f7 3b 3b 3b 3b 3b 3b 37 fa fa
+f7 3b 3b 3b 3b 3b 3b 37 fa fa
+
+# --- Le terrain de jeu vide : des piquets, un bac à sable, personne. Nord : colonnes 3-6. Est :
+# lignes 3-4. ---
+salle 20 decor 7b
+36 2e 2f 3a 0c 0c 3a 2e 2f f7
+36 3e 3f 3a 0c 0c 3a 3e 3f f7
+36 3a f7 3a 0c 0c 3a f7 3a f7
+36 3a 3a 3b 3b 3b 3b 3a 0c 0c
+36 3a 3a 3b 3b 3b 3b 3a 0c 0c
+36 3a f7 3a 3a 3a 3a f7 3a 3a
+36 c5 3a 3a 9e 3a 3a 3a c5 f7
+33 34 34 34 34 34 34 34 34 f7
+
+# --- La maison de Lila (porte : ligne 3, colonne 4). Nord : colonnes 2-7. Ouest et est :
+# lignes 3-4. Sud : colonnes 3-6 vers la jetée. ---
+salle 21 decor 7b
+3e 3f 3a 3a 0c 0c 3a 3a 3e 3f
+2e 2f 3a 86 87 88 3a 3a 2e 2f
+3e 3f 3a 96 a2 98 3a 2a 3e 3f
+0c 0c 0c f6 de f6 0c 0c 0c 0c
+0c 0c 0c 0c 0c 0c 0c 0c 0c 0c
+3a 2a 3a 3a 0c 0c 3a 3a 2b 3a
+2e 2f 3a 3a 0c 0c 3a 3a 2e 2f
+3e 3f f7 3a 0c 0c 3a 3a 3e 3f
+
+# --- L'école des Bonnets (porte : ligne 3, colonne 4). Nord : colonnes 2-7. Ouest et est :
+# lignes 3-4. Au sud, la falaise de la grotte. ---
+salle 22 decor 7b
+3e 3f 3a 3a 0c 0c 3a 3a 3e 3f
+2e 2f 3a 89 df 81 df 99 2e 2f
+3e 3f 3a 90 91 91 91 92 3e 3f
+0c 0c 0c f6 de f6 f6 f6 0c 0c
+0c 0c 0c 0c 0c 0c 0c 0c 0c 0c
+3a 3a 2a 3a 3a 3a 3a 2a 3a 3a
+2e 2f 2e 2f 2e 2f 2e 2f 2e 2f
+3e 3f 3e 3f 3e 3f 3e 3f 3e 3f
+
+# --- Le jardin des toupies. Nord : colonnes 1-6. Ouest : lignes 3-4. ---
+salle 23 decor 7b
+2f 3a 3a 3a 3a 3a 3a 37 fa fa
+3f 2a 2b 2a 2b 2a 2b 37 fa fa
+f7 2b 01 01 01 01 2a 37 fa fa
+0c 0c 01 01 01 01 2b 37 fa fa
+0c 0c 01 01 01 01 2a 37 fa fa
+3a 2a 01 01 01 01 2b 37 fa fa
+f7 2b 2a 2b 2a 2b 2a 37 fa fa
+f7 34 34 34 34 34 34 35 fa fa
+
+# --- La jetée : le ponton (1d 1e) part vers l'ouest, le Bateau-Rondin au bout. Nord : colonnes
+# 3-6. Est : lignes 3-4 vers la grotte. ---
+salle 31 decor 7b
+f7 2e 2f 3a 0c 0c 3a 3a 2e 2f
+36 3e 3f 3a 0c 0c 3a 3a 3e 3f
+36 3a 3a 3a 0c 0c 3a 3a 3a f7
+fa fa 1d 1d 0c 0c 0c 0c 0c 0c
+fa fa 1e 1e 0c 0c 0c 0c 0c 0c
+36 3a 3a 3a 3a 3a 3a 3a c5 3a
+36 c5 3a 3a 3a 3a 3a 3a 3a 3a
+33 34 34 34 34 34 34 34 34 34
+
+# --- La grotte de la Boîte : la falaise, et des rochers devant l'entrée (une bombe -> dd).
+# On n'y arrive que par la jetée (ouest : lignes 3-4). ---
+salle 32 decor 7b
+64 64 64 64 64 64 64 64 64 64
+64 64 64 64 64 64 64 64 64 64
+64 64 64 64 d1 64 64 64 64 64
+0c 0c 0c 3a 3a 3a 3a 3a 3a 37
+0c 0c 0c 0c 0c 3a 3a 3a 3a 37
+3a 3a 2a 3a 3a 3a 2b 3a 3a 37
+3a c5 3a 3a 3a 3a 3a c5 3a 37
+34 34 34 34 34 34 34 34 34 35

@@ -5,18 +5,20 @@ rocher ou d'un arbre dans la salle voisine. Link coupe le buisson, passe, et se 
 dans le rocher. Avec --fix, ces cases deviennent un buisson épais qu'on ne coupe pas (décor de
 la plage) ; le script recommence jusqu'à ce qu'il n'y ait plus rien à corriger.
 
-Usage : python tools/check_edges.py [--fix]
+Usage : python tools/check_edges.py [--fix] [PLAN]   (par défaut : story/salles/ile_brume.txt ;
+ex. story/salles/ile_grelot.txt)
 """
 import os
 import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PLAN = os.path.join(ROOT, 'story', 'salles', 'ile_brume.txt')
+PLAN = ([os.path.abspath(a) for a in sys.argv[1:] if not a.startswith('--')]
+        or [os.path.join(ROOT, 'story', 'salles', 'ile_brume.txt')])[0]
 COLLISIONS = os.path.join(ROOT, 'oracles-disasm', 'tileset_layouts_expanded', 'ages',
                           'tilesetCollisions%02x.bin')
 SWORD_CUTTABLE = {0xc5, 0xc6, 0xc7, 0xc8, 0xc9, 0xca}   # buissons (breakableTiles.s, modes 1 à 6)
-SOLID = {0x18: '4e'}   # par décor : brique pleine, qu'on ne coupe pas
+SOLID = {0x18: '4e', 0x7b: 'f7'}   # par décor : brique pleine, qu'on ne coupe pas
 
 
 def load():

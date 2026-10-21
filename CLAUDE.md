@@ -40,6 +40,38 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   banque 7 de la WRAM, non nul).
 - Dernière planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/niveaux.png
 
+## Chapitre 2 : Hameau-Grelot (île 2)
+- Fin du chapitre 1 (au port, après « À l'abordaaaage ! ») : Marine lit le vent (TX_5a54) ;
+  GLOBALFLAG_BALLADE_RAFT ($50) et GLOBALFLAG_BALLADE_ISLAND2 ($51). Drapeaux globaux à nous :
+  $50-$7f (Ages s'arrête à $4f), constants/common/globalFlags.s. Parties de la v1.0/1.1 déjà
+  finies : INTERAC_BALLADE_OBJECT $02 (1:ab, 9b, 99) rattrape la scène.
+- INTERAC_BALLADE_OBJECT ($ed, code/ages/balladeObjects.s, une section à part) : tous nos objets
+  ASM, un sous-type par objet ; images dans art/objets.txt -> spr_ballade_objects (gfx $e3, objet n
+  = tuiles 2n et 2n+1, tools/make_sprites.py) ; animations des villageois (image fixe).
+  $00 le Bateau-Rondin, $01 Marine parle en entrant (@arrivalTexts : groupe, salle, texte,
+  drapeau global appris), $02 rattrapage, $03 le grelot de la grotte.
+  Piège : objectAddToAButtonSensitiveObjectList prend `de` = Interaction.pressedAButton.
+- Le Bateau-Rondin (1:99 la Brume, 1:31 Grelot) : A -> Marine propose les îles repérées
+  (TX_5a50-52 selon leur nombre), fondu vers la jetée (table `jetties`). Boîte de collision large
+  (il flotte à coté du ponton).
+- L'île : story/salles/ile_grelot.txt, écrans 1:00-33, décor 7b = copie du décor 00 (Lynna du
+  présent) marquée « passé » (TILESETFLAG_PAST : symbole de l'époque, carte), son Songe 7c
+  (tools/make_songe.py, REEL et SONGE ; en-tête de palette $d0, PALH_TITLE reste $cf).
+  Les groupes 0 et 2, 1 et 3 partagent leurs drapeaux de salle (wPresentRoomFlags / wPastRoomFlags).
+- Intérieurs (story/salles/grelot_interieurs.txt) : boutique de Pépin 3:20 (copie de 3:5e ;
+  roomGfxChanges.s `$20 $04` pour les prix), maison de Lila 3:21, école 3:22, Lila du Songe 2:21,
+  la grotte de la Boîte 5:b0 (décor 58). Portes : warpSources.s / warpDestinations.s (BALLADE).
+- Bombes : la boutique de Pépin vend les premières (shopItem.s : plus besoin d'en avoir déjà).
+  Dans Oracles, le bouton des bombes en fait tenir une au-dessus de la tête ; un 2e appui la lance.
+- Pouvoir de Marine (GLOBALFLAG_BALLADE_MARINE_BOMB $58, appris dans la grotte) : Link tient une
+  bombe, Select -> balladeMarine.checkBombPower (appelé par bank2.s à la 1re image de l'appui) ->
+  INTERAC_MARINE $06 (bombCarrier) emporte la bombe BALLADE_CARRY_FRAMES images droit devant, la
+  lâche, revient. Le grelot ($03) sonne si une bombe explose à moins de 24 pixels : drapeau $40
+  de la salle, cases du pont (@bridges) avec setTile.
+- Test : python tools/test_grelot.py DOSSIER (radeau aller-retour, bombes, falaise, grotte,
+  Marine, grelot, pont). Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/grelot.png
+- tools/check_edges.py [--fix] PLAN vérifie les bords de n'importe quel plan (piquets f7 pour 7b).
+
 ## Pièges déjà rencontrés
 - Les heredocs Bash de l'outil réduisent `\\` en `\` : écrire les fichiers avec des `\` via Write/Edit.
 - `parseText.py` lisait le texte avec l'encodage Windows : corrigé (UTF-8) dans le fork.

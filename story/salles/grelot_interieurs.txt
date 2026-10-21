@@ -1,0 +1,27 @@
+# Hameau-Grelot (île 2) : les intérieurs.
+
+# La boutique de Pépin : même disposition que la boutique de Port-Veille (3:5e)
+decor 3:20 28 copie 3:5e
+# La maison de Lila : même disposition que l'auberge (3:9e), avec son lit
+decor 3:21 2b copie 3:9e
+# L'école des Bonnets
+decor 3:22 2b copie 3:9e
+# La maison de Lila du Songe (on y arrive en dormant près d'elle) : le coffre à jouets géant
+decor 2:21 7f copie 3:9e
+
+# --- La grotte de la Boîte (groupe 5, décor 58 : les grottes d'Ages). On arrive par l'escalier
+# (ligne 9, colonne 7, qui ramène dehors). Un gouffre coupe la grotte (f5 bord, f4 trou, f6 bas) ;
+# de l'autre coté, le grelot (un objet, ligne 1, colonne 7) et le coffre (ligne 1, colonne 12).
+# Une bombe qui explose près du grelot le fait sonner : un pont apparaît (colonne 7, lignes 3-6).
+salle 5:b0 decor 58
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 ef ef ef ef ef ef ef ef ef ef ef f1 ef b1
+b3 a1 ef ef a2 ef ef ef ef ef ef a1 ef ef b1
+b3 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 f5 b1
+b3 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 b1
+b3 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 b1
+b3 f6 f6 f6 f6 f6 f6 f6 f6 f6 f6 f6 f6 f6 b1
+b3 ef ef a2 ef ef ef ef ef ef ef a1 ef ef b1
+b3 ef ef ef ef ef ef ef ef ef ef ef ef ef b1
+b3 a1 ef ef ef ef ef 44 ef ef ef ef ef a2 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb

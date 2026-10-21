@@ -131,5 +131,19 @@ def main():
     hud.save(dst)
     print('->', os.path.relpath(dst, ROOT))
 
+    # Les objets de nos îles (INTERAC_BALLADE_OBJECT, art/objets.txt) : 16 x 16 chacun, côte à
+    # côte (l'objet n prend les tuiles 2n et 2n+1) ; 8 objets au plus par planche
+    frames = read_frames(os.path.join(ROOT, 'art', 'objets.txt'))
+    assert len(frames) <= 8
+    sheet = Image.new('P', (128, 16), 0)
+    sheet.putpalette(pal + [0] * (768 - len(pal)))
+    for n, frame in enumerate(frames):
+        for y, row in enumerate(frame):
+            for x, c in enumerate(row):
+                sheet.putpixel((n * 16 + x, y), index[c])
+    dst = os.path.join(DISASM, 'gfx_compressible', 'ages', 'spr_ballade_objects.png')
+    sheet.save(dst)
+    print('->', os.path.relpath(dst, ROOT))
+
 
 main()

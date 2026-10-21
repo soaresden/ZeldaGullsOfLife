@@ -36,7 +36,7 @@ def tileset_palette_header(ts):
     for n, l in enumerate(lines):
         if l == '\t; 0x%02x' % ts:
             return lines[n + 4].replace('.db', '').strip()
-        if l.endswith('; Tileset 0x%02x BALLADE: Songe' % ts):
+        if ('; Tileset 0x%02x BALLADE' % ts) in l:
             return l.split(';')[0].replace('.db', '').split(',')[4].strip()
     raise KeyError(ts)
 
@@ -47,6 +47,7 @@ def palettes(ts):
     name = tileset_palette_header(ts)
     m = re.search(r'm_PaletteHeaderStart \$[0-9a-f]+, %s\n((?:\tm_PaletteHeader\w+ .*\n)+)' % name, HEADERS_S)
     for line in m.group(1).strip().split('\n'):
+        line = line.split(';')[0]
         if 'Bg' not in line:
             continue
         first, count, label = [w.strip() for w in line.split(None, 1)[1].split(',')]

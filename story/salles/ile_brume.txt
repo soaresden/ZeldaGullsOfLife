@@ -86,8 +86,8 @@ fc fc fc fc fc fc fc fc fc fc
 fc fc fc fc 26 bf c5 c5 c5 4e
 fc fc fc fc 26 bf bf bf bf 4e
 fc fc fc fc 26 bf bf bf bf 4e
-fc 0e 0e 0e 0e bf bf bf bf bf
-fc 0e 0e 0e 0e bf bf bf bf bf
+fc fc 0e 0e 0e bf bf bf bf bf
+fc fc 0e 0e 0e bf bf bf bf bf
 fc fc fc fc 26 bf bf bf bf 4e
 fc fc fc fc 28 24 24 24 24 4e
 

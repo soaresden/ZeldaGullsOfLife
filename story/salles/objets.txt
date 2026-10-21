@@ -18,6 +18,7 @@ salle 9b
 	obj_Interaction INTERAC_BALLADE_NPC $04 $58 $28
 	obj_Interaction INTERAC_BALLADE_NPC $05 $58 $78
 	obj_Interaction INTERAC_MARINE $05 $08 $08 ; la fin du chapitre 1 : le tour du village
+	obj_Interaction INTERAC_BALLADE_OBJECT $02 $08 $08 ; parties de la v1.0/1.1 : Marine lit le vent
 
 # La plage est : les enfants qui ne jouent plus
 salle 9c
@@ -34,6 +35,7 @@ salle ac
 salle ab
 	obj_Interaction INTERAC_BALLADE_NPC $01 $38 $58
 	obj_Interaction INTERAC_MARINE $05 $08 $08 ; la fin du chapitre 1 : le tour du village
+	obj_Interaction INTERAC_BALLADE_OBJECT $02 $08 $08 ; parties de la v1.0/1.1 : Marine lit le vent
 
 # L'auberge (la maison de Nayru d'Ages) : l'aubergiste
 salle 3:9e
@@ -136,3 +138,27 @@ salle 4:4a
 # Une pièce vide d'Ages que le jeu ne visite pas : les trois boîtes de choix, puis le départ
 salle 3:9f
 	obj_Interaction INTERAC_BALLADE_DEBUG $00 $08 $08
+
+# --- Le Bateau-Rondin (INTERAC_BALLADE_OBJECT $00), au bout du ponton de chaque île ---
+# La Brume : le Ponton (1:99), à l'ouest du village
+salle 99
+	obj_Interaction INTERAC_BALLADE_OBJECT $00 $48 $18
+	obj_Interaction INTERAC_BALLADE_OBJECT $02 $08 $08 ; parties de la v1.0/1.1 : Marine lit le vent
+
+# --- Hameau-Grelot (île 2) ---
+# La jetée : le Bateau-Rondin ; Marine parle en arrivant
+salle 31
+	obj_Interaction INTERAC_BALLADE_OBJECT $00 $48 $18
+	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+# Devant la falaise de la grotte : Marine remarque les rochers
+salle 32
+	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+# La grotte de la Boîte : le grelot de l'autre coté du gouffre ; Marine apprend à porter une bombe
+salle 5:b0
+	obj_Interaction INTERAC_BALLADE_OBJECT $03 $18 $78
+	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+# La boutique de Pépin : 10 bombes (20 rubis, $47 $04), 3 cœurs (10 rubis, $47 $01)
+salle 3:20
+	obj_Interaction $47 $04 $28 $80
+	obj_Interaction $47 $01 $28 $60
+	obj_Interaction $46 $00 $58 $88

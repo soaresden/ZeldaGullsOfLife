@@ -917,6 +917,123 @@ groups:
       Bon... bravo,
       petit.
 
+  # ============================================================================
+  # Chapitre 2 : Hameau-Grelot
+  # ============================================================================
+
+  # Le Bateau-Rondin (INTERAC_BALLADE_OBJECT $00) : autant d'îles que Marine en a repéré
+  - name: TX_5a50
+    index: 0x50
+    text: |-
+      \col(1)Marine\col(0): Je
+      lis le vent...
+      Où va-t-on?\stop
+       \opt()Brume
+       \opt()Grelot
+
+  - name: TX_5a51
+    index: 0x51
+    text: |-
+      \col(1)Marine\col(0): Je
+      lis le vent...
+      Où va-t-on?\stop
+       \opt()Brume \opt()Grelot
+       \opt()Lagune
+
+  - name: TX_5a52
+    index: 0x52
+    text: |-
+      \col(1)Marine\col(0): Je
+      lis le vent...
+      Où va-t-on?\stop
+       \opt()Brume \opt()Grelot
+       \opt()Lagune \opt()Braise
+
+  - name: TX_5a53
+    index: 0x53
+    text: |-
+      \col(1)Marine\col(0): Mais
+      on y est déjà,
+      gros malin!
+
+  # Fin du chapitre 1, au port (après « À l'abordaaaage ! ») : Marine lit le vent
+  - name: TX_5a54
+    index: 0x54
+    text: |-
+      \col(1)Marine\col(0): Chut!
+      Écoute...\stop
+      Le vent... Il
+      sent le sucre
+      d'orge.\stop
+      Et il fait
+      tinter des
+      grelots!\stop
+      Il y a une île,
+      là-bas, au nord!
+      Des gens y ont
+      perdu leurs
+      rêves, je le
+      sens.\stop
+      Ton vieux rondin
+      flotte encore au
+      Ponton, à
+      l'ouest du
+      village.\stop
+      Avec quelques
+      cordes, ça fera
+      un radeau!\stop
+      Je lirai le
+      vent... et toi,
+      tu rameras!
+
+  # En arrivant à Hameau-Grelot, la première fois (INTERAC_BALLADE_OBJECT $01)
+  - name: TX_5a55
+    index: 0x55
+    text: |-
+      \col(1)Marine\col(0): Terre!\stop
+      Des maisons de
+      toutes les
+      couleurs... et
+      ce bruit de
+      grelots!\stop
+      Mais c'est
+      vraiment calme,
+      pour un village
+      plein d'enfants.
+
+  # La grotte de la Boîte (5:b0), en entrant la première fois : Marine apprend à porter une bombe
+  - name: TX_5a56
+    index: 0x56
+    text: |-
+      \col(1)Marine\col(0): Oh!
+      Un grelot, de
+      l'autre coté du
+      gouffre!\stop
+      Si on le faisait
+      sonner?\stop
+      J'ai une idée!
+      Tiens une bombe
+      au-dessus de ta
+      tête, et appuie
+      sur \col(1)SELECT\col(0)!\stop
+      Je la porterai
+      par-dessus le
+      trou. Mais fais
+      vite: ça brûle!
+
+  # Devant la falaise de la grotte (1:32), la première fois
+  - name: TX_5a57
+    index: 0x57
+    text: |-
+      \col(1)Marine\col(0): Des
+      rochers bouchent
+      une grotte...\stop
+      Une bombe ferait
+      l'affaire. Le
+      marchand du
+      village en vend
+      peut-être?
+
   # Le menu de test caché (code/ages/balladeDebug.s ; HAUT tenu 5 s à l'écran titre) :
   # la langue, l'île, le moment, et dans le donjon l'endroit. Le même dans les deux fichiers.
   - name: TX_5af0
@@ -955,6 +1072,12 @@ groups:
 # ==============================================================================
 - group: 0x00
   data:
+  - name: TX_004d
+    index: 0x4d
+    text: |-
+      Tu as eu dix
+      \col(1)bombes\col(0)!
+
   - name: TX_004c
     index: 0x4c
     text: |-
@@ -1157,6 +1280,16 @@ groups:
 # Description des objets (inventaire)
 - group: 0x09
   data:
+  - name: TX_0926
+    index: 0x26
+    text: |-
+      Bombes
+      Ça explose!
+      Tiens-en une et
+      appuie sur
+      SELECT: Marine
+      la porte loin.
+
   - name: TX_0919
     index: 0x19
     text: |-

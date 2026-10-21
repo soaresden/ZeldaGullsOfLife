@@ -887,6 +887,123 @@ groups:
       Well... nice
       job, kid.
 
+  # ============================================================================
+  # Chapter 2: Jingle Hamlet
+  # ============================================================================
+
+  # The Log Boat (INTERAC_BALLADE_OBJECT $00): as many islands as Marin has spotted
+  - name: TX_5a50
+    index: 0x50
+    text: |-
+      \col(1)Marin\col(0): I'm
+      reading the
+      wind... Where
+      to?\stop
+       \opt()Mist
+       \opt()Jingle
+
+  - name: TX_5a51
+    index: 0x51
+    text: |-
+      \col(1)Marin\col(0): I'm
+      reading the
+      wind... Where
+      to?\stop
+       \opt()Mist \opt()Jingle
+       \opt()Lagoon
+
+  - name: TX_5a52
+    index: 0x52
+    text: |-
+      \col(1)Marin\col(0): I'm
+      reading the
+      wind... Where
+      to?\stop
+       \opt()Mist \opt()Jingle
+       \opt()Lagoon \opt()Ember
+
+  - name: TX_5a53
+    index: 0x53
+    text: |-
+      \col(1)Marin\col(0): We're
+      already here,
+      silly!
+
+  # End of chapter 1, at the harbour (after "All aboaaaard!"): Marin reads the wind
+  - name: TX_5a54
+    index: 0x54
+    text: |-
+      \col(1)Marin\col(0): Shh!
+      Listen...\stop
+      The wind... It
+      smells like
+      candy.\stop
+      And it jingles
+      like little
+      bells!\stop
+      There's an
+      island up north!
+      People there
+      have lost their
+      dreams, I can
+      feel it.\stop
+      Your old log is
+      still floating
+      by the Jetty,
+      west of the
+      village.\stop
+      With some rope,
+      it'll make a
+      raft!\stop
+      I'll read the
+      wind... and
+      you'll row!
+
+  # Arriving at Jingle Hamlet, the first time (INTERAC_BALLADE_OBJECT $01)
+  - name: TX_5a55
+    index: 0x55
+    text: |-
+      \col(1)Marin\col(0): Land!\stop
+      Houses of every
+      color... and
+      that jingling
+      sound!\stop
+      But it's awfully
+      quiet for a
+      village full of
+      kids.
+
+  # The Box Cave (5:b0), on first entering: Marin learns to carry a bomb
+  - name: TX_5a56
+    index: 0x56
+    text: |-
+      \col(1)Marin\col(0): Oh!
+      A bell, across
+      the chasm!\stop
+      What if we made
+      it ring?\stop
+      I've got an
+      idea! Hold a
+      bomb over your
+      head and press
+      \col(1)SELECT\col(0)!\stop
+      I'll carry it
+      over the pit.
+      But hurry, it's
+      hot!
+
+  # In front of the cave cliff (1:32), the first time
+  - name: TX_5a57
+    index: 0x57
+    text: |-
+      \col(1)Marin\col(0): Rocks
+      are blocking a
+      cave...\stop
+      A bomb would do
+      the trick. Maybe
+      the village shop
+      sells some?
+
   # Le menu de test caché (code/ages/balladeDebug.s ; HAUT tenu 5 s à l'écran titre) :
   # la langue, l'île, le moment, et dans le donjon l'endroit. Le même dans les deux fichiers.
   - name: TX_5af0
@@ -1003,6 +1120,16 @@ groups:
 # Item descriptions (inventory)
 - group: 0x09
   data:
+  - name: TX_0926
+    index: 0x26
+    text: |-
+      Bombs
+      Very explosive!
+      Hold one and
+      press SELECT:
+      Marin carries
+      it far away.
+
   - name: TX_0919
     index: 0x19
     text: |-

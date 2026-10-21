@@ -3,6 +3,11 @@
 - décor $7d : village du Songe (copie du $10, village du passé)
 - décor $7e : plage du Songe (copie du $18, plage de l'île Croissant)
 - décor $7f : auberge du Songe (copie du $2b, intérieur)
+- décor $7c : Hameau-Grelot du Songe (copie du $00, la ville de Lynna du présent)
+
+Et des copies du Réel, quand le décor d'origine est un décor du « présent » d'Ages (le Réel est
+le « passé » : TILESETFLAG_PAST, pour le symbole de l'époque, la carte...) :
+- décor $7b : Hameau-Grelot (copie du $00, mêmes couleurs)
 
 Les salles du Songe sont dans le groupe 0 (le « présent » d'Ages) et le groupe 2 pour les
 intérieurs : mêmes numéros que dans le Réel, si bien qu'on passe de l'un à l'autre au même
@@ -24,7 +29,7 @@ import shutil
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DISASM = os.path.join(ROOT, 'oracles-disasm')
 DATA = os.path.join(DISASM, 'data', 'ages')
-COPIES = {0x7d: 0x10, 0x7e: 0x18, 0x7f: 0x2b}   # décor du Songe -> décor du Réel copié
+COPIES = {0x7d: 0x10, 0x7e: 0x18, 0x7f: 0x2b, 0x7c: 0x00, 0x7b: 0x00}   # décor du Songe -> décor du Réel copié
 
 # (décor, copie de, en-tête de palette d'origine, nouvel en-tête, octets du décor)
 SONGE = [
@@ -34,6 +39,13 @@ SONGE = [
      '$0f, $01, UNIQUE_GFXH_CRESCENT_ISLAND, GFXH_TILESET_OVERWORLD_PAST, PALH_SONGE_PLAGE, $04, $00, $01'),
     (0x7f, 'PALH_TILESET_INDOORS_PRESENT', 0xce, 'PALH_SONGE_AUBERGE',
      '$1f, $04, UNIQUE_GFXH_NONE, GFXH_TILESET_INDOORS, PALH_SONGE_AUBERGE, $15, $03, $10'),
+    # (en-tête $d0 : le $cf est celui de l'écran titre, PALH_TITLE)
+    (0x7c, 'PALH_TILESET_LYNNA_CITY', 0xd0, 'PALH_SONGE_GRELOT',
+     '$0f, $01, UNIQUE_GFXH_LYNNA_CITY_1, GFXH_TILESET_OVERWORLD_PRESENT, PALH_SONGE_GRELOT, $00, $00, $00'),
+]
+# Copies du Réel : (décor, octets du décor) ; mêmes palettes, drapeau « passé » ($80)
+REEL = [
+    (0x7b, '$0f, $81, UNIQUE_GFXH_LYNNA_CITY_1, GFXH_TILESET_OVERWORLD_PRESENT, PALH_TILESET_LYNNA_CITY, $00, $02, $00'),
 ]
 BEGIN, END = '; BALLADE-SONGE-DEBUT (tools/make_songe.py)', '; BALLADE-SONGE-FIN'
 
@@ -100,6 +112,9 @@ def main():
             pal_lines.append('')
         tilesets = re.sub(r'\t\.db [^\n]*; Tileset 0x%02x\n' % tileset,
                           '\t.db %s ; Tileset 0x%02x BALLADE: Songe\n' % (line, tileset), tilesets)
+    for tileset, line in REEL:
+        tilesets = re.sub(r'\t\.db [^\n]*; Tileset 0x%02x[^\n]*\n' % tileset,
+                          '\t.db %s ; Tileset 0x%02x BALLADE: Réel\n' % (line, tileset), tilesets)
     hdr_lines.append(END)
     pal_lines.append(END)
 
@@ -112,9 +127,10 @@ def main():
         if start + restore not in headers:
             headers = headers.replace(start, start + restore, 1)
 
-    # (+ 2 : l'en-tête PALH_TITLE, $cf, suit ceux du Songe)
+    # (l'en-tête PALH_TITLE est le $cf, entre deux décors du Songe)
+    count = max(max(s[2] for s in SONGE), 0xcf) + 1
     headers = re.sub(r'\.define NUM_PALETTE_HEADERS \$[0-9a-f]+[^\n]*',
-                     '.define NUM_PALETTE_HEADERS $%02x ; BALLADE: + film, Songe, titre' % (SONGE[-1][2] + 2), headers)
+                     '.define NUM_PALETTE_HEADERS $%02x ; BALLADE: + film, Songe, titre' % count, headers)
     headers = replace_block(headers, '\n'.join(hdr_lines))
     data = replace_block(data, '\n'.join(pal_lines))
     for name, text in (('paletteHeaders.s', headers), ('paletteData.s', data), ('tilesets.s', tilesets)):
