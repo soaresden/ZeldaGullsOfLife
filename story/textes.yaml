@@ -2132,6 +2132,109 @@ groups:
       là-haut, dans
       le ciel?
 
+  # Le Carnet des Rêves, 4 îles sauvées
+  - name: TX_5aa6
+    index: 0xa6
+    text: |-
+      \col(1)Carnet des
+      Rêves\col(0)\stop
+      \col(1)Brume\col(0): la
+      dame dort, le
+      vieux ne compte
+      plus. Rendus!\stop
+      \col(1)Grelot\col(0): Lila
+      invente des
+      chevaliers. Les
+      enfants jouent!\stop
+      \col(1)Lagune\col(0):
+      Héloïse et
+      Gaspard se
+      souviennent.
+      Mariés tous les
+      matins!\stop
+      \col(1)Braise\col(0):
+      Pinceau peint
+      la mer. Plus
+      deux épées
+      pareilles!
+
+  # Le Carnet des Rêves, 5 îles sauvées
+  - name: TX_5aa7
+    index: 0xa7
+    text: |-
+      \col(1)Carnet des
+      Rêves\col(0)\stop
+      \col(1)Brume\col(0): la
+      dame dort, le
+      vieux ne compte
+      plus. Rendus!\stop
+      \col(1)Grelot\col(0): Lila
+      invente des
+      chevaliers. Les
+      enfants jouent!\stop
+      \col(1)Lagune\col(0):
+      Héloïse et
+      Gaspard se
+      souviennent.
+      Mariés tous les
+      matins!\stop
+      \col(1)Braise\col(0):
+      Pinceau peint
+      la mer. Plus
+      deux épées
+      pareilles!\stop
+      \col(1)Échos\col(0): Noé
+      entend chanter
+      sa Mamie. Marée
+      rêve encore.
+
+  # Le Bateau-Rondin, plus de 4 îles : la première page (« Suite » : la deuxième)
+  - name: TX_5aa8
+    index: 0xa8
+    text: |-
+      \col(1)Marine\col(0): Je
+      lis le vent...
+      Où va-t-on?\stop
+       \opt()Brume \opt()Grelot
+       \opt()Lagune \opt()Suite
+
+  # La deuxième page : 5 îles repérées
+  - name: TX_5aa9
+    index: 0xa9
+    text: |-
+      \col(1)Marine\col(0): Plus
+      loin, alors...\stop
+       \opt()Braise
+       \opt()Échos
+
+  # 6 îles
+  - name: TX_5aaa
+    index: 0xaa
+    text: |-
+      \col(1)Marine\col(0): Plus
+      loin, alors...\stop
+       \opt()Braise \opt()Échos
+       \opt()Nid
+
+  # 7 îles
+  - name: TX_5aab
+    index: 0xab
+    text: |-
+      \col(1)Marine\col(0): Plus
+      loin, alors...\stop
+       \opt()Braise \opt()Échos
+       \opt()Nid \opt()Sommeil
+
+  # 8 îles (l'Œil de l'Insomnis ne se rejoint pas en radeau)
+  - name: TX_5aac
+    index: 0xac
+    text: |-
+      \col(1)Marine\col(0): Plus
+      loin, alors...\stop
+       \opt()Braise \opt()Échos
+       \opt()Nid \opt()Sommeil
+
+
 
 
 

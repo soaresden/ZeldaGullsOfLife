@@ -2057,6 +2057,108 @@ groups:
       island up there,
       in the sky?
 
+  # The Dream Notebook, 4 islands saved
+  - name: TX_5aa6
+    index: 0xa6
+    text: |-
+      \col(1)Dream
+      Notebook\col(0)\stop
+      \col(1)Mist\col(0): the
+      lady sleeps, the
+      old man stopped
+      counting. Back!\stop
+      \col(1)Jingle\col(0): Lila
+      makes up
+      knights. The
+      kids play again!\stop
+      \col(1)Lagoon\col(0):
+      Heloise and
+      Gaspard
+      remember.
+      Married every
+      morning!\stop
+      \col(1)Ember\col(0):
+      Pinceau paints
+      the sea. No two
+      swords alike!
+
+  # The Dream Notebook, 5 islands saved
+  - name: TX_5aa7
+    index: 0xa7
+    text: |-
+      \col(1)Dream
+      Notebook\col(0)\stop
+      \col(1)Mist\col(0): the
+      lady sleeps, the
+      old man stopped
+      counting. Back!\stop
+      \col(1)Jingle\col(0): Lila
+      makes up
+      knights. The
+      kids play again!\stop
+      \col(1)Lagoon\col(0):
+      Heloise and
+      Gaspard
+      remember.
+      Married every
+      morning!\stop
+      \col(1)Ember\col(0):
+      Pinceau paints
+      the sea. No two
+      swords alike!\stop
+      \col(1)Echoes\col(0): Noah
+      hears Granny
+      sing. Tide
+      dreams again.
+
+  # The raft, more than 4 islands: the first page ("More": the second one)
+  - name: TX_5aa8
+    index: 0xa8
+    text: |-
+      \col(1)Marin\col(0): I'm
+      reading the
+      wind... Where
+      to?\stop
+       \opt()Mist \opt()Jingle
+       \opt()Lagoon \opt()More
+
+  # The second page: 5 islands spotted
+  - name: TX_5aa9
+    index: 0xa9
+    text: |-
+      \col(1)Marin\col(0): Further
+      out, then...\stop
+       \opt()Ember
+       \opt()Echoes
+
+  # 6 islands
+  - name: TX_5aaa
+    index: 0xaa
+    text: |-
+      \col(1)Marin\col(0): Further
+      out, then...\stop
+       \opt()Ember \opt()Echoes
+       \opt()Nest
+
+  # 7 islands
+  - name: TX_5aab
+    index: 0xab
+    text: |-
+      \col(1)Marin\col(0): Further
+      out, then...\stop
+       \opt()Ember \opt()Echoes
+       \opt()Nest \opt()Slumber
+
+  # 8 islands (the Insomnis's Eye can't be reached by raft)
+  - name: TX_5aac
+    index: 0xac
+    text: |-
+      \col(1)Marin\col(0): Further
+      out, then...\stop
+       \opt()Ember \opt()Echoes
+       \opt()Nest \opt()Slumber
+
+
 
 
 

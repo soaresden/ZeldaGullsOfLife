@@ -1,6 +1,6 @@
 """Test de l'île 5, l'île des Échos, par le menu de test caché (tools/debug_menu.py).
 
-- arrivée au ponton (Marine parle) ;
+- arrivée au ponton (Marine parle) ; le Bateau-Rondin à deux pages (« Suite » : Mont-Braise, retour) ;
 - la cabane du fossoyeur : Bêche prête la Pelle ;
 - la place du silence : Noé ne se souvient plus de la voix de sa grand-mère ; la Lanterne : dans
   le Songe (sépia), Mamie Rose dit où est enterrée la clé de la cathédrale ;
@@ -72,6 +72,29 @@ check(g.where() == (1, 0x70), "le ponton de l'île des Échos (1:70)", g)
 check(g.wait_text(200), 'Marine parle en arrivant', g)
 g.w(60)
 shoot(g, 'e01_arrivee', 'Arrivée au ponton')
+g.text_through()
+
+# Le Bateau-Rondin (y $68, x $58) : 5 îles repérées, deux pages (« Suite », puis Mont-Braise) ; et
+# retour par la deuxième page
+g.stand(6, 4)
+g.face('right')
+g.press('a', 20)
+g.choose(3, 4)
+g.choose(0, 2)
+g.w(30)
+g.settled()
+g.w(60)
+check(g.where() == (1, 0x38), 'le Bateau-Rondin : « Suite », Mont-Braise', g)
+g.text_through()
+g.stand(6, 4)
+g.face('right')
+g.press('a', 20)
+g.choose(3, 4)
+g.choose(1, 2)
+g.w(30)
+g.settled()
+g.w(60)
+check(g.where() == (1, 0x70), 'et retour aux Échos', g)
 g.text_through()
 
 check(door(g, 'right', (1, 0x71)), 'la plage grise (1:71)', g)
