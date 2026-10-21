@@ -1,0 +1,46 @@
+# L'île du Grand Sommeil — musique originale de l'île 7 (Gulls of Life)
+#
+# Esprit : une berceuse glacée, très lente, qui s'endort à la fin de la boucle. Une boîte à musique
+# (des arpèges aigus et doux) au premier carré, une mélodie de flûte au deuxième carré, une basse
+# tenue à l'onde, pas de batterie. La mineur, en 6/8 ; la fin (B) descend, ralentit (notes tenues,
+# silences) : l'île se rendort, et la boucle repart.
+# Même notation que music/phare.txt (6 croches par mesure).
+
+tempo 13         # images par croche (très lent)
+mesure 6
+
+== INTRO ==
+# La boîte à musique seule
+melodie:   [v0] [duty 2] [vib 42] [gate .9] [detune 0]
+melodie:   -:6 | -:6 |
+accordeon: [v2] [duty 1] [vib 00] [gate .5] [detune 0]
+accordeon: a4:1 c5:1 e5:1 a5:1 e5:1 c5:1 | g#4:1 b4:1 e5:1 g#5:1 e5:1 b4:1 |
+basse:     [onde 0e] [vib 00] [gate 1]
+basse:     a1:6 | e1:6 |
+batterie:  -:6 | -:6 |
+
+== A ==
+# La berceuse
+melodie:   [v5] [duty 2] [vib 42] [gate .9]
+melodie:   e5:3 c5:1 b4:2 | a4:6 | c5:3 b4:1 a4:2 | g#4:6 |
+melodie:   a4:3 b4:1 c5:2 | e5:3 d5:3 | c5:2 b4:1 g#4:2 b4:1 | a4:6 |
+accordeon: [v2] [gate .5]
+accordeon: a4:1 c5:1 e5:1 a5:1 e5:1 c5:1 | a4:1 c5:1 e5:1 a5:1 e5:1 c5:1 |
+accordeon: f4:1 a4:1 c5:1 f5:1 c5:1 a4:1 | e4:1 g#4:1 b4:1 e5:1 b4:1 g#4:1 |
+accordeon: a4:1 c5:1 e5:1 a5:1 e5:1 c5:1 | d4:1 f4:1 a4:1 d5:1 a4:1 f4:1 |
+accordeon: e4:1 g#4:1 b4:1 e5:1 b4:1 g#4:1 | a4:1 c5:1 e5:1 a5:1 e5:1 c5:1 |
+basse:     [gate 1]
+basse:     a1:6 | a1:6 | f1:6 | e1:6 | a1:6 | d2:6 | e1:6 | a1:6 |
+batterie:  -:6 | -:6 | -:6 | -:6 | -:6 | -:6 | -:6 | -:6 |
+
+== B ==
+# L'île se rendort : la mélodie descend, la boîte à musique ralentit, puis se tait
+melodie:   [v4]
+melodie:   c5:3 b4:3 | a4:6 | [v3] e4:6 | -:6 |
+accordeon: [v1]
+accordeon: f4:1 a4:1 c5:1 f5:1 c5:1 a4:1 | e4:2 g#4:2 b4:2 |
+accordeon: a4:3 e5:3 | a4:6 |
+basse:     f1:6 | e1:6 | a1:6 | -:6 |
+batterie:  -:6 | -:6 | -:6 | -:6 |
+
+ordre: INTRO | A B

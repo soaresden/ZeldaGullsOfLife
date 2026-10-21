@@ -336,6 +336,39 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Test : python tools/test_sommeil.py DOSSIER (arrivée, le roi, le veilleur, la porte gelée, le
   cristal du Songe, la porte dégelée, le roi du Songe, la famille, l'entrée du palais).
   Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/sommeil.png
+
+## Le Palais Givré (donjon 7)
+- story/salles/palais.txt (tracé par un script jetable) : groupe 4, salles 4:55-64, décor 38 = la
+  Grotte Lunaire d'Ages passée à l'index de donjon 7 et en glace (make_songe.py, sans copie) ; la
+  glace 8a dessinée par PATCHES. Un flocon (dungeon07LayoutPalais). Entrée : la porte dégelée (1:b2,
+  de) -> 4:55 $97 ; sortie -> 1:b2 $35.
+- Le donjon 7 d'Ages était Jabu-Jabu : son eau qui monte changeait le décor (+1) et les trous en eau
+  (loadTilesetData.s @checkJabuFlooded, tileSubstitutions.s replaceJabuTilesIfUnderwater) :
+  coupés (BALLADE).
+- Les énigmes : 56 / 5c / 62 la glace (TILETYPE_ICE : on glisse ; des piliers 1d pour s'arrêter) ;
+  58 trois cases de gouffre (la Cape) ; 5b deux torches au-delà d'un gouffre, des piliers en face :
+  deux graines en biais (INTERAC_DUNGEON_SCRIPT $02 = moonlitGrottoScript_spawnChestWhen2TorchesLit,
+  + objectData_makeAllTorchesLightable) ; 60 le cristal (PART_SWITCH $01, translator $01, script
+  $03 = spawnChestOnTriggerBit0) en biais ; 61 le Grappin-Écho (diamant à 5 cases, une case de sol
+  devant soi) ; 5f deux torches entourées de trous (la clé du boss) ; 57 / 5d des gardes endormis
+  debout ($2f, la Clochette d'Aube les réveille : drapeau $40 de la salle).
+- Le Lance-Graines tourne d'un huitième de tour quand on presse une direction en tenant B ; les
+  graines volent au-dessus des trous ; une diagonale qui frôle le coin de deux blocs rebondit.
+- La Clochette d'Aube = la flûte étrange (wFluteIcon 0 : TX_092e, TX_003b), coffre
+  TREASURE_OBJECT_FLUTE_03 (mode $38) ; elle fait wLinkPlayingInstrument non nul pendant l'air.
+- Le Chevalier Gelé = le Smasher d'Ages (obj_BeforeEvent group4Mapb4BeforeEventObjectData) ; script
+  $00 (le portail) ; puis INTERAC_DUNGEON_STUFF $02 : le coffre de la Clochette (3,7).
+- Givrolin = le Ramrock d'Ages (group5Map78BeforeEventObjectData), en glace (PALH_GIVROLIN $d9) ;
+  sa vie ne compte pas (quatre formes) : le test le met à la fin de la dernière (état $0c,
+  sous-état 4, var35 = 3) et retire ses mains (wNumEnemies). Script $01 (le cœur), l'essence (salle
+  4:64) ramène au village gelé (1:b1) : fin du chapitre 7 (tout le monde se réveille ; Marine lit
+  le vent : l'Œil de l'Insomnis, GLOBALFLAG_BALLADE_ISLAND8).
+- Musiques : $1c l'île du Grand Sommeil (music/sommeil.txt, berceuse glacée), $16 le Palais Givré
+  (music/palais.txt, cristallin).
+- Menu de test : île 7 Donjon (4:55) / M-boss (4:59, à coté du Chevalier) / Boss (4:63, la clé du
+  boss) / Fin (1:b1) ; jalons 29-32.
+- Test : python tools/test_palais.py DOSSIER (chaque énigme jouée comme un joueur).
+  Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/palais.png
 - Compiler quand le Python du Store refuse (« Permission denied ») : PYTHON=/c/msys64/clang64/bin/python.exe
   et /c/msys64/clang64/bin en tête du PATH (Pillow y est installé : pacman,
   mingw-w64-clang-x86_64-python-pillow).

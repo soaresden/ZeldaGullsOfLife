@@ -328,10 +328,12 @@ de glace à faire fondre (graines de feu du Lance-Graines), dormeurs qui bloquen
 ```
 
 - **Objet : la Clochette d'Aube** (la flûte réécrite).
-- **Mini-boss : le Chevalier Gelé** (Stalfos bleu, palette glace).
-- **Boss : Givrolin** (King Moblin recoloré en géant de glace) : il lance des boules de neige
-  explosives qu'on lui renvoie avec le bracelet. « Laissez-les dormir ! Le froid, c'est doux. Le
-  froid, ça ne fait pas mal. » Marine : « Si. Ça fait mal quand ça s'arrête. »
+- **Mini-boss : le Chevalier Gelé** (le Smasher d'*Ages* : il lance sa boule, on la lui renvoie au
+  bracelet ; le Stalfos bleu est déjà le Gardien des Cloches).
+- **Boss : Givrolin** (le Ramrock d'*Ages*, recoloré en géant de glace : quatre formes, l'épée, les
+  bombes, le Lance-Graines, le bracelet ; le King Moblin d'*Ages* ne se bat que dans son fort).
+  « Laissez-les dormir ! Le froid, c'est doux. Le froid, ça ne fait pas mal. » Marine : « Si. Ça
+  fait mal quand ça s'arrête. »
 - Couplet 7. La fresque du Poisson-Rêve (la vérité sur l'Insomnis).
 
 ---

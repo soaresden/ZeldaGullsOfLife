@@ -2352,7 +2352,7 @@ groups:
   - name: TX_5abc
     index: 0xbc
     text: |-
-      \col(1)Marine\col(0): Brrr...
+      \col(1)Marin\col(0): Brrr...
       Everything's
       frozen.\stop
       And so quiet...
@@ -2533,7 +2533,7 @@ groups:
   - name: TX_5acc
     index: 0xcc
     text: |-
-      \col(1)Marine\col(0): The
+      \col(1)Marin\col(0): The
       crystal sang!\stop
       In the Real,
       something must
@@ -2544,13 +2544,88 @@ groups:
   - name: TX_5acd
     index: 0xcd
     text: |-
-      \col(1)Marine\col(0): The
+      \col(1)Marin\col(0): The
       Frost Palace...
       Its
       door is frozen.\stop
       Someone here
       must know how to
       get in.
+
+  # The Frost Palace: the entrance (4:55), the first time
+  - name: TX_5ace
+    index: 0xce
+    text: |-
+      \col(1)Marin\col(0): Crystals
+      everywhere...\stop
+      And the floor is
+      frozen. Careful,
+      it's slippery!
+
+  # A guard asleep on his feet (the Frost Palace): asleep / woken up by the Bell
+  - name: TX_5acf
+    index: 0xcf
+    text: |-
+      (A guard is
+      asleep on his
+      feet. He snores
+      loudly. No way
+      through.)
+
+  - name: TX_5ad0
+    index: 0xd0
+    text: |-
+      \col(1)Guard\col(0): Huh?
+      Is it morning?\stop
+      ...Sorry, I was
+      sleeping on my
+      feet. I'm going
+      home!
+
+  # The Frostling (4:64); Marin answers
+  - name: TX_5ad1
+    index: 0xd1
+    text: |-
+      \col(1)Frostling\col(0): Let
+      them sleep!\stop
+      The cold is
+      gentle. The cold
+      doesn't hurt.\stop
+      \col(1)Marin\col(0): Yes, it
+      does.\stop
+      It hurts when it
+      stops.
+
+  # End of chapter 7: the frozen village (1:b1), everyone wakes up
+  - name: TX_5ad2
+    index: 0xd2
+    text: |-
+      \col(1)Little girl\col(0):
+      They're waking
+      up!\stop
+      Everyone's
+      waking up! The
+      cold is going
+      away!\stop
+      \col(1)The king\col(0): Well.
+      I'm not a king
+      anymore. But I
+      slept well.
+
+  - name: TX_5ad3
+    index: 0xd3
+    text: |-
+      \col(1)Marin\col(0): Shh...
+      the wind.\stop
+      It comes from
+      nowhere. It
+      goes in circles.\stop
+      Over there, a
+      black tower, in
+      the middle of
+      the sea.\stop
+      It never sleeps.
+
 
 
 
@@ -2866,6 +2941,23 @@ groups:
       Its ring wakes
       sleepers up.
 
+  # The essence of the 7th dungeon: the seventh verse
+  - name: TX_0014
+    index: 0x14
+    text: |-
+      \pos(2)\slow()The Frostling
+      has melted. The
+      island wakes!\stop
+      You found the
+      \col(1)seventh
+      verse\col(0) of
+      Marin's song!\stop
+      \col(1)Marin\col(0): "Even
+      the longest
+      night ends with
+      a morning."
+
+
 
 
 
@@ -2927,6 +3019,12 @@ groups:
     text: |2-
          Level 6
         Sky Spiral
+
+  - name: TX_0207
+    index: 0x07
+    text: |2-
+         Level 7
+        Frost Palace
 
 
 
@@ -3122,6 +3220,14 @@ groups:
     text: |-
       Seed Shooter
       Seeds bounce.
+
+  - name: TX_0907
+    index: 0x07
+    text: |-
+      Seventh verse
+      Night ends with
+      a morning.
+
 
 
 

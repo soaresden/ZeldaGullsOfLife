@@ -50,6 +50,8 @@ SONGS = [
     ('tarkin.txt', 'musBalladeTarkin'),        # $19 (au lieu du Ventre de Jabu-Jabu), la maison de Tarkin (LADX)
     ('nid.txt', 'musBalladeNid'),              # $15 (au lieu de la Grotte Lunaire), le Nid des Vents (île 6)
     ('spirale.txt', 'musBalladeSpirale'),      # $14 (au lieu du Donjon des Ailes), la Spirale Céleste
+    ('sommeil.txt', 'musBalladeSommeil'),      # $1c (au lieu du Château d'Onox), l'île du Grand Sommeil (île 7)
+    ('palais.txt', 'musBalladePalais'),        # $16 (au lieu du Donjon du Crâne), le Palais Givré
 ]
 # Niveaux du boss en rythme : mêmes notes à frapper que rythme.txt (vérifié)
 RHYTHM_LEVELS = ['rythme2.txt', 'rythme3.txt', 'rythme4.txt', 'rythme5.txt']
@@ -73,6 +75,10 @@ ILE_ECHOS = [r + d for r in range(0x40, 0x45) for d in (0x00, 0x10, 0x20, 0x30)]
 # Le Nid des Vents (île 6) : 1:45-78
 ILE_NID = [r + d for r in range(0x45, 0x49) for d in (0x00, 0x10, 0x20, 0x30)]
 # La Spirale Céleste (donjon 6, groupe 4)
+# L'île du Grand Sommeil (île 7) : 1:a0-d4 (la carte s'arrête à la ligne d)
+ILE_SOMMEIL = [r + d for r in range(0xa0, 0xa5) for d in (0x00, 0x10, 0x20, 0x30)]
+# Le Palais Givré (donjon 7) : 4:55-64
+PALAIS = list(range(0x55, 0x65))
 SPIRALE = [0x3c, 0x3d, 0x3e, 0x3f, 0x40, 0x41, 0x42, 0x43, 0x44, 0x45, 0x46, 0x47, 0x48, 0x4b,
            0x4c, 0x4d, 0x4e, 0x4f, 0x50, 0x51, 0x52, 0x53, 0x54]
 CATHEDRALE = [0x7b, 0x7c, 0x7d, 0x7f, 0x80, 0x81, 0x82, 0x83, 0x85, 0x86, 0x89, 0x8b, 0x8d, 0x8e,
@@ -109,6 +115,10 @@ ROOM_MUSIC = [
     (1, 0x15, ILE_NID),     # le Nid des Vents dans le Réel
     (0, 0x15, ILE_NID),     # et dans le Songe
     (4, 0x14, SPIRALE),     # la Spirale Céleste (donjon 6 ; l'Ombre de Marine lance la musique du boss)
+    (1, 0x1c, ILE_SOMMEIL),  # l'île du Grand Sommeil dans le Réel
+    (0, 0x1c, ILE_SOMMEIL),  # et dans le Songe
+    (3, 0x1c, [0x27, 0x28, 0x29]),  # les maisons du veilleur, de la famille, de la chanteuse
+    (4, 0x16, PALAIS),      # le Palais Givré (donjon 7 ; Givrolin lance la musique du boss)
     # salle de test du boss en rythme (l'arène de l'ancien donjon 3 d'Ages) : silence en entrant
     # (SNDCTRL_STOPMUSIC) ; le boss lance son morceau quand Marine a parlé
     (4, 0xf0, [0x4a]),

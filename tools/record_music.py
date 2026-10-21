@@ -21,6 +21,8 @@ Usage : python tools/record_music.py [NOM ...]   (sans nom : tout)
   tarkin    out/tarkin_apercu.wav    la maison de Tarkin (3:26 ; $19)
   nid       out/nid_apercu.wav       le Nid des Vents (le village des plumes, 1:67 ; $15)
   spirale   out/spirale_apercu.wav   la Spirale Céleste (4:3d ; $14)
+  sommeil   out/sommeil_apercu.wav   l'île du Grand Sommeil (le village gelé, 1:b1 ; $1c)
+  palais    out/palais_apercu.wav    le Palais Givré (le cœur, 4:57 ; $16)
 Pour le boss et le miniboss (pas de salle où ils jouent d'office), l'appel à playSound qui lance
 la musique du Phare est détourné vers la leur (crochet PyBoy sur playSound, ROM intacte).
 """
@@ -54,6 +56,8 @@ TRACKS = {
     'tarkin': (3, 0x26, 0x64, None, 40),
     'nid': (1, 0x67, 0x44, None, 48),
     'spirale': (4, 0x3d, 0x57, None, 48),
+    'sommeil': (1, 0xb1, 0x44, None, 50),
+    'palais': (4, 0x57, 0x97, None, 50),
 }
 wanted = sys.argv[1:] or ['film', 'titre'] + list(TRACKS)
 

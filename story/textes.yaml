@@ -2643,6 +2643,82 @@ groups:
       doit savoir
       comment entrer.
 
+  # Le Palais Givré : l'entrée (4:55), la première fois
+  - name: TX_5ace
+    index: 0xce
+    text: |-
+      \col(1)Marine\col(0): Des
+      cristaux
+      partout...\stop
+      Et le sol est
+      gelé. Attention,
+      ça glisse!
+
+  # Un garde endormi debout (le Palais Givré) : endormi / réveillé par la Clochette
+  - name: TX_5acf
+    index: 0xcf
+    text: |-
+      (Un garde dort
+      debout. Il
+      ronfle fort. Pas
+      moyen de
+      passer.)
+
+  - name: TX_5ad0
+    index: 0xd0
+    text: |-
+      \col(1)Garde\col(0): Hein?
+      C'est le matin?\stop
+      ...Pardon, je
+      dormais debout.
+      Je rentre chez
+      moi!
+
+  # Givrolin (4:64) ; Marine lui répond
+  - name: TX_5ad1
+    index: 0xd1
+    text: |-
+      \col(1)Givrolin\col(0):
+      Laissez-les
+      dormir!\stop
+      Le froid, c'est
+      doux. Le froid,
+      ça ne fait pas
+      mal.\stop
+      \col(1)Marine\col(0): Si.\stop
+      Ça fait mal
+      quand ça
+      s'arrête.
+
+  # Fin du chapitre 7 : le village gelé (1:b1), tout le monde se réveille
+  - name: TX_5ad2
+    index: 0xd2
+    text: |-
+      \col(1)Petite\col(0): Ils se
+      réveillent!\stop
+      Tout le monde se
+      réveille! Le
+      froid s'en va!\stop
+      \col(1)Le roi\col(0): Bon. Je
+      ne suis plus
+      roi. Mais j'ai
+      bien dormi.
+
+  - name: TX_5ad3
+    index: 0xd3
+    text: |-
+      \col(1)Marine\col(0): Chut...
+      le vent.\stop
+      Il ne vient de
+      nulle part. Il
+      tourne en rond.\stop
+      Là-bas, une tour
+      noire, au milieu
+      de la mer.\stop
+      Elle ne dort
+      jamais.
+
+
 
 
 
@@ -3109,6 +3185,24 @@ groups:
       réveille les
       dormeurs.
 
+  # L'essence du 7e donjon : le septième couplet
+  - name: TX_0014
+    index: 0x14
+    text: |-
+      \pos(2)\slow()Givrolin a
+      fondu. L'île se
+      réveille!\stop
+      Tu as trouvé le
+      \col(1)septième
+      couplet\col(0) de la
+      chanson de
+      Marine!\stop
+      \col(1)Marine\col(0): "Même
+      la nuit la plus
+      longue finit
+      par un matin."
+
+
 
 
 
@@ -3173,6 +3267,12 @@ groups:
     text: |2-
        Niveau 6
        Spirale Céleste
+
+  - name: TX_0207
+    index: 0x07
+    text: |2-
+       Niveau 7
+       Palais Givré
 
 
 
@@ -3410,6 +3510,14 @@ groups:
       Lance-Graines
       Les graines
       rebondissent.
+
+  - name: TX_0907
+    index: 0x07
+    text: |-
+      Septième couplet
+      La nuit finit
+      par un matin.
+
 
 
 

@@ -1,0 +1,45 @@
+# Le Palais Givré — musique originale du donjon 7 (Gulls of Life)
+#
+# Esprit : cristallin, aigu. Des éclats de glace (des notes aiguës isolées, en écho) au premier
+# carré, une mélodie lente et haute au deuxième carré, une basse très lente à l'onde, presque pas
+# de batterie (un tintement de temps en temps). Fa dièse mineur. De l'ambiance, pas d'urgence
+# (retour de Denis sur la Forge).
+# Même notation que music/phare.txt (8 croches par mesure).
+
+tempo 10         # images par croche
+mesure 8
+
+== INTRO ==
+# Les éclats de glace seuls
+melodie:   [v0] [duty 2] [vib 41] [gate .9] [detune 0]
+melodie:   -:8 | -:8 |
+accordeon: [v2] [duty 0] [vib 00] [gate .4] [detune 0]
+accordeon: f#5:1 -:1 c#6:1 -:1 a5:1 -:1 e6:1 -:1 | d5:1 -:1 a5:1 -:1 f#5:1 -:1 c#6:1 -:1 |
+basse:     [onde 0e] [vib 00] [gate 1]
+basse:     f#1:8 | d2:8 |
+batterie:  [v1] h:1 -:7 | -:8 |
+
+== A ==
+# Dans le palais : la mélodie, haute et lente, sur les éclats
+melodie:   [v4] [vib 41] [gate .9]
+melodie:   c#6:6 b5:2 | a5:8 | f#5:4 a5:4 | e5:8 |
+melodie:   f#5:6 g#5:2 | a5:4 c#6:4 | b5:6 a5:2 | g#5:8 |
+accordeon: [v2] [gate .4]
+accordeon: f#5:1 -:1 c#6:1 -:1 a5:1 -:1 e6:1 -:1 | d5:1 -:1 a5:1 -:1 f#5:1 -:1 c#6:1 -:1 |
+accordeon: b4:1 -:1 f#5:1 -:1 d5:1 -:1 a5:1 -:1 | c#5:1 -:1 g#5:1 -:1 e5:1 -:1 b5:1 -:1 |
+accordeon: f#5:1 -:1 c#6:1 -:1 a5:1 -:1 e6:1 -:1 | d5:1 -:1 a5:1 -:1 f#5:1 -:1 c#6:1 -:1 |
+accordeon: e5:1 -:1 b5:1 -:1 g#5:1 -:1 d6:1 -:1 | c#5:1 -:1 g#5:1 -:1 e#5:1 -:1 b5:1 -:1 |
+basse:     f#1:8 | d2:8 | b1:8 | c#2:8 | f#1:8 | d2:8 | e1:8 | c#2:8 |
+batterie:  ( [v1] h:1 -:7 | -:8 | )x4
+
+== B ==
+# Le cœur du flocon : les éclats redescendent, la mélodie se pose
+melodie:   [v5]
+melodie:   a5:4 c#6:4 | e6:8 | d6:4 b5:4 | c#6:8 |
+accordeon: [v1]
+accordeon: e6:1 -:1 c#6:1 -:1 a5:1 -:1 f#5:1 -:1 | d6:1 -:1 a5:1 -:1 f#5:1 -:1 d5:1 -:1 |
+accordeon: b5:1 -:1 f#5:1 -:1 d5:1 -:1 b4:1 -:1 | c#6:1 -:1 g#5:1 -:1 e#5:1 -:1 c#5:1 -:1 |
+basse:     a1:8 | d2:8 | b1:8 | c#2:8 |
+batterie:  -:8 | -:8 | -:8 | -:8 |
+
+ordre: INTRO | A B
