@@ -45,8 +45,8 @@ donjons, de nouvelles musiques. Et une mouette qui a son mot à dire.
 
 ## Jouer
 
-**[▶ Démo v1.0/1.1](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v1.0-1.1)**
-(tout le premier chapitre et son temple) : un patch `gulls_of_life.bps` à appliquer sur sa
+**[▶ Démo v1.0/2](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v1.0-2)**
+(les deux premiers chapitres et leurs deux temples) : un patch `gulls_of_life.bps` à appliquer sur sa
 propre ROM *The Legend of Zelda: Oracle of Ages* (USA). Aucune ROM n'est fournie.
 
 En **français ou en anglais**, menus compris : on choisit en se réveillant sur
@@ -62,25 +62,24 @@ anglais).
 <details>
 <summary><b>Comment appliquer le patch</b></summary>
 
-1. Télécharger `gulls_of_life.bps` dans la [version v1.0/1.1](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v1.0-1.1).
+1. Télécharger `gulls_of_life.bps` dans la [version v1.0/2](https://github.com/soaresden/ZeldaGullsOfLife/releases/tag/v1.0-2).
 2. Avoir sa propre ROM *Oracle of Ages* version **USA** (CRC32 `3800a387`).
 3. Appliquer le patch avec un outil BPS, par exemple [Rom Patcher JS](https://www.marcrobledo.com/RomPatcher.js/) en ligne.
-4. Jouer le fichier obtenu (CRC32 `b9011dfa`) dans n'importe quel émulateur Game Boy Color.
+4. Jouer le fichier obtenu (CRC32 `6f5d4e60`) dans n'importe quel émulateur Game Boy Color.
 
 </details>
 
 <details>
-<summary><b>Quoi de neuf dans la v1.0/1.1</b></summary>
+<summary><b>Quoi de neuf dans la v1.0/2</b></summary>
 
-- Le Phare Éteint refait : des énigmes, des allers-retours, trois petites clés, des coffres de rubis, plus de salle vide
-- Jack est plus coriace
-- Une vraie fin : plus d'écran noir, on voit les gens qu'on a sauvés… et Marine a son mot à dire
-- La boutique de Port-Veille : des cœurs, et une fée en bouteille qui vous relève
-- Le Creuse-Rubis du forain : trois niveaux, et un quart de cœur à gagner
-- La carte du donjon dit enfin « Phare Éteint »
+- Chapitre 2 : un radeau, la mer, et une nouvelle île, Hameau-Grelot, où tout ressemble à un jouet
+- Le deuxième temple, le Coffre à Jouets : son objet, son miniboss et son boss
+- Marine apprend quelque chose de nouveau… prévoyez des bombes
+- Des bombes à la boutique, un jouet perdu à rapporter, et un petit carnet pour les rêves
+- Deux nouvelles musiques originales : une boîte à musique en 6/8 pour le village, une marche de jouets pour le temple
 
-*v1.0/1.1* : la v1.0/1 mise à jour. On reste en v1.0 jusqu'à la fin du jeu ; le chiffre après
-la barre, c'est le nombre de donjons jouables.
+*v1.0/2* : deux donjons. On reste en v1.0 jusqu'à la fin du jeu ; le chiffre après la barre,
+c'est le nombre de donjons jouables.
 
 </details>
 
@@ -91,9 +90,10 @@ la barre, c'est le nombre de donjons jouables.
 - ✅ Le premier donjon : un vrai temple, son objet et son boss
 - ✅ L'écran titre *Gulls of Life*
 - ✅ Français et anglais, menus compris
-- ✅ Démo jouable v1.0/1.1
-- ⬜ Les sept autres îles
-- ✅ Des musiques originales : l'écran titre, l'île de la Brume, l'auberge, le Phare Éteint, le miniboss et le boss
+- ✅ Chapitre 2 : Hameau-Grelot et le Coffre à Jouets
+- ✅ Démo jouable v1.0/2
+- ⬜ Les six autres îles
+- ✅ Des musiques originales : l'écran titre, l'île de la Brume, l'auberge, le Phare Éteint, le miniboss et le boss, Hameau-Grelot, le Coffre à Jouets
 - ✅ Un premier mini-jeu : le Creuse-Rubis du forain
 - ⬜ D'autres mini-jeux
 - ⬜ Des secrets et des quarts de cœur

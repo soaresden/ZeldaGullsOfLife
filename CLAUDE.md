@@ -190,6 +190,11 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Tests : tools/test_temple.py (torches, Jack, essence), tools/test_lanterne.py, tools/test_fin.py
   (DOSSIER_CAPTURES).
 - Patch : python tools/make_patch.py "chemin/ROM Ages (USA).gbc" -> out/gulls_of_life.bps.
+  La ROM Ages (USA) est dans D:\DOCS\Documents\GitHub\ZeldaOracleCombinedFR\. Versions : v1.0/N
+  (tag v1.0-N) = N donjons jouables ; v1.0-2 = chapitres 1-2 (ROM obtenue CRC32 6f5d4e60).
+- Nom des donjons sur la carte : tools/make_blurbs.py (NAMES ; lettres manquantes dessinées dans
+  DRAWN) ; la version française a son gfx header (GFXH_DUNGEON_N_BLURB_FR) et une ligne dans
+  balladeLangGfxHeaders (data/ages/gfxHeaders.s).
 - tools/render_room.py dessine n'importe quelle salle sans lancer le jeu (adresse des tuiles = idx ^ $80).
 
 ## Pièges (suite)
@@ -292,6 +297,13 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   - $42 MUS_BALLADE_ILE : music/ile.txt, l'île de la Brume (1:79-ac et 0:79-ac), brume et écho.
   - $43 MUS_BALLADE_AUBERGE : music/auberge.txt, swing jazzy et chaleureux (3:9e et 2:9e).
   - $45 MUS_BALLADE_VEILLEUR : music/boss.txt, combat façon Zelda, en réserve pour un autre boss.
+  - $3d MUS_BALLADE_GRELOT : music/grelot.txt, Hameau-Grelot (1:00-33, 0:00-33, 3:21-22, 2:21),
+    boîte à musique + fanfare de jouets en 6/8, un peu de travers (hémiole dans le pont).
+  - $3b MUS_BALLADE_COFFRE : music/coffre.txt, le Coffre à Jouets (4:2b-3b), xylophone, tambour,
+    contrebasse ; refrain en sol, marche des soldats de bois.
+  - Plus AUCUN numéro vide : $24 n'est PAS libre (MUS_SYMMETRY_PRESENT, avec un cas spécial dans
+    bank1.s). Pour une nouvelle île, réutiliser un morceau d'Ages qu'on n'entend plus (Symmetry,
+    Zora, Ambi, etc. : vérifier qu'aucun code ne le teste).
 - SND_BALLADE_GULL = $d6 : cri de mouette de LADX (JINGLE_SEAGULL) porté image par image ; joué au
   clin d'œil de Marine dans le film. Le même cri existe dans la musique (`mouette:3`).
 - Denis accepte qu'on reprenne sons, musiques et objets de Link's Awakening DX
@@ -299,7 +311,7 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Le désassemblage de LADX est sur la machine : D:\DOCS\Documents\GitHub\ZeldaOracleCombinedFR\LADX-Disassembly-main
   (sons : src/code/audio/, musiques, sprites : src/gfx/...). Le lire là plutôt que sur GitHub.
 - Aperçus à écouter : `python tools/record_music.py [film titre phare ile auberge boss veilleur
-  miniboss theme]` -> out/NOM_apercu.wav ; `ROM=chemin` pour une autre ROM ; les morceaux sans
+  miniboss theme grelot coffre]` -> out/NOM_apercu.wav ; `ROM=chemin` pour une autre ROM ; les morceaux sans
   salle sont lancés en détournant playSound (crochet PyBoy). Denis veut ÉCOUTER une musique avant
   qu'on la pousse ; ses références : Wind Waker / Linebeck (marin), Resident Evil (salle de
   sauvegarde), Hyrule Warriors, Ninja Gaiden NES.
@@ -316,7 +328,7 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   début du tour suivant. MUS $47 (music/rythme.txt, avec 2 mesures de décompte), $49 (rythme2),
   $4b (rythme3), $37 (rythme4), $3a (rythme5) ; puis $48 (rythme_fin.txt : Marine chante la 2e
   moitié de la Ballade). make_music.py vérifie que les 5 niveaux ont exactement les mêmes notes à
-  frapper. Numéros pris parmi les musiques vides d'Ages (restent libres : $24, $3b, $3d).
+  frapper. Numéros pris parmi les musiques vides d'Ages ($3b et $3d sont depuis pris par l'île 2).
 - Technique : le morceau joue en entier, le jeu coupe les voix avec NR51 ($ff25 ; le moteur d'Ages
   ne l'écrit qu'au démarrage, et code/audio.s le remet à $ff à chaque nouvelle musique : sortir de
   la salle rend le son). Bruit (métronome / batterie) toujours ; mélodie ouverte jusqu'à la fin de
