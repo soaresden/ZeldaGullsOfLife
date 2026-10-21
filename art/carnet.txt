@@ -1,0 +1,19 @@
+# Le Carnet des Rêves (TREASURE_12) : icône 16 x 16 (inventaire, case B ou A, objet reçu).
+# Remplace l'icône de la harpe avec l'air des Échos dans spr_item_icons_3.png (x = 24 : demi-tuiles
+# $a3-$a4 ; inutile chez nous). Palette de sprite 3 : . transparent  k noir  r orange  w crème
+................
+..kkkkkkkkkkkk..
+..krrrrrrrrrrk..
+..krkkkkkkkkrk..
+..krkwwwwwwkrk..
+..krkwkkkkwkrk..
+..krkwwwwwwkrk..
+..krkkkkkkkkrk..
+..krrrrrrrrrrk..
+..krrrrrwwrrrk..
+..krrrrwrrrrrk..
+..krrrrrwwrrrk..
+..krrrrrrrrrrk..
+..kkkkkkkkkkkk..
+...wwwwwwwwwww..
+................

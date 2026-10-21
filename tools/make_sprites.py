@@ -71,6 +71,10 @@ def main():
         for y, row in enumerate(frame):
             for x, c in enumerate(row):
                 icons.putpixel((left + x, y), index[c])
+    # Le Carnet des Rêves (TREASURE_12) à la place de l'air des Échos (x = 24, demi-tuiles $a3-$a4)
+    for y, row in enumerate(read_frames(os.path.join(ROOT, 'art', 'carnet.txt'))[0]):
+        for x, c in enumerate(row):
+            icons.putpixel((24 + x, y), index[c])
     dst = os.path.join(DISASM, 'gfx', 'common', 'spr_item_icons_3.png')
     icons.save(dst)
     print('->', os.path.relpath(dst, ROOT))
@@ -131,8 +135,21 @@ def main():
     hud.save(dst)
     print('->', os.path.relpath(dst, ROOT))
 
+    # Sire Bouchon, le jouet de Lila (objet d'échange 0) : à la place de la pendule
+    # (spr_quest_items_1.png, x = 0 ; relue dans git) ; o orange = couleur 1, r rouge = 2, k noir = 3
+    png = subprocess.run(['git', 'show', 'upstream/hack-base:gfx_compressible/ages/spr_quest_items_1.png'],
+                         cwd=DISASM, capture_output=True, check=True).stdout
+    quest = Image.open(io.BytesIO(png))
+    quest.load()
+    for y, row in enumerate(read_frames(os.path.join(ROOT, 'art', 'sire_bouchon.txt'))[0]):
+        for x, c in enumerate(row):
+            quest.putpixel((x, y), {'.': 0, 'o': 1, 'r': 2, 'k': 3}[c])
+    dst = os.path.join(DISASM, 'gfx_compressible', 'ages', 'spr_quest_items_1.png')
+    quest.save(dst)
+    print('->', os.path.relpath(dst, ROOT))
+
     # Les objets de nos îles (INTERAC_BALLADE_OBJECT, art/objets.txt) : 16 x 16 chacun, côte à
-    # côte (l'objet n prend les tuiles 2n et 2n+1) ; 8 objets au plus par planche
+    # côte (l'image n prend les tuiles 4n à 4n+3) ; 8 images au plus par planche
     frames = read_frames(os.path.join(ROOT, 'art', 'objets.txt'))
     assert len(frames) <= 8
     sheet = Image.new('P', (128, 16), 0)

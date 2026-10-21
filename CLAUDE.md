@@ -46,8 +46,8 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   $50-$7f (Ages s'arrête à $4f), constants/common/globalFlags.s. Parties de la v1.0/1.1 déjà
   finies : INTERAC_BALLADE_OBJECT $02 (1:ab, 9b, 99) rattrape la scène.
 - INTERAC_BALLADE_OBJECT ($ed, code/ages/balladeObjects.s, une section à part) : tous nos objets
-  ASM, un sous-type par objet ; images dans art/objets.txt -> spr_ballade_objects (gfx $e3, objet n
-  = tuiles 2n et 2n+1, tools/make_sprites.py) ; animations des villageois (image fixe).
+  ASM, un sous-type par objet ; images dans art/objets.txt -> spr_ballade_objects (gfx $e3, image n
+  = tuiles 4n à 4n+3, tools/make_sprites.py) ; animations des villageois (image fixe).
   $00 le Bateau-Rondin, $01 Marine parle en entrant (@arrivalTexts : groupe, salle, texte,
   drapeau global appris), $02 rattrapage, $03 le grelot de la grotte.
   Piège : objectAddToAButtonSensitiveObjectList prend `de` = Interaction.pressedAButton.
@@ -71,6 +71,18 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Test : python tools/test_grelot.py DOSSIER (radeau aller-retour, bombes, falaise, grotte,
   Marine, grelot, pont). Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/grelot.png
 - tools/check_edges.py [--fix] PLAN vérifie les bords de n'importe quel plan (piquets f7 pour 7b).
+- Lila (INTERAC_BALLADE_OBJECT $04, 3:21) : Sire Bouchon = l'objet d'échange 0 d'Ages (la pendule ;
+  icône art/sire_bouchon.txt dans spr_quest_items_1, TX_005a / TX_0909), dans le coffre de la grotte
+  (TREASURE_OBJECT_TRADEITEM_0c, apparition $38). Rendu -> GLOBALFLAG_BALLADE_LILA_ASLEEP ($59) ; le
+  lit de sa maison (link.s, comme l'auberge) mène à son rêve 2:21 : Lila ($05) et le Coffre à Jouets
+  ($06, « Entrer ? » -> l'entrée du donjon 2, @dungeonEntrance). Habitants en ASM : npcInit,
+  npcCheckTalk, npcSay, npcWaitText (balladeObjects.s).
+- Le Carnet des Rêves = l'objet $12 d'Ages (inutilisé) : itemUsageTables.s, parentItemUsage.s ->
+  parentItemCode_carnet (harpFluteParent.s) -> balladeObjects.readCarnet (une page par nombre d'îles
+  sauvées : TX_5a60, 5a61...) ; icône art/carnet.txt (à la place de l'air des Échos, $a3-$a4),
+  nom TX_0942, reçu TX_0072. Donné par l'aubergiste pendant le tour du village ; parties anciennes :
+  INTERAC_BALLADE_OBJECT $07 dans l'auberge. La banque des scripts ($0c) est pleine : les nouveaux
+  habitants sont en ASM.
 
 ## Pièges déjà rencontrés
 - Les heredocs Bash de l'outil réduisent `\\` en `\` : écrire les fichiers avec des `\` via Write/Edit.

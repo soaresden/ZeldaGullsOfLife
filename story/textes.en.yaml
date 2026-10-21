@@ -1004,6 +1004,124 @@ groups:
       the village shop
       sells some?
 
+  # The innkeeper gives the Dream Notebook (village tour, or later when spoken to)
+  - name: TX_5a58
+    index: 0x58
+    text: |-
+      Here, kid: my
+      old guestbook.\stop
+      My guests used
+      to write their
+      dreams in it.\stop
+      Write down the
+      ones you give
+      back to people!
+
+  # Lila (Lila's house, 3:21), before finding her toy
+  - name: TX_5a59
+    index: 0x59
+    text: |-
+      \col(1)Lila\col(0): I don't
+      know how to play
+      anymore.\stop
+      Sir Cork and I
+      used to hunt
+      dragons...\stop
+      But he fell in
+      the Box Cave.
+      And rocks
+      blocked it.\stop
+      Without him, I
+      can't pretend
+      anymore.
+
+  # Lila gets Sir Cork back and falls asleep
+  - name: TX_5a5a
+    index: 0x5a
+    text: |-
+      \col(1)Lila\col(0): Sir
+      Cork! You found
+      him!\stop
+      Oh... he says he
+      saw a dragon...\stop
+      *yawn*
+      I'm so sleepy,
+      all of a
+      sudden...\stop
+      Come play in my
+      dream, too...
+      Zzz...
+
+  - name: TX_5a5b
+    index: 0x5b
+    text: |-
+      \col(1)Marin\col(0): She
+      fell asleep!\stop
+      Lie down on the
+      bed next to her:
+      we'll get into
+      her dream!
+
+  - name: TX_5a5c
+    index: 0x5c
+    text: |-
+      \col(1)Lila\col(0): Zzz...
+      Charge, Sir
+      Cork... Zzz...
+
+  # In Lila's dream (2:21)
+  - name: TX_5a5d
+    index: 0x5d
+    text: |-
+      \col(1)Lila\col(0): You
+      came! Welcome to
+      my dream!\stop
+      My toys are in
+      the big chest...\stop
+      But a nasty
+      Puppet guards
+      them all! He
+      won't let anyone
+      play.\stop
+      You'll save
+      them, right?
+
+  - name: TX_5a5e
+    index: 0x5e
+    text: |-
+      The \col(1)Toy Chest\col(0).
+      Go in?
+       \opt()Yes \opt()No
+
+  # The Dream Notebook (ITEM_12), depending on how many islands are saved
+  - name: TX_5a60
+    index: 0x60
+    text: |-
+      \col(1)Dream
+      Notebook\col(0)\stop
+      \col(1)Mist\col(0): the
+      lady sleeps, the
+      old man stopped
+      counting. Back!\stop
+      \col(1)Jingle\col(0): Lila
+      can't pretend
+      anymore. The
+      kids don't play.
+
+  - name: TX_5a61
+    index: 0x61
+    text: |-
+      \col(1)Dream
+      Notebook\col(0)\stop
+      \col(1)Mist\col(0): the
+      lady sleeps, the
+      old man stopped
+      counting. Back!\stop
+      \col(1)Jingle\col(0): Lila
+      makes up
+      knights. The
+      kids play again!
+
   # Le menu de test caché (code/ages/balladeDebug.s ; HAUT tenu 5 s à l'écran titre) :
   # la langue, l'île, le moment, et dans le donjon l'endroit. Le même dans les deux fichiers.
   - name: TX_5af0
@@ -1042,6 +1160,28 @@ groups:
 # ==============================================================================
 - group: 0x00
   data:
+  - name: TX_005a
+    index: 0x5a
+    text: |-
+      You found
+      \col(1)Sir Cork\col(0)!\stop
+      Lila's wooden
+      knight... He
+      looks bored.
+
+  - name: TX_0072
+    index: 0x72
+    text: |-
+      The \col(1)Dream
+      Notebook\col(0)!\stop
+      The dreams you
+      give back to
+      people are
+      written here.\stop
+      Put it on a
+      button (Start)
+      to read it.
+
   - name: TX_006d
     index: 0x6d
     text: |-
@@ -1120,6 +1260,20 @@ groups:
 # Item descriptions (inventory)
 - group: 0x09
   data:
+  - name: TX_0909
+    index: 0x09
+    text: |-
+      Sir Cork
+      Lila's wooden
+      knight.
+
+  - name: TX_0942
+    index: 0x42
+    text: |-
+      Dream Notebook
+      The dreams you
+      gave back.
+
   - name: TX_0926
     index: 0x26
     text: |-

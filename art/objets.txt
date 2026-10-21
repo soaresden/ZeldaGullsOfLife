@@ -1,5 +1,6 @@
 # Les objets de nos îles (INTERAC_BALLADE_OBJECT) : une image 16 x 16 par objet, dans l'ordre de
-# spr_ballade_objects.png (tools/make_sprites.py) ; l'objet n prend les tuiles 2n et 2n+1.
+# spr_ballade_objects.png (tools/make_sprites.py) ; l'image n prend les tuiles 4n à 4n+3 (le 2e
+# octet de interactionedSubidData : $00, $04, $08...).
 # Palette de sprite 3 : .  transparent   k  noir   r  orange (le bois)   w  crème (voile, cordes)
 #
 # 0. Le Bateau-Rondin : le rondin de Link's Awakening, lié avec d'autres en radeau, une petite voile
@@ -36,4 +37,22 @@ kwwwwwwwwwwwwwwk
 .kkkkkkkkkkkkkk.
 ......krrk......
 .......kk.......
+................
+#
+# 2. Le Coffre à Jouets (dans le rêve de Lila) : une malle rayée, le couvercle entrouvert
+................
+..kkkkkkkkkkkk..
+.kwwwwwwwwwwwwk.
+.krrrrrrrrrrrrk.
+.kkkkkkkkkkkkkk.
+.kwrrwrrwrrwrrk.
+.kwrrwrrwrrwrrk.
+.kwrrwkkkkwrrwk.
+.kwrrwkwwkwrrwk.
+.kwrrwkkkkwrrwk.
+.kwrrwrrwrrwrrk.
+.kwrrwrrwrrwrrk.
+.kwrrwrrwrrwrrk.
+.kkkkkkkkkkkkkk.
+..kk........kk..
 ................

@@ -41,6 +41,7 @@ salle ab
 salle 3:9e
 	obj_Interaction INTERAC_BALLADE_NPC $00 $48 $38
 	obj_Interaction INTERAC_MARINE $05 $08 $08 ; la fin du chapitre 1 : le tour du village
+	obj_Interaction INTERAC_BALLADE_OBJECT $07 $08 $08 ; parties de la v1.0/1.1 : le Carnet des Rêves
 
 # La boutique : le marchand ($46), 3 cœurs (10 rubis, $47 $01) et la fée en bouteille
 # (60 rubis, $47 $09 : la potion d'Ages, devenue une fée)
@@ -162,3 +163,10 @@ salle 3:20
 	obj_Interaction $47 $04 $28 $80
 	obj_Interaction $47 $01 $28 $60
 	obj_Interaction $46 $00 $58 $88
+# La maison de Lila : Lila (INTERAC_BALLADE_OBJECT $04) ; le lit (link.s) mène dans son rêve
+salle 3:21
+	obj_Interaction INTERAC_BALLADE_OBJECT $04 $48 $38
+# Le rêve de Lila : Lila, et le Coffre à Jouets (l'entrée du donjon 2)
+salle 2:21
+	obj_Interaction INTERAC_BALLADE_OBJECT $05 $48 $38
+	obj_Interaction INTERAC_BALLADE_OBJECT $06 $58 $78

@@ -1034,6 +1034,130 @@ groups:
       village en vend
       peut-être?
 
+  # L'aubergiste donne le Carnet des Rêves (tour du village, ou plus tard en lui parlant)
+  - name: TX_5a58
+    index: 0x58
+    text: |-
+      Tiens, petit:
+      mon vieux livre
+      d'or.\stop
+      Avant, mes
+      clients y
+      écrivaient leurs
+      rêves.\stop
+      Note-y ceux que
+      tu rendras aux
+      gens!
+
+  # Lila (maison de Lila, 3:21), avant de retrouver son jouet
+  - name: TX_5a59
+    index: 0x59
+    text: |-
+      \col(1)Lila\col(0): Je ne
+      sais plus jouer.\stop
+      Avant, Sire
+      Bouchon et moi,
+      on chassait les
+      dragons...\stop
+      Mais il est
+      tombé dans la
+      grotte de la
+      Boîte. Et les
+      rochers l'ont
+      bouchée.\stop
+      Sans lui, je
+      n'arrive plus à
+      faire semblant.
+
+  # Lila retrouve Sire Bouchon, et s'endort
+  - name: TX_5a5a
+    index: 0x5a
+    text: |-
+      \col(1)Lila\col(0): Sire
+      Bouchon! Tu l'as
+      retrouvé!\stop
+      Oh... il a l'air
+      de dire qu'il a
+      vu un dragon...\stop
+      *bâille*
+      J'ai sommeil,
+      tout à coup...\stop
+      Viens jouer dans
+      mon rêve, toi
+      aussi... Zzz...
+
+  - name: TX_5a5b
+    index: 0x5b
+    text: |-
+      \col(1)Marine\col(0): Elle
+      s'est endormie!\stop
+      Allonge-toi sur
+      le lit, à coté:
+      on entrera dans
+      son rêve!
+
+  - name: TX_5a5c
+    index: 0x5c
+    text: |-
+      \col(1)Lila\col(0): Zzz...
+      À l'attaque,
+      Sire Bouchon...
+      Zzz...
+
+  # Dans le rêve de Lila (2:21)
+  - name: TX_5a5d
+    index: 0x5d
+    text: |-
+      \col(1)Lila\col(0): Tu es
+      venu! Bienvenue
+      dans mon rêve!\stop
+      Mes jouets sont
+      dans le grand
+      coffre...\stop
+      Mais un vilain
+      Pantin les garde
+      tous! Il ne veut
+      plus qu'on joue.\stop
+      Tu les sauves,
+      dis?
+
+  - name: TX_5a5e
+    index: 0x5e
+    text: |-
+      Le \col(1)Coffre à
+      Jouets\col(0). Entrer?
+       \opt()Oui \opt()Non
+
+  # Le Carnet des Rêves (ITEM_12), selon le nombre d'îles sauvées
+  - name: TX_5a60
+    index: 0x60
+    text: |-
+      \col(1)Carnet des
+      Rêves\col(0)\stop
+      \col(1)Brume\col(0): la
+      dame dort, le
+      vieux ne compte
+      plus. Rendus!\stop
+      \col(1)Grelot\col(0): Lila
+      ne sait plus
+      faire semblant.
+      Les enfants ne
+      jouent plus...
+
+  - name: TX_5a61
+    index: 0x61
+    text: |-
+      \col(1)Carnet des
+      Rêves\col(0)\stop
+      \col(1)Brume\col(0): la
+      dame dort, le
+      vieux ne compte
+      plus. Rendus!\stop
+      \col(1)Grelot\col(0): Lila
+      invente des
+      chevaliers. Les
+      enfants jouent!
+
   # Le menu de test caché (code/ages/balladeDebug.s ; HAUT tenu 5 s à l'écran titre) :
   # la langue, l'île, le moment, et dans le donjon l'endroit. Le même dans les deux fichiers.
   - name: TX_5af0
@@ -1072,6 +1196,29 @@ groups:
 # ==============================================================================
 - group: 0x00
   data:
+  - name: TX_005a
+    index: 0x5a
+    text: |-
+      Tu as retrouvé
+      \col(1)Sire Bouchon\col(0)!\stop
+      Le chevalier de
+      bois de Lila...
+      Il a l'air de
+      s'ennuyer.
+
+  - name: TX_0072
+    index: 0x72
+    text: |-
+      Le \col(1)Carnet des
+      Rêves\col(0)!\stop
+      Les rêves que
+      tu rends aux
+      gens y sont
+      notés.\stop
+      Mets-le sur un
+      bouton (Start)
+      pour le lire.
+
   - name: TX_004d
     index: 0x4d
     text: |-
@@ -1280,6 +1427,20 @@ groups:
 # Description des objets (inventaire)
 - group: 0x09
   data:
+  - name: TX_0909
+    index: 0x09
+    text: |-
+      Sire Bouchon
+      Le chevalier de
+      bois de Lila.
+
+  - name: TX_0942
+    index: 0x42
+    text: |-
+      Carnet des Rêves
+      Les rêves qu'on
+      a rendus.
+
   - name: TX_0926
     index: 0x26
     text: |-
