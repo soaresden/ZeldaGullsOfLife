@@ -127,7 +127,7 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Le noctambule (7 s dans le Songe) : Link ne se réveille pas sur le fond de la mer ouverte, ni
   pendant un défilement d'écran (sinon : réveil dans l'eau profonde du Réel, noyades jusqu'au
   game over) ; la Lanterne refuse de marcher sur ce fond (harpFluteParent.s).
-- Musique : celle de la Brume en attendant (plus aucun numéro de musique libre).
+- Musique : $25 (music/lagune.txt) ; le Récif : $18 (music/recif.txt).
 - Test : python tools/test_lagune.py DOSSIER (tout le chapitre jusqu'aux Palmes, la nage, les
   habitants ; un saut g.warp depuis un intérieur rend la Lanterne muette : sortir par la porte).
   Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/lagune.png
@@ -356,9 +356,12 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
     boîte à musique + fanfare de jouets en 6/8, un peu de travers (hémiole dans le pont).
   - $3b MUS_BALLADE_COFFRE : music/coffre.txt, le Coffre à Jouets (4:2b-3b), xylophone, tambour,
     contrebasse ; refrain en sol, marche des soldats de bois.
+  - $25 MUS_BALLADE_LAGUNE : music/lagune.txt, la Lagune (valse lente, guitare de plage) ; au
+    lieu de MUS_SYMMETRY_PAST. $18 MUS_BALLADE_RECIF : music/recif.txt, le Récif Murmurant
+    (nappes, écho, gouttes) ; au lieu de MUS_MERMAIDS_CAVE.
   - Plus AUCUN numéro vide : $24 n'est PAS libre (MUS_SYMMETRY_PRESENT, avec un cas spécial dans
-    bank1.s). Pour une nouvelle île, réutiliser un morceau d'Ages qu'on n'entend plus (Symmetry,
-    Zora, Ambi, etc. : vérifier qu'aucun code ne le teste).
+    bank1.s). Pour une nouvelle île, réutiliser un morceau d'Ages qu'on n'entend plus (comme $25
+    et $18 : vérifier qu'aucun code ne le teste, grep MUS_xxx).
 - SND_BALLADE_GULL = $d6 : cri de mouette de LADX (JINGLE_SEAGULL) porté image par image ; joué au
   clin d'œil de Marine dans le film. Le même cri existe dans la musique (`mouette:3`).
 - Denis accepte qu'on reprenne sons, musiques et objets de Link's Awakening DX
@@ -366,7 +369,7 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Le désassemblage de LADX est sur la machine : D:\DOCS\Documents\GitHub\ZeldaOracleCombinedFR\LADX-Disassembly-main
   (sons : src/code/audio/, musiques, sprites : src/gfx/...). Le lire là plutôt que sur GitHub.
 - Aperçus à écouter : `python tools/record_music.py [film titre phare ile auberge boss veilleur
-  miniboss theme grelot coffre]` -> out/NOM_apercu.wav ; `ROM=chemin` pour une autre ROM ; les morceaux sans
+  miniboss theme grelot coffre lagune recif]` -> out/NOM_apercu.wav ; `ROM=chemin` pour une autre ROM ; les morceaux sans
   salle sont lancés en détournant playSound (crochet PyBoy). Denis veut ÉCOUTER une musique avant
   qu'on la pousse ; ses références : Wind Waker / Linebeck (marin), Resident Evil (salle de
   sauvegarde), Hyrule Warriors, Ninja Gaiden NES.

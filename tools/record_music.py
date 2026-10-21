@@ -12,6 +12,8 @@ Usage : python tools/record_music.py [NOM ...]   (sans nom : tout)
   theme     out/theme_apercu.wav     le thème du jeu (MUS_BALLADE_THEME, $44)
   grelot    out/grelot_apercu.wav    Hameau-Grelot (la place, 1:11 ; $3d)
   coffre    out/coffre_apercu.wav    le Coffre à Jouets (4:37 ; $3b)
+  lagune    out/lagune_apercu.wav    la Lagune des Serments (le ponton, 1:24 ; $25)
+  recif     out/recif_apercu.wav     le Récif Murmurant (le hall, 5:3f ; $18)
 Pour le boss et le miniboss (pas de salle où ils jouent d'office), l'appel à playSound qui lance
 la musique du Phare est détourné vers la leur (crochet PyBoy sur playSound, ROM intacte).
 """
@@ -36,6 +38,8 @@ TRACKS = {
     'theme': (4, 0x24, 0x51, 0x44, 46),
     'grelot': (1, 0x11, 0x44, None, 48),
     'coffre': (4, 0x37, 0x57, None, 50),
+    'lagune': (1, 0x24, 0x33, None, 52),
+    'recif': (5, 0x3f, 0x57, None, 56),
 }
 wanted = sys.argv[1:] or ['film', 'titre'] + list(TRACKS)
 

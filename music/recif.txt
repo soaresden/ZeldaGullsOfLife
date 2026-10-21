@@ -1,0 +1,44 @@
+# Le Récif Murmurant — musique originale du donjon 3 (Gulls of Life)
+#
+# Esprit : sous l'eau, Link est seul. Presque pas de mélodie : des nappes (le 2e carré, tenu, très
+# bas), une contrebasse lente (l'onde), des gouttes (le bruit, très rare). La mélodie, quand elle
+# vient, a son écho : le 2e carré la reprend une croche plus tard, plus bas. Mi mineur, avec un
+# do qui assombrit tout.
+# Même notation que music/phare.txt (en 4/4 : 8 croches par mesure).
+
+tempo 11         # images par croche (très lent)
+mesure 8
+
+== INTRO ==
+# La nappe et la contrebasse, une goutte
+melodie:   [v0] [duty 2] [vib 00] [gate 1] [detune 0]
+melodie:   -:8 | -:8 |
+accordeon: [v2] [duty 2] [vib 41] [gate 1] [detune 0]
+accordeon: b3:8 | a3:8 |
+basse:     [onde 0e] [vib 00] [gate .9]
+basse:     e2:4 -:4 | d2:4 -:4 |
+batterie:  [v1] -:5 h:1 -:2 | -:8 |
+
+== A ==
+# La mélodie et son écho
+melodie:   [v4] [vib 41] [gate .8]
+melodie:   e5:3 -:1 g5:2 -:2 | f#5:4 -:4 | e5:3 -:1 b4:2 -:2 | -:8 |
+melodie:   d5:3 -:1 f#5:2 -:2 | e5:4 -:4 | c5:3 -:1 b4:2 a4:2 | b4:8 |
+accordeon: [v2] [gate .8]
+accordeon: -:1 e4:3 -:1 g4:2 -:1 | -:1 f#4:4 -:3 | -:1 e4:3 -:1 b3:2 -:1 | -:8 |
+accordeon: -:1 d4:3 -:1 f#4:2 -:1 | -:1 e4:4 -:3 | -:1 c4:3 -:1 b3:2 a3:1 | -:1 b3:7 |
+basse:     [gate .9]
+basse:     e2:4 -:4 | d2:4 -:4 | e2:4 -:4 | b1:4 -:4 | b1:4 -:4 | e2:4 -:4 | a1:4 -:4 | b1:8 |
+batterie:  [v1] -:6 h:1 -:1 | -:8 | -:3 h:1 -:4 | -:8 | -:6 h:1 -:1 | -:8 | -:3 h:1 -:4 | -:5 h:1 h:1 -:1 |
+
+== B ==
+# Plus profond : la mélodie descend, la nappe change de couleur (do majeur, la mineur)
+melodie:   [v4]
+melodie:   g4:2 a4:2 b4:4 | c5:2 b4:2 a4:4 | g4:2 f#4:2 e4:4 | -:8 |
+melodie:   g4:2 a4:2 b4:4 | d5:2 c5:2 b4:4 | a4:2 g4:2 f#4:4 | -:8 |
+accordeon: [v2] [gate 1]
+accordeon: g3:8 | e3:8 | g3:8 | f#3:8 | g3:8 | a3:8 | f#3:8 | d#4:8 |
+basse:     c2:4 -:4 | a1:4 -:4 | e2:4 -:4 | b1:4 -:4 | c2:4 -:4 | d2:4 -:4 | b1:4 -:4 | b1:8 |
+batterie:  [v1] -:8 | -:4 h:1 -:3 | -:8 | -:7 h:1 | -:8 | -:4 h:1 -:3 | -:8 | -:8 |
+
+ordre: INTRO | A B

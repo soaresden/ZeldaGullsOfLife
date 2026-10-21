@@ -41,6 +41,8 @@ SONGS = [
     ('rythme5.txt', 'musBalladeRythme5'),      # $3a, tout, épique
     ('grelot.txt', 'musBalladeGrelot'),        # $3d, Hameau-Grelot (île 2)
     ('coffre.txt', 'musBalladeCoffre'),        # $3b, le Coffre à Jouets (donjon 2)
+    ('lagune.txt', 'musBalladeLagune'),        # $25 (au lieu de Symétrie, passé), la Lagune (île 3)
+    ('recif.txt', 'musBalladeRecif'),          # $18 (au lieu de la Grotte des Sirènes), le Récif Murmurant
 ]
 # Niveaux du boss en rythme : mêmes notes à frapper que rythme.txt (vérifié)
 RHYTHM_LEVELS = ['rythme2.txt', 'rythme3.txt', 'rythme4.txt', 'rythme5.txt']
@@ -68,10 +70,11 @@ ROOM_MUSIC = [
     (0, 0x3d, ILE_GRELOT),  # et dans le Songe
     (3, 0x3d, [0x21, 0x22]),  # la maison de Lila, l'école
     (2, 0x3d, [0x21]),      # le rêve de Lila
-    # la Lagune des Serments : en attendant sa musique, celle de l'île de la Brume
-    (1, 0x42, ILE_LAGUNE),
-    (0, 0x42, ILE_LAGUNE),
-    (3, 0x42, [0x23, 0x24]),  # la maison d'Héloïse et Gaspard, le club de plongée
+    (1, 0x25, ILE_LAGUNE),  # la Lagune des Serments dans le Réel
+    (0, 0x25, ILE_LAGUNE),  # et dans le Songe
+    (3, 0x25, [0x23, 0x24]),  # la maison d'Héloïse et Gaspard, le club de plongée
+    # le Récif Murmurant (donjon 3 ; la Murène lance la musique du boss)
+    (5, 0x18, [0x44, 0x3f, 0x3e, 0x3b, 0x3a, 0x37, 0x38, 0x40, 0x3c, 0x3d, 0x39, 0x30, 0x2e, 0x35, 0x36, 0x2d]),
     # le Coffre à Jouets (donjon 2 ; Pantin-Sans-Fil lance la musique du boss en se réveillant)
     (4, 0x3b, [0x39, 0x37, 0x3a, 0x3b, 0x33, 0x32, 0x31, 0x34, 0x2d, 0x2c, 0x2e, 0x2b]),
     # salle de test du boss en rythme (l'arène de l'ancien donjon 3 d'Ages) : silence en entrant

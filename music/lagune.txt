@@ -1,0 +1,58 @@
+# La Lagune des Serments — musique originale de l'île 3 (Gulls of Life)
+#
+# Esprit : une valse lente au bord de l'eau, à la guitare de plage (le 2e carré, notes pincées et
+# courtes, en arpèges), une mélodie tendre au premier carré, la basse ronde de l'onde et un shaker
+# tout doux. C'est la valse d'Héloïse et Gaspard : ils l'ont dansée le jour de leur mariage (lui
+# en palmes). Le pont (B) passe en si mineur : le souvenir qui revient.
+# Même notation que music/phare.txt (ici en 3/4 : 6 croches par mesure).
+
+tempo 10         # images par croche (une valse lente, environ 90 noires à la minute)
+mesure 6
+
+== INTRO ==
+# La guitare seule, puis la basse
+melodie:   [v5] [duty 2] [vib 00] [gate .9] [detune 0]
+melodie:   -:6 | -:6 |
+accordeon: [v4] [duty 1] [vib 00] [gate .35] [detune 0]
+accordeon: d4:1 a4:1 d5:1 f#5:1 d5:1 a4:1 | g4:1 b4:1 d5:1 g5:1 d5:1 b4:1 |
+basse:     [onde 0e] [vib 00] [gate .7]
+basse:     -:6 | g2:3 d3:3 |
+batterie:  [v1] -:2 h:1 h:1 h:1 h:1 | -:2 h:1 h:1 h:1 h:1 |
+
+== A ==
+# Le thème de la valse
+melodie:   [v5] [vib 41] [gate .9]
+melodie:   f#5:3 e5:1 d5:2 | a5:4 f#5:2 | g5:3 f#5:1 e5:2 | d5:6 |
+melodie:   b4:2 d5:2 g5:2 | f#5:3 e5:1 d5:2 | e5:3 c#5:1 a4:2 | d5:6 |
+accordeon: [v3] [gate .35]
+accordeon: d4:1 a4:1 d5:1 f#5:1 d5:1 a4:1 | d4:1 a4:1 d5:1 f#5:1 d5:1 a4:1 |
+accordeon: g4:1 b4:1 d5:1 g5:1 d5:1 b4:1 | d4:1 a4:1 d5:1 f#5:1 d5:1 a4:1 |
+accordeon: g4:1 b4:1 d5:1 g5:1 d5:1 b4:1 | d4:1 a4:1 d5:1 f#5:1 d5:1 a4:1 |
+accordeon: a4:1 c#5:1 e5:1 a5:1 e5:1 c#5:1 | d4:1 a4:1 d5:1 f#5:1 d5:1 a4:1 |
+basse:     [gate .7]
+basse:     d2:3 a2:3 | d2:3 f#2:3 | g2:3 d3:3 | d2:3 a2:3 | g2:3 b2:3 | d2:3 a2:3 | a2:3 e2:3 | d2:3 a2:3 |
+batterie:  ( [v2] h:2 [v1] h:1 h:1 h:1 h:1 | )x8
+
+== B ==
+# Le souvenir qui revient (si mineur), la mélodie monte
+melodie:   [v6]
+melodie:   b5:3 a5:1 f#5:2 | e5:2 d5:2 e5:2 | f#5:3 g5:1 a5:2 | d5:6 |
+melodie:   g5:3 f#5:1 e5:2 | f#5:2 a5:2 d6:2 | c#6:3 b5:1 a5:2 | a5:6 |
+accordeon: [v3]
+accordeon: b3:1 f#4:1 b4:1 d5:1 b4:1 f#4:1 | g4:1 b4:1 d5:1 g5:1 d5:1 b4:1 |
+accordeon: d4:1 a4:1 d5:1 f#5:1 d5:1 a4:1 | d4:1 a4:1 d5:1 f#5:1 d5:1 a4:1 |
+accordeon: e4:1 g4:1 b4:1 e5:1 b4:1 g4:1 | d4:1 a4:1 d5:1 f#5:1 d5:1 a4:1 |
+accordeon: a4:1 c#5:1 e5:1 a5:1 e5:1 c#5:1 | a4:1 c#5:1 e5:1 a5:1 e5:1 c#5:1 |
+basse:     b1:3 f#2:3 | g2:3 d3:3 | d2:3 a2:3 | d2:3 f#2:3 | e2:3 b2:3 | d2:3 a2:3 | a2:3 e2:3 | a2:3 c#3:3 |
+batterie:  ( [v2] h:2 [v1] h:1 h:1 h:1 h:1 | )x6 [v2] h:1 h:1 h:1 h:1 [v3] s:2 | [v1] h:2 h:2 h:2 |
+
+== C ==
+# Ils se retrouvent : la fin de la phrase, tout doucement, et la boucle repart
+melodie:   [v5]
+melodie:   a5:2 f#5:2 d5:2 | g5:3 e5:3 | f#5:2 e5:2 c#5:2 | d5:6 |
+accordeon: d4:1 a4:1 d5:1 f#5:1 d5:1 a4:1 | e4:1 g4:1 b4:1 e5:1 b4:1 g4:1 |
+accordeon: a4:1 c#5:1 e5:1 a5:1 e5:1 c#5:1 | d4:1 a4:1 d5:1 f#5:1 a5:1 d6:1 |
+basse:     d2:3 a2:3 | e2:3 b2:3 | a2:3 e2:3 | d2:6 |
+batterie:  ( [v1] h:2 h:2 h:2 | )x3 -:6 |
+
+ordre: INTRO | A B A C
