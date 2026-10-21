@@ -143,7 +143,8 @@ l'eau). Énigmes : coquillages-échos à faire chanter dans le bon ordre, couran
 (Le boss est sous l'entrée : on redescend tout au fond, à la pointe du cœur.)
 
 - **Objet : les Écailles de Sirène** (le costume de sirène d'*Ages*) : nager sous l'eau.
-- **Mini-boss : la Baudroie** (Angler Fish).
+- **Mini-boss : Vire**, le démon des grottes (la Baudroie, l'Angler Fish d'*Ages*, demandait les
+  graines odorantes et une salle à sec en défilement latéral : remplacée).
 - **Boss : la Murène du Silence** (Octogon) : elle avale les mots doux ; on la bat en faisant
   chanter les coquillages-échos autour d'elle, puis à l'épée. Elle ne parle pas : elle a tout
   avalé. Marine, en surface, ne dit rien non plus.
@@ -278,7 +279,7 @@ Donjon des Ailes d'*Ages*. Énigmes : sauts et vols planés au-dessus des trous,
 ```
 
 - **Objet : la Cape de Roc** (la plume niveau 2 : sauter plus loin, planer).
-- **Mini-boss : Vire**, le démon-chauve-souris.
+- **Mini-boss : à choisir** (Vire est déjà pris par le Récif Murmurant).
 - **Boss : l'Ombre de Marine** (le Swoop, l'oiseau géant, en noir) : une mouette de cauchemar
   avec la voix de Marine. Elle parle : « Reste endormi, Link. Reste avec moi. » Marine (la
   vraie) : « …Non. »

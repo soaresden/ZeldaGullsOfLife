@@ -122,6 +122,8 @@ def read_objects():
             continue
         if line.startswith('salle'):
             cur = parse_room(line.split()[1])
+            # Une salle écrite deux fois : la 2e liste remplacerait la 1re sans rien dire
+            assert cur not in objects, 'objets.txt : la salle %s apparaît deux fois' % line.split()[1]
             objects[cur] = []
         else:
             objects[cur].append(line.rstrip('\n'))

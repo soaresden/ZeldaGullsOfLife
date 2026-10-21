@@ -1466,6 +1466,74 @@ groups:
       \Link. Come back
       soon.
 
+  # End of chapter 3: the bottle beach (1:35), Marin was waiting
+  # Le Carnet des Rêves, après la Lagune des Serments (3 îles sauvées)
+  - name: TX_5a7f
+    index: 0x7f
+    text: |-
+      \col(1)Dream
+      Notebook\col(0)\stop
+      \col(1)Mist\col(0): the
+      lady sleeps, the
+      old man stopped
+      counting. Back!\stop
+      \col(1)Jingle\col(0): Lila
+      makes up
+      knights. The
+      kids play again!\stop
+      \col(1)Lagoon\col(0):
+      Heloise and
+      Gaspard
+      remember.
+      Married every
+      morning!
+
+  - name: TX_5a7c
+    index: 0x7c
+    text: |-
+      \col(1)Marin\col(0): \Link!\stop
+      You took so
+      long. Don't ever
+      do that again.\stop
+      ...You know
+      what? That's
+      what the third
+      verse says. Word
+      for word.\stop
+      Come on. Things
+      are happening at
+      Gaspard's!
+
+  # At Heloise and Gaspard's (3:23)
+  - name: TX_5a7d
+    index: 0x7d
+    text: |-
+      \col(1)Heloise\col(0):
+      Gaspard!
+      You wore your
+      flippers to
+      dance, that
+      day...\stop
+      \col(1)Gaspard\col(0): And
+      you cried with
+      laughter. Hello,
+      my wife.
+
+  - name: TX_5a7e
+    index: 0x7e
+    text: |-
+      \col(1)Marin\col(0): Shh...
+      the wind has
+      turned.\stop
+      It smells of
+      smoke and hot
+      iron.\stop
+      A smoking
+      mountain, to the
+      north... I can
+      hear hammering.
+
+
   # Le menu de test caché (code/ages/balladeDebug.s ; HAUT tenu 5 s à l'écran titre) :
   # la langue, l'île, le moment, et dans le donjon l'endroit. Le même dans les deux fichiers.
   - name: TX_5af0
@@ -1554,6 +1622,29 @@ groups:
       Get in the
       water, and \bbtn
       to dive.
+
+  # The Mermaid Scales (Ages' mermaid suit)
+  - name: TX_0036
+    index: 0x36
+    text: |-
+      The \col(1)Mermaid
+      Scales\col(0)!\stop
+      You can swim in
+      deep water, and
+      \bbtn to dive!
+
+  # The 3rd dungeon's essence: the third verse
+  - name: TX_0010
+    index: 0x10
+    text: |-
+      \pos(2)\slow()The Eel has
+      given back the
+      sweet words it
+      swallowed.\stop
+      You found the
+      \col(1)third verse\col(0) of
+      Marin's song!
+
 
 
   - name: TX_005a
@@ -1647,6 +1738,12 @@ groups:
 # Dungeon name (on entering, and on its map)
 - group: 0x02
   data:
+  - name: TX_0203
+    index: 0x03
+    text: |2-
+         Level 3
+       Murmuring Reef
+
   - name: TX_0202
     index: 0x02
     text: |2-
@@ -1687,6 +1784,20 @@ groups:
     text: |-
       Zora's Flippers
       For swimming.
+
+  - name: TX_0903
+    index: 0x03
+    text: |-
+      Third verse
+      Someone who
+      waits.
+
+  - name: TX_0945
+    index: 0x45
+    text: |-
+      Mermaid Scales
+      For diving.
+
 
 
   - name: TX_0909
@@ -1814,3 +1925,69 @@ groups:
       My lead sword...
       broken!
       Dismissed!
+
+  # Vire, the cave demon (the Murmuring Reef's mini-boss)
+  - name: TX_2f12
+    index: 0x12
+    text: |-
+      \pos(2)Hee hee hee! A
+      little knight,
+      all alone?
+      Without his
+      seagull?\stop
+      We already ate
+      the dreams
+      around here!
+      Let's play!
+
+  - name: TX_2f13
+    index: 0x13
+    text: |-
+      \pos(2)Hee hee hee! A
+      little knight,
+      all alone?
+      Without his
+      seagull?\stop
+      We already ate
+      the dreams
+      around here!
+      Let's play!
+
+  - name: TX_2f14
+    index: 0x14
+    text: |-
+      \slow()OUCH! Pesky
+      kid! Take this!
+
+  - name: TX_2f15
+    index: 0x15
+    text: |-
+      \slow()Bully! That's
+      it! I'm serious!
+
+  - name: TX_2f16
+    index: 0x16
+    text: |-
+      \slow()Fine! Goodbye!
+
+  - name: TX_2f17
+    index: 0x17
+    text: |-
+      \slow()OUCH..!\stop
+      Too sure of
+      myself... The
+      one who never
+      sleeps will hear
+      of this!
+      Hee hee!
+
+  - name: TX_2f18
+    index: 0x18
+    text: |-
+      \slow()OUCH..!\stop
+      Too sure of
+      myself... The
+      one who never
+      sleeps will hear
+      of this!
+      Hee hee!

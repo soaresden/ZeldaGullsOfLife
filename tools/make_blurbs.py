@@ -5,7 +5,7 @@ gauche (24 lignes) est le haut du cartouche (« L-1 » puis la 1re ligne du nom)
 (16 premières lignes) le bas (la 2e ligne du nom et le bord). Les lettres sont reprises des noms
 d'origine d'Ages (Dungeon, Moonlit, Grotto, Skull, Crown, Path, Spirit's, Grave), dans le même
 style ; le L, le E, le P (celui de « Path » est coupé en haut dans l'image d'origine), le T, le J,
-le f, le y et les accents de É et à sont dessinés ici, à leur image, et le h est fait d'un n et de
+le f, le y, le R, le c, le m et les accents de É, à et é sont dessinés ici, à leur image, et le h est fait d'un n et de
 la hampe du l.
 
 Écrit gfx_blurb_dN.png (anglais) et gfx_blurb_dN_fr.png (français : « N-1 », choisi au chargement
@@ -29,6 +29,7 @@ GFX = os.path.join(DISASM, 'gfx_compressible', 'ages')
 NAMES = {
     1: {'en': ('Dark', 'Lighthouse'), 'fr': ('Phare', 'Éteint')},
     2: {'en': ('Toy', 'Chest'), 'fr': ('Coffre à', 'Jouets')},
+    3: {'en': ('Murmuring', 'Reef'), 'fr': ('Récif', 'Murmurant')},
 }
 
 # Lettres dessinées à la main (. vide, : contour clair, o ombre, # trait) ; la dernière ligne est
@@ -39,11 +40,15 @@ DRAWN = {
     'P': ['#####:', '#o.:##', '#o..#o', '#o##o:', '#o....', '#o....', '#o....'],
     'T': ['######', '..#o..', '..#o..', '..#o..', '..#o..', '..#o..', '..#o..'],
     'J': ['...##', '...#o', '...#o', '...#o', '#o.#o', '#o:#o', ':##o:'],
+    'R': ['#####:', '#o.:##', '#o..#o', '#o##o:', '#o.#o.', '#o..#o', '#o..#o'],
+    'c': ['....', '....', ':##:', '#o.#', '#o..', '#o.#', ':##:'],
+    'm': ['.......', '.......', '##:##:.', '#o##o##', '#o.#o#o', '#o.#o#o', '#o.#o#o'],
     # 11 lignes : le f monte comme le l, le y descend sous la ligne de base
     'f': ['....', '.:##', '.#o.', '.#o.', '##o#', '.#o.', '.#o.', '.#o.', '.#o.', '....', '....'],
     'y': ['.....', '.....', '.....', '.....', '##.##', '#o.#o', '#o.#o', ':###o', '...#o', '...#o', ':##o:'],
 }
 GRAVE = ['.#o..', '..:#.']        # l'accent grave, au-dessus d'une minuscule (à)
+ACUTE = ['..:#.', '.#o..']        # l'accent aigu, au-dessus d'une minuscule (é)
 ACCENT = ['...:#', '..#o.']        # l'accent aigu, au-dessus d'une majuscule
 SMALL_N = ['##o.#o', '#o#o#o', '#o.##o', '#o..#o', '#o..#o']   # « N » de « N-1 », petite police
 
@@ -110,6 +115,10 @@ def font():
     for i, r in enumerate(GRAVE):
         a[1 + i] = [code[c] for c in r.ljust(len(a[1 + i]), '.')]
     glyphs['à'] = a
+    e = [list(r) for r in glyphs['e']]
+    for i, r in enumerate(ACUTE):
+        e[1 + i] = [code[c] for c in r.ljust(len(e[1 + i]), '.')]
+    glyphs['é'] = e
     return glyphs
 
 

@@ -1,0 +1,233 @@
+# Le Récif Murmurant (donjon 3, sous la Lagune des Serments) : groupe 5, les salles du 6e donjon
+# d'Ages côté passé (la Grotte des Sirènes : décor 3c au sec, 3d sous l'eau), deux étages (dungeon03Layout
+# Recif). Link y est seul : Marine l'attend dehors. Voir story/iles.md.
+#
+# Briques : b8 b0 b9 / b3 b1 / ba b2 bb murs ; a0 sol ; fa eau (on y nage, Palmes) ; fc eau profonde
+#   (il faut les Écailles de Sirène ; B : on plonge à l'étage du dessous) ; a2 (sous l'eau) les
+#   endroits où l'on peut remonter (underwaterSurfaceData) ; 1d blocs ; 10 pots ; ee statues ; 11 coquillages ;
+#   f1 coffre ; 70 porte à clé (haut) ; 74 porte du boss ; 7a volet (bas) ; e0-e6 l'arche.
+#
+# Plan :
+#   1F (sec)                                   B1 (sous l'eau)
+#        37 Vire    36 Octogon  39 coquillages            2d (Octogon, dessous)
+#   3a   3b bassin  38 antich.  3c bassin  3d        30    2e couloir   35
+#        3e clé 1   3f hall     40 carte
+#                   44 entrée
+#
+# Le chemin : le hall (3f) ; à l'ouest (3e) la petite clé 1 ; le bassin profond (3b) ; la boussole
+# (3a) ; la porte à clé du nord de 3b : Vire (37), puis les Écailles de Sirène ; on plonge dans le
+# bassin de 3b : sous l'eau, 30 -> 2e -> 35, on remonte dans le bassin de l'est (3c) ; à l'est (3d)
+# la petite clé 2 ; au nord (39) les coquillages-échos : chanter dans l'ordre du grand coquillage
+# -> la clé du boss ; on replonge, retour au hall ; la porte à clé de l'antichambre (38) ; la porte
+# du boss : la Murène du Silence (Octogon d'Ages : 5:36 en surface, 5:2d en dessous, salles
+# d'origine gardées). La carte est à l'est du hall (40).
+
+# --- L'entrée : l'arche du bas ramène dehors (1:36) ; deux bassins, deux statues ; nord -> le hall ---
+salle 5:44 decor 3c
+b8 b0 b0 b0 b0 b0 b0 a0 b0 b0 b0 b0 b0 b0 b9
+b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
+b3 a0 fa fa fa a0 a0 a0 a0 a0 fa fa fa a0 b1
+b3 a0 fa fa fa a0 a0 a0 a0 a0 fa fa fa a0 b1
+b3 a0 fa fa fa a0 a0 a0 a0 a0 fa fa fa a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 ee a0 a0 a0 a0 a0 a0 a0 ee a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 e0 e1 e2 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 e3 e4 e5 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 e6 00 e6 b2 b2 b2 b2 b2 bb
+
+# --- Le hall : nord -> l'antichambre (porte à clé, petite clé 2) ; ouest, est ; un bassin ---
+salle 5:3f decor 3c
+b8 b0 b0 b0 b0 b0 b0 70 b0 b0 b0 b0 b0 b0 b9
+b3 1d a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 1d b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 fa fa fa fa fa a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 fa fa fa fa fa a0 a0 a0 a0 b1
+a0 a0 a0 a0 a0 fa fa ee fa fa a0 a0 a0 a0 a0
+b3 a0 a0 a0 a0 fa fa fa fa fa a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 fa fa fa fa fa a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 1d a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 1d b1
+ba b2 b2 b2 b2 b2 b2 a0 b2 b2 b2 b2 b2 b2 bb
+
+# --- Ouest du hall : battus, les ennemis font tomber la petite clé 1 ---
+salle 5:3e decor 3c
+b8 b0 b0 b0 b0 b0 b0 a0 b0 b0 b0 b0 b0 b0 b9
+b3 10 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 1d a0 a0 a0 a0 a0 a0 a0 a0 a0 1d a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 1d a0 a0 a0 a0 a0 a0 a0 a0 a0 1d a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- Le bassin profond (fc, lignes 6-9, colonnes 1-6) : on y plonge vers 5:30 ; nord : porte à clé (petite clé 1) vers Vire ---
+salle 5:3b decor 3c
+b8 b0 b0 b0 b0 b0 b0 70 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 1d 1d a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 1d 1d a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 fc fc fc fc fc fc a0 a0 a0 a0 a0 a0 a0 b1
+b3 fc fc fc fc fc fc a0 a0 a0 a0 a0 a0 a0 b1
+b3 fc fc fc fc fc fc a0 a0 a0 a0 a0 a0 a0 b1
+b3 fc fc fc fc fc fc a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 a0 b2 b2 b2 b2 b2 b2 bb
+
+# --- Ouest : le coffre de la boussole (ligne 5, colonne 3), derrière un ruisseau ---
+salle 5:3a decor 3c
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
+b3 a0 a0 a0 a0 a0 fa a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 fa a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 fa a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 f1 a0 a0 fa a0 a0 a0 a0 a0 a0 a0 a0
+b3 a0 a0 a0 a0 a0 fa a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 fa a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 fa a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- Le lobe gauche : Vire, le démon des grottes ; volet du bas (7a) fermé tant qu'il vit ; puis le coffre des Écailles de Sirène (ligne 5, colonne 7) ---
+salle 5:37 decor 3c
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 1d a0 a0 a0 a0 a0 a0 a0 a0 a0 1d a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 1d a0 a0 a0 a0 a0 a0 a0 a0 a0 1d a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 7a b2 b2 b2 b2 b2 b2 bb
+
+# --- L'antichambre : la porte du boss (74) mène à la Murène du Silence (5:36, la salle d'Octogon d'Ages) ---
+salle 5:38 decor 3c
+b8 b0 b0 b0 b0 b0 b0 74 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 ee a0 a0 a0 a0 a0 a0 a0 ee a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 fa fa fa a0 a0 a0 a0 a0 fa fa fa a0 b1
+b3 a0 fa fa fa a0 a0 a0 a0 a0 fa fa fa a0 b1
+b3 a0 fa fa fa a0 a0 a0 a0 a0 fa fa fa a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 a0 b2 b2 b2 b2 b2 b2 bb
+
+# --- Est du hall : le coffre de la carte (ligne 2, colonne 11) ---
+salle 5:40 decor 3c
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 f1 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+a0 a0 a0 a0 fa fa fa fa fa fa fa a0 a0 a0 b1
+b3 a0 a0 a0 fa fa fa fa fa fa fa a0 a0 a0 b1
+b3 a0 a0 a0 fa fa fa fa fa fa fa a0 a0 a0 b1
+b3 a0 a0 a0 fa fa fa fa fa fa fa a0 a0 a0 b1
+b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- Le bassin de l'est : on y remonte de 5:35 (eau profonde fc, lignes 1-4, colonnes 10-13) ---
+salle 5:3c decor 3c
+b8 b0 b0 b0 b0 b0 b0 a0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 fc fc fc fc b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 fc fc fc fc b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 fc fc fc fc b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 fc fc fc fc b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 1d 1d 1d a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- L'est : le coffre de la petite clé 2 (ligne 5, colonne 11) ---
+salle 5:3d decor 3c
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 fa fa a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 fa fa a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 fa fa a0 a0 a0 a0 b1
+a0 a0 a0 a0 a0 a0 a0 a0 fa fa a0 f1 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 fa fa a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 fa fa a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 fa fa a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- Le lobe droit : les coquillages-échos (INTERAC_BALLADE_OBJECT) ; le grand coquillage (ligne 2, colonne 7) chante l'ordre des trois petits (ligne 5 : colonnes 3, 7, 11) ; le coffre de la clé du boss apparaît (ligne 8, colonne 11) ---
+salle 5:39 decor 3c
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
+b3 a0 a0 a0 a0 a0 a0 11 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 11 a0 a0 a0 11 a0 a0 a0 11 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 a0 b2 b2 b2 b2 b2 b2 bb
+
+# --- La Murène du Silence (Octogon d'Ages) : sa salle d'origine, la porte de droite murée ; on entre par le volet du bas (7a) ---
+salle 5:36 decor 3c
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 fc fc fc fc fc fc fc fc fc fc fc fc fc b1
+b3 fc fc fc fc fc fc fc fc fc fc fc fc fc b1
+b3 fc fc fc fc fc fc fc fc fc fc fc fc fc b1
+b3 fc fc fc fc a0 fc a0 fc a0 fc fc fc fc b1
+b3 fc fc fc fc 11 a0 a0 a0 11 fc fc fc fc b1
+b3 fc fc fc fc a0 fc a0 fc a0 fc fc fc fc b1
+b3 fc fc fc fc fc fc fc fc fc fc fc fc fc b1
+b3 fc fc fc fc fc fc fc fc fc fc fc fc fc b1
+b3 fc fc fc fc fc fc fc fc fc fc fc fc fc b1
+ba b2 b2 b2 b2 b2 b2 7a b2 b2 b2 b2 b2 b2 bb
+
+# --- Sous le bassin profond (on y plonge de 3b ; on remonte lignes 8-9, colonnes 1-6) ---
+salle 5:30 decor 3d
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 1d 1d a0 a0 1d 1d 1d a0 a0 1d 1d a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a2 a2 a2 a2 a2 a2 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a2 a2 a2 a2 a2 a2 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- Le couloir sous l'antichambre (on ne peut pas remonter ici) ---
+salle 5:2e decor 3d
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 1d a0 a0 a0 a0 a0 a0 a0 1d a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0
+a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0
+a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 1d a0 a0 a0 a0 a0 a0 a0 1d a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- Sous le bassin de l'est : on remonte lignes 1-4, colonnes 12-13 (vers 3c) ---
+salle 5:35 decor 3d
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a2 a2 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a2 a2 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a2 a2 b1
+a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a2 a2 b1
+a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 1d 1d 1d 1d 1d 1d a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb

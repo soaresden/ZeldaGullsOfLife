@@ -132,6 +132,35 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   habitants ; un saut g.warp depuis un intérieur rend la Lanterne muette : sortir par la porte).
   Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/lagune.png
 
+## Le Récif Murmurant (donjon 3)
+- story/salles/recif.txt (plans tirés d'un script jetable) : groupe 5, les salles de la Grotte des
+  Sirènes d'Ages côté passé ; décors 3c (sec) et 3d (sous l'eau) passés à l'index de donjon 3
+  (tilesets.s, b0 $2c -> $23). dungeon03LayoutRecif, deux étages : B1 2d / 30 2e 35 ; 1F 37 36 39 /
+  3a 3b 38 3c 3d / 3e 3f 40 / 44. Entrée : la bouche du visage de corail (1:36, dd) -> 5:44 $97 ;
+  sortie -> 1:36 $44. Link est seul : Select ne fait rien (marineTalk, checkBombPower : donjon 3).
+- Plonger : B en nageant sur fc (il faut les Écailles de Sirène = TREASURE_MERMAID_SUIT) ->
+  l'étage du dessous, même case ; remonter : B sur une case autorisée par underwaterSurfaceData.s
+  (salles 5:30 lignes 8-9 colonnes 1-6, 5:35 lignes 1-4 colonnes 12-13, 5:2d : bitmaps d'Ages
+  gardés, nos plans les respectent). Ailleurs dans un donjon, on ne remonte pas. Sous l'eau, les
+  passages ouest / est font trois cases (Link glisse).
+- Vire = le mini-boss (la Baudroie d'iles.md, l'Angler Fish, demande les graines odorantes et une
+  salle à défilement latéral à sec : abandonnée). Il apparaît quand Link s'avance au milieu.
+  Textes TX_2f12-2f18 réécrits (plus de Veran). Son coffre : les Écailles ($12 $02).
+- La Murène du Silence = Octogon d'Ages, dans ses salles d'origine (5:36 surface, 5:2d dessous ;
+  porte de droite de 5:36 murée), préparé par $90 $0f dans l'antichambre 5:38 ; script de mort
+  $20 $01 (dungeonScript_bossDeath du donjon 3) ; l'essence apparaît dans sa salle (objet $08,
+  drapeau $80 de 5:36) ; elle ramène sur la plage des bouteilles (1:35) : fin du chapitre 3
+  (@endings : 1:35 puis 3:23), Mont-Braise repéré (GLOBALFLAG_BALLADE_ISLAND4).
+- Les coquillages-échos (5:39, INTERAC_BALLADE_OBJECT $13) : briques $11 ; A (ou B) face au grand
+  (ligne 2, colonne 7) : il chante l'ordre (flûtes de Ricky, Dimitri, Moosh) ; toucher les petits
+  dans cet ordre -> setTile du coffre de la clé du boss ($8b), drapeau $40 de la salle.
+- Pièges : objets.txt ne doit avoir qu'UNE liste par salle (la 2e remplaçait la 1re : make_rooms
+  refuse maintenant) ; arrivalTalk et la fin de chapitre (étape 0) utilisent tous deux le drapeau
+  $40 de la salle : ne pas les mettre dans la même salle.
+- Test : python tools/test_recif.py DOSSIER (tout le donjon, ennemis et boss retirés ; sous l'eau,
+  swim_to : petits coups de bouton, Link glisse).
+  Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/recif.png
+
 ## Pièges déjà rencontrés
 - Les heredocs Bash de l'outil réduisent `\\` en `\` : écrire les fichiers avec des `\` via Write/Edit.
 - `parseText.py` lisait le texte avec l'encodage Windows : corrigé (UTF-8) dans le fork.

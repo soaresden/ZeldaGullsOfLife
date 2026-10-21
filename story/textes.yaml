@@ -1525,6 +1525,74 @@ groups:
       ici, \Link.
       Reviens vite.
 
+  # Fin du chapitre 3 : la plage des bouteilles (1:35), Marine attendait
+  # Le Carnet des Rêves, après la Lagune des Serments (3 îles sauvées)
+  - name: TX_5a7f
+    index: 0x7f
+    text: |-
+      \col(1)Carnet des
+      Rêves\col(0)\stop
+      \col(1)Brume\col(0): la
+      dame dort, le
+      vieux ne compte
+      plus. Rendus!\stop
+      \col(1)Grelot\col(0): Lila
+      invente des
+      chevaliers. Les
+      enfants jouent!\stop
+      \col(1)Lagune\col(0):
+      Héloïse et
+      Gaspard se
+      souviennent.
+      Mariés tous les
+      matins!
+
+  - name: TX_5a7c
+    index: 0x7c
+    text: |-
+      \col(1)Marine\col(0): \Link!\stop
+      Tu as été long.
+      Ne refais jamais
+      ça.\stop
+      ...Tu sais quoi?
+      C'est ce que dit
+      le troisième
+      couplet. Mot
+      pour mot.\stop
+      Viens. Ça parle,
+      chez Gaspard!
+
+  # Chez Héloïse et Gaspard (3:23)
+  - name: TX_5a7d
+    index: 0x7d
+    text: |-
+      \col(1)Héloïse\col(0):
+      Gaspard!
+      Tu as mis tes
+      palmes pour
+      danser, ce jour-
+      là...\stop
+      \col(1)Gaspard\col(0): Et
+      toi, tu as
+      pleuré de rire.
+      Bonjour, ma
+      femme.
+
+  - name: TX_5a7e
+    index: 0x7e
+    text: |-
+      \col(1)Marine\col(0): Chut...
+      le vent a
+      tourné.\stop
+      Il sent la
+      fumée et le fer
+      chaud.\stop
+      Une montagne qui
+      fume, au nord...
+      On y entend
+      cogner.
+
+
   # Le menu de test caché (code/ages/balladeDebug.s ; HAUT tenu 5 s à l'écran titre) :
   # la langue, l'île, le moment, et dans le donjon l'endroit. Le même dans les deux fichiers.
   - name: TX_5af0
@@ -1615,6 +1683,32 @@ groups:
       Va dans l'eau,
       et \bbtn pour
       plonger.
+
+  # Les Écailles de Sirène (le costume de sirène d'Ages)
+  - name: TX_0036
+    index: 0x36
+    text: |-
+      Les \col(1)Écailles de
+      Sirène\col(0)!\stop
+      Tu nages dans
+      l'eau profonde,
+      et \bbtn: tu
+      plonges!
+
+  # L'essence du 3e donjon : le troisième couplet
+  - name: TX_0010
+    index: 0x10
+    text: |-
+      \pos(2)\slow()La Murène a
+      rendu les mots
+      doux qu'elle
+      avait avalés.\stop
+      Tu as trouvé le
+      \col(1)troisième
+      couplet\col(0) de la
+      chanson de
+      Marine!
+
 
 
   - name: TX_005a
@@ -1839,6 +1933,12 @@ groups:
 # Nom du donjon (en entrant, et sur sa carte)
 - group: 0x02
   data:
+  - name: TX_0203
+    index: 0x03
+    text: |2-
+       Niveau 3
+       Récif Murmurant
+
   - name: TX_0202
     index: 0x02
     text: |2-
@@ -1881,6 +1981,22 @@ groups:
     text: |-
       Palmes de Zora
       Pour nager.
+
+  - name: TX_0903
+    index: 0x03
+    text: |-
+      Troisième
+      couplet
+      Quelqu'un qui
+      attend.
+
+  - name: TX_0945
+    index: 0x45
+    text: |-
+      Écailles de
+      Sirène
+      Pour plonger.
+
 
 
   - name: TX_0909
@@ -2186,3 +2302,66 @@ groups:
       Mon épée de
       plomb... cassée!
       Rompez!
+
+  # Vire, le démon des grottes (mini-boss du Récif Murmurant)
+  - name: TX_2f12
+    index: 0x12
+    text: |-
+      \pos(2)Hi hi hi! Un
+      petit chevalier,
+      tout seul? Sans
+      sa mouette?\stop
+      Les rêves d'ici,
+      on les a déjà
+      mangés! Viens
+      jouer!
+
+  - name: TX_2f13
+    index: 0x13
+    text: |-
+      \pos(2)Hi hi hi! Un
+      petit chevalier,
+      tout seul? Sans
+      sa mouette?\stop
+      Les rêves d'ici,
+      on les a déjà
+      mangés! Viens
+      jouer!
+
+  - name: TX_2f14
+    index: 0x14
+    text: |-
+      \slow()AÏE! Sale
+      gamin! Tiens!
+
+  - name: TX_2f15
+    index: 0x15
+    text: |-
+      \slow()Brute! Cette
+      fois, c'est
+      sérieux!
+
+  - name: TX_2f16
+    index: 0x16
+    text: |-
+      \slow()Bon! Adieu!
+
+  - name: TX_2f17
+    index: 0x17
+    text: |-
+      \slow()AÏE..!\stop
+      Trop sûr de
+      moi... Celui qui
+      ne dort jamais
+      le saura!
+      Hi hi hi!
+
+  - name: TX_2f18
+    index: 0x18
+    text: |-
+      \slow()AÏE..!\stop
+      Trop sûr de
+      moi... Celui qui
+      ne dort jamais
+      le saura!
+      Hi hi hi!

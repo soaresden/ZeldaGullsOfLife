@@ -29,7 +29,10 @@ LANGUAGES = (('textes.en.yaml', 'text/ages/text.yaml'), ('textes.yaml', 'text/ag
 
 def entry_block(text):
     """Bloc YAML d'un texte, au format du fichier d'Ages."""
-    lines = ['    text: |-'] + ['      ' + l if l else '' for l in text.split('\n')]
+    # Un texte qui commence par des espaces (un nom centré) : indentation donnée (« |2- »), sinon
+    # YAML la déduirait de la première ligne
+    head = '    text: |2-' if text.startswith(' ') else '    text: |-'
+    lines = [head] + ['      ' + l if l else '' for l in text.split('\n')]
     return '\n'.join(lines) + '\n'
 
 
