@@ -282,10 +282,45 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   meunier, Zéphyr dans les deux mondes, le pont par le Songe, Mère Plume, les sauts).
   Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/nid.png
 
+## La Spirale Céleste (donjon 6)
+- story/salles/spirale.txt (tracé par un script jetable, avec un solveur pour le carrelage) :
+  groupe 4, salles 4:3c-48 et 4:4b-54, décor 3b = le Donjon des Ailes (déjà pris par le Coffre à
+  Jouets, index 2) recopié par make_songe.py à l'index de donjon 6, en bleuté ; l'entrée 0x3b de
+  tilesets.s est sur une ligne (render_room.py ne sait pas la lire). Un étage en spirale
+  (dungeon06LayoutSpirale). Entrée : le dd du Nid (1:48, derrière un trou : la Plume) -> 4:3c $97.
+- Portées mesurées : la Plume saute ~2 cases (un gouffre de 2 avec de l'élan), la Cape ~4 (un
+  gouffre de 3 ; le second appui ~20 images après le premier) ; le Grappin 5 cases. Donc : 1-2
+  cases = Plume, 3 = Cape ou Grappin. Vers le bas, partir une case avant le trou (les pieds de Link
+  y arrivent plus tôt : il glisse et ne saute pas). Deux lignes de sol entre deux tranchées.
+- Les énigmes : 3e le bouton sur l'îlot (PART_BUTTON $80) : un bloc de la Canne dessus ouvre le
+  volet (door controller $07, bit 0) ; 3f trois cases de gouffre : le Grappin et deux diamants ;
+  42 le carrelage (INTERAC_TILE_FILLER $25 + INTERAC_DUNGEON_EVENTS $11 : tout peindre d'un seul
+  trait, 16 solutions) ; 43 le cristal (PART_SWITCH $08) au Boomerang -> INTERAC_TRIGGER_TRANSLATOR
+  $31 -> volet du nord ($1e $04, X = bit 3) ; 46 le Grappin puis un saut ; 4c -> 4d le cristal
+  (bit 2 de wSwitchState) jette un pont dans la salle suivante (commonTileSubstitutions.s, appliqué
+  au chargement) ; 3d le raccourci du cœur (4e -> 3d) n'est franchissable qu'à la Cape.
+- Après un échange au Grappin, le diamant reprend sa place ~70 images plus tard (là où était Link).
+- Les changements de cases d'Ages des salles reprises sont commentés (roomSpecificTileChanges.s :
+  4c, 4e, 52 ; commonTileSubstitutions.s : 4c, 4e, 53).
+- Le Fouisseur = le Subterror d'Ages (ses objets de 4:4d) ; l'Ombre de Marine = le Swoop (4:34),
+  INTERAC_DUNGEON_SCRIPT $01 ajouté au donjon 6 (dungeonScript_bossDeath : le cœur) ; l'essence
+  (wGroup4RoomFlags+$54) ramène au village des plumes (1:67) : les moulins, Zéphyr, le Rito ;
+  Marine lit le vent (l'île du Grand Sommeil, GLOBALFLAG_BALLADE_ISLAND7).
+- Musiques : $15 le Nid des Vents (music/nid.txt), $14 la Spirale Céleste (music/spirale.txt).
+- Menu de test : île 6 Donjon / M-boss (la Cape) / Boss (4:53, la clé du boss) / Fin ; jalons 24-27.
+- Test : python tools/test_spirale.py DOSSIER (chaque énigme jouée comme un joueur).
+  Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/spirale.png
+- Compiler quand le Python du Store refuse (« Permission denied ») : PYTHON=/c/msys64/clang64/bin/python.exe
+  et /c/msys64/clang64/bin en tête du PATH (Pillow y est installé : pacman,
+  mingw-w64-clang-x86_64-python-pillow).
+
 ## Pièges déjà rencontrés
 - La brique 64 (bord de roche) est une FALAISE dans tous les décors d'extérieur (cliffTiles.s,
   ANGLE_DOWN) : Link saute par-dessus en marchant vers le bas et tombe dans l'écran du dessous.
   Pour un mur de roche, prendre 60 (Mont-Braise, île des Échos).
+- Salle de boss / mini-boss d'Ages : les portes doivent être OUVERTES dans le plan (a0) et fermées par
+  INTERAC_DOOR_CONTROLLER $08-0b. Un volet déjà fermé dans le plan ne compte pas dans wcc93 : le
+  boss (Fouisseur, Swoop…) attend indéfiniment que wcc93 retombe et Link reste gelé.
 - Les heredocs Bash de l'outil réduisent `\\` en `\` : écrire les fichiers avec des `\` via Write/Edit.
 - `parseText.py` lisait le texte avec l'encodage Windows : corrigé (UTF-8) dans le fork.
 - Textes : style YAML `|-` avec retours à la ligne choisis à la main ; `\stop` en fin de ligne.

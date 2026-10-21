@@ -16,6 +16,11 @@ Usage : python tools/record_music.py [NOM ...]   (sans nom : tout)
   recif     out/recif_apercu.wav     le Récif Murmurant (le hall, 5:3f ; $18)
   braise    out/braise_apercu.wav    Mont-Braise (le village goron, 1:2a ; $26)
   forge     out/forge_apercu.wav     la Forge Endormie (l'entrée, 4:bb ; $17)
+  echos     out/echos_apercu.wav     l'île des Échos (1:62 ; $13)
+  cathedrale out/cathedrale_apercu.wav la Cathédrale Engloutie (5:8b ; $1a)
+  tarkin    out/tarkin_apercu.wav    la maison de Tarkin (3:26 ; $19)
+  nid       out/nid_apercu.wav       le Nid des Vents (le village des plumes, 1:67 ; $15)
+  spirale   out/spirale_apercu.wav   la Spirale Céleste (4:3d ; $14)
 Pour le boss et le miniboss (pas de salle où ils jouent d'office), l'appel à playSound qui lance
 la musique du Phare est détourné vers la leur (crochet PyBoy sur playSound, ROM intacte).
 """
@@ -47,6 +52,8 @@ TRACKS = {
     'echos': (1, 0x62, 0x55, None, 52),
     'cathedrale': (5, 0x8b, 0x57, None, 50),
     'tarkin': (3, 0x26, 0x64, None, 40),
+    'nid': (1, 0x67, 0x44, None, 48),
+    'spirale': (4, 0x3d, 0x57, None, 48),
 }
 wanted = sys.argv[1:] or ['film', 'titre'] + list(TRACKS)
 

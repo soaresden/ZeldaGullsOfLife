@@ -1,0 +1,45 @@
+# La Spirale Céleste — musique originale du donjon 6 (Gulls of Life)
+#
+# Esprit : une spirale qui monte vers le cœur du nid. Des gammes qui grimpent sans fin au premier
+# carré (doucement, un cran plus haut à chaque mesure, puis elles retombent), une mélodie très
+# espacée au deuxième carré, une basse lente à l'onde, presque pas de batterie. Ré dorien. De
+# l'ambiance, pas d'urgence (retour de Denis sur la Forge).
+# Même notation que music/phare.txt (8 croches par mesure).
+
+tempo 10         # images par croche
+mesure 8
+
+== INTRO ==
+# Les gammes seules
+melodie:   [v0] [duty 2] [vib 41] [gate .9] [detune 0]
+melodie:   -:8 | -:8 |
+accordeon: [v2] [duty 0] [vib 00] [gate .7] [detune 0]
+accordeon: d4:1 e4:1 f4:1 g4:1 a4:1 b4:1 c5:1 d5:1 | e4:1 f4:1 g4:1 a4:1 b4:1 c5:1 d5:1 e5:1 |
+basse:     [onde 0e] [vib 00] [gate 1]
+basse:     d2:8 | c2:8 |
+batterie:  [v1] h:1 -:7 | -:8 |
+
+== A ==
+# On tourne, on monte : la mélodie se pose sur les gammes
+melodie:   [v4] [vib 41] [gate .9]
+melodie:   a5:8 | c6:8 | b5:4 g5:4 | a5:8 |
+melodie:   d6:6 c6:2 | b5:4 a5:4 | g5:4 e5:4 | f5:4 e5:4 |
+accordeon: [v2] [gate .7]
+accordeon: d4:1 e4:1 f4:1 g4:1 a4:1 b4:1 c5:1 d5:1 | e4:1 f4:1 g4:1 a4:1 b4:1 c5:1 d5:1 e5:1 |
+accordeon: g4:1 a4:1 b4:1 c5:1 d5:1 e5:1 f5:1 g5:1 | a4:1 b4:1 c5:1 d5:1 e5:1 f5:1 g5:1 a5:1 |
+accordeon: f4:1 g4:1 a4:1 b4:1 c5:1 d5:1 e5:1 f5:1 | d4:1 e4:1 f4:1 g4:1 a4:1 b4:1 c5:1 d5:1 |
+accordeon: c4:1 d4:1 e4:1 f4:1 g4:1 a4:1 b4:1 c5:1 | a3:1 b3:1 c4:1 d4:1 e4:1 f4:1 g4:1 a4:1 |
+basse:     d2:8 | c2:8 | g1:8 | a1:8 | bb1:8 | g1:8 | c2:8 | a1:8 |
+batterie:  ( [v1] h:1 -:7 | -:8 | )x4
+
+== B ==
+# Le cœur de la spirale : on s'arrête un instant, les gammes redescendent
+melodie:   [v5]
+melodie:   f5:4 a5:4 | c6:8 | b5:4 d6:4 | a5:8 |
+accordeon: [v1]
+accordeon: d5:1 c5:1 b4:1 a4:1 g4:1 f4:1 e4:1 d4:1 | c5:1 b4:1 a4:1 g4:1 f4:1 e4:1 d4:1 c4:1 |
+accordeon: g4:1 a4:1 b4:1 d5:1 g4:1 a4:1 b4:1 d5:1 | a4:1 c5:1 e5:1 a4:1 c5:1 e5:1 a4:1 -:1 |
+basse:     bb1:8 | f1:8 | g1:8 | a1:8 |
+batterie:  -:8 | -:8 | -:8 | -:8 |
+
+ordre: INTRO | A B

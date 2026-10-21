@@ -33,7 +33,10 @@ import shutil
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DISASM = os.path.join(ROOT, 'oracles-disasm')
 DATA = os.path.join(DISASM, 'data', 'ages')
-COPIES = {0x7d: 0x10, 0x7e: 0x18, 0x7f: 0x2b, 0x7c: 0x00, 0x7b: 0x00, 0x06: 0x1e, 0x07: 0x13, 0x08: 0x1a}   # décor du Songe -> décor du Réel copié
+# décor du Songe -> décor du Réel copié (0x3b : la Spirale Céleste, pas un Songe : le Donjon des
+# Ailes recopié à l'index de donjon 6, en bleuté)
+COPIES = {0x7d: 0x10, 0x7e: 0x18, 0x7f: 0x2b, 0x7c: 0x00, 0x7b: 0x00, 0x06: 0x1e, 0x07: 0x13, 0x08: 0x1a,
+          0x3b: 0x37}
 
 # (décor, copie de, en-tête de palette d'origine, nouvel en-tête, octets du décor)
 SONGE = [
@@ -52,12 +55,19 @@ SONGE = [
      '$0f, $01, UNIQUE_GFXH_YOLL_GRAVEYARD, GFXH_TILESET_OVERWORLD_PAST, PALH_SONGE_ECHOS, $01, $00, $01'),
     (0x08, 'PALH_TILESET_TALUS_PEAKS_PAST', 0xd3, 'PALH_SONGE_NID',
      '$0f, $01, UNIQUE_GFXH_TALUS_PEAKS, GFXH_TILESET_OVERWORLD_PAST, PALH_SONGE_NID, $06, $00, $01'),
+    # La Spirale Céleste (donjon 6) : le Donjon des Ailes (déjà pris par le Coffre à Jouets, donjon
+    # 2) recopié à l'index de donjon 6, aux couleurs (bleutées) du ciel
+    (0x3b, 'PALH_TILESET_WING_DUNGEON', 0xd4, 'PALH_SPIRALE',
+     '$26, $88, UNIQUE_GFXH_NONE, GFXH_TILESET_WING_DUNGEON, PALH_SPIRALE, $22, $04, $10'),
 ]
 SEPIA = (0x07,)   # ces Songes-là sont sépia (voir sepia())
 # Copies du Réel : (décor, octets du décor) ; mêmes palettes, drapeau « passé » ($80)
 REEL = [
     (0x7b, '$0f, $81, UNIQUE_GFXH_LYNNA_CITY_1, GFXH_TILESET_OVERWORLD_PRESENT, PALH_TILESET_LYNNA_CITY, $00, $02, $00'),
 ]
+# En-têtes de palette écrits à la main dans paletteHeaders.s (hors du bloc du Songe) : à compter
+# dans NUM_PALETTE_HEADERS. $d5 PALH_OMBRE : l'Ombre de Marine (le Swoop, palette 6 des sprites)
+OTHER_HEADERS = (0xd5,)
 BEGIN, END = '; BALLADE-SONGE-DEBUT (tools/make_songe.py)', '; BALLADE-SONGE-FIN'
 
 
@@ -146,8 +156,9 @@ def main():
         if start + restore not in headers:
             headers = headers.replace(start, start + restore, 1)
 
-    # (l'en-tête PALH_TITLE est le $cf, entre deux décors du Songe)
-    count = max(max(s[2] for s in SONGE), 0xcf) + 1
+    # (l'en-tête PALH_TITLE est le $cf, entre deux décors du Songe ; les en-têtes écrits à la main
+    # hors du bloc, comme PALH_OMBRE, sont dans OTHER_HEADERS)
+    count = max(max(s[2] for s in SONGE), 0xcf, *OTHER_HEADERS) + 1
     headers = re.sub(r'\.define NUM_PALETTE_HEADERS \$[0-9a-f]+[^\n]*',
                      '.define NUM_PALETTE_HEADERS $%02x ; BALLADE: + film, Songe, titre' % count, headers)
     headers = replace_block(headers, '\n'.join(hdr_lines))

@@ -32,6 +32,7 @@ NAMES = {
     3: {'en': ('Murmuring', 'Reef'), 'fr': ('Récif', 'Murmurant')},
     4: {'en': ('Sleeping', 'Forge'), 'fr': ('Forge', 'Endormie')},
     5: {'en': ('Echo', 'Cathedral'), 'fr': ('Cathédrale', 'des Échos')},
+    6: {'en': ('Sky', 'Spiral'), 'fr': ('Spirale', 'Céleste')},
 }
 
 # Lettres dessinées à la main (. vide, : contour clair, o ombre, # trait) ; la dernière ligne est

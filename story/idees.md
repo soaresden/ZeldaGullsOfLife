@@ -14,7 +14,9 @@ dessiné dans `docs/iles_plans.png` par `tools/make_plans.py`.
   vie en bas (avec nos cœurs), les objets à droite (les cases B et A, « NO ITEM » quand vides). Gros
   chantier : la barre d'état d'Ages est en haut et fait toute la largeur.
 
-## Les photos de Cocolint
+## Les photos de Cocolint (une scène avec Marine, pour créer du lien)
+- Une vraie scène où Link et Marine passent du temps ensemble, comme la balade sur la plage de
+  *Link's Awakening DX*, mais **plus longue** (moment à choisir). C'est pour s'attacher à Marine.
 - Clin d'œil à l'album de la souris photographe de *Link's Awakening DX*. Dans une veillée ou
   dans le Songe, Marine fouille la poche de Link :
   > « Hé, qu'est-ce que tu as dans la poche… Oh ! Nos photos ! »
@@ -44,7 +46,51 @@ Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, ave
 - Un mini-jeu de **plongée en apnée** : descendre récupérer des trucs au fond, de plus en plus
   profond. **Chaque cœur augmente le temps d'apnée** (donc la profondeur qu'on peut atteindre).
   Un peu comme la Maison des Coquillages de *Link's Awakening*, mais animé.
+- **Au plus profond, la Master Sword**, enterrée (la Pelle). Il faut assez de cœurs pour y
+  descendre : on les a **après le donjon 7** (3 au départ + un réceptacle par boss : 1, 2, 3, 4,
+  6, 7 ; la Cathédrale n'a pas de boss = 9, plus les quarts trouvés). Régler la profondeur pour
+  qu'avant le donjon 7 on voie le fond sans pouvoir l'atteindre.
 - Quart de cœur à gagner, comme les deux autres mini-jeux.
+
+## La planche de surf (demandée par Denis)
+- Link a une **planche de surf** pour aller plus vite sur l'eau, comme Pikachu qui surfe dans
+  *Pokémon*. À placer (un objet trouvé sur une île de mer : la Lagune ? un PNJ surfeur ?) ; dans
+  le moteur : une vitesse de nage plus grande tant qu'on a l'objet (ou qu'on le tient sur B), et
+  un sprite de Link debout sur la planche.
+
+## Gerudo Valley et le Chant des Tempêtes (demandés par Denis, scénario à trouver)
+- **Le Chant des Tempêtes** (*Ocarina of Time*) : c'est la chanson de l'homme du moulin ; le Nid des
+  Vents a des moulins qui repartent à la fin du chapitre 6 : ce pourrait être la « Sérénade du
+  Vent » que Marine chante pour les relancer (ou un air de la Lanterne qui fait tourner le vent).
+- **Gerudo Valley** : un endroit vivant et rapide : le forain et ses jeux, un marché, une île de
+  pirates ou de désert dans la deuxième moitié, ou une course (le radeau ?).
+- À écrire en partitions (music/*.txt) comme le village des Mouettes de LADX ; pas de
+  désassemblage d'*Ocarina* sur la machine : transcrire.
+
+## Le temps ralenti (le tokitobashi de Hit, *Dragon Ball Super*) (demandé par Denis)
+- Ses mots : « un objet pour ralentir le temps, un peu comme le tokitobashi de Hit dans Dragon
+  Ball Super, ça ralentit le temps et du coup on peut s'exciter sur l'ennemi. Et à la reprise du
+  cours normal, il se reçoit plein de dégâts et visuellement et au niveau du son on sent
+  l'impact. »
+- Pistes : ~3 s de temps figé (ennemis et projectiles arrêtés, Link bouge, couleurs grisées ou
+  bleutées, musique coupée et un tic-tac) ; les coups sont comptés sans dégâts, puis tout d'un
+  coup à la reprise : tremblement d'écran, flash blanc, gros son ; une recharge ou un coût.
+
+## Le contre parfait (*Onimusha*) (demandé par Denis)
+- Ses mots : « si on sort son épée au bon moment, un son puissant, et ça permet de se téléporter à
+  côté de l'ennemi et de le one shot, comme dans Onimusha. »
+- Pistes : une fenêtre de quelques images avant qu'un ennemi touche Link ; l'épée sortie dedans
+  = son fort, flash, Link téléporté à côté, l'ennemi tué d'un coup.
+
+## Le gantelet des âmes (*Onimusha*) : un donjon (demandé par Denis)
+- Ses mots : « un donjon où on nous donne le gantelet pour absorber les âmes des ennemis (comme
+  Onimusha justement) ; et à la fin le boss, c'est justement qu'il apparaît uniquement si on en a
+  récupéré assez. Pendant ce temps les ennemis apparaissent toujours ; une fois qu'on en a assez,
+  il apparaît et on va pouvoir le tuer. L'idée c'est de lui faire mal et d'aspirer ses âmes, et
+  il maigrit au fur et à mesure, alors oui il disparaît au fur et à mesure, mais comme il maigrit
+  il devient plus rapide. Ensuite le gantelet absorbe son âme et ça devient une relique ; mais on
+  garde le bracelet pour pouvoir causer des dommages à distance aux ennemis et absorber leur
+  vie. »
 
 ## Les cœurs : 12 au maximum
 - 3 au départ + 7 réceptacles (un par boss) = 10 ; + 2 cœurs en quarts (8 quarts).
