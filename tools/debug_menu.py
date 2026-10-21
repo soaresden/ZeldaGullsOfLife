@@ -127,7 +127,7 @@ class Game:
         return bcd(self.m[RUPEES]) + 100 * bcd(self.m[RUPEES + 1])
 
     def tile(self, pos):
-        """La brique d'une case de la salle (wRoomLayout, 16 cases par ligne)."""
+        """La brique d'une case de la salle (wRoomLayout, 16 cases par ligne ; pos = $YX)."""
         return self.m[0xcf00 + pos]
 
     def global_flag(self, flag):
@@ -135,6 +135,60 @@ class Game:
 
     def room_flags(self, group, room):
         return self.m[ROOM_FLAGS[group] + room]
+
+    def stand(self, row, col, y_first=False):
+        """Amener Link au centre d'une case (d'abord en x, ou d'abord en y)."""
+        y, x = row * 16 + 8, col * 16 + 8
+        if y_first:
+            self.goto(y, None)
+            self.goto(None, x)
+        else:
+            self.goto(None, x)
+            self.goto(y, None)
+
+    def route(self, *cells):
+        """De case en case (chaque étape : d'abord en x, puis en y)."""
+        for row, col in cells:
+            self.stand(row, col)
+
+    def go(self, direction, target, limit=40):
+        """Marcher vers une porte jusqu'à changer de salle (target = (groupe, salle))."""
+        for _ in range(limit):
+            self.hold(direction, 20)
+            if self.where() == target:
+                break
+        self.settled()
+        self.w(30)
+        self.hold(direction, 14)
+        return self.where() == target
+
+    def enemies(self, ident=None):
+        out = []
+        for d in range(0xd0, 0xe0):
+            base = (d << 8) + 0x80
+            if self.m[base] and (ident is None or self.m[base + 1] == ident):
+                out.append(base)
+        return out
+
+    def clear_enemies(self, keep=()):
+        """La triche des tests : les ennemis n'ont plus de vie (ils meurent comme d'un coup)."""
+        for _ in range(3):
+            for base in self.enemies():
+                if self.m[base + 1] not in keep:
+                    self.m[base + 0x29] = 0
+            self.w(90)
+
+    def small_keys(self, dungeon):
+        return self.m[SMALL_KEYS + dungeon]
+
+    def open_chest(self, row, col):
+        """Ouvrir le coffre (row, col) par en dessous ; vrai s'il est ouvert."""
+        self.stand(row + 1, col, y_first=True)
+        self.hold('up', 12)
+        self.press('a', 60)
+        self.text_through(10)
+        self.w(60)
+        return self.tile(row * 16 + col) == 0xf0
 
     def describe(self):
         g, r = self.where()

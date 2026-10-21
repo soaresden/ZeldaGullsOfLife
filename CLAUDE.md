@@ -84,6 +84,28 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   INTERAC_BALLADE_OBJECT $07 dans l'auberge. La banque des scripts ($0c) est pleine : les nouveaux
   habitants sont en ASM.
 
+## Le Coffre à Jouets (donjon 2)
+- story/salles/coffre.txt : les salles du 2e donjon d'Ages (groupe 4, $2b-$3b), décor 37 (le Donjon
+  des Ailes), dungeon02LayoutCoffre (dungeonData02, un étage). Entrée 4:39 depuis le Coffre à
+  Jouets du rêve de Lila (INTERAC_BALLADE_OBJECT $06, warp direct) ; sortie -> 2:21.
+  INTERAC_DUNGEON_STUFF $00 (nom du donjon, remise à zéro des cristaux) ne marche qu'au chargement
+  d'une partie : nos entrées utilisent INTERAC_BALLADE_OBJECT $09 (même rôle, TX_0200 + donjon).
+- Chemin : Zols (clé 1 qui tombe, $12 $01) ; porte à clé -> hall ; soldats (volet $1e $09) ->
+  coffre du Boomerang-Toupie ($12 $02, TREASURE_OBJECT_BOOMERANG_04) ; grelot de 4:34 (Marine,
+  pont @bridges, clé 2) ; cristal 4:2d (PART_SWITCH $01 -> $24 $01 -> volet $1e $07), le boomerang
+  L1 porte à ~4 cases (65 pixels) ; Soldat de Plomb = l'Armos Warrior (objets de la salle 4:80,
+  TX_2f01-02 traduits) -> clé du boss ; porte du boss -> antichambre 4:2e ; l'échelle (colonne 4)
+  monte dans 4:2b (défilement latéral) : Pantin-Sans-Fil = la Head Thwomp d'Ages (ses objets
+  d'origine gardés dans objets.txt) + Marine ($01, TX_5a63).
+- Pantin-Sans-Fil : une bombe entrée dans sa bouche (y $50, x $78, à 12 pixels près) quand son
+  visage est rouge (ou passe au rouge) lui coûte un cœur (4 cœurs) ; il tourne plus vite à chaque
+  coup (visage 26/23/20/17 images, transition 11/10/8/7). En défilement latéral, Marine monte
+  (3 pixels par image) : la lancer 1 à 16 images après le passage au violet marche à tous les
+  niveaux (« la bombe prête, lance-moi dès qu'il devient violet »). Après sa mort : cœur, échelles ;
+  l'essence apparaît dans l'antichambre (INTERAC_BALLADE_OBJECT $08) -> réveil chez Lila (3:21).
+- Test : python tools/test_coffre.py DOSSIER (tout le donjon, ennemis retirés sauf le boss).
+  Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/coffre.png
+
 ## Pièges déjà rencontrés
 - Les heredocs Bash de l'outil réduisent `\\` en `\` : écrire les fichiers avec des `\` via Write/Edit.
 - `parseText.py` lisait le texte avec l'encodage Windows : corrigé (UTF-8) dans le fork.

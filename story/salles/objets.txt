@@ -170,3 +170,62 @@ salle 3:21
 salle 2:21
 	obj_Interaction INTERAC_BALLADE_OBJECT $05 $48 $38
 	obj_Interaction INTERAC_BALLADE_OBJECT $06 $58 $78
+
+# --- Le Coffre à Jouets (donjon 2, groupe 4 ; story/salles/coffre.txt) ---
+# L'entrée : « Niveau 2 - Coffre à Jouets » en entrant par l'arche (INTERAC_BALLADE_OBJECT $09, TX_0202)
+salle 4:39
+	obj_Interaction INTERAC_BALLADE_OBJECT $09 $08 $08
+# Les Zols : battus, la petite clé 1 tombe (INTERAC_DUNGEON_STUFF $01)
+salle 4:37
+	obj_RandomEnemy $60 ENEMY_ZOL $00
+	obj_Interaction $12 $01 $58 $78
+# Le couloir de la boussole : des chauves-souris
+salle 4:3a
+	obj_RandomEnemy $30 ENEMY_KEESE $00
+# La carte
+salle 4:3b
+# Le hall : deux serpents
+salle 4:33
+	obj_RandomEnemy $20 ENEMY_ROPE $00
+# Ouest du hall : deux soldats de bois
+salle 4:32
+	obj_SpecificEnemyA $00 ENEMY_STALFOS $00 $38 $78
+	obj_SpecificEnemyA     ENEMY_STALFOS $00 $78 $78
+# Le Boomerang-Toupie : volet de droite fermé tant que les soldats vivent ; puis le coffre
+# (INTERAC_DUNGEON_STUFF $02)
+salle 4:31
+	obj_Interaction $1e $09 $5e $00
+	obj_Interaction $12 $02 $58 $78
+	obj_SpecificEnemyA $00 ENEMY_STALFOS $00 $38 $48
+	obj_SpecificEnemyA     ENEMY_STALFOS $00 $38 $a8
+	obj_SpecificEnemyA     ENEMY_STALFOS $00 $78 $78
+# Le grelot, de l'autre coté du gouffre ; Marine le remarque
+salle 4:34
+	obj_Interaction INTERAC_BALLADE_OBJECT $03 $58 $b8
+	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+# Le cristal (bit 0 de wSwitchState, PART_SWITCH) -> wActiveTriggers bit 0 (INTERAC_TRIGGER_TRANSLATOR
+# $24 $01) -> le volet de gauche (INTERAC_DOOR_CONTROLLER $07) ; des chauves-souris
+salle 4:2d
+	obj_Part $05 $01 $23
+	obj_Interaction $24 $01 $00 $00
+	obj_Interaction $1e $07 $50 $00
+	obj_RandomEnemy $20 ENEMY_KEESE $00
+# Le Soldat de Plomb : l'Armos Warrior d'Ages (ses objets de la salle 4:80) ; volet fermé tant
+# qu'il vit ; le script de sa mort (INTERAC_DUNGEON_SCRIPT $02) ; puis le coffre de la clé du boss
+salle 4:2c
+	obj_Interaction $1e $09 $5e $00
+	obj_Interaction $20 $02 $58 $78
+	obj_Interaction $12 $02 $58 $78
+	obj_BeforeEvent group4Map80BeforeEventObjectData
+# L'antichambre : l'essence apparaît quand Pantin-Sans-Fil est vaincu (INTERAC_BALLADE_OBJECT $08)
+salle 4:2e
+	obj_Interaction INTERAC_BALLADE_OBJECT $08 $58 $78
+# Pantin-Sans-Fil : la Head Thwomp d'Ages et ses plateformes (les objets de la salle d'Ages),
+# le script de sa mort (INTERAC_DUNGEON_SCRIPT $03 : cœur, échelles) ; il menace, Marine répond
+salle 4:2b
+	obj_Interaction $20 $03 $58 $78
+	obj_Interaction $a4 $00 $00 $00
+	obj_Interaction $a4 $01 $00 $00
+	obj_Interaction $a4 $02 $00 $00
+	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+	obj_BeforeEvent group4Map2bBeforeEventObjectData
