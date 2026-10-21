@@ -223,9 +223,10 @@ Ponton (Bateau-Rondin) | Plage grise | Plage grise | Plage grise | Rocher de la 
 - **Le sonneur**, qui sonne les cloches pour ne pas entendre le silence.
 
 **Donjon : la Cathédrale des Échos.** Forme : **une croix de cathédrale** (la nef, le transept,
-le chœur). Décor : le Tombeau Ancien d'*Ages*. C'est une **Nuit Blanche** : l'Insomnis rôde ;
-s'il voit Link, Link se réveille à l'entrée de la salle. Le Grappin-Écho sert à échanger sa
-place avec les statues pour se cacher derrière elles.
+le chœur). Décor : le Tombeau Ancien d'*Ages*. C'est une **Nuit Blanche** : les Veilleurs de
+l'Insomnis (les gardes du palais d'Ambi) font leur ronde ; s'ils voient Link, il se réveille à
+l'entrée de la salle. On passe dans leur dos, caché derrière les statues. Le Grappin-Écho
+échange sa place avec les diamants pour franchir les gouffres.
 
 ```donjon 5
 . | . | . | C | . | . | .
@@ -238,10 +239,12 @@ place avec les statues pour se cacher derrière elles.
 
 - **Objet : le Grappin-Écho** (le Switch Hook).
 - **Mini-boss : le Gardien des Cloches** (le Stalfos bleu).
-- **Pas de boss.** Au fond du chœur, la maison de Marine à Mabe, et Tarkin (voir l'histoire).
+- **Pas de boss.** Au fond du chœur, un escalier vers un souvenir : la maison de Marine à Mabe.
+  Tarkin met trois assiettes, « ma fille va rentrer » ; Marine, mouette, lui chante le couplet.
   On peut y mettre la musique du village des Mouettes de *Link's Awakening DX* (son
   désassemblage est autorisé).
-- Couplet 5, le plus beau.
+- Couplet 5, le plus beau : « Si un jour tu m'oublies, écoute la mer : je chante encore. »
+  Ensuite, sur la place du silence, les cloches chantent la chanson de Mamie Rose.
 
 ---
 

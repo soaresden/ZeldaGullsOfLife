@@ -219,6 +219,40 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   le quart de cœur, la grille, la veuve Marée).
   Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/echos.png
 
+## La Cathédrale des Échos (donjon 5)
+- story/salles/cathedrale.txt (tracé par un script jetable) : groupe 5, les salles du Tombeau Ancien
+  d'Ages (décor 40 passé à l'index de donjon 5 : tilesets.s $28 -> $25), un étage en croix
+  (dungeon05LayoutCathedrale) : 7b / 7c 7d 7f / 80 81 82 83 85 86 89 / 8b 8d 8e / 8f 90 91 /
+  92 aa 93. Entrée : la grille de 1:42 (dd) -> 5:aa $97 ; sortie -> 1:42 $54.
+- Nuit Blanche : les Veilleurs de l'Insomnis = ENEMY_AMBI_GUARD (les gardes du palais d'Ambi),
+  sous-types $0d-$14, leurs rondes à la fin de ambiGuard.s (ms_* : une ronde part de la position
+  de l'objet ; « ms_down $58 » sur place = se tourner). Ils voient en ligne droite devant eux (un
+  rayon arrêté par les murs et les statues, pas par les trous) et à une case autour, devant. S'ils
+  voient Link : dans le donjon 5, pas de CUTSCENE_BOOTED_FROM_PALACE mais un warp vers la même
+  salle, à wLinkLocalRespawnY/X (là où Link est entré) : il se réveille à l'entrée de la salle.
+  Toujours une statue devant les portes des salles gardées (sinon on se réveille sous leurs yeux).
+- Banque 0e (code des ennemis) pleine : la résurrection de Ganon (enemyCode60, fin du jeu lié)
+  n'est plus qu'un `jp enemyDelete` dans Ages.
+- Le Grappin-Écho (le Switch Hook, TREASURE_OBJECT_SWITCH_HOOK_00, TX_0030 / TX_093d) : portée 5
+  cases ; les diamants db (tile des donjons). Les diamants reviennent à leur place en rentrant
+  dans la salle : jamais devant une porte, et un diamant de chaque coté de chaque gouffre. Viser
+  avec une case libre devant soi : au bord d'un trou, Link glisse dedans et le grappin ne part pas.
+  Les coffres ne s'ouvrent que par en dessous.
+- Le Gardien des Cloches = le Stalfos bleu d'Ages (obj_BeforeEvent group5Map82BeforeEventObjectData),
+  volets $1e $09-$0b, INTERAC_DUNGEON_SCRIPT $00 (sa mort : le portail). Pas de boss : la clé du
+  chœur (la clé du boss, 5:89) ouvre le chœur (5:7b) ; l'escalier -> le souvenir (3:26, la maison
+  de Marine à Mabe, décor 2b) : Tarkin ($20, le moustachu d'Ages) ; Marine lui chante le couplet
+  (drapeau $80 de 3:26 = wPastRoomFlags+$26) ; au retour, l'essence tombe dans le chœur.
+- Fin du chapitre 5 (@endings : 1:62) : les cloches chantent la chanson de Mamie Rose, Marine lit
+  le vent (le Nid des Vents, GLOBALFLAG_BALLADE_ISLAND6 ; l'île 6 n'existe pas encore : le radeau
+  y mène à la Brume).
+- arrivalTalk attend 8 images et qu'aucun texte ne soit ouvert (le nom du donjon d'abord).
+- Menu de test : île 5 Donjon (5:aa) / M-boss (5:83, le Grappin) / Boss (5:7d, la clé du chœur) /
+  Fin (1:62, l'essence) ; jalons 20-22.
+- Test : python tools/test_cathedrale.py DOSSIER (tout le donjon ; les Veilleurs lus dans la
+  mémoire : on passe quand ils regardent ailleurs ; une fois exprès sous leurs yeux).
+  Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/cathedrale.png
+
 ## Pièges déjà rencontrés
 - La brique 64 (bord de roche) est une FALAISE dans tous les décors d'extérieur (cliffTiles.s,
   ANGLE_DOWN) : Link saute par-dessus en marchant vers le bas et tombe dans l'écran du dessous.

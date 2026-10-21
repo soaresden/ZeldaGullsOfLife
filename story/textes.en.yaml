@@ -1944,6 +1944,120 @@ groups:
       can listen to
       it, after all.
 
+  # The Echo Cathedral: the entrance (5:aa), the first time
+  - name: TX_5a9e
+    index: 0x9e
+    text: |-
+      \col(1)Marin\col(0): Shh!
+      Someone's
+      watching here.\stop
+      The Insomnis's
+      Watchers. They
+      never sleep.\stop
+      If they see
+      you, you wake up
+      at the start of
+      the room.\stop
+      Stay behind
+      them. Hide
+      behind the
+      statues.
+
+  # The choir (5:7b), the first time: the stairs to the memory
+  - name: TX_5a9f
+    index: 0x9f
+    text: |-
+      \col(1)Marin\col(0): These
+      stairs...\stop
+      It smells of
+      salt. And warm
+      soup.\stop
+      ...I know that
+      smell.
+
+  # Tarin, in the memory (3:26, Marin's house in Mabe; $20): the scene
+  - name: TX_5aa0
+    index: 0xa0
+    text: |-
+      \col(1)Tarin\col(0): Oh! A
+      visitor!\stop
+      Sit down, kid.
+      The soup's
+      almost ready.\stop
+      I always set
+      three plates.
+      My daughter's
+      coming home.\stop
+      She sings by
+      the sea. She
+      always comes
+      home.
+
+  - name: TX_5aa1
+    index: 0xa1
+    text: |-
+      \col(1)Marin\col(0): ...Dad.\stop
+      He can't see
+      me. I'm just a
+      seagull, here.\stop
+      It doesn't
+      matter. I'll
+      sing him the
+      verse.
+
+  - name: TX_5aa2
+    index: 0xa2
+    text: |-
+      \col(1)Tarin\col(0): Well!
+      That seagull
+      sings just like
+      my Marin.\stop
+      "If one day you
+      forget me,
+      listen to the
+      sea: I'm still
+      singing."\stop
+      ...That's hers.
+      I'm sure of it.
+
+  - name: TX_5aa3
+    index: 0xa3
+    text: |-
+      \col(1)Tarin\col(0): She'll be
+      home soon. She
+      always comes
+      home.
+
+  # End of chapter 5: the square of silence (1:62), the bells sing
+  - name: TX_5aa4
+    index: 0xa4
+    text: |-
+      \col(1)Noah\col(0): Listen!
+      The bells...
+      they're singing!\stop
+      La la laa...
+      It's Granny's
+      song!\stop
+      \col(1)Bell-ringer\col(0):
+      I didn't touch a
+      thing! It's the
+      wind ringing.
+
+  - name: TX_5aa5
+    index: 0xa5
+    text: |-
+      \col(1)Marin\col(0): Shh...
+      the wind has
+      turned.\stop
+      It's rising.
+      Straight up, to
+      the clouds.\stop
+      It smells of
+      feathers... An
+      island up there,
+      in the sky?
+
+
 
 
 
@@ -2168,6 +2282,35 @@ groups:
       An old key, all
       rusty.
 
+  # The 5th dungeon's essence: the fifth verse
+  - name: TX_0012
+    index: 0x12
+    text: |-
+      \pos(2)\slow()The memory
+      has closed,
+      gently.\stop
+      You found the
+      \col(1)fifth verse\col(0)
+      of Marin's song!\stop
+      \col(1)Marin\col(0): "If one
+      day you forget
+      me, listen to
+      the sea: I'm
+      still singing."\stop
+      ...I wrote that
+      one for him.
+
+  # The Echo Hook (Ages' Switch Hook)
+  - name: TX_0030
+    index: 0x30
+    text: |-
+      The \col(1)Echo
+      Hook\col(0)!\stop
+      Aim at an
+      object to switch
+      places with it.
+
+
 
 
 
@@ -2213,6 +2356,13 @@ groups:
     text: |2-
          Level 4
        Sleeping Forge
+
+  - name: TX_0205
+    index: 0x05
+    text: |2-
+         Level 5
+       Echo Cathedral
+
 
 
 # Item descriptions (inventory)
@@ -2360,6 +2510,21 @@ groups:
     text: |-
       Cathedral key
       All rusty.
+
+  - name: TX_0905
+    index: 0x05
+    text: |-
+      Fifth verse
+      The sea still
+      singing.
+
+  - name: TX_093d
+    index: 0x3d
+    text: |-
+      Echo Hook
+      User and target
+      trade places.
+
 
 
 

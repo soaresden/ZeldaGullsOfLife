@@ -2014,6 +2014,125 @@ groups:
       fond, ça
       s'écoute.
 
+  # La Cathédrale des Échos : l'entrée (5:aa), la première fois
+  - name: TX_5a9e
+    index: 0x9e
+    text: |-
+      \col(1)Marine\col(0): Chut!
+      Quelqu'un veille
+      ici.\stop
+      Les Veilleurs
+      de l'Insomnis.
+      Ils ne dorment
+      jamais.\stop
+      S'ils te voient,
+      tu te réveilles
+      à l'entrée de
+      la salle.\stop
+      Passe dans leur
+      dos. Cache-toi
+      derrière les
+      statues.
+
+  # Le chœur (5:7b), la première fois : l'escalier vers le souvenir
+  - name: TX_5a9f
+    index: 0x9f
+    text: |-
+      \col(1)Marine\col(0): Cet
+      escalier...\stop
+      Ça sent le sel.
+      Et la soupe
+      chaude.\stop
+      ...Je connais
+      cette odeur.
+
+  # Tarkin, dans le souvenir (3:26, la maison de Marine à Mabe ; $20) : la scène
+  - name: TX_5aa0
+    index: 0xa0
+    text: |-
+      \col(1)Tarkin\col(0): Oh! Un
+      visiteur!\stop
+      Assieds-toi,
+      petit. La soupe
+      est presque
+      prête.\stop
+      Je mets toujours
+      trois assiettes.
+      Ma fille va
+      rentrer.\stop
+      Elle chante au
+      bord de la mer.
+      Elle rentre
+      toujours.
+
+  - name: TX_5aa1
+    index: 0xa1
+    text: |-
+      \col(1)Marine\col(0): ...Papa.\stop
+      Il ne me voit
+      pas. Je ne suis
+      qu'une mouette,
+      ici.\stop
+      Ça ne fait
+      rien. Je vais
+      lui chanter le
+      couplet.
+
+  - name: TX_5aa2
+    index: 0xa2
+    text: |-
+      \col(1)Tarkin\col(0): Tiens!
+      Cette mouette
+      chante comme
+      ma Marine.\stop
+      "Si un jour tu
+      m'oublies,
+      écoute la mer:
+      je chante
+      encore."\stop
+      ...C'est d'elle,
+      ça. J'en suis
+      sûr.
+
+  - name: TX_5aa3
+    index: 0xa3
+    text: |-
+      \col(1)Tarkin\col(0): Elle va
+      rentrer. Elle
+      rentre toujours.
+
+  # Fin du chapitre 5 : la place du silence (1:62), les cloches chantent
+  - name: TX_5aa4
+    index: 0xa4
+    text: |-
+      \col(1)Noé\col(0): Écoutez!
+      Les cloches...
+      elles chantent!\stop
+      La la laa...
+      C'est la
+      chanson de
+      Mamie!\stop
+      \col(1)Le sonneur\col(0):
+      Je n'ai touché
+      à rien! C'est
+      le vent qui
+      sonne.
+
+  - name: TX_5aa5
+    index: 0xa5
+    text: |-
+      \col(1)Marine\col(0): Chut...
+      le vent a
+      tourné.\stop
+      Il monte. Tout
+      droit, vers les
+      nuages.\stop
+      Il sent la
+      plume... Une île
+      là-haut, dans
+      le ciel?
+
+
 
 
 
@@ -2379,6 +2498,40 @@ groups:
       Une vieille clé,
       toute rouillée.
 
+  # L'essence du 5e donjon : le cinquième couplet
+  - name: TX_0012
+    index: 0x12
+    text: |-
+      \pos(2)\slow()Le souvenir
+      s'est refermé,
+      tout doux.\stop
+      Tu as trouvé le
+      \col(1)cinquième
+      couplet\col(0) de la
+      chanson de
+      Marine!\stop
+      \col(1)Marine\col(0): "Si un
+      jour tu
+      m'oublies,
+      écoute la mer:
+      je chante
+      encore."\stop
+      ...Celui-là, je
+      l'ai écrit pour
+      lui.
+
+  # Le Grappin-Écho (le Switch Hook d'Ages)
+  - name: TX_0030
+    index: 0x30
+    text: |-
+      Le \col(1)Grappin-
+      Écho\col(0)!\stop
+      Vise un objet:
+      tu prends sa
+      place, et lui
+      la tienne.
+
+
 
 
 
@@ -2426,6 +2579,14 @@ groups:
     text: |2-
        Niveau 4
        Forge Endormie
+
+  - name: TX_0205
+    index: 0x05
+    text: |2-
+       Niveau 5
+       Cathédrale
+       des Échos
+
 
 
 # Description des objets (inventaire)
@@ -2612,6 +2773,22 @@ groups:
       Clé de la
       cathédrale
       Toute rouillée.
+
+  - name: TX_0905
+    index: 0x05
+    text: |-
+      Cinquième
+      couplet
+      La mer qui
+      chante encore.
+
+  - name: TX_093d
+    index: 0x3d
+    text: |-
+      Grappin-Écho
+      On échange sa
+      place.
+
 
 
 
