@@ -27,7 +27,7 @@ import subprocess
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DISASM = os.path.join(ROOT, 'oracles-disasm')
-SONGE = {0x10: 0x7d, 0x18: 0x7e, 0x7b: 0x7c}   # décor du Réel -> décor du Songe
+SONGE = {0x10: 0x7d, 0x18: 0x7e, 0x7b: 0x7c, 0x1e: 0x06}   # décor du Réel -> décor du Songe
 DREAM_FX = '\tobj_Interaction INTERAC_BALLADE_DREAM_FX $00'
 
 

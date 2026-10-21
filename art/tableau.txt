@@ -1,0 +1,19 @@
+# Le tableau de la mer, peint par Pinceau dans le Songe (objet d'échange 2, TREASURE_TRADEITEM) :
+# 16 x 16, à la place du sac puant d'Ages (spr_quest_items_1.png, x = 24 ; demi-tuiles $c3-$c4).
+# Palette de sprite 5 : . transparent   o orange (le cadre, la toile)   r rouge (le soleil)   k noir
+................
+.kkkkkkkkkkkkkk.
+.koooooooooooook
+.kokkkkkkkkkkkok
+.kok..rr.....kok
+.kok.rrrr....kok
+.kok..rr.....kok
+.kok.........kok
+.kok.k...k...kok
+.kokk.k.k.k.kkok
+.kok...k...k.kok
+.kok.k...k...kok
+.kokk.k.k.k.kkok
+.kokkkkkkkkkkkok
+.koooooooooooook
+.kkkkkkkkkkkkkk.

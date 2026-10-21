@@ -161,6 +161,25 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   swim_to : petits coups de bouton, Link glisse).
   Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/recif.png
 
+## Chapitre 4 : Mont-Braise (île 4)
+- story/salles/ile_braise.txt (1:08-3c, 5 x 4 ; tracé par un script jetable) : décor 1e (la Crête
+  Roulante d'Ages, passé) ; son Songe = le décor 06 (à la place de la ville de Symétrie en ruine :
+  make_songe.py, l'entrée 0x06 de tilesets.s est sur une ligne avec « ; Tileset 0x06 »).
+  Passages : nord / sud colonnes 4-5, est / ouest lignes 3-4. Rochers c0 : Bracelet de force
+  (garder le bouton face au rocher et tirer) -> sol 3a. La mine (1:28, dd) -> 5:b2 (un coffre).
+- La quête : Pinceau (1:19, $15) ne peint que le volcan ; dans le Songe (0:19, $16) il voit la mer,
+  peint le tableau (l'objet d'échange 2 : le sac puant d'Ages redessiné, art/tableau.txt, palette
+  5) ; Brasia (1:2a, $14) a une idée : le Bracelet de force (TX_0026, TX_092b) ; les rochers du nord
+  du village s'ouvrent sur les lacets (1:1a) et le cratère (1:0a, la bouche du grand visage : la
+  Forge Endormie, donjon 4). Les Cuivres ($17), le marchand de copies ($18) : villager (la table
+  @texts est maintenant cherchée par sous-type).
+- Piège : $1a / $1b sont du sol à Mont-Braise : la Lanterne et le noctambule ne regardent le « fond
+  de la mer ouverte » que dans les décors $7d et $7e (wTilesetIndex).
+- Test : python tools/test_braise.py DOSSIER (arrivée, radeau, Pinceau dans les deux mondes, le
+  tableau, Brasia, les rochers, le cratère, la mine, le marché). Dans le Songe, attendre la fin du
+  rayon de lumière (~160 images) avant d'agir.
+  Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/braise.png
+
 ## Pièges déjà rencontrés
 - Les heredocs Bash de l'outil réduisent `\\` en `\` : écrire les fichiers avec des `\` via Write/Edit.
 - `parseText.py` lisait le texte avec l'encodage Windows : corrigé (UTF-8) dans le fork.

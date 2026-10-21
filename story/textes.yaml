@@ -1626,6 +1626,166 @@ groups:
          \opt()Français
          \opt()English
 
+  # Chapitre 4 : Mont-Braise (1:08-3c)
+  # En arrivant au ponton (1:38), la première fois (INTERAC_BALLADE_OBJECT $01)
+  - name: TX_5a80
+    index: 0x80
+    text: |-
+      \col(1)Marine\col(0): Pouah,
+      ça sent l'œuf
+      pourri!\stop
+      Un volcan...
+      Il dort, mais
+      il ronfle.\stop
+      On entend
+      cogner, là-haut.
+      Toujours le même
+      coup. Bong.
+      Bong. Bong.
+
+  # Brasia, la forgeronne goron (1:2a ; INTERAC_BALLADE_OBJECT $14) : avant le tableau
+  - name: TX_5a81
+    index: 0x81
+    text: |-
+      \col(1)Brasia\col(0): Bong!
+      Quatre cent
+      douze épées!
+      Toutes
+      pareilles!\stop
+      Je n'ai plus
+      d'idées, petit.
+      Plus une. Le
+      volcan dort, ma
+      tête aussi.\stop
+      Si quelqu'un me
+      montrait un truc
+      que je n'ai
+      jamais vu...
+
+  # Brasia : Link lui montre le tableau de la mer (elle donne le Bracelet de force)
+  - name: TX_5a82
+    index: 0x82
+    text: |-
+      \col(1)Brasia\col(0): C'est...
+      la mer?! Bleue,
+      qui bouge, qui
+      ne tient pas en
+      place!\stop
+      Une épée en
+      forme de vague!
+      J'ai une idée!
+      UNE IDÉE!\stop
+      Tiens, mon
+      \col(1)Bracelet de
+      force\col(0). Je n'en
+      ai plus besoin:
+      j'ai une idée!
+
+  - name: TX_5a83
+    index: 0x83
+    text: |-
+      \col(1)Brasia\col(0): Bong!
+      Une vague! Bong!
+      Une autre vague!
+      Aucune pareille!
+
+  # Pinceau, le peintre (1:19, dans le Réel ; $15) : avant / après la Forge Endormie
+  - name: TX_5a84
+    index: 0x84
+    text: |-
+      \col(1)Pinceau\col(0): Le
+      volcan. Encore
+      le volcan.\stop
+      Je ne sais
+      peindre que lui.
+      Pourtant, il
+      paraît qu'il y a
+      la mer, en bas.\stop
+      Je ne la vois
+      pas. Même les
+      yeux fermés.
+
+  - name: TX_5a85
+    index: 0x85
+    text: |-
+      \col(1)Pinceau\col(0): Je
+      peins la mer,
+      la lagune, une
+      mouette...\stop
+      Elle te
+      ressemble, ta
+      mouette!
+
+  # Pinceau dans le Songe (0:19 ; $16) : il voit la mer, et peint ; il donne le tableau
+  - name: TX_5a86
+    index: 0x86
+    text: |-
+      \col(1)Pinceau\col(0): La
+      mer! Je la vois!
+      Les yeux fermés,
+      je la vois!\stop
+      Vite, vite...
+      Voilà!\stop
+      Prends ce
+      tableau. Montre-
+      le à quelqu'un
+      qui en a besoin.
+
+  - name: TX_5a87
+    index: 0x87
+    text: |-
+      \col(1)Pinceau\col(0): Je
+      peins encore la
+      mer. Et le ciel.
+      Et toi!
+
+  # Un musicien des Cuivres, la fanfare goron (1:2a ; $17)
+  - name: TX_5a88
+    index: 0x88
+    text: |-
+      \col(1)Les Cuivres\col(0):
+      Pouet. Pouet.
+      Pouet.\stop
+      On joue la même
+      note depuis cent
+      ans. Elle est
+      jolie, non?
+
+  - name: TX_5a89
+    index: 0x89
+    text: |-
+      \col(1)Les Cuivres\col(0):
+      Pouet-tagada-
+      pouet! On a
+      trouvé une
+      deuxième note!
+
+  # Le marchand de copies (1:3a ; $18)
+  - name: TX_5a8a
+    index: 0x8a
+    text: |-
+      \col(1)Le marchand\col(0):
+      Des copies! Des
+      copies de
+      copies!\stop
+      Un quart de
+      cœur? Tout
+      neuf! Enfin...
+      un dessin de
+      quart de cœur.
+
+  - name: TX_5a8b
+    index: 0x8b
+    text: |-
+      \col(1)Le marchand\col(0):
+      Plus personne
+      n'achète mes
+      copies...\stop
+      Tant mieux!
+      J'en ai marre
+      de recopier.
+
+
 # ==============================================================================
 # Textes d'Ages remplacés (même nom) : les objets qu'on trouve parlent français
 # ==============================================================================
@@ -1912,6 +2072,31 @@ groups:
       Ta vie est
       au maximum!
 
+  # Le Bracelet de force (Brasia)
+  - name: TX_0026
+    index: 0x26
+    text: |-
+      \pos(2)Le \col(1)Bracelet de
+      force\col(0)!\stop
+      Face à un
+      rocher, garde
+      le bouton
+      enfoncé et
+      tire: tu le
+      soulèves!
+
+  # Le tableau de la mer (Pinceau, l'objet d'échange 2 : l'ancien sac puant d'Ages)
+  - name: TX_005c
+    index: 0x5c
+    text: |-
+      Le \col(1)tableau de
+      la mer\col(0)!\stop
+      Des vagues, un
+      soleil rouge...
+      La peinture est
+      encore fraîche.
+
+
 # Noms des lieux sur la carte (SELECT) : trois noms d'Ages repris pour l'île de la Brume
 # (data/ages/mapTextAndPopups.s)
 - group: 0x03
@@ -2092,6 +2277,21 @@ groups:
       lumière ouvre
       le chemin des
       rêves.
+
+  - name: TX_090b
+    index: 0x0b
+    text: |-
+      Tableau de la
+      mer
+      Peint en rêve.
+
+  - name: TX_092b
+    index: 0x2b
+    text: |-
+      Bracelet de
+      force
+      Pour soulever.
+
 
 # Pancartes clouées sur les portes de la place de Port-Veille (data/ages/signText.s)
 - group: 0x2e

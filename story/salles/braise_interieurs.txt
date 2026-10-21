@@ -1,0 +1,16 @@
+# Mont-Braise (île 4) : les intérieurs.
+
+# --- La mine abandonnée (groupe 5, décor 58 : les grottes d'Ages). On arrive par l'escalier
+# (ligne 9, colonne 7, qui ramène dehors) ; des rochers ; au fond, un coffre (ligne 1, colonne 11).
+salle 5:b2 decor 58
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 ef ef ef ef ef ef ef ef ef ef f1 ef a1 b1
+b3 ef a1 ef ef ef ef a2 ef ef ef ef ef ef b1
+b3 ef ef ef a2 ef ef ef ef a1 ef ef a2 ef b1
+b3 a1 ef ef ef ef ef ef ef ef ef ef ef ef b1
+b3 ef ef ef ef a1 ef ef ef a2 ef ef ef a1 b1
+b3 ef a2 ef ef ef ef ef ef ef ef ef ef ef b1
+b3 ef ef ef ef ef ef ef ef ef a1 ef ef ef b1
+b3 a1 ef ef a2 ef ef ef ef ef ef ef a2 ef b1
+b3 ef ef ef ef ef ef 44 ef ef ef ef ef ef b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb

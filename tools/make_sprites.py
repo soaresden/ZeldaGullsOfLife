@@ -144,6 +144,10 @@ def main():
     for y, row in enumerate(read_frames(os.path.join(ROOT, 'art', 'sire_bouchon.txt'))[0]):
         for x, c in enumerate(row):
             quest.putpixel((x, y), {'.': 0, 'o': 1, 'r': 2, 'k': 3}[c])
+    # Le tableau de la mer de Pinceau (objet d'échange 2) : à la place du sac puant (x = 24)
+    for y, row in enumerate(read_frames(os.path.join(ROOT, 'art', 'tableau.txt'))[0]):
+        for x, c in enumerate(row):
+            quest.putpixel((24 + x, y), {'.': 0, 'o': 1, 'r': 2, 'k': 3}[c])
     dst = os.path.join(DISASM, 'gfx_compressible', 'ages', 'spr_quest_items_1.png')
     quest.save(dst)
     print('->', os.path.relpath(dst, ROOT))
