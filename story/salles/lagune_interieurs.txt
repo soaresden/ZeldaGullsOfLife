@@ -1,0 +1,22 @@
+# La Lagune des Serments (île 3) : les intérieurs.
+
+# La maison d'Héloïse et Gaspard : même disposition que l'auberge (3:9e)
+decor 3:23 2b copie 3:9e
+# Le club de plongée de Bulle
+decor 3:24 2b copie 3:9e
+
+# --- La grotte des amoureux (groupe 5, décor 58 : les grottes d'Ages). On arrive par l'escalier
+# (ligne 9, colonne 7, qui ramène dehors). Au fond, le coffre (ligne 1, colonne 7) ; des cœurs
+# gravés sur les murs (Marine les lit en entrant).
+salle 5:b1 decor 58
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a1 ef ef ef ef ef f1 ef ef ef ef ef a1 b1
+b3 ef ef a2 ef ef ef ef ef ef ef a2 ef ef b1
+b3 ef ef ef ef ef ef ef ef ef ef ef ef ef b1
+b3 ef a1 ef ef ef ef ef ef ef ef ef a1 ef b1
+b3 ef ef ef ef ef ef ef ef ef ef ef ef ef b1
+b3 ef ef ef a2 ef ef ef ef ef a2 ef ef ef b1
+b3 ef ef ef ef ef ef ef ef ef ef ef ef ef b1
+b3 ef a1 ef ef ef ef ef ef ef ef ef a1 ef b1
+b3 ef ef ef ef ef ef 44 ef ef ef ef ef ef b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb

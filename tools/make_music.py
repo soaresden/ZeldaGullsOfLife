@@ -53,6 +53,9 @@ ILE_BRUME = [0x79, 0x7a, 0x7b, 0x7c, 0x89, 0x8a, 0x8b, 0x8c,
 # Hameau-Grelot (île 2) : 1:01-02, 10-13, 20-23, 31-32 (les coins sont la mer)
 ILE_GRELOT = [0x00, 0x01, 0x02, 0x03, 0x10, 0x11, 0x12, 0x13,
               0x20, 0x21, 0x22, 0x23, 0x30, 0x31, 0x32, 0x33]
+# La Lagune des Serments (île 3) : 1:04-37
+ILE_LAGUNE = [0x04, 0x05, 0x06, 0x07, 0x14, 0x15, 0x16, 0x17,
+              0x24, 0x25, 0x26, 0x27, 0x34, 0x35, 0x36, 0x37]
 ROOM_MUSIC = [
     # le Phare / temple (plan d'un seul étage : pied 1b-14-15, tour 16-18-17, galerie 19-12-1a,
     # Jack 13 avant le combat ; 24 et 1c de l'ancien plan)
@@ -65,6 +68,10 @@ ROOM_MUSIC = [
     (0, 0x3d, ILE_GRELOT),  # et dans le Songe
     (3, 0x3d, [0x21, 0x22]),  # la maison de Lila, l'école
     (2, 0x3d, [0x21]),      # le rêve de Lila
+    # la Lagune des Serments : en attendant sa musique, celle de l'île de la Brume
+    (1, 0x42, ILE_LAGUNE),
+    (0, 0x42, ILE_LAGUNE),
+    (3, 0x42, [0x23, 0x24]),  # la maison d'Héloïse et Gaspard, le club de plongée
     # le Coffre à Jouets (donjon 2 ; Pantin-Sans-Fil lance la musique du boss en se réveillant)
     (4, 0x3b, [0x39, 0x37, 0x3a, 0x3b, 0x33, 0x32, 0x31, 0x34, 0x2d, 0x2c, 0x2e, 0x2b]),
     # salle de test du boss en rythme (l'arène de l'ancien donjon 3 d'Ages) : silence en entrant

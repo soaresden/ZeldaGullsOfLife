@@ -16,3 +16,72 @@ cd cd 3b 3b fa fa fa cd cd cd
 
 # L'auberge du Songe : même disposition que l'auberge du Réel (3:9e), décor bleuté
 decor 2:9e 7f copie 3:9e
+
+# --- La Lagune des Serments (île 3) dans le Songe ---
+# Les portes restent fermées dans le rêve (les maisons n'ont pas d'intérieur du Songe).
+# La maison d'Héloïse et Gaspard : porte fermée
+salle 0:06 decor 7e
+fc fc fc fc fc fc fc fc fc fc
+21 21 21 21 21 21 21 21 21 21
+bf c5 bf c0 c1 c2 bf c5 bf bf
+bf bf bf d3 d3 d3 bf bf bf bf
+bf bf bf bf bf bf bf bf bf bf
+bf bf bf bf bf bf bf bf bf bf
+24 24 24 24 24 24 24 24 24 24
+fa fa fa fa fa fa fa fa fa fa
+
+# Le club de plongée : porte fermée
+salle 0:17 decor 7e
+fa fa fa fa 26 bf bf bf 27 fc
+fa fa fa fa 26 c2 c3 c4 27 fc
+fa fa fa fa 26 d2 d2 d2 27 fc
+fa fa fa fa 26 bf bf bf 27 fc
+fa fa fa fa 26 bf bf bf 27 fc
+fa fa fa fa 26 bf bf bf 27 fc
+fa fa fa fa 26 bf bf bf 27 fc
+fa fa fa fa 26 bf bf bf 27 fc
+
+# La grotte des amoureux : bouchée
+salle 0:27 decor 7e
+fa fa fa fa 26 bf bf bf 27 fc
+fa fa fa fa 26 bf bf bf 27 fc
+fa fa fa fa 26 05 06 07 27 fc
+fa fa fa fa 26 15 16 17 27 fc
+fa fa fa fa 26 bf bf bf 27 fc
+fa fa fa f4 28 24 24 24 2a fc
+fa fa fa f4 fc fc fc fc fc fc
+fa fa fa f4 fc fc fc fc fc fc
+
+# Le Récif Murmurant : le visage de corail a la bouche fermée
+salle 0:36 decor 7e
+21 21 21 21 21 21 21 21 22 fa
+bf bf bf 82 83 84 bf bf 27 fa
+bf bf bf 92 93 94 bf bf 27 fa
+bf bf bf a2 a3 a4 bf bf 27 fa
+24 24 24 24 24 24 24 24 2a fa
+fa fa fa fa fa fa fa fa fa fa
+f4 f4 f4 f4 f4 f4 f4 f4 f4 f4
+fc fc fc fc fc fc fc fc fc fc
+
+# Les rochers aux coquillages : le chemin dans la lagune ouverte commence ici (colonnes 8-9)
+salle 0:14 decor 7e
+fc fc 26 bf bf bf bf 27 fa fa
+fc fc 26 bf bf bf bf 27 fa fa
+fc fc 26 88 89 8a bf 27 fe fe
+fc fc 26 98 99 9a bf 27 1a 1b
+fc fc 26 bf bf bf bf 27 1b 1a
+fc fc 26 bf bf c3 bf 27 ff ff
+fc fc 26 bf bf bf bf 27 fa fa
+fc fc 26 bf bf bf bf 27 fa fa
+
+# La lagune : dans le rêve, elle s'ouvre en deux depuis la côte ouest (murs de vagues fe / ff,
+# fond de la mer 1a 1b) jusqu'à l'îlot de la bouteille
+salle 0:15 decor 7e
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+fe fe fe fa fa fa fa fa fa fa
+1a 1b 1a 20 22 fa fa fa fa fa
+1b 1a 1b 28 2a fa fa fa fa fa
+ff ff ff fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa
+fa fa fa fa fa fa fa fa fa fa

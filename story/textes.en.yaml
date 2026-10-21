@@ -1283,6 +1283,189 @@ groups:
       hunt the dragon!\stop
       Want to come?
 
+  # Chapter 3: Lagoon of Vows (1:04-37)
+  # Arriving at the jetty (1:24), the first time (INTERAC_BALLADE_OBJECT $01)
+  - name: TX_5a70
+    index: 0x70
+    text: |-
+      \col(1)Marin\col(0): A
+      lagoon! The
+      water is all
+      turquoise...\stop
+      There's a house
+      up there. Shall
+      we say hello?
+
+  # Gaspard (3:23 ; INTERAC_BALLADE_OBJECT $11): before the bottle
+  - name: TX_5a71
+    index: 0x71
+    text: |-
+      \col(1)Gaspard\col(0): Hello,
+      young man. I'm
+      Gaspard.\stop
+      That lady? I
+      don't know her.
+      She makes me tea
+      every morning.\stop
+      Once, I threw a
+      bottle into the
+      sea. For
+      someone...\stop
+      It got stuck on
+      the islet in the
+      middle of the
+      lagoon.\stop
+      But I forgot who
+      it was for. And
+      how to swim.\stop
+      \col(1)Marin\col(0): The
+      lagoon is too
+      deep...\stop
+      But in a dream,
+      the sea parts!
+      From the west
+      side, maybe?
+
+  # Gaspard: Link gives back the bottle (he gives Zora's Flippers)
+  - name: TX_5a72
+    index: 0x72
+    text: |-
+      \col(1)Gaspard\col(0): My
+      bottle! There's
+      a letter...\stop
+      "Heloise, I'll
+      find you again,
+      even if you
+      forget me. G."\stop
+      Heloise...
+      Heloise!
+      She's my wife!\stop
+      Here, take my
+      \col(1)Zora's
+      Flippers\col(0).\stop
+      They're for
+      someone who
+      still has
+      someone to find.\stop
+      \col(1)Marin\col(0): ...Is he
+      talking about
+      me, you think?
+
+  # Gaspard, after
+  - name: TX_5a73
+    index: 0x73
+    text: |-
+      \col(1)Gaspard\col(0): Every
+      morning, I ask
+      Heloise to marry
+      me.\stop
+      She says yes,
+      every time!
+
+  # Heloise (3:23 ; INTERAC_BALLADE_OBJECT $0e): before / after the Murmuring Reef
+  - name: TX_5a74
+    index: 0x74
+    text: |-
+      \col(1)Heloise\col(0): Hello!
+      That gentleman?
+      A neighbour, I
+      think.\stop
+      He has lovely
+      sad eyes. I make
+      him tea. It
+      helps.
+
+  - name: TX_5a75
+    index: 0x75
+    text: |-
+      \col(1)Heloise\col(0): We got
+      married on the
+      beach up there.
+      I remember!\stop
+      He wore
+      flippers. To
+      dance. What a
+      fool!
+
+  # Bulle, the diving instructor (3:24 ; $0f)
+  - name: TX_5a76
+    index: 0x76
+    text: |-
+      \col(1)Bulle\col(0): Welcome
+      to the diving
+      club!\stop
+      Well... it's
+      closed. Nobody
+      dreams of seeing
+      the bottom now.
+
+  - name: TX_5a77
+    index: 0x77
+    text: |-
+      \col(1)Bulle\col(0): The
+      bottom of the
+      lagoon shines
+      again!\stop
+      Come back soon:
+      we'll go diving!
+
+  # The bottle postman (the bottle beach, 1:35 ; $10)
+  - name: TX_5a78
+    index: 0x78
+    text: |-
+      \col(1)Postman\col(0): I pick
+      up bottles from
+      the sea.\stop
+      But I can't
+      remember who the
+      letters are
+      for...\stop
+      Me, nobody ever
+      wrote to me.
+
+  - name: TX_5a79
+    index: 0x79
+    text: |-
+      \col(1)Postman\col(0): A
+      bottle, this
+      morning! For me!\stop
+      "Thank you for
+      keeping our
+      words. H. and
+      G."
+
+  # The lovers' cave (5:b1), on entering (INTERAC_BALLADE_OBJECT $01)
+  - name: TX_5a7a
+    index: 0x7a
+    text: |-
+      \col(1)Marin\col(0): Hearts
+      carved
+      everywhere...\stop
+      "G + H,
+      forever."\stop
+      Gaspard and
+      Heloise!\stop
+      ...Hey! Don't
+      look at me like
+      that!
+
+  # In front of the Murmuring Reef (1:36), the first time
+  - name: TX_5a7b
+    index: 0x7b
+    text: |-
+      \col(1)Marin\col(0): The
+      Murmuring
+      Reef... Can you
+      hear it
+      whisper?\stop
+      In there, it's
+      water all over.
+      Seagulls don't
+      dive.\stop
+      I'll wait here,
+      \Link. Come back
+      soon.
+
   # Le menu de test caché (code/ages/balladeDebug.s ; HAUT tenu 5 s à l'écran titre) :
   # la langue, l'île, le moment, et dans le donjon l'endroit. Le même dans les deux fichiers.
   - name: TX_5af0
@@ -1352,6 +1535,26 @@ groups:
       It reaches the
       crystals your
       sword can't.
+  # The Lagoon: the bottle (trade item 1, Ages' old stationery)
+  - name: TX_005b
+    index: 0x5b
+    text: |-
+      A \col(1)message in a
+      bottle\col(0)!\stop
+      Inside, an old
+      rolled-up
+      letter.
+
+  - name: TX_0031
+    index: 0x31
+    text: |-
+      \col(1)Zora's
+      Flippers\col(0)! You
+      can swim now!\stop
+      Get in the
+      water, and \bbtn
+      to dive.
+
 
   - name: TX_005a
     index: 0x5a
@@ -1473,6 +1676,18 @@ groups:
       Spin Boomerang
       Hits from afar,
       then comes back.
+  - name: TX_090a
+    index: 0x0a
+    text: |-
+      Bottle
+      A letter inside.
+
+  - name: TX_0918
+    index: 0x18
+    text: |-
+      Zora's Flippers
+      For swimming.
+
 
   - name: TX_0909
     index: 0x09

@@ -238,3 +238,30 @@ salle 4:2b
 	obj_Interaction $a4 $02 $00 $00
 	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
 	obj_BeforeEvent group4Map2bBeforeEventObjectData
+
+# --- La Lagune des Serments (île 3, 1:04-37 ; story/salles/ile_lagune.txt) ---
+# Le ponton : le Bateau-Rondin ; Marine parle en arrivant
+salle 24
+	obj_Interaction INTERAC_BALLADE_OBJECT $00 $38 $18
+	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+# La lagune : la bouteille à la mer, sur l'îlot (dans le Songe, la mer s'écarte jusqu'à elle)
+salle 15
+	obj_Interaction INTERAC_BALLADE_OBJECT $12 $38 $38
+salle 0:15
+	obj_Interaction INTERAC_BALLADE_OBJECT $12 $38 $38
+# La plage des bouteilles : le facteur
+salle 35
+	obj_Interaction INTERAC_BALLADE_OBJECT $10 $28 $68
+# Devant le Récif Murmurant : Marine ne peut pas suivre Link sous l'eau
+salle 36
+	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+# La maison d'Héloïse et Gaspard
+salle 3:23
+	obj_Interaction INTERAC_BALLADE_OBJECT $11 $48 $38
+	obj_Interaction INTERAC_BALLADE_OBJECT $0e $48 $68
+# Le club de plongée : Bulle
+salle 3:24
+	obj_Interaction INTERAC_BALLADE_OBJECT $0f $48 $38
+# La grotte des amoureux : Marine lit les cœurs gravés
+salle 5:b1
+	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08

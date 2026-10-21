@@ -1333,6 +1333,198 @@ groups:
       le dragon!\stop
       Tu viens?
 
+  # Chapitre 3 : la Lagune des Serments (1:04-37)
+  # En arrivant au ponton (1:24), la première fois (INTERAC_BALLADE_OBJECT $01)
+  - name: TX_5a70
+    index: 0x70
+    text: |-
+      \col(1)Marine\col(0): Une
+      lagune! L'eau
+      est toute
+      turquoise...\stop
+      Il y a une
+      maison, là-haut.
+      On va dire
+      bonjour?
+
+  # Gaspard (3:23 ; INTERAC_BALLADE_OBJECT $11) : avant la bouteille
+  - name: TX_5a71
+    index: 0x71
+    text: |-
+      \col(1)Gaspard\col(0):
+      Bonjour, jeune
+      homme. Je suis
+      Gaspard.\stop
+      La dame, là?
+      Je ne la connais
+      pas. Elle me
+      fait du thé
+      chaque matin.\stop
+      Un jour, j'ai
+      jeté une
+      bouteille à la
+      mer. Pour
+      quelqu'un...\stop
+      Elle est restée
+      sur l'îlot, au
+      milieu de la
+      lagune.\stop
+      Mais je ne sais
+      plus pour qui.
+      Ni comment on
+      nage.\stop
+      \col(1)Marine\col(0): La
+      lagune est trop
+      profonde...\stop
+      Mais dans un
+      rêve, la mer, ça
+      s'écarte! Du
+      coté ouest,
+      peut-être?
+
+  # Gaspard : Link lui rend la bouteille (il donne les Palmes de Zora)
+  - name: TX_5a72
+    index: 0x72
+    text: |-
+      \col(1)Gaspard\col(0): Ma
+      bouteille! Il y
+      a une lettre...\stop
+      "Héloïse, je
+      te retrouverai,
+      même si tu
+      m'oublies. G."\stop
+      Héloïse...
+      Héloïse!
+      C'est ma femme!\stop
+      Tiens, prends
+      mes \col(1)Palmes de
+      Zora\col(0).\stop
+      Elles sont pour
+      quelqu'un qui a
+      encore quelqu'un
+      à retrouver.\stop
+      \col(1)Marine\col(0): ...Il
+      parle de moi, tu
+      crois?
+
+  # Gaspard, après
+  - name: TX_5a73
+    index: 0x73
+    text: |-
+      \col(1)Gaspard\col(0): Chaque
+      matin, je
+      demande Héloïse
+      en mariage.\stop
+      Elle dit oui,
+      à chaque fois!
+
+  # Héloïse (3:23 ; INTERAC_BALLADE_OBJECT $0e) : avant / après le Récif Murmurant
+  - name: TX_5a74
+    index: 0x74
+    text: |-
+      \col(1)Héloïse\col(0):
+      Bonjour! Ce
+      monsieur? Un
+      voisin, je
+      crois.\stop
+      Il a de beaux
+      yeux tristes.
+      Je lui fais du
+      thé, ça l'aide.
+
+  - name: TX_5a75
+    index: 0x75
+    text: |-
+      \col(1)Héloïse\col(0): On
+      s'est mariés sur
+      la plage, là-
+      haut. Je m'en
+      souviens!\stop
+      Il avait mis
+      des palmes. Pour
+      danser. Quel
+      idiot!
+
+  # Bulle, la monitrice du club de plongée (3:24 ; $0f)
+  - name: TX_5a76
+    index: 0x76
+    text: |-
+      \col(1)Bulle\col(0): Bienvenue
+      au club de
+      plongée!\stop
+      Enfin... il est
+      fermé. Plus
+      personne ne rêve
+      de voir le fond.
+
+  - name: TX_5a77
+    index: 0x77
+    text: |-
+      \col(1)Bulle\col(0): Le fond
+      de la lagune
+      brille à
+      nouveau!\stop
+      Reviens vite:
+      on va plonger!
+
+  # Le facteur des bouteilles (la plage des bouteilles, 1:35 ; $10)
+  - name: TX_5a78
+    index: 0x78
+    text: |-
+      \col(1)Le facteur\col(0): Je
+      ramasse les
+      bouteilles à la
+      mer.\stop
+      Mais je ne sais
+      plus à qui
+      rendre les
+      lettres...\stop
+      Moi, personne ne
+      m'a jamais
+      écrit.
+
+  - name: TX_5a79
+    index: 0x79
+    text: |-
+      \col(1)Le facteur\col(0): Une
+      bouteille, ce
+      matin! Pour
+      moi!\stop
+      "Merci d'avoir
+      gardé nos mots.
+      H. et G."
+
+  # La grotte des amoureux (5:b1), en entrant (INTERAC_BALLADE_OBJECT $01)
+  - name: TX_5a7a
+    index: 0x7a
+    text: |-
+      \col(1)Marine\col(0): Des
+      cœurs gravés
+      partout...\stop
+      "G + H, pour
+      toujours."\stop
+      Gaspard et
+      Héloïse!\stop
+      ...Hé! Ne me
+      regarde pas
+      comme ça!
+
+  # Devant le Récif Murmurant (1:36), la première fois
+  - name: TX_5a7b
+    index: 0x7b
+    text: |-
+      \col(1)Marine\col(0): Le Récif
+      Murmurant... Tu
+      l'entends
+      chuchoter?\stop
+      Là-dedans, c'est
+      l'eau partout.
+      Une mouette, ça
+      ne plonge pas.\stop
+      Je t'attends
+      ici, \Link.
+      Reviens vite.
+
   # Le menu de test caché (code/ages/balladeDebug.s ; HAUT tenu 5 s à l'écran titre) :
   # la langue, l'île, le moment, et dans le donjon l'endroit. Le même dans les deux fichiers.
   - name: TX_5af0
@@ -1404,6 +1596,26 @@ groups:
       cristaux qu'on
       ne touche pas
       à l'épée.
+  # La Lagune : la bouteille (objet d'échange 1, l'ancien papier à lettres d'Ages)
+  - name: TX_005b
+    index: 0x5b
+    text: |-
+      Une \col(1)bouteille
+      à la mer\col(0)!\stop
+      Dedans, une
+      vieille lettre,
+      toute roulée.
+
+  - name: TX_0031
+    index: 0x31
+    text: |-
+      Les \col(1)Palmes de
+      Zora\col(0)! Tu sais
+      nager!\stop
+      Va dans l'eau,
+      et \bbtn pour
+      plonger.
+
 
   - name: TX_005a
     index: 0x5a
@@ -1657,6 +1869,19 @@ groups:
       Il frappe de
       loin, et
       revient.
+  - name: TX_090a
+    index: 0x0a
+    text: |-
+      Bouteille
+      Une lettre
+      dedans.
+
+  - name: TX_0918
+    index: 0x18
+    text: |-
+      Palmes de Zora
+      Pour nager.
+
 
   - name: TX_0909
     index: 0x09

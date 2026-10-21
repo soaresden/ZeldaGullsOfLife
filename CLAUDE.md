@@ -106,6 +106,32 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Test : python tools/test_coffre.py DOSSIER (tout le donjon, ennemis retirés sauf le boss).
   Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/coffre.png
 
+## Chapitre 3 : la Lagune des Serments (île 3)
+- story/salles/ile_lagune.txt (1:04-37, décor 18 ; Songe 7e) : un fer à cheval de sable autour
+  d'une lagune ; lagune = $fa (TILETYPE_WATER : on y nage avec les Palmes), mer = $fc (SEAWATER :
+  on s'y noie sans le costume de sirène, et on ne peut pas y changer d'écran) ; un récif de rochers
+  $f4 (solides) sépare les deux ; l'îlot du sud (1:35-36) ne s'atteint qu'à la nage. Briques de
+  rivage du décor 18 : convexes 20 21 22 26 27 28 24 2a, coins rentrants 29 (eau en bas à droite)
+  et 2b (en bas à gauche) ; il n'en existe PAS pour l'eau en haut à gauche / à droite : éviter ces
+  formes. Le plan a été tracé d'une grande carte 40 x 32 avec rivages automatiques (script jetable).
+- Portes (tuiles $dc-$df, $ed-$ef dehors) : maison 1:06 -> 3:23, club 1:17 -> 3:24, grotte des
+  amoureux 1:27 -> 5:b1 (coffre de 50 rubis). Les warps / roomGfxChanges / roomTileChanger d'Ages
+  sur 0:/1:04-37 sont commentés (« la Lagune des Serments »). Dans le Songe, portes fermées.
+- L'énigme du Songe : Gaspard (INTERAC_BALLADE_OBJECT $11) a jeté une bouteille, restée sur l'îlot
+  de 1:15 ; dans le Songe (0:14-0:15, story/salles/songe.txt) la lagune s'ouvre en deux (fe/ff,
+  fond 1a/1b) jusqu'à elle ($12 : l'objet d'échange 1, le papier à lettres d'Ages renommé
+  « Bouteille », TX_005b / TX_090a). Gaspard la reprend et donne les Palmes de Zora (TX_0031,
+  TX_0918). Héloïse $0e, Bulle $0f (une Zora), le facteur $10 : habitants à deux répliques
+  (masque d'essence $04). Le Récif Murmurant (1:36) : un totem dont la bouche (dd) sera l'entrée
+  du donjon 3 ; Marine ne suit pas sous l'eau (TX_5a7b).
+- Le noctambule (7 s dans le Songe) : Link ne se réveille pas sur le fond de la mer ouverte, ni
+  pendant un défilement d'écran (sinon : réveil dans l'eau profonde du Réel, noyades jusqu'au
+  game over) ; la Lanterne refuse de marcher sur ce fond (harpFluteParent.s).
+- Musique : celle de la Brume en attendant (plus aucun numéro de musique libre).
+- Test : python tools/test_lagune.py DOSSIER (tout le chapitre jusqu'aux Palmes, la nage, les
+  habitants ; un saut g.warp depuis un intérieur rend la Lanterne muette : sortir par la porte).
+  Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/lagune.png
+
 ## Pièges déjà rencontrés
 - Les heredocs Bash de l'outil réduisent `\\` en `\` : écrire les fichiers avec des `\` via Write/Edit.
 - `parseText.py` lisait le texte avec l'encodage Windows : corrigé (UTF-8) dans le fork.
