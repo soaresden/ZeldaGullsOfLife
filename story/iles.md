@@ -440,7 +440,7 @@ colonne de la grille 16 × 16 d'*Ages*) :
 | 4. Mont-Braise | 1:08-3c | 4 × 5 |
 | 5. Île des Échos | 1:40-74 | 4 × 5 |
 | 6. Nid des Vents | 1:45-78 (1:4c-7f touchait la Brume) | 4 × 4 |
-| 7. Grand Sommeil | 1:b0-e4 | 4 × 5 |
+| 7. Grand Sommeil | 1:a0-d4 (la carte s'arrête à la ligne d) | 4 × 5 |
 | 8. Œil de l'Insomnis | 1:b8-da | 3 × 3 |
 
 Les écrans entre les îles restent de la mer : on ne les visite pas (on voyage par la carte).

@@ -141,3 +141,17 @@ f3 f3 f3 3a 3a 1f 1f 1f 1f 3a
 f3 f3 f3 3a 3a f3 f3 f3 f3 f3
 f3 f3 f3 f3 3a 3a f3 f3 f3 f3
 f3 f3 f3 f3 3a 3a f3 f3 f3 f3
+
+# L'île du Grand Sommeil : le Palais Givré dans le Songe. L'étang n'est pas gelé (eau) ; le cristal
+# sur l'îlot (5,4) (la brique 9e de PART_SWITCH, dessinée par make_songe.py) ; des buissons sur les
+# rives en face de lui : on ne le touche qu'en biais, d'une graine du Lance-Graines tirée depuis la
+# rive (3,2), (3,6) ou (7,6) ; la porte reste un mur (on n'entre pas par le rêve)
+salle 0:b2 decor 0e
+08 09 99 99 99 99 99 99 08 09
+2c 3c 99 99 99 99 99 99 2c 3c
+cd 3b f6 f6 f6 f6 f6 f6 3b cd
+3b 3b 3b 3b cd 3b 3b 3b 3b 3b
+3b 3b fa fa fa fa fa fa 3b 3b
+cd cd fa fa 9e fa fa fa cd cd
+cd 3b fa fa fa fa fa fa 3b cd
+cd cd cd 3b cd 3b 3b cd cd cd

@@ -2433,6 +2433,217 @@ groups:
       Sans se
       réveiller.
 
+  # L'île du Grand Sommeil : le ponton (1:e1), en arrivant
+  - name: TX_5abc
+    index: 0xbc
+    text: |-
+      \col(1)Marine\col(0): Brrr...
+      Tout est gelé.\stop
+      Et ce silence...
+      Écoute...
+      Quelqu'un
+      ronfle.\stop
+      Toute l'île
+      dort!
+
+  # Le roi d'une nuit (1:e2) : endormi / réveillé
+  - name: TX_5abd
+    index: 0xbd
+    text: |-
+      \col(1)Dormeur\col(0): Zzz...
+      À genoux devant
+      votre roi...\stop
+      Zzz... Mon
+      palais... Zzz...
+
+  - name: TX_5abe
+    index: 0xbe
+    text: |-
+      \col(1)Le roi\col(0): Qui m'a
+      réveillé? Dans
+      mon rêve,
+      j'étais roi!\stop
+      ...Bon. Il fait
+      beau, au moins.
+
+  # Le veilleur (3:27) : le Lance-Graines
+  - name: TX_5abf
+    index: 0xbf
+    text: |-
+      \col(1)Veilleur\col(0): Un
+      visiteur!
+      Réveillé!\stop
+      Je suis le
+      veilleur: le
+      seul qui ne dort
+      pas.\stop
+      Le Givrolin
+      chante sa
+      berceuse au
+      Palais Givré.\stop
+      Elle gèle tout.
+      Et tout le monde
+      s'endort.\stop
+      Prends mon
+      Lance-Graines.
+      Moi, j'ai les
+      mains gelées.
+
+  - name: TX_5ac0
+    index: 0xc0
+    text: |-
+      \col(1)Veilleur\col(0): La
+      porte du palais
+      est
+      prise dans la
+      glace.\stop
+      Mais dans les
+      rêves, il n'y a
+      pas de glace...\stop
+      Le roi en parle
+      en dormant.
+      Va l'écouter.
+
+  # La petite sœur (3:28), la seule réveillée de sa famille
+  - name: TX_5ac1
+    index: 0xc1
+    text: |-
+      \col(1)Petite\col(0): Ma
+      famille dort
+      depuis
+      trois ans.\stop
+      Moi, je ne veux
+      pas dormir.\stop
+      Si je dors, qui
+      les réveillera?
+
+  - name: TX_5ac2
+    index: 0xc2
+    text: |-
+      \col(1)Petite\col(0): Ils sont
+      réveillés!\stop
+      Maman dit que
+      j'ai grandi.
+      Moi, je dis
+      qu'ils ont trop
+      dormi.
+
+  # La mère, le père (3:28)
+  - name: TX_5ac3
+    index: 0xc3
+    text: |-
+      \col(1)La mère\col(0): Zzz...
+      ma chérie... il
+      fait si doux
+      ici... Zzz...
+
+  - name: TX_5ac4
+    index: 0xc4
+    text: |-
+      \col(1)La mère\col(0): Trois
+      ans?! ...Viens
+      là, toi. Viens.
+
+  - name: TX_5ac5
+    index: 0xc5
+    text: |-
+      \col(1)Le père\col(0): Zzz...
+      encore cinq
+      minutes...
+      Zzz...
+
+  - name: TX_5ac6
+    index: 0xc6
+    text: |-
+      \col(1)Le père\col(0): Quelle
+      nuit! J'ai pêché
+      un poisson grand
+      comme une île.
+
+  # La chanteuse (3:29) : elle chante en dormant ; la Clochette d'Aube la réveille
+  - name: TX_5ac7
+    index: 0xc7
+    text: |-
+      (Elle chante en
+      dormant. Une
+      mélodie douce.)\stop
+      La la... laaa...
+
+  - name: TX_5ac8
+    index: 0xc8
+    text: |-
+      \col(1)Chanteuse\col(0): Ce
+      son clair... tu
+      m'as
+      réveillée!\stop
+      Merci. Tiens: je
+      le gardais pour
+      celui qui
+      viendrait.
+
+  - name: TX_5ac9
+    index: 0xc9
+    text: |-
+      \col(1)Chanteuse\col(0): Ta
+      mouette chante
+      juste. Dis-lui
+      de tenir la
+      note!
+
+  # Le roi dans le Songe (0:e2) : il est roi ; il dit où frapper
+  - name: TX_5aca
+    index: 0xca
+    text: |-
+      \col(1)Le roi\col(0):
+      Bienvenue dans
+      mon
+      royaume!\stop
+      Ici, pas de
+      glace: mon
+      palais brille!\stop
+      Tu vois le
+      cristal sur
+      l'îlot?\stop
+      Mon garde le
+      frappait de loin
+      avec des
+      graines.\stop
+      En biais, comme
+      ça! Hop!
+
+  # La porte gelée du palais (1:c2), A devant
+  - name: TX_5acb
+    index: 0xcb
+    text: |-
+      La porte est
+      prise dans une
+      glace épaisse.\stop
+      Rien n'y fait.
+
+  # Le cristal du Songe frappé (0:c2)
+  - name: TX_5acc
+    index: 0xcc
+    text: |-
+      \col(1)Marine\col(0): Le
+      cristal a
+      chanté!\stop
+      Dans le Réel,
+      quelque chose a
+      dû céder...
+
+  # Le Palais Givré (1:c2), en arrivant
+  - name: TX_5acd
+    index: 0xcd
+    text: |-
+      \col(1)Marine\col(0): Le
+      Palais Givré...
+      Sa
+      porte est gelée.\stop
+      Quelqu'un ici
+      doit savoir
+      comment entrer.
+
+
 
 
 
@@ -2876,6 +3087,29 @@ groups:
       tu sautes une
       deuxième fois!
 
+  # Le Lance-Graines (le veilleur)
+  - name: TX_002e
+    index: 0x2e
+    text: |-
+      Le
+      \col(1)Lance-Graines\col(0)!\stop
+      Choisis tes
+      graines, tire:
+      elles
+      rebondissent sur
+      les murs.
+
+  # La Clochette d'Aube (le Palais Givré)
+  - name: TX_003b
+    index: 0x3b
+    text: |-
+      La \col(1)Clochette
+      d'Aube\col(0)!\stop
+      Son tintement
+      réveille les
+      dormeurs.
+
+
 
 
 
@@ -3162,6 +3396,21 @@ groups:
       Cape de Roc
       Pour sauter deux
       fois.
+
+  - name: TX_092e
+    index: 0x2e
+    text: |-
+      Clochette d'Aube
+      Réveille les
+      dormeurs.
+
+  - name: TX_0940
+    index: 0x40
+    text: |-
+      Lance-Graines
+      Les graines
+      rebondissent.
+
 
 
 

@@ -454,6 +454,37 @@ salle 57
 salle 48
 	obj_Interaction INTERAC_BALLADE_OBJECT $25 $48 $68
 
+# --- L'île du Grand Sommeil (île 7, 1:a0-d4 ; story/salles/ile_sommeil.txt) ---
+# Le ponton : le Bateau-Rondin ; Marine parle en arrivant
+salle d1
+	obj_Interaction INTERAC_BALLADE_OBJECT $00 $68 $58
+	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+# La branche sud : le roi d'une nuit dort ; dans le Songe, il est roi (il dit où frapper le cristal)
+salle d2
+	obj_Interaction INTERAC_BALLADE_OBJECT $26 $58 $68
+salle 0:d2
+	obj_Interaction INTERAC_BALLADE_OBJECT $2c $58 $68
+# Le Palais Givré : la porte gelée (ligne 2, colonne 5) ; Marine parle en arrivant
+salle b2
+	obj_Interaction INTERAC_BALLADE_OBJECT $2d $28 $58
+	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+# Dans le Songe, l'étang n'est pas gelé : le cristal sur l'îlot (PART_SWITCH, bit 6 de wSwitchState),
+# et ce qui dégèle la porte du Réel quand il est frappé
+salle 0:b2
+	obj_Part $05 $40 $54
+	obj_Interaction INTERAC_BALLADE_OBJECT $2e $08 $08
+# La maison du veilleur : le Lance-Graines
+salle 3:27
+	obj_Interaction INTERAC_BALLADE_OBJECT $27 $48 $38
+# La maison de la famille : la petite sœur, la mère et le père endormis
+salle 3:28
+	obj_Interaction INTERAC_BALLADE_OBJECT $28 $48 $38
+	obj_Interaction INTERAC_BALLADE_OBJECT $2a $38 $58
+	obj_Interaction INTERAC_BALLADE_OBJECT $2b $58 $58
+# La maison de la chanteuse : elle chante en dormant
+salle 3:29
+	obj_Interaction INTERAC_BALLADE_OBJECT $29 $48 $58
+
 # --- La Spirale Céleste (donjon 6, groupe 4 ; story/salles/spirale.txt) ---
 # L'entrée : « Niveau 6 - Spirale Céleste » ($09), puis Marine ($01)
 salle 4:3c

@@ -34,9 +34,9 @@ PALDATA_S = read('data/ages/paletteData.s').read()
 def tileset_palette_header(ts):
     lines = TILESETS_S.split('\n')
     for n, l in enumerate(lines):
-        if l == '\t; 0x%02x' % ts:
+        if l == '\t; 0x%02x' % ts and '; Tileset 0x' not in lines[n + 1]:
             return lines[n + 4].replace('.db', '').strip()
-        if ('; Tileset 0x%02x BALLADE' % ts) in l:
+        if ('; Tileset 0x%02x' % ts) in l:      # décor sur une ligne (make_songe.py)
             return l.split(';')[0].replace('.db', '').split(',')[4].strip()
     raise KeyError(ts)
 

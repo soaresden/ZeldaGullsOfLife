@@ -1,0 +1,246 @@
+# L'île du Grand Sommeil (île 7), le Réel (groupe 1, écrans 1:a0-d4 ; la carte d'Ages s'arrête à
+# la ligne d : on ne défile pas vers la ligne e). Voir story/iles.md.
+# Ici tout le monde dort, et l'île gèle doucement. Un flocon : le Palais Givré au centre (c2), le
+# village gelé de part et d'autre, deux lacs de glace, quatre branches.
+# Décor 0d = le village du passé d'Ages (décor 10) sous la neige (tools/make_songe.py : ice()) ; son
+# Songe : le 0e (story/salles/songe.txt pour le palais).
+#
+# Briques : 3b neige ; 0c pavés ; 08 09 / 2c 3c sapin ; cd buisson gelé ; fc mer ; fa eau ; ea glace
+#   (on glisse : TILETYPE_ICE, dessinée par make_songe.py) ; f3 trou dans la glace ; f4 rocher ; 0e
+#   planches ; f1 coffre ; maisons 8a 81 82 / 90 91 92 / f6 de f6 ; le palais : colonnes 99, toit 8f,
+#   murs f6, fenêtres a3.
+# Passages : nord / sud colonnes 4-5, est / ouest lignes 3-4.
+#
+# Plan (une case = un écran) :
+#   a0 mer          | a1 branche nord | a2 mer            | a3 branche nord-est | a4 mer
+#   b0 branche ouest | b1 village     | b2 Palais Givré   | b3 village (est)    | b4 branche est
+#   c0 mer          | c1 lac de glace | c2 maison du veilleur | c3 lac de glace | c4 mer
+#   d0 mer          | d1 ponton       | d2 branche sud    | d3 mer              | d4 mer
+
+# --- Le ponton (l'arrivée) : les planches (colonne 4, lignes 5-6), le Bateau-Rondin à coté (6,5) ; nord -> le lac de glace, est -> la branche sud ---
+salle d1 decor 0d
+fc fc fc fc 3b 3b fc fc fc fc
+fc fc cd 3b 3b 3b 3b cd fc fc
+fc fc 3b 3b 3b 3b 3b 3b fc fc
+fc fc 3b 3b 0c 0c 3b 3b 3b 3b
+fc fc cd 3b 0c 0c 3b 3b 3b 3b
+fc fc fc fc 0e fc fc fc fc fc
+fc fc fc fc 0e fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- La branche sud : le roi d'une nuit dort (5,6) ; ouest -> le ponton, nord -> la maison du veilleur ---
+salle d2 decor 0d
+fc fc 08 09 3b 3b 08 09 fc fc
+fc fc 2c 3c 3b 3b 2c 3c fc fc
+fc cd 3b 3b 3b 3b 3b 3b cd fc
+3b 3b 3b 3b 3b 3b 3b 3b 3b fc
+3b 3b 3b 3b 3b 3b 3b 3b 3b fc
+fc cd 3b 3b 3b 3b 3b 3b cd fc
+fc fc cd 3b 3b 3b 3b cd fc fc
+fc fc fc fc cd cd fc fc fc fc
+
+# --- La maison du veilleur (porte de en ligne 2, colonne 7 -> 3:27) ; sud -> la branche sud, nord -> le palais, ouest / est -> les lacs ---
+salle c2 decor 0d
+cd 08 09 cd 3b 3b 8a 81 82 cd
+cd 2c 3c 3b 3b 3b 90 91 92 cd
+cd 3b 3b 3b 3b 3b f6 de f6 cd
+3b 3b 3b 3b 0c 0c 0c 0c 3b 3b
+3b 3b 3b 3b 0c 0c 3b 3b 3b 3b
+cd 3b 3b 3b 0c 0c 3b 3b 3b cd
+cd cd 3b 3b 0c 0c 3b 3b cd cd
+cd cd cd 3b 3b 3b 3b cd cd cd
+
+# --- Le lac de glace (ouest) : on glisse ; des trous dans la glace ; le coffre (1,1) ; sud -> le ponton, nord -> le village, est -> la maison du veilleur ---
+salle c1 decor 0d
+cd cd cd cd 3b 3b cd cd cd cd
+cd f1 ea ea ea ea ea ea ea cd
+cd ea f3 f3 ea ea f3 ea ea cd
+cd ea ea ea ea ea f3 ea ea 3b
+cd f3 ea f3 ea ea ea ea ea 3b
+cd ea ea ea ea f3 ea ea f3 cd
+cd cd cd cd ea ea cd cd cd cd
+cd cd cd cd 3b 3b cd cd cd cd
+
+# --- Le lac de glace (est) : la glace craque ; ouest -> la maison du veilleur, nord -> le village (est) ---
+salle c3 decor 0d
+cd cd cd cd 3b 3b cd cd cd cd
+cd ea ea ea ea ea ea ea ea cd
+cd ea f3 ea ea ea ea f3 ea cd
+3b ea ea ea f3 ea ea ea ea cd
+3b ea ea ea ea ea f3 ea ea cd
+cd ea f3 ea ea ea ea ea ea cd
+cd ea ea ea ea f3 ea ea ea cd
+cd cd cd cd cd cd cd cd cd cd
+
+# --- Le village gelé (ouest) : la maison de la famille endormie (porte de en ligne 2, colonne 2 -> 3:28) ; sud -> le lac, est -> le palais, ouest / nord -> les branches ---
+salle b1 decor 0d
+cd 8a 81 82 3b 3b 08 09 08 09
+cd 90 91 92 3b 3b 2c 3c 2c 3c
+cd f6 de f6 3b 3b 3b 3b 3b cd
+3b 3b 0c 3b 3b 3b 3b 3b 3b 3b
+3b 3b 0c 0c 0c 0c 0c 0c 0c 3b
+cd 3b 3b 3b 0c 0c 3b 3b 3b cd
+cd 08 09 3b 0c 0c 3b 08 09 cd
+cd 2c 3c 3b 3b 3b 3b 2c 3c cd
+
+# --- Le Palais Givré : sa porte (ligne 2, colonne 5) est prise dans la glace (f6 tant que le cristal du Songe n'a pas été frappé) ; l'étang gelé (un chemin de pavés le traverse, colonne 5) et le cristal pris dans un bloc de glace (f4, 5,4) ; ouest / est -> le village, sud -> la maison du veilleur ---
+salle b2 decor 0d
+08 09 99 99 99 99 99 99 08 09
+2c 3c 99 99 99 99 99 99 2c 3c
+cd 3b f6 f6 f6 f6 f6 f6 3b cd
+3b 3b 3b 3b 3b 0c 3b 3b 3b 3b
+3b 3b ea ea ea 0c ea ea 3b 3b
+cd 3b ea ea f4 0c ea ea 3b cd
+cd 3b ea ea ea 0c ea ea 3b cd
+cd cd cd 3b 3b 0c 3b cd cd cd
+
+# --- Le village gelé (est) : la maison de la chanteuse (porte de en ligne 2, colonne 7 -> 3:29) ; ouest -> le palais, sud -> le lac, est / nord -> les branches ---
+salle b3 decor 0d
+08 09 08 09 3b 3b 8a 81 82 cd
+2c 3c 2c 3c 3b 3b 90 91 92 cd
+cd 3b 3b 3b 3b 3b f6 de f6 cd
+3b 3b 3b 3b 3b 3b 3b 0c 3b 3b
+3b 0c 0c 0c 0c 0c 0c 0c 3b 3b
+cd 3b 3b 3b 0c 0c 3b 3b 3b cd
+cd 08 09 3b 0c 0c 3b 08 09 cd
+cd 2c 3c 3b 3b 3b 3b 2c 3c cd
+
+# --- La branche ouest : un bout de flocon, des sapins ; est -> le village ---
+salle b0 decor 0d
+fc fc fc fc fc fc fc fc fc fc
+fc fc 08 09 fc fc 08 09 cd cd
+fc fc 2c 3c 3b 3b 2c 3c 3b cd
+fc cd 3b 3b 3b 3b 3b 3b 3b 3b
+fc cd 3b 3b 3b 3b 3b 3b 3b 3b
+fc fc 08 09 3b 3b 08 09 3b cd
+fc fc 2c 3c fc fc 2c 3c cd cd
+fc fc fc fc fc fc fc fc fc fc
+
+# --- La branche est : un bout de flocon ; ouest -> le village ---
+salle b4 decor 0d
+fc fc fc fc fc fc fc fc fc fc
+cd cd 08 09 fc fc 08 09 fc fc
+cd 3b 2c 3c 3b 3b 2c 3c fc fc
+3b 3b 3b 3b 3b 3b 3b 3b cd fc
+3b 3b 3b 3b 3b 3b 3b 3b cd fc
+cd 3b 08 09 3b 3b 08 09 fc fc
+cd cd 2c 3c fc fc 2c 3c fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- La branche nord : un bout de flocon ; sud -> le village ---
+salle a1 decor 0d
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc 08 09 08 09 fc fc fc
+fc fc cd 2c 3c 2c 3c cd fc fc
+fc fc 08 09 3b 3b 08 09 fc fc
+fc fc 2c 3c 3b 3b 2c 3c fc fc
+fc fc fc cd 3b 3b cd fc fc fc
+fc fc fc cd 3b 3b cd fc fc fc
+fc fc fc cd 3b 3b cd fc fc fc
+
+# --- La branche nord-est : un bout de flocon ; sud -> le village ---
+salle a3 decor 0d
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc 08 09 08 09 fc fc fc
+fc fc cd 2c 3c 2c 3c cd fc fc
+fc fc 08 09 3b 3b 08 09 fc fc
+fc fc 2c 3c 3b 3b 2c 3c fc fc
+fc fc fc cd 3b 3b cd fc fc fc
+fc fc fc cd 3b 3b cd fc fc fc
+fc fc fc cd 3b 3b cd fc fc fc
+
+# --- La mer ---
+salle a0 decor 0d
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- La mer ---
+salle a2 decor 0d
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- La mer ---
+salle a4 decor 0d
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- La mer ---
+salle c0 decor 0d
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- La mer ---
+salle c4 decor 0d
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- La mer ---
+salle d0 decor 0d
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- La mer ---
+salle d3 decor 0d
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- La mer ---
+salle d4 decor 0d
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- Les intérieurs (même disposition que l'auberge, 3:9e) ---
+# La maison du veilleur
+decor 3:27 2b copie 3:9e
+# La maison de la famille endormie
+decor 3:28 2b copie 3:9e
+# La maison de la chanteuse
+decor 3:29 2b copie 3:9e

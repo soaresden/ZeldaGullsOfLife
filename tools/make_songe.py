@@ -36,7 +36,7 @@ DATA = os.path.join(DISASM, 'data', 'ages')
 # décor du Songe -> décor du Réel copié (0x3b : la Spirale Céleste, pas un Songe : le Donjon des
 # Ailes recopié à l'index de donjon 6, en bleuté)
 COPIES = {0x7d: 0x10, 0x7e: 0x18, 0x7f: 0x2b, 0x7c: 0x00, 0x7b: 0x00, 0x06: 0x1e, 0x07: 0x13, 0x08: 0x1a,
-          0x3b: 0x37}
+          0x3b: 0x37, 0x0d: 0x10, 0x0e: 0x10}
 
 # (décor, copie de, en-tête de palette d'origine, nouvel en-tête, octets du décor)
 SONGE = [
@@ -59,8 +59,28 @@ SONGE = [
     # 2) recopié à l'index de donjon 6, aux couleurs (bleutées) du ciel
     (0x3b, 'PALH_TILESET_WING_DUNGEON', 0xd4, 'PALH_SPIRALE',
      '$26, $88, UNIQUE_GFXH_NONE, GFXH_TILESET_WING_DUNGEON, PALH_SPIRALE, $22, $04, $10'),
+    # L'île du Grand Sommeil (île 7) : le village du passé (décor $10) sous la neige, à la place des
+    # Hautes Terres de Nuun ($0d, $0e : on ne les visite pas) ; le $0d est le Réel (glace), le $0e
+    # son Songe (glace bleutée)
+    (0x0d, 'PALH_TILESET_LYNNA_VILLAGE', 0xd6, 'PALH_GIVRE',
+     '$0f, $81, UNIQUE_GFXH_LYNNA_CITY_2, GFXH_TILESET_OVERWORLD_PAST, PALH_GIVRE, $0f, $02, $00'),
+    (0x0e, 'PALH_TILESET_LYNNA_VILLAGE', 0xd7, 'PALH_SONGE_GIVRE',
+     '$0f, $01, UNIQUE_GFXH_LYNNA_CITY_2, GFXH_TILESET_OVERWORLD_PAST, PALH_SONGE_GIVRE, $0f, $00, $00'),
+    # Le Palais Givré (donjon 7) : la Grotte Lunaire d'Ages ($38, ses cristaux), passée à l'index
+    # de donjon 7 et en glace (pas de copie : les salles de la Grotte Lunaire ne servent plus)
+    (0x38, 'PALH_TILESET_MOONLIT_GROTTO', 0xd8, 'PALH_PALAIS',
+     '$27, $08, UNIQUE_GFXH_NONE, GFXH_TILESET_MOONLIT_GROTTO, PALH_PALAIS, $23, $04, $10'),
 ]
 SEPIA = (0x07,)   # ces Songes-là sont sépia (voir sepia())
+ICE = (0x0d, 0x38)        # en glace (voir ice()) ; le $0e : la glace, puis le Songe
+ICE_DREAM = (0x0e,)
+# (décor, brique, 4 tuiles + 4 attributs) : la glace = le sol du village (9e) aux couleurs de l'eau
+# (palette 6) ; dans le Palais, le dallage f8 (80) aux couleurs du f9 (palette 2). Et le cristal du
+# Songe (PART_SWITCH dehors = la brique 9e, 9f une fois frappé) : le losange db (éteint), le carreau
+# da (allumé), aux couleurs de l'eau ; solides. Dernier nombre : la collision
+PATCHES = [(0x0d, 0xea, '9e9e9e9e0e0e0e0e', 0), (0x0e, 0xea, '9e9e9e9e0e0e0e0e', 0),
+           (0x38, 0x8a, '808080800a0a0a0a', 0),
+           (0x0e, 0x9e, 'e6e8e7e90e0e0e0e', 0x0f), (0x0e, 0x9f, 'bebebebe0e2e4e6e', 0x0f)]
 # Copies du Réel : (décor, octets du décor) ; mêmes palettes, drapeau « passé » ($80)
 REEL = [
     (0x7b, '$0f, $81, UNIQUE_GFXH_LYNNA_CITY_1, GFXH_TILESET_OVERWORLD_PRESENT, PALH_TILESET_LYNNA_CITY, $00, $02, $00'),
@@ -77,6 +97,25 @@ def dream(r, g, b):
     tr, tg, tb = lum * 0.55 + 2, lum * 0.75 + 3, min(31, lum * 0.85 + 9)
     k = 0.35  # part de la couleur d'origine
     return tuple(max(0, min(31, round(o * k + t * (1 - k)))) for o, t in ((r, tr), (g, tg), (b, tb)))
+
+
+def ice(r, g, b):
+    """Couleur de l'île du Grand Sommeil : la même lumière, en neige et en glace (blanc bleuté)."""
+    lum = 0.30 * r + 0.59 * g + 0.11 * b
+    light = min(31, lum * 1.3 + 3)      # plus clair : le sol devient de la neige
+    tr, tg, tb = light * 0.9, light * 0.95, min(31, light * 0.85 + 6)
+    k = 0.12
+    return tuple(max(0, min(31, round(o * k + t * (1 - k)))) for o, t in ((r, tr), (g, tg), (b, tb)))
+
+
+def recolor(tileset, c):
+    if tileset in SEPIA:
+        return sepia(*c)
+    if tileset in ICE:
+        return ice(*c)
+    if tileset in ICE_DREAM:
+        return dream(*ice(*c))
+    return dream(*c)
 
 
 def sepia(r, g, b):
@@ -129,7 +168,7 @@ def main():
         hdr_lines += ['\tm_PaletteHeaderEnd', '']
         pal_lines.append('paletteData%s: ; Songe : %s en bleuté' % (short, label))
         for i, c in enumerate(rgb):
-            pal_lines.append('\tm_RGB16 $%02x $%02x $%02x' % (sepia(*c) if tileset in SEPIA else dream(*c)))
+            pal_lines.append('\tm_RGB16 $%02x $%02x $%02x' % recolor(tileset, c))
             if i % 4 == 3:
                 pal_lines.append('')
         if tileset in OUTDOOR:
@@ -172,6 +211,16 @@ def main():
         for kind in ('Mappings', 'Collisions'):
             d = os.path.join(DISASM, 'tileset_layouts_expanded', 'ages', 'tileset%s%%02x.bin' % kind)
             shutil.copyfile(d % src, d % dst)
+    # La glace (TILETYPE_ICE : $ea dehors, $8a dans les donjons) n'est dessinée dans aucun de ces
+    # décors : on lui donne des tuiles (4 tuiles + 4 attributs) et sa collision
+    for tileset, tile, mapping, collision in PATCHES:
+        d = os.path.join(DISASM, 'tileset_layouts_expanded', 'ages', 'tileset%s%02x.bin')
+        with open(d % ('Mappings', tileset), 'r+b') as f:
+            f.seek(tile * 8)
+            f.write(bytes.fromhex(mapping))
+        with open(d % ('Collisions', tileset), 'r+b') as f:
+            f.seek(tile)
+            f.write(bytes([collision]))
     print('décors du Songe : %s' % ', '.join('$%02x' % s[0] for s in SONGE))
 
 

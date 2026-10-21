@@ -302,7 +302,8 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Après un échange au Grappin, le diamant reprend sa place ~70 images plus tard (là où était Link).
 - Les changements de cases d'Ages des salles reprises sont commentés (roomSpecificTileChanges.s :
   4c, 4e, 52 ; commonTileSubstitutions.s : 4c, 4e, 53).
-- Le Fouisseur = le Subterror d'Ages (ses objets de 4:4d) ; l'Ombre de Marine = le Swoop (4:34),
+- Le Fouisseur = le Subterror d'Ages (ses objets de 4:4d) ; l'Ombre de Marine = le Swoop (4:34,
+  recoloré violet-noir : PALH_OMBRE $d5, palette 6 des sprites, enemyData $71 -> $60),
   INTERAC_DUNGEON_SCRIPT $01 ajouté au donjon 6 (dungeonScript_bossDeath : le cœur) ; l'essence
   (wGroup4RoomFlags+$54) ramène au village des plumes (1:67) : les moulins, Zéphyr, le Rito ;
   Marine lit le vent (l'île du Grand Sommeil, GLOBALFLAG_BALLADE_ISLAND7).
@@ -310,6 +311,31 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Menu de test : île 6 Donjon / M-boss (la Cape) / Boss (4:53, la clé du boss) / Fin ; jalons 24-27.
 - Test : python tools/test_spirale.py DOSSIER (chaque énigme jouée comme un joueur).
   Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/spirale.png
+
+## Chapitre 7 : l'île du Grand Sommeil (île 7)
+- story/salles/ile_sommeil.txt (1:a0-d4, 5 x 4 ; tracé par un script jetable). La carte d'Ages
+  s'arrête à la ligne d (14 x 14 écrans) : on ne défile pas vers la ligne e (1:e? seulement par
+  téléportation). Un flocon : ponton d1, branche sud d2, maison du veilleur c2, lacs de glace c1 /
+  c3, village gelé b1 / b3, le Palais Givré b2, branches b0 / b4 / a1 / a3.
+- Décor 0d = le village du passé (10) sous la neige (make_songe.py : ice(), à la place des Hautes
+  Terres de Nuun) ; son Songe = le 0e (dream(ice())). La glace (TILETYPE_ICE, brique ea dehors, 8a
+  dans les donjons) n'est dessinée par aucun décor : make_songe.py (PATCHES) lui donne des tuiles.
+- Intérieurs 3:27 (le veilleur), 3:28 (la famille), 3:29 (la chanteuse) : copies de l'auberge. Les
+  salles 3:XX partagent leurs drapeaux avec 1:XX : la chanteuse garde les siens dans 1:b3.
+- La quête : le veilleur ($27) donne le Lance-Graines (TREASURE_SHOOTER, avec la sacoche et 20
+  graines de feu ; il en remet si moins de 10). La porte du palais (1:b2, $2d) est un mur f6 tant
+  que le drapeau $80 de 1:b2 n'est pas mis. Dans le Songe (0:b2, songe.txt), l'étang n'est pas
+  gelé : le cristal (PART_SWITCH $40 = la brique 9e dehors, dessinée en losange par make_songe.py)
+  sur l'îlot, des buissons en face : seulement en biais (le Lance-Graines tourne en tenant B, une
+  pression vers la droite = un huitième de tour). $2e voit le bit 6 de wSwitchState et met le
+  drapeau de 1:b2. Le roi d'une nuit dort (1:d2, $26) ; dans le Songe (0:d2, $2c) il est roi et
+  dit de frapper en biais. Dormeurs ($26, $2a, $2b) : immobiles tant que l'essence 7 manque.
+  La chanteuse ($29) : la Clochette d'Aube (la flûte, wLinkPlayingInstrument non nul) à moins de
+  2 cases la réveille ; quart de cœur.
+- Menu de test : île 7 Plage (1:d1) / Ville (1:b1) ; jalon 28 = la fin du chapitre 6 vue.
+- Test : python tools/test_sommeil.py DOSSIER (arrivée, le roi, le veilleur, la porte gelée, le
+  cristal du Songe, la porte dégelée, le roi du Songe, la famille, l'entrée du palais).
+  Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/sommeil.png
 - Compiler quand le Python du Store refuse (« Permission denied ») : PYTHON=/c/msys64/clang64/bin/python.exe
   et /c/msys64/clang64/bin en tête du PATH (Pillow y est installé : pacman,
   mingw-w64-clang-x86_64-python-pillow).

@@ -2348,6 +2348,211 @@ groups:
       everyone sleeps.
       Without waking.
 
+  # The Isle of Deep Sleep: the jetty (1:e1), on arrival
+  - name: TX_5abc
+    index: 0xbc
+    text: |-
+      \col(1)Marine\col(0): Brrr...
+      Everything's
+      frozen.\stop
+      And so quiet...
+      Listen. Someone
+      is snoring.\stop
+      The whole island
+      is asleep!
+
+  # The one-night king (1:e2): asleep / awake
+  - name: TX_5abd
+    index: 0xbd
+    text: |-
+      \col(1)Sleeper\col(0): Zzz...
+      Kneel before
+      your king...\stop
+      Zzz... My
+      palace... Zzz...
+
+  - name: TX_5abe
+    index: 0xbe
+    text: |-
+      \col(1)The king\col(0): Who
+      woke me up?\stop
+      In my dream,
+      I was a king!\stop
+      ...Well. Nice
+      weather, at
+      least.
+
+  # The watchman (3:27): the Seed Shooter
+  - name: TX_5abf
+    index: 0xbf
+    text: |-
+      \col(1)Watchman\col(0): A
+      visitor! Awake!\stop
+      I'm the
+      watchman: the
+      only one who
+      doesn't sleep.\stop
+      The Frostling
+      sings his
+      lullaby in the
+      Frost Palace.\stop
+      It freezes
+      everything. And
+      everyone falls
+      asleep.\stop
+      Take my Seed
+      Shooter. My
+      hands are
+      frozen.
+
+  - name: TX_5ac0
+    index: 0xc0
+    text: |-
+      \col(1)Watchman\col(0): The
+      palace door is
+      stuck in ice.\stop
+      But in dreams,
+      there is no
+      ice...\stop
+      The king talks
+      about it in his
+      sleep. Go and
+      listen.
+
+  # The little sister (3:28), the only one awake in her family
+  - name: TX_5ac1
+    index: 0xc1
+    text: |-
+      \col(1)Little girl\col(0):
+      My family has
+      slept
+      for three years.\stop
+      I don't want to
+      sleep.\stop
+      If I sleep, who
+      will wake them?
+
+  - name: TX_5ac2
+    index: 0xc2
+    text: |-
+      \col(1)Little girl\col(0):
+      They're awake!\stop
+      Mom says I've
+      grown up. I say
+      they overslept.
+
+  # The mother, the father (3:28)
+  - name: TX_5ac3
+    index: 0xc3
+    text: |-
+      \col(1)Mother\col(0): Zzz...
+      my sweetie...
+      it's
+      so warm here...
+      Zzz...
+
+  - name: TX_5ac4
+    index: 0xc4
+    text: |-
+      \col(1)Mother\col(0): Three
+      years?! ...Come
+      here, you. Come.
+
+  - name: TX_5ac5
+    index: 0xc5
+    text: |-
+      \col(1)Father\col(0): Zzz...
+      five more
+      minutes...
+      Zzz...
+
+  - name: TX_5ac6
+    index: 0xc6
+    text: |-
+      \col(1)Father\col(0): What a
+      night! I caught
+      a fish as big
+      as an island.
+
+  # The singer (3:29): she sings in her sleep; the Dawn Bell wakes her up
+  - name: TX_5ac7
+    index: 0xc7
+    text: |-
+      (She sings in
+      her sleep. A
+      gentle tune.)\stop
+      La la... laaa...
+
+  - name: TX_5ac8
+    index: 0xc8
+    text: |-
+      \col(1)Singer\col(0): That
+      clear sound...
+      you
+      woke me up!\stop
+      Thank you. Here:
+      I kept this for
+      whoever came.
+
+  - name: TX_5ac9
+    index: 0xc9
+    text: |-
+      \col(1)Singer\col(0): Your
+      gull sings in
+      tune.
+      Tell her to
+      hold the note!
+
+  # The king in the Dream (0:e2): he is a king; he says where to hit
+  - name: TX_5aca
+    index: 0xca
+    text: |-
+      \col(1)The king\col(0):
+      Welcome to my
+      kingdom!\stop
+      No ice here: my
+      palace shines!\stop
+      See the crystal
+      on the islet?\stop
+      My guard used to
+      hit it from afar
+      with seeds.\stop
+      At an angle,
+      like this! Hop!
+
+  # The frozen palace door (1:c2), A in front
+  - name: TX_5acb
+    index: 0xcb
+    text: |-
+      The door is
+      stuck in thick
+      ice.\stop
+      Nothing works.
+
+  # The Dream crystal hit (0:c2)
+  - name: TX_5acc
+    index: 0xcc
+    text: |-
+      \col(1)Marine\col(0): The
+      crystal sang!\stop
+      In the Real,
+      something must
+      have given
+      way...
+
+  # The Frost Palace (1:c2), on arrival
+  - name: TX_5acd
+    index: 0xcd
+    text: |-
+      \col(1)Marine\col(0): The
+      Frost Palace...
+      Its
+      door is frozen.\stop
+      Someone here
+      must know how to
+      get in.
+
+
 
 
 
@@ -2641,6 +2846,27 @@ groups:
       again: you jump
       a second time!
 
+  # The Seed Shooter (the watchman)
+  - name: TX_002e
+    index: 0x2e
+    text: |-
+      The \col(1)Seed
+      Shooter\col(0)!\stop
+      Pick your seeds
+      and fire: they
+      bounce off
+      walls.
+
+  # The Dawn Bell (the Frost Palace)
+  - name: TX_003b
+    index: 0x3b
+    text: |-
+      The \col(1)Dawn
+      Bell\col(0)!\stop
+      Its ring wakes
+      sleepers up.
+
+
 
 
 
@@ -2884,6 +3110,19 @@ groups:
       Roc's Cape
       For a double
       jump.
+
+  - name: TX_092e
+    index: 0x2e
+    text: |-
+      Dawn Bell
+      Wakes sleepers.
+
+  - name: TX_0940
+    index: 0x40
+    text: |-
+      Seed Shooter
+      Seeds bounce.
+
 
 
 
