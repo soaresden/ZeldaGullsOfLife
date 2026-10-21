@@ -887,6 +887,32 @@ groups:
       Well... nice
       job, kid.
 
+  # Le menu de test caché (code/ages/balladeDebug.s ; HAUT tenu 5 s à l'écran titre) :
+  # la langue, l'île, le moment, et dans le donjon l'endroit. Le même dans les deux fichiers.
+  - name: TX_5af0
+    index: 0xf0
+    text: |-
+       \opt()Français
+       \opt()English
+
+  - name: TX_5af1
+    index: 0xf1
+    text: |-
+       \opt()1 \opt()2 \opt()3 \opt()4
+       \opt()5 \opt()6 \opt()7 \opt()8
+
+  - name: TX_5af2
+    index: 0xf2
+    text: |-
+       \opt()Plage \opt()Ville
+       \opt()Donjon \opt()Fin
+
+  - name: TX_5af3
+    index: 0xf3
+    text: |-
+       \opt()Entrée \opt()M-boss
+       \opt()Boss
+
   # The language choice, at the start of a new game (the same in both files)
   - name: TX_5a17
     index: 0x17

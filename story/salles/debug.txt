@@ -1,0 +1,3 @@
+# La salle du menu de test caché (HAUT tenu 5 s à l'écran titre ; code/ages/balladeDebug.s).
+# 3:9f est un réduit d'Ages que le jeu ne visite plus : même disposition que l'auberge (3:9e).
+decor 3:9f 2b copie 3:9e

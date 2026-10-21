@@ -131,3 +131,8 @@ salle 4:13
 # L'arène de l'ancien donjon 3 d'Ages : il ne reste qu'un métronome, A en rythme (code/ages/balladeRhythm.s)
 salle 4:4a
 	obj_Interaction INTERAC_BALLADE_RHYTHM $00 $58 $78
+
+# --- Le menu de test caché (HAUT tenu 5 s à l'écran titre ; code/ages/balladeDebug.s) ---
+# Une pièce vide d'Ages que le jeu ne visite pas : les trois boîtes de choix, puis le départ
+salle 3:9f
+	obj_Interaction INTERAC_BALLADE_DEBUG $00 $08 $08

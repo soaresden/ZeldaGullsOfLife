@@ -18,6 +18,28 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   (titre, fichier 1, NEW GAME, nom « A », OK, vitesse du texte).
 - Adresses RAM : `oracles-disasm/ages.sym` (ex. w1Link=$d000, wcc50=$cc50, wDisabledObjects=$cc8a).
 
+## Menu de test caché (pour tester les niveaux sans tout rejouer)
+- Dans le jeu : à l'écran titre, **TENIR HAUT 5 secondes** (petit son de secret), puis Start et un
+  fichier (ou NEW GAME). La partie commence dans une pièce vide (3:9f, copie de l'auberge :
+  story/salles/debug.txt) : la langue, l'île (1-8), puis Plage / Ville / Donjon / Fin, et pour
+  Donjon : Entrée / M-boss / Boss. Link part avec les objets et les drapeaux de l'histoire, comme
+  s'il avait tout joué avant. Une étape pas encore construite : son d'erreur, retour à l'île.
+- Invisible pour un joueur : le code est en SRAM $bff2 (BALLADE_DEBUG_CODE), effacé à chaque écran
+  titre et à chaque début de partie ; HAUT tenu moins de 5 s ne fait rien.
+- Code : code/ages/balladeDebug.s (INTERAC_BALLADE_DEBUG $ec ; textes TX_5af0-f3, les mêmes dans
+  les deux langues). Les boîtes d'Ages n'affichent que 2 lignes : 8 choix au plus, et le premier
+  choix d'une ligne doit avoir un espace devant. **Pour chaque nouvelle île** : remplir sa ligne de
+  `debugEntries` (6 moments : nombre d'étapes, groupe, salle, case, liste en plus) et ajouter ses
+  étapes à `debugMilestones` (objets, essence, réceptacle, drapeaux), dans l'ordre du jeu.
+- Une boîte de texte demandée pendant l'arrivée dans une salle est refusée : attendre que
+  wScrollMode ait le bit 0 (textThreadStart).
+- PyBoy : `tools/debug_menu.py` (classe Game : `g.level(île, 'Boss', 'fr')`, `g.choose`,
+  `g.where()`...) ; `python tools/test_niveaux.py DOSSIER [ÎLE...]` teste chaque niveau construit
+  (arrivée, objets, drapeaux, un petit bout de jeu) + que le menu reste caché, et fait une planche
+  DOSSIER/planche.png. Un choix ne se valide qu'une fois le curseur prêt (w7SelectedTextPosition,
+  banque 7 de la WRAM, non nul).
+- Dernière planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/niveaux.png
+
 ## Pièges déjà rencontrés
 - Les heredocs Bash de l'outil réduisent `\\` en `\` : écrire les fichiers avec des `\` via Write/Edit.
 - `parseText.py` lisait le texte avec l'encodage Windows : corrigé (UTF-8) dans le fork.
@@ -34,9 +56,9 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - `jr` limité à ±127 octets : utiliser `jp` vers les fonctions communes d'un fichier long.
 - Sprites OAM : le premier écrit passe devant (dessiner du premier plan vers le fond).
 - WLA-DX : `.db $aa <TX_xxxx` est lu comme une comparaison (`$aa < TX`) : séparer par des virgules.
-- Select : appui court = Marine parle (`code/ages/balladeMarine.s`, table groupe/salle/texte, sinon
-  TX_5a10-13 au hasard), maintenu BALLADE_SELECT_HOLD_FRAMES images = carte (bank2.s, b2_updateMenus ;
-  compteur wBalladeSelectTimer en $cde5).
+- Select : appui court = la carte ; maintenu BALLADE_SELECT_HOLD_FRAMES images = Marine parle
+  (`code/ages/balladeMarine.s`, table groupe/salle/texte, sinon TX_5a10-13 au hasard) (bank2.s,
+  b2_updateMenus ; compteur wBalladeSelectTimer en $cde5).
 - Film : `tools/play.py "w560 ..."` arrive vers l'arrivée de la mouette (le film dure ~1100 images).
 
 ## Salles
