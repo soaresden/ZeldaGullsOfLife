@@ -81,7 +81,7 @@ def main():
     ramp = np.linspace(0, 1, n)[:, None]
     loop[:n] = data[p:p + n] * (1 - ramp) + data[:n] * ramp
     loop /= max(1.0, float(np.abs(loop).max())) / 0.9
-    dst = os.path.join(ROOT, 'docs', 'titre.ogg')
+    dst = os.path.join(ROOT, 'out', 'titre_rom.ogg')   # la page utilise la version douce (make_page_music_douce.py)
     # Par petits blocs : libsndfile plante si on lui donne tout le morceau d'un coup en Vorbis
     with soundfile.SoundFile(dst, 'w', rate, loop.shape[1], format='OGG', subtype='VORBIS') as f:
         for i in range(0, len(loop), 4096):

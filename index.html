@@ -500,7 +500,7 @@
     document.getElementById('tally').textContent = SBT(`♥ ${all.length - todo} / ${all.length} cœurs`, `♥ ${all.length - todo} / ${all.length} hearts`);
   })();
 
-  // La musique de l'écran titre (docs/titre.ogg, tools/make_page_music.py). Les navigateurs refusent le
+  // La musique de l'écran titre, en version douce pour la page (docs/titre.ogg, tools/make_page_music_douce.py). Les navigateurs refusent le
   // son avant un geste du visiteur : l'écran « PRESS START » le lui demande, comme une console.
   // Couper la musique est retenu (préférence de ce navigateur seulement) : on n'affiche alors plus l'écran.
   (function () {
@@ -516,7 +516,13 @@
     if (!audio.canPlayType('audio/ogg; codecs="vorbis"')) { gate.hidden = true; return; }
     let muted = false;
     try { muted = localStorage.getItem('gulls.music') === 'off'; } catch (_) {}
-    audio.volume = 0.5;
+    const VOL = 0.55;
+    audio.volume = 0;
+    // la musique entre en douceur (2 s) à chaque lecture
+    audio.addEventListener('play', () => {
+      const t0 = performance.now();
+      (function up() { const k = Math.min(1, (performance.now() - t0) / 2000); audio.volume = VOL * k * k; if (k < 1 && !audio.paused) requestAnimationFrame(up); })();
+    });
     btn.hidden = false;
     const render = () => {
       const on = !audio.paused;

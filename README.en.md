@@ -115,7 +115,7 @@ the Real World / Dream World switch.
 | Rooms | Text plans in `story/salles/` (10 x 8 metatiles per screen) and their objects in `story/salles/objets.txt`; `tools/make_rooms.py` puts them in the game; `tools/catalog.py` photographs a tileset's metatiles or rooms with their numbers |
 | Map | `tools/make_map.py` draws `docs/carte_archipel.png` (the 8 islands, the Log-Boat routes, the plan of Mist Island); `tools/make_plans.py` draws `docs/iles_plans.png` (each island's screens and the shape of its dungeon, from `story/iles.md`) |
 | Tests | `tools/play.py` plays the ROM in PyBoy and takes screenshots; `tools/test_temple.py`, `tools/test_lanterne.py`, `tools/test_fin.py` |
-| Music | Text scores in `music/`; `tools/make_music.py` converts them for the *Ages* engine, `tools/record_music.py` records a `.wav` preview, `tools/make_page_music.py` makes the title-screen loop played on the page (`docs/titre.ogg`) |
+| Music | Text scores in `music/`; `tools/make_music.py` converts them for the *Ages* engine, `tools/record_music.py` records a `.wav` preview, `tools/make_page_music_douce.py` makes the soft title-screen version played on the page (`docs/titre.ogg`: flute, harp, the sea, no drums) |
 | Patch | `tools/make_patch.py` makes `out/gulls_of_life.bps` from the *Ages* (USA) ROM |
 
 No ROM is distributed here: only the patch, to apply to your own
