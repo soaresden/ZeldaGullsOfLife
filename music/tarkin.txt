@@ -1,0 +1,41 @@
+# La maison de Tarkin (le souvenir, sous le chœur de la Cathédrale des Échos) — le thème du
+# village des Mouettes de Link's Awakening DX (MusicMabeVillage), ralenti.
+#
+# Denis accepte qu'on reprenne les musiques de LADX (CLAUDE.md). Notes recopiées de
+# LADX-Disassembly (src/data/music/music_tracks_data_1b_2.asm, ChannelDefinition_1b_5343 =
+# l'accompagnement, ChannelDefinition_1b_53a5 = la mélodie) : un « temps » LADX (9 images) = une
+# croche ici, jouée en 12 images (ralenti). Les noms de notes de LADX sont une octave plus bas
+# que les nôtres (C_1 de LADX = notre c2) : D_5 -> d6. L'onde ne joue pas (comme dans LADX).
+# Même notation que music/phare.txt (8 croches par mesure).
+
+tempo 12         # images par croche (9 dans LADX : ralenti, comme un souvenir)
+mesure 8
+
+== MABE ==
+melodie:   [v7] [duty 2] [vib 00] [gate .85] [detune 0]
+melodie:   d6:4 g5:4 | a5:6 b5:1 c6:1 |
+melodie:   d6:2 d6:2 g5:2 g5:2 | a5:6 b5:1 c6:1 |
+melodie:   b5:2 d6:2 a6:6 g6:2 a6:2 g6:2 |
+melodie:   d6:2 c6:1 b5:1 a5:4 | [v4] f#5:4 [v7] -:1 b5:1 c6:1 d6:1 |
+melodie:   e6:4 g5:4 | f#5:6 a5:1 e6:1 |
+melodie:   d6:2 d6:2 f#5:2 f#5:2 | g5:6 g5:1 f#5:1 |
+melodie:   e5:2 g5:2 b5:6 a5:2 g5:2 d#5:2 |
+melodie:   ( d5:2 d6:2 )x4 |
+melodie:   ( d6:2 d7:2 )x4 |
+accordeon: [v4] [duty 2] [vib 00] [gate .6] [detune 0]
+accordeon: ( g4:2 d5:2 )x2 | ( g4:2 e5:2 )x2 |
+accordeon: ( g4:2 f#5:2 )x2 | ( g4:2 e5:2 )x2 |
+accordeon: ( g4:2 d5:2 )x2 | ( g4:2 d#5:2 )x2 |
+accordeon: ( a4:2 e5:2 )x2 | d5:2 d4:2 e4:2 d4:2 |
+accordeon: ( c4:2 g4:2 )x2 | ( c4:2 a4:2 )x2 |
+accordeon: ( b3:2 a4:2 )x2 | ( e4:2 b4:2 )x2 |
+accordeon: ( a3:2 e4:2 )x2 | a3:2 d#4:2 d4:2 c4:2 |
+accordeon: [v3] [gate .9] d4:8 | c4:8 |
+accordeon: b3:8 | a3:6 [v4] [gate .6] d4:2 |
+basse:     [onde 0e] [vib 00] [gate 1]
+basse:     -:8 | -:8 | -:8 | -:8 | -:8 | -:8 | -:8 | -:8 | -:8 |
+basse:     -:8 | -:8 | -:8 | -:8 | -:8 | -:8 | -:8 | -:8 | -:8 |
+batterie:  -:8 | -:8 | -:8 | -:8 | -:8 | -:8 | -:8 | -:8 | -:8 |
+batterie:  -:8 | -:8 | -:8 | -:8 | -:8 | -:8 | -:8 | -:8 | -:8 |
+
+ordre: | MABE

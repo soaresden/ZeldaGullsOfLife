@@ -44,6 +44,9 @@ TRACKS = {
     'recif': (5, 0x3f, 0x57, None, 56),
     'braise': (1, 0x2a, 0x55, None, 50),
     'forge': (4, 0xbb, 0x57, None, 56),
+    'echos': (1, 0x62, 0x55, None, 52),
+    'cathedrale': (5, 0x8b, 0x57, None, 50),
+    'tarkin': (3, 0x26, 0x64, None, 40),
 }
 wanted = sys.argv[1:] or ['film', 'titre'] + list(TRACKS)
 

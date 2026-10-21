@@ -199,6 +199,10 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   Échos, GLOBALFLAG_BALLADE_ISLAND5).
 - Musiques : $26 (music/braise.txt, Mont-Braise, au lieu de la maison des Tokays), $17
   (music/forge.txt, au lieu du Donjon de la Couronne).
+- Musiques de l'île 5 et du donjon 5 : $13 (music/echos.txt, l'île des Échos et la cabane, au
+  lieu du Tombeau des Esprits), $1a (music/cathedrale.txt, la Nuit Blanche, au lieu du Tombeau
+  Ancien), $19 (music/tarkin.txt, la maison de Tarkin : le village des Mouettes de LADX recopié de
+  MusicMabeVillage, ralenti ; les notes de LADX sont une octave plus bas que les nôtres : C_1 = c2).
 - Test : python tools/test_forge.py DOSSIER (tout le donjon, ennemis et boss retirés).
   Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/forge.png
 
@@ -464,7 +468,7 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Le désassemblage de LADX est sur la machine : D:\DOCS\Documents\GitHub\ZeldaOracleCombinedFR\LADX-Disassembly-main
   (sons : src/code/audio/, musiques, sprites : src/gfx/...). Le lire là plutôt que sur GitHub.
 - Aperçus à écouter : `python tools/record_music.py [film titre phare ile auberge boss veilleur
-  miniboss theme grelot coffre lagune recif braise forge]` -> out/NOM_apercu.wav ; `ROM=chemin` pour une autre ROM ; les morceaux sans
+  miniboss theme grelot coffre lagune recif braise forge echos cathedrale tarkin]` -> out/NOM_apercu.wav ; `ROM=chemin` pour une autre ROM ; les morceaux sans
   salle sont lancés en détournant playSound (crochet PyBoy). Denis veut ÉCOUTER une musique avant
   qu'on la pousse ; ses références : Wind Waker / Linebeck (marin), Resident Evil (salle de
   sauvegarde), Hyrule Warriors, Ninja Gaiden NES.

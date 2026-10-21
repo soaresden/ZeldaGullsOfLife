@@ -45,6 +45,9 @@ SONGS = [
     ('recif.txt', 'musBalladeRecif'),          # $18 (au lieu de la Grotte des Sirènes), le Récif Murmurant
     ('braise.txt', 'musBalladeBraise'),        # $26 (au lieu de la maison des Tokays), Mont-Braise (île 4)
     ('forge.txt', 'musBalladeForge'),          # $17 (au lieu du Donjon de la Couronne), la Forge Endormie
+    ('echos.txt', 'musBalladeEchos'),          # $13 (au lieu du Tombeau des Esprits), l'île des Échos (île 5)
+    ('cathedrale.txt', 'musBalladeCathedrale'),  # $1a (au lieu du Tombeau Ancien), la Cathédrale des Échos
+    ('tarkin.txt', 'musBalladeTarkin'),        # $19 (au lieu du Ventre de Jabu-Jabu), la maison de Tarkin (LADX)
 ]
 # Niveaux du boss en rythme : mêmes notes à frapper que rythme.txt (vérifié)
 RHYTHM_LEVELS = ['rythme2.txt', 'rythme3.txt', 'rythme4.txt', 'rythme5.txt']
@@ -62,6 +65,11 @@ ILE_LAGUNE = [0x04, 0x05, 0x06, 0x07, 0x14, 0x15, 0x16, 0x17,
               0x24, 0x25, 0x26, 0x27, 0x34, 0x35, 0x36, 0x37]
 # Mont-Braise (île 4) : 1:08-3c
 ILE_BRAISE = [r + d for r in range(0x08, 0x0d) for d in (0x00, 0x10, 0x20, 0x30)]
+# L'île des Échos (île 5) : 1:40-74
+ILE_ECHOS = [r + d for r in range(0x40, 0x45) for d in (0x00, 0x10, 0x20, 0x30)]
+# La Cathédrale des Échos (donjon 5, groupe 5 : la croix)
+CATHEDRALE = [0x7b, 0x7c, 0x7d, 0x7f, 0x80, 0x81, 0x82, 0x83, 0x85, 0x86, 0x89, 0x8b, 0x8d, 0x8e,
+              0x8f, 0x90, 0x91, 0x92, 0x93, 0xaa]
 ROOM_MUSIC = [
     # le Phare / temple (plan d'un seul étage : pied 1b-14-15, tour 16-18-17, galerie 19-12-1a,
     # Jack 13 avant le combat ; 24 et 1c de l'ancien plan)
@@ -86,6 +94,11 @@ ROOM_MUSIC = [
     (5, 0x26, [0xb2]),      # la mine abandonnée
     # la Forge Endormie (donjon 4 ; Copiator lance la musique du boss)
     (4, 0x17, [0xae, 0xaf, 0xb0, 0xb1, 0xb2, 0xb6, 0xb9, 0xba, 0xbb, 0xbc, 0xbd, 0xbe, 0xbf]),
+    (1, 0x13, ILE_ECHOS),   # l'île des Échos dans le Réel
+    (0, 0x13, ILE_ECHOS),   # et dans le Songe
+    (3, 0x13, [0x25]),      # la cabane du fossoyeur
+    (5, 0x1a, CATHEDRALE),  # la Cathédrale des Échos (donjon 5)
+    (3, 0x19, [0x26]),      # le souvenir : la maison de Marine à Mabe (Tarkin)
     # salle de test du boss en rythme (l'arène de l'ancien donjon 3 d'Ages) : silence en entrant
     # (SNDCTRL_STOPMUSIC) ; le boss lance son morceau quand Marine a parlé
     (4, 0xf0, [0x4a]),

@@ -1,0 +1,52 @@
+# La Cathédrale des Échos — musique originale du donjon 5 (Gulls of Life)
+#
+# Esprit : une Nuit Blanche. On se cache, on retient son souffle : un tic-tac d'horloge (le bruit,
+# tic plus fort, tac plus doux), une basse qui marche à pas de loup (l'onde, des notes piquées),
+# une nappe très douce, et une mélodie presque absente : deux notes, un silence, deux notes... Pas
+# de combat (retour de Denis sur la Forge : pas « boss »). Ré mineur, un peu chromatique.
+# Même notation que music/phare.txt (8 croches par mesure).
+
+tempo 11         # images par croche
+mesure 8
+
+== INTRO ==
+# Le tic-tac seul, puis les pas
+melodie:   [v0] [duty 2] [vib 00] [gate .7] [detune 0]
+melodie:   -:8 | -:8 |
+accordeon: [v0] [duty 2] [vib 00] [gate 1] [detune 0]
+accordeon: -:8 | -:8 |
+basse:     [onde 0e] [vib 00] [gate .4]
+basse:     -:8 | d2:1 -:3 a1:1 -:3 |
+batterie:  ( [v2] h:1 -:3 [v1] h:1 -:3 | )x2
+
+== A ==
+# Des pas dans la nef : deux notes, un silence
+melodie:   [v5] [gate .7] [vib 00]
+melodie:   -:8 | a4:1 -:1 a#4:1 -:5 | -:8 | g4:1 -:1 a4:1 -:5 |
+melodie:   -:8 | d5:2 c#5:2 -:4 | -:8 | e4:4 -:4 |
+accordeon: [v2] [gate 1]
+accordeon: d4:8 | d4:8 | c#4:8 | c#4:8 | a#3:8 | a#3:8 | a3:8 | a3:8 |
+basse:     [gate .4]
+basse:     d2:1 -:3 a1:1 -:3 | d2:1 -:3 a1:1 -:3 | c#2:1 -:3 a1:1 -:3 | c#2:1 -:3 a1:1 -:3 |
+basse:     a#1:1 -:3 f1:1 -:3 | a#1:1 -:3 f1:1 -:3 | a1:1 -:3 e1:1 -:3 | a1:1 -:3 c#2:1 -:3 |
+batterie:  ( [v2] h:1 -:3 [v1] h:1 -:3 | )x8
+
+== B ==
+# Plus près : la mélodie monte d'un cran, puis se tait d'un coup
+melodie:   [v6]
+melodie:   f5:1 -:1 e5:1 -:5 | -:8 | g5:1 -:1 f5:1 -:1 e5:1 -:3 | -:8 |
+melodie:   d5:2 -:2 a4:2 -:2 | -:8 | c#5:6 -:2 | -:8 |
+accordeon: [v2]
+accordeon: g3:8 | g3:8 | a3:8 | a3:8 | f3:8 | f3:8 | e3:8 | e3:8 |
+basse:     g1:1 -:3 d2:1 -:3 | g1:1 -:3 d2:1 -:3 | a1:1 -:3 e2:1 -:3 | a1:1 -:3 e2:1 -:3 |
+basse:     a#1:1 -:3 f1:1 -:3 | a#1:1 -:3 f1:1 -:3 | a1:1 -:3 e1:1 -:3 | -:8 |
+batterie:  ( [v2] h:1 -:3 [v1] h:1 -:3 | )x7 -:8 |
+
+== SILENCE ==
+# On retient son souffle : rien que l'horloge
+melodie:   -:8 | -:8 |
+accordeon: -:8 | -:8 |
+basse:     -:8 | -:8 |
+batterie:  ( [v1] h:1 -:3 h:1 -:3 | )x2
+
+ordre: INTRO | A B SILENCE

@@ -1,0 +1,43 @@
+# L'île des Échos — musique originale de l'île 5 (Gulls of Life)
+#
+# Esprit : une île de deuil, grise, mais tendre. Une cloche lointaine (l'onde, des notes graves
+# tenues, une par mesure), et une mélodie que l'île répète derrière elle, plus faible, trois
+# croches plus tard (le 2e carré : l'écho). La mineur en 6/8, lent ; le pont (B) passe en do majeur
+# : le souvenir, la chanson de Mamie Rose.
+# Même notation que music/phare.txt (6 croches par mesure).
+
+tempo 14         # images par croche (lent, comme une marche au cimetière)
+mesure 6
+
+== INTRO ==
+# La cloche seule
+melodie:   [v0] [duty 2] [vib 00] [gate .9] [detune 0]
+melodie:   -:6 | -:6 | -:6 | -:6 |
+accordeon: [v0] [duty 2] [vib 00] [gate .9] [detune 0]
+accordeon: -:6 | -:6 | -:6 | -:6 |
+basse:     [onde 0e] [vib 00] [gate 1]
+basse:     a2:6 | -:6 | e2:6 | -:6 |
+batterie:  -:6 | -:6 | -:6 | -:6 |
+
+== A ==
+# La mélodie, et son écho
+melodie:   [v5] [duty 2] [vib 41] [gate .9]
+melodie:   e5:3 d5:1 c5:2 | b4:3 a4:3 | c5:2 d5:1 e5:3 | g5:6 |
+melodie:   f5:3 e5:1 d5:2 | c5:3 b4:3 | a4:2 b4:1 c5:2 b4:1 | a4:6 |
+accordeon: [v2] [duty 1] [vib 41] [gate .9]
+accordeon: <melodie+3>
+basse:     [gate 1]
+basse:     a2:6 | e2:6 | a2:6 | g2:6 | d2:6 | a2:6 | f2:3 e2:3 | a2:6 |
+batterie:  -:6 | -:6 | -:6 | -:6 | -:6 | -:6 | -:6 | -:6 |
+
+== B ==
+# Le souvenir (do majeur) : la chanson de Mamie Rose, que l'île chante encore
+melodie:   [v6]
+melodie:   g5:3 e5:1 c5:2 | d5:3 g4:3 | a4:2 b4:1 c5:2 d5:1 | e5:6 |
+melodie:   f5:3 d5:1 a4:2 | g4:3 c5:3 | b4:2 a4:1 g#4:2 b4:1 | a4:6 |
+accordeon: [v2]
+accordeon: <melodie+3>
+basse:     c3:6 | g2:6 | f2:6 | c3:6 | d2:6 | e2:6 | e2:6 | a2:6 |
+batterie:  -:6 | -:6 | -:6 | -:6 | -:6 | -:6 | -:6 | -:6 |
+
+ordre: INTRO | A B

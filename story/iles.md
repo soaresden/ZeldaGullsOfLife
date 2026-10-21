@@ -400,7 +400,9 @@ des orchestres de *Hyrule Warriors* : cuivres, percussions, grandeur.
 **Déjà fait** : l'écran titre (la Ballade chantée par Marine), l'île de la Brume, l'auberge, le
 Phare Éteint, le thème du jeu (la *Ballade de la Mouette*), le boss (la Ballade en colère), le
 mini-boss, le Veilleur Creux (en réserve), le boss en rythme (5 niveaux), Hameau-Grelot, le Coffre à
-Jouets, la Lagune des Serments, le Récif Murmurant, Mont-Braise, la Forge Endormie.
+Jouets, la Lagune des Serments, le Récif Murmurant, Mont-Braise, la Forge Endormie, l'île des
+Échos, la Cathédrale des Échos (la Nuit Blanche), la maison de Tarkin (le village des Mouettes de
+*Link's Awakening DX*, ralenti).
 
 **À écrire** :
 
@@ -408,9 +410,6 @@ Jouets, la Lagune des Serments, le Récif Murmurant, Mont-Braise, la Forge Endor
 | --- | --- | --- |
 | La mer (Bateau-Rondin) | la carte de l'archipel, en voyage | large et marin, à la *Wind Waker* (le bateau) ; la Ballade cachée dans la basse |
 | La plongée | mini-jeu | une boucle calme qui s'accélère avec la profondeur |
-| Île des Échos | île 5 | une cloche, une mélodie qui revient en écho plus faible |
-| La Cathédrale (Nuit Blanche) | donjon 5 | tension d'infiltration : un tic-tac, des silences |
-| La maison de Tarkin | donjon 5 | le village des Mouettes de *Link's Awakening DX* (autorisé), ralenti |
 | Nid des Vents | île 6 | aérien, arpèges rapides, flûte |
 | La Spirale Céleste | donjon 6 | montée en spirale (gammes qui grimpent) |
 | L'Ombre de Marine | boss 6 | la Ballade de la Mouette en mineur, déformée |
