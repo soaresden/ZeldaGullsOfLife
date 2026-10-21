@@ -1,8 +1,8 @@
 # Mont-Braise (île 4), le Réel (groupe 1, écrans 1:08-3c). Voir story/iles.md.
-# Un volcan endormi : des rochers (64), des lacets, un village goron, une plage noire au sud.
+# Un volcan endormi : des rochers (60), des lacets, un village goron, une plage noire au sud.
 # Décor 1e = la Crête Roulante d'Ages, côté passé (son Songe : le 06, copie bleutée).
 #
-# Briques : 1a 1b sol ; 64 roche ; fc mer ; fa eau (la source chaude) ; c5 buisson ; c0 rocher
+# Briques : 1a 1b sol ; 60 roche (pas 64 : une falaise, Link saute) ; fc mer ; fa eau (la source chaude) ; c5 buisson ; c0 rocher
 #   (Bracelet de force : il devient 3a) ; dd entrée de grotte ; 90 91 92 / a0 a1 a2 visage de
 #   pierre goron ; 85 86 87 / 95 96 97 grand visage (96 bouche) ; 08 09 / 2c 3c gros rocher ;
 #   b0 b1 b2 cailloux ; f2 pancarte (ou chevalet) ; 0e planches.
@@ -16,172 +16,172 @@
 
 # --- Roche ---
 salle 08 decor 1e
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
 
 # --- Roche ---
 salle 09 decor 1e
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
 
 # --- Le cratère : le grand visage de pierre (85-97), sa bouche (dd, ligne 1, colonne 4) mène à la Forge Endormie ; sud -> les lacets ---
 salle 0a decor 1e
-64 64 64 85 86 87 64 64 64 64
-64 64 64 95 dd 97 64 64 64 64
-64 64 1a 1a 1a 1b 1a 1a 64 64
-64 1b 1a 1a 1a 1b 1a 1a 1a 64
-64 c5 1b 1a 1a 1a 1a 1a c5 64
-64 1a 1a 1a 1a 1a 1a 1a 1a 64
-64 1a 1a 1a 1a 1a 1a 1a 1a 64
-64 1a 1a 1a 1a 1a 1a 1a 1a 64
+60 60 60 85 86 87 60 60 60 60
+60 60 60 95 dd 97 60 60 60 60
+60 60 1a 1a 1a 1b 1a 1a 60 60
+60 1b 1a 1a 1a 1b 1a 1a 1a 60
+60 c5 1b 1a 1a 1a 1a 1a c5 60
+60 1a 1a 1a 1a 1a 1a 1a 1a 60
+60 1a 1a 1a 1a 1a 1a 1a 1a 60
+60 1a 1a 1a 1a 1a 1a 1a 1a 60
 
 # --- Roche ---
 salle 0b decor 1e
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
 
 # --- Roche ---
 salle 0c decor 1e
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
 
 # --- Roche ---
 salle 18 decor 1e
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
 
 # --- L'atelier des peintres : Pinceau (ligne 3, colonne 5) et son chevalet (f2) ; sud -> les lacets ---
 salle 19 decor 1e
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 c5 c5 1a 1a 1b 1a 1a 1a 64
-64 1b 1a 1a 1a 1b f2 1a 1a 64
-64 1a 1b 1a 1a 1a 1a 1a 1a 64
-64 1a 1a 1a 1a 1a 1a 1a 1a 64
-64 1a 1a 1a 1a 1a 1a c5 1a 64
-64 1a 1a 1a 1a 1a 1a 1a 1a 64
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 c5 c5 1a 1a 1b 1a 1a 1a 60
+60 1b 1a 1a 1a 1b f2 1a 1a 60
+60 1a 1b 1a 1a 1a 1a 1a 1a 60
+60 1a 1a 1a 1a 1a 1a 1a 1a 60
+60 1a 1a 1a 1a 1a 1a c5 1a 60
+60 1a 1a 1a 1a 1a 1a 1a 1a 60
 
 # --- Les lacets : du village (sud, derrière les rochers c0 de 2a) au cratère (nord) ---
 salle 1a decor 1e
-64 64 64 64 1a 1a 1a 1a 64 64
-64 64 64 64 1a 1b 1a 1a 64 64
-64 64 64 64 64 64 1a 1a 64 64
-64 64 1a 1a 1a 1b 1a 1a 64 64
-64 64 1b 1a 1a 1a 1a 1a 64 64
-64 64 1a 1a c5 1a 64 64 64 64
-64 64 1a 1a 1a 1a 64 64 64 64
-64 64 64 64 1a 1a 64 64 64 64
+60 60 60 60 1a 1a 1a 1a 60 60
+60 60 60 60 1a 1b 1a 1a 60 60
+60 60 60 60 60 60 1a 1a 60 60
+60 60 1a 1a 1a 1b 1a 1a 60 60
+60 60 1b 1a 1a 1a 1a 1a 60 60
+60 60 1a 1a c5 1a 60 60 60 60
+60 60 1a 1a 1a 1a 60 60 60 60
+60 60 60 60 1a 1a 60 60 60 60
 
 # --- La source chaude : un bassin (fa) ; une pancarte (f2) ; sud -> les lacets de l'est ---
 salle 1b decor 1e
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 1a 1a 1a 1a 1b 1a 1a f2 64
-64 1b 1a fa fa fa fa 1a 1a 64
-64 1a 1b fa fa fa fa 1a 1a 64
-64 1a 1a fa fa fa fa 1a 1a 64
-64 c5 1a 1a 1a 1a 1a 1a 1a 64
-64 1a 1a 1a 1a 1a 1a 1a 1a 64
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 1a 1a 1a 1a 1b 1a 1a f2 60
+60 1b 1a fa fa fa fa 1a 1a 60
+60 1a 1b fa fa fa fa 1a 1a 60
+60 1a 1a fa fa fa fa 1a 1a 60
+60 c5 1a 1a 1a 1a 1a 1a 1a 60
+60 1a 1a 1a 1a 1a 1a 1a 1a 60
 
 # --- Roche ---
 salle 1c decor 1e
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
-64 64 64 64 64 64 64 64 64 64
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
 
 # --- La mine abandonnée : son entrée (dd, ligne 1, colonne 3) -> 5:b2 ; est -> les lacets ---
 salle 28 decor 1e
-64 64 64 64 64 64 64 64 64 64
-64 64 64 dd 64 64 64 64 64 64
-64 1a 1a 1a 1a 1b 1a 1a 1a 64
-64 1b 1a 1a 1a 1b 1a 08 09 1b
-64 1a 1b 1a 1a 1a 1a 2c 3c 1a
-64 1a b0 b1 1a 1a 1a 1a 1a 64
-64 1a 1a b2 1a 1a 1a 1a 1a 64
-64 1a 1a 1a 1a 1a 1a 1a 1a 64
+60 60 60 60 60 60 60 60 60 60
+60 60 60 dd 60 60 60 60 60 60
+60 1a 1a 1a 1a 1b 1a 1a 1a 60
+60 1b 1a 1a 1a 1b 1a 08 09 1b
+60 1a 1b 1a 1a 1a 1a 2c 3c 1a
+60 1a b0 b1 1a 1a 1a 1a 1a 60
+60 1a 1a b2 1a 1a 1a 1a 1a 60
+60 1a 1a 1a 1a 1a 1a 1a 1a 60
 
 # --- Les lacets de l'ouest : nord -> l'atelier, ouest -> la mine, est -> le village, sud -> la plage ---
 salle 29 decor 1e
-64 64 64 64 1a 1a 64 64 64 64
-64 c5 1a 1b 1a 1b 1a 1a 1a 64
-64 1a 1a 1a 1a 1b 1a 08 09 64
+60 60 60 60 1a 1a 60 60 60 60
+60 c5 1a 1b 1a 1b 1a 1a 1a 60
+60 1a 1a 1a 1a 1b 1a 08 09 60
 1a 1b 1a 1a 1a 1b 1a 2c 3c 1b
 1a 1a 1b 1a 1a 1a 1a 1a 1a 1a
-64 1a 1a 1a 1a 1a 1a 1a 1a 64
-64 1a 1a 1a 1a 1a 1a 1a c5 64
-64 64 64 64 1a 1a 64 64 64 64
+60 1a 1a 1a 1a 1a 1a 1a 1a 60
+60 1a 1a 1a 1a 1a 1a 1a c5 60
+60 60 60 60 1a 1a 60 60 60 60
 
 # --- Le village goron : la forge de Brasia ; au nord, deux rochers (c0) à soulever (Bracelet de force) -> les lacets du cratère ---
 salle 2a decor 1e
-64 64 64 64 c0 c0 64 64 64 64
-64 90 91 92 1a 1b 90 91 92 64
-64 a0 a1 a2 1a 1b a0 a1 a2 64
+60 60 60 60 c0 c0 60 60 60 60
+60 90 91 92 1a 1b 90 91 92 60
+60 a0 a1 a2 1a 1b a0 a1 a2 60
 1a 1b 1a 1a 1a 1b 1a 1a 1a 1b
 1a 1a 1b 1a 1a 1a 1a 1a 1a 1a
-64 1a 1a 1a 1a 1a 1a 1a 1a 64
-64 1a 1a 1a 1a 1a 1a 1a 1a 64
-64 64 64 64 1a 1a 64 64 64 64
+60 1a 1a 1a 1a 1a 1a 1a 1a 60
+60 1a 1a 1a 1a 1a 1a 1a 1a 60
+60 60 60 60 1a 1a 60 60 60 60
 
 # --- Les lacets de l'est : nord -> la source chaude, est -> le belvédère, ouest -> le village, sud -> la plage ---
 salle 2b decor 1e
-64 64 64 64 1a 1a 64 64 64 64
-64 1b 1a 1b 1a 1b 1a 08 09 64
-64 1a 1a 1a 1a 1b 1a 2c 3c 64
+60 60 60 60 1a 1a 60 60 60 60
+60 1b 1a 1b 1a 1b 1a 08 09 60
+60 1a 1a 1a 1a 1b 1a 2c 3c 60
 1a 1b 1a 1a 1a 1b 1a 1a 1a 1b
 1a 1a 1b 1a 1a 1a 1a 1a 1a 1a
-64 1a c5 c5 1a 1a 1a 1a 1a 64
-64 1a 1a 1a 1a 1a 1a 1a 1a 64
-64 64 64 64 1a 1a 64 64 64 64
+60 1a c5 c5 1a 1a 1a 1a 1a 60
+60 1a 1a 1a 1a 1a 1a 1a 1a 60
+60 60 60 60 1a 1a 60 60 60 60
 
 # --- Le belvédère : la vue sur la mer (une pancarte, f2) ; ouest -> les lacets ---
 salle 2c decor 1e
-64 64 64 64 64 64 64 64 fc fc
-64 1b 1a 1b 1a 1b 1a 1a fc fc
-64 1a 1a 1a 1a 1b f2 1a fc fc
+60 60 60 60 60 60 60 60 fc fc
+60 1b 1a 1b 1a 1b 1a 1a fc fc
+60 1a 1a 1a 1a 1b f2 1a fc fc
 1a 1b 1a 1a 1a 1b 1a 1a fc fc
 1a 1a 1b 1a 1a 1a 1a 1a fc fc
-64 1a 1a 1a 1a 1a 1a 1a fc fc
-64 1a 1a 1a 1a 1a 1a 1a fc fc
-64 64 64 64 64 64 64 64 fc fc
+60 1a 1a 1a 1a 1a 1a 1a fc fc
+60 1a 1a 1a 1a 1a 1a 1a fc fc
+60 60 60 60 60 60 60 60 fc fc
 
 # --- Le ponton : planches 0e vers le sud (lignes 5-6, colonnes 3-4), le Bateau-Rondin à leur droite (ligne 6, colonne 5) ; est -> la plage ---
 salle 38 decor 1e
-64 64 64 64 64 64 64 64 64 64
+60 60 60 60 60 60 60 60 60 60
 fc 1b 1a 1b 1a 1b 1a 1a 1a fc
 fc 1a 1a 1a 1a 1b 1a 1a 1a fc
 fc 1b 1a 1a 1a 1b 1a 1a 1a 1b
@@ -192,7 +192,7 @@ fc fc fc fc fc fc fc fc fc fc
 
 # --- La plage noire de l'ouest : nord -> les lacets ---
 salle 39 decor 1e
-64 64 64 64 1a 1a 64 64 64 64
+60 60 60 60 1a 1a 60 60 60 60
 fc 1b 1a 1b 1a 1b 1a 1a 1a fc
 fc 1a 1a 1a 1a 1b 1a c5 1a fc
 1a 1b 1a 1a 1a 1b 1a 1a 1a 1b
@@ -203,7 +203,7 @@ fc fc fc fc fc fc fc fc fc fc
 
 # --- Le marché des copies : le marchand ; nord -> le village ---
 salle 3a decor 1e
-64 64 64 64 1a 1a 64 64 64 64
+60 60 60 60 1a 1a 60 60 60 60
 fc 1b b0 b1 1a 1b b0 b1 1a fc
 fc 1a 1a 1a 1a 1b 1a 1a 1a fc
 1a 1b 1a 1a 1a 1b 1a 1a 1a 1b
@@ -214,7 +214,7 @@ fc fc fc fc fc fc fc fc fc fc
 
 # --- La plage noire de l'est : nord -> les lacets ---
 salle 3b decor 1e
-64 64 64 64 1a 1a 64 64 64 64
+60 60 60 60 1a 1a 60 60 60 60
 fc 1b 1a 1b 1a 1b 1a 1a 1a fc
 fc 1a c5 1a 1a 1b 1a 1a 1a fc
 1a 1b 1a 1a 1a 1b 1a 1a 1a fc

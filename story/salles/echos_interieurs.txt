@@ -1,0 +1,4 @@
+# L'île des Échos (île 5) : les intérieurs.
+
+# La cabane du fossoyeur Bêche : même disposition que l'auberge (3:9e)
+decor 3:25 2b copie 3:9e

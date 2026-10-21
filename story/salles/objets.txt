@@ -400,3 +400,30 @@ salle 4:bf
 	obj_Interaction $1e $0b $50 $00
 	obj_Interaction INTERAC_BALLADE_OBJECT $08 $78 $38
 	obj_BeforeEvent group4MapbfBeforeEventObjectData
+
+# --- L'île des Échos (île 5, 1:40-74 ; story/salles/ile_echos.txt) ---
+# Le ponton : le Bateau-Rondin ; Marine parle en arrivant
+salle 70
+	obj_Interaction INTERAC_BALLADE_OBJECT $00 $68 $58
+	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+# La place du silence : Noé ; dans le Songe, sa grand-mère Rose
+salle 62
+	obj_Interaction INTERAC_BALLADE_OBJECT $1a $38 $68
+salle 0:62
+	obj_Interaction INTERAC_BALLADE_OBJECT $1b $38 $68
+# La cabane du fossoyeur : Bêche
+salle 3:25
+	obj_Interaction INTERAC_BALLADE_OBJECT $19 $48 $38
+# La chapelle : le sonneur
+salle 63
+	obj_Interaction INTERAC_BALLADE_OBJECT $1d $38 $48
+# Le cimetière de l'est : la clé enterrée devant la tombe fleurie (ligne 5, colonne 5) ; Marine
+salle 64
+	obj_Interaction INTERAC_BALLADE_OBJECT $1e $58 $58
+	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+# Le rocher de la veuve : Marée
+salle 74
+	obj_Interaction INTERAC_BALLADE_OBJECT $1c $28 $68
+# La cathédrale : sa grille (ligne 4, colonne 4)
+salle 42
+	obj_Interaction INTERAC_BALLADE_OBJECT $1f $48 $48

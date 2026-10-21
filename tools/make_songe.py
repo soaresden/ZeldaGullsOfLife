@@ -6,6 +6,8 @@
 - décor $7c : Hameau-Grelot du Songe (copie du $00, la ville de Lynna du présent)
 - décor $06 : Mont-Braise du Songe (copie du $1e, la Crête Roulante du passé ; à la place de la
   ville de Symétrie en ruine, qu'on ne visite pas)
+- décor $07 : l'île des Échos du Songe (copie du $13, le cimetière de Yoll du passé ; à la place de
+  la ville de Symétrie restaurée) : couleur sépia, pas bleutée (une île de souvenirs)
 
 Et des copies du Réel, quand le décor d'origine est un décor du « présent » d'Ages (le Réel est
 le « passé » : TILESETFLAG_PAST, pour le symbole de l'époque, la carte...) :
@@ -31,7 +33,7 @@ import shutil
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DISASM = os.path.join(ROOT, 'oracles-disasm')
 DATA = os.path.join(DISASM, 'data', 'ages')
-COPIES = {0x7d: 0x10, 0x7e: 0x18, 0x7f: 0x2b, 0x7c: 0x00, 0x7b: 0x00, 0x06: 0x1e}   # décor du Songe -> décor du Réel copié
+COPIES = {0x7d: 0x10, 0x7e: 0x18, 0x7f: 0x2b, 0x7c: 0x00, 0x7b: 0x00, 0x06: 0x1e, 0x07: 0x13}   # décor du Songe -> décor du Réel copié
 
 # (décor, copie de, en-tête de palette d'origine, nouvel en-tête, octets du décor)
 SONGE = [
@@ -46,7 +48,10 @@ SONGE = [
      '$0f, $01, UNIQUE_GFXH_LYNNA_CITY_1, GFXH_TILESET_OVERWORLD_PRESENT, PALH_SONGE_GRELOT, $00, $00, $00'),
     (0x06, 'PALH_TILESET_ROLLING_RIDGE_PAST', 0xd1, 'PALH_SONGE_BRAISE',
      '$0f, $01, UNIQUE_GFXH_ROLLING_RIDGE_PAST, GFXH_TILESET_OVERWORLD_PAST, PALH_SONGE_BRAISE, $09, $00, $02'),
+    (0x07, 'PALH_TILESET_YOLL_GRAVEYARD_ALTERNATE', 0xd2, 'PALH_SONGE_ECHOS',
+     '$0f, $01, UNIQUE_GFXH_YOLL_GRAVEYARD, GFXH_TILESET_OVERWORLD_PAST, PALH_SONGE_ECHOS, $01, $00, $01'),
 ]
+SEPIA = (0x07,)   # ces Songes-là sont sépia (voir sepia())
 # Copies du Réel : (décor, octets du décor) ; mêmes palettes, drapeau « passé » ($80)
 REEL = [
     (0x7b, '$0f, $81, UNIQUE_GFXH_LYNNA_CITY_1, GFXH_TILESET_OVERWORLD_PRESENT, PALH_TILESET_LYNNA_CITY, $00, $02, $00'),
@@ -59,6 +64,14 @@ def dream(r, g, b):
     lum = 0.30 * r + 0.59 * g + 0.11 * b
     tr, tg, tb = lum * 0.55 + 2, lum * 0.75 + 3, min(31, lum * 0.85 + 9)
     k = 0.35  # part de la couleur d'origine
+    return tuple(max(0, min(31, round(o * k + t * (1 - k)))) for o, t in ((r, tr), (g, tg), (b, tb)))
+
+
+def sepia(r, g, b):
+    """Couleur d'un Songe-souvenir : la même lumière, en sépia (une vieille photo)."""
+    lum = 0.30 * r + 0.59 * g + 0.11 * b
+    tr, tg, tb = min(31, lum * 1.0 + 4), lum * 0.82 + 2, lum * 0.55 + 1
+    k = 0.25
     return tuple(max(0, min(31, round(o * k + t * (1 - k)))) for o, t in ((r, tr), (g, tg), (b, tb)))
 
 
@@ -104,7 +117,7 @@ def main():
         hdr_lines += ['\tm_PaletteHeaderEnd', '']
         pal_lines.append('paletteData%s: ; Songe : %s en bleuté' % (short, label))
         for i, c in enumerate(rgb):
-            pal_lines.append('\tm_RGB16 $%02x $%02x $%02x' % dream(*c))
+            pal_lines.append('\tm_RGB16 $%02x $%02x $%02x' % (sepia(*c) if tileset in SEPIA else dream(*c)))
             if i % 4 == 3:
                 pal_lines.append('')
         if tileset in OUTDOOR:

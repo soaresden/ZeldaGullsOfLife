@@ -1825,6 +1825,196 @@ groups:
       se répète deux
       fois. Deux fois.
 
+  # Chapitre 5 : l'île des Échos (1:40-74)
+  # En arrivant au ponton (1:70), la première fois
+  - name: TX_5a90
+    index: 0x90
+    text: |-
+      \col(1)Marine\col(0): ...C'est
+      tout gris, ici.\stop
+      Tu entends? Les
+      cloches. Le vent
+      les fait sonner
+      toutes seules.\stop
+      On dirait que
+      l'île entière
+      se souvient de
+      quelqu'un.
+
+  # Le cimetière de l'est, devant la tombe fleurie, la première fois
+  - name: TX_5a91
+    index: 0x91
+    text: |-
+      \col(1)Marine\col(0): Une
+      tombe avec des
+      fleurs fraîches.\stop
+      Quelqu'un vient
+      encore lui
+      parler...
+
+  # Bêche, le fossoyeur (3:25) : il prête la Pelle
+  - name: TX_5a92
+    index: 0x92
+    text: |-
+      \col(1)Bêche\col(0): Un
+      visiteur? Ici?
+      Personne ne
+      vient plus.\stop
+      Moi, je creuse.
+      Tous les jours.
+      Pour ne pas
+      penser.\stop
+      Tiens, prends
+      ma \col(1)Pelle\col(0).
+      Déterre ce qui
+      doit l'être.
+
+  - name: TX_5a93
+    index: 0x93
+    text: |-
+      \col(1)Bêche\col(0): Ma
+      pelle te va
+      bien. Creuse
+      doucement: la
+      terre se
+      souvient.
+
+  # Noé, sur la place du silence (1:62 ; $1a) : avant / après la cathédrale
+  - name: TX_5a94
+    index: 0x94
+    text: |-
+      \col(1)Noé\col(0): Mamie
+      chantait tout le
+      temps.\stop
+      Mais je ne me
+      souviens plus
+      de sa voix.\stop
+      Même en fermant
+      les yeux.
+      Surtout en
+      fermant les
+      yeux.
+
+  - name: TX_5a95
+    index: 0x95
+    text: |-
+      \col(1)Noé\col(0): Je
+      l'entends!
+      La la laa...\stop
+      C'est sa
+      chanson. Je
+      l'avais dans la
+      tête, en fait!
+
+  # La grand-mère de Noé, dans le Songe (0:62 ; $1b) : où est la clé
+  - name: TX_5a96
+    index: 0x96
+    text: |-
+      \col(1)Mamie Rose\col(0): Oh!
+      Un petit
+      chevalier, dans
+      le rêve de mon
+      Noé!\stop
+      Le sonneur a
+      fermé la
+      cathédrale. Il
+      avait peur du
+      silence.\stop
+      Moi, j'ai
+      enterré la clé.
+      Devant la tombe
+      fleurie, au
+      cimetière de
+      l'est.\stop
+      C'est la mienne,
+      de tombe. Les
+      fleurs, c'est
+      Noé.
+
+  # Elle donne le quart de cœur (sa boîte à couture)
+  - name: TX_5a97
+    index: 0x97
+    text: |-
+      \col(1)Mamie Rose\col(0): Tu
+      as trouvé la
+      clé? Alors
+      tiens.\stop
+      Je l'avais
+      caché dans ma
+      boîte à couture.
+      Pour un jour
+      comme ça.
+
+  - name: TX_5a98
+    index: 0x98
+    text: |-
+      \col(1)Mamie Rose\col(0): Dis
+      à Noé que je
+      chante encore.
+      Il n'a qu'à
+      écouter.
+
+  # La grille de la cathédrale, sans la clé
+  - name: TX_5a99
+    index: 0x99
+    text: |-
+      La grille est
+      fermée à clé.
+      Une vieille
+      serrure,
+      rouillée.
+
+  # La veuve Marée (1:74 ; $1c)
+  - name: TX_5a9a
+    index: 0x9a
+    text: |-
+      \col(1)Marée\col(0): Mon
+      mari était
+      pêcheur. Il
+      partait avant
+      l'aube.\stop
+      Avant, je le
+      voyais en rêve.
+      Maintenant, je
+      ne rêve plus.
+
+  - name: TX_5a9b
+    index: 0x9b
+    text: |-
+      \col(1)Marée\col(0): Cette
+      nuit, il m'a
+      fait signe. De
+      loin. Il
+      souriait.\stop
+      Je crois que je
+      vais bien
+      dormir.
+
+  # Le sonneur (1:63 ; $1d)
+  - name: TX_5a9c
+    index: 0x9c
+    text: |-
+      \col(1)Le sonneur\col(0):
+      Ding! Dong!
+      Je sonne, je
+      sonne!\stop
+      Si j'arrête, il
+      n'y a plus que
+      le silence. Et
+      dans le silence,
+      on se souvient.
+
+  - name: TX_5a9d
+    index: 0x9d
+    text: |-
+      \col(1)Le sonneur\col(0):
+      Je sonne moins
+      fort, ce soir.\stop
+      Le silence, au
+      fond, ça
+      s'écoute.
+
+
 
 
 # ==============================================================================
@@ -2171,6 +2361,25 @@ groups:
       hein? C'est de
       moi!
 
+  # La Pelle (Bêche)
+  - name: TX_0025
+    index: 0x25
+    text: |-
+      La \col(1)Pelle\col(0)!\stop
+      Face au sol,
+      utilise-la:
+      tu creuses!
+
+  # La clé de la cathédrale (la clé du cimetière d'Ages)
+  - name: TX_0023
+    index: 0x23
+    text: |-
+      La \col(1)clé de la
+      cathédrale\col(0)!\stop
+      Une vieille clé,
+      toute rouillée.
+
+
 
 
 # Noms des lieux sur la carte (SELECT) : trois noms d'Ages repris pour l'île de la Brume
@@ -2390,6 +2599,20 @@ groups:
       Canne des Songes
       Un bloc, rien
       qu'un.
+
+  - name: TX_092a
+    index: 0x2a
+    text: |-
+      Pelle
+      Pour creuser.
+
+  - name: TX_094a
+    index: 0x4a
+    text: |-
+      Clé de la
+      cathédrale
+      Toute rouillée.
+
 
 
 

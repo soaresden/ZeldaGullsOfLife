@@ -107,3 +107,26 @@ salle 0:28 decor 06
 64 1a 1a b2 1a 1a 1a 1a 1a 64
 64 1a 1a 1a 1a 1a 1a 1a 1a 64
 
+
+# --- L'île des Échos (île 5) dans le Songe : la cabane et la cathédrale fermées ; sur la
+# place du silence, rien ne change (la grand-mère de Noé y est, un objet) ---
+salle 0:42 decor 07
+64 64 64 64 64 64 64 64 64 64
+64 64 64 64 64 64 64 64 64 64
+64 64 64 64 64 64 64 64 64 64
+64 64 64 64 64 64 64 64 64 64
+64 64 64 87 ec 87 64 64 64 64
+64 02 3a 3a 3a 3a 11 3a d9 64
+64 3a 3a 3a 3a 3a 3a 3a 3a 64
+64 3a 3a 3a 3a 3a 1b 1b 11 64
+
+salle 0:61 decor 07
+64 64 64 64 64 64 64 64 64 64
+64 64 64 64 64 64 64 64 64 64
+64 3a 1b 3a 3a 3a 3a 13 3a 64
+3a 3a 13 3a 1b 11 11 84 3a 3a
+1b 3a 3a 3a 10 3a 3a 3a 10 3a
+64 3a 02 3a 3a 3a 11 3a 3a 64
+64 3a 3a 3a 3a 3a 3a 3a 3a 64
+64 64 64 64 3a 3a 64 64 64 64
+

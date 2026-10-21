@@ -202,7 +202,27 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Test : python tools/test_forge.py DOSSIER (tout le donjon, ennemis et boss retirés).
   Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/forge.png
 
+## Chapitre 5 : l'île des Échos (île 5)
+- story/salles/ile_echos.txt (1:40-74, 5 x 4 ; tracé par un script jetable) : décor 13 (le cimetière
+  de Yoll d'Ages, passé) ; son Songe = le décor 07 (copie sépia, make_songe.py). Passages : nord /
+  sud colonnes 4-5, est / ouest lignes 3-4. La cabane du fossoyeur (1:61, dd) -> 3:25 (copie du
+  décor 2b de 3:9e, story/salles/echos_interieurs.txt).
+- La quête : Bêche ($19) prête la Pelle ; Noé ($1a, place du silence 1:62) ne se souvient plus de
+  la voix de sa grand-mère ; dans le Songe (0:62), Mamie Rose ($1b) dit où est enterrée la clé
+  (devant la tombe fleurie du cimetière de l'est, 1:64, case 5:5 : $1e, invisible) ; la Pelle la
+  déterre (la clé du cimetière d'Ages, donnée tout de suite par giveTreasure : sinon Ages la pose
+  par terre) ; Mamie Rose donne alors le quart de cœur (ROOMFLAG_ITEM de 0:62) ; la grille de la
+  cathédrale (1:42, $1f) s'ouvre avec la clé (A face à elle) -> dd. Le sonneur ($1d), la veuve
+  Marée ($1c) : villager.
+- Menu de test : île 5 Plage (1:70) / Ville (1:62) ; jalon 19 = Pelle + clé + drapeaux de 1:64 et 1:42.
+- Test : python tools/test_echos.py DOSSIER (arrivée, Bêche, Noé, Mamie Rose dans le Songe, la clé,
+  le quart de cœur, la grille, la veuve Marée).
+  Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/echos.png
+
 ## Pièges déjà rencontrés
+- La brique 64 (bord de roche) est une FALAISE dans tous les décors d'extérieur (cliffTiles.s,
+  ANGLE_DOWN) : Link saute par-dessus en marchant vers le bas et tombe dans l'écran du dessous.
+  Pour un mur de roche, prendre 60 (Mont-Braise, île des Échos).
 - Les heredocs Bash de l'outil réduisent `\\` en `\` : écrire les fichiers avec des `\` via Write/Edit.
 - `parseText.py` lisait le texte avec l'encodage Windows : corrigé (UTF-8) dans le fork.
 - Textes : style YAML `|-` avec retours à la ligne choisis à la main ; `\stop` en fin de ligne.

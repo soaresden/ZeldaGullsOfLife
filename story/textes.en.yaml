@@ -1766,6 +1766,185 @@ groups:
       happens twice.
       Twice.
 
+  # Chapter 5: the Isle of Echoes (1:40-74)
+  # Arriving at the jetty (1:70), the first time
+  - name: TX_5a90
+    index: 0x90
+    text: |-
+      \col(1)Marin\col(0): ...It's
+      all grey here.\stop
+      Hear that? The
+      bells. The wind
+      rings them all
+      by itself.\stop
+      It's like the
+      whole island
+      remembers
+      someone.
+
+  # The east graveyard, by the flowered grave, the first time
+  - name: TX_5a91
+    index: 0x91
+    text: |-
+      \col(1)Marin\col(0): A
+      grave with fresh
+      flowers.\stop
+      Someone still
+      comes to talk
+      to her...
+
+  # Spade, the gravedigger (3:25): he lends the Shovel
+  - name: TX_5a92
+    index: 0x92
+    text: |-
+      \col(1)Spade\col(0): A
+      visitor? Here?
+      Nobody comes
+      anymore.\stop
+      Me, I dig.
+      Every day. So I
+      don't have to
+      think.\stop
+      Here, take my
+      \col(1)Shovel\col(0). Dig
+      up what needs
+      digging up.
+
+  - name: TX_5a93
+    index: 0x93
+    text: |-
+      \col(1)Spade\col(0): My
+      shovel suits
+      you. Dig gently:
+      the earth
+      remembers.
+
+  # Noah, in the square of silence (1:62 ; $1a): before / after the cathedral
+  - name: TX_5a94
+    index: 0x94
+    text: |-
+      \col(1)Noah\col(0): Granny
+      was always
+      singing.\stop
+      But I can't
+      remember her
+      voice anymore.\stop
+      Not even with my
+      eyes closed.
+      Especially with
+      my eyes closed.
+
+  - name: TX_5a95
+    index: 0x95
+    text: |-
+      \col(1)Noah\col(0): I can
+      hear it!
+      La la laa...\stop
+      It's her song.
+      It was in my
+      head all along!
+
+  # Noah's granny, in the Dream (0:62 ; $1b): where the key is
+  - name: TX_5a96
+    index: 0x96
+    text: |-
+      \col(1)Granny Rose\col(0):
+      Oh! A little
+      knight, in my
+      Noah's dream!\stop
+      The bell-ringer
+      locked the
+      cathedral. He
+      was afraid of
+      the silence.\stop
+      Me, I buried the
+      key. In front of
+      the flowered
+      grave, in the
+      east graveyard.\stop
+      It's my grave.
+      The flowers are
+      from Noah.
+
+  # She gives the Piece of Heart (her sewing box)
+  - name: TX_5a97
+    index: 0x97
+    text: |-
+      \col(1)Granny Rose\col(0):
+      You found the
+      key? Then take
+      this.\stop
+      I hid it in my
+      sewing box. For
+      a day like this.
+
+  - name: TX_5a98
+    index: 0x98
+    text: |-
+      \col(1)Granny Rose\col(0):
+      Tell Noah I'm
+      still singing.
+      He only has to
+      listen.
+
+  # The cathedral gate, without the key
+  - name: TX_5a99
+    index: 0x99
+    text: |-
+      The gate is
+      locked. An old,
+      rusty lock.
+
+  # The widow Tide (1:74 ; $1c)
+  - name: TX_5a9a
+    index: 0x9a
+    text: |-
+      \col(1)Tide\col(0): My
+      husband was a
+      fisherman. He
+      left before
+      dawn.\stop
+      I used to see
+      him in my
+      dreams. Now I
+      don't dream at
+      all.
+
+  - name: TX_5a9b
+    index: 0x9b
+    text: |-
+      \col(1)Tide\col(0): Last
+      night he waved
+      at me. From far
+      away. He was
+      smiling.\stop
+      I think I'll
+      sleep well.
+
+  # The bell-ringer (1:63 ; $1d)
+  - name: TX_5a9c
+    index: 0x9c
+    text: |-
+      \col(1)Bell-ringer\col(0):
+      Ding! Dong!
+      I ring, I ring!\stop
+      If I stop, all
+      that's left is
+      silence. And in
+      silence, you
+      remember.
+
+  - name: TX_5a9d
+    index: 0x9d
+    text: |-
+      \col(1)Bell-ringer\col(0):
+      I'm ringing more
+      softly tonight.\stop
+      Silence... you
+      can listen to
+      it, after all.
+
+
 
 
 # ==============================================================================
@@ -1971,6 +2150,25 @@ groups:
       right? I wrote
       that one!
 
+  # The Shovel (Spade)
+  - name: TX_0025
+    index: 0x25
+    text: |-
+      The \col(1)Shovel\col(0)!\stop
+      Use it facing
+      the ground: you
+      dig!
+
+  # The cathedral key (Ages' graveyard key)
+  - name: TX_0023
+    index: 0x23
+    text: |-
+      The \col(1)cathedral
+      key\col(0)!\stop
+      An old key, all
+      rusty.
+
+
 
 
 # Map place names (SELECT): three Ages names reused for Mist Island
@@ -2150,6 +2348,19 @@ groups:
       Cane of Dreams
       One block, just
       one.
+
+  - name: TX_092a
+    index: 0x2a
+    text: |-
+      Shovel
+      For digging.
+
+  - name: TX_094a
+    index: 0x4a
+    text: |-
+      Cathedral key
+      All rusty.
+
 
 
 

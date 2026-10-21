@@ -1,0 +1,234 @@
+# L'île des Échos (île 5), le Réel (groupe 1, écrans 1:40-74). Voir story/iles.md.
+# Une île de deuil, grise : un village de tombes en forme de cloche, la cathédrale au sommet.
+# Décor 13 = le cimetière de Yoll d'Ages, côté passé (son Songe : le 07, couleur sépia).
+#
+# Briques : 3a sol (10 11 12 13 1b : variantes) ; 60 roche (pas 64 : une falaise, Link saute) ; fc mer ; 02 84 tombes ; d9 tombe-
+#   chapelle ; ad ae / bd be arbre mort ; 87 pilier ; ec grille fermée ; 98 99 9a grille ; c5 fleur
+#   (buisson) ; f3 tombe ouverte ; dd entrée ; f2 pancarte ; 0e planches.
+# Passages : nord / sud colonnes 4-5, est / ouest lignes 3-4.
+#
+# Plan (une case = un écran) :
+#   40 mer       | 41 mer           | 42 Cathédrale        | 43 mer        | 44 mer
+#   50 mer       | 51 Allée (ouest) | 52 Parvis            | 53 Allée (est)| 54 mer
+#   60 Cimetière | 61 Fossoyeur     | 62 Place du silence  | 63 Chapelle   | 64 Cimetière (est)
+#   70 Ponton    | 71 Plage grise   | 72 Plage grise       | 73 Plage grise| 74 Rocher de la veuve
+
+# --- La mer ---
+salle 40 decor 13
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- La mer ---
+salle 41 decor 13
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- La cathédrale des Échos : sa grille (ec, ligne 4, colonne 4) ne s'ouvre qu'avec la clé (INTERAC_BALLADE_OBJECT, puis dd : l'entrée du donjon 5) ; sud -> le parvis ---
+salle 42 decor 13
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 60 60 60 60 60 60
+60 60 60 87 ec 87 60 60 60 60
+60 02 3a 3a 3a 3a 11 3a d9 60
+60 3a 3a 3a 3a 3a 3a 3a 3a 60
+60 3a 3a 3a 3a 3a 1b 1b 11 60
+
+# --- La mer ---
+salle 43 decor 13
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- La mer ---
+salle 44 decor 13
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- La mer ---
+salle 50 decor 13
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- L'allée des cloches (ouest) : des tombes en rang ; est -> le parvis ---
+salle 51 decor 13
+fc fc fc fc fc fc fc fc fc fc
+fc 3a 3a 3a 3a 1b 3a 3a 3a fc
+fc 3a 02 3a 02 3a 02 13 3a fc
+fc 3a 13 3a 1b 11 11 3a 3a 3a
+fc 3a 3a 3a 10 3a 3a 3a 10 3a
+fc 3a 84 3a 84 3a 84 3a 3a fc
+fc 3a 3a 3a 3a 3a 3a 3a 3a fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- Le parvis : nord -> la cathédrale, ouest / est -> les allées, sud -> la place du silence ; une pancarte (f2) ---
+salle 52 decor 13
+60 60 60 60 3a 3a 60 60 60 60
+60 ad ae 3a 3a 1b 3a ad ae 60
+60 bd be 3a 3a 3a 3a bd be 60
+3a 3a 13 3a 1b 11 11 3a 3a 3a
+1b 3a 3a 3a 10 3a 3a 3a 10 3a
+60 3a f2 3a 3a 3a 11 3a 3a 60
+60 3a 3a 3a 3a 3a 3a 3a 3a 60
+60 60 60 60 3a 3a 60 60 60 60
+
+# --- L'allée des cloches (est) : des tombes en rang ; ouest -> le parvis ---
+salle 53 decor 13
+fc fc fc fc fc fc fc fc fc fc
+fc 3a 3a 3a 3a 1b 3a 3a 3a fc
+fc 3a 02 3a 02 3a 02 13 3a fc
+3a 3a 13 3a 1b 11 11 3a 3a fc
+1b 3a 3a 3a 10 3a 3a 3a 10 fc
+fc 3a 84 3a 84 3a 84 3a 3a fc
+fc 3a 3a 3a 3a 3a 3a 3a 3a fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- La mer ---
+salle 54 decor 13
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- Le cimetière de l'ouest : des tombes ; est -> la cabane du fossoyeur ---
+salle 60 decor 13
+60 60 60 60 60 60 60 60 60 60
+60 3a 3a 3a 3a 1b 3a 3a 3a 60
+60 3a 02 3a 3a 02 3a 13 3a 60
+60 3a 13 3a 1b 11 11 d9 3a 3a
+60 3a 3a 3a 10 3a 3a 3a 10 3a
+60 3a 02 3a 3a 02 11 ad ae 60
+60 3a 3a 3a 3a 3a 3a bd be 60
+60 60 60 60 60 60 60 60 60 60
+
+# --- La cabane du fossoyeur, creusée dans la colline (dd, ligne 1, colonne 4 -> 3:25) ; une tombe ---
+salle 61 decor 13
+60 60 60 60 60 60 60 60 60 60
+60 60 60 60 dd 60 60 60 60 60
+60 3a 1b 3a 3a 3a 3a 13 3a 60
+3a 3a 13 3a 1b 11 11 84 3a 3a
+1b 3a 3a 3a 10 3a 3a 3a 10 3a
+60 3a 02 3a 3a 3a 11 3a 3a 60
+60 3a 3a 3a 3a 3a 3a 3a 3a 60
+60 60 60 60 3a 3a 60 60 60 60
+
+# --- La place du silence : Noé ; dans le Songe, sa grand-mère ---
+salle 62 decor 13
+60 60 60 60 3a 3a 60 60 60 60
+60 ad ae 3a 3a 1b 3a 3a 3a 60
+60 bd be 3a 3a 3a 3a 13 3a 60
+3a 3a 13 3a 1b 11 11 3a 3a 3a
+1b 3a 3a 3a 10 3a 3a 3a 10 3a
+60 3a 3a 3a 3a 3a 11 ad ae 60
+60 3a 3a 3a 3a 3a 3a bd be 60
+60 60 60 60 3a 3a 60 60 60 60
+
+# --- La chapelle : le sonneur et sa cloche ; deux tombes-chapelles (d9), une grille (98 99 9a) ---
+salle 63 decor 13
+60 60 60 60 60 60 60 60 60 60
+60 3a d9 3a 3a 1b 3a d9 3a 60
+60 3a 1b 98 99 9a 3a 13 3a 60
+3a 3a 13 3a 1b 11 11 3a 3a 3a
+1b 3a 3a 3a 10 3a 3a 3a 10 3a
+60 3a 3a 3a 3a 3a 11 3a 3a 60
+60 3a 3a 3a 3a 3a 3a 3a 3a 60
+60 60 60 60 3a 3a 60 60 60 60
+
+# --- Le cimetière de l'est : la tombe fleurie (84 entre deux fleurs, ligne 4) ; la clé de la cathédrale est enterrée juste devant (ligne 5, colonne 5) ---
+salle 64 decor 13
+60 60 60 60 60 60 60 60 60 60
+60 3a 3a 3a 3a 1b 3a 3a 3a 60
+60 3a 02 3a 3a 3a 3a 02 3a 60
+3a 3a 13 3a 1b 11 11 3a 3a 60
+1b 3a 3a 3a c5 84 c5 3a 10 60
+60 3a 02 3a 3a 10 11 3a 3a 60
+60 3a 3a 3a 3a 3a 3a 3a 3a 60
+60 60 60 60 60 60 60 60 60 60
+
+# --- Le ponton : planches 0e vers le sud (lignes 5-6, colonnes 3-4), le Bateau-Rondin à leur droite ; est -> la plage ---
+salle 70 decor 13
+60 60 60 60 60 60 60 60 60 60
+fc 3a 3a 3a 3a 1b 3a 3a 3a fc
+fc 3a 1b 3a 3a 3a 3a 13 3a fc
+fc 3a 13 3a 1b 11 11 3a 3a 3a
+fc 3a 3a 3a 10 3a 3a 3a 10 3a
+fc fc fc 0e 0e fc fc fc fc fc
+fc fc fc 0e 0e fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- La plage grise : nord -> le village ---
+salle 71 decor 13
+60 60 60 60 3a 3a 60 60 60 60
+fc 3a 3a 3a 3a 1b 3a 3a 3a fc
+fc 3a 1b 3a 3a 3a 3a 13 3a fc
+3a 3a 13 3a 1b 11 11 3a 3a 3a
+1b 3a 3a 3a 10 3a 3a 3a 10 3a
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- La plage grise : nord -> le village ---
+salle 72 decor 13
+60 60 60 60 3a 3a 60 60 60 60
+fc 3a 3a 3a 3a 1b 3a 3a 3a fc
+fc 3a 1b 3a 3a 3a 3a 13 3a fc
+3a 3a 13 3a 1b 11 11 3a 3a 3a
+1b 3a 3a 3a 10 3a 3a 3a 10 3a
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- La plage grise : nord -> le village ---
+salle 73 decor 13
+60 60 60 60 3a 3a 60 60 60 60
+fc 3a 3a 3a 3a 1b 3a 3a 3a fc
+fc 3a 1b 3a 3a 3a 3a 13 3a fc
+3a 3a 13 3a 1b 11 11 3a 3a 3a
+1b 3a 3a 3a 10 3a 3a 3a 10 3a
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- Le rocher de la veuve : la veuve Marée regarde la mer ---
+salle 74 decor 13
+60 60 60 60 60 60 60 60 60 60
+fc 3a 3a 3a 3a 1b 3a 3a 3a fc
+fc 3a 1b 3a 3a 3a 3a c5 3a fc
+3a 3a 13 3a 1b 11 11 3a 3a fc
+1b 3a 3a 3a 10 3a 3a 3a 10 fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
