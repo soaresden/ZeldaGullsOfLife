@@ -1,43 +1,45 @@
 # La Forge Endormie — musique originale du donjon 4 (Gulls of Life)
 #
-# Esprit : lourd. La même phrase, encore et encore (la forge qui recopie toujours la même épée)...
-# jusqu'à ce qu'elle change : à la fin de la boucle, la phrase prend un autre chemin. Une basse
-# qui martèle, un marteau (le bruit) toutes les deux noires, une nappe grave, et la mélodie qui
-# tourne en rond au premier carré. Sol mineur.
+# Esprit : une forge qui dort. Pas de combat : du mystère et un peu de chaleur. Un marteau très
+# lointain (le bruit, doux, de temps en temps), une basse lente à l'onde, une nappe grave, et une
+# petite phrase au premier carré qui revient toujours pareille (la forge qui recopie la même
+# épée)... puis, à la fin de la boucle, elle prend un autre chemin et monte (si bémol majeur).
+# Sol mineur. Retour de Denis : la 1re version faisait trop « boss » (basse en croches, tambour
+# à chaque temps).
 # Même notation que music/phare.txt (8 croches par mesure).
 
-tempo 10         # images par croche
+tempo 12         # images par croche (lent, posé)
 mesure 8
 
 == INTRO ==
-melodie:   [v0] [duty 1] [vib 00] [gate .7] [detune 0]
+# La nappe seule, un coup de marteau au loin
+melodie:   [v0] [duty 2] [vib 00] [gate .9] [detune 0]
 melodie:   -:8 | -:8 |
-accordeon: [v2] [duty 2] [vib 00] [gate 1] [detune 0]
-accordeon: d4:8 | d4:8 |
-basse:     [onde 0e] [vib 00] [gate .5]
-basse:     g1:1 g1:1 g2:1 g1:1 g1:1 g1:1 g2:1 g1:1 | g1:1 g1:1 g2:1 g1:1 g1:1 g1:1 g2:1 g1:1 |
-batterie:  [v3] s:4 [v2] s:4 | [v3] s:4 [v2] s:2 s:2 |
+accordeon: [v2] [duty 2] [vib 41] [gate 1] [detune 0]
+accordeon: d4:8 | c4:8 |
+basse:     [onde 0e] [vib 00] [gate .9]
+basse:     g1:8 | f1:8 |
+batterie:  [v1] s:1 -:7 | -:8 |
 
 == A ==
-# La même phrase, quatre fois
-melodie:   [v4] [vib 41]
-melodie:   ( g4:2 a#4:2 a4:2 g4:1 f#4:1 | g4:6 -:2 | )x3
-melodie:   g4:2 a#4:2 a4:2 g4:1 f#4:1 | d4:6 -:2 |
+# La petite phrase, deux fois pareille
+melodie:   [v4] [vib 41] [gate .9]
+melodie:   d5:3 c5:1 a#4:2 a4:2 | g4:6 -:2 | a#4:3 a4:1 g4:2 f4:2 | g4:6 -:2 |
+melodie:   d5:3 c5:1 a#4:2 a4:2 | g4:6 -:2 | a#4:3 a4:1 g4:2 f#4:2 | g4:6 -:2 |
 accordeon: [v2] [gate 1]
-accordeon: d4:8 | d4:8 | d4:8 | d4:8 | d4:8 | d4:8 | c4:8 | a3:8 |
-basse:     [gate .5]
-basse:     ( g1:1 g1:1 g2:1 g1:1 g1:1 g1:1 g2:1 g1:1 | )x6 d2:1 d2:1 d3:1 d2:1 d2:1 d2:1 d3:1 d2:1 | d2:1 d2:1 d3:1 d2:1 c2:1 c2:1 a1:1 a1:1 |
-batterie:  ( [v3] s:4 [v2] s:4 | )x7 [v3] s:2 s:2 s:1 s:1 s:2 |
+accordeon: d4:8 | a#3:8 | d4:8 | a#3:8 | d4:8 | a#3:8 | c4:4 a3:4 | a#3:8 |
+basse:     [gate .9]
+basse:     g1:4 d2:4 | g1:8 | d#1:4 a#1:4 | g1:8 | g1:4 d2:4 | g1:8 | c2:4 d2:4 | g1:8 |
+batterie:  ( [v1] s:1 -:7 | -:8 | )x4
 
 == B ==
-# Elle change : la phrase monte, et trouve une autre fin (si bémol majeur)
+# Elle change : la phrase monte vers la lumière (si bémol majeur), puis redescend doucement
 melodie:   [v5]
-melodie:   g4:2 a#4:2 c5:2 d5:2 | d#5:4 d5:2 c5:2 | a#4:2 c5:2 d5:2 f5:2 | f5:6 -:2 |
-melodie:   d#5:2 d5:2 c5:2 a#4:2 | c5:4 a4:2 f4:2 | a#4:6 a4:1 g4:1 | g4:8 |
+melodie:   a#4:3 c5:1 d5:2 f5:2 | d#5:6 d5:2 | c5:3 d5:1 a#4:2 g4:2 | a4:6 -:2 |
+melodie:   a#4:3 c5:1 d5:2 g5:2 | f5:4 d5:4 | d#5:3 d5:1 c5:2 a4:2 | g4:8 |
 accordeon: [v3]
-accordeon: d4:8 | c4:8 | d4:8 | f4:8 | g4:8 | f4:8 | f4:4 d4:4 | d4:8 |
-basse:     a#1:2 f2:2 a#1:2 f2:2 | c2:2 g2:2 c2:2 g2:2 | a#1:2 f2:2 a#1:2 f2:2 | f2:2 c3:2 f2:2 a2:2 |
-basse:     d#2:2 a#2:2 d#2:2 g2:2 | f2:2 c3:2 f2:2 a2:2 | a#1:2 f2:2 d2:2 d2:2 | g1:2 d2:2 g1:4 |
-batterie:  ( [v3] s:2 [v1] h:2 [v2] s:2 [v1] h:2 | )x7 [v3] s:1 s:1 s:1 s:1 s:4 |
+accordeon: d4:8 | d#4:8 | d#4:8 | f4:8 | d4:8 | d4:8 | c4:4 f#4:4 | d4:8 |
+basse:     a#1:4 f2:4 | d#1:4 a#1:4 | c2:4 g2:4 | f1:4 c2:4 | a#1:4 f2:4 | a#1:8 | c2:4 d2:4 | g1:8 |
+batterie:  ( [v1] s:1 -:7 | -:8 | )x3 [v1] s:1 -:3 s:1 -:3 | -:8 |
 
-ordre: INTRO | A A B
+ordre: INTRO | A B
