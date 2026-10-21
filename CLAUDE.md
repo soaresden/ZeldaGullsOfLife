@@ -257,6 +257,31 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   mémoire : on passe quand ils regardent ailleurs ; une fois exprès sous leurs yeux).
   Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/cathedrale.png
 
+## Chapitre 6 : le Nid des Vents (île 6)
+- story/salles/ile_nid.txt (1:45-78, 4 x 4 ; tracé par un script jetable ; 1:4c-7f prévus dans
+  iles.md touchaient la Brume en 7c) : décor 1a (les Pics de Talus d'Ages, passé) ; son Songe = le
+  décor 08 (copie bleutée, make_songe.py ; l'entrée 0x08 de tilesets.s est sur une ligne). Une
+  plume dans le ciel : 75 l'arrivée -> 76 prairie -> 66 moulins -> 67 village -> 57 pont de nuages
+  -> 58 corniche -> 48 le Nid ; le reste = le ciel.
+- Le ciel = la brique f3 (le seul trou des extérieurs, hazards.s) redessinée en bleu clair dans le
+  décor 1a (tilesetMappings1a.bin : tuile unie $80, palette 7 ; paletteData4d00, palette 5 :
+  couleur 0 = le bleu du ciel). On y tombe : retour au dernier sol.
+- Ponts : 0e = pont vertical (on n'en sort pas sur le coté), 1f = pont horizontal (1d / 1e : les
+  bouts) ; on ne descend pas d'un pont horizontal : une case de sol au bout.
+- La quête : le Rito égaré ($21), les meuniers ($24), Zéphyr ($22 ; dans le Songe $23 : « les nuages
+  tiennent ») : villager. Le pont de nuages (1:57) a deux trous ; dans le Songe (0:57, songe.txt)
+  le pont est entier : on traverse avant le noctambule. Mère Plume ($25, 1:48) donne la Plume de
+  Roc (TX_0027, TX_092c) ; avec elle on saute les trous ; l'entrée du Nid (dd, 1:48) est derrière
+  un trou.
+- Bug corrigé : la Lanterne et le réveil du noctambule remettent wcddf à zéro (sinon, après un
+  « renvoyé par une force étrange », la salle suivante reprenait la disposition de la salle de
+  départ : le Réel dans le Songe). Lanterne collé à un habitant qui est au même endroit dans
+  l'autre monde : Link est renvoyé (comme dans Ages).
+- Menu de test : île 6 Plage (1:75) / Ville (1:67) ; jalon 23 = la fin du chapitre 5 vue.
+- Test : python tools/test_nid.py DOSSIER (arrivée, radeau à 6 îles, chute dans le ciel, Rito,
+  meunier, Zéphyr dans les deux mondes, le pont par le Songe, Mère Plume, les sauts).
+  Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/nid.png
+
 ## Pièges déjà rencontrés
 - La brique 64 (bord de roche) est une FALAISE dans tous les décors d'extérieur (cliffTiles.s,
   ANGLE_DOWN) : Link saute par-dessus en marchant vers le bas et tombe dans l'écran du dessous.

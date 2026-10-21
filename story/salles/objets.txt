@@ -429,6 +429,30 @@ salle 74
 salle 42
 	obj_Interaction INTERAC_BALLADE_OBJECT $1f $48 $48
 
+# --- Le Nid des Vents (île 6, 1:45-78 ; story/salles/ile_nid.txt) ---
+# Le courant ascendant : le Bateau-Rondin (à coté des planches) ; Marine parle en arrivant
+salle 75
+	obj_Interaction INTERAC_BALLADE_OBJECT $00 $68 $58
+	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+# La prairie suspendue : le Rito égaré, au bord
+salle 76
+	obj_Interaction INTERAC_BALLADE_OBJECT $21 $38 $78
+# Les moulins à vent : deux meuniers
+salle 66
+	obj_Interaction INTERAC_BALLADE_OBJECT $24 $28 $18
+	obj_Interaction INTERAC_BALLADE_OBJECT $24 $28 $88
+# Le village des plumes : Zéphyr et ses ailes, au bord ; dans le Songe, il vole
+salle 67
+	obj_Interaction INTERAC_BALLADE_OBJECT $22 $58 $78
+salle 0:67
+	obj_Interaction INTERAC_BALLADE_OBJECT $23 $58 $78
+# Le pont de nuages : Marine (dans le Songe, rien ne tombe)
+salle 57
+	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+# Le Nid : Mère Plume (la Plume de Roc)
+salle 48
+	obj_Interaction INTERAC_BALLADE_OBJECT $25 $48 $68
+
 # --- La Cathédrale des Échos (donjon 5, groupe 5 ; story/salles/cathedrale.txt). Les Veilleurs de
 # l'Insomnis = ENEMY_AMBI_GUARD, sous-types $0d-$14 (leurs rondes : ambiGuard.s) ; s'ils voient
 # Link, il se réveille à l'entrée de la salle. ---

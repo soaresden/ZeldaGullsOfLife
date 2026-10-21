@@ -2158,6 +2158,138 @@ groups:
        \opt()Ember \opt()Echoes
        \opt()Nest \opt()Slumber
 
+  # Chapter 6: the Nest of Winds (1:45-78)
+  # Arriving at the updraft (1:75), the first time
+  - name: TX_5aad
+    index: 0xad
+    text: |-
+      \col(1)Marin\col(0): We're
+      flying!\stop
+      ...No: the
+      island is
+      flying. Hold on,
+      it's windy.\stop
+      And watch your
+      step. Down
+      there, it's only
+      clouds.
+
+  # The cloud bridge (1:57), the first time
+  - name: TX_5aae
+    index: 0xae
+    text: |-
+      \col(1)Marin\col(0): Planks
+      are missing...\stop
+      Remember? In the
+      Dream, nothing
+      falls. The
+      clouds hold,
+      over there.
+
+  # The lost Rito (1:76 ; $21): before / after the Nest
+  - name: TX_5aaf
+    index: 0xaf
+    text: |-
+      \col(1)Rito\col(0): I'm a
+      Rito. I think.\stop
+      I forgot the
+      way home...\stop
+      And how to fly.
+      Silly, for a
+      bird.
+
+  - name: TX_5ab0
+    index: 0xb0
+    text: |-
+      \col(1)Rito\col(0): The wind
+      is singing! I
+      remember!\stop
+      You open your
+      arms, and let it
+      carry you.
+      Goodbye!
+
+  # Zephyr (1:67 ; $22): before / after the Nest
+  - name: TX_5ab1
+    index: 0xb1
+    text: |-
+      \col(1)Zephyr\col(0): I made
+      these wings
+      myself.\stop
+      But jumping...
+      What if they
+      don't work?\stop
+      I'm practicing.
+      I look down. A
+      lot.
+
+  - name: TX_5ab2
+    index: 0xb2
+    text: |-
+      \col(1)Zephyr\col(0): I
+      jumped!\stop
+      I glided all the
+      way to the
+      mills! My wings
+      work!
+
+  # Zephyr in the Dream (0:67 ; $23)
+  - name: TX_5ab3
+    index: 0xb3
+    text: |-
+      \col(1)Zephyr\col(0): In my
+      dreams, I fly!\stop
+      And the clouds
+      hold you up.
+      The bridge too:
+      you can walk on
+      it.
+
+  # The millers (1:66 ; $24): before / after the Nest
+  - name: TX_5ab4
+    index: 0xb4
+    text: |-
+      \col(1)Miller\col(0): The
+      wind stopped.\stop
+      The mill's
+      sails are
+      asleep. And so
+      is the grain.
+
+  - name: TX_5ab5
+    index: 0xb5
+    text: |-
+      \col(1)Miller\col(0): It's
+      turning! It's
+      singing!\stop
+      We never ground
+      it so fine.
+
+  # Mother Plume, at the Nest (1:48 ; $25): she gives Roc's Feather
+  - name: TX_5ab6
+    index: 0xb6
+    text: |-
+      \col(1)Mother Plume\col(0):
+      A little human,
+      all the way to
+      my nest without
+      wings?\stop
+      Here. A Roc's
+      feather: it will
+      teach you to
+      jump.
+
+  - name: TX_5ab7
+    index: 0xb7
+    text: |-
+      \col(1)Mother Plume\col(0):
+      The Nest awaits.
+      Jump, little
+      one.\stop
+      The sky catches
+      those who jump.
+
+
 
 
 
@@ -2412,6 +2544,17 @@ groups:
       object to switch
       places with it.
 
+  # Roc's Feather (Mother Plume)
+  - name: TX_0027
+    index: 0x27
+    text: |-
+      \col(1)Roc's
+      Feather\col(0)!\stop
+      Press the
+      button: you
+      jump!
+
+
 
 
 
@@ -2626,6 +2769,13 @@ groups:
       Echo Hook
       User and target
       trade places.
+
+  - name: TX_092c
+    index: 0x2c
+    text: |-
+      Roc's Feather
+      For jumping.
+
 
 
 

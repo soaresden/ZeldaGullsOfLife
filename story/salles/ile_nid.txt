@@ -1,0 +1,193 @@
+# Le Nid des Vents (île 6), le Réel (groupe 1, écrans 1:45-78 ; 1:4c-7f prévus d'abord touchaient
+# la Brume en 7c). Voir story/iles.md.
+# Une île qui flotte au-dessus des nuages, en forme de plume posée de travers : de l'arrivée (75,
+# en bas à gauche) au Nid (48, en haut à droite). Le reste est le ciel : on y tombe (retour au
+# dernier sol).
+# Décor 1a = les Pics de Talus d'Ages, côté passé (son Songe : le 08, copie bleutée).
+#
+# Briques : f3 ciel (le trou des extérieurs, en bleu clair : tilesetMappings1a.bin, palette 7) ; 3a sol (10 11 1b : variantes) ; 20 21
+#   herbe ; 60 roche (pas 64 : une falaise) ; c5 buisson ; 0e planches (pont vertical : on n'en sort pas sur le coté) ; 1f
+#   pont horizontal ; dd entrée (le Nid).
+# Passages : nord / sud colonnes 4-5, est / ouest lignes 3-4.
+#
+# Plan (une case = un écran) :
+#   45 ciel  | 46 ciel     | 47 ciel           | 48 le Nid (Spirale Céleste)
+#   55 ciel  | 56 ciel     | 57 pont de nuages | 58 corniche
+#   65 ciel  | 66 moulins  | 67 village        | 68 ciel
+#   75 arrivée | 76 prairie | 77 ciel          | 78 ciel
+
+# --- Le courant ascendant (l'arrivée) : les planches (colonne 4, lignes 5-6), le Bateau-Rondin à coté (6,5) ; est -> la prairie ---
+salle 75 decor 1a
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 3a 3a 1b f3 f3
+f3 f3 f3 f3 3a 3a 10 3a 3a 3a
+f3 f3 f3 f3 3a 3a 3a 11 3a 3a
+f3 f3 f3 f3 0e 3a 3a 3a f3 f3
+f3 f3 f3 f3 0e f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+
+# --- La prairie suspendue : le Rito égaré, au bord ; ouest -> l'arrivée, nord -> les moulins ---
+salle 76 decor 1a
+f3 f3 f3 f3 3a 3a f3 f3 f3 f3
+f3 f3 f3 20 3a 3a 21 f3 f3 f3
+f3 f3 20 21 20 3a 20 21 f3 f3
+3a 3a 20 c5 21 3a 3a 20 f3 f3
+3a 3a 3a 3a 3a 20 21 3a 3a f3
+f3 f3 21 20 c5 3a 20 21 f3 f3
+f3 f3 f3 20 21 20 21 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+
+# --- Les moulins à vent (arrêtés) : deux moulins (60) ; les meuniers ; sud -> la prairie, est -> le village ---
+salle 66 decor 1a
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 60 60 f3 f3 60 60 f3 f3
+f3 3a 60 60 3a 3a 60 60 3a f3
+f3 3a 3a 60 3a 3a 60 3a 3a 3a
+f3 1b 3a 3a 3a 10 3a 3a 3a 3a
+f3 f3 3a 20 3a 3a 21 3a f3 f3
+f3 f3 f3 21 3a 3a 20 f3 f3 f3
+f3 f3 f3 f3 3a 3a f3 f3 f3 f3
+
+# --- Le village des plumes : les maisons-nids (60) ; Zéphyr au bord (ligne 5, colonne 7) ; ouest -> les moulins, nord -> le pont de nuages ---
+salle 67 decor 1a
+f3 f3 f3 f3 3a 3a f3 f3 f3 f3
+f3 f3 60 60 3a 3a 60 60 60 f3
+f3 3a 60 60 3a 3a 60 60 60 f3
+3a 3a 3a 3a 3a 3a 3a 3a 3a f3
+3a 3a 10 3a 3a 3a 3a 11 3a f3
+f3 20 3a 3a 3a 3a 3a 3a 20 f3
+f3 f3 21 20 c5 c5 20 21 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+
+# --- Le pont de nuages : un pont (1f, ligne 4) avec deux trous (colonnes 5 et 7) : la Plume de Roc, ou le Songe (les nuages tiennent) ; sud -> le village, est -> la corniche ---
+salle 57 decor 1a
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 3a 3a f3 f3 f3 3a 3a
+f3 f3 f3 3a 3a f3 1f f3 1f 3a
+f3 f3 f3 3a 3a f3 f3 f3 f3 f3
+f3 f3 f3 f3 3a 3a f3 f3 f3 f3
+f3 f3 f3 f3 3a 3a f3 f3 f3 f3
+
+# --- La corniche : ouest -> le pont de nuages, nord -> le Nid ---
+salle 58 decor 1a
+f3 f3 f3 f3 3a 3a f3 f3 f3 f3
+f3 f3 f3 3a 3a 3a 60 f3 f3 f3
+f3 f3 3a 3a 1b 3a 60 60 f3 f3
+3a 3a 3a 10 3a 3a 3a 60 f3 f3
+3a 3a 3a 3a 3a 11 3a 3a f3 f3
+f3 f3 20 3a 3a 3a 20 f3 f3 f3
+f3 f3 f3 21 20 21 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+
+# --- Le Nid : Mère Plume ; l'entrée de la Spirale Céleste (dd, ligne 1, colonne 4), derrière un trou (ligne 2) : la Plume de Roc ; sud -> la corniche ---
+salle 48 decor 1a
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 60 60 dd 60 60 f3 f3 f3
+f3 f3 3a f3 f3 f3 3a 3a f3 f3
+f3 f3 3a 3a 3a 3a 3a 3a f3 f3
+f3 f3 20 3a 3a 3a 3a 21 f3 f3
+f3 f3 21 3a 3a 3a 3a 20 f3 f3
+f3 f3 f3 20 3a 3a 21 f3 f3 f3
+f3 f3 f3 f3 3a 3a f3 f3 f3 f3
+
+# --- Le ciel ---
+salle 45 decor 1a
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+
+# --- Le ciel ---
+salle 46 decor 1a
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+
+# --- Le ciel ---
+salle 47 decor 1a
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+
+# --- Le ciel ---
+salle 55 decor 1a
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+
+# --- Le ciel ---
+salle 56 decor 1a
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+
+# --- Le ciel ---
+salle 65 decor 1a
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+
+# --- Le ciel ---
+salle 68 decor 1a
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+
+# --- Le ciel ---
+salle 77 decor 1a
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+
+# --- Le ciel ---
+salle 78 decor 1a
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3

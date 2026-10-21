@@ -5,6 +5,15 @@ Notées au fil des discussions avec Denis. Pas de spoil du twist ici.
 Le plan des sept autres îles (formes, habitants, donjons, objets, musiques) : `story/iles.md`,
 dessiné dans `docs/iles_plans.png` par `tools/make_plans.py`.
 
+## Une séquence à la Metal Gear Solid: Ghost Babel (demandée par Denis)
+- De l'infiltration pure : des fantômes qui avancent sur leur ronde, chacun avec un rayon d'action
+  (un cône de vision) ; s'ils voient Link, on recommence. Le moteur est déjà là : les Veilleurs de
+  la Cathédrale des Échos (les gardes d'Ambi, ambiGuard.s) ; il faudrait les habiller en fantômes
+  et rendre leur regard visible.
+- Pendant cette séquence, le HUD de *Ghost Babel* : la mini-carte en haut à droite (le radar), la
+  vie en bas (avec nos cœurs), les objets à droite (les cases B et A, « NO ITEM » quand vides). Gros
+  chantier : la barre d'état d'Ages est en haut et fait toute la largeur.
+
 ## Les photos de Cocolint
 - Clin d'œil à l'album de la souris photographe de *Link's Awakening DX*. Dans une veillée ou
   dans le Songe, Marine fouille la poche de Link :

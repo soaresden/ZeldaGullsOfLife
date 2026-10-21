@@ -282,7 +282,8 @@ Donjon des Ailes d'*Ages*. Énigmes : sauts et vols planés au-dessus des trous,
 ```
 
 - **Objet : la Cape de Roc** (la plume niveau 2 : sauter plus loin, planer).
-- **Mini-boss : à choisir** (Vire est déjà pris par le Récif Murmurant).
+- **Mini-boss : le Fouisseur** (le Subterror d'*Ages*, la taupe qu'on déterre avec la Pelle de
+  l'île des Échos ; Vire est déjà pris par le Récif Murmurant).
 - **Boss : l'Ombre de Marine** (le Swoop, l'oiseau géant, en noir) : une mouette de cauchemar
   avec la voix de Marine. Elle parle : « Reste endormi, Link. Reste avec moi. » Marine (la
   vraie) : « …Non. »
@@ -438,7 +439,7 @@ colonne de la grille 16 × 16 d'*Ages*) :
 | 3. Lagune des Serments | 1:04-37 | 4 × 4 |
 | 4. Mont-Braise | 1:08-3c | 4 × 5 |
 | 5. Île des Échos | 1:40-74 | 4 × 5 |
-| 6. Nid des Vents | 1:4c-7f | 4 × 4 |
+| 6. Nid des Vents | 1:45-78 (1:4c-7f touchait la Brume) | 4 × 4 |
 | 7. Grand Sommeil | 1:b0-e4 | 4 × 5 |
 | 8. Œil de l'Insomnis | 1:b8-da | 3 × 3 |
 

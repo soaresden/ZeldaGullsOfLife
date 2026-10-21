@@ -33,7 +33,7 @@ import shutil
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DISASM = os.path.join(ROOT, 'oracles-disasm')
 DATA = os.path.join(DISASM, 'data', 'ages')
-COPIES = {0x7d: 0x10, 0x7e: 0x18, 0x7f: 0x2b, 0x7c: 0x00, 0x7b: 0x00, 0x06: 0x1e, 0x07: 0x13}   # décor du Songe -> décor du Réel copié
+COPIES = {0x7d: 0x10, 0x7e: 0x18, 0x7f: 0x2b, 0x7c: 0x00, 0x7b: 0x00, 0x06: 0x1e, 0x07: 0x13, 0x08: 0x1a}   # décor du Songe -> décor du Réel copié
 
 # (décor, copie de, en-tête de palette d'origine, nouvel en-tête, octets du décor)
 SONGE = [
@@ -50,6 +50,8 @@ SONGE = [
      '$0f, $01, UNIQUE_GFXH_ROLLING_RIDGE_PAST, GFXH_TILESET_OVERWORLD_PAST, PALH_SONGE_BRAISE, $09, $00, $02'),
     (0x07, 'PALH_TILESET_YOLL_GRAVEYARD_ALTERNATE', 0xd2, 'PALH_SONGE_ECHOS',
      '$0f, $01, UNIQUE_GFXH_YOLL_GRAVEYARD, GFXH_TILESET_OVERWORLD_PAST, PALH_SONGE_ECHOS, $01, $00, $01'),
+    (0x08, 'PALH_TILESET_TALUS_PEAKS_PAST', 0xd3, 'PALH_SONGE_NID',
+     '$0f, $01, UNIQUE_GFXH_TALUS_PEAKS, GFXH_TILESET_OVERWORLD_PAST, PALH_SONGE_NID, $06, $00, $01'),
 ]
 SEPIA = (0x07,)   # ces Songes-là sont sépia (voir sepia())
 # Copies du Réel : (décor, octets du décor) ; mêmes palettes, drapeau « passé » ($80)

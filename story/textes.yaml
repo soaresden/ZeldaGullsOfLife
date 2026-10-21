@@ -2234,6 +2234,147 @@ groups:
        \opt()Braise \opt()Échos
        \opt()Nid \opt()Sommeil
 
+  # Chapitre 6 : le Nid des Vents (1:45-78)
+  # En arrivant au courant ascendant (1:75), la première fois
+  - name: TX_5aad
+    index: 0xad
+    text: |-
+      \col(1)Marine\col(0): On
+      vole!\stop
+      ...Non: c'est
+      l'île qui vole.
+      Accroche-toi,
+      ça souffle.\stop
+      Et regarde où tu
+      marches. En bas,
+      il n'y a que des
+      nuages.
+
+  # Le pont de nuages (1:57), la première fois
+  - name: TX_5aae
+    index: 0xae
+    text: |-
+      \col(1)Marine\col(0): Il
+      manque des
+      planches...\stop
+      Tu te souviens?
+      Dans le Songe,
+      rien ne tombe.
+      Les nuages
+      tiennent,
+      là-bas.
+
+  # Le Rito égaré (1:76 ; $21) : avant / après le Nid
+  - name: TX_5aaf
+    index: 0xaf
+    text: |-
+      \col(1)Rito\col(0): Je suis
+      un Rito. Je
+      crois.\stop
+      J'ai oublié le
+      chemin de la
+      maison...\stop
+      Et comment on
+      vole. C'est
+      bête, pour un
+      oiseau.
+
+  - name: TX_5ab0
+    index: 0xb0
+    text: |-
+      \col(1)Rito\col(0): Le vent
+      chante! Je me
+      souviens!\stop
+      On ouvre les
+      bras, et on se
+      laisse porter.
+      Au revoir!
+
+  # Zéphyr (1:67 ; $22) : avant / après le Nid
+  - name: TX_5ab1
+    index: 0xb1
+    text: |-
+      \col(1)Zéphyr\col(0): Ces
+      ailes, je les ai
+      faites moi-même.\stop
+      Mais sauter...
+      Et si elles ne
+      marchaient pas?\stop
+      Je m'entraîne.
+      Je regarde en
+      bas. Beaucoup.
+
+  - name: TX_5ab2
+    index: 0xb2
+    text: |-
+      \col(1)Zéphyr\col(0): J'ai
+      sauté!\stop
+      J'ai plané
+      jusqu'aux
+      moulins! Elles
+      marchent, mes
+      ailes!
+
+  # Zéphyr dans le Songe (0:67 ; $23)
+  - name: TX_5ab3
+    index: 0xb3
+    text: |-
+      \col(1)Zéphyr\col(0): Dans
+      mes rêves, je
+      vole!\stop
+      Et les nuages
+      tiennent debout.
+      Le pont aussi:
+      on marche
+      dessus.
+
+  # Les meuniers (1:66 ; $24) : avant / après le Nid
+  - name: TX_5ab4
+    index: 0xb4
+    text: |-
+      \col(1)Meunier\col(0): Le
+      vent s'est
+      arrêté.\stop
+      Les ailes du
+      moulin dorment.
+      Et le grain
+      aussi.
+
+  - name: TX_5ab5
+    index: 0xb5
+    text: |-
+      \col(1)Meunier\col(0): Ça
+      tourne! Ça
+      chante!\stop
+      On n'avait
+      jamais moulu si
+      fin.
+
+  # Mère Plume, au Nid (1:48 ; $25) : elle donne la Plume de Roc
+  - name: TX_5ab6
+    index: 0xb6
+    text: |-
+      \col(1)Mère Plume\col(0):
+      Un petit
+      d'homme, venu
+      sans ailes
+      jusqu'à mon nid?\stop
+      Tiens. Une plume
+      de Roc: elle
+      t'apprendra à
+      sauter.
+
+  - name: TX_5ab7
+    index: 0xb7
+    text: |-
+      \col(1)Mère Plume\col(0):
+      Le Nid t'attend.
+      Saute, petit.\stop
+      Le ciel
+      rattrape ceux
+      qui sautent.
+
+
 
 
 
@@ -2634,6 +2775,17 @@ groups:
       place, et lui
       la tienne.
 
+  # La Plume de Roc (Mère Plume)
+  - name: TX_0027
+    index: 0x27
+    text: |-
+      La \col(1)Plume de
+      Roc\col(0)!\stop
+      Appuie sur le
+      bouton: tu
+      sautes!
+
+
 
 
 
@@ -2891,6 +3043,13 @@ groups:
       Grappin-Écho
       On échange sa
       place.
+
+  - name: TX_092c
+    index: 0x2c
+    text: |-
+      Plume de Roc
+      Pour sauter.
+
 
 
 
