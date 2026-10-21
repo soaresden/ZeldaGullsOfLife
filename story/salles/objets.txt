@@ -166,6 +166,15 @@ salle 3:20
 # La maison de Lila : Lila (INTERAC_BALLADE_OBJECT $04) ; le lit (link.s) mène dans son rêve
 salle 3:21
 	obj_Interaction INTERAC_BALLADE_OBJECT $04 $48 $38
+	obj_Interaction INTERAC_BALLADE_OBJECT $0a $08 $08 ; la fin du chapitre 2 (au réveil)
+# La place du Grelot : les enfants ; la fin du chapitre 2
+salle 11
+	obj_Interaction INTERAC_BALLADE_OBJECT $0b $58 $28
+	obj_Interaction INTERAC_BALLADE_OBJECT $0c $58 $98
+	obj_Interaction INTERAC_BALLADE_OBJECT $0a $08 $08
+# L'école des Bonnets : Mme Bonnet
+salle 3:22
+	obj_Interaction INTERAC_BALLADE_OBJECT $0d $48 $38
 # Le rêve de Lila : Lila, et le Coffre à Jouets (l'entrée du donjon 2)
 salle 2:21
 	obj_Interaction INTERAC_BALLADE_OBJECT $05 $48 $38

@@ -1159,6 +1159,130 @@ groups:
       me as soon as he
       turns purple!
 
+  # End of chapter 2: Lila wakes up (3:21)
+  - name: TX_5a64
+    index: 0x64
+    text: |-
+      \col(1)Lila\col(0): Oh!
+      You're here!\stop
+      I dreamed of a
+      knight all in
+      green...\stop
+      He had a gull in
+      his tunic! And
+      he cut the
+      strings of a
+      nasty puppet!\stop
+      He and Sir Cork
+      are friends now!
+
+  - name: TX_5a65
+    index: 0x65
+    text: |-
+      \col(1)Marin\col(0): Hee
+      hee... A knight
+      all in green,
+      huh?\stop
+      Come on, let's
+      go see outside!
+
+  # End of chapter 2: the Jingle square (1:11)
+  - name: TX_5a66
+    index: 0x66
+    text: |-
+      The kids are
+      playing again!
+      Laughter
+      everywhere.\stop
+      \col(1)Marin\col(0): The
+      bell is jingling
+      again!
+
+  - name: TX_5a67
+    index: 0x67
+    text: |-
+      \col(1)Marin\col(0): Shh...
+      the wind has
+      changed.\stop
+      It smells of
+      salt and orange
+      blossom.\stop
+      A ring-shaped
+      island, to the
+      southeast...\stop
+      Someone there is
+      waiting for
+      someone. I can
+      feel it.
+
+  # The kids in the square (INTERAC_BALLADE_OBJECT $0b, $0c), before and after the Toy Chest
+  - name: TX_5a68
+    index: 0x68
+    text: |-
+      We're waiting.\stop
+      We're not
+      allowed to play.\stop
+      Who said that?
+      We don't
+      remember...
+
+  - name: TX_5a69
+    index: 0x69
+    text: |-
+      We're playing
+      knights! You can
+      be the Puppet!
+
+  - name: TX_5a6a
+    index: 0x6a
+    text: |-
+      We used to play
+      hide-and-seek...\stop
+      But why hide?
+      Nobody comes
+      looking.
+
+  - name: TX_5a6b
+    index: 0x6b
+    text: |-
+      Shh! I'm
+      hiding!\stop
+      You didn't see
+      me, right?
+
+  # Mrs. Bonnet, the teacher (the school, 3:22; INTERAC_BALLADE_OBJECT $0d)
+  - name: TX_5a6c
+    index: 0x6c
+    text: |-
+      \col(1)Mrs. Bonnet\col(0):
+      Two times two,
+      four. Three
+      times two, six.\stop
+      I used to tell
+      stories...\stop
+      I can't remember
+      how they begin.
+
+  - name: TX_5a6d
+    index: 0x6d
+    text: |-
+      \col(1)Mrs. Bonnet\col(0):
+      Once upon a
+      time... a green
+      knight, and a
+      singing gull!\stop
+      It's coming
+      back to me!
+
+  # Lila, after the Toy Chest
+  - name: TX_5a6e
+    index: 0x6e
+    text: |-
+      \col(1)Lila\col(0): Sir Cork
+      and I are off to
+      hunt the dragon!\stop
+      Want to come?
+
   # Le menu de test caché (code/ages/balladeDebug.s ; HAUT tenu 5 s à l'écran titre) :
   # la langue, l'île, le moment, et dans le donjon l'endroit. Le même dans les deux fichiers.
   - name: TX_5af0

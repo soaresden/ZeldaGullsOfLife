@@ -135,6 +135,84 @@ def brume():
 
 
 # ---------------------------------------------------------------------------------------------
+# 2. Hameau-Grelot
+# ---------------------------------------------------------------------------------------------
+GLOBALFLAG_BALLADE_ISLAND3 = 0x52
+ENDING = 0xcdf4
+
+
+def grelot():
+    g = run(2, 'Plage')
+    check(g.where() == (1, 0x31), '2.Plage : la jetée de Hameau-Grelot (1:31)')
+    check(g.global_flag(0x50) and g.global_flag(0x51), '2.Plage : le Bateau-Rondin, Hameau-Grelot repéré')
+    check(g.has(0x12), '2.Plage : le Carnet des Rêves')
+    check(g.wait_text(200), '2.Plage : Marine parle en arrivant')
+    g.w(40)
+    shoot(g, '2_plage', '2. Plage : la jetée')
+    g.stop()
+
+    g = run(2, 'Ville')
+    check(g.where() == (1, 0x11), '2.Ville : la place du Grelot (1:11)')
+    g.w(60)
+    shoot(g, '2_ville', '2. Ville : la place')
+    g.stop()
+
+    g = run(2, 'Donjon')
+    check(g.where() == (4, 0x39), "2.Donjon : l'entrée du Coffre à Jouets (4:39)")
+    check(g.has(0x03), '2.Donjon : les bombes')
+    check(g.wait_text(200), '2.Donjon : le nom du donjon')
+    g.w(40)
+    shoot(g, '2_donjon', '2. Donjon : le Coffre à Jouets')
+    g.stop()
+
+    g = run(2, 'M-boss')
+    check(g.where() == (4, 0x2d), '2.M-boss : devant le volet du Soldat de Plomb (4:2d)')
+    check(g.has(0x06), '2.M-boss : le boomerang')
+    check(g.go('left', (4, 0x2c)), '2.M-boss : le volet est ouvert')
+    g.hold('left', 20)
+    check(g.wait_text(300), '2.M-boss : le Soldat de Plomb parle')
+    g.w(40)
+    shoot(g, '2_mboss', '2. M-boss : le Soldat de Plomb')
+    g.stop()
+
+    g = run(2, 'Boss')
+    check(g.where() == (4, 0x2e), "2.Boss : l'antichambre (4:2e)")
+    check(g.m[BOSS_KEYS] & 0x04, '2.Boss : la clé du boss')
+    g.stand(5, 4, y_first=True)
+    g.stand(1, 4)
+    check(g.go('up', (4, 0x2b)), "2.Boss : l'échelle mène à Pantin-Sans-Fil")
+    check(g.wait_text(200), '2.Boss : Pantin-Sans-Fil menace')
+    g.w(40)
+    shoot(g, '2_boss', '2. Boss : Pantin-Sans-Fil')
+    g.stop()
+
+    g = run(2, 'Fin')
+    check(g.where() == (3, 0x21), '2.Fin : chez Lila (3:21)')
+    check(g.m[ESSENCES] & 0x02, "2.Fin : l'essence du Coffre à Jouets")
+    check(g.wait_text(300), '2.Fin : Lila se réveille')
+    g.w(40)
+    shoot(g, '2_fin_lila', '2. Fin : Lila se réveille')
+    for _ in range(80):
+        g.press('a', 20)
+        if g.where() == (1, 0x11):
+            break
+    g.settled()
+    check(g.where() == (1, 0x11), '2.Fin : la place du Grelot')
+    check(g.wait_text(300), '2.Fin : les enfants jouent')
+    g.w(40)
+    shoot(g, '2_fin_place', '2. Fin : les enfants jouent')
+    for _ in range(80):
+        if g.global_flag(GLOBALFLAG_BALLADE_ISLAND3) and g.m[ENDING] == 0:
+            break
+        g.press('a', 20)
+    check(g.global_flag(GLOBALFLAG_BALLADE_ISLAND3), '2.Fin : Marine repère la Lagune des Serments')
+    g.w(60)
+    shoot(g, '2_fin_suite', '2. Fin : à suivre')
+    g.text_through()
+    g.stop()
+
+
+# ---------------------------------------------------------------------------------------------
 # 8. L'Œil de l'Insomnis (pour l'instant : le boss en rythme, dans sa salle de test)
 # ---------------------------------------------------------------------------------------------
 def oeil():
@@ -206,7 +284,7 @@ def sheet():
     print('->', os.path.join(OUT, 'planche.png'))
 
 
-TESTS = {0: menu, 1: brume, 8: oeil}
+TESTS = {0: menu, 1: brume, 2: grelot, 8: oeil}
 for k, t in TESTS.items():
     if not ONLY or k in ONLY:
         t()

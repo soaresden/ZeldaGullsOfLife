@@ -1199,6 +1199,140 @@ groups:
       moi dès qu'il
       devient violet!
 
+  # Fin du chapitre 2 : Lila se réveille (3:21)
+  - name: TX_5a64
+    index: 0x64
+    text: |-
+      \col(1)Lila\col(0): Oh! Tu
+      es là!\stop
+      J'ai rêvé d'un
+      chevalier tout
+      vert...\stop
+      Il avait une
+      mouette dans sa
+      tunique! Et il a
+      coupé les fils
+      d'un vilain
+      pantin!\stop
+      Sire Bouchon et
+      lui, ils sont
+      copains,
+      maintenant!
+
+  - name: TX_5a65
+    index: 0x65
+    text: |-
+      \col(1)Marine\col(0): Hi
+      hi... Un
+      chevalier tout
+      vert, hein?\stop
+      Viens, allons
+      voir dehors!
+
+  # Fin du chapitre 2 : la place du Grelot (1:11)
+  - name: TX_5a66
+    index: 0x66
+    text: |-
+      Les enfants
+      jouent de
+      nouveau! On
+      entend rire
+      partout.\stop
+      \col(1)Marine\col(0): Le
+      grelot s'est
+      remis à tinter!
+
+  - name: TX_5a67
+    index: 0x67
+    text: |-
+      \col(1)Marine\col(0): Chut...
+      le vent a
+      changé.\stop
+      Il sent le sel
+      et la fleur
+      d'oranger.\stop
+      Une île en
+      forme d'anneau,
+      au sud-est...\stop
+      Quelqu'un y
+      attend
+      quelqu'un. Je le
+      sens.
+
+  # Les enfants de la place (INTERAC_BALLADE_OBJECT $0b, $0c), avant et après le Coffre à Jouets
+  - name: TX_5a68
+    index: 0x68
+    text: |-
+      On attend.\stop
+      On n'a pas le
+      droit de jouer.\stop
+      Qui a dit ça?
+      On ne sait
+      plus...
+
+  - name: TX_5a69
+    index: 0x69
+    text: |-
+      On joue aux
+      chevaliers!
+      Toi, tu fais le
+      Pantin!
+
+  - name: TX_5a6a
+    index: 0x6a
+    text: |-
+      Avant, on
+      jouait à cache-
+      cache...\stop
+      Mais se cacher,
+      à quoi bon?
+      Personne ne
+      cherche.
+
+  - name: TX_5a6b
+    index: 0x6b
+    text: |-
+      Chut! Je me
+      cache!\stop
+      Tu ne m'as pas
+      vu, hein?
+
+  # Mme Bonnet, la maîtresse (l'école, 3:22 ; INTERAC_BALLADE_OBJECT $0d)
+  - name: TX_5a6c
+    index: 0x6c
+    text: |-
+      \col(1)Mme Bonnet\col(0):
+      Deux fois deux,
+      quatre. Trois
+      fois deux, six.\stop
+      Avant, je
+      racontais des
+      histoires...\stop
+      Je ne sais plus
+      comment elles
+      commencent.
+
+  - name: TX_5a6d
+    index: 0x6d
+    text: |-
+      \col(1)Mme Bonnet\col(0):
+      Il était une
+      fois... un
+      chevalier vert,
+      et une mouette
+      qui chantait!\stop
+      Ça me revient!
+
+  # Lila, après le Coffre à Jouets
+  - name: TX_5a6e
+    index: 0x6e
+    text: |-
+      \col(1)Lila\col(0): Sire
+      Bouchon et moi,
+      on part chasser
+      le dragon!\stop
+      Tu viens?
+
   # Le menu de test caché (code/ages/balladeDebug.s ; HAUT tenu 5 s à l'écran titre) :
   # la langue, l'île, le moment, et dans le donjon l'endroit. Le même dans les deux fichiers.
   - name: TX_5af0
