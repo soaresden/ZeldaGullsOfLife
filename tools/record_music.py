@@ -23,6 +23,7 @@ Usage : python tools/record_music.py [NOM ...]   (sans nom : tout)
   spirale   out/apercus/spirale_apercu.wav   la Spirale Céleste (4:3d ; $14)
   sommeil   out/apercus/sommeil_apercu.wav   l'île du Grand Sommeil (le village gelé, 1:b1 ; $1c)
   palais    out/apercus/palais_apercu.wav    le Palais Givré (le cœur, 4:57 ; $16)
+  tempetes  out/apercus/tempetes_apercu.wav  le Chant des Tempêtes ($2b, la fin du chapitre 6)
 Pour le boss et le miniboss (pas de salle où ils jouent d'office), l'appel à playSound qui lance
 la musique du Phare est détourné vers la leur (crochet PyBoy sur playSound, ROM intacte).
 """
@@ -58,6 +59,7 @@ TRACKS = {
     'spirale': (4, 0x3d, 0x57, None, 48),
     'sommeil': (1, 0xb1, 0x44, None, 50),
     'palais': (4, 0x57, 0x97, None, 50),
+    'tempetes': (4, 0x24, 0x51, 0x2b, 40),
 }
 wanted = sys.argv[1:] or ['film', 'titre'] + list(TRACKS)
 

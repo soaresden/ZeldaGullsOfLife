@@ -307,7 +307,8 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   INTERAC_DUNGEON_SCRIPT $01 ajouté au donjon 6 (dungeonScript_bossDeath : le cœur) ; l'essence
   (wGroup4RoomFlags+$54) ramène au village des plumes (1:67) : les moulins, Zéphyr, le Rito ;
   Marine lit le vent (l'île du Grand Sommeil, GLOBALFLAG_BALLADE_ISLAND7).
-- Musiques : $15 le Nid des Vents (music/nid.txt), $14 la Spirale Céleste (music/spirale.txt).
+- Musiques : $15 le Nid des Vents (music/nid.txt), $14 la Spirale Céleste (music/spirale.txt) ; à la fin du
+  chapitre 6, les moulins repartent sur le Chant des Tempêtes (music/tempetes.txt, $2b, MUS_BALLADE_TEMPETES).
 - Menu de test : île 6 Donjon / M-boss (la Cape) / Boss (4:53, la clé du boss) / Fin ; jalons 24-27.
 - Test : python tools/test_spirale.py DOSSIER (chaque énigme jouée comme un joueur).
   Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/spirale.png

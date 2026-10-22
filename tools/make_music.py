@@ -52,6 +52,7 @@ SONGS = [
     ('spirale.txt', 'musBalladeSpirale'),      # $14 (au lieu du Donjon des Ailes), la Spirale Céleste
     ('sommeil.txt', 'musBalladeSommeil'),      # $1c (au lieu du Château d'Onox), l'île du Grand Sommeil (île 7)
     ('palais.txt', 'musBalladePalais'),        # $16 (au lieu du Donjon du Crâne), le Palais Givré
+    ('tempetes.txt', 'musBalladeTempetes'),    # $2b (au lieu du thème de Maple), le Chant des Tempêtes
 ]
 # Niveaux du boss en rythme : mêmes notes à frapper que rythme.txt (vérifié)
 RHYTHM_LEVELS = ['rythme2.txt', 'rythme3.txt', 'rythme4.txt', 'rythme5.txt']

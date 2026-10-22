@@ -66,6 +66,10 @@ Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, ave
   pirates ou de désert dans la deuxième moitié, ou une course (le radeau ?).
 - À écrire en partitions (music/*.txt) comme le village des Mouettes de LADX ; pas de
   désassemblage d'*Ocarina* sur la machine : transcrire.
+- **Fait** : le Chant des Tempêtes (music/tempetes.txt, $2b, transcrit de mémoire, à vérifier à
+  l'oreille : out/apercus/tempetes_apercu.wav) joue à la fin du chapitre 6, quand les moulins
+  repartent. **Gerudo Valley** : pas encore écrit (je ne suis pas sûr de la mélodie de mémoire) :
+  il faudrait une partition ou un MIDI de référence, et choisir l'endroit.
 
 ## Le temps ralenti (le tokitobashi de Hit, *Dragon Ball Super*) (demandé par Denis)
 - Ses mots : « un objet pour ralentir le temps, un peu comme le tokitobashi de Hit dans Dragon

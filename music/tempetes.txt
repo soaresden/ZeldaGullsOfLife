@@ -1,0 +1,28 @@
+# Le Chant des Tempêtes (Ocarina of Time) — arrangement pour Gulls of Life (demandé par Denis)
+#
+# Esprit : la valse de l'homme du moulin, en ré mineur, 3/4. Placé à la fin du chapitre 6 : le vent
+# revient au village des plumes et les moulins repartent (story/idees.md, Gerudo Valley et le
+# Chant des Tempêtes). Transcrit de mémoire : à vérifier à l'oreille.
+# Même notation que music/phare.txt (6 croches par mesure : une valse).
+
+tempo 12         # images par croche
+mesure 6
+
+== A ==
+# La mélodie (l'ocarina), l'accordéon en « oum-pa-pa », la basse sur le premier temps
+melodie:   [v5] [duty 2] [vib 42] [gate .9] [detune 0]
+melodie:   d5:1 f5:1 d6:4 | d5:1 f5:1 d6:4 | e6:3 f6:1 e6:1 f6:1 | e6:1 c6:1 a5:4 |
+melodie:   a5:2 d5:2 f5:1 g5:1 | a5:6 | a5:2 d5:2 f5:1 g5:1 | e5:6 |
+melodie:   d5:1 f5:1 d6:4 | d5:1 f5:1 d6:4 | e6:3 f6:1 e6:1 f6:1 | e6:1 c6:1 a5:4 |
+melodie:   a5:2 d5:2 f5:1 g5:1 | a5:4 a5:2 | d5:6 | -:6 |
+accordeon: [v2] [duty 0] [vib 00] [gate .6] [detune 0]
+accordeon: -:2 f4:2 f4:2 | -:2 f4:2 f4:2 | -:2 e4:2 e4:2 | -:2 e4:2 e4:2 |
+accordeon: -:2 f4:2 f4:2 | -:2 e4:2 e4:2 | -:2 d4:2 d4:2 | -:2 c#4:2 c#4:2 |
+accordeon: -:2 f4:2 f4:2 | -:2 f4:2 f4:2 | -:2 e4:2 e4:2 | -:2 e4:2 e4:2 |
+accordeon: -:2 f4:2 f4:2 | -:2 e4:2 e4:2 | -:2 f4:2 f4:2 | -:2 a4:2 a4:2 |
+basse:     [onde 0e] [vib 00] [gate .5]
+basse:     d2:6 | d2:6 | c2:6 | a1:6 | bb1:6 | a1:6 | g1:6 | a1:6 |
+basse:     d2:6 | d2:6 | c2:6 | a1:6 | bb1:6 | a1:6 | d2:6 | d2:6 |
+batterie:  ( [v1] h:2 -:4 | )x16
+
+ordre: | A
