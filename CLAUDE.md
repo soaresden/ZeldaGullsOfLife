@@ -403,6 +403,17 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   et /c/msys64/clang64/bin en tête du PATH (Pillow y est installé : pacman,
   mingw-w64-clang-x86_64-python-pillow).
 
+## Le contre parfait (idée de Denis, comme dans Onimusha)
+- code/ages/balladeParry.s (section à part) : swordParent.s note l'image où l'épée sort (wcde3 ;
+  wcde3+1 = 1 : armé) ; collisionEffects.s (les coups qui touchent Link) : un ennemi (pas un
+  projectile) qui touche Link moins de BALLADE_PARRY_WINDOW (12) images après -> pas de dégâts,
+  SND_BIG_EXPLOSION, l'écran tremble, Link invincible 60 images et posé de l'autre côté de
+  l'ennemi (si la case est libre), l'ennemi à 0 point de vie ; un boss ou mini-boss (identifiant
+  $70 et plus, Ramrock) perd BALLADE_PARRY_BOSS_DAMAGE (8) points sans mourir de ce coup. wcde3 ne
+  sert à Ages que pendant le générique.
+- Test : python tools/test_contre.py DOSSIER (la même scène rejouée : sans rien faire Link est
+  touché ; l'épée sortie 3 images avant, dos au Stalfos : le contre).
+
 ## Pièges déjà rencontrés
 - La brique 64 (bord de roche) est une FALAISE dans tous les décors d'extérieur (cliffTiles.s,
   ANGLE_DOWN) : Link saute par-dessus en marchant vers le bas et tombe dans l'écran du dessous.

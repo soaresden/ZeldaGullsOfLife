@@ -81,6 +81,10 @@ Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, ave
   côté de l'ennemi et de le one shot, comme dans Onimusha. »
 - Pistes : une fenêtre de quelques images avant qu'un ennemi touche Link ; l'épée sortie dedans
   = son fort, flash, Link téléporté à côté, l'ennemi tué d'un coup.
+- **Fait** (code/ages/balladeParry.s, tools/test_contre.py) : l'épée sortie moins de 12 images
+  avant qu'un ennemi touche Link (BALLADE_PARRY_WINDOW) : pas de dégâts, une explosion sonore,
+  l'écran tremble, Link passe de l'autre côté de l'ennemi, qui meurt d'un coup ; un boss perd 8
+  points (sans mourir de ce coup). À régler en jouant : la fenêtre, le son, un vrai flash blanc.
 
 ## Le gantelet des âmes (*Onimusha*) : un donjon (demandé par Denis)
 - Ses mots : « un donjon où on nous donne le gantelet pour absorber les âmes des ennemis (comme
