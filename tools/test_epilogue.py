@@ -100,11 +100,33 @@ check(flag(FLAG_FIN), 'le jeu est fini : GLOBALFLAG_BALLADE_FIN')
 g.w(60)
 check(len(objects(0x13)) == 0 and g.m[EPILOGUE] == 0, 'Marine part vers son île')
 
-# L'île de Marine : le ponton, le coquillage, Zelda
-g.warp(1, 0x6b, 0x44)
+# L'île de Marine : le Bateau-Rondin des Échos (1:70) a une 3e page avec « Mouette »
+g.warp(1, 0x70, 0x44)
 g.settled()
 g.w(60)
-check(g.where() == (1, 0x6b), "l'île de Marine (1:6b), le ponton")
+g.text_through()
+g.stand(6, 4)
+g.face('right')
+g.press('a', 20)
+g.choose(3, 4)
+g.choose(3, 4)
+g.wait_text()
+for _ in range(30):
+    g.w(30)
+    if g.options_shown() >= 3:
+        break
+    if g.options_shown() == 0:
+        g.press('a', 4)
+g.w(60)
+g.hold('right', 6)
+g.w(16)
+g.hold('right', 6)
+g.w(16)
+g.press('a', 10)
+g.w(30)
+g.settled()
+g.w(60)
+check(g.where() == (1, 0x6b), "le Bateau-Rondin : « Mouette », l'île de Marine (1:6b)")
 g.shot(os.path.join(OUT, 'f06_ponton.png'))
 g.warp(1, 0x5b, 0x45)
 g.settled()
