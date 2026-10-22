@@ -40,8 +40,13 @@ donjons, de nouvelles musiques. Et une mouette qui a son mot à dire.
 - ☾ **De nouvelles mécaniques** : le rêve et l'éveil ne jouent pas selon les
   mêmes règles. Apprenez les deux… et servez-vous de l'un contre l'autre.
 - ◆ **De nouveaux mini-jeux** : une île sans jeux, ce n'est pas une île de Zelda.
+  Les deux démineurs du forain, un labyrinthe à la Pac-Man avec des Lynels aux
+  trousses, la plongée en apnée, le cache-cache, le tir aux toupies, la danse de
+  la fanfare, le chant… et une séquence d'infiltration façon Metal Gear.
 - ⚔ **De vrais temples** : un objet clé, des énigmes taillées pour lui, et des
   boss qui ont la langue bien pendue. Courts, denses, à finir d'une traite.
+- ? **Un rebondissement** : on ne vous dira rien. Vous verrez.
+- \+ **New Game+** : le jeu fini, on repart avec ce qu'on a gagné.
 
 ## Jouer
 
@@ -86,19 +91,26 @@ la barre, c'est le nombre de donjons jouables.
 
 ## Où on en est
 
+Les huit îles sont finies. Place aux finitions : corrections, équilibrage,
+retouches des donjons et des dialogues, et objets à collectionner. La démo
+publique reste le chapitre 1.
+
 - ✅ Le film d'ouverture
 - ✅ Chapitre 1 : l'île de la Brume
 - ✅ Le premier donjon : un vrai temple, son objet et son boss
 - ✅ L'écran titre *Gulls of Life*
 - ✅ Français et anglais, menus compris
 - ✅ Démo jouable v1.0/1.1
-- ⬜ Les sept autres îles
+- ✅ Les huit îles de l'archipel, leurs donjons et leurs boss
 - ✅ Des musiques originales : l'écran titre, l'île de la Brume, l'auberge, le Phare Éteint, le miniboss et le boss
 - ✅ Un premier mini-jeu : le Creuse-Rubis du forain
-- ⬜ D'autres mini-jeux
-- ⬜ Des secrets et des quarts de cœur
-- ⬜ Les musiques des autres îles
-- ⬜ Et la suite de l'histoire…
+- ✅ Les autres mini-jeux, et une séquence d'infiltration façon Metal Gear
+- ⬜ Les objets à collectionner : secrets et quarts de cœur
+- ✅ Les musiques des autres îles
+- ✅ La suite de l'histoire, jusqu'à la fin… et un rebondissement
+- ⬜ Corrections et équilibrage
+- ⬜ Retouches des donjons et des dialogues
+- ⬜ New Game+
 
 <details>
 <summary><b>Comment c'est fait</b></summary>

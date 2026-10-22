@@ -38,9 +38,14 @@ music. And a seagull who has plenty to say.
   you will hear in many forms.
 - ☾ **New mechanics**: dreaming and waking don't play by the same rules. Learn
   both… and use them against each other.
-- ◆ **New minigames**: an island without games isn't a Zelda island.
+- ◆ **New minigames**: an island without games isn't a Zelda island. The
+  showman's two minesweepers, a Pac-Man-style maze with Lynels on your heels,
+  free diving, hide-and-seek, spinning-top shooting, the brass band's dance,
+  singing… and a Metal Gear-style infiltration sequence.
 - ⚔ **Real temples**: one key item, puzzles built around it, and bosses with a
   lot to say. Short, dense, made to be cleared in one go.
+- ? **A twist**: we won't say a word. You'll see.
+- \+ **New Game+**: finished the game? Set sail again with what you've earned.
 
 ## Play
 
@@ -84,19 +89,26 @@ the slash is how many dungeons are playable.
 
 ## Status
 
+All eight islands are done. Now come the finishing touches: bug fixes,
+balancing, touch-ups to dungeons and dialogue, and collectibles. The public
+demo is still chapter 1.
+
 - ✅ The opening film
 - ✅ Chapter 1: Mist Island
 - ✅ The first dungeon: a real temple, its key item and its boss
 - ✅ The *Gulls of Life* title screen
 - ✅ English and French, menus included
 - ✅ Playable demo v1.0/1.1
-- ⬜ The other seven islands
+- ✅ All eight islands of the archipelago, their dungeons and their bosses
 - ✅ Original music: the title screen, Mist Island, the inn, the Dark Lighthouse, the miniboss and the boss
 - ✅ A first minigame: the fairground man's Rupee Dig
-- ⬜ More minigames
-- ⬜ Secrets and heart pieces
-- ⬜ The music of the other islands
-- ⬜ And the rest of the story…
+- ✅ The other minigames, and a Metal Gear-style infiltration sequence
+- ⬜ Collectibles: secrets and heart pieces
+- ✅ The music of the other islands
+- ✅ The rest of the story, up to the end… and a twist
+- ⬜ Bug fixes and balancing
+- ⬜ Touch-ups to dungeons and dialogue
+- ⬜ New Game+
 
 <details>
 <summary><b>How it's made</b></summary>
