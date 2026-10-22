@@ -396,9 +396,12 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   $49, $4b, $37, $3a) ; 5:cc silencieuse en entrant ; l'île : $28 (la Tour Noire d'Ages).
 - La banque $12 (objets) était pleine : make_rooms.py retire maintenant aussi les listes d'objets
   d'Ages dont toutes les étiquettes sont parties (~900 lignes).
+- Le Bateau-Rondin à huit îles : trois pages (Brume Grelot Lagune Suite / Braise Échos Nid Suite /
+  Sommeil Œil : TX_5aa8, TX_5aac, TX_5ade ; états 4 à 7 de raft).
 - Menu de test : île 8 Plage (1:d9) / Ville (le parvis, 1:c9) / Donjon (5:c0) / M-boss (3F, 5:c5)
   / Boss (5F, 5:cb) ; jalons 33-36. Le prototype du boss en rythme (4:4a) garde son code secret.
-- Test : python tools/test_tour.py DOSSIER (l'île, la porte, chaque étage, le début de l'Insomnis).
+- Test : python tools/test_tour.py DOSSIER (le radeau à huit îles, sur trois pages ; l'île, la porte,
+  chaque étage, le début de l'Insomnis).
   Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/tour.png
 - Compiler quand le Python du Store refuse (« Permission denied ») : PYTHON=/c/msys64/clang64/bin/python.exe
   et /c/msys64/clang64/bin en tête du PATH (Pillow y est installé : pacman,

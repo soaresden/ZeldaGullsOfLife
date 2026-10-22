@@ -2156,7 +2156,16 @@ groups:
       \col(1)Marin\col(0): Further
       out, then...\stop
        \opt()Ember \opt()Echoes
-       \opt()Nest \opt()Slumber
+       \opt()Nest \opt()More
+
+  # 8 islands: the third page
+  - name: TX_5ade
+    index: 0xde
+    text: |-
+      \col(1)Marin\col(0): Even
+      further...\stop
+       \opt()Slumber
+       \opt()Eye
 
   # Chapter 6: the Nest of Winds (1:45-78)
   # Arriving at the updraft (1:75), the first time

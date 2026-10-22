@@ -2225,14 +2225,23 @@ groups:
        \opt()Braise \opt()Échos
        \opt()Nid \opt()Sommeil
 
-  # 8 îles (l'Œil de l'Insomnis ne se rejoint pas en radeau)
+  # 8 îles : la deuxième page a encore « Suite » (TX_5ade : la troisième)
   - name: TX_5aac
     index: 0xac
     text: |-
       \col(1)Marine\col(0): Plus
       loin, alors...\stop
        \opt()Braise \opt()Échos
-       \opt()Nid \opt()Sommeil
+       \opt()Nid \opt()Suite
+
+  # 8 îles : la troisième page
+  - name: TX_5ade
+    index: 0xde
+    text: |-
+      \col(1)Marine\col(0): Encore
+      plus loin...\stop
+       \opt()Sommeil
+       \opt()Œil
 
   # Chapitre 6 : le Nid des Vents (1:45-78)
   # En arrivant au courant ascendant (1:75), la première fois

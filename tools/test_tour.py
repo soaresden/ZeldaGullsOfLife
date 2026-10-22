@@ -130,6 +130,25 @@ check(g.wait_text(200), 'Marine : une tour noire')
 g.w(40)
 shoot('t01_arrivee', "L'Œil de l'Insomnis")
 g.text_through()
+
+# Le Bateau-Rondin à huit îles : trois pages (Brume Grelot Lagune Suite / Braise Échos Nid Suite /
+# Sommeil Œil) : vers le Grand Sommeil, et retour
+def raft(*options):
+    g.stand(6, 4)
+    g.face('right')
+    g.press('a', 20)
+    for opt, count in options:
+        g.choose(opt, count)
+    g.w(30)
+    g.settled()
+    g.w(60)
+    g.text_through()
+
+
+raft((3, 4), (3, 4), (0, 2))
+check(g.where() == (1, 0xd1), 'le Bateau-Rondin, 3e page : le Grand Sommeil (1:d1)')
+raft((3, 4), (3, 4), (1, 2))
+check(g.where() == (1, 0xd9), "et retour à l'Œil (1:d9)")
 g.route((4, 4))
 check(g.go('up', (1, 0xc9)), 'le parvis de la tour (1:c9)')
 g.route((6, 4))
