@@ -111,10 +111,16 @@ def nightmare(room, flag_room):
     """Un cauchemar : sa présentation, puis on le retire ; l'escalier apparaît."""
     wait_intro()
     full_life()
-    for _ in range(10):
-        g.clear_enemies()
+    # (une seule fois : un boss qui meurt, comme Ganon, repasserait sinon par le début de sa mort)
+    hit = set()
+    for _ in range(40):
+        for b in g.enemies():
+            if b not in hit and g.m[b + 1] != 0x01:      # (pas les explosions)
+                g.m[b + 0x29] = 0
+                hit.add(b)
         full_life()
         g.text_through()
+        g.w(60)
         if g.m[GROUP5_FLAGS + flag_room] & 0x80:
             break
     g.w(120)
@@ -216,8 +222,13 @@ shoot('t06_bouton', "Le bouton de l'îlot")
 use(TREASURE_SWITCH_HOOK, 'left', 120)
 check(at(5, 2), 'le Grappin-Écho : retour')
 g.route((5, 1))
-check(g.go('left', (5, 0xc7)), '3F : Ganon (5:c7)')
-g.w(60)
+g.go('left', (5, 0xc7))
+check(g.where() == (5, 0xf5), '3F : Ganon pose son arène (5:c7 devient 5:f5)')
+for _ in range(40):          # Marine, le crâne qui gronde, Ganon apparaît
+    g.text_through()
+    g.w(20)
+    if any(g.m[b + 1] == 0x04 and g.m[b + 4] >= 0x07 for b in g.enemies()):
+        break
 shoot('t07_ganon', 'Ganon')
 check(nightmare(0xc7, 0xc7), 'Ganon vaincu')
 shoot('t08_ganon_fin', 'Ganon vaincu')

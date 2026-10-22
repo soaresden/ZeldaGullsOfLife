@@ -377,9 +377,8 @@ Chaque étage reprend un cauchemar de Link et une mécanique du jeu :
 . | . | E | . | .
 ```
 
-(Construit : story/salles/tour.txt, deux ou trois salles par étage, 5:c0-cc. Le « Ganon » du 3F
-est pour l'instant la Sorcière des Ombres d'Ages, dans une salle sombre : le vrai Ganon d'Ages
-demande sa propre salle. L'épilogue, après l'Insomnis, reste à écrire.)
+(Construit : story/salles/tour.txt, deux ou trois salles par étage, 5:c0-cc. Le 3F a le vrai
+Ganon d'Ages, dans son arène. L'épilogue, après l'Insomnis, reste à écrire.)
 
 ---
 

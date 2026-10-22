@@ -580,13 +580,10 @@ salle 5:c5
 salle 5:c6
 	obj_Part $09 $80 $57
 	obj_Interaction $1e $07 $50 $00
-# 3F, Ganon : une salle sombre (les torches l'éclairent) ; son ombre = la Sorcière des Ombres d'Ages
-# (la liste de 4:4a ; le Ganon d'Ages emmène Link dans sa propre salle, 5:f5) ; la porte de l'est
-# fermée tant qu'elle vit ; l'escalier en (5,7)
+# 3F, Ganon (ENEMY_GANON d'Ages, sans sa résurrection) : en entrant, il pose sa propre arène (5:f5)
+# à la place de la salle ; tant qu'il n'est pas vaincu (drapeau $80 de 5:c7) ; l'escalier en (5,7)
 salle 5:c7
-	obj_Part $08 $00 $00
-	obj_Interaction $1e $09 $5e $00
-	obj_BeforeEvent group4Map4aBeforeEventObjectData
+	obj_BeforeEvent balladeTourGanonBeforeEventObjectData
 	obj_Interaction INTERAC_BALLADE_OBJECT $32 $58 $78
 	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
 salle 5:c8

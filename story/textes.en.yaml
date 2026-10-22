@@ -3527,3 +3527,22 @@ groups:
       away... if you
       can!
 
+  # Ganon (the Sleepless Tower, 3F): he rises; his defeat
+  - name: TX_2f0d
+    index: 0x0d
+    text: |-
+      \pos(2)Gwoh hoh hoh!\stop
+      You again,
+      little hero?\stop
+      In your dreams,
+      I'M the one who
+      wins!
+
+  - name: TX_2f0e
+    index: 0x0e
+    text: |-
+      \pos(2)Grrr... You
+      can't... wake up
+      forever...
+
+

@@ -3963,3 +3963,23 @@ groups:
       moi... si tu
       peux!
 
+  # Ganon (la Tour Sans-Nuit, 3F) : il se lève ; sa défaite
+  - name: TX_2f0d
+    index: 0x0d
+    text: |-
+      \pos(2)Gwoh hoh hoh!\stop
+      Encore toi,
+      petit héros?\stop
+      Dans tes rêves,
+      c'est MOI qui
+      gagne!
+
+  - name: TX_2f0e
+    index: 0x0e
+    text: |-
+      \pos(2)Grrr... Tu ne
+      pourras pas...
+      toujours te
+      réveiller...
+
+

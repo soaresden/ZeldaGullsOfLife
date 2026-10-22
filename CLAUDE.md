@@ -386,9 +386,11 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   d'ennemis, une seconde après l'arrivée) ; drapeau $80 de la salle.
 - Les étages : 1F la Lune (le Lance-Graines dans les quatre directions) ; 2F le cristal de
   l'autre coté de la lave (61) et un saut, puis Dark Link (deux ENEMY_LINK_MIMIC) ; 3F le bouton de
-  l'îlot (Grappin-Écho + bloc de la Canne), puis « Ganon » dans une salle sombre : la Sorcière des
-  Ombres d'Ages (group4Map4aBeforeEventObjectData ; le Ganon d'Ages, ENEMY_GANON, emmène Link dans
-  sa salle 5:f5 : à reprendre si Denis veut le vrai) ; 4F la Cape, un garde endormi (la
+  l'îlot (Grappin-Écho + bloc de la Canne), puis Ganon (ENEMY_GANON d'Ages, voulu par Denis) : en
+  entrant il pose son arène à la place de la salle (wActiveRoom 5:c7 -> 5:f5 : warpSources a un
+  escalier pour 5:f5, floorStairs retient sa victoire dans 5:c7) ; sa résurrection (le jeu lié)
+  n'existe plus : ganon_state1 donne le signal tout de suite ; liste balladeTourGanonBeforeEvent
+  (enemyData.s) ; textes TX_2f0d / TX_2f0e réécrits ; 4F la Cape, un garde endormi (la
   Clochette), puis le Cauchemar de Cocolint (l'Eyesoar d'Ages, « TU ME RECONNAIS ? ») ; 5F
   l'Insomnis : INTERAC_BALLADE_RHYTHM (le boss en rythme ; après lui, retour au titre comme le
   prototype : l'épilogue reste à écrire).
@@ -398,6 +400,8 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   d'Ages dont toutes les étiquettes sont parties (~900 lignes).
 - Le Bateau-Rondin à huit îles : trois pages (Brume Grelot Lagune Suite / Braise Échos Nid Suite /
   Sommeil Œil : TX_5aa8, TX_5aac, TX_5ade ; états 4 à 7 de raft).
+- arrivalTalk : sans texte pour la salle (ex. Ganon qui change wActiveRoom), il rend la main
+  (wDisabledObjects à 0) avant de disparaître ; sinon tout restait gelé.
 - Menu de test : île 8 Plage (1:d9) / Ville (le parvis, 1:c9) / Donjon (5:c0) / M-boss (3F, 5:c5)
   / Boss (5F, 5:cb) ; jalons 33-36. Le prototype du boss en rythme (4:4a) garde son code secret.
 - Test : python tools/test_tour.py DOSSIER (le radeau à huit îles, sur trois pages ; l'île, la porte,
