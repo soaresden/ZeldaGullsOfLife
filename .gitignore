@@ -7,5 +7,7 @@ __pycache__/
 
 # Les ROM et les archives de jeux ne vont jamais sur GitHub (seulement le patch BPS)
 *.zip
+# (sauf le paquet pour romhacking.net : seulement le patch BPS et les readme)
+!romhacking/GullsOfLife-*.zip
 *.iso
 *.bin

@@ -1,0 +1,83 @@
+The Legend of Zelda: Gulls of Life - v0.1 (démo)
+================================================
+« La Ballade de la Mouette »
+Un hack Game Boy Color de The Legend of Zelda: Oracle of Ages, par soaresden
+https://soaresden.github.io/ZeldaGullsOfLife/
+https://github.com/soaresden/ZeldaGullsOfLife
+
+
+L'histoire
+----------
+Le Poisson-Rêve s'est réveillé et l'île Cocolint a disparu... mais pas tout à
+fait. Marine avait fait un vœu : avoir des ailes et voler au-delà de la mer.
+Elle revient en mouette, et retrouve Link échoué sur un archipel où plus
+personne ne rêve.
+
+Gulls of Life : « gulls » (mouettes) sonne comme « goals » (objectifs). On
+réalise ses rêves au lieu de rester dedans, et on avance malgré tout.
+
+
+Ce que c'est
+------------
+Un hack complet et une suite non officielle de Link's Awakening, pas une
+simple modification de niveaux :
+
+- une nouvelle histoire, avec Marine à vos côtés : elle parle, taquine, et a
+  toujours son mot à dire (même aux boss) ;
+- de nouvelles îles, villes, personnages et dialogues ;
+- des musiques originales, composées note par note pour le jeu ;
+- un film d'ouverture et un écran titre faits main ;
+- de nouvelles mécaniques : le rêve et l'éveil n'obéissent pas aux mêmes règles ;
+- de vrais temples, chacun construit autour d'un objet, avec des boss qui
+  répondent ;
+- des mini-jeux inspirés d'autres jeux vidéo.
+
+Le français et l'anglais sont dans la même ROM : on choisit en se réveillant
+sur la plage, et la sauvegarde s'en souvient.
+
+
+Cette version : 0.1 (démo, en cours de création)
+------------------------------------------------
+La v0.1 contient le film d'ouverture, tout le premier chapitre (l'île de la
+Brume et Port-Veille), le premier temple (le Phare Éteint) et son boss, la
+boutique de Port-Veille et un premier mini-jeu. Elle finit sur un
+cliffhanger.
+
+La suite du jeu est en cours de création.
+
+Note : l'écran titre affiche « v1.0/1 » (la numérotation interne du projet).
+C'est la même démo que la version v1.0/1.1 sur GitHub.
+
+
+Comment jouer
+-------------
+1. Il faut votre propre ROM de The Legend of Zelda: Oracle of Ages (USA) :
+     Legend of Zelda, The - Oracle of Ages (USA).gbc
+     CRC32  3800a387
+     MD5    c4639cc61c049e5a085526bb6cac03bb
+     SHA-1  880374fb978b18af4aa529e2e32f7ffb4d7dd2f4
+   Aucune ROM n'est fournie.
+2. Appliquez gulls_of_life.bps avec un outil BPS, par exemple Rom Patcher JS
+   (https://www.marcrobledo.com/RomPatcher.js/), Flips ou beat.
+3. Jouez la ROM obtenue (CRC32 b9011dfa) dans un émulateur Game Boy Color.
+
+
+Commandes
+---------
+  Select            la carte
+  Select maintenu   Marine a quelque chose à dire
+  A près d'un lit   dormir
+  Le reste : les commandes habituelles d'Oracle of Ages.
+
+
+Crédits
+-------
+  Histoire, conception, direction   soaresden
+  Code, musiques, dessins           soaresden, avec Claude (Anthropic)
+  Moteur                            oracles-disasm de Stewmath et ses
+                                    contributeurs (branche hack-base)
+  Outils                            LynnaLab, WLA-DX, PyBoy
+
+The Legend of Zelda, Link's Awakening et Oracle of Ages appartiennent à
+Nintendo (Oracle of Ages a été développé par Flagship / Capcom). Projet de fan
+gratuit, sans lien avec Nintendo ni Capcom. Ne le vendez pas.
