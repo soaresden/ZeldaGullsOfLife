@@ -37,7 +37,7 @@ DATA = os.path.join(DISASM, 'data', 'ages')
 # Ailes recopié à l'index de donjon 6, en bleuté)
 COPIES = {0x7d: 0x10, 0x7e: 0x18, 0x7f: 0x2b, 0x7c: 0x00, 0x7b: 0x00, 0x06: 0x1e, 0x07: 0x13, 0x08: 0x1a,
           0x3b: 0x37, 0x0d: 0x10, 0x0e: 0x10, 0x0f: 0x02, 0x0c: 0x02, 0x67: 0x3d, 0x68: 0x18,
-          0x69: 0x59}
+          0x69: 0x59, 0x6a: 0x18}
 
 # (décor, copie de, en-tête de palette d'origine, nouvel en-tête, octets du décor)
 SONGE = [
@@ -104,6 +104,10 @@ REEL = [
     # Le Labyrinthe des Lynels (5:e9, le 3e jeu du forain) : une grande salle de grotte ($59, sans
     # donjon), redessinée par tools/make_pacman.py, aux couleurs de PALH_LABYRINTHE, sans animation
     (0x69, '$2f, $10, UNIQUE_GFXH_NONE, GFXH_TILESET_CAVE, PALH_LABYRINTHE, $16, $05, $ff'),
+    # L'arène du Mamono (5:ea) : une grande salle (groupe 5) avec le sable et la mer de la plage
+    # ($18), les chiffres de 1 à 40 (tools/make_mamono.py) ; collisions du dehors, époque « Réel » ;
+    # sans animation (celle de la mer réécrirait des tuiles des chiffres)
+    (0x6a, '$0f, $90, UNIQUE_GFXH_CRESCENT_ISLAND, GFXH_TILESET_OVERWORLD_PAST, PALH_TILESET_CRESCENT_ISLAND_PAST, $04, $05, $ff'),
 ]
 # En-têtes de palette écrits à la main dans paletteHeaders.s (hors du bloc du Songe) : à compter
 # dans NUM_PALETTE_HEADERS. $d5 PALH_OMBRE : l'Ombre de Marine (le Swoop, palette 6 des sprites) ;

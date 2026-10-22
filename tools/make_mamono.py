@@ -1,11 +1,11 @@
-"""Le Mamono du forain : les chiffres et les monstres dessinés sur le sable de la plage du forain.
+"""Le Mamono du forain : les chiffres dessinés sur le sable de son arène.
 
-La plage du forain (1:ac) a son propre décor, $68, copie de la plage d'Ages ($18) faite par
-tools/make_songe.py. On y ajoute des briques :
-  $41-$53 : le sable avec un chiffre de 1 à 19 (la somme des niveaux des monstres autour) ;
-  $59-$5d : un monstre vaincu, du niveau 1 au niveau 5 (art/mamono.txt).
-Leurs tuiles prennent la place de tuiles du décor que cette plage n'affiche jamais (les tuyaux
-rouges de l'île du Croissant d'Ages...) : on ne touche à aucune tuile des briques de la salle.
+L'arène du Mamono (5:ea, code/ages/balladeMamono.s) a son propre décor, $6a, copie de la plage
+d'Ages ($18) faite par tools/make_songe.py. On y ajoute des briques : $41-$68, le sable avec un
+chiffre de 1 à 40 (la somme des niveaux des monstres autour ; les monstres eux-mêmes sont les vrais
+ennemis du jeu, figés). Leurs tuiles prennent la place de tuiles du décor que l'arène n'affiche
+jamais (les tuyaux rouges de l'île du Croissant d'Ages...) : on ne touche à aucune tuile des
+briques de la salle.
 
 Images : gfx/ages/gfx_tileset68.png (tuile n de l'image = numéro (n ^ $80) dans la brique, banque
 vidéo 1) ; briques : tileset_layouts_expanded/ages/tilesetMappings68.bin (4 tuiles + 4 attributs) ;
@@ -19,10 +19,11 @@ from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DISASM = os.path.join(ROOT, 'oracles-disasm')
-TILESET = 0x68
+TILESET = 0x6a
+ROOM = '5:ea'
+LAST_NUMBER = 40
 SAND = 0xbf                 # la brique de sable lisse
-FIRST_NUMBER = 0x40         # brique $40 + n : le chiffre n (1-19)
-FIRST_MONSTER = 0x58        # brique $58 + niveau : le monstre vaincu (1-5)
+FIRST_NUMBER = 0x40         # brique $40 + n : le chiffre n (1-40)
 GREY = {255: 0, 170: 1, 85: 2, 0: 3}
 LEVEL = {0: 255, 1: 170, 2: 85, 3: 0}
 
@@ -47,12 +48,12 @@ def path(kind):
 
 
 def room_metatiles():
-    """Les briques de la plage du forain (le plan de story/salles/ile_brume.txt)."""
+    """Les briques de l'arène (le plan de story/salles/mamono.txt)."""
     used, cur = set(), False
-    for line in open(os.path.join(ROOT, 'story', 'salles', 'ile_brume.txt'), encoding='utf-8'):
+    for line in open(os.path.join(ROOT, 'story', 'salles', 'mamono.txt'), encoding='utf-8'):
         line = line.split('#')[0].strip()
         if line.startswith('salle'):
-            cur = line.split()[1] == 'ac'
+            cur = line.split()[1] == ROOM
             continue
         if cur and line:
             used.update(int(t, 16) for t in line.split())
@@ -103,8 +104,8 @@ def main():
         maps[mt * 8:mt * 8 + 8] = bytes(entry + [attr] * 4)
         cols[mt] = 0
 
-    # Les chiffres de 1 à 19, au milieu du sable, foncés avec un liseré clair
-    for n in range(1, 20):
+    # Les chiffres de 1 à 40, au milieu du sable, foncés avec un liseré clair
+    for n in range(1, LAST_NUMBER + 1):
         glyphs = [DIGITS[c] for c in str(n)]
         width = sum(len(g[0]) for g in glyphs) + len(glyphs) - 1
         img = [row[:] for row in sand]
@@ -125,20 +126,6 @@ def main():
             img[y][x] = 3
         add_metatile(FIRST_NUMBER + n, img)
 
-    # Les monstres vaincus (art/mamono.txt)
-    blocks, name = {}, None
-    for line in open(os.path.join(ROOT, 'art', 'mamono.txt'), encoding='utf-8').read().split('\n'):
-        if line.startswith('@'):
-            name = int(line[1:])
-            blocks[name] = []
-        elif name and line.strip() and not line.startswith('# '):
-            blocks[name].append(line)
-    for level, rows in blocks.items():
-        assert len(rows) == 16 and all(len(r) == 16 for r in rows), 'art/mamono.txt : @%d en 16 x 16' % level
-        img = [[sand[y][x] if c == '.' else {':': 1, 'b': 2, '#': 3}[c] for x, c in enumerate(row)]
-               for y, row in enumerate(rows)]
-        add_metatile(FIRST_MONSTER + level, img)
-
     # Même format que l'image d'origine (en couleurs indexées, même palette)
     index = {palette[3 * i]: i for i in range(4)}
     out = Image.new('P', im.size)
@@ -147,7 +134,7 @@ def main():
     out.save(path('gfx'))
     open(path('map'), 'wb').write(maps)
     open(path('col'), 'wb').write(cols)
-    print('-> décor $%02x : 19 chiffres, %d monstres (%d tuiles libres restantes)' % (TILESET, len(blocks), len(free)))
+    print('-> décor $%02x : %d chiffres (%d tuiles libres restantes)' % (TILESET, LAST_NUMBER, len(free)))
 
 
 main()

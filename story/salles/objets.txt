@@ -772,3 +772,13 @@ salle 5:e9
 	obj_SpecificEnemyA     ENEMY_LYNEL $04 $58 $78
 	obj_SpecificEnemyA     ENEMY_LYNEL $05 $58 $68
 	obj_SpecificEnemyA     ENEMY_LYNEL $06 $58 $88
+
+# L'arène du Mamono (le 2e jeu du forain, code/ages/balladeMamono.s) : le contrôleur, et un ennemi
+# modèle de chaque niveau (Keese, Octorok, Moblin, Darknut, Lynel), caché et figé dès l'arrivée
+salle 5:ea
+	obj_Interaction INTERAC_BALLADE_CREUSE $02 $08 $08
+	obj_SpecificEnemyA $00 ENEMY_KEESE $00 $18 $18
+	obj_SpecificEnemyA     ENEMY_OCTOROK $00 $18 $38
+	obj_SpecificEnemyA     ENEMY_MASKED_MOBLIN $00 $18 $58
+	obj_SpecificEnemyA     ENEMY_SWORD_DARKNUT $00 $18 $a8
+	obj_SpecificEnemyA     ENEMY_LYNEL $00 $18 $c8

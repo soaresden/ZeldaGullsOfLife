@@ -1,0 +1,17 @@
+# L'arène du Mamono (le 2e jeu du forain, code/ages/balladeMamono.s), groupe 5 : une grande salle
+# de 15 x 11 briques, décor 6a (le sable et la mer de la plage, et les chiffres de 1 à 40 dessinés
+# par tools/make_mamono.py en $41-$68).
+# Briques : fc la mer ; bf le sable lisse ; 12 le sable à creuser (le champ : lignes 2-9,
+# colonnes 1-13). Link arrive en haut (1,7) ; il ressort par l'ouverture du haut (0,7).
+salle 5:ea decor 6a
+fc fc fc fc fc fc fc bf fc fc fc fc fc fc fc
+fc bf bf bf bf bf bf bf bf bf bf bf bf bf fc
+fc 12 12 12 12 12 12 12 12 12 12 12 12 12 fc
+fc 12 12 12 12 12 12 12 12 12 12 12 12 12 fc
+fc 12 12 12 12 12 12 12 12 12 12 12 12 12 fc
+fc 12 12 12 12 12 12 12 12 12 12 12 12 12 fc
+fc 12 12 12 12 12 12 12 12 12 12 12 12 12 fc
+fc 12 12 12 12 12 12 12 12 12 12 12 12 12 fc
+fc 12 12 12 12 12 12 12 12 12 12 12 12 12 fc
+fc 12 12 12 12 12 12 12 12 12 12 12 12 12 fc
+fc fc fc fc fc fc fc fc fc fc fc fc fc fc fc

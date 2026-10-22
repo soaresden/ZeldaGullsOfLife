@@ -1,7 +1,8 @@
-"""Test du Mamono (le 2e jeu du forain, plage 1:ac) : une partie Facile gagnée (le test connaît les
-monstres : il creuse les cases vides, puis les monstres du plus faible au plus fort, quand Link a
-le niveau), les chiffres dans le sable, les monstres vaincus, la montée de niveau ; une partie
-Moyen gagnée (le quart de cœur) ; puis un monstre trop fort découvert à l'aveugle (il frappe fort).
+"""Test du Mamono (le 2e jeu du forain, dans son arène 5:ea) : le forain y envoie Link ; une partie
+Facile gagnée (le test connaît les monstres : il creuse les cases vides, puis les monstres du plus
+faible au plus fort, quand Link a le niveau) : les chiffres dans le sable, les vrais ennemis figés
+sur leur case puis en fumée, la montée de niveau ; une partie Moyen gagnée (le quart de cœur) ;
+puis un monstre trop fort découvert à l'aveugle (il frappe fort) ; on ressort par le haut.
 
 Usage : python tools/test_mamono.py DOSSIER_CAPTURES
 """
@@ -18,10 +19,11 @@ pb.set_emulation_speed(0)
 m = pb.memory
 HEALTH, MAX_HEALTH = 0xc6aa, 0xc6ab
 RUPEES, HEART_PIECES = 0xc6ad, 0xc6ac
-STATE, LEVEL, DUG, LEFT = 0xcdf5, 0xcdf6, 0xcdfa, 0xcdfd
-LEVELS, P_LEVEL, P_XP, PLACED, MODE = 0xc580, 0xc598, 0xc599, 0xc59a, 0xc59b
-ROOM_FLAGS = 0xc800 + 0xac
-ROOM_LAYOUT = 0xcf00
+CREUSE_LEVEL = 0xcdf6
+P_LEVEL, P_XP, PLACED, LEFT, STATE, SHOW, SHOW_SLOT, SLOTS = 0xc580, 0xc581, 0xc582, 0xc583, 0xc584, 0xc585, 0xc586, 0xc587
+LEVELS = 0xcfc0
+LAYOUT = 0xcf00
+ROWS, COLS = 8, 13
 errors = []
 
 
@@ -41,8 +43,9 @@ def walk(b, n):
     w(4)
 
 
-def shot(name):
-    pb.screen.image.save(os.path.join(OUT, name + '.png'))
+def shot(name, scale=3):
+    im = pb.screen.image
+    im.resize((im.size[0] * scale, im.size[1] * scale)).save(os.path.join(OUT, name + '.png'))
 
 
 def check(ok, what):
@@ -52,7 +55,7 @@ def check(ok, what):
         shot('rate_%02d' % len(errors))
 
 
-def goto(y=None, x=None, limit=300):
+def goto(y=None, x=None, limit=400):
     for axis, target, minus, plus in (('x', x, 'left', 'right'), ('y', y, 'up', 'down')):
         if target is None:
             continue
@@ -67,13 +70,7 @@ def goto(y=None, x=None, limit=300):
             pb.button_release(b)
 
 
-def stand(row, col):
-    goto(None, col * 16 + 8)
-    goto(row * 16 + 8, None)
-
-
 def text_through(n=40, choose=0):
-    """Passe les textes ; choose : l'option à prendre (ou une liste, une par menu)."""
     choices = list(choose) if isinstance(choose, (list, tuple)) else [choose]
     for _ in range(n):
         if not m[0xcba0]:
@@ -91,80 +88,123 @@ def text_through(n=40, choose=0):
         press('a', 20)
 
 
-def cell_pos(i):
-    return 2 + i // 6, 1 + i % 6
+def level(i):
+    b = m[LEVELS + i // 2]
+    return (b >> 4) if i & 1 else (b & 0x0f)
+
+
+def pos(i):
+    r, c = divmod(i, COLS)
+    return ((r + 2) << 4) | (c + 1)
 
 
 def neighbours(i):
-    r, c = divmod(i, 6)
-    return [nr * 6 + nc for nr in range(r - 1, r + 2) for nc in range(c - 1, c + 2)
-            if (nr, nc) != (r, c) and 0 <= nr < 4 and 0 <= nc < 6]
+    r, c = divmod(i, COLS)
+    return [nr * COLS + nc for nr in range(r - 1, r + 2) for nc in range(c - 1, c + 2)
+            if (nr, nc) != (r, c) and 0 <= nr < ROWS and 0 <= nc < COLS]
+
+
+def dug(i):
+    return m[LAYOUT + pos(i)] != 0x12
 
 
 def dig(i):
-    row, col = cell_pos(i)
-    if row < 5:
-        stand(row + 1, col)
-        walk('up', 3)
-    else:
-        stand(row - 1, col)
-        walk('down', 3)
-    press('a', 24)
+    """Link se met au-dessus de la case et creuse vers le bas."""
+    r, c = divmod(i, COLS)
+    row, col = r + 2, c + 1
+    goto(None, col * 16 + 8)
+    goto((row - 1) * 16 + 8, None)
+    goto(None, col * 16 + 8)
+    walk('down', 2)
+    press('a', 30)
 
 
-def is_open(i):
-    return bool(m[DUG + i // 8] & (1 << (i % 8)))
+def wait_show():
+    for _ in range(40):
+        if not m[SHOW] and not m[0xcba0]:
+            return
+        text_through()
+        w(10)
 
 
-def start(level, name):
+def arena(lvl, name):
+    """Chez le forain : le Mamono, le niveau, payer ; Link arrive dans l'arène."""
+    m[RUPEES] = 0x99
     goto(0x28, None)
-    stand(2, 7)
+    goto(None, 0x78)
+    goto(0x28, None)
     walk('down', 3)
     press('a', 30)
-    text_through(choose=[1, level])   # le Mamono, puis le niveau
+    text_through(choose=[1, lvl])
+    w(250)
+    check(m[0xcc30] == 0xea and m[CREUSE_LEVEL] == lvl, '%s : le forain envoie Link dans l\'arène (5:%02x)' % (name, m[0xcc30]))
     w(30)
-    check(m[STATE] == 1 and m[MODE] == 1 and m[LEVEL] == level and m[P_LEVEL] == 1,
-          '%s : une partie de Mamono commence (Link niveau 1)' % name)
-    text_through()                # les règles, Marine
+    text_through()                    # les règles
+    check(m[STATE] == 1 and m[P_LEVEL] == 1, '%s : la partie commence (Link niveau 1)' % name)
+    slots = [m[SLOTS + k] for k in range(5)]
+    check(all(slots), '%s : les cinq ennemis modèles %s' % (name, [hex(s) for s in slots]))
+    check(all(not (m[(s << 8) + 0x9a] & 0x80) for s in slots if s), '%s : cachés' % name)
 
 
-def play_to_win(level, name):
-    start(level, name)
-    dig(9)                        # (1,3) : au milieu, la première case n'a jamais de monstre
-    text_through()
-    check(m[PLACED] == 1 and m[LEVELS + 9] == 0, '%s : les monstres sont placés, loin de la 1re case' % name)
-    levels = [m[LEVELS + i] for i in range(24)]
-    print('  monstres', levels, flush=True)
-    s = sum(levels[j] for j in neighbours(9))
-    t = m[ROOM_LAYOUT + 0x34]     # case 9 = ligne 3, colonne 4
-    check(t == (0xbf if s == 0 else 0x40 + min(s, 19)), '%s : le chiffre de la 1re case (%d)' % (name, s))
-    # Les cases vides d'abord, puis les monstres du plus faible au plus fort
-    for i in range(24):
-        if not levels[i] and not is_open(i):
+def leave(name):
+    goto(None, 0x78)
+    goto(0x18, None)
+    for _ in range(10):
+        walk('up', 8)
+        if m[0xcc30] == 0xac:
+            break
+    w(200)
+    check(m[0xcc30] == 0xac, '%s : retour chez le forain' % name)
+
+
+def play_to_win(lvl, name):
+    arena(lvl, name)
+    first = 3 * COLS + 6
+    dig(first)
+    wait_show()
+    levels = [level(i) for i in range(ROWS * COLS)]
+    counts = [levels.count(k) for k in range(1, 6)]
+    print('  monstres par niveau', counts, flush=True)
+    check(m[PLACED] == 1 and all(levels[j] == 0 for j in neighbours(first) + [first]),
+          '%s : les monstres sont cachés, loin de la 1re case' % name)
+    check(m[LAYOUT + pos(first)] == 0xbf, '%s : la 1re case : rien autour' % name)
+    # Les cases vides
+    for i in range(ROWS * COLS):
+        if not levels[i] and not dug(i):
             dig(i)
-            text_through()
-    lv_seen = []
+            wait_show()
+    expect = {i: sum(levels[j] for j in neighbours(i)) for i in range(ROWS * COLS)}
+    bad = [i for i in range(ROWS * COLS) if not levels[i] and
+           m[LAYOUT + pos(i)] != (0xbf if expect[i] == 0 else 0x40 + expect[i])]
+    check(not bad, '%s : les chiffres dans le sable %s' % (name, bad[:5]))
+    shot(name + '_chiffres')
+    # Les monstres, du plus faible au plus fort
+    seen, shown = [], False
     for lv in range(1, 6):
-        for i in range(24):
+        for i in range(ROWS * COLS):
             if levels[i] == lv and m[STATE] == 1:
-                before = m[HEALTH]
-                dig(i)
-                text_through()
-                lv_seen.append((lv, m[P_LEVEL]))
                 m[HEALTH] = m[MAX_HEALTH]
-    print('  (monstre, niveau de Link)', lv_seen, flush=True)
-    shot(name)
-    check(m[STATE] == 0 and m[LEFT] == 0, '%s : tous les monstres vaincus, gagné' % name)
-    check(max(p for _, p in lv_seen) > 1, '%s : Link est monté de niveau' % name)
-    check(all(m[ROOM_LAYOUT + (cell_pos(i)[0] << 4) + cell_pos(i)[1]] == 0x58 + levels[i]
-              for i in range(24) if levels[i]), '%s : les monstres vaincus dessinés' % name)
-    text_through()
-    for _ in range(8):
+                dig(i)
+                if not shown and lv >= 2:
+                    w(4)
+                    slot = m[SHOW_SLOT]
+                    visible = slot and m[(slot << 8) + 0x9a] & 0x80
+                    shot(name + '_monstre')
+                    check(bool(visible), '%s : le monstre de niveau %d apparaît, figé' % (name, lv))
+                    shown = True
+                wait_show()
+                seen.append((lv, m[P_LEVEL]))
+    print('  (monstre, niveau de Link)', seen, flush=True)
+    check(m[STATE] == 2 and m[LEFT] == 0, '%s : tous les monstres, gagné' % name)
+    check(bool(seen) and max(p for _, p in seen) >= 3, '%s : Link est monté de niveau' % name)
+    check(all(dug(i) for i in range(ROWS * COLS) if levels[i]), '%s : leurs cases montrent leur chiffre' % name)
+    shot(name + '_fin')
+    for _ in range(6):
         w(30)
         text_through()
 
 
-# Nouvelle partie, la plage
+# Nouvelle partie, la plage du forain
 for c in 'w900 start w150 start w60 a w60 a w80 a w10 start w20 a w60 a w60 a'.split():
     w(int(c[1:])) if c[0] == 'w' else press(c)
 w(400)
@@ -173,31 +213,27 @@ for i in range(160):
     if m[0xcc8a] == 0 and i > 60:
         break
 w(60)
-m[RUPEES], m[RUPEES + 1] = 0x99, 0x00
-for i, v in enumerate((0x81, 0xab, 0x00, 0x17, 0x03)):
+m[MAX_HEALTH] = 12
+m[HEALTH] = 12
+for i, v in enumerate((0x81, 0xac, 0x00, 0x27, 0x03)):
     m[0xcc47 + i] = v
-w(220)
-for _ in range(20):
-    walk('right', 20)
-    if m[0xcc30] == 0xac:
-        break
-w(60)
+w(250)
 check(m[0xcc30] == 0xac, 'la plage du forain')
 
 play_to_win(0, 'facile')
+leave('facile')
 pieces = m[HEART_PIECES]
-m[RUPEES] = 0x99
 play_to_win(1, 'moyen')
-check(bool(m[ROOM_FLAGS] & 0x04), 'moyen : le quart de cœur est noté (drapeau $04)')
 check(m[HEART_PIECES] != pieces, 'moyen : un quart de cœur (%d -> %d)' % (pieces, m[HEART_PIECES]))
+leave('moyen')
 
 # Un monstre trop fort, découvert à l'aveugle : il frappe de tout son niveau
-m[RUPEES] = 0x99
-start(2, 'dur')
-dig(9)
-text_through()
-levels = [m[LEVELS + i] for i in range(24)]
-strong = [i for i in range(24) if levels[i] >= 3 and not any(is_open(j) for j in neighbours(i))]
+arena(2, 'dur')
+first = 3 * COLS + 6
+dig(first)
+wait_show()
+levels = [level(i) for i in range(ROWS * COLS)]
+strong = [i for i in range(ROWS * COLS) if levels[i] >= 3 and not any(dug(j) for j in neighbours(i))]
 if strong:
     i = strong[0]
     m[HEALTH] = m[MAX_HEALTH]
@@ -205,8 +241,9 @@ if strong:
     dig(i)
     w(30)
     print('  monstre de niveau %d : vie %d -> %d' % (levels[i], before, m[HEALTH]), flush=True)
-    check(before - m[HEALTH] == 2 * levels[i] or levels[i] * 2 >= before, 'à l\'aveugle : un demi-cœur par niveau du monstre')
-    text_through()
+    check(before - m[HEALTH] == 2 * levels[i], 'à l\'aveugle : un demi-cœur par niveau du monstre')
+    wait_show()
 else:
     check(False, 'pas de monstre fort à découvrir à l\'aveugle')
+leave('dur')
 print('\nTout est bon.' if not errors else '\n%d problème(s)' % len(errors))
