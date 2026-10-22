@@ -2339,14 +2339,13 @@ groups:
     text: |-
       \col(1)Marin\col(0): So...
       Let's see if you
-      forgot all about
-      Koholint!\stop
-      Ready? First
-      question!
+      remember
+      Koholint...
 
   - name: TX_5aef
     index: 0xef
     text: |-
+      \col(1)QUESTION!\col(0)\stop
       The village
       where I sang is
       called...?\stop

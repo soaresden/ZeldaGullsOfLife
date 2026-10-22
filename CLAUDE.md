@@ -455,7 +455,8 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   questions de « Qui veut gagner des millions » relevée dans le mp3 de Denis : 120 à la noire, le
   motif do - mi bémol - ré - mi bémol (une note par temps), des arpèges de do mineur, le cœur qui
   bat (le triangle sur l'onde + n24 sur le bruit). Validée (v3 : une octave plus bas, « trop
-  strident » sinon). Le quiz la lance, puis remet celle de l'auberge.
+  strident » sinon). Elle part sur « QUESTION ! » (le début de la 1re question ; l'intro « On va
+  voir si tu te souviens de Cocolint... » est sans musique), puis celle de l'auberge revient.
 - Test : python tools/test_quiz.py DOSSIER (une erreur, puis tout juste : le bisou).
 
 ## Ghost Babel au 4F de la Tour (idée de Denis, Metal Gear Solid: Ghost Babel)

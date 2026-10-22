@@ -2421,14 +2421,13 @@ groups:
     text: |-
       \col(1)Marine\col(0): Bon...
       On va voir si tu
-      as tout oublié
-      de Cocolint!\stop
-      Prêt? Première
-      question!
+      te souviens de
+      Cocolint...
 
   - name: TX_5aef
     index: 0xef
     text: |-
+      \col(1)QUESTION!\col(0)\stop
       Le village où
       j'ai chanté, il
       s'appelle...?\stop

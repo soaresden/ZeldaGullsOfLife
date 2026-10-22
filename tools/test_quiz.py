@@ -34,7 +34,7 @@ def shoot(name, label):
 
 
 def quiz(answers, shots_prefix=None):
-    check(g.wait_text(300), "Marine : « On va voir si tu as tout oublié de Cocolint ! »")
+    check(g.wait_text(300), "Marine : « On va voir si tu te souviens de Cocolint... »")
     for n, (option, count) in enumerate(answers):
         g.text_through(4)
         g.choose(option, count)
