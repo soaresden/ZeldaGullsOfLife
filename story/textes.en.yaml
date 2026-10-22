@@ -2334,6 +2334,160 @@ groups:
       them... like a
       snake!
 
+  - name: TX_5aee
+    index: 0xee
+    text: |-
+      \col(1)Marin\col(0): So...
+      Let's see if you
+      forgot all about
+      Koholint!\stop
+      Ready? First
+      question!
+
+  - name: TX_5aef
+    index: 0xef
+    text: |-
+      The village
+      where I sang is
+      called...?\stop
+       \opt()Mabe \opt()Ukuku
+       \opt()Animal
+
+  - name: TX_5af4
+    index: 0xf4
+    text: |-
+      And when I sang
+      for the walrus,
+      he...?\stop
+       \opt()danced
+       \opt()dove \opt()slept
+
+  - name: TX_5af5
+    index: 0xf5
+    text: |-
+      The noble with a
+      castle on the
+      island is...?\stop
+       \opt()Richard
+       \opt()Tarin \opt()Kanalet
+
+  - name: TX_5af6
+    index: 0xf6
+    text: |-
+      Koholint's totem
+      animal is
+      the...?\stop
+       \opt()Flying Rooster
+       \opt()Owl \opt()Walrus
+
+  - name: TX_5af7
+    index: 0xf7
+    text: |-
+      And my mother?
+      Do you know who
+      she is?\stop
+       \opt()Yes... \opt()No
+
+  - name: TX_5af8
+    index: 0xf8
+    text: |-
+      ...Me neither.\stop
+      Dad says she
+      used to sing
+      facing the sea,
+      like me...\stop
+      And one morning,
+      she left with
+      the wind.\stop
+      ...I think I
+      look like her.
+
+  - name: TX_5af9
+    index: 0xf9
+    text: |-
+      Last one! Who
+      does Dad remind
+      you of?\stop
+       \opt()Mario \opt()Wario
+       \opt()Luigi
+
+  - name: TX_5afa
+    index: 0xfa
+    text: |-
+      Mario? Who's
+      that?\stop
+      A plumber?! He
+      breaks bricks
+      with his head?!\stop
+      Dad never broke
+      a brick!\stop
+      ...But it's true
+      he sees a lot of
+      stars.
+
+  - name: TX_5afb
+    index: 0xfb
+    text: |-
+      What?! His
+      brother Luigi
+      lives in the
+      mountains?!\stop
+      You even saw a
+      Kirby in Eagle's
+      Tower?!\stop
+      What are you
+      talking about?!
+      As if your life
+      was a game!\stop
+      No more lives,
+      and you start
+      over?!\stop
+      That's not what
+      life is!\stop
+      Stop believing
+      you're in a
+      game.\stop
+      Don't play with
+      my heart...\stop
+      This is real.
+
+  - name: TX_5afc
+    index: 0xfc
+    text: |-
+      Yes! Well done!
+
+  - name: TX_5afd
+    index: 0xfd
+    text: |-
+      No... You forgot
+      everything!
+
+  - name: TX_5afe
+    index: 0xfe
+    text: |-
+      \col(1)Marin\col(0): ...Well.
+      You didn't
+      forget a thing.\stop
+      So... close your
+      eyes.
+
+  - name: TX_5aff
+    index: 0xff
+    text: |-
+      \col(1)*Smack!*\col(0)\stop
+      \col(1)Marin\col(0): Hehe!
+      You're blushing!
+
+  - name: TX_5a49
+    index: 0x49
+    text: |-
+      \col(1)Marin\col(0): Hmm...
+      You forgot some
+      things.\stop
+      We'll try again!
+      And this time,
+      study!
+
   - name: TX_5aad
     index: 0xad
     text: |-

@@ -41,6 +41,7 @@ salle ab
 salle 3:9e
 	obj_Interaction INTERAC_BALLADE_NPC $00 $48 $38
 	obj_Interaction INTERAC_BALLADE_OBJECT $37 $08 $08 ; après le chapitre 5 : les photos de Cocolint
+	obj_Interaction INTERAC_BALLADE_OBJECT $39 $08 $08 ; puis le quiz de Marine sur Cocolint
 	obj_Interaction INTERAC_MARINE $05 $08 $08 ; la fin du chapitre 1 : le tour du village
 	obj_Interaction INTERAC_BALLADE_OBJECT $07 $08 $08 ; parties de la v1.0/1.1 : le Carnet des Rêves
 

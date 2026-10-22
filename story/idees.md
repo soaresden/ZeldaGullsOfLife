@@ -189,3 +189,9 @@ Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, ave
   jeu ! Ce n'est pas : t'as plus de vie et tu recommences ! Ce n'est pas ça, la vie ! Arrête de
   croire que t'es dans un jeu, ne joue pas avec mon cœur, ça, c'est réel ! »
 - Tout juste : **elle lui fait un bisou**.
+- **Fait** (tools/test_quiz.py) : à l'auberge, juste après les photos ; les choix (le Village des
+  Animaux, il a plongé, Richard, le Coq Volant ; sa mère : personne ne sait, « elle chantait face à
+  la mer... un matin, elle est partie avec le vent » ; Mario : « Papa n'a jamais cassé de brique...
+  mais c'est vrai qu'il voit plein d'étoiles »), sa tirade, et 5 sur 5 : « ferme les yeux »...
+  *Smack!* Sinon, on recommence à la prochaine visite. Musique façon « Qui veut gagner des
+  millions » (le cœur qui bat) : en attente d'écoute.

@@ -440,6 +440,21 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   remontée ; 9 cœurs : l'épée) ; test_tour.py vérifie Ganon sans puis avec l'épée.
   Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/fosse.png
 
+## Le quiz de Marine sur Cocolint (idée de Denis)
+- INTERAC_BALLADE_OBJECT $39 (marineQuiz, l'auberge 3:9e, à côté de photoScene) : juste après les
+  photos (au retour de la cinématique), puis à chaque visite tant qu'il n'est pas réussi
+  (GLOBALFLAG_BALLADE_QUIZ $5c). Six questions à choix (TX_5aef, 5af4-5af7, 5af9 : la question,
+  \stop, les choix sur une boîte à part, comme TX_0c00 d'Ages) ; @questions : la bonne réponse ($ff
+  = sa mère, pas notée : TX_5af8). Réactions TX_5afc / 5afd ; Tarkin = Mario : TX_5afa ; la
+  tirade TX_5afb ; 5 sur 5 : TX_5afe puis le bisou (TX_5aff, SND_FAIRYCUTSCENE, les cœurs pleins) ;
+  sinon TX_5a49 (« On recommencera ! »).
+- Le texte français a dépassé 2 x 64 Ko : tools/build/parseText.py fait un 3e découpage
+  (TEXT_OFFSET_3, TEXT_OFFSET_SPLIT_INDEX2, et _FR par parseTextLang.py), textbox.s le lit
+  (textOffset3Table). Le groupe 0x5a est presque plein (plus que ~15 numéros libres).
+- Musique (en attente de l'écoute de Denis) : music/quiz.txt ($0a), façon « Qui veut gagner des
+  millions » : le cœur qui bat (le triangle sur l'onde + n24 sur le bruit).
+- Test : python tools/test_quiz.py DOSSIER (une erreur, puis tout juste : le bisou).
+
 ## Ghost Babel au 4F de la Tour (idée de Denis, Metal Gear Solid: Ghost Babel)
 - 5:c8 (l'arrivée du 4F) : deux Veilleurs (ENEMY_AMBI_GUARD, rondes déjà écrites : $11 la ligne 5,
   celle de la porte, depuis $58 $28 ; $13 la colonne 12, depuis $18 $c8 ; rien sur leur chemin).

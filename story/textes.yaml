@@ -2416,6 +2416,164 @@ groups:
       dos... Comme un
       serpent!
 
+  - name: TX_5aee
+    index: 0xee
+    text: |-
+      \col(1)Marine\col(0): Bon...
+      On va voir si tu
+      as tout oublié
+      de Cocolint!\stop
+      Prêt? Première
+      question!
+
+  - name: TX_5aef
+    index: 0xef
+    text: |-
+      Le village où
+      j'ai chanté, il
+      s'appelle...?\stop
+       \opt()Mabe \opt()Ukuku
+       \opt()des Animaux
+
+  - name: TX_5af4
+    index: 0xf4
+    text: |-
+      Et quand j'ai
+      chanté devant le
+      morse, il a...?\stop
+       \opt()dansé \opt()plongé
+       \opt()dormi
+
+  - name: TX_5af5
+    index: 0xf5
+    text: |-
+      Le noble qui a
+      un château sur
+      l'île, c'est...?\stop
+       \opt()Richard
+       \opt()Tarkin \opt()Kanalet
+
+  - name: TX_5af6
+    index: 0xf6
+    text: |-
+      L'animal totem
+      de Cocolint,
+      c'est le...?\stop
+       \opt()Coq Volant
+       \opt()Hibou \opt()Morse
+
+  - name: TX_5af7
+    index: 0xf7
+    text: |-
+      Et ma mère?
+      Tu sais qui
+      c'est, toi?\stop
+       \opt()Oui... \opt()Non
+
+  - name: TX_5af8
+    index: 0xf8
+    text: |-
+      ...Moi non plus.\stop
+      Papa dit qu'elle
+      chantait face à
+      la mer, comme
+      moi...\stop
+      Et qu'un matin,
+      elle est partie
+      avec le vent.\stop
+      ...Je crois
+      que je lui
+      ressemble.
+
+  - name: TX_5af9
+    index: 0xf9
+    text: |-
+      Dernière! Papa,
+      il te fait
+      penser à qui?\stop
+       \opt()Mario \opt()Wario
+       \opt()Luigi
+
+  - name: TX_5afa
+    index: 0xfa
+    text: |-
+      Mario? C'est
+      qui, ça?\stop
+      Un plombier?!
+      Il casse des
+      briques avec
+      sa tête?!\stop
+      Papa n'a jamais
+      cassé de brique!\stop
+      ...Mais c'est
+      vrai qu'il voit
+      plein d'étoiles.
+
+  - name: TX_5afb
+    index: 0xfb
+    text: |-
+      Comment?! Son
+      frère Luigi est
+      dans les
+      montagnes?!\stop
+      Tu as même vu un
+      Kirby dans la
+      tour de
+      l'Aigle?!\stop
+      Mais de quoi tu
+      parles?!
+      Comme si ta vie
+      était un jeu!\stop
+      T'as plus de
+      vie, et tu
+      recommences?!\stop
+      Ce n'est pas ça,
+      la vie!\stop
+      Arrête de croire
+      que t'es dans un
+      jeu.\stop
+      Ne joue pas avec
+      mon cœur...\stop
+      Ça, c'est réel.
+
+  - name: TX_5afc
+    index: 0xfc
+    text: |-
+      Oui! Bravo!
+
+  - name: TX_5afd
+    index: 0xfd
+    text: |-
+      Mais non...
+      Tu as tout
+      oublié!
+
+  - name: TX_5afe
+    index: 0xfe
+    text: |-
+      \col(1)Marine\col(0): ...Bon.
+      Tu n'as rien
+      oublié.\stop
+      Alors...
+      ferme les yeux.
+
+  - name: TX_5aff
+    index: 0xff
+    text: |-
+      \col(1)*Smack!*\col(0)\stop
+      \col(1)Marine\col(0): Hihi!
+      T'as rougi!
+
+  - name: TX_5a49
+    index: 0x49
+    text: |-
+      \col(1)Marine\col(0): Hmm...
+      Tu as oublié des
+      choses.\stop
+      On recommencera!
+      Et cette fois,
+      révise!
+
   - name: TX_5aad
     index: 0xad
     text: |-

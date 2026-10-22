@@ -56,10 +56,14 @@ g.settled()
 g.w(60)
 shoot('p04_retour', "Retour à l'auberge")
 check(g.global_flag(GLOBALFLAG_BALLADE_PHOTOS), 'les photos ont été vues (GLOBALFLAG_BALLADE_PHOTOS)')
-# Une seule fois
+# Une seule fois (ensuite, à l'auberge, c'est le quiz de Marine : tools/test_quiz.py)
 g.warp(3, 0x9e, 0x57)
-g.w(200)
-check(not g.m[TEXT_ACTIVE], 'une seule fois')
+again = False
+for _ in range(40):
+    g.text_through(4)
+    g.w(10)
+    again = again or g.m[CUTSCENE_INDEX] == 0x22
+check(not again, 'une seule fois')
 
 sheet(shots, os.path.join(OUT, 'photos.png'), cols=3)
 print()
