@@ -2167,6 +2167,26 @@ groups:
        \opt()Slumber
        \opt()Eye
 
+  # Bulle (3:24), after the Reef: the surfboard
+  - name: TX_5adf
+    index: 0xdf
+    text: |-
+      \col(1)Bulle\col(0): You
+      silenced the
+      Eel!\stop
+      Here: my
+      surfboard. I
+      don't need it
+      anymore.
+
+  - name: TX_5ae0
+    index: 0xe0
+    text: |-
+      The \col(1)surfboard\col(0)!\stop
+      On the water,
+      you go twice as
+      fast!
+
   # Chapter 6: the Nest of Winds (1:45-78)
   # Arriving at the updraft (1:75), the first time
   - name: TX_5aad

@@ -57,6 +57,10 @@ Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, ave
   *Pokémon*. À placer (un objet trouvé sur une île de mer : la Lagune ? un PNJ surfeur ?) ; dans
   le moteur : une vitesse de nage plus grande tant qu'on a l'objet (ou qu'on le tient sur B), et
   un sprite de Link debout sur la planche.
+- **Fait (la vitesse)** : Bulle, la monitrice du club de plongée de la Lagune (3:24), donne sa
+  planche de surf une fois le Récif Murmurant sauvé (GLOBALFLAG_BALLADE_SURF) ; avec elle, la nage
+  aux Écailles de Sirène monte à SPEED_200 (contre $120, $160 avec l'anneau du nageur) : environ
+  1,5 fois plus loin (tools/test_surf.py). **Reste** : le sprite de Link debout sur la planche.
 
 ## Gerudo Valley et le Chant des Tempêtes (demandés par Denis, scénario à trouver)
 - **Le Chant des Tempêtes** (*Ocarina of Time*) : c'est la chanson de l'homme du moulin ; le Nid des

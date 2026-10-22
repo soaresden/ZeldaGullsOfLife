@@ -407,6 +407,13 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   et /c/msys64/clang64/bin en tête du PATH (Pillow y est installé : pacman,
   mingw-w64-clang-x86_64-python-pillow).
 
+## La planche de surf (idée de Denis)
+- Bulle (3:24, subid $0f, surfInstructor) : avec l'essence 3, elle donne sa planche
+  (GLOBALFLAG_BALLADE_SURF $5a, TX_5adf / TX_5ae0) ; link.s : la nage aux Écailles de Sirène
+  (@mermaidSuit) passe à SPEED_200, la nage aux palmes (linkGetSwimmingSpeed) à SPEED_120. On nage
+  en tapotant la direction (un coup = SND_SPLASH). Pas encore de sprite de Link sur la planche.
+- Test : python tools/test_surf.py DOSSIER (huit coups de nage dans la lagune, avant / après).
+
 ## Le contre parfait (idée de Denis, comme dans Onimusha)
 - code/ages/balladeParry.s (section à part) : swordParent.s note l'image où l'épée sort (wcde3 ;
   wcde3+1 = 1 : armé) ; collisionEffects.s (les coups qui touchent Link) : un ennemi (pas un

@@ -2243,6 +2243,27 @@ groups:
        \opt()Sommeil
        \opt()Œil
 
+  # Bulle (3:24), après le Récif : la planche de surf
+  - name: TX_5adf
+    index: 0xdf
+    text: |-
+      \col(1)Bulle\col(0): Tu as
+      fait taire la
+      Murène!\stop
+      Tiens: ma
+      planche de surf.
+      Je n'en ai plus
+      besoin.
+
+  - name: TX_5ae0
+    index: 0xe0
+    text: |-
+      La \col(1)planche de
+      surf\col(0)!\stop
+      Sur l'eau, tu
+      files deux fois
+      plus vite!
+
   # Chapitre 6 : le Nid des Vents (1:45-78)
   # En arrivant au courant ascendant (1:75), la première fois
   - name: TX_5aad
