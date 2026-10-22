@@ -66,7 +66,7 @@ TRACKS = {
     'tempetes': (4, 0x24, 0x51, 0x2b, 40),
     'gerudo': (1, 0xac, 0x55, None, 75),
     'quiz': (4, 0x24, 0x51, 0x0a, 40),
-    'lynels': (5, 0xe9, 0x77, None, 45),
+    'lynels': (5, 0xe9, 0x77, None, 60),
 }
 wanted = sys.argv[1:] or ['film', 'titre'] + list(TRACKS)
 

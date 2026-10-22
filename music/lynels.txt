@@ -1,48 +1,53 @@
-# Le Labyrinthe des Lynels (le 3e jeu du forain) : le générique d'Euro-Mir, à la demande de Denis
-# (« tu saurais m'intégrer cette musique-là ? », son MP3). Relevé dans l'enregistrement (analyse de
-# hauteur, tools : librosa) : 144 à la noire, la mineur. Ce qu'on reconnaît : le riff du refrain,
-# un arpège la - mi - do qui redescend puis remonte (« la mi-mi do-do la-la-la »), sur la grille
-# La m (4 mesures) | Ré m | Ré m - Sol | Do | Do - Mi ; la basse eurodance en octaves, la grosse
-# caisse sur chaque temps, le charleston entre les temps.
-# Ici 150 à la noire (12 images par croche : le moteur compte en images), pour une poursuite.
-# Même notation que music/phare.txt (l'unité est la croche : 8 par mesure).
+# Le Labyrinthe des Lynels (le 3e jeu du forain) : « Lift Off! » de Project Euro Mir, à la demande
+# de Denis, d'après sa partition (Lift Off! – Project Euro Mir.mscz, arr. Ch. Baumann, 140 à la
+# noire, la mineur). Ce qu'on reconnaît : le vibraphone, « TUM... TULUM TUM TUM » (la, silence,
+# la-mi, silence, do), sur La m (4 mesures) | Ré m (2) | Do (2) ; le synthé qui bat les noires ;
+# la basse en 3 + 3 + 2 ; la batterie qui arrive (charleston en doubles croches, puis grosse caisse
+# sur les temps).
+# Ici 150 à la noire (6 images par double croche : le moteur compte en images), pour une poursuite.
+# Même notation que music/phare.txt, mais l'unité est la double croche : 16 par mesure.
+#   melodie   = le vibraphone        accordeon = le synthé (une octave plus bas)
+#   basse     = la basse              batterie  = la batterie
 
-tempo 12         # images par croche
-mesure 8
+tempo 6          # images par double croche
+mesure 16
 
 == INTRO ==
-# La basse et la batterie seules, puis le riff entre
-melodie:   [v0] [duty 2] [vib 00] [gate .9] [detune 0]
-melodie:   -:8 | -:8 |
-accordeon: [v0] [duty 1] [vib 00] [gate .9] [detune 0]
-accordeon: -:8 | -:8 |
-basse:     [onde 0e] [vib 00] [gate .6]
-basse:     ( a2:1 a3:1 )x4 | ( a2:1 a3:1 )x4 |
-batterie:  [v6] n24:1 [v1] h:1 [v6] n24:1 [v2] h:1 [v6] n24:1 [v1] h:1 [v6] n24:1 [v2] h:1 |
-batterie:  [v6] n24:1 [v2] h:1 [v6] n24:1 [v3] s:1 [v6] n24:1 [v3] s:1 [v4] s:1 s:1 |
+# Mesures 1-8 : le vibraphone et le synthé ; la basse tient l'accord
+melodie:   [v5] [duty 2] [vib 00] [gate .7] [detune 0]
+melodie:   ( a4:4 -:2 a4:2 e5:2 -:2 c5:2 -:2 | )x4
+melodie:   ( a4:4 -:2 a4:2 f5:2 -:2 d5:2 -:2 | )x2
+melodie:   ( g4:4 -:2 g4:2 e5:2 -:2 c5:2 -:2 | )x2
+accordeon: [v2] [duty 2] [vib 00] [gate .5] [detune 0]
+accordeon: ( a3:4 a3:4 a3:4 a3:4 | )x3 a3:4 a3:4 a3:4 c4:4 |
+accordeon: ( d4:4 d4:4 d4:4 d4:4 | )x2 ( c4:4 c4:4 c4:4 c4:4 | )x2
+basse:     [onde 0e] [vib 00] [gate .95]
+basse:     a2:16 | a2:16 | a2:16 | a2:16 | d2:16 | d2:16 | c2:16 | c2:16 |
+batterie:  ( -:16 | )x8
 
 == A ==
-# Le riff du refrain
-melodie:   [v5] [duty 2] [gate .85]
-melodie:   ( a4:1 e4:2 c4:2 a4:3 | )x4
-melodie:   a4:1 f4:2 d4:2 a4:3 | a4:1 f4:2 d4:2 g4:3 | g4:1 e4:2 c4:2 g4:3 | g4:1 e4:2 c4:2 e4:1 g#4:2 |
-# Le tapis : les notes de l'accord, tenues
-accordeon: [v2] [duty 1] [gate .95]
-accordeon: e4:8 | c4:8 | e4:8 | c4:8 | f4:8 | d4:4 b3:4 | e4:8 | e4:4 g#3:4 |
-basse:     ( a2:1 a3:1 )x16
-basse:     ( d2:1 d3:1 )x4 | ( d2:1 d3:1 )x2 ( g2:1 g3:1 )x2 | ( c2:1 c3:1 )x4 | ( c2:1 c3:1 )x2 ( e2:1 e3:1 )x2 |
-batterie:  ( [v6] n24:1 [v1] h:1 [v6] n24:1 [v3] s:1 [v6] n24:1 [v1] h:1 [v6] n24:1 [v3] s:1 | )x8
+# Mesures 9-16 : la basse prend son rythme (3 + 3 + 2, puis tenue) ; le charleston en doubles croches
+melodie:   ( a4:4 -:2 a4:2 e5:2 -:2 c5:2 -:2 | )x4
+melodie:   ( a4:4 -:2 a4:2 f5:2 -:2 d5:2 -:2 | )x2
+melodie:   ( g4:4 -:2 g4:2 e5:2 -:2 c5:2 -:2 | )x2
+accordeon: ( a3:4 a3:4 a3:4 a3:4 | )x3 a3:4 a3:4 a3:4 c4:4 |
+accordeon: ( d4:4 d4:4 d4:4 d4:4 | )x2 ( c4:4 c4:4 c4:4 c4:4 | )x2
+basse:     [gate .8]
+basse:     ( a2:3 a2:3 a2:10 | )x4 ( d2:3 d2:3 d2:10 | )x2 ( c2:3 c2:3 c2:10 | )x2
+batterie:  ( -:16 | )x4
+batterie:  ( [v2] h:1 [v1] h:1 h:1 h:1 [v2] h:1 [v1] h:1 h:1 h:1 [v2] h:1 [v1] h:1 h:1 h:1 [v2] h:1 [v1] h:1 h:1 h:1 | )x3
+batterie:  -:16 |
 
-== A2 ==
-# Encore, une octave plus haut sur le second carré (en écho, plus doux)
-melodie:   ( a4:1 e4:2 c4:2 a4:3 | )x4
-melodie:   a4:1 f4:2 d4:2 a4:3 | a4:1 f4:2 d4:2 g4:3 | g4:1 e4:2 c4:2 g4:3 | g4:1 e4:2 c4:2 e4:1 g#4:2 |
-accordeon: [v2] [duty 2] [gate .7]
-accordeon: ( -:1 a5:1 e5:2 c5:2 a5:2 | )x4
-accordeon: -:1 a5:1 f5:2 d5:2 a5:2 | -:1 a5:1 f5:2 d5:2 g5:2 | -:1 g5:1 e5:2 c5:2 g5:2 | -:1 g5:1 e5:2 c5:2 b4:2 |
-basse:     ( a2:1 a3:1 )x16
-basse:     ( d2:1 d3:1 )x4 | ( d2:1 d3:1 )x2 ( g2:1 g3:1 )x2 | ( c2:1 c3:1 )x4 | ( c2:1 c3:1 )x2 ( e2:1 e3:1 )x2 |
-batterie:  ( [v6] n24:1 [v2] h:1 [v6] n24:1 [v3] s:1 [v6] n24:1 [v2] h:1 [v6] n24:1 [v3] s:1 | )x7
-batterie:  [v6] n24:1 [v3] s:1 [v6] n24:1 [v3] s:1 [v4] s:1 s:1 [v5] s:1 s:1 |
+== B ==
+# Mesures 17-24 : tout le monde ; la grosse caisse sur les temps, le charleston entre ; un roulement
+# de caisse claire à la fin
+melodie:   ( a4:4 -:2 a4:2 e5:2 -:2 c5:2 -:2 | )x4
+melodie:   ( a4:4 -:2 a4:2 f5:2 -:2 d5:2 -:2 | )x2
+melodie:   ( g4:4 -:2 g4:2 e5:2 -:2 c5:2 -:2 | )x2
+accordeon: ( a3:4 a3:4 a3:4 a3:4 | )x3 a3:4 a3:4 a3:4 c4:4 |
+accordeon: ( d4:4 d4:4 d4:4 d4:4 | )x2 ( c4:4 c4:4 c4:4 c4:4 | )x2
+basse:     ( a2:3 a2:3 a2:2 a2:8 | )x4 ( d2:3 d2:3 d2:2 d2:8 | )x2 ( c2:3 c2:3 c2:2 c2:8 | )x2
+batterie:  ( [v6] n24:2 [v2] h:2 [v6] n24:2 [v2] h:2 [v6] n24:2 [v2] h:2 [v6] n24:2 [v2] h:2 | )x7
+batterie:  [v6] n24:2 [v2] h:2 [v6] n24:2 [v2] h:2 [v6] n24:2 [v2] h:2 [v3] s:1 [v4] s:1 [v5] s:1 [v6] s:1 |
 
-ordre: INTRO | A A2
+ordre: INTRO | A B B
