@@ -1,0 +1,40 @@
+# Le quiz de Marine (« On va voir si tu as tout oublié de Cocolint ! ») : la musique des questions
+# de « Qui veut gagner des millions », relevée dans l'enregistrement de Denis (« faut qu'on la
+# reconnaisse », « ce qui est important c'est d'entendre le bruit du cœur qui bat ») : 120 à la
+# noire, do mineur. Ce qu'on reconnaît : une note par temps, do - mi bémol - ré - mi bémol, en
+# boucle ; dessous, des arpèges de do mineur en croches ; le cœur, « boum-boum » sur les deux
+# premières croches de chaque mesure ; un souffle de cymbale qui monte toutes les deux
+# mesures ; de temps en temps un la bémol.
+# (2e version : « trop strident » : le motif et les arpèges une octave plus bas, moins fort)
+# Voix : melodie = le motif ; accordeon = les arpèges ; basse (l'onde, un triangle) = le cœur,
+# avec un coup sourd sur le bruit (batterie).
+# Même notation que music/phare.txt (ici l'unité est la croche : 8 par mesure, 2 s).
+
+tempo 15         # images par croche (120 à la noire)
+mesure 8
+
+== INTRO ==
+# Le cœur, seul, puis les arpèges
+melodie:   [v0] [duty 2] [vib 00] [gate .95] [detune 0]
+melodie:   -:8 | -:8 |
+accordeon: [v0] [duty 2] [vib 00] [gate .5] [detune 0]
+accordeon: -:8 |
+accordeon: [v2]
+accordeon: c2:1 g2:1 c3:1 g2:1 d#3:1 c3:1 g2:1 c3:1 |
+basse:     [onde 08] [vib 00] [gate .45]
+basse:     c2:1 c2:1 -:6 | c2:1 c2:1 -:6 |
+batterie:  [v5] n24:1 [v4] n24:1 -:6 | [v5] n24:1 [v4] n24:1 -:2 [v1] h:1 [v2] h:1 [v3] h:1 [v4] h:1 |
+
+== A ==
+# Le motif : do, mi bémol, ré, mi bémol (une note par temps)
+melodie:   [v4] [duty 2] [gate .95]
+melodie:   ( c4:2 d#4:2 d4:2 d#4:2 | )x3 c4:2 d#4:2 d4:1 g#3:3 |
+melodie:   ( c4:2 d#4:2 d4:2 d#4:2 | )x3 c4:2 d#4:2 d4:2 d#4:2 |
+accordeon: [v2] [gate .5]
+accordeon: ( c2:1 g2:1 c3:1 g2:1 d#3:1 c3:1 g2:1 c3:1 | c2:1 g2:1 c3:1 g2:1 d#3:1 g3:1 d#3:1 c3:1 | )x2
+accordeon: ( c2:1 g2:1 c3:1 g2:1 d#3:1 c3:1 g2:1 c3:1 | )x1 g#2:1 d#2:1 g#2:1 d#3:1 c3:1 g#2:1 d#2:1 g#2:1 |
+accordeon: ( c2:1 g2:1 c3:1 g2:1 d#3:1 c3:1 g2:1 c3:1 | )x1 g2:1 d2:1 g2:1 b2:1 d3:1 b2:1 g2:1 d2:1 |
+basse:     ( c2:1 c2:1 -:6 | )x8
+batterie:  ( [v5] n24:1 [v4] n24:1 -:6 | [v5] n24:1 [v4] n24:1 -:2 [v1] h:1 [v2] h:1 [v3] h:1 [v4] h:1 | )x4
+
+ordre: INTRO | A

@@ -26,6 +26,7 @@ Usage : python tools/record_music.py [NOM ...]   (sans nom : tout)
   palais    out/apercus/N-palais_apercu.wav    le Palais Givré (le cœur, 4:57 ; $16)
   tempetes  out/apercus/N-tempetes_apercu.wav  le Chant des Tempêtes ($2b, la fin du chapitre 6)
   gerudo    out/apercus/N-gerudo_apercu.wav    la Vallée Gerudo au violon (la plage du forain, 1:ac ; $0b)
+  quiz      out/apercus/N-quiz_apercu.wav      le quiz de Marine (« Qui veut gagner des millions », $0a)
 Pour le boss et le miniboss (pas de salle où ils jouent d'office), l'appel à playSound qui lance
 la musique du Phare est détourné vers la leur (crochet PyBoy sur playSound, ROM intacte).
 """
@@ -63,6 +64,7 @@ TRACKS = {
     'palais': (4, 0x57, 0x97, None, 50),
     'tempetes': (4, 0x24, 0x51, 0x2b, 40),
     'gerudo': (1, 0xac, 0x55, None, 75),
+    'quiz': (4, 0x24, 0x51, 0x0a, 40),
 }
 wanted = sys.argv[1:] or ['film', 'titre'] + list(TRACKS)
 
@@ -102,7 +104,7 @@ def warp(g, r, pos):
 # 0 pour ce qui sert partout (film, titre, thème, boss)
 LEVEL = {'ile': 1, 'phare': 1, 'auberge': 1, 'grelot': 2, 'coffre': 2, 'lagune': 3, 'recif': 3, 'braise': 4,
          'forge': 4, 'echos': 5, 'cathedrale': 5, 'tarkin': 5, 'nid': 6, 'spirale': 6, 'tempetes': 6,
-         'sommeil': 7, 'palais': 7, 'rythme': 8, 'gerudo': 1}
+         'sommeil': 7, 'palais': 7, 'rythme': 8, 'gerudo': 1, 'quiz': 5}
 
 
 def save(name):

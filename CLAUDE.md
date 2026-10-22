@@ -451,8 +451,11 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Le texte français a dépassé 2 x 64 Ko : tools/build/parseText.py fait un 3e découpage
   (TEXT_OFFSET_3, TEXT_OFFSET_SPLIT_INDEX2, et _FR par parseTextLang.py), textbox.s le lit
   (textOffset3Table). Le groupe 0x5a est presque plein (plus que ~15 numéros libres).
-- Musique (en attente de l'écoute de Denis) : music/quiz.txt ($0a), façon « Qui veut gagner des
-  millions » : le cœur qui bat (le triangle sur l'onde + n24 sur le bruit).
+- Musique : music/quiz.txt (MUS_BALLADE_QUIZ $0a, au lieu de la ville de Lynna), la musique des
+  questions de « Qui veut gagner des millions » relevée dans le mp3 de Denis : 120 à la noire, le
+  motif do - mi bémol - ré - mi bémol (une note par temps), des arpèges de do mineur, le cœur qui
+  bat (le triangle sur l'onde + n24 sur le bruit). Validée (v3 : une octave plus bas, « trop
+  strident » sinon). Le quiz la lance, puis remet celle de l'auberge.
 - Test : python tools/test_quiz.py DOSSIER (une erreur, puis tout juste : le bisou).
 
 ## Ghost Babel au 4F de la Tour (idée de Denis, Metal Gear Solid: Ghost Babel)

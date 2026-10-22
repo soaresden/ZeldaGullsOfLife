@@ -54,6 +54,7 @@ SONGS = [
     ('palais.txt', 'musBalladePalais'),        # $16 (au lieu du Donjon du Crâne), le Palais Givré
     ('tempetes.txt', 'musBalladeTempetes'),    # $2b (au lieu du thème de Maple), le Chant des Tempêtes
     ('gerudo.txt', 'musBalladeGerudo'),        # $0b (au lieu du village de Lynna), la Vallée Gerudo du forain
+    ('quiz.txt', 'musBalladeQuiz'),            # $0a (au lieu de la ville de Lynna), le quiz de Marine
 ]
 # Niveaux du boss en rythme : mêmes notes à frapper que rythme.txt (vérifié)
 RHYTHM_LEVELS = ['rythme2.txt', 'rythme3.txt', 'rythme4.txt', 'rythme5.txt']
