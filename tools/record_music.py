@@ -1,29 +1,30 @@
 """Enregistre le son du jeu (PyBoy) en .wav, pour écouter sans lancer d'émulateur.
 
 Usage : python tools/record_music.py [NOM ...]   (sans nom : tout)
-  film      out/apercus/film_apercu.wav      le film d'ouverture (bruitages, cri de la mouette)
-  titre     out/apercus/titre_apercu.wav     l'écran titre (42 s)
-  phare     out/apercus/phare_apercu.wav     le Phare Éteint (salle 4:24)
-  ile       out/apercus/ile_apercu.wav       l'île de la Brume (Port-Veille, 1:9a)
-  auberge   out/apercus/auberge_apercu.wav   l'auberge (3:9e)
-  boss      out/apercus/boss_apercu.wav      MUS_BOSS ($2e) = le thème du jeu
-  veilleur  out/apercus/veilleur_apercu.wav  le Veilleur Creux ($45, pour un autre boss)
-  miniboss  out/apercus/miniboss_apercu.wav  MUS_MINIBOSS ($2d)
-  theme     out/apercus/theme_apercu.wav     le thème du jeu (MUS_BALLADE_THEME, $44)
-  grelot    out/apercus/grelot_apercu.wav    Hameau-Grelot (la place, 1:11 ; $3d)
-  coffre    out/apercus/coffre_apercu.wav    le Coffre à Jouets (4:37 ; $3b)
-  lagune    out/apercus/lagune_apercu.wav    la Lagune des Serments (le ponton, 1:24 ; $25)
-  recif     out/apercus/recif_apercu.wav     le Récif Murmurant (le hall, 5:3f ; $18)
-  braise    out/apercus/braise_apercu.wav    Mont-Braise (le village goron, 1:2a ; $26)
-  forge     out/apercus/forge_apercu.wav     la Forge Endormie (l'entrée, 4:bb ; $17)
-  echos     out/apercus/echos_apercu.wav     l'île des Échos (1:62 ; $13)
-  cathedrale out/apercus/cathedrale_apercu.wav la Cathédrale Engloutie (5:8b ; $1a)
-  tarkin    out/apercus/tarkin_apercu.wav    la maison de Tarkin (3:26 ; $19)
-  nid       out/apercus/nid_apercu.wav       le Nid des Vents (le village des plumes, 1:67 ; $15)
-  spirale   out/apercus/spirale_apercu.wav   la Spirale Céleste (4:3d ; $14)
-  sommeil   out/apercus/sommeil_apercu.wav   l'île du Grand Sommeil (le village gelé, 1:b1 ; $1c)
-  palais    out/apercus/palais_apercu.wav    le Palais Givré (le cœur, 4:57 ; $16)
-  tempetes  out/apercus/tempetes_apercu.wav  le Chant des Tempêtes ($2b, la fin du chapitre 6)
+(N- : le numéro du niveau, l'île et son donjon, voir LEVEL ; 0 = partout)
+  film      out/apercus/N-film_apercu.wav      le film d'ouverture (bruitages, cri de la mouette)
+  titre     out/apercus/N-titre_apercu.wav     l'écran titre (42 s)
+  phare     out/apercus/N-phare_apercu.wav     le Phare Éteint (salle 4:24)
+  ile       out/apercus/N-ile_apercu.wav       l'île de la Brume (Port-Veille, 1:9a)
+  auberge   out/apercus/N-auberge_apercu.wav   l'auberge (3:9e)
+  boss      out/apercus/N-boss_apercu.wav      MUS_BOSS ($2e) = le thème du jeu
+  veilleur  out/apercus/N-veilleur_apercu.wav  le Veilleur Creux ($45, pour un autre boss)
+  miniboss  out/apercus/N-miniboss_apercu.wav  MUS_MINIBOSS ($2d)
+  theme     out/apercus/N-theme_apercu.wav     le thème du jeu (MUS_BALLADE_THEME, $44)
+  grelot    out/apercus/N-grelot_apercu.wav    Hameau-Grelot (la place, 1:11 ; $3d)
+  coffre    out/apercus/N-coffre_apercu.wav    le Coffre à Jouets (4:37 ; $3b)
+  lagune    out/apercus/N-lagune_apercu.wav    la Lagune des Serments (le ponton, 1:24 ; $25)
+  recif     out/apercus/N-recif_apercu.wav     le Récif Murmurant (le hall, 5:3f ; $18)
+  braise    out/apercus/N-braise_apercu.wav    Mont-Braise (le village goron, 1:2a ; $26)
+  forge     out/apercus/N-forge_apercu.wav     la Forge Endormie (l'entrée, 4:bb ; $17)
+  echos     out/apercus/N-echos_apercu.wav     l'île des Échos (1:62 ; $13)
+  cathedrale out/apercus/N-cathedrale_apercu.wav la Cathédrale Engloutie (5:8b ; $1a)
+  tarkin    out/apercus/N-tarkin_apercu.wav    la maison de Tarkin (3:26 ; $19)
+  nid       out/apercus/N-nid_apercu.wav       le Nid des Vents (le village des plumes, 1:67 ; $15)
+  spirale   out/apercus/N-spirale_apercu.wav   la Spirale Céleste (4:3d ; $14)
+  sommeil   out/apercus/N-sommeil_apercu.wav   l'île du Grand Sommeil (le village gelé, 1:b1 ; $1c)
+  palais    out/apercus/N-palais_apercu.wav    le Palais Givré (le cœur, 4:57 ; $16)
+  tempetes  out/apercus/N-tempetes_apercu.wav  le Chant des Tempêtes ($2b, la fin du chapitre 6)
 Pour le boss et le miniboss (pas de salle où ils jouent d'office), l'appel à playSound qui lance
 la musique du Phare est détourné vers la leur (crochet PyBoy sur playSound, ROM intacte).
 """
@@ -95,7 +96,15 @@ def warp(g, r, pos):
         pb.memory[0xcc47 + i] = v
 
 
+# Le niveau (l'île et son donjon) de chaque morceau : le fichier commence par ce numéro (« 7-palais_apercu.wav »),
+# 0 pour ce qui sert partout (film, titre, thème, boss)
+LEVEL = {'ile': 1, 'phare': 1, 'auberge': 1, 'grelot': 2, 'coffre': 2, 'lagune': 3, 'recif': 3, 'braise': 4,
+         'forge': 4, 'echos': 5, 'cathedrale': 5, 'tarkin': 5, 'nid': 6, 'spirale': 6, 'tempetes': 6,
+         'sommeil': 7, 'palais': 7, 'rythme': 8}
+
+
 def save(name):
+    name = '%d-%s' % (LEVEL.get(name.replace('_apercu.wav', ''), 0), name)
     data = np.concatenate(rec).astype(np.float32)
     data -= data.mean(axis=0)
     peak = max(1.0, float(np.abs(data).max()))

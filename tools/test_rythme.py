@@ -9,7 +9,7 @@ Salle de test 4:4a. Les essais (les quatre premiers depuis le même moment) :
   4. un joueur qui apprend : 1er tour raté (4 notes ratées, un coup dans le vide), puis 5 bons
      tours -> les 5 niveaux (un instrument de plus à chaque fois, Marine encourage) -> Marine
      chante -> « RETOURNE D'OÙ TU VIENS ! » -> le boss meurt.
-     Enregistré dans out/apercus/rythme_apercu.wav (pour qu'on écoute avant de pousser).
+     Enregistré dans out/apercus/8-rythme_apercu.wav (pour qu'on écoute avant de pousser).
   5. le code secret de l'écran titre (Select tenu + Start), comme Denis le lancera : la partie
      commence dans la salle de test, et l'écran titre revient après le boss.
 Les notes à frapper sont lues dans oracles-disasm/data/ages/balladeRhythmNotes.s (make_music.py).
@@ -287,7 +287,7 @@ shot('coup_de_grace')
 check(until(lambda: pb.memory[STAGE] == 3, 600), 'après le coup de grâce, le boss meurt (étape 3)')
 shot('fin')
 w(240)
-save_wav('rythme_apercu.wav', rec)
+save_wav('8-rythme_apercu.wav', rec)
 rec = None
 pb.stop(save=False)
 
