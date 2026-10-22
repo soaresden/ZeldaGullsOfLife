@@ -2314,6 +2314,26 @@ groups:
       They were
       already there.
 
+  - name: TX_5aec
+    index: 0xec
+    text: |-
+      \col(1)Marin\col(0): Link?
+      Link?!
+      LIIIIIIINK!
+
+  - name: TX_5aed
+    index: 0xed
+    text: |-
+      \col(1)Marin\col(0): Shh...
+      Nightmare ghosts
+      on patrol.\stop
+      If they see you,
+      you wake up back
+      at the start.\stop
+      Sneak behind
+      them... like a
+      snake!
+
   - name: TX_5aad
     index: 0xad
     text: |-

@@ -440,6 +440,18 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   remontée ; 9 cœurs : l'épée) ; test_tour.py vérifie Ganon sans puis avec l'épée.
   Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/fosse.png
 
+## Ghost Babel au 4F de la Tour (idée de Denis, Metal Gear Solid: Ghost Babel)
+- 5:c8 (l'arrivée du 4F) : deux Veilleurs (ENEMY_AMBI_GUARD, rondes déjà écrites : $11 la ligne 5,
+  celle de la porte, depuis $58 $28 ; $13 la colonne 12, depuis $18 $c8 ; rien sur leur chemin).
+  La banque 0e (leur code) n'a presque plus de place (~100 octets) : ambiGuard.s ne gagne que le
+  donjon 8 dans la règle « vu : on se réveille à l'entrée de la salle » ; le reste est dans
+  INTERAC_BALLADE_OBJECT $38 (ghostVeil) : palette 6 des sprites = PALH_FANTOME ($dd, blanc
+  bleuté), ils scintillent (cachés une image sur quatre), et à leur état $0f (le « ! ») Marine crie
+  « Link? Link?! LIIINK! » (TX_5aec, comme « Snake? Snake?! SNAAAKE! »). Arrivée : TX_5aed
+  (« Passe dans leur dos... Comme un serpent ! »).
+- À venir : la boîte en carton (maquette montrée à Denis), le regard visible, le HUD de Ghost Babel.
+- Test : test_tour.py (les fantômes, vu, le réveil à l'escalier ; puis ils sont retirés).
+
 ## Les photos de Cocolint (idée de Denis : le flashback des photos de LADX avec Marine)
 - Les VRAIES photos de l'album de Link's Awakening DX où il y a Marine : la chute sur Link, Tarkin
   et Bow Wow, la falaise (Marine montre la mer ; on y a ajouté des mouettes pour « qui a pris

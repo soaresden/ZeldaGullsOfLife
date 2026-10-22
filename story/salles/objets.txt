@@ -589,7 +589,14 @@ salle 5:c7
 	obj_Interaction INTERAC_BALLADE_OBJECT $36 $08 $08
 	obj_Interaction INTERAC_BALLADE_OBJECT $32 $58 $78
 	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+# 4F, l'arrivée : l'infiltration (Ghost Babel) : deux fantômes de cauchemar font leur ronde (les
+# Veilleurs de la Cathédrale, rondes $11 : la ligne 5, celle de la porte ; $13 : la colonne 12) ;
+# vu, Link se réveille à l'escalier (ambiGuard.s) ; $38 : leur couleur, « Link? Link?! LIIINK! »
 salle 5:c8
+	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+	obj_Interaction INTERAC_BALLADE_OBJECT $38 $08 $08
+	obj_SpecificEnemyA $00 ENEMY_AMBI_GUARD $11 $58 $28
+	obj_SpecificEnemyA $00 ENEMY_AMBI_GUARD $13 $18 $c8
 # 4F : un garde endormi debout devant la porte de l'est (la Clochette d'Aube)
 salle 5:c9
 	obj_Interaction INTERAC_BALLADE_OBJECT $2f $58 $d8

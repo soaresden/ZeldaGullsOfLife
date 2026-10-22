@@ -2395,6 +2395,27 @@ groups:
       Elles étaient
       déjà là.
 
+  - name: TX_5aec
+    index: 0xec
+    text: |-
+      \col(1)Marine\col(0): Link?
+      Link?!
+      LIIIIIIINK!
+
+  - name: TX_5aed
+    index: 0xed
+    text: |-
+      \col(1)Marine\col(0): Chut...
+      Des spectres de
+      cauchemar font
+      leur ronde.\stop
+      S'ils te voient,
+      tu te réveilles
+      au début.\stop
+      Passe dans leur
+      dos... Comme un
+      serpent!
+
   - name: TX_5aad
     index: 0xad
     text: |-

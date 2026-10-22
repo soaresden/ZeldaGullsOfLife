@@ -13,6 +13,11 @@ dessiné dans `docs/iles_plans.png` par `tools/make_plans.py`.
 - Pendant cette séquence, le HUD de *Ghost Babel* : la mini-carte en haut à droite (le radar), la
   vie en bas (avec nos cœurs), les objets à droite (les cases B et A, « NO ITEM » quand vides). Gros
   chantier : la barre d'état d'Ages est en haut et fait toute la largeur.
+- **Fait (le début)** : le 4F de la Tour Sans-Nuit (5:c8) : deux fantômes de cauchemar (les
+  Veilleurs de la Cathédrale, bleutés et scintillants) font leur ronde ; vus : « Link? Link?!
+  LIIINK! » et Link se réveille à l'escalier. Marine : « Passe dans leur dos... Comme un serpent ! »
+- **La boîte en carton** (Denis) : des boîtes dans le niveau ; marcher dessus = s'y cacher (les
+  bottes dépassent), un fantôme qui passe fait « ? »... rien d'anormal. Maquette faite, à valider.
 
 ## Les photos de Cocolint (une scène avec Marine, pour créer du lien)
 - Une vraie scène où Link et Marine passent du temps ensemble, comme la balade sur la plage de
@@ -169,3 +174,18 @@ Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, ave
 - À faire : un labyrinthe d'une salle, des rubis partout, des Lynels qui poursuivent Link
   (invincibles), un objet qui les rend vulnérables un moment (la super-pastille) ; gagné quand tous
   les rubis sont ramassés. Parmi les activités de l'après-jeu (ou chez le forain).
+
+## Le quiz de Marine sur Cocolint (demandé par Denis)
+- « On va voir si tu as tout oublié de l'île Cocolint ! » Ses questions (et les réponses) :
+  - Comment s'appelle le village où j'ai chanté ? (le Village des Animaux)
+  - Qu'est-ce qui arrive quand je chante devant le morse ? (il plonge, il tombe à l'eau)
+  - Quel est le nom de la personne noble qui a un château sur l'île ? (Richard)
+  - Quel est l'animal totem de Cocolint ? (le Coq Volant)
+  - Qui est ma mère ? (on ne le sait pas : lui inventer une histoire)
+  - Tarkin te fait penser à qui ? (Mario) Petite blague : il ne casse pas de briques, mais c'est
+    vrai qu'il voit plein d'étoiles.
+- Puis Marine se fâche, à moitié : « Comment ? Son frère Luigi est dans les montagnes ? Tu as
+  même vu un Kirby dans la tour de l'Aigle ? Mais de quoi tu parles ? Comme si ta vie était un
+  jeu ! Ce n'est pas : t'as plus de vie et tu recommences ! Ce n'est pas ça, la vie ! Arrête de
+  croire que t'es dans un jeu, ne joue pas avec mon cœur, ça, c'est réel ! »
+- Tout juste : **elle lui fait un bisou**.
