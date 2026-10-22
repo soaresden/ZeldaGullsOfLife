@@ -444,7 +444,7 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Les VRAIES photos de l'album de Link's Awakening DX où il y a Marine : la chute sur Link, Tarkin
   et Bow Wow, la falaise (Marine montre la mer ; on y a ajouté des mouettes pour « qui a pris
   cette photo ? »). Capturées en sépia dans l'album, en faisant tourner la ROM LADX de Denis
-  (D:\DOCS\Documents-Emulation\Batocera\Windows Tools\Zelda Rando\..., PyBoy : wPhotos1/2
+  (la ROM : Documents/a-Emulation/Batocera/Windows Tools/Zelda Rando, PyBoy : wPhotos1/2
   $dc0c-0d à $ff, wGameplayType $db95 = $0d l'album) : art/photos/N-nom.png (160 x 144, 4 nuances).
 - tools/make_photos.py (build.sh) -> gfx_photo_N(.png, b.png), map/flg_photo_N.bin ; GFXH_PHOTO_1-3
   ($d1-$d3), PALH_PHOTO ($dc, BG palette 2 : la 0 reste celle de la boîte de texte). Tuiles
