@@ -76,18 +76,21 @@ def stand(row, col):
 
 
 def text_through(n=40, choose=0):
-    """Faire défiler un texte ; à la question, choisir l'option `choose` (flèche à droite / en bas)."""
+    """Faire défiler un texte ; à chaque question, choisir l'option (ou une liste, une par menu)."""
+    choices = list(choose) if isinstance(choose, (list, tuple)) else [choose]
     for _ in range(n):
         if not m[0xcba0]:
             w(20)
             if not m[0xcba0]:
                 return
-        if m[0xcba1] == 1 and choose:      # wTextDisplayMode : on choisit une option
+        if m[0xcba1] == 1 and choices:      # wTextDisplayMode : on choisit une option
             w(40)
-            for _ in range(choose):
+            for _ in range(choices.pop(0)):
                 walk('right', 6)
                 w(16)
-            choose = 0
+            press('a', 20)
+            w(20)
+            continue
         press('a', 20)
 
 
@@ -102,7 +105,7 @@ def play(level, name, dig_mine=False):
     walk('down', 3)
     money = rupees()
     press('a', 30)
-    text_through(choose=level)
+    text_through(choose=[0, level])   # le Creuse-Rubis, puis le niveau
     w(30)
     check(m[STATE] == 1 and m[LEVEL] == level, '%s : la partie commence' % name)
     check(money - rupees() == (10, 20, 30)[level], '%s : le prix' % name)

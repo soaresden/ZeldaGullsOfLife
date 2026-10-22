@@ -45,7 +45,7 @@ fc fc fc fc fc fc fc fc fc fc
 
 # --- La plage du forain : le Creuse-Rubis (le champ : lignes 2-5, colonnes 1-6) ---
 # Ouest : le port de pêche, par le sable (lignes 1-2).
-salle ac decor 18
+salle ac decor 68
 fc fc fc fc fc fc fc fc fc fc
 bf 21 21 21 21 21 21 21 22 fc
 bf 12 12 12 12 12 12 bf 27 fc

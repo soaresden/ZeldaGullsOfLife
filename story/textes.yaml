@@ -864,25 +864,26 @@ groups:
     index: 0x43
     text: |-
       Approche,
-      approche! Le
-      Creuse-Rubis!\stop
-      Creuse le sable,
-      ramasse les
-      rubis... mais
+      approche! Deux
+      jeux pour toi!\stop
+      Le Creuse-Rubis:
+      creuse, ramasse
+      les rubis... et
       gare aux bombes!\stop
-      Facile: 10 rubis
-      Moyen: 20 rubis
-      Dur: 30 rubis\stop
-      \opt()Facile \opt()Moyen
-      \opt()Dur \opt()Non
+      Le Mamono: des
+      monstres dorment
+      sous le sable...\stop
+      \opt()Creuse \opt()Mamono
+      \opt()Non
 
   - name: TX_5a44
     index: 0x44
     text: |-
-      Creuse! Creuse!
-      Le sable ne va
-      pas se creuser
-      tout seul!
+      Link monte d'un
+      niveau! Les
+      monstres ont
+      l'air moins
+      gros, d'un coup.
 
   - name: TX_5a45
     index: 0x45
@@ -916,6 +917,44 @@ groups:
       tout trouvé?!\stop
       Bon... bravo,
       petit.
+
+  # Le Mamono du forain (code/ages/balladeCreuse.s)
+  - name: TX_5a4a
+    index: 0x4a
+    text: |-
+      Le Mamono! Les
+      chiffres disent
+      combien de
+      niveaux de
+      monstres dorment
+      autour.\stop
+      Bats les petits
+      pour grandir...
+      avant d'oser
+      les gros!\stop
+      \col(1)Marine\col(0): Et ne
+      creuse pas au
+      hasard: un
+      monstre surpris
+      frappe fort!
+
+  - name: TX_5a4b
+    index: 0x4b
+    text: |-
+      Facile: 10 rubis
+      Moyen: 20 rubis
+      Dur: 30 rubis\stop
+      \opt()Facile \opt()Moyen
+      \opt()Dur \opt()Non
+
+  - name: TX_5a4d
+    index: 0x4d
+    text: |-
+      Aïe! Tu es à
+      bout de forces!\stop
+      Hé hé... La
+      maison gagne
+      toujours!
 
   # ============================================================================
   # Chapitre 2 : Hameau-Grelot

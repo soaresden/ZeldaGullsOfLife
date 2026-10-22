@@ -17,6 +17,7 @@ export PYTHONUTF8=1
 "$PYTHON" "$ROOT/tools/make_menus_fr.py"
 "$PYTHON" "$ROOT/tools/make_blurbs.py"
 "$PYTHON" "$ROOT/tools/make_songe.py"
+"$PYTHON" "$ROOT/tools/make_mamono.py"
 "$PYTHON" "$ROOT/tools/make_rooms.py"
 "$PYTHON" "$ROOT/tools/make_music.py"
 cd "$ROOT/oracles-disasm"

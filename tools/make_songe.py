@@ -36,7 +36,7 @@ DATA = os.path.join(DISASM, 'data', 'ages')
 # décor du Songe -> décor du Réel copié (0x3b : la Spirale Céleste, pas un Songe : le Donjon des
 # Ailes recopié à l'index de donjon 6, en bleuté)
 COPIES = {0x7d: 0x10, 0x7e: 0x18, 0x7f: 0x2b, 0x7c: 0x00, 0x7b: 0x00, 0x06: 0x1e, 0x07: 0x13, 0x08: 0x1a,
-          0x3b: 0x37, 0x0d: 0x10, 0x0e: 0x10, 0x0f: 0x02, 0x0c: 0x02, 0x67: 0x3d}
+          0x3b: 0x37, 0x0d: 0x10, 0x0e: 0x10, 0x0f: 0x02, 0x0c: 0x02, 0x67: 0x3d, 0x68: 0x18}
 
 # (décor, copie de, en-tête de palette d'origine, nouvel en-tête, octets du décor)
 SONGE = [
@@ -97,6 +97,9 @@ REEL = [
     # La Fosse de Bulle (la plongée, au large de la Lagune) : le Récif sous l'eau (3d), à l'index
     # de donjon 9 (à la place du Chemin du Maku d'Ages, qu'on ne visite pas)
     (0x67, '$29, $c8, UNIQUE_GFXH_NONE, GFXH_TILESET_MERMAIDS_CAVE, PALH_TILESET_MERMAIDS_CAVE_PAST_UNDERWATER, $26, $05, $13'),
+    # La plage du forain (1:ac) : la plage ($18), avec les chiffres et les monstres du Mamono
+    # (tools/make_mamono.py)
+    (0x68, '$0f, $81, UNIQUE_GFXH_CRESCENT_ISLAND, GFXH_TILESET_OVERWORLD_PAST, PALH_TILESET_CRESCENT_ISLAND_PAST, $04, $02, $01'),
 ]
 # En-têtes de palette écrits à la main dans paletteHeaders.s (hors du bloc du Songe) : à compter
 # dans NUM_PALETTE_HEADERS. $d5 PALH_OMBRE : l'Ombre de Marine (le Swoop, palette 6 des sprites) ;

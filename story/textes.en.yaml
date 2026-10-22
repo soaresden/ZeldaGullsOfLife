@@ -836,23 +836,25 @@ groups:
     index: 0x43
     text: |-
       Step right up!
-      The Rupee Dig!\stop
-      Dig the sand,
-      grab the
-      rupees... but
+      Two games for
+      you!\stop
+      The Rupee Dig:
+      dig, grab the
+      rupees... and
       watch for bombs!\stop
-      Easy: 10 rupees
-      Medium: 20
-      Hard: 30!\stop
-      \opt()Easy \opt()Medium
-      \opt()Hard \opt()No
+      The Mamono:
+      monsters sleep
+      under the sand!\stop
+      \opt()Dig \opt()Mamono
+      \opt()No
 
   - name: TX_5a44
     index: 0x44
     text: |-
-      Dig! Dig!
-      The sand won't
-      dig itself!
+      Link levels up!
+      The monsters
+      suddenly look
+      smaller.
 
   - name: TX_5a45
     index: 0x45
@@ -886,6 +888,43 @@ groups:
       them all?!\stop
       Well... nice
       job, kid.
+
+  # The fairground man's Mamono (code/ages/balladeCreuse.s)
+  - name: TX_5a4a
+    index: 0x4a
+    text: |-
+      The Mamono! The
+      numbers tell how
+      many monster
+      levels sleep
+      around.\stop
+      Beat the small
+      ones to grow...
+      before you face
+      the big ones!\stop
+      \col(1)Marin\col(0): And
+      don't dig at
+      random: a
+      startled monster
+      hits hard!
+
+  - name: TX_5a4b
+    index: 0x4b
+    text: |-
+      Easy: 10 rupees
+      Medium: 20
+      Hard: 30!\stop
+      \opt()Easy \opt()Medium
+      \opt()Hard \opt()No
+
+  - name: TX_5a4d
+    index: 0x4d
+    text: |-
+      Ouch! You're
+      exhausted!\stop
+      Heh heh... The
+      house always
+      wins!
 
   # ============================================================================
   # Chapter 2: Jingle Hamlet
