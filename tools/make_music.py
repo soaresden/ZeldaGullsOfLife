@@ -55,7 +55,8 @@ SONGS = [
     ('tempetes.txt', 'musBalladeTempetes'),    # $2b (au lieu du thème de Maple), le Chant des Tempêtes
     ('gerudo.txt', 'musBalladeGerudo'),        # $0b (au lieu du village de Lynna), la Vallée Gerudo du forain
     ('quiz.txt', 'musBalladeQuiz'),            # $0a (au lieu de la ville de Lynna), le quiz de Marine
-    ('lynels.txt', 'musBalladeLynels'),        # $0c (au lieu du village zora), le Labyrinthe des Lynels (Euro-Mir)
+    ('lynels.txt', 'musBalladeLynels'),
+    ('generique.txt', 'musBalladeGenerique'),  # $1d (au lieu de la Salle des Rites), le générique de fin        # $0c (au lieu du village zora), le Labyrinthe des Lynels (Euro-Mir)
 ]
 # Niveaux du boss en rythme : mêmes notes à frapper que rythme.txt (vérifié)
 RHYTHM_LEVELS = ['rythme2.txt', 'rythme3.txt', 'rythme4.txt', 'rythme5.txt']
@@ -131,6 +132,8 @@ ROOM_MUSIC = [
     (5, 0x0c, [0xe9]),      # le Labyrinthe des Lynels (le 3e jeu du forain) : « Lift Off! » (Project Euro Mir)
     (5, 0x0b, [0xea]),      # l'arène du Mamono : la Vallée Gerudo, comme chez le forain
     (4, 0x1a, [0xd0, 0xd1, 0xd2, 0xd3, 0xd4, 0xd5, 0xd6, 0xd7]),  # le Terrier des Serpents : la musique de la Cathédrale
+    (1, 0x44, [0x5b, 0x5c, 0x6b, 0x6c]),  # le Nid de la Mouette (l'île de Marine) : sa chanson
+    (3, 0x44, [0x2a]),      # et sa maison
     (1, 0x28, ILE_OEIL),    # l'Œil de l'Insomnis : la Tour Noire d'Ages (MUS_BLACK_TOWER)
     (0, 0x28, ILE_OEIL),    # et dans le Songe
     # La Tour Sans-Nuit (donjon 8) : la musique gagne un instrument à chaque étage (les cinq niveaux

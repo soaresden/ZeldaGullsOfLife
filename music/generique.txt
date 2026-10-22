@@ -1,0 +1,73 @@
+# Gulls of Life — le générique de fin (MUS_BALLADE_GENERIQUE $1d ; l'épilogue, code/ages/balladeFin.s)
+#
+# Esprit : la fin d'un grand Zelda. Denis : « faut qu'elle soit stylée ». On part de la Ballade de
+# la Mouette (le thème du jeu, la chanson de Marine, music/theme.txt) jouée lentement et en grand,
+# comme un chœur, en si mineur ; puis la chanson trouve son matin : un nouveau passage en ré majeur,
+# lumineux, l'accordéon en contre-chant, toute la batterie ; on reprend la Ballade, plus forte.
+# - INTRO : une harpe (arpèges), seule, si mineur puis ré majeur.
+# - A : la Ballade, large (si m, sol, mi m, fa# | si m, sol, ré, la).
+# - B : « le matin » (ré, sol, ré, si m, la, ré), à nous ; la basse en croches, la batterie entière.
+# - A2 : la Ballade une dernière fois, à l'octave, avec l'accordéon à la tierce.
+# Même notation que music/phare.txt (l'unité est la croche : 8 par mesure).
+
+tempo 15         # images par croche (noire = 30 images, 120 à la minute)
+mesure 8
+
+== INTRO ==
+# La harpe, seule
+melodie:   [v0] [duty 2] [vib 32] [gate .95] [detune 0]
+melodie:   -:8 | -:8 | -:8 | -:6 b4:1 c#5:1 |
+accordeon: [v3] [duty 2] [vib 00] [gate .6] [detune 0]
+accordeon: b3:1 d4:1 f#4:1 b4:1 d5:1 b4:1 f#4:1 d4:1 | g3:1 b3:1 d4:1 g4:1 b4:1 g4:1 d4:1 b3:1 |
+accordeon: d4:1 f#4:1 a4:1 d5:1 f#5:1 d5:1 a4:1 f#4:1 | f#3:1 a#3:1 c#4:1 f#4:1 a#4:1 c#5:1 f#5:1 -:1 |
+basse:     [onde 08] [vib 00] [gate .95]
+basse:     b1:8 | g1:8 | d2:8 | f#1:8 |
+batterie:  -:8 | -:8 | -:8 | [v1] h:1 [v2] h:1 [v3] h:1 [v4] h:1 [v5] s:1 s:1 s:1 s:1 |
+
+== A ==
+# La Ballade, large ; la harpe continue dessous
+melodie:   [v6] [duty 2] [vib 32] [gate .95]
+melodie:   d5:6 b4:1 c#5:1 | d5:6 c#5:1 b4:1 | f#4:1 a4:3 b4:4 | -:6 b4:1 c#5:1 |
+melodie:   d5:6 a4:1 d5:1 | g5:6 f#5:1 e5:1 | f#5:8 | -:6 b4:1 c#5:1 |
+accordeon: [v2] [gate .6]
+accordeon: b3:1 d4:1 f#4:1 b4:1 d5:1 b4:1 f#4:1 d4:1 | g3:1 b3:1 d4:1 g4:1 b4:1 g4:1 d4:1 b3:1 |
+accordeon: e3:1 g3:1 b3:1 e4:1 g4:1 e4:1 b3:1 g3:1 | f#3:1 a#3:1 c#4:1 f#4:1 a#4:1 f#4:1 c#4:1 a#3:1 |
+accordeon: b3:1 d4:1 f#4:1 b4:1 d5:1 b4:1 f#4:1 d4:1 | g3:1 b3:1 d4:1 g4:1 b4:1 g4:1 d4:1 b3:1 |
+accordeon: d4:1 f#4:1 a4:1 d5:1 f#5:1 d5:1 a4:1 f#4:1 | a3:1 c#4:1 e4:1 a4:1 c#5:1 a4:1 e4:1 c#4:1 |
+basse:     [onde 08] [gate .9]
+basse:     b1:8 | g1:8 | e2:8 | f#1:8 | b1:8 | g1:8 | d2:8 | a1:8 |
+batterie:  ( [v2] h:2 [v1] h:2 [v3] s:2 [v1] h:2 | )x7 [v2] h:2 [v3] s:1 s:1 [v4] s:1 s:1 [v5] s:1 s:1 |
+
+== B ==
+# Le matin : ré majeur, lumineux ; l'accordéon en contre-chant (une tierce dessous), la basse en
+# croches, toute la batterie
+melodie:   [v7] [vib 21]
+melodie:   a5:4 f#5:2 g5:2 | a5:6 b5:2 | g5:4 e5:2 f#5:2 | g5:8 |
+melodie:   f#5:4 d5:2 e5:2 | f#5:4 a5:4 | e5:6 c#5:2 | d5:6 b4:1 c#5:1 |
+accordeon: [v4] [duty 1] [gate .95] [detune 1]
+accordeon: f#5:4 d5:2 e5:2 | f#5:6 g5:2 | e5:4 c#5:2 d5:2 | e5:8 |
+accordeon: d5:4 b4:2 c#5:2 | d5:4 f#5:4 | c#5:6 a4:2 | f#4:8 |
+accordeon: [v2] [duty 2] [gate .6] [detune 0]
+basse:     [onde 0e] [gate .7]
+basse:     ( d2:1 d3:1 )x4 | ( d2:1 d3:1 )x4 | ( g1:1 g2:1 )x4 | ( g1:1 g2:1 )x4 |
+basse:     ( d2:1 d3:1 )x4 | ( b1:1 b2:1 )x4 | ( a1:1 a2:1 )x4 | ( d2:1 d3:1 )x2 ( a1:1 a2:1 )x2 |
+batterie:  [v6] n24:1 [v2] h:1 [v4] s:1 [v2] h:1 [v6] n24:1 [v2] h:1 [v4] s:1 [v2] h:1 |
+batterie:  ( [v5] n24:1 [v2] h:1 [v4] s:1 [v2] h:1 [v5] n24:1 [v2] h:1 [v4] s:1 [v2] h:1 | )x6
+batterie:  [v5] n24:1 [v3] s:1 [v4] s:1 s:1 [v5] s:1 s:1 [v6] s:1 s:1 |
+
+== A2 ==
+# La Ballade une dernière fois, à l'octave, l'accordéon à la tierce : tout le monde chante
+melodie:   [v7] [vib 32]
+melodie:   d6:6 b5:1 c#6:1 | d6:6 c#6:1 b5:1 | f#5:1 a5:3 b5:4 | -:6 b5:1 c#6:1 |
+melodie:   d6:6 a5:1 d6:1 | g6:6 f#6:1 e6:1 | f#6:8 | -:6 b4:1 c#5:1 |
+accordeon: [v4] [duty 1] [gate .95] [detune 1]
+accordeon: b5:6 g5:1 a5:1 | b5:6 a5:1 g5:1 | d5:1 f#5:3 g5:4 | -:8 |
+accordeon: b5:6 f#5:1 b5:1 | e6:6 d6:1 c#6:1 | d6:8 | -:8 |
+accordeon: [v2] [duty 2] [gate .6] [detune 0]
+basse:     [onde 0e] [gate .8]
+basse:     ( b1:1 b2:1 )x4 | ( g1:1 g2:1 )x4 | ( e2:1 e3:1 )x4 | ( f#1:1 f#2:1 )x4 |
+basse:     ( b1:1 b2:1 )x4 | ( g1:1 g2:1 )x4 | ( d2:1 d3:1 )x4 | ( a1:1 a2:1 )x4 |
+batterie:  ( [v5] n24:1 [v2] h:1 [v4] s:1 [v2] h:1 [v5] n24:1 [v2] h:1 [v4] s:1 [v2] h:1 | )x7
+batterie:  [v5] n24:1 [v3] s:1 [v4] s:1 s:1 [v5] s:1 s:1 [v6] s:1 s:1 |
+
+ordre: INTRO | A B A2

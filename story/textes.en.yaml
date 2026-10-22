@@ -3239,6 +3239,315 @@ groups:
 # ==============================================================================
 # Ages texts replaced (same name)
 # ==============================================================================
+
+# ==============================================================================
+# La fin du jeu et l'après-jeu (le groupe 0x5a est plein)
+# ==============================================================================
+- group: 0x5b
+  data:
+
+  # The ending, on top of the Sleepless Tower (code/ages/balladeFin.s): Zelda, dreaming
+  - name: TX_5b00
+    index: 0x00
+    text: |-
+      \col(1)Zelda\col(0): Link...?
+      Is that you...?\stop
+      I waited for
+      you so long...
+      that I forgot
+      how to sleep.
+  - name: TX_5b01
+    index: 0x01
+    text: |-
+      \col(1)Marin\col(0): It's
+      her, isn't it?
+      The one you were
+      sailing home
+      to...\stop
+      She's the one
+      who couldn't
+      sleep. And the
+      Insomnis fed on
+      it.
+  - name: TX_5b02
+    index: 0x02
+    text: |-
+      \col(1)Marin\col(0): Sleep,
+      princess. I know
+      a song.\stop
+      Mine. With its
+      eighth verse.
+  - name: TX_5b03
+    index: 0x03
+    text: |-
+      \col(1)Marin\col(0): "Sleep,
+      little light.
+      What you dream
+      hard is never
+      lost."
+  - name: TX_5b04
+    index: 0x04
+    text: |-
+      The \col(1)Gull's
+      Ballad\col(0) is
+      complete!
+  - name: TX_5b05
+    index: 0x05
+    text: |-
+      \col(1)Zelda\col(0): Thank
+      you... Link...
+      I can finally...
+      sleep...
+
+  # The epilogue, on the waking beach (1:aa), and the credits
+  - name: TX_5b06
+    index: 0x06
+    text: |-
+      That night, for
+      the first time,
+      the whole
+      archipelago fell
+      asleep.\stop
+      And in the
+      morning...
+  - name: TX_5b07
+    index: 0x07
+    text: |-
+      \col(1)Marin\col(0): \Link!
+      Look! My
+      hands... in
+      broad daylight!\stop
+      The full song...
+      The Wind Fish
+      kept its word!
+  - name: TX_5b08
+    index: 0x08
+    text: |-
+      \col(1)Marin\col(0): I'm
+      staying. I found
+      an island all my
+      own: the Gull's
+      Nest.\stop
+      Go home to
+      Hyrule whenever
+      you want...\stop
+      But not before a
+      game of
+      volleyball!
+  - name: TX_5b09
+    index: 0x09
+    text: |2-
+       THE LEGEND OF
+           ZELDA
+       Gulls of Life
+  - name: TX_5b0a
+    index: 0x0a
+    text: |-
+      A game by
+      Denis
+      (soaresden).\stop
+      Thank you,
+      Denis: your
+      ideas and your
+      drive made this
+      game.
+  - name: TX_5b0b
+    index: 0x0b
+    text: |-
+      Code, music and
+      art:
+      Claude
+      (Anthropic).
+  - name: TX_5b0c
+    index: 0x0c
+    text: |-
+      Made with
+      LynnaLab,
+      oracles-disasm
+      and hack-base.
+  - name: TX_5b0d
+    index: 0x0d
+    text: |-
+      Based on Link's
+      Awakening and
+      Oracle of Ages
+      (Nintendo,
+      Capcom).
+  - name: TX_5b0e
+    index: 0x0e
+    text: |-
+      Thank you for
+      playing!\stop
+            THE END
+
+  # The Log Raft, page 3, after the ending: Marin's island too
+  - name: TX_5b0f
+    index: 0x0f
+    text: |-
+      \col(1)Marin\col(0): Even
+      farther...\stop
+      \opt()Slumber \opt()Eye
+      \opt()Gull
+
+  # Marin's island (the Gull's Nest), after the ending
+  - name: TX_5b10
+    index: 0x10
+    text: |-
+      \col(1)Marin\col(0): What
+      do we do?\stop
+      \opt()Volley \opt()Talk
+      \opt()Nothing
+  - name: TX_5b11
+    index: 0x11
+    text: |-
+      \col(1)Marin\col(0): First
+      to 5!\stop
+      Don't let the
+      ball touch the
+      sand on your
+      side!
+  - name: TX_5b12
+    index: 0x12
+    text: |-
+      \col(1)Marin\col(0): What?!
+      You won?!\stop
+      ...Rematch!
+  - name: TX_5b13
+    index: 0x13
+    text: |-
+      \col(1)Marin\col(0): Heh
+      heh! The gull
+      always wins!
+  - name: TX_5b14
+    index: 0x14
+    text: |-
+      A seashell...
+      It sings, very
+      softly.\stop
+      It seems to call
+      far, far away.\stop
+      \opt()Call \opt()No
+  - name: TX_5b15
+    index: 0x15
+    text: |-
+      \col(1)Zelda\col(0): Link!
+      I can hear you!\stop
+      Everyone sleeps
+      well here now.\stop
+      Come back
+      whenever you
+      want. I'll wait
+      for you... by
+      day!
+  - name: TX_5b16
+    index: 0x16
+    text: |-
+      \col(1)Zelda\col(0): Link!
+      Still at
+      Marin's?\stop
+      Tell her thank
+      you. For the
+      song.
+
+  # Volleyball: the score
+  - name: TX_5b18
+    index: 0x18
+    text: |-
+      Link: \num1
+      Marin: \num2
+
+  # Marin, on her island: what she says
+  - name: TX_5b19
+    index: 0x19
+    text: |-
+      \col(1)Marin\col(0): Hands,
+      \Link! I can
+      finally pinch
+      you!
+  - name: TX_5b1a
+    index: 0x1a
+    text: |-
+      \col(1)Marin\col(0): My
+      house looks like
+      the one in Mabe.
+      I like it.
+  - name: TX_5b1b
+    index: 0x1b
+    text: |-
+      \col(1)Marin\col(0): I
+      sing for the
+      gulls in the
+      morning. They
+      sing off-key.
+  - name: TX_5b1c
+    index: 0x1c
+    text: |-
+      \col(1)Marin\col(0): When
+      are you going
+      home to Hyrule?
+      ...Nothing. Just
+      asking.
+
+  # After the ending: the islanders understood (code/ages/balladeObjects.s, villagerFinTexts)
+  - name: TX_5b1d
+    index: 0x1d
+    text: |-
+      We dreamed about
+      you last night!\stop
+      You were
+      fighting a big
+      shadow!
+  - name: TX_5b1e
+    index: 0x1e
+    text: |-
+      \col(1)Héloïse\col(0): I
+      dreamed of a
+      girl with a
+      lamp.\stop
+      She was waiting
+      for someone.
+      You, maybe?
+  - name: TX_5b1f
+    index: 0x1f
+    text: |-
+      \col(1)Postman\col(0): A
+      letter for you!
+      From Hyrule!\stop
+      It just says:
+      "By day."
+  - name: TX_5b20
+    index: 0x20
+    text: |-
+      \col(1)Noah\col(0): Last
+      night, Granny
+      sang in my
+      dream.\stop
+      A seagull song.
+  - name: TX_5b21
+    index: 0x21
+    text: |-
+      \col(1)Marée\col(0): I
+      slept like a
+      log.\stop
+      My husband was
+      smiling at me,
+      in my dream.
+  - name: TX_5b22
+    index: 0x22
+    text: |-
+      Everyone sleeps
+      at night now!\stop
+      Even me.
+      Especially me.
+  - name: TX_5b23
+    index: 0x23
+    text: |-
+      I dreamed you
+      were chasing a
+      big monster that
+      never slept!
+
+
 - group: 0x00
   data:
   # The 2nd dungeon's essence: the second verse

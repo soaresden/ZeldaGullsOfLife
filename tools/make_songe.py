@@ -116,8 +116,8 @@ REEL = [
 # dans NUM_PALETTE_HEADERS. $d5 PALH_OMBRE : l'Ombre de Marine (le Swoop, palette 6 des sprites) ;
 # $d9 PALH_GIVROLIN : Givrolin (le Ramrock, palette 6 des sprites) ; $dc PALH_PHOTO : les photos ;
 # $dd PALH_FANTOME : les fantômes du 4F de la Tour ; $de PALH_LABYRINTHE : le Labyrinthe des Lynels ;
-# $df PALH_TERRIER : le boss du Terrier des Serpents
-OTHER_HEADERS = (0xd5, 0xd9, 0xdc, 0xdd, 0xde, 0xdf)
+# $df PALH_TERRIER : le boss du Terrier des Serpents ; $e0 PALH_ZELDA : Zelda, blonde
+OTHER_HEADERS = (0xd5, 0xd9, 0xdc, 0xdd, 0xde, 0xdf, 0xe0)
 BEGIN, END = '; BALLADE-SONGE-DEBUT (tools/make_songe.py)', '; BALLADE-SONGE-FIN'
 
 

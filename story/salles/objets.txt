@@ -8,6 +8,7 @@
 # La plage du réveil : Marine arrive
 salle aa
 	obj_Interaction INTERAC_MARINE $00 $08 $98
+	obj_Interaction INTERAC_BALLADE_CREUSE $12 $08 $08 ; l'épilogue (après la tour) : Marine humaine, le générique
 
 # Port-Veille ouest : l'ado qui rêve d'être marin
 salle 9a
@@ -616,6 +617,7 @@ salle 5:cb
 # 5F, l'Insomnis : le boss en rythme
 salle 5:cc
 	obj_Interaction INTERAC_BALLADE_RHYTHM $00 $58 $78
+	obj_Interaction INTERAC_BALLADE_CREUSE $10 $08 $08 ; la fin : Zelda, en rêve (code/ages/balladeFin.s)
 
 # --- La Spirale Céleste (donjon 6, groupe 4 ; story/salles/spirale.txt) ---
 # L'entrée : « Niveau 6 - Spirale Céleste » ($09), puis Marine ($01)
@@ -824,3 +826,12 @@ salle 4:d7
 	obj_Interaction INTERAC_BALLADE_CREUSE $0a $08 $08
 	obj_SpecificEnemyA $00 ENEMY_GHINI $00 $38 $48
 	obj_SpecificEnemyA     ENEMY_GHINI $00 $78 $a8
+
+# Le Nid de la Mouette, l'île de Marine (après la fin ; story/salles/ile_marine.txt, code/ages/balladeFin.s)
+salle 5b
+	obj_Interaction INTERAC_BALLADE_CREUSE $15 $58 $38 ; le coquillage qui appelle Zelda
+salle 5c
+	obj_Interaction INTERAC_BALLADE_CREUSE $14 $28 $78 ; Marine
+	obj_Interaction INTERAC_BALLADE_CREUSE $16 $08 $08 ; le volley
+salle 6b
+	obj_Interaction INTERAC_BALLADE_OBJECT $00 $68 $58 ; le Bateau-Rondin

@@ -3356,6 +3356,318 @@ groups:
 # ==============================================================================
 # Textes d'Ages remplacés (même nom) : les objets qu'on trouve parlent français
 # ==============================================================================
+
+# ==============================================================================
+# La fin du jeu et l'après-jeu (le groupe 0x5a est plein)
+# ==============================================================================
+- group: 0x5b
+  data:
+
+  # La fin, en haut de la Tour Sans-Nuit (code/ages/balladeFin.s) : Zelda, en rêve
+  - name: TX_5b00
+    index: 0x00
+    text: |-
+      \col(1)Zelda\col(0): Link...?
+      C'est toi...?\stop
+      Je t'ai attendu
+      si longtemps...
+      que j'ai oublié
+      comment on dort.
+  - name: TX_5b01
+    index: 0x01
+    text: |-
+      \col(1)Marine\col(0): C'est
+      elle, hein?
+      Celle chez qui
+      tu rentrais...\stop
+      C'est elle qui
+      ne dormait plus.
+      L'Insomnis
+      mangeait son
+      inquiétude.
+  - name: TX_5b02
+    index: 0x02
+    text: |-
+      \col(1)Marine\col(0): Dors,
+      princesse. Je
+      connais une
+      chanson.\stop
+      La mienne. Avec
+      son huitième
+      couplet.
+  - name: TX_5b03
+    index: 0x03
+    text: |-
+      \col(1)Marine\col(0): "Dors,
+      petite lumière.
+      Ce qu'on rêve
+      fort ne se perd
+      jamais."
+  - name: TX_5b04
+    index: 0x04
+    text: |-
+      La \col(1)Ballade de la
+      Mouette\col(0) est
+      complète!
+  - name: TX_5b05
+    index: 0x05
+    text: |-
+      \col(1)Zelda\col(0): Merci...
+      Link... Je vais
+      enfin...
+      dormir...
+
+  # L'épilogue, sur la plage du réveil (1:aa), et le générique
+  - name: TX_5b06
+    index: 0x06
+    text: |-
+      Cette nuit-là,
+      pour la première
+      fois, tout
+      l'archipel
+      s'endormit.\stop
+      Et au matin...
+  - name: TX_5b07
+    index: 0x07
+    text: |-
+      \col(1)Marine\col(0): \Link!
+      Regarde! Mes
+      mains... en
+      plein jour!\stop
+      La chanson
+      complète... Le
+      Poisson-Rêve a
+      tenu parole!
+  - name: TX_5b08
+    index: 0x08
+    text: |-
+      \col(1)Marine\col(0): Je
+      reste ici. J'ai
+      trouvé une île
+      rien qu'à moi:
+      le Nid de la
+      Mouette.\stop
+      Rentre à Hyrule
+      quand tu veux...\stop
+      Mais pas avant
+      une partie de
+      volley!
+  - name: TX_5b09
+    index: 0x09
+    text: |2-
+       THE LEGEND OF
+           ZELDA
+       Gulls of Life
+  - name: TX_5b0a
+    index: 0x0a
+    text: |-
+      Un jeu de
+      Denis
+      (soaresden).\stop
+      Merci à toi,
+      Denis: tes idées
+      et ton envie ont
+      fait ce jeu.
+  - name: TX_5b0b
+    index: 0x0b
+    text: |-
+      Programme,
+      musiques et
+      dessins:
+      Claude
+      (Anthropic).
+  - name: TX_5b0c
+    index: 0x0c
+    text: |-
+      Fait avec
+      LynnaLab,
+      oracles-disasm
+      et hack-base.
+  - name: TX_5b0d
+    index: 0x0d
+    text: |-
+      D'après
+      Link's Awakening
+      et Oracle of
+      Ages (Nintendo,
+      Capcom).
+  - name: TX_5b0e
+    index: 0x0e
+    text: |-
+      Merci d'avoir
+      joué!\stop
+            FIN
+
+  # Le Bateau-Rondin, la 3e page, après la fin : aussi l'île de Marine
+  - name: TX_5b0f
+    index: 0x0f
+    text: |-
+      \col(1)Marine\col(0): Encore
+      plus loin...\stop
+      \opt()Sommeil \opt()Œil
+      \opt()Mouette
+
+  # L'île de Marine (le Nid de la Mouette), après la fin
+  - name: TX_5b10
+    index: 0x10
+    text: |-
+      \col(1)Marine\col(0): On
+      fait quoi?\stop
+      \opt()Volley \opt()Parler
+      \opt()Rien
+  - name: TX_5b11
+    index: 0x11
+    text: |-
+      \col(1)Marine\col(0): Le
+      premier à 5!\stop
+      Le ballon ne
+      doit pas toucher
+      le sable de ton
+      camp!
+  - name: TX_5b12
+    index: 0x12
+    text: |-
+      \col(1)Marine\col(0):
+      Quoi?! Tu as
+      gagné?!\stop
+      ...Revanche!
+  - name: TX_5b13
+    index: 0x13
+    text: |-
+      \col(1)Marine\col(0): Hé
+      hé! La mouette
+      gagne toujours!
+  - name: TX_5b14
+    index: 0x14
+    text: |-
+      Un coquillage...
+      Il chante,
+      tout bas.\stop
+      On dirait qu'il
+      appelle très
+      loin.\stop
+      \opt()Appeler \opt()Non
+  - name: TX_5b15
+    index: 0x15
+    text: |-
+      \col(1)Zelda\col(0): Link!
+      Je t'entends!\stop
+      Ici, tout le
+      monde dort bien,
+      maintenant.\stop
+      Reviens quand
+      tu veux. Je
+      t'attends... le
+      jour!
+  - name: TX_5b16
+    index: 0x16
+    text: |-
+      \col(1)Zelda\col(0): Link!
+      Tu es encore
+      chez Marine?\stop
+      Dis-lui merci.
+      Pour la
+      chanson.
+
+  # Le volley : le score
+  - name: TX_5b18
+    index: 0x18
+    text: |-
+      Link: \num1
+      Marine: \num2
+
+  # Marine, sur son île : ce qu'elle dit
+  - name: TX_5b19
+    index: 0x19
+    text: |-
+      \col(1)Marine\col(0): Des
+      mains, \Link!
+      Je peux enfin
+      te pincer!
+  - name: TX_5b1a
+    index: 0x1a
+    text: |-
+      \col(1)Marine\col(0): Ma
+      maison ressemble
+      à celle de Mabe.
+      J'aime bien.
+  - name: TX_5b1b
+    index: 0x1b
+    text: |-
+      \col(1)Marine\col(0): Je
+      chante pour les
+      mouettes, le
+      matin. Elles
+      chantent faux.
+  - name: TX_5b1c
+    index: 0x1c
+    text: |-
+      \col(1)Marine\col(0): Tu
+      rentres quand, à
+      Hyrule? ...Non,
+      rien. Comme ça.
+
+  # Après la fin : les habitants ont compris (code/ages/balladeObjects.s, villagerFinTexts)
+  - name: TX_5b1d
+    index: 0x1d
+    text: |-
+      On a rêvé de
+      toi, cette nuit!\stop
+      Tu te battais
+      contre une
+      grosse ombre!
+  - name: TX_5b1e
+    index: 0x1e
+    text: |-
+      \col(1)Héloïse\col(0): J'ai
+      rêvé d'une fille
+      avec une lampe.\stop
+      Elle attendait
+      quelqu'un.
+      Toi, peut-être?
+  - name: TX_5b1f
+    index: 0x1f
+    text: |-
+      \col(1)Le facteur\col(0): Une
+      lettre pour toi!
+      De Hyrule!\stop
+      Elle dit juste:
+      "Le jour."
+  - name: TX_5b20
+    index: 0x20
+    text: |-
+      \col(1)Noé\col(0): Cette
+      nuit, Mamie a
+      chanté dans mon
+      rêve.\stop
+      Une chanson de
+      mouette.
+  - name: TX_5b21
+    index: 0x21
+    text: |-
+      \col(1)Marée\col(0): J'ai
+      dormi d'un
+      trait.\stop
+      Mon mari me
+      souriait, en
+      rêve.
+  - name: TX_5b22
+    index: 0x22
+    text: |-
+      Tout le monde
+      dort, la nuit,
+      maintenant!\stop
+      Même moi.
+      Surtout moi.
+  - name: TX_5b23
+    index: 0x23
+    text: |-
+      J'ai rêvé que tu
+      chassais un gros
+      monstre qui ne
+      dormait jamais!
+
+
 - group: 0x00
   data:
   # L'essence du 2e donjon : le deuxième couplet

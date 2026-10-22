@@ -28,6 +28,7 @@ Usage : python tools/record_music.py [NOM ...]   (sans nom : tout)
   gerudo    out/apercus/N-gerudo_apercu.wav    la Vallée Gerudo au violon (la plage du forain, 1:ac ; $0b)
   quiz      out/apercus/N-quiz_apercu.wav      le quiz de Marine (« Qui veut gagner des millions », $0a)
   lynels    out/apercus/N-lynels_apercu.wav    le Labyrinthe des Lynels (Euro-Mir, 5:e9 ; $0c)
+  generique out/apercus/N-generique_apercu.wav le générique de fin ($1d)
 Pour le boss et le miniboss (pas de salle où ils jouent d'office), l'appel à playSound qui lance
 la musique du Phare est détourné vers la leur (crochet PyBoy sur playSound, ROM intacte).
 """
@@ -67,6 +68,7 @@ TRACKS = {
     'gerudo': (1, 0xac, 0x55, None, 75),
     'quiz': (4, 0x24, 0x51, 0x0a, 40),
     'lynels': (5, 0xe9, 0x77, None, 60),
+    'generique': (4, 0x24, 0x51, 0x1d, 75),
 }
 wanted = sys.argv[1:] or ['film', 'titre'] + list(TRACKS)
 

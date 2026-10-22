@@ -21,7 +21,7 @@ FILES = ('textes.yaml', 'textes.en.yaml')
 
 
 def ours(doc):
-    return {e['name'] for g in doc['groups'] if g['group'] == 0x5a for e in g['data']}
+    return {e['name'] for g in doc['groups'] if g['group'] in (0x5a, 0x5b) for e in g['data']}
 
 
 def main():

@@ -4,7 +4,8 @@
 - text/ages/text_fr.yaml : français (langue 1), avec story/textes.yaml
 
 Dans chaque fichier de story/ :
-- le groupe 0x5a (libre dans Ages) contient tous nos textes ; il est ajouté à la fin ;
+- les groupes 0x5a et 0x5b (libres dans Ages) contiennent tous nos textes ; ils sont ajoutés à la
+  fin (le 0x5b : la fin du jeu et l'après-jeu, le 0x5a étant plein) ;
 - les entrées des autres groupes remplacent le texte d'Ages du même nom (ex. TX_001c, « Tu as
   retrouvé ton épée ») ; les textes d'Ages qu'on ne remplace pas restent en anglais.
 
@@ -23,7 +24,7 @@ import yaml
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DISASM = os.path.join(ROOT, 'oracles-disasm')
 BASE = 'text/ages/text.yaml'
-OUR_GROUP = 0x5a
+OUR_GROUPS = (0x5a, 0x5b)    # le 0x5b : la fin du jeu et l'après-jeu (le 0x5a est plein)
 LANGUAGES = (('textes.en.yaml', 'text/ages/text.yaml'), ('textes.yaml', 'text/ages/text_fr.yaml'))
 
 
@@ -42,7 +43,7 @@ def build(base, source_name, out_name):
 
     # Remplacements de textes d'Ages
     for group in doc['groups']:
-        if group['group'] == OUR_GROUP:
+        if group['group'] in OUR_GROUPS:
             continue
         for e in group['data']:
             # Le nom seul (« - name: TX_0002 ») ou dans une liste (« - name: » puis « - TX_0000 »)
@@ -55,12 +56,19 @@ def build(base, source_name, out_name):
             # (une propriété comme « null_terminator: False » reste à sa place, après le texte)
             base = base[:start] + entry_block(e['text']) + base[m.end():]
 
-    # Notre groupe, à la fin (copie du texte source, commentaires compris)
-    ours = source.split('\ngroups:\n', 1)[1]
-    ours = ours[ours.index('- group: 0x%02x' % OUR_GROUP):]
-    nxt = re.search(r'\n- group:', ours[1:])
-    if nxt:
-        ours = ours[:nxt.start() + 1]
+    # Nos groupes, à la fin (copie du texte source, commentaires compris)
+    body = source.split('\ngroups:\n', 1)[1]
+    blocks = []
+    for g in OUR_GROUPS:
+        tag = '- group: 0x%02x' % g
+        if tag not in body:
+            continue
+        block = body[body.index(tag):]
+        nxt = re.search(r'\n- group:', block[1:])
+        if nxt:
+            block = block[:nxt.start() + 1]
+        blocks.append(block.rstrip('\n'))
+    ours = '\n\n'.join(blocks)
     with open(os.path.join(DISASM, out_name), 'w', encoding='utf-8', newline='\n') as f:
         f.write(base.rstrip('\n') + '\n\n# ===== Gulls of Life (story/%s) =====\n' % source_name)
         f.write(ours.rstrip('\n') + '\n')

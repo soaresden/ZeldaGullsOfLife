@@ -1,0 +1,59 @@
+# Le Nid de la Mouette : l'île de Marine, après la fin du jeu (story/iles.md, « La fin ») ; groupe 1,
+# écrans 1:5b-6c (libres, entre les îles). On y vient en Bateau-Rondin une fois le jeu fini
+# (GLOBALFLAG_BALLADE_FIN). Code : code/ages/balladeFin.s.
+#
+#   5b la maison de Marine (sa porte dd -> 3:2a), le coquillage qui appelle Zelda
+#   5c la plage du volley (le filet : les planches 0e, colonne 4) ; Marine
+#   6b le ponton (le Bateau-Rondin)
+#   6c la plage aux palmiers
+#
+# Briques (décor 18, la plage de l'île Croissant) : bf sable, c5 plante, fc mer ; rivages 21 (l'eau
+# au-dessus), 26 (à gauche), 27 (à droite), coins 20 22 ; c0 c1 c2 / d3 dd d3 la hutte (dd : la
+# porte) ; 80 81 / a0 a1 un palmier ; 0e planches.
+
+# --- La maison de Marine (nord-ouest) ; le coquillage devant ---
+salle 5b decor 18
+fc fc fc fc fc fc fc fc fc fc
+fc 20 21 21 21 21 21 21 21 21
+fc 26 bf bf c0 c1 c2 bf 80 81
+fc 26 bf bf d3 dd d3 bf a0 a1
+fc 26 bf bf bf bf bf bf bf bf
+fc 26 bf bf bf bf bf bf bf bf
+fc 26 bf c5 bf bf bf bf c5 bf
+fc 26 bf bf bf bf bf bf bf bf
+
+# --- La plage du volley (nord-est) : le filet (colonne 4), Marine en haut à droite ---
+salle 5c decor 18
+fc fc fc fc fc fc fc fc fc fc
+21 21 21 21 21 21 21 21 22 fc
+bf bf bf bf bf bf bf bf 27 fc
+bf bf bf bf 0e bf bf bf 27 fc
+bf bf bf bf 0e bf bf bf 27 fc
+bf bf bf bf 0e bf bf bf 27 fc
+bf bf bf bf 0e bf bf bf 27 fc
+bf bf bf bf bf bf bf bf 27 fc
+
+# --- Le ponton (sud-ouest) : les planches vers la mer, le Bateau-Rondin à leur droite ---
+salle 6b decor 18
+fc 26 bf bf bf bf bf bf bf bf
+fc 26 bf bf bf bf bf bf bf bf
+fc 26 bf bf c5 bf bf bf bf bf
+fc 26 bf bf bf bf bf bf bf bf
+fc 26 bf bf bf bf bf bf bf bf
+fc fc fc 0e 0e fc fc fc fc fc
+fc fc fc 0e 0e fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- La plage aux palmiers (sud-est) ---
+salle 6c decor 18
+bf bf bf bf bf bf bf bf 27 fc
+bf bf bf bf bf bf bf bf 27 fc
+bf bf c5 bf bf bf 80 81 27 fc
+bf bf bf bf bf bf a0 a1 27 fc
+bf bf bf bf bf bf bf bf 27 fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- La maison de Marine (dedans) : la même disposition que sa maison de Mabe (le souvenir, 3:26) ---
+decor 3:2a 2b copie 3:26
