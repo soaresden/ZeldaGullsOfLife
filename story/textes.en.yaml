@@ -1505,7 +1505,34 @@ groups:
       "Thank you for
       keeping our
       words. H. and
-      G."
+      G."\stop
+      And this one has
+      no name... Just
+      a map.\stop
+      Take it, you're
+      the traveler!\stop
+      An X, between
+      two rocks, by a
+      big rock...\stop
+      Off the Isle of
+      Echoes.\stop
+      \col(1)Marin\col(0): A
+      treasure under
+      the sea! We'll
+      have to dive...
+      for a long time!
+
+  # The treasure map: Link surfaces too soon from the channel (1:74; code/ages/balladeTresor.s)
+  - name: TX_5a5f
+    index: 0x5f
+    text: |-
+      \col(1)Marin\col(0): The X
+      is right here!\stop
+      But you have to
+      stay down over
+      10 seconds!\stop
+      Like a
+      mermaid...
 
   # The lovers' cave (5:b1), on entering (INTERAC_BALLADE_OBJECT $01)
   - name: TX_5a7a

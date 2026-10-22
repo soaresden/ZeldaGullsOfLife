@@ -222,13 +222,15 @@ fc fc fc fc fc fc fc fc fc fc
 fc fc fc fc fc fc fc fc fc fc
 fc fc fc fc fc fc fc fc fc fc
 
-# --- Le rocher de la veuve : la veuve Marée regarde la mer ---
+# --- Le rocher de la veuve : la veuve Marée regarde la mer. En bas, une crique (fa, on y nage avec
+# les Palmes) et le chenal entre deux rochers (ligne 6, colonnes 4-5) : la croix de la carte au
+# trésor (code/ages/balladeTresor.s) ---
 salle 74 decor 13
 60 60 60 60 60 60 60 60 60 60
 fc 3a 3a 3a 3a 1b 3a 3a 3a fc
 fc 3a 1b 3a 3a 3a 3a c5 3a fc
 3a 3a 13 3a 1b 11 11 3a 3a fc
 1b 3a 3a 3a 10 3a 3a 3a 10 fc
-fc fc fc fc fc fc fc fc fc fc
-fc fc fc fc fc fc fc fc fc fc
-fc fc fc fc fc fc fc fc fc fc
+fc fc 60 fa fa fa fa 60 fc fc
+fc fc 60 60 fa fa 60 60 fc fc
+fc fc fc 60 60 60 60 fc fc fc

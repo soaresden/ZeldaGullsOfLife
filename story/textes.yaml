@@ -1569,7 +1569,35 @@ groups:
       moi!\stop
       "Merci d'avoir
       gardé nos mots.
-      H. et G."
+      H. et G."\stop
+      Et celle-là n'a
+      pas de nom...
+      Juste une carte.\stop
+      Prends-la, toi
+      qui voyages!\stop
+      Une croix, entre
+      deux rochers,
+      devant un grand
+      rocher...\stop
+      Au large de
+      l'île des Échos.\stop
+      \col(1)Marine\col(0): Un
+      trésor sous
+      l'eau! Il faudra
+      plonger...
+      longtemps!
+
+  # La carte au trésor : Link remonte trop tôt du chenal (1:74 ; code/ages/balladeTresor.s)
+  - name: TX_5a5f
+    index: 0x5f
+    text: |-
+      \col(1)Marine\col(0): La
+      croix est là!\stop
+      Mais il faut y
+      rester plus de
+      10 secondes!\stop
+      Comme une
+      sirène...
 
   # La grotte des amoureux (5:b1), en entrant (INTERAC_BALLADE_OBJECT $01)
   - name: TX_5a7a

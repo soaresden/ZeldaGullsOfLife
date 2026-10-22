@@ -427,6 +427,7 @@ salle 64
 # Le rocher de la veuve : Marée
 salle 74
 	obj_Interaction INTERAC_BALLADE_OBJECT $1c $28 $68
+	obj_Interaction INTERAC_BALLADE_CREUSE $03 $08 $08 ; la carte au trésor (plonger 10 s)
 # La cathédrale : sa grille (ligne 4, colonne 4)
 salle 42
 	obj_Interaction INTERAC_BALLADE_OBJECT $1f $48 $48
