@@ -182,9 +182,7 @@ Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, ave
   dans le jeu (le dépôt est public).
 
 ## Déjà écrit dans la conversation de départ
-- La veillée autour du feu : Link raconte sa vie en mimant (le lapin rose, les cocottes, la
-  chanteuse Nayru, le rendez-vous avec Rosa, l'arbre amoureux, le kangourou boxeur, Zelda) ;
-  Marine jalouse mais tendre ; Tingle qui s'incruste dans le rêve.
+- ~~La veillée autour du feu~~ : **abandonnée** (Denis, 2026-10-22 : « oublie veillée au feu »).
 - Les Songes des Héros : rêves des autres Links (masques, fée qui crie, Zelda qui pousse Link
   d'une falaise à Célesbourg) et Marine qui commente ; le Sifflet de Marine (elle rattrape
   Link quand il tombe).
