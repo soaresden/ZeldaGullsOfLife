@@ -1,45 +1,49 @@
 # Le Palais Givré — musique originale du donjon 7 (Gulls of Life)
 #
-# Esprit : cristallin, aigu. Des éclats de glace (des notes aiguës isolées, en écho) au premier
-# carré, une mélodie lente et haute au deuxième carré, une basse très lente à l'onde, presque pas
-# de batterie (un tintement de temps en temps). Fa dièse mineur. De l'ambiance, pas d'urgence
-# (retour de Denis sur la Forge).
+# Esprit : un clin d'œil à la Reine des Neiges (demandé par Denis), sans reprendre sa mélodie : le
+# piano en croches répétées du début (ici l'accordéon, un accord brisé qui tourne), un couplet bas
+# et retenu en fa mineur (fa m, ré b, mi b, do m), puis tout s'ouvre en la b majeur (la b, mi b,
+# fa m, ré b) avec une grande phrase tenue qui monte : le palais de glace qui se dresse. Des
+# éclats aigus par-dessus. Ça reste un donjon : de l'ambiance, pas d'urgence.
 # Même notation que music/phare.txt (8 croches par mesure).
 
 tempo 10         # images par croche
 mesure 8
 
 == INTRO ==
-# Les éclats de glace seuls
+# Le « piano » seul : l'accord brisé qui tourne
 melodie:   [v0] [duty 2] [vib 41] [gate .9] [detune 0]
 melodie:   -:8 | -:8 |
-accordeon: [v2] [duty 0] [vib 00] [gate .4] [detune 0]
-accordeon: f#5:1 -:1 c#6:1 -:1 a5:1 -:1 e6:1 -:1 | d5:1 -:1 a5:1 -:1 f#5:1 -:1 c#6:1 -:1 |
+accordeon: [v3] [duty 1] [vib 00] [gate .45] [detune 0]
+accordeon: f4:1 c5:1 ab4:1 c5:1 f4:1 c5:1 ab4:1 c5:1 | f4:1 db5:1 ab4:1 db5:1 f4:1 db5:1 ab4:1 db5:1 |
 basse:     [onde 0e] [vib 00] [gate 1]
-basse:     f#1:8 | d2:8 |
-batterie:  [v1] h:1 -:7 | -:8 |
+basse:     f1:8 | db2:8 |
+batterie:  -:8 | -:8 |
 
 == A ==
-# Dans le palais : la mélodie, haute et lente, sur les éclats
-melodie:   [v4] [vib 41] [gate .9]
-melodie:   c#6:6 b5:2 | a5:8 | f#5:4 a5:4 | e5:8 |
-melodie:   f#5:6 g#5:2 | a5:4 c#6:4 | b5:6 a5:2 | g#5:8 |
-accordeon: [v2] [gate .4]
-accordeon: f#5:1 -:1 c#6:1 -:1 a5:1 -:1 e6:1 -:1 | d5:1 -:1 a5:1 -:1 f#5:1 -:1 c#6:1 -:1 |
-accordeon: b4:1 -:1 f#5:1 -:1 d5:1 -:1 a5:1 -:1 | c#5:1 -:1 g#5:1 -:1 e5:1 -:1 b5:1 -:1 |
-accordeon: f#5:1 -:1 c#6:1 -:1 a5:1 -:1 e6:1 -:1 | d5:1 -:1 a5:1 -:1 f#5:1 -:1 c#6:1 -:1 |
-accordeon: e5:1 -:1 b5:1 -:1 g#5:1 -:1 d6:1 -:1 | c#5:1 -:1 g#5:1 -:1 e#5:1 -:1 b5:1 -:1 |
-basse:     f#1:8 | d2:8 | b1:8 | c#2:8 | f#1:8 | d2:8 | e1:8 | c#2:8 |
+# Le couplet : bas, retenu
+melodie:   [v4] [duty 2] [vib 41] [gate .85]
+melodie:   c5:3 c5:1 ab4:2 g4:2 | f4:6 -:2 | eb4:2 f4:2 g4:2 ab4:2 | g4:8 |
+melodie:   c5:3 c5:1 db5:2 c5:2 | ab4:6 -:2 | bb4:2 ab4:2 g4:2 eb4:2 | f4:8 |
+accordeon: [v2] [gate .45]
+accordeon: f4:1 c5:1 ab4:1 c5:1 f4:1 c5:1 ab4:1 c5:1 | f4:1 db5:1 ab4:1 db5:1 f4:1 db5:1 ab4:1 db5:1 |
+accordeon: g4:1 eb5:1 bb4:1 eb5:1 g4:1 eb5:1 bb4:1 eb5:1 | g4:1 c5:1 eb4:1 c5:1 g4:1 c5:1 eb4:1 c5:1 |
+accordeon: f4:1 c5:1 ab4:1 c5:1 f4:1 c5:1 ab4:1 c5:1 | f4:1 db5:1 ab4:1 db5:1 f4:1 db5:1 ab4:1 db5:1 |
+accordeon: g4:1 eb5:1 bb4:1 eb5:1 g4:1 eb5:1 bb4:1 eb5:1 | g4:1 c5:1 e4:1 c5:1 g4:1 c5:1 e4:1 c5:1 |
+basse:     f1:8 | db2:8 | eb2:8 | c2:8 | f1:8 | db2:8 | eb2:8 | c2:8 |
 batterie:  ( [v1] h:1 -:7 | -:8 | )x4
 
 == B ==
-# Le cœur du flocon : les éclats redescendent, la mélodie se pose
-melodie:   [v5]
-melodie:   a5:4 c#6:4 | e6:8 | d6:4 b5:4 | c#6:8 |
-accordeon: [v1]
-accordeon: e6:1 -:1 c#6:1 -:1 a5:1 -:1 f#5:1 -:1 | d6:1 -:1 a5:1 -:1 f#5:1 -:1 d5:1 -:1 |
-accordeon: b5:1 -:1 f#5:1 -:1 d5:1 -:1 b4:1 -:1 | c#6:1 -:1 g#5:1 -:1 e#5:1 -:1 c#5:1 -:1 |
-basse:     a1:8 | d2:8 | b1:8 | c#2:8 |
-batterie:  -:8 | -:8 | -:8 | -:8 |
+# Le palais se dresse : la b majeur, la grande phrase tenue, des éclats aigus
+melodie:   [v6] [vib 42] [gate .95]
+melodie:   eb5:6 c5:2 | bb4:8 | c5:4 eb5:4 | f5:8 |
+melodie:   eb5:6 f5:2 | g5:4 f5:2 eb5:2 | c5:8 | -:8 |
+accordeon: [v2] [gate .4]
+accordeon: ab4:1 eb5:1 c5:1 eb5:1 ab5:1 eb5:1 c5:1 eb5:1 | g4:1 eb5:1 bb4:1 eb5:1 g5:1 eb5:1 bb4:1 eb5:1 |
+accordeon: f4:1 c5:1 ab4:1 c5:1 f5:1 c5:1 ab4:1 c5:1 | f4:1 db5:1 ab4:1 db5:1 f5:1 db5:1 ab4:1 db5:1 |
+accordeon: ab4:1 eb5:1 c5:1 eb5:1 ab5:1 eb5:1 c5:1 eb5:1 | g4:1 eb5:1 bb4:1 eb5:1 g5:1 eb5:1 bb4:1 eb5:1 |
+accordeon: f4:1 c5:1 ab4:1 c5:1 f5:1 c5:1 ab4:1 c5:1 | db5:1 -:1 ab5:1 -:1 f5:1 -:1 c6:1 -:1 |
+basse:     ab1:8 | eb2:8 | f1:8 | db2:8 | ab1:8 | eb2:8 | f1:8 | db2:8 |
+batterie:  ( [v1] h:1 -:3 h:1 -:3 | )x7 [v2] h:1 -:1 h:1 -:1 h:1 h:1 h:1 h:1 |
 
 ordre: INTRO | A B

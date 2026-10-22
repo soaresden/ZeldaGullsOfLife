@@ -365,7 +365,7 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   4:64) ramène au village gelé (1:b1) : fin du chapitre 7 (tout le monde se réveille ; Marine lit
   le vent : l'Œil de l'Insomnis, GLOBALFLAG_BALLADE_ISLAND8).
 - Musiques : $1c l'île du Grand Sommeil (music/sommeil.txt, berceuse glacée), $16 le Palais Givré
-  (music/palais.txt, cristallin).
+  (music/palais.txt, clin d'œil à la Reine des Neiges, validé par Denis).
 - Menu de test : île 7 Donjon (4:55) / M-boss (4:59, à coté du Chevalier) / Boss (4:63, la clé du
   boss) / Fin (1:b1) ; jalons 29-32.
 - Test : python tools/test_palais.py DOSSIER (chaque énigme jouée comme un joueur).
