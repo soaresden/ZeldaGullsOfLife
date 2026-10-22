@@ -440,6 +440,26 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   remontée ; 9 cœurs : l'épée) ; test_tour.py vérifie Ganon sans puis avec l'épée.
   Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/fosse.png
 
+## Les photos de Cocolint (idée de Denis : le flashback des photos de LADX avec Marine)
+- Les VRAIES photos de l'album de Link's Awakening DX où il y a Marine : la chute sur Link, Tarkin
+  et Bow Wow, la falaise (Marine montre la mer ; on y a ajouté des mouettes pour « qui a pris
+  cette photo ? »). Capturées en sépia dans l'album, en faisant tourner la ROM LADX de Denis
+  (D:\DOCS\Documents-Emulation\Batocera\Windows Tools\Zelda Rando\..., PyBoy : wPhotos1/2
+  $dc0c-0d à $ff, wGameplayType $db95 = $0d l'album) : art/photos/N-nom.png (160 x 144, 4 nuances).
+- tools/make_photos.py (build.sh) -> gfx_photo_N(.png, b.png), map/flg_photo_N.bin ; GFXH_PHOTO_1-3
+  ($d1-$d3), PALH_PHOTO ($dc, BG palette 2 : la 0 reste celle de la boîte de texte). Tuiles
+  $8800 et $9100 seulement : $9000-$90ff (la tuile $02 = le fond noir de la boîte) et
+  $9400-$97ff (les lettres) restent au jeu, d'où 176 tuiles au plus (les plus ressemblantes sont
+  fusionnées : la chute en avait 240).
+- CUTSCENE_BALLADE_PHOTOS ($22, cutscene22 dans cutscenes.s -> code/ages/cutscenes/photos.s) :
+  fondu, la photo (et sa copie dans w3VramTiles / w3VramAttributes : la boîte de texte dessine
+  et efface là), wScreenOffsetX/Y à 0, la réplique (TX_5ae9-5aeb), puis une téléportation sur
+  place (wWarpTransition2 = 3) recharge l'auberge. Musique : MUS_TITLESCREEN (la Ballade).
+- Lancée par INTERAC_BALLADE_OBJECT $37 (photoScene, l'auberge 3:9e) : essence 5, une fois
+  (GLOBALFLAG_BALLADE_PHOTOS $5b) ; TX_5ae8 (« Oh ! Nos photos ! »).
+- Test : python tools/test_photos.py DOSSIER.
+  Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/photos.png
+
 ## Le Sablier (idée de Denis : le temps ralenti, les dégâts en crescendo)
 - ITEM_14 / TREASURE_14 (libres dans Ages) : itemUsageTables.s, parentItemUsage.s
   (parentItemCode_sablier, harpFluteParent.s -> balladeObjects.useSablier), treasureDisplayData.s

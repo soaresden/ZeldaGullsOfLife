@@ -2262,6 +2262,58 @@ groups:
       breath to free
       it: more hearts!
 
+  - name: TX_5ae8
+    index: 0xe8
+    text: |-
+      \col(1)Marin\col(0): Hey,
+      what's that in
+      your pocket...\stop
+      Oh! Our photos!\stop
+      How do you carry
+      all that stuff?
+      You don't even
+      have a backpack!\stop
+      ...But you kept
+      a little room
+      for our photos.\stop
+      Let's look!
+
+  - name: TX_5ae9
+    index: 0xe9
+    text: |-
+      \col(1)Marin\col(0): Oh
+      no... That one!\stop
+      We do NOT talk
+      about that one.
+
+  - name: TX_5aea
+    index: 0xea
+    text: |-
+      \col(1)Marin\col(0): Dad!
+      And Bow Wow!\stop
+      Dad feared him
+      so much... Look:
+      he's smiling
+      anyway!
+
+  - name: TX_5aeb
+    index: 0xeb
+    text: |-
+      \col(1)Marin\col(0): Here
+      I was showing
+      you the sea...
+      Remember?\stop
+      ...Wait.\stop
+      There was nobody
+      else with us
+      that day!\stop
+      Who took this
+      picture?!\stop
+      ...And those
+      gulls up high...\stop
+      They were
+      already there.
+
   - name: TX_5aad
     index: 0xad
     text: |-

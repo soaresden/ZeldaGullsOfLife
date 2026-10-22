@@ -2339,6 +2339,62 @@ groups:
       pour la dégager:
       plus de cœurs!
 
+  - name: TX_5ae8
+    index: 0xe8
+    text: |-
+      \col(1)Marine\col(0): Hé,
+      qu'est-ce que tu
+      as dans la
+      poche...\stop
+      Oh! Nos photos!\stop
+      Mais comment tu
+      fais pour porter
+      tous ces objets?
+      Tu n'as même pas
+      de sac à dos!\stop
+      ...Mais tu as
+      gardé une petite
+      place pour nos
+      photos.\stop
+      Regardons-les!
+
+  - name: TX_5ae9
+    index: 0xe9
+    text: |-
+      \col(1)Marine\col(0): Oh
+      non... Celle-là!\stop
+      On ne parle PAS
+      de celle-là.
+
+  - name: TX_5aea
+    index: 0xea
+    text: |-
+      \col(1)Marine\col(0): Papa!
+      Et Bow Wow!\stop
+      Papa en avait si
+      peur... Regarde:
+      il sourit quand
+      même!
+
+  - name: TX_5aeb
+    index: 0xeb
+    text: |-
+      \col(1)Marine\col(0): Là,
+      je te montrais
+      la mer... Tu te
+      souviens?\stop
+      ...Mais attends.\stop
+      Il n'y avait
+      personne avec
+      nous ce jour-là!\stop
+      Qui a pris cette
+      photo?!\stop
+      ...Et ces
+      mouettes, là-
+      haut...\stop
+      Elles étaient
+      déjà là.
+
   - name: TX_5aad
     index: 0xad
     text: |-

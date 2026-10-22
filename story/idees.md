@@ -28,6 +28,11 @@ dessiné dans `docs/iles_plans.png` par `tools/make_plans.py`.
   - la photo de la plage, assis de dos face à la mer, avec des mouettes dans le ciel :
     > « Mais attends… il n'y avait personne avec nous ce jour-là ! Qui a pris cette photo ?! »
     Et Marine remarque qu'il y avait déjà des mouettes sur la photo… (petit frisson).
+- **Fait** (tools/test_photos.py) : à l'auberge de Port-Veille, une fois le chapitre 5 fini, Marine
+  fouille la poche de Link ; les **vraies photos de LADX avec Marine** en plein écran (« le joueur
+  retombe sur ces photos, flashback », Denis) : la chute (« On ne parle PAS de celle-là »), Tarkin
+  et Bow Wow (« Papa en avait si peur »), la falaise où elle lui montre la mer (« Qui a pris cette
+  photo ?! ... Et ces mouettes... »). Sur la Ballade du Poisson-Rêve.
 
 ## Les jeux du forain (demandés par Denis)
 Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, avec **deux modes** :
@@ -157,3 +162,10 @@ Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, ave
 - Les Songes des Héros : rêves des autres Links (masques, fée qui crie, Zelda qui pousse Link
   d'une falaise à Célesbourg) et Marine qui commente ; le Sifflet de Marine (elle rattrape
   Link quand il tombe).
+
+## Un Pac-Man avec des Lynels (demandé par Denis)
+- Ses mots : « un pacman like où c'est Link et des Lynel le poursuivent et sont invincibles, et il
+  faut ramasser un objet pour les terrasser, mais le but c'est de récupérer tous les rubis. »
+- À faire : un labyrinthe d'une salle, des rubis partout, des Lynels qui poursuivent Link
+  (invincibles), un objet qui les rend vulnérables un moment (la super-pastille) ; gagné quand tous
+  les rubis sont ramassés. Parmi les activités de l'après-jeu (ou chez le forain).
