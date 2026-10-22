@@ -4,3 +4,8 @@ oracles-disasm/
 *.gbc
 *.sav
 __pycache__/
+
+# Les ROM et les archives de jeux ne vont jamais sur GitHub (seulement le patch BPS)
+*.zip
+*.iso
+*.bin
