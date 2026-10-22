@@ -653,6 +653,12 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   - $25 MUS_BALLADE_LAGUNE : music/lagune.txt, la Lagune (valse lente, guitare de plage) ; au
     lieu de MUS_SYMMETRY_PAST. $18 MUS_BALLADE_RECIF : music/recif.txt, le Récif Murmurant
     (nappes, écho, gouttes) ; au lieu de MUS_MERMAIDS_CAVE.
+  - $0b MUS_BALLADE_GERUDO : music/gerudo.txt, la Vallée Gerudo d'Ocarina of Time dans la version
+    violon de Taylor Davis (la plage du forain, 1:ac et 0:ac ; au lieu du village de Lynna).
+    Relevée dans son mp3 (hauteur dominante toutes les 23 ms, grille de doubles-croches à 120 à la
+    noire ; accords fa#m ré mi do#, confirmés par Chordify). Le violon = l'onde avec sa forme
+    d'onde WF_BALLADE_VIOLON ($2f, une dent de scie adoucie) et du vibrato : sur un carré, Denis
+    n'entendait « pas un seul violon » ; pas de basse continue (« trop de basse »). Validée (v2).
   - Plus AUCUN numéro vide : $24 n'est PAS libre (MUS_SYMMETRY_PRESENT, avec un cas spécial dans
     bank1.s). Pour une nouvelle île, réutiliser un morceau d'Ages qu'on n'entend plus (comme $25
     et $18 : vérifier qu'aucun code ne le teste, grep MUS_xxx).

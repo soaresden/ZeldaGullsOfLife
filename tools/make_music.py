@@ -53,6 +53,7 @@ SONGS = [
     ('sommeil.txt', 'musBalladeSommeil'),      # $1c (au lieu du Château d'Onox), l'île du Grand Sommeil (île 7)
     ('palais.txt', 'musBalladePalais'),        # $16 (au lieu du Donjon du Crâne), le Palais Givré
     ('tempetes.txt', 'musBalladeTempetes'),    # $2b (au lieu du thème de Maple), le Chant des Tempêtes
+    ('gerudo.txt', 'musBalladeGerudo'),        # $0b (au lieu du village de Lynna), la Vallée Gerudo du forain
 ]
 # Niveaux du boss en rythme : mêmes notes à frapper que rythme.txt (vérifié)
 RHYTHM_LEVELS = ['rythme2.txt', 'rythme3.txt', 'rythme4.txt', 'rythme5.txt']
@@ -122,6 +123,8 @@ ROOM_MUSIC = [
     (0, 0x1c, ILE_SOMMEIL),  # et dans le Songe
     (3, 0x1c, [0x27, 0x28, 0x29]),  # les maisons du veilleur, de la famille, de la chanteuse
     (4, 0x16, PALAIS),      # le Palais Givré (donjon 7 ; Givrolin lance la musique du boss)
+    (1, 0x0b, [0xac]),      # la plage du forain (le Creuse-Rubis) : la Vallée Gerudo au violon
+    (0, 0x0b, [0xac]),      # et dans le Songe
     (1, 0x28, ILE_OEIL),    # l'Œil de l'Insomnis : la Tour Noire d'Ages (MUS_BLACK_TOWER)
     (0, 0x28, ILE_OEIL),    # et dans le Songe
     # La Tour Sans-Nuit (donjon 8) : la musique gagne un instrument à chaque étage (les cinq niveaux

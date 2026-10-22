@@ -1,0 +1,117 @@
+# La Vallée Gerudo (Ocarina of Time), version violon de Taylor Davis — la musique du forain (la plage
+# du forain, 1:ac : le Creuse-Rubis)
+#
+# Demandée par Denis (« je l'adore ! et je veux le violon tout pareil »). Relevée à l'oreille et à
+# l'analyse (hauteur dominante toutes les 23 ms, une grille de doubles-croches) dans son
+# enregistrement : 120 à la noire (ici 128 : 7 images par double-croche), fa dièse mineur, des
+# mesures de 16 doubles-croches.
+# 2e version (« le début on ne reconnaît pas, trop de basse », « pas un seul violon ») : le violon
+# joue sur l'onde, avec sa propre forme d'onde (WF_BALLADE_VIOLON $2f, une dent de scie adoucie :
+# une corde frottée) et un vibrato ; plus de basse continue (de petits coups graves de guitare) ;
+# l'intro = deux mesures de guitare sur do#, puis le thème tout de suite.
+# Voix : basse (l'onde) = LE VIOLON ; accordeon = la guitare (arpèges) ; melodie = les coups graves
+# de la guitare ; batterie = palmas et castagnettes.
+#   A   le thème, dans le grave : do# fa# sol# LA, do# fa# sol# LAAA (fa#m ré mi do#, comme partout)
+#   A2  le même une octave plus haut, avec ses ornements et la cascade de la fin
+#   B   la deuxième partie (fa# tenus, puis sol#)
+#   C   la partie chantée qui descend (do# la sol# fa#, mi ré do# ré)
+# Même notation que music/phare.txt (ici 16 unités = 1 mesure).
+
+tempo 7          # images par double-croche
+mesure 16
+
+== INTRO ==
+basse:     [onde 2f] [vib 32] [gate .95]
+basse:     -:16 | -:16 |
+accordeon: [v3] [duty 0] [vib 00] [gate .4] [detune 0]
+accordeon: ( c#3:1 g#3:1 c#4:1 g#3:1 )x4 | c#3:1 g#3:1 c#4:1 f4:1 g#4:1 f4:1 c#4:1 g#3:1 c#3:1 g#3:1 c#4:1 f4:1 g#4:2 -:2 |
+melodie:   [v2] [duty 1] [vib 00] [gate .3] [detune 0]
+melodie:   c#3:1 -:2 c#3:1 -:2 g#3:1 -:1 c#3:1 -:2 c#3:1 -:2 g#3:1 -:1 | c#3:1 -:2 c#3:1 -:2 g#3:1 -:1 c#3:1 -:7 |
+batterie:  ( [v2] s:1 [v1] h:1 h:1 [v2] s:1 [v1] h:1 h:1 [v2] s:1 [v1] h:1 )x2 | [v2] s:1 [v1] h:1 h:1 [v2] s:1 [v1] h:1 h:1 [v2] s:1 [v1] h:1 [v3] s:2 s:2 s:1 s:1 s:2 |
+
+== A ==
+# Le thème, dans le grave du violon
+basse:     [onde 2f] [vib 32] [gate .95]
+basse:     c#4:1 f#4:1 g#4:1 a4:3 c#4:1 f#4:1 g#4:1 a4:7 | c#4:1 f#4:1 g#4:1 a4:3 c#4:1 f#4:1 g#4:1 a4:7 |
+basse:     b3:1 e4:1 f#4:1 g#4:3 b3:1 e4:1 f#4:1 g#4:7 |
+basse:     f#4:1 g#4:1 f#4:1 f4:5 f#4:1 g#4:1 f#4:1 g#4:1 f#4:2 g#4:1 f#4:1 |
+basse:     c#4:1 f#4:1 g#4:1 a4:3 c#4:1 f#4:1 g#4:1 a4:7 | c#4:1 f#4:1 g#4:1 a4:3 c#4:1 f#4:1 g#4:1 a4:7 |
+basse:     b3:1 e4:1 f#4:1 g#4:3 b3:1 e4:1 f#4:1 g#4:7 |
+basse:     f#4:1 f4:1 c#4:1 d4:1 c#4:1 f4:1 g#4:1 d5:1 c#5:1 f5:1 g#5:1 d6:1 c#6:1 b5:1 a5:1 g#5:1 |
+accordeon: [v2] [duty 0] [gate .4]
+accordeon: f#3:1 c#4:1 f#4:1 a4:1 c#5:1 a4:1 f#4:1 c#4:1 f#3:1 c#4:1 f#4:1 a4:1 c#5:1 a4:1 f#4:1 c#4:1 | d3:1 a3:1 d4:1 f#4:1 a4:1 f#4:1 d4:1 a3:1 d3:1 a3:1 d4:1 f#4:1 a4:1 f#4:1 d4:1 a3:1 |
+accordeon: e3:1 b3:1 e4:1 g#4:1 b4:1 g#4:1 e4:1 b3:1 e3:1 b3:1 e4:1 g#4:1 b4:1 g#4:1 e4:1 b3:1 | c#3:1 g#3:1 c#4:1 f4:1 g#4:1 f4:1 c#4:1 g#3:1 c#3:1 g#3:1 c#4:1 f4:1 g#4:1 f4:1 c#4:1 g#3:1 |
+accordeon: f#3:1 c#4:1 f#4:1 a4:1 c#5:1 a4:1 f#4:1 c#4:1 f#3:1 c#4:1 f#4:1 a4:1 c#5:1 a4:1 f#4:1 c#4:1 | d3:1 a3:1 d4:1 f#4:1 a4:1 f#4:1 d4:1 a3:1 d3:1 a3:1 d4:1 f#4:1 a4:1 f#4:1 d4:1 a3:1 |
+accordeon: e3:1 b3:1 e4:1 g#4:1 b4:1 g#4:1 e4:1 b3:1 e3:1 b3:1 e4:1 g#4:1 b4:1 g#4:1 e4:1 b3:1 | c#3:1 g#3:1 c#4:1 f4:1 g#4:1 f4:1 c#4:1 g#3:1 c#3:1 g#3:1 c#4:1 f4:1 g#4:1 f4:1 c#4:1 g#3:1 |
+melodie:   [v2] [duty 1] [gate .3]
+melodie:   f#3:1 -:2 f#3:1 -:2 c#4:1 -:1 f#3:1 -:2 f#3:1 -:2 c#4:1 -:1 | d3:1 -:2 d3:1 -:2 a3:1 -:1 d3:1 -:2 d3:1 -:2 a3:1 -:1 |
+melodie:   e3:1 -:2 e3:1 -:2 b3:1 -:1 e3:1 -:2 e3:1 -:2 b3:1 -:1 | c#3:1 -:2 c#3:1 -:2 g#3:1 -:1 c#3:1 -:2 c#3:1 -:2 g#3:1 -:1 |
+melodie:   f#3:1 -:2 f#3:1 -:2 c#4:1 -:1 f#3:1 -:2 f#3:1 -:2 c#4:1 -:1 | d3:1 -:2 d3:1 -:2 a3:1 -:1 d3:1 -:2 d3:1 -:2 a3:1 -:1 |
+melodie:   e3:1 -:2 e3:1 -:2 b3:1 -:1 e3:1 -:2 e3:1 -:2 b3:1 -:1 | c#3:1 -:2 c#3:1 -:2 g#3:1 -:1 c#3:1 -:2 c#3:1 -:2 g#3:1 -:1 |
+batterie:  ( [v2] s:1 [v1] h:1 h:1 [v2] s:1 [v1] h:1 h:1 [v2] s:1 [v1] h:1 [v2] s:1 [v1] h:1 h:1 [v2] s:1 [v1] h:1 h:1 [v2] s:1 [v1] h:1 | )x8
+
+== A2 ==
+# Le même, une octave plus haut : ornements, et la cascade qui ramène en bas
+basse:     [onde 2f] [vib 32] [gate .95]
+basse:     c#5:1 f#5:1 g#5:1 a5:3 c#5:1 f#5:1 g#5:1 a5:7 | c#5:1 f#5:1 g#5:1 a5:3 c#5:1 f#5:1 g#5:1 a5:7 |
+basse:     b4:1 e5:1 f#5:1 g#5:3 b4:1 e5:1 f#5:1 g#5:7 |
+basse:     f#5:1 g#5:1 a5:1 g#5:1 f#5:1 f5:1 f#5:1 f5:1 e5:1 d5:1 e5:1 f5:1 e5:1 d5:1 c#5:2 |
+basse:     c#5:1 f#5:1 g#5:1 a5:3 c#5:1 f#5:1 g#5:1 a5:2 b5:1 a5:1 g#5:1 f#5:1 g#5:1 |
+basse:     c#5:1 f#5:1 g#5:1 a5:4 g#5:1 a5:1 g#5:1 f#5:1 e5:1 c#5:1 b4:2 g#4:1 |
+basse:     b4:1 e5:1 g#5:4 b5:1 e5:1 g#5:1 b5:2 d6:1 c#6:1 b5:1 a5:1 g#5:1 |
+basse:     f5:2 g#5:1 a5:1 g#5:2 c#6:1 d6:1 c#6:1 d6:1 c#6:1 d6:1 c#6:4 |
+accordeon: [v2] [duty 0] [gate .4]
+accordeon: f#3:1 c#4:1 f#4:1 a4:1 c#5:1 a4:1 f#4:1 c#4:1 f#3:1 c#4:1 f#4:1 a4:1 c#5:1 a4:1 f#4:1 c#4:1 | d3:1 a3:1 d4:1 f#4:1 a4:1 f#4:1 d4:1 a3:1 d3:1 a3:1 d4:1 f#4:1 a4:1 f#4:1 d4:1 a3:1 |
+accordeon: e3:1 b3:1 e4:1 g#4:1 b4:1 g#4:1 e4:1 b3:1 e3:1 b3:1 e4:1 g#4:1 b4:1 g#4:1 e4:1 b3:1 | c#3:1 g#3:1 c#4:1 f4:1 g#4:1 f4:1 c#4:1 g#3:1 c#3:1 g#3:1 c#4:1 f4:1 g#4:1 f4:1 c#4:1 g#3:1 |
+accordeon: f#3:1 c#4:1 f#4:1 a4:1 c#5:1 a4:1 f#4:1 c#4:1 f#3:1 c#4:1 f#4:1 a4:1 c#5:1 a4:1 f#4:1 c#4:1 | d3:1 a3:1 d4:1 f#4:1 a4:1 f#4:1 d4:1 a3:1 d3:1 a3:1 d4:1 f#4:1 a4:1 f#4:1 d4:1 a3:1 |
+accordeon: e3:1 b3:1 e4:1 g#4:1 b4:1 g#4:1 e4:1 b3:1 e3:1 b3:1 e4:1 g#4:1 b4:1 g#4:1 e4:1 b3:1 | c#3:1 g#3:1 c#4:1 f4:1 g#4:1 f4:1 c#4:1 g#3:1 c#3:1 g#3:1 c#4:1 f4:1 g#4:1 f4:1 c#4:1 g#3:1 |
+melodie:   [v2] [duty 1] [gate .3]
+melodie:   f#3:1 -:2 f#3:1 -:2 c#4:1 -:1 f#3:1 -:2 f#3:1 -:2 c#4:1 -:1 | d3:1 -:2 d3:1 -:2 a3:1 -:1 d3:1 -:2 d3:1 -:2 a3:1 -:1 |
+melodie:   e3:1 -:2 e3:1 -:2 b3:1 -:1 e3:1 -:2 e3:1 -:2 b3:1 -:1 | c#3:1 -:2 c#3:1 -:2 g#3:1 -:1 c#3:1 -:2 c#3:1 -:2 g#3:1 -:1 |
+melodie:   f#3:1 -:2 f#3:1 -:2 c#4:1 -:1 f#3:1 -:2 f#3:1 -:2 c#4:1 -:1 | d3:1 -:2 d3:1 -:2 a3:1 -:1 d3:1 -:2 d3:1 -:2 a3:1 -:1 |
+melodie:   e3:1 -:2 e3:1 -:2 b3:1 -:1 e3:1 -:2 e3:1 -:2 b3:1 -:1 | c#3:1 -:2 c#3:1 -:2 g#3:1 -:1 c#3:1 -:2 c#3:1 -:2 g#3:1 -:1 |
+batterie:  ( [v2] s:1 [v1] h:1 h:1 [v2] s:1 [v1] h:1 h:1 [v2] s:1 [v1] h:1 [v2] s:1 [v1] h:1 h:1 [v2] s:1 [v1] h:1 h:1 [v2] s:1 [v1] h:1 | )x7 [v2] s:1 [v1] h:1 h:1 [v2] s:1 [v1] h:1 h:1 [v2] s:1 [v1] h:1 [v3] s:2 s:2 s:1 s:1 s:2 |
+
+== B ==
+# La deuxième partie : les fa# tenus, les petites broderies
+basse:     [onde 2f] [vib 32] [gate .95]
+basse:     c#4:1 f#4:5 c#4:1 f#4:2 a4:1 b4:2 a4:1 g#4:1 f#4:1 a4:1 |
+basse:     c#4:1 f#4:5 c#4:1 f#4:1 g#4:1 a4:2 b4:2 a4:1 g#4:1 e4:1 |
+basse:     g#4:7 e5:1 g#4:2 g#5:1 e5:1 b4:1 a4:1 g#4:2 |
+basse:     g#4:2 f4:3 g#4:4 a4:1 b4:1 c#5:1 g#4:3 f#4:1 |
+basse:     c#4:1 f#4:1 a4:2 f#4:2 c#4:1 a4:1 f#4:2 a4:2 b4:1 c#5:1 a4:1 f#4:1 |
+basse:     c#4:1 f#4:3 a4:1 f#4:1 a4:2 f#4:2 a4:3 f#5:1 a5:1 g#5:1 |
+basse:     e5:1 b4:1 g#4:10 b4:1 e5:1 g#5:1 f#5:1 |
+basse:     f5:2 g#4:2 f5:2 c#5:1 f5:1 c#5:1 b4:2 c#5:5 |
+accordeon: [v2] [duty 0] [gate .4]
+accordeon: f#3:1 c#4:1 f#4:1 a4:1 c#5:1 a4:1 f#4:1 c#4:1 f#3:1 c#4:1 f#4:1 a4:1 c#5:1 a4:1 f#4:1 c#4:1 | d3:1 a3:1 d4:1 f#4:1 a4:1 f#4:1 d4:1 a3:1 d3:1 a3:1 d4:1 f#4:1 a4:1 f#4:1 d4:1 a3:1 |
+accordeon: e3:1 b3:1 e4:1 g#4:1 b4:1 g#4:1 e4:1 b3:1 e3:1 b3:1 e4:1 g#4:1 b4:1 g#4:1 e4:1 b3:1 | c#3:1 g#3:1 c#4:1 f4:1 g#4:1 f4:1 c#4:1 g#3:1 c#3:1 g#3:1 c#4:1 f4:1 g#4:1 f4:1 c#4:1 g#3:1 |
+accordeon: f#3:1 c#4:1 f#4:1 a4:1 c#5:1 a4:1 f#4:1 c#4:1 f#3:1 c#4:1 f#4:1 a4:1 c#5:1 a4:1 f#4:1 c#4:1 | d3:1 a3:1 d4:1 f#4:1 a4:1 f#4:1 d4:1 a3:1 d3:1 a3:1 d4:1 f#4:1 a4:1 f#4:1 d4:1 a3:1 |
+accordeon: e3:1 b3:1 e4:1 g#4:1 b4:1 g#4:1 e4:1 b3:1 e3:1 b3:1 e4:1 g#4:1 b4:1 g#4:1 e4:1 b3:1 | c#3:1 g#3:1 c#4:1 f4:1 g#4:1 f4:1 c#4:1 g#3:1 c#3:1 g#3:1 c#4:1 f4:1 g#4:1 f4:1 c#4:1 g#3:1 |
+melodie:   [v2] [duty 1] [gate .3]
+melodie:   f#3:1 -:2 f#3:1 -:2 c#4:1 -:1 f#3:1 -:2 f#3:1 -:2 c#4:1 -:1 | d3:1 -:2 d3:1 -:2 a3:1 -:1 d3:1 -:2 d3:1 -:2 a3:1 -:1 |
+melodie:   e3:1 -:2 e3:1 -:2 b3:1 -:1 e3:1 -:2 e3:1 -:2 b3:1 -:1 | c#3:1 -:2 c#3:1 -:2 g#3:1 -:1 c#3:1 -:2 c#3:1 -:2 g#3:1 -:1 |
+melodie:   f#3:1 -:2 f#3:1 -:2 c#4:1 -:1 f#3:1 -:2 f#3:1 -:2 c#4:1 -:1 | d3:1 -:2 d3:1 -:2 a3:1 -:1 d3:1 -:2 d3:1 -:2 a3:1 -:1 |
+melodie:   e3:1 -:2 e3:1 -:2 b3:1 -:1 e3:1 -:2 e3:1 -:2 b3:1 -:1 | c#3:1 -:2 c#3:1 -:2 g#3:1 -:1 c#3:1 -:2 c#3:1 -:2 g#3:1 -:1 |
+batterie:  ( [v2] s:1 [v1] h:1 h:1 [v2] s:1 [v1] h:1 h:1 [v2] s:1 [v1] h:1 [v2] s:1 [v1] h:1 h:1 [v2] s:1 [v1] h:1 h:1 [v2] s:1 [v1] h:1 | )x8
+
+== C ==
+# La partie chantée qui descend (fa#m, ré, mi, do#), le vibrato plus large
+basse:     [onde 2f] [vib 42] [gate 1]
+basse:     -:2 c#5:2 a5:3 g#5:3 f#5:2 c#5:3 e5:1 | e5:5 d5:1 c#5:1 d5:8 -:1 |
+basse:     e4:1 b4:3 g#5:3 f#5:3 e5:3 d5:1 c#5:2 | c#5:14 -:2 |
+basse:     a4:2 c#5:3 a5:2 g#5:3 f#5:3 c#5:3 | e5:5 d5:1 c#5:1 d5:8 -:1 |
+basse:     g#4:1 e5:3 f#5:4 e5:5 d5:1 c#5:2 | c#5:2 g#4:3 c#5:8 -:3 |
+accordeon: [v2] [duty 0] [gate .4]
+accordeon: f#3:1 c#4:1 f#4:1 a4:1 c#5:1 a4:1 f#4:1 c#4:1 f#3:1 c#4:1 f#4:1 a4:1 c#5:1 a4:1 f#4:1 c#4:1 | d3:1 a3:1 d4:1 f#4:1 a4:1 f#4:1 d4:1 a3:1 d3:1 a3:1 d4:1 f#4:1 a4:1 f#4:1 d4:1 a3:1 |
+accordeon: e3:1 b3:1 e4:1 g#4:1 b4:1 g#4:1 e4:1 b3:1 e3:1 b3:1 e4:1 g#4:1 b4:1 g#4:1 e4:1 b3:1 | c#3:1 g#3:1 c#4:1 f4:1 g#4:1 f4:1 c#4:1 g#3:1 c#3:1 g#3:1 c#4:1 f4:1 g#4:1 f4:1 c#4:1 g#3:1 |
+accordeon: f#3:1 c#4:1 f#4:1 a4:1 c#5:1 a4:1 f#4:1 c#4:1 f#3:1 c#4:1 f#4:1 a4:1 c#5:1 a4:1 f#4:1 c#4:1 | d3:1 a3:1 d4:1 f#4:1 a4:1 f#4:1 d4:1 a3:1 d3:1 a3:1 d4:1 f#4:1 a4:1 f#4:1 d4:1 a3:1 |
+accordeon: e3:1 b3:1 e4:1 g#4:1 b4:1 g#4:1 e4:1 b3:1 e3:1 b3:1 e4:1 g#4:1 b4:1 g#4:1 e4:1 b3:1 | c#3:1 g#3:1 c#4:1 f4:1 g#4:1 f4:1 c#4:1 g#3:1 c#3:1 g#3:1 c#4:1 f4:1 g#4:1 f4:1 c#4:1 g#3:1 |
+melodie:   [v2] [duty 1] [gate .3]
+melodie:   f#3:1 -:2 f#3:1 -:2 c#4:1 -:1 f#3:1 -:2 f#3:1 -:2 c#4:1 -:1 | d3:1 -:2 d3:1 -:2 a3:1 -:1 d3:1 -:2 d3:1 -:2 a3:1 -:1 |
+melodie:   e3:1 -:2 e3:1 -:2 b3:1 -:1 e3:1 -:2 e3:1 -:2 b3:1 -:1 | c#3:1 -:2 c#3:1 -:2 g#3:1 -:1 c#3:1 -:2 c#3:1 -:2 g#3:1 -:1 |
+melodie:   f#3:1 -:2 f#3:1 -:2 c#4:1 -:1 f#3:1 -:2 f#3:1 -:2 c#4:1 -:1 | d3:1 -:2 d3:1 -:2 a3:1 -:1 d3:1 -:2 d3:1 -:2 a3:1 -:1 |
+melodie:   e3:1 -:2 e3:1 -:2 b3:1 -:1 e3:1 -:2 e3:1 -:2 b3:1 -:1 | c#3:1 -:2 c#3:1 -:2 g#3:1 -:1 c#3:1 -:2 c#3:1 -:2 g#3:1 -:1 |
+batterie:  ( [v1] h:2 h:2 [v2] s:2 [v1] h:2 h:2 h:2 [v2] s:2 [v1] h:2 | )x7 [v2] s:2 s:2 s:1 s:1 [v3] s:2 s:2 s:2 s:2 s:2 |
+
+ordre: INTRO | A A2 B C

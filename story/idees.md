@@ -72,8 +72,11 @@ Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, ave
   désassemblage d'*Ocarina* sur la machine : transcrire.
 - **Fait** : le Chant des Tempêtes (music/tempetes.txt, $2b, transcrit de mémoire, à vérifier à
   l'oreille : out/apercus/tempetes_apercu.wav) joue à la fin du chapitre 6, quand les moulins
-  repartent. **Gerudo Valley** : pas encore écrit (je ne suis pas sûr de la mélodie de mémoire) :
-  il faudrait une partition ou un MIDI de référence, et choisir l'endroit.
+  repartent.
+- **Fait** : **Gerudo Valley** (music/gerudo.txt, $0b), la version violon de Taylor Davis que Denis
+  adore, relevée dans son mp3 : la musique du forain (la plage du forain, 1:ac). 2e version validée
+  (« excellent, on reconnaît ») : le violon sur l'onde (forme d'onde de corde frottée), pas de
+  grosse basse, deux mesures de guitare puis le thème.
 
 ## Le temps ralenti (le tokitobashi de Hit, *Dragon Ball Super*) (demandé par Denis)
 - Ses mots : « un objet pour ralentir le temps, un peu comme le tokitobashi de Hit dans Dragon
