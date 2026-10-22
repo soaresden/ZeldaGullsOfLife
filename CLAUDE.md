@@ -668,6 +668,28 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Police : seulement les accents de la version US (pas de « ô » : écrire « coté »), vérifié par
   tools/check_text.py.
 
+## La barre d'état en bas (option, comme Link's Awakening)
+- Reprise telle quelle de « Zelda Oracles combined » (branche hack/hud-bottom de son dossier
+  oracles-hud, fr/port_hud_bottom.py) : ne pas la réinventer, ce projet-là l'a testée en détail.
+- Option = un octet en ROM : table « GULLSOPT » en $3fe0 de la banque 0
+  (code/ages/balladeOptions.s, FORCE), BALLADE_OPT_HUD_BAS = $3ff0 (0 en haut, défaut ; 1 en bas).
+  `python tools/options.py ROM [hud=bas|haut] [SORTIE]` la lit / la change sans recompiler (somme
+  globale recalculée) ; patch : make_patch.py sur la ROM obtenue.
+- Principe : quand l'écran a la barre en haut (wGfxRegsFinal.LYC < $18, interruption en mode 2, 3
+  ou 5), vblankInterrupt -> balladeHudBasVblank (banque 0) -> balladeHudBas.vblankBody (section à
+  part) : tout est fait 16 lignes plus haut (SCY + $10), la barre prend les lignes $80-$8f
+  (wBalladeHudPhase : les événements de l'interruption, BALLADE_HUD_PHASE_*). lcdInterrupt saute à
+  balladeHudBasLcd si wBalladeHudBas (1 en jeu, 2 dans un menu). Les objets : balladeHudCameraY /
+  balladeHudLdiY (_getObjectPositionOnScreen) ; les sprites des menus : balladeHudMenuSpriteY ;
+  les icônes A/B : balladeHudItemsY / balladeHudFixItemsY (updateStatusBar_body, banque 2).
+- La banque 0 semble pleine dans la ROM, mais c'est l'éditeur de liens qui y range des sections
+  superfree (titleGull...) : du code ajouté dans la section Bank_0 les pousse ailleurs.
+- Un objet placé « fixe à l'écran » d'après hCameraY (radar de Ghost Babel, jarre du Terrier)
+  remonte avec le reste : rien à faire.
+- Test : python tools/test_hud.py DOSSIER (village, Marine qui parle, défilement, inventaire, carte,
+  Songe, auberge, Phare ; en haut | en bas). Les autres tests prennent ROM=DOSSIER/gulls_hud_bas.gbc.
+  Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/hud.png
+
 ## Écran titre
 - Après le film, plus de montée de l'arbre : introCinematic_gotoTitle -> écran titre.
 - tools/make_title.py : image en bandes (ciel, logo, aube, mer), 6 palettes, GFXH_TITLE /
