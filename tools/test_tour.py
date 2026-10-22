@@ -2,7 +2,7 @@
 caché (8. Plage) :
 - arrivée au ponton ; la porte de la tour : Marine chante les sept couplets, elle s'ouvre ;
 - 1F la Lune qui tombe : quatre torches allumées en même temps (le Lance-Graines, quatre
-  directions) : l'escalier ;
+  directions) : le Sablier, l'escalier ;
 - 2F le cristal de l'autre coté de la lave, un saut ; Dark Link (les Link de l'ombre) ;
 - 3F le bouton de l'îlot (le Grappin-Écho, un bloc de la Canne) ; Ganon ;
 - 4F la Cape de Roc, un garde endormi (la Clochette d'Aube) ; le Cauchemar (l'œil) ;
@@ -188,9 +188,11 @@ for facing in ('up', 'right', 'down', 'left'):
     g.press('b', 4)
     g.w(14)
 g.w(40)
-check(g.tile(0x87) == 0x45, "les quatre feux ensemble : l'escalier")
 shoot('t04_lune', 'La Lune qui tombe : les quatre feux')
-g.text_through()
+for _ in range(12):          # Marine, puis le Sablier (tools/test_sablier.py)
+    g.text_through()
+    g.w(20)
+check(g.tile(0x87) == 0x45, "les quatre feux ensemble : le Sablier, l'escalier")
 check(stairs(8, 7, (5, 0xc2)), "l'escalier : 2F (5:c2)")
 
 # --- 2F : le cristal de l'autre coté de la lave ; Dark Link

@@ -83,6 +83,15 @@ Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, ave
 - Pistes : ~3 s de temps figé (ennemis et projectiles arrêtés, Link bouge, couleurs grisées ou
   bleutées, musique coupée et un tic-tac) ; les coups sont comptés sans dégâts, puis tout d'un
   coup à la reprise : tremblement d'écran, flash blanc, gros son ; une recharge ou un coût.
+- **Fait** : le **Sablier** (TREASURE_14 ; code/ages/balladeObjects.s, tools/test_sablier.py). La
+  Lune qui tombe (Tour Sans-Nuit, 1F) le laisse tomber en remontant (clin d'œil à *Majora's Mask*).
+  On le retourne (bouton B ou A) : 3 secondes de temps arrêté (ennemis et tirs figés, le décor
+  assombri, un tic-tac), Link frappe à volonté sans être blessé ; puis les coups éclatent **en
+  crescendo** (« les dégâts en crescendo », Denis) : autant de coups de tonnerre que de coups
+  donnés, l'écran tremble de plus en plus, une grande explosion sur chaque ennemi touché, et le
+  k-ième coup reçu par un ennemi compte k-1 de plus (3 coups = 3 de plus, 6 coups = 15 de plus).
+  Recharge : 8 secondes (le sable retombe). À régler en jouant : la durée, la recharge, le bonus ;
+  Ganon (seulement l'Épée de Légende) ne devra pas y céder.
 
 ## Le contre parfait (*Onimusha*) (demandé par Denis)
 - Ses mots : « si on sort son épée au bon moment, un son puissant, et ça permet de se téléporter à

@@ -75,6 +75,10 @@ def main():
     for y, row in enumerate(read_frames(os.path.join(ROOT, 'art', 'carnet.txt'))[0]):
         for x, c in enumerate(row):
             icons.putpixel((24 + x, y), index[c])
+    # Le Sablier (TREASURE_14) à la place de l'air des Courants (x = 56, demi-tuiles $a7-$a8)
+    for y, row in enumerate(read_frames(os.path.join(ROOT, 'art', 'sablier.txt'))[0]):
+        for x, c in enumerate(row):
+            icons.putpixel((56 + x, y), index[c])
     dst = os.path.join(DISASM, 'gfx', 'common', 'spr_item_icons_3.png')
     icons.save(dst)
     print('->', os.path.relpath(dst, ROOT))

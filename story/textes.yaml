@@ -2852,7 +2852,9 @@ groups:
       \col(1)Marine\col(0): Ouf!
       La lune
       remonte...\stop
-      Un escalier!
+      Elle a laissé
+      tomber quelque
+      chose!
 
 
 
@@ -2958,6 +2960,19 @@ groups:
       bois de Lila...
       Il a l'air de
       s'ennuyer.
+
+  - name: TX_0067
+    index: 0x67
+    text: |-
+      Le \col(1)Sablier\col(0)!\stop
+      Retourne-le: le
+      temps s'arrête
+      un instant.\stop
+      Les coups donnés
+      pendant ce temps
+      éclatent tous à
+      la fin, de plus
+      en plus fort!
 
   - name: TX_0072
     index: 0x72
@@ -3474,6 +3489,13 @@ groups:
       Sire Bouchon
       Le chevalier de
       bois de Lila.
+
+  - name: TX_0943
+    index: 0x43
+    text: |-
+      Sablier
+      Temps arrêté,
+      coups décuplés.
 
   - name: TX_0942
     index: 0x42

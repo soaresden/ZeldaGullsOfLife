@@ -418,6 +418,22 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   en tapotant la direction (un coup = SND_SPLASH). Pas encore de sprite de Link sur la planche.
 - Test : python tools/test_surf.py DOSSIER (huit coups de nage dans la lagune, avant / après).
 
+## Le Sablier (idée de Denis : le temps ralenti, les dégâts en crescendo)
+- ITEM_14 / TREASURE_14 (libres dans Ages) : itemUsageTables.s, parentItemUsage.s
+  (parentItemCode_sablier, harpFluteParent.s -> balladeObjects.useSablier), treasureDisplayData.s
+  (demi-tuiles $a7-$a8, TX_0943), treasureObjectData.s ($0a, $00, TX_0067, image $6a) ; l'icône
+  art/sablier.txt, dessinée par make_sprites.py à la place de l'air des Courants (x = 56).
+- La Lune qui tombe (moonTorches, 5:c1) : TX_5add puis giveTreasureAboveLink, puis l'escalier.
+- Retourné : INTERAC_BALLADE_OBJECT $33 (sablier). 180 images : wDisabledObjects |= $0c (ennemis et
+  tirs), wDisableScreenTransitions, darkenRoomLightly (pas dans une salle déjà sombre) ; chaque
+  image (sablierHold) : stunCounter à 1 (un ennemi ou tir figé ne blesse pas Link), var2a et
+  invincibilityCounter comme updateEnemies (arrêté), un coup qui porte = la vie qui baisse
+  (var30-3f : coups par ennemi ; $0a-$19 : leur vie). Puis min(coups, 12) coups de tonnerre
+  (SND_STRIKE, l'écran tremble de plus en plus), SND_BIG_EXPLOSION_2, INTERAC_EXPLOSION sur chaque
+  ennemi touché, vie -= 1 + ... + (n-1) ; recharge 8 s (un 2e retournement : SND_ERROR).
+- Test : python tools/test_sablier.py DOSSIER (la Lune le donne ; Dark Link figé, 3 coups, +3).
+  Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/sablier.png
+
 ## Le contre parfait (idée de Denis, comme dans Onimusha)
 - code/ages/balladeParry.s (section à part) : swordParent.s note l'image où l'épée sort (wcde3 ;
   wcde3+1 = 1 : armé) ; collisionEffects.s (les coups qui touchent Link) : un ennemi (pas un

@@ -2759,7 +2759,8 @@ groups:
       The moon is
       going back
       up...\stop
-      Stairs!
+      It dropped
+      something!
 
 
 
@@ -2859,6 +2860,19 @@ groups:
       Lila's wooden
       knight... He
       looks bored.
+
+  - name: TX_0067
+    index: 0x67
+    text: |-
+      The \col(1)Hourglass\col(0)!\stop
+      Turn it over:
+      time stops for a
+      moment.\stop
+      Every blow you
+      strike meanwhile
+      bursts out at
+      the end, louder
+      and louder!
 
   - name: TX_0072
     index: 0x72
@@ -3221,6 +3235,13 @@ groups:
       Sir Cork
       Lila's wooden
       knight.
+
+  - name: TX_0943
+    index: 0x43
+    text: |-
+      Hourglass
+      Stops time;
+      blows build up.
 
   - name: TX_0942
     index: 0x42
