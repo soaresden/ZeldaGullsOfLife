@@ -51,6 +51,13 @@ Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, ave
   6, 7 ; la Cathédrale n'a pas de boss = 9, plus les quarts trouvés). Régler la profondeur pour
   qu'avant le donjon 7 on voie le fond sans pouvoir l'atteindre.
 - Quart de cœur à gagner, comme les deux autres mini-jeux.
+- **Fait** (la Fosse de Bulle, story/salles/fosse.txt, tools/test_fosse.py) : Bulle, au club de
+  plongée, propose la plongée après le Récif. Cinq profondeurs sous l'eau ; **les cœurs sont le
+  souffle** (ils se vident d'un quart toutes les 1,5 s ; plus on en a, plus on descend) ; à bout de
+  souffle, Bulle tire sur la corde. Des rubis, un **quart de cœur** à la profondeur 3, et au fond
+  l'**Épée de Légende** plantée dans le sable : avec 8 cœurs on la voit, mais il faut le souffle de
+  **9 cœurs** (après le donjon 7) pour la dégager. **Ganon ne craint qu'elle** (Tour Sans-Nuit,
+  3F : sans elle, Marine pense à la Fosse). Pas de Pelle sous l'eau : l'épée se tire du sable.
 
 ## La planche de surf (demandée par Denis)
 - Link a une **planche de surf** pour aller plus vite sur l'eau, comme Pikachu qui surfe dans

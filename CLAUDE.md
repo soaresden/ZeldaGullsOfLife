@@ -418,6 +418,28 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   en tapotant la direction (un coup = SND_SPLASH). Pas encore de sprite de Link sur la planche.
 - Test : python tools/test_surf.py DOSSIER (huit coups de nage dans la lagune, avant / après).
 
+## La Fosse de Bulle et l'Épée de Légende (idée de Denis, plongeur)
+- Bulle (3:24, surfInstructor) : après le Récif, la 1re fois la planche de surf, ensuite « On
+  plonge ? » (TX_5ae1 ; TX_5ae6 une fois l'épée trouvée ; Non : TX_5ae3) -> 5:d0 $17, les cœurs
+  pleins. La Fosse : story/salles/fosse.txt, 5:d0-d4 l'une sous l'autre (dungeon09Layout ;
+  dungeonData09 = l'ancien Chemin du Maku), décor 67 = le Récif sous l'eau (3d) à l'index de
+  donjon 9 (make_songe.py : COPIES et REEL). Les anciennes sorties d'Ages de 5:d0-d4 sont
+  commentées dans warpSources.s (sinon nager vers le bas menait en 0:a5). Passages de trois cases
+  (Link glisse). Marine reste dehors (balladeMarine.s : donjons 3 et 9). Musique : celle du Récif.
+- Le souffle (INTERAC_BALLADE_OBJECT $34, dans chaque salle) : un quart de cœur toutes les
+  FOSSE_FRAMES (90) images ; à une demi-coeur, TX_5ae2 puis fosseSurface : retour devant Bulle
+  (3:24 $53), les cœurs pleins. Coffres (chestData.s) : rubis (5:d1), quart de cœur (5:d2),
+  beaucoup de rubis (5:d3).
+- L'Épée de Légende ($35, art/objets.txt image 4, 5:d4 (5,7)) : A -> TREASURE_SWORD sous-ligne 2
+  (niveau 3, TX_001e réécrit en FR), puis TX_5ae4 et retour au club. Il faut wLinkMaxHealth >= 36
+  (9 cœurs, après le donjon 7) pour la dégager du sable (TX_5ae7 sinon) : le souffle seul ne
+  suffisait pas comme barrière (tout dépend de la vitesse du joueur).
+- Ganon (5:c7 -> 5:f5) ne craint qu'elle : ganonGuard ($36) remet sa vie (SND_CLINK) tant que
+  wSwordLevel < 3, et Marine parle de la Fosse (TX_5ae5) ; le Sablier ne l'entame pas non plus.
+- Tests : python tools/test_fosse.py DOSSIER [mesure] (8 cœurs : le fond, l'épée prise, la
+  remontée ; 9 cœurs : l'épée) ; test_tour.py vérifie Ganon sans puis avec l'épée.
+  Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/fosse.png
+
 ## Le Sablier (idée de Denis : le temps ralenti, les dégâts en crescendo)
 - ITEM_14 / TREASURE_14 (libres dans Ages) : itemUsageTables.s, parentItemUsage.s
   (parentItemCode_sablier, harpFluteParent.s -> balladeObjects.useSablier), treasureDisplayData.s

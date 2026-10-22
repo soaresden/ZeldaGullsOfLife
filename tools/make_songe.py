@@ -36,7 +36,7 @@ DATA = os.path.join(DISASM, 'data', 'ages')
 # décor du Songe -> décor du Réel copié (0x3b : la Spirale Céleste, pas un Songe : le Donjon des
 # Ailes recopié à l'index de donjon 6, en bleuté)
 COPIES = {0x7d: 0x10, 0x7e: 0x18, 0x7f: 0x2b, 0x7c: 0x00, 0x7b: 0x00, 0x06: 0x1e, 0x07: 0x13, 0x08: 0x1a,
-          0x3b: 0x37, 0x0d: 0x10, 0x0e: 0x10, 0x0f: 0x02, 0x0c: 0x02}
+          0x3b: 0x37, 0x0d: 0x10, 0x0e: 0x10, 0x0f: 0x02, 0x0c: 0x02, 0x67: 0x3d}
 
 # (décor, copie de, en-tête de palette d'origine, nouvel en-tête, octets du décor)
 SONGE = [
@@ -94,6 +94,9 @@ REEL = [
     (0x7b, '$0f, $81, UNIQUE_GFXH_LYNNA_CITY_1, GFXH_TILESET_OVERWORLD_PRESENT, PALH_TILESET_LYNNA_CITY, $00, $02, $00'),
     # L'Œil de l'Insomnis (île 8) : la Tour Noire (copie du $02, présent)
     (0x0f, '$0f, $81, UNIQUE_GFXH_BLACK_TOWER_OUTSIDE, GFXH_TILESET_OVERWORLD_PRESENT, PALH_TILESET_BLACK_TOWER_OUTSIDE_PRESENT, $02, $02, $01'),
+    # La Fosse de Bulle (la plongée, au large de la Lagune) : le Récif sous l'eau (3d), à l'index
+    # de donjon 9 (à la place du Chemin du Maku d'Ages, qu'on ne visite pas)
+    (0x67, '$29, $c8, UNIQUE_GFXH_NONE, GFXH_TILESET_MERMAIDS_CAVE, PALH_TILESET_MERMAIDS_CAVE_PAST_UNDERWATER, $26, $05, $13'),
 ]
 # En-têtes de palette écrits à la main dans paletteHeaders.s (hors du bloc du Songe) : à compter
 # dans NUM_PALETTE_HEADERS. $d5 PALH_OMBRE : l'Ombre de Marine (le Swoop, palette 6 des sprites) ;

@@ -4,7 +4,8 @@ caché (8. Plage) :
 - 1F la Lune qui tombe : quatre torches allumées en même temps (le Lance-Graines, quatre
   directions) : le Sablier, l'escalier ;
 - 2F le cristal de l'autre coté de la lave, un saut ; Dark Link (les Link de l'ombre) ;
-- 3F le bouton de l'îlot (le Grappin-Écho, un bloc de la Canne) ; Ganon ;
+- 3F le bouton de l'îlot (le Grappin-Écho, un bloc de la Canne) ; Ganon : sans l'Épée de Légende,
+  ses coups ne comptent pas (Marine parle de la Fosse) ; avec elle, il tombe ;
 - 4F la Cape de Roc, un garde endormi (la Clochette d'Aube) ; le Cauchemar (l'œil) ;
 - 5F l'Insomnis : le boss en rythme commence (il a son propre test, tools/test_rythme.py).
 
@@ -24,6 +25,7 @@ os.makedirs(OUT, exist_ok=True)
 TREASURE_CANE, TREASURE_SWITCH_HOOK, TREASURE_FLUTE, TREASURE_SHOOTER, TREASURE_FEATHER = 0x04, 0x0a, 0x0e, 0x0f, 0x17
 DISABLED_OBJECTS = 0xcc8a
 GROUP5_FLAGS = 0xca00          # wGroup5RoomFlags
+SWORD_LEVEL = 0xc6b2
 errors, shots = [], []
 g = Game()
 
@@ -232,7 +234,19 @@ for _ in range(40):          # Marine, le crâne qui gronde, Ganon apparaît
     if any(g.m[b + 1] == 0x04 and g.m[b + 4] >= 0x07 for b in g.enemies()):
         break
 shoot('t07_ganon', 'Ganon')
-check(nightmare(0xc7, 0xc7), 'Ganon vaincu')
+# Sans l'Épée de Légende (la Fosse de Bulle, tools/test_fosse.py), ses coups ne comptent pas
+ganon = [b for b in g.enemies() if g.m[b + 1] == 0x04]
+check(len(ganon) == 1, 'Ganon est là')
+if ganon:
+    life = g.m[ganon[0] + 0x29]
+    g.m[ganon[0] + 0x29] = life - 8
+    g.w(4)
+    check(g.m[ganon[0] + 0x29] == life, "sans l'Épée de Légende, Ganon ne perd rien (vie %d)" % life)
+    check(g.wait_text(60), "Marine : « Bulle parlait d'une épée, au fond de la Fosse... »")
+    shoot('t07b_ganon_marine', "Sans l'Épée de Légende")
+    g.text_through()
+g.m[SWORD_LEVEL] = 3          # (l'Épée de Légende)
+check(nightmare(0xc7, 0xc7), "avec l'Épée de Légende : Ganon vaincu")
 shoot('t08_ganon_fin', 'Ganon vaincu')
 check(stairs(5, 7, (5, 0xc8)), "l'escalier : 4F (5:c8)")
 

@@ -2266,6 +2266,79 @@ groups:
 
   # Chapitre 6 : le Nid des Vents (1:45-78)
   # En arrivant au courant ascendant (1:75), la première fois
+  - name: TX_5ae1
+    index: 0xe1
+    text: |-
+      \col(1)Bulle\col(0): Au
+      large, la Fosse
+      descend très,
+      très bas.\stop
+      Sous l'eau, tes
+      cœurs sont ton
+      souffle: plus tu
+      en as, plus tu
+      tiens.\stop
+      Au fond, une
+      épée dort dans
+      le sable...
+      dit-on.\stop
+      On plonge?
+        \opt()Oui \opt()Non
+
+  - name: TX_5ae2
+    index: 0xe2
+    text: |-
+      Plus d'air!\stop
+      \col(1)Bulle\col(0) tire sur
+      la corde et te
+      remonte.
+
+  - name: TX_5ae3
+    index: 0xe3
+    text: |-
+      \col(1)Bulle\col(0): Quand
+      tu veux!
+
+  - name: TX_5ae4
+    index: 0xe4
+    text: |-
+      L'épée brille
+      dans l'eau
+      sombre...\stop
+      \col(1)Bulle\col(0) tire sur
+      la corde: on
+      remonte!
+
+  - name: TX_5ae5
+    index: 0xe5
+    text: |-
+      \col(1)Marine\col(0): Nos
+      coups ne lui
+      font rien!\stop
+      Bulle parlait
+      d'une épée, au
+      fond de la Fosse
+      de la Lagune...\stop
+      Il nous la faut!
+
+  - name: TX_5ae6
+    index: 0xe6
+    text: |-
+      \col(1)Bulle\col(0): On
+      replonge dans la
+      Fosse?
+        \opt()Oui \opt()Non
+
+  - name: TX_5ae7
+    index: 0xe7
+    text: |-
+      L'épée est prise
+      dans le sable...\stop
+      Il te faudrait
+      plus de souffle
+      pour la dégager:
+      plus de cœurs!
+
   - name: TX_5aad
     index: 0xad
     text: |-
@@ -3063,6 +3136,17 @@ groups:
       lâche pour une
       attaque
       tournoyante.
+
+  - name: TX_001e
+    index: 0x1e
+    text: |-
+      Tu as trouvé
+      l'\col(1)Épée de
+      Légende\col(0)!\stop
+      Elle peut
+      blesser ce que
+      rien d'autre ne
+      touche.
 
   - name: TX_0071
     index: 0x71

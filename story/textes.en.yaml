@@ -2189,6 +2189,79 @@ groups:
 
   # Chapter 6: the Nest of Winds (1:45-78)
   # Arriving at the updraft (1:75), the first time
+  - name: TX_5ae1
+    index: 0xe1
+    text: |-
+      \col(1)Bulle\col(0): Out
+      at sea, the Pit
+      goes down very,
+      very deep.\stop
+      Underwater, your
+      hearts are your
+      breath: the more
+      you have, the
+      longer you last.\stop
+      At the bottom, a
+      sword sleeps in
+      the sand...
+      or so they say.\stop
+      Shall we dive?
+        \opt()Yes \opt()No
+
+  - name: TX_5ae2
+    index: 0xe2
+    text: |-
+      Out of breath!\stop
+      \col(1)Bulle\col(0) pulls the
+      rope and brings
+      you back up.
+
+  - name: TX_5ae3
+    index: 0xe3
+    text: |-
+      \col(1)Bulle\col(0): Any
+      time you like!
+
+  - name: TX_5ae4
+    index: 0xe4
+    text: |-
+      The sword glows
+      in the dark
+      water...\stop
+      \col(1)Bulle\col(0) pulls the
+      rope: back up
+      you go!
+
+  - name: TX_5ae5
+    index: 0xe5
+    text: |-
+      \col(1)Marin\col(0): Our
+      blows do nothing
+      to him!\stop
+      Bulle spoke of a
+      sword at the
+      bottom of the
+      Lagoon's Pit...\stop
+      We need it!
+
+  - name: TX_5ae6
+    index: 0xe6
+    text: |-
+      \col(1)Bulle\col(0): Dive
+      into the Pit
+      again?
+        \opt()Yes \opt()No
+
+  - name: TX_5ae7
+    index: 0xe7
+    text: |-
+      The sword is
+      stuck in the
+      sand...\stop
+      You'd need more
+      breath to free
+      it: more hearts!
+
   - name: TX_5aad
     index: 0xad
     text: |-

@@ -124,6 +124,7 @@ ROOM_MUSIC = [
     (3, 0x1c, [0x27, 0x28, 0x29]),  # les maisons du veilleur, de la famille, de la chanteuse
     (4, 0x16, PALAIS),      # le Palais Givré (donjon 7 ; Givrolin lance la musique du boss)
     (1, 0x0b, [0xac]),      # la plage du forain (le Creuse-Rubis) : la Vallée Gerudo au violon
+    (5, 0x18, [0xd0, 0xd1, 0xd2, 0xd3, 0xd4]),  # la Fosse de Bulle (sous l'eau) : la musique du Récif
     (0, 0x0b, [0xac]),      # et dans le Songe
     (1, 0x28, ILE_OEIL),    # l'Œil de l'Insomnis : la Tour Noire d'Ages (MUS_BLACK_TOWER)
     (0, 0x28, ILE_OEIL),    # et dans le Songe

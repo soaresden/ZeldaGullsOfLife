@@ -174,7 +174,8 @@ g.w(60)
 g.text_through()
 check(obtained(g, TREASURE_FLIPPERS), 'Gaspard donne les Palmes de Zora', g)
 check(g.m[TRADE_ITEM] != 1 or not obtained(g, TREASURE_TRADEITEM), 'il a gardé la bouteille', g)
-check(talk(g, 5, 3), 'Gaspard, après', g)
+# (juste après les Palmes, le premier A se perd parfois : un 2e essai)
+check(talk(g, 5, 3) or talk(g, 5, 3), 'Gaspard, après', g)
 g.text_through()
 
 # À la nage : depuis la plage de la maison, vers le sud, jusqu'à l'îlot du Récif Murmurant

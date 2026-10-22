@@ -581,9 +581,11 @@ salle 5:c6
 	obj_Part $09 $80 $57
 	obj_Interaction $1e $07 $50 $00
 # 3F, Ganon (ENEMY_GANON d'Ages, sans sa résurrection) : en entrant, il pose sa propre arène (5:f5)
+# ; il ne craint que l'Épée de Légende ($36 : sinon sa vie revient, Marine parle de la Fosse)
 # à la place de la salle ; tant qu'il n'est pas vaincu (drapeau $80 de 5:c7) ; l'escalier en (5,7)
 salle 5:c7
 	obj_BeforeEvent balladeTourGanonBeforeEventObjectData
+	obj_Interaction INTERAC_BALLADE_OBJECT $36 $08 $08
 	obj_Interaction INTERAC_BALLADE_OBJECT $32 $58 $78
 	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
 salle 5:c8
@@ -738,3 +740,17 @@ salle 5:7b
 # Le souvenir (la maison de Marine à Mabe) : Tarkin à sa table
 salle 3:26
 	obj_Interaction INTERAC_BALLADE_OBJECT $20 $48 $58
+
+# La Fosse de Bulle (story/salles/fosse.txt) : le souffle qui se vide, dans chaque salle ; au fond,
+# l'Épée de Légende
+salle 5:d0
+	obj_Interaction INTERAC_BALLADE_OBJECT $34 $08 $08
+salle 5:d1
+	obj_Interaction INTERAC_BALLADE_OBJECT $34 $08 $08
+salle 5:d2
+	obj_Interaction INTERAC_BALLADE_OBJECT $34 $08 $08
+salle 5:d3
+	obj_Interaction INTERAC_BALLADE_OBJECT $34 $08 $08
+salle 5:d4
+	obj_Interaction INTERAC_BALLADE_OBJECT $34 $08 $08
+	obj_Interaction INTERAC_BALLADE_OBJECT $35 $58 $78
