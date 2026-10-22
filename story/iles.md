@@ -5,7 +5,7 @@ habitants, le donjon (et sa forme), l'objet, les boss, les mini-jeux et la musiq
 l'histoire écrite au début du projet (les rêves perdus, les couplets de Marine) et la traduit en
 choses qu'on peut construire avec le moteur d'*Oracle of Ages*.
 
-Pas de spoil ici au-delà de ce que Denis connaît déjà de l'histoire.
+Denis connaît toute l'histoire, fin comprise (il est le concepteur) : voir « La fin » plus bas.
 
 Les grilles (blocs `ile` et `donjon` ; `~` = la mer, `*` = le ciel) sont lues par `tools/make_plans.py`, qui dessine
 `docs/iles_plans.png` : modifier une grille ici, relancer l'outil, et le plan suit.
@@ -379,6 +379,26 @@ Chaque étage reprend un cauchemar de Link et une mécanique du jeu :
 
 (Construit : story/salles/tour.txt, deux ou trois salles par étage, 5:c0-cc. Le 3F a le vrai
 Ganon d'Ages, dans son arène. L'épilogue, après l'Insomnis, reste à écrire.)
+
+### La fin (décidée avec Denis le 22 octobre 2026)
+
+À raconter **simplement**, comme ça (Denis : « faudra raconter comme ça ») :
+
+1. Depuis que Link a disparu en mer, **Zelda ne dort plus** : elle s'inquiète trop pour lui.
+2. **L'Insomnis** (le dernier bout du Cauchemar) **se nourrit de cette inquiétude** : c'est pour ça
+   que plus personne ne dort sur les îles.
+3. En haut de la tour, l'Insomnis battu, Link retrouve **Zelda, en rêve**.
+4. **Marine lui chante sa chanson complète**, comme une berceuse : Zelda s'endort, et tout le
+   monde sur les îles se remet à dormir.
+5. **Marine reste humaine et vit sur sa propre île.** Le jeu continue après.
+
+Le twist en une phrase : « si personne ne dort, c'est à cause de Zelda, qui attend Link ».
+
+**L'après-jeu** (comme un GTA : le jeu est fini, mais il reste des choses à faire) : on revient au
+jeu après la fin ; les habitants ont compris ce qui s'est passé ; **l'île de Marine** (sa maison, on
+sort avec elle, elle a une épée et joue avec nous, le volley contre elle façon *Blobby Volley*) ;
+sur son île, on peut **appeler Zelda** (le sprite de Zelda d'*Ages*, avec sa couronne, en
+**blonde**).
 
 ---
 
