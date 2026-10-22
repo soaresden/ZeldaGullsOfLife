@@ -117,6 +117,8 @@
   .dots button.on { background: #ffe08a; border-color: #ffe08a; }
   .shots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
   .shots figure { margin: 0; }
+  .shots + .shots-title { margin-top: 34px; }
+  .shots-title { margin: 22px 0 12px; font: 700 20px var(--pix); color: #ffe08a; text-shadow: 2px 2px 0 var(--sea3); }
   .shots img { width: 100%; display: block; border: 3px solid var(--ink); border-radius: 6px; image-rendering: pixelated; cursor: zoom-in; box-shadow: 0 4px 0 var(--ink); }
   .shots figcaption { margin-top: 8px; font: italic 600 15px/1.35 Nunito, serif; color: var(--muted); }
   @media (max-width: 640px) { .shots { grid-template-columns: repeat(2, 1fr); gap: 12px; } }
@@ -326,7 +328,27 @@
 <section id="images">
   <div class="wrap">
     <h2><small data-en="A glimpse">Aperçu</small><span data-en="Somewhere beyond the sea">Quelque part au-delà de la mer</span></h2>
-    <p class="intro" data-en="No more than that: the rest is for you to find.">Pas plus : le reste, c'est à vous de le découvrir.</p>
+    <p class="intro" data-en="A taste of what's waiting out there. No more than that: the rest is for you to find.">Un avant-goût de ce qui vous attend. Pas plus : le reste, c'est à vous de le découvrir.</p>
+    <h3 class="shots-title" data-en="Bosses with a lot to say">Des boss qui ont la langue bien pendue</h3>
+    <div class="shots">
+      <figure><img src="docs/shots/teaser/boss_pantin.png" alt="Marine lance une bombe sur le Pantin-Sans-Fil" data-en-alt="Marin throws a bomb at the Stringless Puppet" loading="lazy"><figcaption data-en="Marin doesn't just talk…">Marine ne fait pas que parler…</figcaption></figure>
+      <figure><img src="docs/shots/teaser/boss_soldat.png" alt="Le Soldat de Plomb : Garde à vous ! Épée de plomb," data-en-alt="The Lead Soldier: Attention! Lead sword," loading="lazy"><figcaption data-en="Attention!">Garde à vous !</figcaption></figure>
+      <figure><img src="docs/shots/teaser/boss_copiator.png" alt="Copiator : Montre-moi. Tout ce que tu fais," data-en-alt="Copiator: Show me. Everything you do," loading="lazy"><figcaption data-en="He copies everything you do.">Il copie tout ce que tu fais.</figcaption></figure>
+      <figure><img src="docs/shots/teaser/boss_gardien.png" alt="Le Gardien des Cloches et sa faux" data-en-alt="The Bell Keeper and his scythe" loading="lazy"><figcaption data-en="For whom do the bells toll?">Les cloches sonnent pour qui ?</figcaption></figure>
+      <figure><img src="docs/shots/teaser/boss_givrolin.png" alt="Givrolin : Laissez-les" data-en-alt="Givrolin: Leave them" loading="lazy"><figcaption data-en="An ice palace, and its master.">Un palais de glace, et son maître.</figcaption></figure>
+      <figure><img src="docs/shots/teaser/boss_terrier.png" alt="Un boss au fond d'un terrier" data-en-alt="A boss at the bottom of a burrow" loading="lazy"><figcaption data-en="At the bottom of the burrow, something waits.">Au fond du terrier, quelque chose attend.</figcaption></figure>
+      <figure><img src="docs/shots/teaser/boss_chevalier.png" alt="Le Chevalier Gelé" data-en-alt="The Frozen Knight" loading="lazy"><figcaption data-en="A knight frozen in ice.">Un chevalier figé dans la glace.</figcaption></figure>
+      <figure><img src="docs/shots/teaser/objet_grappin.png" alt="Le Grappin-Écho !" data-en-alt="The Echo Hookshot!" loading="lazy"><figcaption data-en="Every dungeon, its item.">Chaque donjon, son objet.</figcaption></figure>
+    </div>
+    <h3 class="shots-title" data-en="Minigames, and a few surprises">Des mini-jeux, et quelques surprises</h3>
+    <div class="shots">
+      <figure><img src="docs/shots/teaser/mini_boite.png" alt="Link caché dans une boîte en carton, un garde passe, le radar en haut" data-en-alt="Link hidden in a cardboard box, a guard walks by, the radar in the corner" loading="lazy"><figcaption data-en="A cardboard box, a guard, a radar… ring a bell?">Un carton, un garde, un radar… ça vous rappelle quelque chose ?</figcaption></figure>
+      <figure><img src="docs/shots/teaser/mini_alerte.png" alt="Le garde a un doute : « ? »" data-en-alt="The guard has a doubt: '?'" loading="lazy"><figcaption data-en="'?'… Don't move.">« ? »… Ne bouge plus.</figcaption></figure>
+      <figure><img src="docs/shots/teaser/mini_lynels.png" alt="Un labyrinthe à rubis, des Lynels aux trousses" data-en-alt="A rupee maze, Lynels on your heels" loading="lazy"><figcaption data-en="Eat the rupees. Run from the Lynels.">Mange les rubis. Fuis les Lynels.</figcaption></figure>
+      <figure><img src="docs/shots/teaser/mini_mamono.png" alt="Le démineur du forain : des chiffres et un monstre" data-en-alt="The showman's minesweeper: numbers and a monster" loading="lazy"><figcaption data-en="Numbers don't lie… monsters do.">Les chiffres ne mentent pas… les monstres, si.</figcaption></figure>
+      <figure><img src="docs/shots/teaser/mini_plongee.png" alt="Link plonge en apnée vers un trésor" data-en-alt="Link free-dives towards a treasure" loading="lazy"><figcaption data-en="Hold your breath.">Retiens ton souffle.</figcaption></figure>
+    </div>
+    <h3 class="shots-title" data-en="Chapter 1, the playable demo">Le chapitre 1, la démo jouable</h3>
     <div class="shots">
       <figure><img src="docs/shots/chapitre11.png" alt="Une plage, au petit matin" data-en-alt="A beach, at dawn" loading="lazy"><figcaption data-en="A beach, at dawn.">Une plage, au petit matin.</figcaption></figure>
       <figure><img src="docs/shots/chapitre12.png" alt="Quelqu'un arrive en volant" data-en-alt="Someone comes flying in" loading="lazy"><figcaption data-en="Someone comes flying in…">Quelqu'un arrive en volant…</figcaption></figure>
