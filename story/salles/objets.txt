@@ -542,6 +542,69 @@ salle 4:64
 	obj_Interaction INTERAC_BALLADE_OBJECT $08 $38 $78
 	obj_BeforeEvent group5Map78BeforeEventObjectData
 
+# --- L'Œil de l'Insomnis (île 8, 1:b8-da ; story/salles/ile_oeil.txt) ---
+# Le ponton : le Bateau-Rondin ; Marine parle en arrivant
+salle d9
+	obj_Interaction INTERAC_BALLADE_OBJECT $00 $68 $58
+	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+# La tour : sa porte (ligne 4, colonnes 4-5) ; Marine chante les sept couplets
+salle c9
+	obj_Interaction INTERAC_BALLADE_OBJECT $30 $48 $48
+
+# --- La Tour Sans-Nuit (donjon 8, groupe 5 ; story/salles/tour.txt) ---
+# L'entrée : « Niveau 8 - Tour Sans-Nuit » ($09), puis Marine ($01)
+salle 5:c0
+	obj_Interaction INTERAC_BALLADE_OBJECT $09 $08 $08
+	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+# 1F, la Lune qui tombe : quatre torches peu de temps allumées ; l'escalier en (8,7)
+salle 5:c1
+	obj_Interaction INTERAC_BALLADE_OBJECT $31 $88 $78
+	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+salle 5:c2
+# 2F : le cristal (PART_SWITCH, bit 0) -> bit 0 de wActiveTriggers -> le volet de l'est ($1e $05)
+salle 5:c3
+	obj_Part $05 $01 $2b
+	obj_Interaction $24 $01 $00 $00
+	obj_Interaction $1e $05 $5e $00
+	obj_RandomEnemy $30 ENEMY_KEESE $00
+# 2F, Dark Link : deux Link de l'ombre (ENEMY_LINK_MIMIC) ; la porte de l'ouest fermée tant qu'ils
+# vivent ; l'escalier en (5,7)
+salle 5:c4
+	obj_Interaction $1e $0b $50 $00
+	obj_SpecificEnemyA $00 $64 $00 $38 $b8
+	obj_SpecificEnemyA $00 $64 $00 $78 $b8
+	obj_Interaction INTERAC_BALLADE_OBJECT $32 $58 $78
+	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+salle 5:c5
+# 3F : le bouton de l'îlot (PART_BUTTON bit 0, $80 : seulement sous un poids) -> le volet de l'ouest
+salle 5:c6
+	obj_Part $09 $80 $57
+	obj_Interaction $1e $07 $50 $00
+# 3F, Ganon : une salle sombre (les torches l'éclairent) ; son ombre = la Sorcière des Ombres d'Ages
+# (la liste de 4:4a ; le Ganon d'Ages emmène Link dans sa propre salle, 5:f5) ; la porte de l'est
+# fermée tant qu'elle vit ; l'escalier en (5,7)
+salle 5:c7
+	obj_Part $08 $00 $00
+	obj_Interaction $1e $09 $5e $00
+	obj_BeforeEvent group4Map4aBeforeEventObjectData
+	obj_Interaction INTERAC_BALLADE_OBJECT $32 $58 $78
+	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+salle 5:c8
+# 4F : un garde endormi debout devant la porte de l'est (la Clochette d'Aube)
+salle 5:c9
+	obj_Interaction INTERAC_BALLADE_OBJECT $2f $58 $d8
+# 4F, le Cauchemar de Cocolint : un œil (l'Eyesoar d'Ages, la liste de 4:6b) ; la porte de l'ouest
+# fermée tant qu'il vit ; l'escalier en (8,7)
+salle 5:ca
+	obj_Interaction $1e $0b $50 $00
+	obj_BeforeEvent group4Map6bBeforeEventObjectData
+	obj_Interaction INTERAC_BALLADE_OBJECT $32 $88 $78
+	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+salle 5:cb
+# 5F, l'Insomnis : le boss en rythme
+salle 5:cc
+	obj_Interaction INTERAC_BALLADE_RHYTHM $00 $58 $78
+
 # --- La Spirale Céleste (donjon 6, groupe 4 ; story/salles/spirale.txt) ---
 # L'entrée : « Niveau 6 - Spirale Céleste » ($09), puis Marine ($01)
 salle 4:3c

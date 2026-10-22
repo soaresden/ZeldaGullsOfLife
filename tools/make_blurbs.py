@@ -34,12 +34,15 @@ NAMES = {
     5: {'en': ('Echo', 'Cathedral'), 'fr': ('Cathédrale', 'des Échos')},
     6: {'en': ('Sky', 'Spiral'), 'fr': ('Spirale', 'Céleste')},
     7: {'en': ('Frost', 'Palace'), 'fr': ('Palais', 'Givré')},
+    8: {'en': ('Sleepless', 'Tower'), 'fr': ('Tour', 'Sans-Nuit')},
 }
 
 # Lettres dessinées à la main (. vide, : contour clair, o ombre, # trait) ; la dernière ligne est
 # posée sur la ligne de base
 DRAWN = {
     'L': ['#o....', '#o....', '#o....', '#o....', '#o....', '#o....', '#####:'],
+    '-': ['....', '....', '....', '###:', '....', '....', '....'],
+    'N': ['#o..#o', '##o.#o', '#o#o#o', '#o.##o', '#o..#o', '#o..#o', '#o..#o'],
     'E': ['#####:', '#o....', '#o....', '####:.', '#o....', '#o....', '#####:'],
     'P': ['#####:', '#o.:##', '#o..#o', '#o##o:', '#o....', '#o....', '#o....'],
     'T': ['######', '..#o..', '..#o..', '..#o..', '..#o..', '..#o..', '..#o..'],

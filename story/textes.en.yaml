@@ -2626,6 +2626,113 @@ groups:
       the sea.\stop
       It never sleeps.
 
+  # The Insomnis's Eye: the jetty (1:d9), on arrival
+  - name: TX_5ad4
+    index: 0xd4
+    text: |-
+      \col(1)Marin\col(0): A black
+      tower...\stop
+      And the sky: the
+      sun and the
+      moon, at the
+      same time.\stop
+      Here, it's never
+      night.
+
+  # The tower door (1:c9): closed, A in front
+  - name: TX_5ad5
+    index: 0xd5
+    text: |-
+      A black door,
+      no handle.\stop
+      Seven marks are
+      carved on it.
+      They look like
+      notes.
+
+  # The tower door opens: Marin sings the seven verses
+  - name: TX_5ad6
+    index: 0xd6
+    text: |-
+      \col(1)Marin\col(0): Seven
+      marks... Seven
+      verses.\stop
+      I have them all.
+      Listen.
+
+  - name: TX_5ad7
+    index: 0xd7
+    text: |-
+      \col(1)Marin\col(0): ...It's
+      opening.\stop
+      \Link, stay
+      close to me.
+
+  # The Sleepless Tower: the entrance (5:c0)
+  - name: TX_5ad8
+    index: 0xd8
+    text: |-
+      \col(1)Marin\col(0): Do you
+      hear that?
+      Music...\stop
+      Almost nothing.
+      A heartbeat.
+
+  # 1F: the falling Moon (5:c1)
+  - name: TX_5ad9
+    index: 0xd9
+    text: |-
+      \col(1)Marin\col(0): Look
+      up!\stop
+      The moon... it's
+      falling!\stop
+      Quick! All four
+      fires at once!
+
+  # 2F: Dark Link (5:c4)
+  - name: TX_5ada
+    index: 0xda
+    text: |-
+      \col(1)Marin\col(0): \Link?
+      ...No. It's
+      your shadow.\stop
+      I can't help you
+      here. Not
+      against you.
+
+  # 3F: Ganon (5:c7)
+  - name: TX_5adb
+    index: 0xdb
+    text: |-
+      \col(1)Marin\col(0): That
+      laugh...\stop
+      You beat him
+      already, right?\stop
+      So why does he
+      come back in
+      your dreams?
+
+  # 4F: the Nightmare of Koholint (5:ca)
+  - name: TX_5adc
+    index: 0xdc
+    text: |-
+      \col(1)???\col(0): DO YOU
+      KNOW ME?\stop
+      \col(1)Marin\col(0): ...\stop
+      \Link. Don't
+      answer it.
+
+  # 1F: the moon goes back up (the four fires)
+  - name: TX_5add
+    index: 0xdd
+    text: |-
+      \col(1)Marin\col(0): Phew!
+      The moon is
+      going back
+      up...\stop
+      Stairs!
+
+
 
 
 
@@ -3025,6 +3132,12 @@ groups:
     text: |2-
          Level 7
         Frost Palace
+
+  - name: TX_0208
+    index: 0x08
+    text: |2-
+         Level 8
+       Sleepless Tower
 
 
 

@@ -213,15 +213,16 @@ def grelot():
 
 
 # ---------------------------------------------------------------------------------------------
-# 8. L'Œil de l'Insomnis (pour l'instant : le boss en rythme, dans sa salle de test)
+# 8. L'Œil de l'Insomnis : 5F de la Tour Sans-Nuit, devant l'Insomnis (le boss en rythme)
 # ---------------------------------------------------------------------------------------------
 def oeil():
     g = run(8, 'Boss')
-    check(g.where() == (4, 0x4a), '8.Boss : la salle du boss en rythme (4:4a)')
-    check(g.m[RHYTHM_TEST] != 0, '8.Boss : lancé comme par son code secret')
-    check(g.wait_text(600), '8.Boss : Marine demande le « La »')
-    g.w(60)
-    shoot(g, '8_boss', '8. Boss en rythme')
+    check(g.where() == (5, 0xcb), '8.Boss : 5F de la Tour Sans-Nuit (5:cb)')
+    g.route((5, 7), (5, 1))
+    check(g.go('left', (5, 0xcc)), "8.Boss : l'Insomnis (5:cc)")
+    g.w(200)
+    check(g.m[0xcdec] >= 1, '8.Boss : le boss en rythme commence')   # wBalladeRhythmStage
+    shoot(g, '8_boss', "8. Boss : l'Insomnis")
     g.stop()
 
 
@@ -251,8 +252,8 @@ def menu():
     g.new_game()
     check(g.where() == (3, 0x9f), 'avec le code : la salle du menu (3:9f)')
     g.choose(0, 2)
-    g.choose(6, 8)                     # île 7
-    g.choose(0, 4)                     # Plage : pas encore construite
+    g.choose(7, 8)                     # île 8
+    g.choose(3, 4)                     # Fin : pas encore construite (l'épilogue)
     check(g.wait_text(120), 'île pas construite : le menu redemande l\'île')
     g.w(90)
     shoot(g, '0_menu', 'Le menu (île ?)')

@@ -36,7 +36,7 @@ DATA = os.path.join(DISASM, 'data', 'ages')
 # décor du Songe -> décor du Réel copié (0x3b : la Spirale Céleste, pas un Songe : le Donjon des
 # Ailes recopié à l'index de donjon 6, en bleuté)
 COPIES = {0x7d: 0x10, 0x7e: 0x18, 0x7f: 0x2b, 0x7c: 0x00, 0x7b: 0x00, 0x06: 0x1e, 0x07: 0x13, 0x08: 0x1a,
-          0x3b: 0x37, 0x0d: 0x10, 0x0e: 0x10}
+          0x3b: 0x37, 0x0d: 0x10, 0x0e: 0x10, 0x0f: 0x02, 0x0c: 0x02}
 
 # (décor, copie de, en-tête de palette d'origine, nouvel en-tête, octets du décor)
 SONGE = [
@@ -70,10 +70,18 @@ SONGE = [
     # de donjon 7 et en glace (pas de copie : les salles de la Grotte Lunaire ne servent plus)
     (0x38, 'PALH_TILESET_MOONLIT_GROTTO', 0xd8, 'PALH_PALAIS',
      '$27, $08, UNIQUE_GFXH_NONE, GFXH_TILESET_MOONLIT_GROTTO, PALH_PALAIS, $23, $04, $10'),
+    # L'Œil de l'Insomnis (île 8) : la Tour Noire d'Ages, dehors, côté présent ($02) ; le Réel en
+    # est une copie au $0f (REEL) ; son Songe au $0c (on ne visite pas les Hautes Terres de Nuun)
+    (0x0c, 'PALH_TILESET_BLACK_TOWER_OUTSIDE_PRESENT', 0xda, 'PALH_SONGE_TOUR',
+     '$0f, $01, UNIQUE_GFXH_BLACK_TOWER_OUTSIDE, GFXH_TILESET_OVERWORLD_PRESENT, PALH_SONGE_TOUR, $02, $00, $01'),
+    # La Tour Sans-Nuit (donjon 8) : le Donjon du Crâne d'Ages ($39), à l'index de donjon 8, de nuit
+    (0x39, 'PALH_TILESET_SKULL_DUNGEON', 0xdb, 'PALH_TOUR',
+     '$28, $08, UNIQUE_GFXH_NONE, GFXH_TILESET_SKULL_DUNGEON, PALH_TOUR, $24, $04, $10'),
 ]
 SEPIA = (0x07,)   # ces Songes-là sont sépia (voir sepia())
 ICE = (0x0d, 0x38)        # en glace (voir ice()) ; le $0e : la glace, puis le Songe
 ICE_DREAM = (0x0e,)
+NIGHT = (0x39,)           # de nuit (voir night()) : la Tour Sans-Nuit
 # (décor, brique, 4 tuiles + 4 attributs) : la glace = le sol du village (9e) aux couleurs de l'eau
 # (palette 6) ; dans le Palais, le dallage f8 (80) aux couleurs du f9 (palette 2). Et le cristal du
 # Songe (PART_SWITCH dehors = la brique 9e, 9f une fois frappé) : le losange db (éteint), le carreau
@@ -84,6 +92,8 @@ PATCHES = [(0x0d, 0xea, '9e9e9e9e0e0e0e0e', 0), (0x0e, 0xea, '9e9e9e9e0e0e0e0e',
 # Copies du Réel : (décor, octets du décor) ; mêmes palettes, drapeau « passé » ($80)
 REEL = [
     (0x7b, '$0f, $81, UNIQUE_GFXH_LYNNA_CITY_1, GFXH_TILESET_OVERWORLD_PRESENT, PALH_TILESET_LYNNA_CITY, $00, $02, $00'),
+    # L'Œil de l'Insomnis (île 8) : la Tour Noire (copie du $02, présent)
+    (0x0f, '$0f, $81, UNIQUE_GFXH_BLACK_TOWER_OUTSIDE, GFXH_TILESET_OVERWORLD_PRESENT, PALH_TILESET_BLACK_TOWER_OUTSIDE_PRESENT, $02, $02, $01'),
 ]
 # En-têtes de palette écrits à la main dans paletteHeaders.s (hors du bloc du Songe) : à compter
 # dans NUM_PALETTE_HEADERS. $d5 PALH_OMBRE : l'Ombre de Marine (le Swoop, palette 6 des sprites) ;
@@ -109,7 +119,17 @@ def ice(r, g, b):
     return tuple(max(0, min(31, round(o * k + t * (1 - k)))) for o, t in ((r, tr), (g, tg), (b, tb)))
 
 
+def night(r, g, b):
+    """Couleur de la Tour Sans-Nuit : la même lumière, plus sombre, en violet de nuit."""
+    lum = 0.30 * r + 0.59 * g + 0.11 * b
+    tr, tg, tb = lum * 0.75 + 1, lum * 0.5 + 1, min(31, lum * 0.95 + 4)
+    k = 0.15
+    return tuple(max(0, min(31, round(o * k + t * (1 - k)))) for o, t in ((r, tr), (g, tg), (b, tb)))
+
+
 def recolor(tileset, c):
+    if tileset in NIGHT:
+        return night(*c)
     if tileset in SEPIA:
         return sepia(*c)
     if tileset in ICE:

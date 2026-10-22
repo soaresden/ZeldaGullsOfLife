@@ -27,7 +27,7 @@ import subprocess
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DISASM = os.path.join(ROOT, 'oracles-disasm')
-SONGE = {0x10: 0x7d, 0x18: 0x7e, 0x7b: 0x7c, 0x1e: 0x06, 0x13: 0x07, 0x1a: 0x08, 0x0d: 0x0e}   # décor du Réel -> décor du Songe
+SONGE = {0x10: 0x7d, 0x18: 0x7e, 0x7b: 0x7c, 0x1e: 0x06, 0x13: 0x07, 0x1a: 0x08, 0x0d: 0x0e, 0x0f: 0x0c}   # décor du Réel -> décor du Songe
 DREAM_FX = '\tobj_Interaction INTERAC_BALLADE_DREAM_FX $00'
 
 
@@ -140,6 +140,19 @@ def write_objects(keys):
     keys = sorted(set(keys) | set(objects))
     labels = {'group%dMap%02xObjectData:' % k for k in keys}
     lines = [l for l in base.split('\n') if l.strip() not in labels]
+    # Les listes d'Ages dont toutes les étiquettes sont parties ne servent plus à rien : on les
+    # retire aussi (la banque des objets, $12, est pleine)
+    kept, labelled = [], False
+    for l in lines:
+        s = l.strip()
+        if s.endswith(':') and not s.startswith(';'):
+            labelled = True
+        elif s.startswith('obj_') and not labelled:
+            continue
+        kept.append(l)
+        if s.startswith('obj_End'):
+            labelled = False
+    lines = kept
     out = ['', '; ' + '=' * 98,
            '; BALLADE: objets des salles de nos îles (générés par tools/make_rooms.py depuis',
            '; story/salles/objets.txt)', '; ' + '=' * 98]

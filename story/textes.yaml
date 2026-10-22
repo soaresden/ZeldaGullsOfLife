@@ -2718,6 +2718,113 @@ groups:
       Elle ne dort
       jamais.
 
+  # L'Œil de l'Insomnis : le ponton (1:d9), en arrivant
+  - name: TX_5ad4
+    index: 0xd4
+    text: |-
+      \col(1)Marine\col(0): Une
+      tour noire...\stop
+      Et le ciel: le
+      soleil et la
+      lune, en même
+      temps.\stop
+      Ici, il ne fait
+      jamais nuit.
+
+  # La porte de la tour (1:c9) : close, A devant
+  - name: TX_5ad5
+    index: 0xd5
+    text: |-
+      Une porte noire,
+      sans poignée.\stop
+      Sept marques y
+      sont gravées.
+      On dirait des
+      notes.
+
+  # La porte de la tour s'ouvre : Marine chante les sept couplets
+  - name: TX_5ad6
+    index: 0xd6
+    text: |-
+      \col(1)Marine\col(0): Sept
+      marques... Sept
+      couplets.\stop
+      Je les ai tous.
+      Écoute.
+
+  - name: TX_5ad7
+    index: 0xd7
+    text: |-
+      \col(1)Marine\col(0): ...Elle
+      s'ouvre.\stop
+      \Link, reste
+      près de moi.
+
+  # La Tour Sans-Nuit : l'entrée (5:c0)
+  - name: TX_5ad8
+    index: 0xd8
+    text: |-
+      \col(1)Marine\col(0): Tu
+      entends? Une
+      musique...\stop
+      Presque rien.
+      Un battement.
+
+  # 1F : la Lune qui tombe (5:c1)
+  - name: TX_5ad9
+    index: 0xd9
+    text: |-
+      \col(1)Marine\col(0): Regarde
+      en haut!\stop
+      La lune... elle
+      tombe!\stop
+      Vite! Les quatre
+      feux en même
+      temps!
+
+  # 2F : Dark Link (5:c4)
+  - name: TX_5ada
+    index: 0xda
+    text: |-
+      \col(1)Marine\col(0): \Link?
+      ...Non. C'est
+      ton ombre.\stop
+      Je ne peux pas
+      t'aider, là.
+      Pas contre toi.
+
+  # 3F : Ganon (5:c7)
+  - name: TX_5adb
+    index: 0xdb
+    text: |-
+      \col(1)Marine\col(0): Ce
+      rire...\stop
+      Tu l'as déjà
+      battu, non?\stop
+      Alors pourquoi
+      il revient dans
+      tes rêves?
+
+  # 4F : le Cauchemar de Cocolint (5:ca)
+  - name: TX_5adc
+    index: 0xdc
+    text: |-
+      \col(1)???\col(0): TU ME
+      RECONNAIS?\stop
+      \col(1)Marine\col(0): ...\stop
+      \Link. Ne lui
+      réponds pas.
+
+  # 1F : la lune s'éloigne (les quatre feux)
+  - name: TX_5add
+    index: 0xdd
+    text: |-
+      \col(1)Marine\col(0): Ouf!
+      La lune
+      remonte...\stop
+      Un escalier!
+
+
 
 
 
@@ -3273,6 +3380,12 @@ groups:
     text: |2-
        Niveau 7
        Palais Givré
+
+  - name: TX_0208
+    index: 0x08
+    text: |2-
+       Niveau 8
+       Tour Sans-Nuit
 
 
 

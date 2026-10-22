@@ -369,6 +369,36 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   boss) / Fin (1:b1) ; jalons 29-32.
 - Test : python tools/test_palais.py DOSSIER (chaque énigme jouée comme un joueur).
   Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/palais.png
+
+## Chapitre 8 : l'Œil de l'Insomnis (île 8) et la Tour Sans-Nuit (donjon 8)
+- story/salles/ile_oeil.txt (1:b8-da, 3 x 3) : décor 0f = la Tour Noire d'Ages dehors, côté
+  présent (02), recopiée en décor du Réel (make_songe.py, REEL) ; son Songe = le 0c. La tour (c9) :
+  sa porte (df + ed, deux téléportations) est un mur (82) tant que Marine n'a pas chanté ; la base
+  de la tour (81 83 9a) est solide, ouverte devant la porte. INTERAC_BALLADE_OBJECT $30 : avec les
+  sept essences, quand Link s'approche (moins de 3 cases), Marine chante les sept couplets, la
+  porte s'ouvre (drapeau $80 de 1:c9) ; sans elles : A devant, « sept marques ».
+- story/salles/tour.txt : groupe 5, salles 5:c0-cc, décor 39 = le Donjon du Crâne d'Ages à l'index
+  de donjon 8, de nuit (make_songe.py : night()). Cinq étages (dungeon08LayoutTour) ; on monte par
+  des escaliers (brique 45, une téléportation : warpSources groupe 5 -> l'arrivée (8,7) de l'étage
+  suivant), qui apparaissent quand l'étage est vaincu : $31 (1F, la Lune qui tombe : quatre torches
+  PART_LIGHTABLE_TORCH $01 de 300 images autour de (5,7), les quatre ensemble) et $32 (plus
+  d'ennemis, une seconde après l'arrivée) ; drapeau $80 de la salle.
+- Les étages : 1F la Lune (le Lance-Graines dans les quatre directions) ; 2F le cristal de
+  l'autre coté de la lave (61) et un saut, puis Dark Link (deux ENEMY_LINK_MIMIC) ; 3F le bouton de
+  l'îlot (Grappin-Écho + bloc de la Canne), puis « Ganon » dans une salle sombre : la Sorcière des
+  Ombres d'Ages (group4Map4aBeforeEventObjectData ; le Ganon d'Ages, ENEMY_GANON, emmène Link dans
+  sa salle 5:f5 : à reprendre si Denis veut le vrai) ; 4F la Cape, un garde endormi (la
+  Clochette), puis le Cauchemar de Cocolint (l'Eyesoar d'Ages, « TU ME RECONNAIS ? ») ; 5F
+  l'Insomnis : INTERAC_BALLADE_RHYTHM (le boss en rythme ; après lui, retour au titre comme le
+  prototype : l'épilogue reste à écrire).
+- Musique : la tour gagne un instrument à chaque étage (les cinq niveaux du boss en rythme : $47,
+  $49, $4b, $37, $3a) ; 5:cc silencieuse en entrant ; l'île : $28 (la Tour Noire d'Ages).
+- La banque $12 (objets) était pleine : make_rooms.py retire maintenant aussi les listes d'objets
+  d'Ages dont toutes les étiquettes sont parties (~900 lignes).
+- Menu de test : île 8 Plage (1:d9) / Ville (le parvis, 1:c9) / Donjon (5:c0) / M-boss (3F, 5:c5)
+  / Boss (5F, 5:cb) ; jalons 33-36. Le prototype du boss en rythme (4:4a) garde son code secret.
+- Test : python tools/test_tour.py DOSSIER (l'île, la porte, chaque étage, le début de l'Insomnis).
+  Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/tour.png
 - Compiler quand le Python du Store refuse (« Permission denied ») : PYTHON=/c/msys64/clang64/bin/python.exe
   et /c/msys64/clang64/bin en tête du PATH (Pillow y est installé : pacman,
   mingw-w64-clang-x86_64-python-pillow).

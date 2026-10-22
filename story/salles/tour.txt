@@ -1,0 +1,197 @@
+# La Tour Sans-Nuit (donjon 8, sur l'Œil de l'Insomnis) : groupe 5, salles 5:c0-cc, décor 39 = le
+# Donjon du Crâne d'Ages, passé à l'index de donjon 8 et de nuit (make_songe.py : night()). Cinq
+# étages (dungeon08LayoutTour), un cauchemar par étage ; la musique gagne un instrument à chaque
+# étage (les cinq niveaux du boss en rythme). Les escaliers (45) sont des téléportations
+# (warpSources.s) ; ils apparaissent quand l'étage est vaincu (INTERAC_BALLADE_OBJECT $31, $32).
+#
+# Briques : b8 b0 b9 / b3 b1 / ba b2 bb murs ; a0 sol ; 61 lave ; f4 trou ; 1d pilier ; 2a statues ;
+#   08 torche ; 0a cristal ; 0c bouton ; db diamant ; e0-e6 l'arche de l'entrée.
+#
+# Plan (une ligne par étage, du bas vers le haut) :
+#   1F : c1 la Lune qui tombe | c0 l'entrée
+#   2F : c2 arrivée | c3 la lave, le cristal | c4 Dark Link
+#   3F : c7 Ganon | c6 le bouton de l'îlot | c5 arrivée
+#   4F : c8 arrivée | c9 la Cape, un garde endormi | ca le Cauchemar
+#   5F : cc l'Insomnis | cb arrivée
+
+# --- 1F, l'entrée : l'arche du bas ramène sur le parvis (1:c9) ; ouest ---
+salle 5:c0 decor 39
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 2a a0 a0 a0 a0 a0 2a a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 2a a0 a0 a0 a0 a0 2a a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 e0 e1 e2 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 e3 e4 e5 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 e6 00 e6 b2 b2 b2 b2 b2 bb
+
+# --- 1F, la Lune qui tombe : quatre torches autour du centre (5,7), allumées seulement quelques secondes : les quatre ensemble avant que la lune tombe ; l'escalier apparaît (8,7) ---
+salle 5:c1 decor 39
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 61 61 61 a0 a0 a0 a0 a0 a0 a0 61 61 61 b1
+b3 61 61 61 a0 a0 a0 a0 a0 a0 a0 61 61 61 b1
+b3 a0 a0 a0 a0 a0 a0 08 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 08 a0 a0 a0 08 a0 a0 a0 a0 a0
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 08 a0 a0 a0 a0 a0 a0 b1
+b3 61 61 61 a0 a0 a0 a0 a0 a0 a0 61 61 61 b1
+b3 61 61 61 a0 a0 a0 a0 a0 a0 a0 61 61 61 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- 2F, l'arrivée (l'escalier de 1F arrive en (8,7)) ; est ---
+salle 5:c2 decor 39
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 2a a0 a0 a0 a0 a0 a0 a0 2a a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 2a a0 a0 a0 a0 a0 a0 a0 2a a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- 2F : une rivière de lave (colonnes 7-8) ; le cristal (2,11) de l'autre coté : le Boomerang-Toupie ouvre le volet de l'est ; on saute la lave ---
+salle 5:c3 decor 39
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 61 61 a0 a0 a0 a0 a0 b1
+b3 a0 a0 2a a0 a0 a0 61 61 a0 a0 0a a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 61 61 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 61 61 a0 a0 a0 a0 a0 b1
+a0 a0 a0 a0 a0 a0 a0 61 61 a0 a0 a0 a0 a0 a0
+b3 a0 a0 a0 a0 a0 a0 61 61 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 61 61 a0 a0 a0 a0 a0 b1
+b3 a0 a0 2a a0 a0 a0 61 61 a0 a0 2a a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 61 61 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- 2F, Dark Link : des Link de l'ombre (le Link Mimic d'Ages) ; la porte de l'ouest se ferme ; l'escalier apparaît (5,7) ---
+salle 5:c4 decor 39
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 2a a0 a0 a0 a0 a0 a0 a0 a0 a0 2a a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 2a a0 a0 a0 a0 a0 a0 a0 a0 a0 2a a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- 3F, l'arrivée (l'escalier de 2F arrive en (8,7)) ; ouest ---
+salle 5:c5 decor 39
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 2a a0 a0 a0 a0 a0 a0 a0 2a a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 2a a0 a0 a0 a0 a0 a0 a0 2a a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- 3F : le bouton (5,7) sur un îlot, au milieu d'un gouffre ; le Grappin-Écho (le diamant de l'îlot, depuis (5,2)), un bloc de la Canne sur le bouton : le volet de l'ouest s'ouvre ---
+salle 5:c6 decor 39
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 f4 f4 f4 f4 f4 f4 f4 a0 a0 a0 b1
+b3 a0 a0 a0 f4 f4 f4 f4 f4 f4 f4 a0 a0 a0 b1
+b3 a0 a0 a0 f4 f4 a0 a0 a0 f4 f4 a0 a0 a0 b1
+a0 a0 a0 a0 f4 f4 db 0c a0 f4 f4 a0 a0 a0 a0
+b3 a0 a0 a0 f4 f4 a0 a0 a0 f4 f4 a0 a0 a0 b1
+b3 a0 a0 a0 f4 f4 f4 f4 f4 f4 f4 a0 a0 a0 b1
+b3 a0 a0 a0 f4 f4 f4 f4 f4 f4 f4 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- 3F, Ganon : une salle sombre ; les torches ; la porte de l'est se ferme ; l'escalier apparaît (5,7) ---
+salle 5:c7 decor 39 sombre
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 08 a0 a0 a0 a0 a0 a0 a0 08 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 08 a0 a0 a0 a0 a0 a0 a0 08 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- 4F, l'arrivée (l'escalier de 3F arrive en (8,7)) ; est ---
+salle 5:c8 decor 39
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 2a a0 a0 a0 a0 a0 a0 a0 2a a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 2a a0 a0 a0 a0 a0 a0 a0 2a a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- 4F : un gouffre de trois cases (colonnes 5-7) : la Cape de Roc ; un garde endormi debout devant la porte de l'est (5,13) : la Clochette d'Aube ---
+salle 5:c9 decor 39
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 f4 f4 f4 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 f4 f4 f4 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 f4 f4 f4 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 f4 f4 f4 a0 a0 a0 a0 a0 1d b1
+a0 a0 a0 a0 a0 f4 f4 f4 a0 a0 a0 a0 a0 a0 a0
+b3 a0 a0 a0 a0 f4 f4 f4 a0 a0 a0 a0 a0 1d b1
+b3 a0 a0 a0 a0 f4 f4 f4 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 f4 f4 f4 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 f4 f4 f4 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- 4F, le Cauchemar de Cocolint : un œil (l'Eyesoar d'Ages) ; la porte de l'ouest se ferme ; l'escalier apparaît (8,7) ---
+salle 5:ca decor 39
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 2a a0 a0 a0 a0 a0 a0 a0 a0 a0 2a a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 2a a0 a0 a0 a0 a0 a0 a0 a0 a0 2a a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- 5F, l'arrivée (l'escalier de 4F arrive en (8,7)) ; ouest ---
+salle 5:cb decor 39
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 2a a0 a0 a0 a0 a0 a0 a0 2a a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 2a a0 a0 a0 a0 a0 a0 a0 2a a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- 5F, l'Insomnis : le boss en rythme (INTERAC_BALLADE_RHYTHM) ; la musique se tait en entrant ---
+salle 5:cc decor 39 boss
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb

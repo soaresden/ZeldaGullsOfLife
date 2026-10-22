@@ -1,0 +1,113 @@
+# L'Œil de l'Insomnis (île 8), le Réel (groupe 1, écrans 1:b8-da). Voir story/iles.md.
+# Un rocher en forme d'œil, et la tour au milieu : la Tour Sans-Nuit.
+# Décor 0f = la Tour Noire d'Ages, dehors, côté présent (décor 02), recopiée en décor du Réel
+# (make_songe.py, REEL) ; son Songe : le 0c (bleuté).
+#
+# Briques : a7 dalles du parvis ; c0 rocher ; fc mer ; la tour 84-9f, 6f 7e 7f le haut de la porte,
+#   df la porte (82 tant qu'elle est close), ed l'œil de la porte (une téléportation aussi) ;
+#   la base de la tour (81 83 9a, solides) est ouverte devant la porte (a7).
+# Passages : ponton (d9) -> parvis colonnes 4-5 ; parvis (c9) -> paupières lignes 6-7.
+#
+# Plan (une case = un écran) :
+#   b8 mer           | b9 paupière nord (rochers) | ba mer
+#   c8 paupière ouest | c9 la Tour Sans-Nuit       | ca paupière est
+#   d8 mer           | d9 ponton                  | da mer
+
+# --- Le ponton (l'arrivée) : une langue de dalles (colonne 4, lignes 5-6), le Bateau-Rondin à coté (6,5) ; nord -> la tour ---
+salle d9 decor 0f
+fc fc fc fc a7 a7 fc fc fc fc
+fc fc c0 a7 a7 a7 a7 c0 fc fc
+fc c0 a7 a7 a7 a7 a7 a7 c0 fc
+fc c0 a7 a7 a7 a7 a7 a7 c0 fc
+fc fc c0 a7 a7 a7 a7 c0 fc fc
+fc fc fc fc a7 fc fc fc fc fc
+fc fc fc fc a7 fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- La Tour Sans-Nuit : sa porte (ligne 4, colonne 4) est un mur (82) tant que Marine n'a pas chanté les sept couplets ; sud -> le ponton, ouest / est (lignes 6-7) -> les paupières ---
+salle c9 decor 0f
+84 85 86 86 86 86 86 86 87 88
+94 95 96 96 96 96 96 96 97 98
+99 8c 6f 6f 6f 6f 6f 6f 8e 99
+8b 8c 86 86 7e 7f 86 86 89 8f
+83 9c 8d 82 82 82 8a 82 6d 9f
+aa 83 9d 81 a7 a7 9a 83 7d a8
+a7 a7 a7 a7 a7 a7 a7 a7 a7 a7
+a7 a7 a7 a7 a7 a7 a7 a7 a7 a7
+
+# --- La paupière ouest : un croissant de rochers ; est (lignes 6-7) -> la tour ---
+salle c8 decor 0f
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc c0 c0 c0 c0 c0
+fc fc fc c0 c0 a7 a7 a7 a7 c0
+fc fc c0 a7 a7 a7 a7 a7 a7 c0
+fc c0 a7 a7 a7 a7 a7 a7 a7 c0
+fc c0 a7 a7 a7 a7 a7 a7 a7 c0
+fc fc c0 a7 a7 a7 a7 a7 a7 a7
+fc fc fc c0 c0 c0 a7 a7 a7 a7
+
+# --- La paupière est : un croissant de rochers ; ouest (lignes 6-7) -> la tour ---
+salle ca decor 0f
+fc fc fc fc fc fc fc fc fc fc
+c0 c0 c0 c0 c0 fc fc fc fc fc
+c0 a7 a7 a7 a7 c0 c0 fc fc fc
+c0 a7 a7 a7 a7 a7 a7 c0 fc fc
+c0 a7 a7 a7 a7 a7 a7 a7 c0 fc
+c0 a7 a7 a7 a7 a7 a7 a7 c0 fc
+a7 a7 a7 a7 a7 a7 a7 c0 fc fc
+a7 a7 a7 a7 c0 c0 c0 fc fc fc
+
+# --- La paupière nord : des rochers derrière la tour (on n'y va pas) ---
+salle b9 decor 0f
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc c0 c0 c0 c0 fc fc fc
+fc c0 c0 c0 c0 c0 c0 c0 c0 fc
+c0 c0 c0 c0 c0 c0 c0 c0 c0 c0
+c0 c0 c0 c0 c0 c0 c0 c0 c0 c0
+c0 c0 c0 c0 c0 c0 c0 c0 c0 c0
+c0 c0 c0 c0 c0 c0 c0 c0 c0 c0
+
+# --- La mer ---
+salle b8 decor 0f
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- La mer ---
+salle ba decor 0f
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- La mer ---
+salle d8 decor 0f
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+
+# --- La mer ---
+salle da decor 0f
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc
+fc fc fc fc fc fc fc fc fc fc

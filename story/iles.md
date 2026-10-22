@@ -377,8 +377,9 @@ Chaque étage reprend un cauchemar de Link et une mécanique du jeu :
 . | . | E | . | .
 ```
 
-(Un étage par ligne : chaque étage fait 5 à 8 salles autour de l'escalier, dessinées comme les
-autres donjons quand on y sera.)
+(Construit : story/salles/tour.txt, deux ou trois salles par étage, 5:c0-cc. Le « Ganon » du 3F
+est pour l'instant la Sorcière des Ombres d'Ages, dans une salle sombre : le vrai Ganon d'Ages
+demande sa propre salle. L'épilogue, après l'Insomnis, reste à écrire.)
 
 ---
 
