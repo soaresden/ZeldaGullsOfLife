@@ -17,7 +17,12 @@ dessiné dans `docs/iles_plans.png` par `tools/make_plans.py`.
   Veilleurs de la Cathédrale, bleutés et scintillants) font leur ronde ; vus : « Link? Link?!
   LIIINK! » et Link se réveille à l'escalier. Marine : « Passe dans leur dos... Comme un serpent ! »
 - **La boîte en carton** (Denis) : des boîtes dans le niveau ; marcher dessus = s'y cacher (les
-  bottes dépassent), un fantôme qui passe fait « ? »... rien d'anormal. Maquette faite, à valider.
+  bottes dépassent), un fantôme qui passe fait « ? »... rien d'anormal. Maquette validée par Denis.
+- **Fait (la suite)** (code/ages/balladeGhost.s, art/ghost_babel.txt, tools/test_ghost.py) : deux
+  boîtes en carton au 4F : A devant une boîte, Link entre dedans (ses bottes dépassent), les
+  fantômes ne le voient pas et font « ? » ; A, il en sort. Le regard des fantômes : deux points
+  rouges devant chacun. Le radar : un petit écran vert en haut à droite, un point rouge par
+  fantôme, un vert pour Link. (Pas refait : la barre d'état d'Ages en haut.)
 
 ## Les photos de Cocolint (une scène avec Marine, pour créer du lien)
 - Une vraie scène où Link et Marine passent du temps ensemble, comme la balade sur la plage de
@@ -48,6 +53,9 @@ Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, ave
   Denis) : chaque case cache un ennemi d'un niveau (du petit ennemi nul jusqu'au **Lynel**, très
   résistant) ; les chiffres donnent la somme des niveaux autour ; on bat les plus faibles pour
   monter de niveau avant d'oser s'attaquer aux gros.
+- **Fait** : le Creuse-Rubis sur la plage du forain ; le **Mamono** dans l'arène du forain (5:ea,
+  code/ages/balladeMamono.s) : 13 x 8 cases, les vrais ennemis du jeu apparaissent figés sur leur
+  case, puis laissent leur chiffre (Denis : « prends des ennemis, mais ils seront figés »).
 - **Plusieurs niveaux de difficulté** dans chaque mode ; **les deux plus durs de chaque mode
   donnent un quart de cœur** (la première fois qu'on les gagne), comme toujours dans Zelda.
 - Marine commente (« Vert = rien autour. Rouge... cours ! »).
@@ -138,6 +146,9 @@ Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, ave
 - Les quarts : le mini-jeu de plongée, le démineur (Creuse-Rubis / Mamono), un dans un coffre
   (endroit à choisir), et un **trésor à déterrer** : on trouve une **carte au trésor** qui
   indique un endroit en mer ; il faut y rester **plus de 10 secondes** (en plongée) pour l'avoir.
+- **Fait** (code/ages/balladeTresor.s, tools/test_tresor.py) : le facteur des bouteilles (la
+  Lagune) donne la carte ; la croix est dans la crique du rocher de la veuve (île des Échos, 1:74),
+  entre deux rochers ; avec les Écailles de Sirène, Link y reste 10 secondes : un quart de cœur.
 
 ## Musique
 - Fait : la Ballade chantée par Marine en mouette (écran titre), la Ballade énervée (boss),
@@ -174,6 +185,9 @@ Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, ave
 - À faire : un labyrinthe d'une salle, des rubis partout, des Lynels qui poursuivent Link
   (invincibles), un objet qui les rend vulnérables un moment (la super-pastille) ; gagné quand tous
   les rubis sont ramassés. Parmi les activités de l'après-jeu (ou chez le forain).
+- **Fait** : le Labyrinthe des Lynels, le 3e jeu du forain (5:e9, code/ages/balladePac.s) : murs à
+  la Pac-Man, 69 rubis, quatre Lynels (rouge, rose, bleu, orange) qui chassent chacun à sa façon,
+  les gemmes de force ; musique : « Lift Off! » de Project Euro Mir (la partition de Denis).
 
 ## Le quiz de Marine sur Cocolint (demandé par Denis)
 - « On va voir si tu as tout oublié de l'île Cocolint ! » Ses questions (et les réponses) :

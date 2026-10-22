@@ -170,5 +170,18 @@ def main():
     sheet.save(dst)
     print('->', os.path.relpath(dst, ROOT))
 
+    # Ghost Babel (art/ghost_babel.txt) : la boîte en carton, le « ? », le regard, le radar
+    frames = read_frames(os.path.join(ROOT, 'art', 'ghost_babel.txt'))
+    assert len(frames) <= 8
+    sheet = Image.new('P', (128, 16), 0)
+    sheet.putpalette(pal + [0] * (768 - len(pal)))
+    for n, frame in enumerate(frames):
+        for y, row in enumerate(frame):
+            for x, c in enumerate(row):
+                sheet.putpixel((n * 16 + x, y), index[c])
+    dst = os.path.join(DISASM, 'gfx_compressible', 'ages', 'spr_ballade_ghost.png')
+    sheet.save(dst)
+    print('->', os.path.relpath(dst, ROOT))
+
 
 main()
