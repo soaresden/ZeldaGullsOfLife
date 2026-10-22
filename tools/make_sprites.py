@@ -183,5 +183,36 @@ def main():
     sheet.save(dst)
     print('->', os.path.relpath(dst, ROOT))
 
+    # Le Terrier des Serpents (art/terrier.txt) : le gantelet, une âme, la jarre, le fantôme
+    frames = read_frames(os.path.join(ROOT, 'art', 'terrier.txt'))
+    assert len(frames) <= 8
+    sheet = Image.new('P', (128, 16), 0)
+    sheet.putpalette(pal + [0] * (768 - len(pal)))
+    for n, frame in enumerate(frames):
+        for y, row in enumerate(frame):
+            for x, c in enumerate(row):
+                sheet.putpixel((n * 16 + x, y), index[c])
+    dst = os.path.join(DISASM, 'gfx_compressible', 'ages', 'spr_ballade_terrier.png')
+    sheet.save(dst)
+    print('->', os.path.relpath(dst, ROOT))
+
+    # Le boss du Terrier (art/rex.txt) : deux images de 32 x 32, chacune en quatre carrés de 16 x 16
+    # (haut gauche, haut droite, bas gauche, bas droite) : les images 0-3, puis 4-7
+    rows = [l.rstrip('\n') for l in open(os.path.join(ROOT, 'art', 'rex.txt'), encoding='utf-8')
+            if l.strip() and not l.startswith('#')]
+    assert len(rows) == 64 and all(len(r) == 32 for r in rows), 'rex.txt : deux images de 32 x 32'
+    sheet = Image.new('P', (128, 16), 0)
+    sheet.putpalette(pal + [0] * (768 - len(pal)))
+    for f in range(2):
+        for q in range(4):
+            n = f * 4 + q
+            qx, qy = (q % 2) * 16, (q // 2) * 16
+            for y in range(16):
+                for x in range(16):
+                    sheet.putpixel((n * 16 + x, y), index[rows[f * 32 + qy + y][qx + x]])
+    dst = os.path.join(DISASM, 'gfx_compressible', 'ages', 'spr_ballade_rex.png')
+    sheet.save(dst)
+    print('->', os.path.relpath(dst, ROOT))
+
 
 main()

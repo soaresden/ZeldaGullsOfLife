@@ -123,9 +123,10 @@ fc fc fc fc fc fc fc fc fc fc
 fc fc fc fc fc fc fc fc fc fc
 fc fc fc fc fc fc fc fc fc fc
 
-# --- Le cimetière de l'ouest : des tombes ; est -> la cabane du fossoyeur ---
+# --- Le cimetière de l'ouest : des tombes ; est -> la cabane du fossoyeur ; dans la falaise (dd,
+# ligne 0, colonne 4), l'ouverture du Terrier des Serpents (4:d0, story/salles/terrier.txt) ---
 salle 60 decor 13
-60 60 60 60 60 60 60 60 60 60
+60 60 60 60 dd 60 60 60 60 60
 60 3a 3a 3a 3a 1b 3a 3a 3a 60
 60 3a 02 3a 3a 02 3a 13 3a 60
 60 3a 13 3a 1b 11 11 d9 3a 3a

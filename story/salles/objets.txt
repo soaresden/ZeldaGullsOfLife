@@ -786,3 +786,41 @@ salle 5:ea
 	obj_SpecificEnemyA     ENEMY_MASKED_MOBLIN $00 $18 $58
 	obj_SpecificEnemyA     ENEMY_SWORD_DARKNUT $00 $18 $a8
 	obj_SpecificEnemyA     ENEMY_LYNEL $00 $18 $c8
+
+# Le Terrier des Serpents (donjon facultatif, story/salles/terrier.txt ; code/ages/balladeTerrier.s) :
+# dans chaque salle, le contrôleur (les âmes, les ennemis qui reviennent, les portes des âmes)
+salle 4:d0
+	; « Le Terrier des Serpents » en entrant (INTERAC_DUNGEON_STUFF $00, texte TX_020b)
+	obj_Interaction $12 $00 $88 $78
+	obj_Interaction INTERAC_BALLADE_CREUSE $0a $08 $08
+salle 4:d1
+	obj_Interaction INTERAC_BALLADE_CREUSE $0a $08 $08
+	obj_Interaction INTERAC_BALLADE_CREUSE $0d $58 $78 ; le Gantelet des âmes, sur son socle
+salle 4:d2
+	obj_Interaction INTERAC_BALLADE_CREUSE $0a $08 $08
+	obj_SpecificEnemyA $00 ENEMY_STALFOS $00 $38 $58
+	obj_SpecificEnemyA     ENEMY_STALFOS $00 $38 $98
+	obj_SpecificEnemyA     ENEMY_STALFOS $00 $78 $78
+# La statue sur le bouton (3,10) : le coffre de la petite clé (2,12)
+salle 4:d3
+	obj_Interaction INTERAC_BALLADE_CREUSE $0a $08 $08
+	obj_Part $09 $00 $3a
+	obj_Interaction $20 $00 $28 $c8
+salle 4:d4
+	obj_Interaction INTERAC_BALLADE_CREUSE $0a $08 $08
+	obj_SpecificEnemyA $00 ENEMY_GHINI $00 $38 $48
+	obj_SpecificEnemyA     ENEMY_GHINI $00 $78 $a8
+# Les torches (salle sombre) : trois torches allumées ouvrent le volet de droite (5,14)
+salle 4:d5
+	obj_Interaction INTERAC_BALLADE_CREUSE $0a $08 $08
+	obj_Part $08 $00 $00
+	obj_Interaction $1e $14 $5e $00
+	obj_RandomEnemy $20 ENEMY_KEESE $00
+salle 4:d6
+	obj_Interaction INTERAC_BALLADE_CREUSE $0a $08 $08
+	obj_SpecificEnemyA $00 ENEMY_KEESE $00 $48 $58
+	obj_SpecificEnemyA     ENEMY_KEESE $00 $48 $98
+salle 4:d7
+	obj_Interaction INTERAC_BALLADE_CREUSE $0a $08 $08
+	obj_SpecificEnemyA $00 ENEMY_GHINI $00 $38 $48
+	obj_SpecificEnemyA     ENEMY_GHINI $00 $78 $a8

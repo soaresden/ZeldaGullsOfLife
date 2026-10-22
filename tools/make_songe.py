@@ -37,7 +37,7 @@ DATA = os.path.join(DISASM, 'data', 'ages')
 # Ailes recopié à l'index de donjon 6, en bleuté)
 COPIES = {0x7d: 0x10, 0x7e: 0x18, 0x7f: 0x2b, 0x7c: 0x00, 0x7b: 0x00, 0x06: 0x1e, 0x07: 0x13, 0x08: 0x1a,
           0x3b: 0x37, 0x0d: 0x10, 0x0e: 0x10, 0x0f: 0x02, 0x0c: 0x02, 0x67: 0x3d, 0x68: 0x18,
-          0x69: 0x59, 0x6a: 0x18}
+          0x69: 0x59, 0x6a: 0x18, 0x6b: 0x34}
 
 # (décor, copie de, en-tête de palette d'origine, nouvel en-tête, octets du décor)
 SONGE = [
@@ -108,12 +108,16 @@ REEL = [
     # ($18), les chiffres de 1 à 40 (tools/make_mamono.py) ; collisions du dehors, époque « Réel » ;
     # sans animation (celle de la mer réécrirait des tuiles des chiffres)
     (0x6a, '$0f, $90, UNIQUE_GFXH_CRESCENT_ISLAND, GFXH_TILESET_OVERWORLD_PAST, PALH_TILESET_CRESCENT_ISLAND_PAST, $04, $05, $ff'),
+    # Le Terrier des Serpents (donjon facultatif, 4:d0-d7) : le Chemin du Maku d'Ages ($34, la terre
+    # et les racines) à l'index de donjon $0b
+    (0x6b, '$2b, $08, UNIQUE_GFXH_NONE, GFXH_TILESET_MAKU_PATH, PALH_TILESET_MAKU_PATH_PRESENT, $20, $04, $10'),
 ]
 # En-têtes de palette écrits à la main dans paletteHeaders.s (hors du bloc du Songe) : à compter
 # dans NUM_PALETTE_HEADERS. $d5 PALH_OMBRE : l'Ombre de Marine (le Swoop, palette 6 des sprites) ;
 # $d9 PALH_GIVROLIN : Givrolin (le Ramrock, palette 6 des sprites) ; $dc PALH_PHOTO : les photos ;
-# $dd PALH_FANTOME : les fantômes du 4F de la Tour ; $de PALH_LABYRINTHE : le Labyrinthe des Lynels
-OTHER_HEADERS = (0xd5, 0xd9, 0xdc, 0xdd, 0xde)
+# $dd PALH_FANTOME : les fantômes du 4F de la Tour ; $de PALH_LABYRINTHE : le Labyrinthe des Lynels ;
+# $df PALH_TERRIER : le boss du Terrier des Serpents
+OTHER_HEADERS = (0xd5, 0xd9, 0xdc, 0xdd, 0xde, 0xdf)
 BEGIN, END = '; BALLADE-SONGE-DEBUT (tools/make_songe.py)', '; BALLADE-SONGE-FIN'
 
 

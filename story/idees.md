@@ -140,6 +140,16 @@ Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, ave
   il devient plus rapide. Ensuite le gantelet absorbe son âme et ça devient une relique ; mais on
   garde le bracelet pour pouvoir causer des dommages à distance aux ennemis et absorber leur
   vie. »
+- **Fait** : **le Terrier des Serpents** (le nom choisi par Denis, en clin d'œil à Snake ; donjon
+  facultatif, index $0b, 4:d0-d7, story/salles/terrier.txt, code/ages/balladeTerrier.s,
+  tools/test_terrier.py). On y entre par une ouverture dans la falaise du cimetière de l'ouest
+  (île des Échos, 1:60). En forme de serpent sur la carte. Le Gantelet des âmes sur son socle ;
+  chaque ennemi battu laisse une âme qui vole jusqu'à Link ; une jarre se remplit dans le coin de
+  l'écran ; les portes des âmes s'ouvrent à 6, 12 et 18 ; les ennemis reviennent toujours. L'arène :
+  à 24 âmes, le boss, **une machine à la Metal Gear REX possédée par un fantôme** (Denis ; dessinée à
+  la main, art/rex.txt) : chaque coup lui arrache une âme, à moitié son blindage tombe, il va plus
+  vite et s'efface ; le fantôme s'en échappe, trois coups ; le **Bracelet des Âmes** : l'épée lance
+  toujours un rayon, et chaque ennemi touché rend un quart de cœur.
 
 ## Les cœurs : 12 au maximum
 - 3 au départ + 7 réceptacles (un par boss) = 10 ; + 2 cœurs en quarts (8 quarts).

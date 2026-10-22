@@ -128,8 +128,9 @@ ROOM_MUSIC = [
     (1, 0x0b, [0xac]),      # la plage du forain (le Creuse-Rubis) : la Vallée Gerudo au violon
     (5, 0x18, [0xd0, 0xd1, 0xd2, 0xd3, 0xd4]),  # la Fosse de Bulle (sous l'eau) : la musique du Récif
     (0, 0x0b, [0xac]),      # et dans le Songe
-    (5, 0x0c, [0xe9]),
-    (5, 0x0b, [0xea]),      # l'arène du Mamono : la Vallée Gerudo, comme chez le forain      # le Labyrinthe des Lynels (le 3e jeu du forain) : Euro-Mir
+    (5, 0x0c, [0xe9]),      # le Labyrinthe des Lynels (le 3e jeu du forain) : « Lift Off! » (Project Euro Mir)
+    (5, 0x0b, [0xea]),      # l'arène du Mamono : la Vallée Gerudo, comme chez le forain
+    (4, 0x1a, [0xd0, 0xd1, 0xd2, 0xd3, 0xd4, 0xd5, 0xd6, 0xd7]),  # le Terrier des Serpents : la musique de la Cathédrale
     (1, 0x28, ILE_OEIL),    # l'Œil de l'Insomnis : la Tour Noire d'Ages (MUS_BLACK_TOWER)
     (0, 0x28, ILE_OEIL),    # et dans le Songe
     # La Tour Sans-Nuit (donjon 8) : la musique gagne un instrument à chaque étage (les cinq niveaux

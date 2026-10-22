@@ -102,6 +102,72 @@ groups:
       strange about
       this island...
 
+  # The Snakes' Burrow (optional dungeon; code/ages/balladeTerrier.s)
+  - name: TX_5a18
+    index: 0x18
+    text: |-
+      \col(1)Marin\col(0): A
+      burrow... Looks
+      like a snakes'
+      nest.\stop
+      Sneak in
+      quietly, \Link.
+      Like a snake!
+
+  - name: TX_5a19
+    index: 0x19
+    text: |-
+      You got the
+      \col(1)Soul Gauntlet\col(0)!\stop
+      When an enemy
+      falls, it
+      absorbs its
+      soul.\stop
+      \col(1)Marin\col(0): Brr...
+      It's hungry.
+      The doors here
+      want souls!
+
+  - name: TX_5a1a
+    index: 0x1a
+    text: |-
+      A soul door. It
+      opens with
+      \num1 souls.
+
+  - name: TX_5a1b
+    index: 0x1b
+    text: |-
+      \col(1)Marin\col(0): Souls
+      everywhere!\stop
+      We need more...
+      Something waits
+      for us.
+
+  - name: TX_5a1c
+    index: 0x1c
+    text: |-
+      \col(1)Marin\col(0): A war
+      machine?!\stop
+      No... A ghost
+      is inside! It's
+      making it walk!
+
+  - name: TX_5a1d
+    index: 0x1d
+    text: |-
+      The gauntlet
+      absorbed its
+      soul.\stop
+      It becomes a
+      relic: the
+      \col(1)Soul Bracelet\col(0)!\stop
+      Your sword now
+      always shoots a
+      beam, and each
+      hit gives you
+      back some life.
+
   # Where did all the items of Link's Awakening go?
   - name: TX_5a15
     index: 0x15
@@ -3579,6 +3645,13 @@ groups:
     text: |2-
          Level 8
        Sleepless Tower
+
+  # Le Terrier des Serpents (donjon facultatif, index $0b)
+  - name: TX_020b
+    index: 0x0b
+    text: |2-
+        The Snakes'
+          Burrow
 
 
 

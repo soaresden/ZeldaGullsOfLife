@@ -108,6 +108,81 @@ groups:
       chose de bizarre
       sur cette île...
 
+  # Le Terrier des Serpents (donjon facultatif ; code/ages/balladeTerrier.s)
+  - name: TX_5a18
+    index: 0x18
+    text: |-
+      \col(1)Marine\col(0): Un
+      terrier... On
+      dirait un nid
+      de serpents.\stop
+      Avance sans
+      bruit, \Link.
+      Comme un
+      serpent!
+
+  - name: TX_5a19
+    index: 0x19
+    text: |-
+      Tu as trouvé le
+      \col(1)Gantelet des
+      âmes\col(0)!\stop
+      Quand un ennemi
+      tombe, il
+      absorbe son
+      âme.\stop
+      \col(1)Marine\col(0): Brr...
+      Il a faim, ce
+      gant. Les portes
+      d'ici en
+      veulent!
+
+  - name: TX_5a1a
+    index: 0x1a
+    text: |-
+      Une porte des
+      âmes. Elle
+      s'ouvre avec
+      \num1 âmes.
+
+  - name: TX_5a1b
+    index: 0x1b
+    text: |-
+      \col(1)Marine\col(0): Les
+      âmes viennent
+      de partout!\stop
+      Il en faut
+      encore... On
+      nous attend, au
+      fond.
+
+  - name: TX_5a1c
+    index: 0x1c
+    text: |-
+      \col(1)Marine\col(0): Une
+      machine de
+      guerre?!\stop
+      Non... Un
+      esprit est
+      dedans! C'est
+      lui qui la fait
+      marcher!
+
+  - name: TX_5a1d
+    index: 0x1d
+    text: |-
+      Le gantelet a
+      absorbé son âme.\stop
+      Il devient une
+      relique: le
+      \col(1)Bracelet des
+      âmes\col(0)!\stop
+      Ton épée lance
+      toujours un
+      rayon, et chaque
+      coup te rend un
+      peu de vie.
+
   # Juste avant : où sont passés tous les objets de Link's Awakening ?
   - name: TX_5a15
     index: 0x15
@@ -3854,6 +3929,13 @@ groups:
     text: |2-
        Niveau 8
        Tour Sans-Nuit
+
+  # Le Terrier des Serpents (donjon facultatif, index $0b)
+  - name: TX_020b
+    index: 0x0b
+    text: |2-
+        Le Terrier
+       des Serpents
 
 
 
