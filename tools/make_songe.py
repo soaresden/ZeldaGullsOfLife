@@ -36,7 +36,8 @@ DATA = os.path.join(DISASM, 'data', 'ages')
 # décor du Songe -> décor du Réel copié (0x3b : la Spirale Céleste, pas un Songe : le Donjon des
 # Ailes recopié à l'index de donjon 6, en bleuté)
 COPIES = {0x7d: 0x10, 0x7e: 0x18, 0x7f: 0x2b, 0x7c: 0x00, 0x7b: 0x00, 0x06: 0x1e, 0x07: 0x13, 0x08: 0x1a,
-          0x3b: 0x37, 0x0d: 0x10, 0x0e: 0x10, 0x0f: 0x02, 0x0c: 0x02, 0x67: 0x3d, 0x68: 0x18}
+          0x3b: 0x37, 0x0d: 0x10, 0x0e: 0x10, 0x0f: 0x02, 0x0c: 0x02, 0x67: 0x3d, 0x68: 0x18,
+          0x69: 0x59}
 
 # (décor, copie de, en-tête de palette d'origine, nouvel en-tête, octets du décor)
 SONGE = [
@@ -100,12 +101,15 @@ REEL = [
     # La plage du forain (1:ac) : la plage ($18), avec les chiffres et les monstres du Mamono
     # (tools/make_mamono.py)
     (0x68, '$0f, $81, UNIQUE_GFXH_CRESCENT_ISLAND, GFXH_TILESET_OVERWORLD_PAST, PALH_TILESET_CRESCENT_ISLAND_PAST, $04, $02, $01'),
+    # Le Labyrinthe des Lynels (5:e9, le 3e jeu du forain) : une grande salle de grotte ($59, sans
+    # donjon), redessinée par tools/make_pacman.py, aux couleurs de PALH_LABYRINTHE, sans animation
+    (0x69, '$2f, $10, UNIQUE_GFXH_NONE, GFXH_TILESET_CAVE, PALH_LABYRINTHE, $16, $05, $ff'),
 ]
 # En-têtes de palette écrits à la main dans paletteHeaders.s (hors du bloc du Songe) : à compter
 # dans NUM_PALETTE_HEADERS. $d5 PALH_OMBRE : l'Ombre de Marine (le Swoop, palette 6 des sprites) ;
 # $d9 PALH_GIVROLIN : Givrolin (le Ramrock, palette 6 des sprites) ; $dc PALH_PHOTO : les photos ;
-# $dd PALH_FANTOME : les fantômes du 4F de la Tour
-OTHER_HEADERS = (0xd5, 0xd9, 0xdc, 0xdd)
+# $dd PALH_FANTOME : les fantômes du 4F de la Tour ; $de PALH_LABYRINTHE : le Labyrinthe des Lynels
+OTHER_HEADERS = (0xd5, 0xd9, 0xdc, 0xdd, 0xde)
 BEGIN, END = '; BALLADE-SONGE-DEBUT (tools/make_songe.py)', '; BALLADE-SONGE-FIN'
 
 

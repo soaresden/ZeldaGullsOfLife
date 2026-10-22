@@ -864,7 +864,7 @@ groups:
     index: 0x43
     text: |-
       Approche,
-      approche! Deux
+      approche! Trois
       jeux pour toi!\stop
       Le Creuse-Rubis:
       creuse, ramasse
@@ -873,8 +873,12 @@ groups:
       Le Mamono: des
       monstres dorment
       sous le sable...\stop
+      Le Labyrinthe:
+      ramasse les
+      rubis, fuis les
+      Lynels!\stop
       \opt()Creuse \opt()Mamono
-      \opt()Non
+      \opt()Lynels \opt()Non
 
   - name: TX_5a44
     index: 0x44
@@ -952,6 +956,40 @@ groups:
     text: |-
       Aïe! Tu es à
       bout de forces!\stop
+      Hé hé... La
+      maison gagne
+      toujours!
+
+  # Le Labyrinthe des Lynels du forain (code/ages/balladePac.s)
+  - name: TX_5a4c
+    index: 0x4c
+    text: |-
+      Le Labyrinthe
+      des Lynels!
+      Ramasse tous
+      les rubis.\stop
+      Les Lynels sont
+      invincibles...
+      sauf si tu
+      prends une gemme
+      de force!\stop
+      \opt()J'y vais \opt()Non
+
+  - name: TX_5a4e
+    index: 0x4e
+    text: |-
+      Tous les rubis?!\stop
+      Tiens, 50 de
+      plus... et file
+      avant que les
+      Lynels se
+      fâchent!
+
+  - name: TX_5a4f
+    index: 0x4f
+    text: |-
+      Les Lynels t'ont
+      eu!\stop
       Hé hé... La
       maison gagne
       toujours!

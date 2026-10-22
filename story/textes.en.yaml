@@ -836,7 +836,7 @@ groups:
     index: 0x43
     text: |-
       Step right up!
-      Two games for
+      Three games for
       you!\stop
       The Rupee Dig:
       dig, grab the
@@ -845,8 +845,11 @@ groups:
       The Mamono:
       monsters sleep
       under the sand!\stop
+      The Maze: grab
+      the rupees, run
+      from the Lynels!\stop
       \opt()Dig \opt()Mamono
-      \opt()No
+      \opt()Lynels \opt()No
 
   - name: TX_5a44
     index: 0x44
@@ -922,6 +925,37 @@ groups:
     text: |-
       Ouch! You're
       exhausted!\stop
+      Heh heh... The
+      house always
+      wins!
+
+  # The fairground man's Lynel Maze (code/ages/balladePac.s)
+  - name: TX_5a4c
+    index: 0x4c
+    text: |-
+      The Lynel Maze!
+      Grab every
+      rupee.\stop
+      The Lynels are
+      invincible...
+      unless you take
+      a power gem!\stop
+      \opt()Let's go \opt()No
+
+  - name: TX_5a4e
+    index: 0x4e
+    text: |-
+      All the rupees?!\stop
+      Here, 50 more...
+      now scram before
+      the Lynels get
+      mad!
+
+  - name: TX_5a4f
+    index: 0x4f
+    text: |-
+      The Lynels got
+      you!\stop
       Heh heh... The
       house always
       wins!

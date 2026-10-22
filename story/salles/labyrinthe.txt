@@ -1,0 +1,14 @@
+# Le Labyrinthe des Lynels (le 3e jeu du forain). ÉCRIT PAR tools/make_pacman.py depuis
+# art/labyrinthe.txt : modifier le labyrinthe là-bas.
+salle 5:e9 decor 69
+c8 c9 c9 c9 c9 c9 c9 c9 c9 c9 c9 c9 c9 c9 ca
+cb a4 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a4 cc
+cb a3 cd ce a3 cd ce a3 cd ce a3 cd ce a3 cc
+cb a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 a3 cc
+cb a3 cf a3 d0 d1 ce a6 cd d1 d2 a3 cf a3 cc
+cb a3 d3 a3 d4 a0 a0 a0 a0 a0 d4 a3 d3 a3 cc
+cb a3 a3 a3 d5 d1 d1 d1 d1 d1 d6 a3 a3 a3 cc
+cb a3 cf a3 a3 a3 a3 a0 a3 a3 a3 a3 cf a3 cc
+cb a3 d3 a3 cd ce a3 cf a3 cd ce a3 d3 a3 cc
+cb a4 a3 a3 a3 a3 a3 d4 a3 a3 a3 a3 a3 a4 cc
+d7 d8 d8 d8 d8 d8 d8 d9 d8 d8 d8 d8 d8 d8 da

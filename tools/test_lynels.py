@@ -1,0 +1,172 @@
+"""Test du Labyrinthe des Lynels (le 3e jeu du forain, salle 5:e9, code/ages/balladePac.s) : on y
+arrive, les rubis sont comptés, les Lynels sortent de l'enclos et poursuivent Link, un rubis
+ramassé, une gemme (ils ont peur et Link en terrasse un), un Lynel attrape Link (un cœur en moins,
+tous à l'enclos), puis tous les rubis (gagné, retour chez le forain) ; enfin une défaite.
+
+Usage : python tools/test_lynels.py DOSSIER_CAPTURES
+"""
+import os
+import sys
+
+from pyboy import PyBoy
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+OUT = sys.argv[1]
+os.makedirs(OUT, exist_ok=True)
+pb = PyBoy(os.path.join(ROOT, 'out', 'gulls_of_life.gbc'), window='null', sound_emulated=True)
+pb.set_emulation_speed(0)
+m = pb.memory
+HEALTH, MAX_HEALTH, RUPEES = 0xc6aa, 0xc6ab, 0xc6ad
+STATE, LEFT, POWER, COMBO, CAUGHT = 0xc5a0, 0xc5a1, 0xc5a2, 0xc5a3, 0xc5a4
+LAYOUT = 0xcf00
+LINK_Y, LINK_X = 0xd00b, 0xd00d
+INVINCIBLE = 0xd02b
+errors = []
+
+
+def w(n):
+    pb.tick(n, True)
+
+
+def press(b, n=4):
+    pb.button(b, 3)
+    w(n)
+
+
+def shot(name, scale=3):
+    im = pb.screen.image
+    im.resize((im.size[0] * scale, im.size[1] * scale)).save(os.path.join(OUT, name + '.png'))
+
+
+def check(ok, what):
+    print(('ok   ' if ok else 'RATÉ ') + what, flush=True)
+    if not ok:
+        errors.append(what)
+        shot('rate_%02d' % len(errors))
+
+
+def where():
+    return m[0xcc49 - 0x1d], m[0xcc30]
+
+
+def lynels():
+    """(sous-type, y, x, état, a peur) des Lynels (ennemis $0d) dans les emplacements d'ennemis."""
+    out = []
+    for slot in range(0xd0, 0xe0):
+        base = slot << 8
+        if m[base + 0x80] and m[base + 0x81] == 0x0d:
+            o = base + 0x80
+            out.append((m[o + 2], m[o + 0x0b], m[o + 0x0d], m[o + 0x30], m[o + 0x32]))
+    return out
+
+
+def warp(group, room, pos):
+    for i, v in enumerate((0x80 | group, room, 0x00, pos, 0x03)):
+        m[0xcc47 + i] = v
+    w(200)
+
+
+def text_through(n=40):
+    for _ in range(n):
+        if not m[0xcba0]:
+            w(20)
+            if not m[0xcba0]:
+                return
+        press('a', 20)
+
+
+# Nouvelle partie
+for c in 'w900 start w150 start w60 a w60 a w80 a w10 start w20 a w60 a w60 a'.split():
+    w(int(c[1:])) if c[0] == 'w' else press(c)
+w(400)
+for i in range(160):
+    press('a', 22)
+    if m[0xcc8a] == 0 and i > 60:
+        break
+w(60)
+m[MAX_HEALTH] = 12
+m[HEALTH] = 12
+warp(5, 0xe9, 0x77)
+check(m[0xcc30] == 0xe9, 'le labyrinthe (5:e9)')
+check(m[STATE] == 1 and m[LEFT] == 69, 'la partie commence : %d rubis' % m[LEFT])
+shot('arrivee')
+w(240)
+ls = lynels()
+print('  Lynels', ls, flush=True)
+check(len(ls) == 4, 'quatre Lynels')
+shot('poursuite')
+w(400)
+ls2 = lynels()
+print('  Lynels', ls2, flush=True)
+check(sum(1 for l in ls2 if l[3] == 2) >= 2, 'ils sortent de l\'enclos')
+
+# Un rubis : Link fait un pas à gauche (la case 7,6)
+r0, left0 = m[RUPEES], m[LEFT]
+m[LINK_Y], m[LINK_X] = 0x78, 0x78
+for _ in range(4):
+    pb.button_press('left')
+    w(6)
+    pb.button_release('left')
+    w(2)
+w(40)
+check(m[LEFT] < left0 and m[LAYOUT + 0x76] == 0xa0, 'un rubis ramassé (%d -> %d)' % (left0, m[LEFT]))
+check(m[RUPEES] != r0, 'un rubis de plus (%02x -> %02x)' % (r0, m[RUPEES]))
+
+# Une gemme (1,1) : ils ont peur
+m[LINK_Y], m[LINK_X] = 0x18, 0x18
+w(10)
+check(m[POWER] > 0 and m[LAYOUT + 0x11] == 0xa0, 'la gemme : les Lynels ont peur')
+w(20)
+ls = lynels()
+check(all(l[4] for l in ls), 'tous ont peur ' + str(ls))
+shot('peur')
+# Link en touche un dehors : terrassé, retour à l'enclos
+out = [l for l in lynels() if l[3] == 2][0]
+m[LINK_Y], m[LINK_X] = out[1], out[2]
+w(6)
+back = [l for l in lynels() if l[0] == out[0]][0]
+check(m[COMBO] == 1 and back[3] == 0 and back[1] == 0x58, 'Link terrasse le Lynel %d (retour à l\'enclos)' % out[0])
+
+# La peur passe ; un Lynel attrape Link : un cœur, tous à l'enclos
+m[POWER] = 0
+w(300)
+m[HEALTH] = 12
+red = [l for l in lynels() if l[0] == 3][0]
+m[INVINCIBLE] = 0
+m[LINK_Y], m[LINK_X] = red[1], red[2]
+w(8)
+check(m[HEALTH] == 8, 'attrapé : un cœur en moins (12 -> %d)' % m[HEALTH])
+ls = lynels()
+check(all(l[3] == 0 and l[1] == 0x58 for l in ls if l[0] != 3) and
+      [abs(l[2] - 0x78) < 9 and l[1] == 0x38 for l in ls if l[0] == 3] == [True], 'tous à l\'enclos ' + str(ls))
+
+# Tous les rubis : gagné, retour chez le forain
+m[LINK_Y], m[LINK_X] = 0x78, 0x78
+w(150)
+m[LEFT] = 1
+m[LINK_Y], m[LINK_X] = 0x38, 0x18
+w(10)
+check(m[STATE] == 2, 'gagné')
+w(30)
+check(len(lynels()) == 0, 'les Lynels s\'en vont')
+w(30)
+shot('gagne')
+text_through()
+w(200)
+check(m[0xcc30] == 0xac, 'retour chez le forain (1:%02x)' % m[0xcc30])
+
+# Une défaite : attrapé avec un seul cœur
+warp(5, 0xe9, 0x77)
+w(300)
+m[HEALTH] = 4
+m[INVINCIBLE] = 0
+red = [l for l in lynels() if l[0] == 3][0]
+m[LINK_Y], m[LINK_X] = red[1], red[2]
+w(8)
+check(m[STATE] == 3 and m[HEALTH] == 4, 'perdu (un seul cœur) sans mourir')
+w(60)
+text_through()
+w(200)
+check(m[0xcc30] == 0xac, 'retour chez le forain')
+
+print('\nTout est bon.' if not errors else '\n%d problème(s)' % len(errors))

@@ -1,0 +1,48 @@
+# Le Labyrinthe des Lynels (le 3e jeu du forain) : le générique d'Euro-Mir, à la demande de Denis
+# (« tu saurais m'intégrer cette musique-là ? », son MP3). Relevé dans l'enregistrement (analyse de
+# hauteur, tools : librosa) : 144 à la noire, la mineur. Ce qu'on reconnaît : le riff du refrain,
+# un arpège la - mi - do qui redescend puis remonte (« la mi-mi do-do la-la-la »), sur la grille
+# La m (4 mesures) | Ré m | Ré m - Sol | Do | Do - Mi ; la basse eurodance en octaves, la grosse
+# caisse sur chaque temps, le charleston entre les temps.
+# Ici 150 à la noire (12 images par croche : le moteur compte en images), pour une poursuite.
+# Même notation que music/phare.txt (l'unité est la croche : 8 par mesure).
+
+tempo 12         # images par croche
+mesure 8
+
+== INTRO ==
+# La basse et la batterie seules, puis le riff entre
+melodie:   [v0] [duty 2] [vib 00] [gate .9] [detune 0]
+melodie:   -:8 | -:8 |
+accordeon: [v0] [duty 1] [vib 00] [gate .9] [detune 0]
+accordeon: -:8 | -:8 |
+basse:     [onde 0e] [vib 00] [gate .6]
+basse:     ( a2:1 a3:1 )x4 | ( a2:1 a3:1 )x4 |
+batterie:  [v6] n24:1 [v1] h:1 [v6] n24:1 [v2] h:1 [v6] n24:1 [v1] h:1 [v6] n24:1 [v2] h:1 |
+batterie:  [v6] n24:1 [v2] h:1 [v6] n24:1 [v3] s:1 [v6] n24:1 [v3] s:1 [v4] s:1 s:1 |
+
+== A ==
+# Le riff du refrain
+melodie:   [v5] [duty 2] [gate .85]
+melodie:   ( a4:1 e4:2 c4:2 a4:3 | )x4
+melodie:   a4:1 f4:2 d4:2 a4:3 | a4:1 f4:2 d4:2 g4:3 | g4:1 e4:2 c4:2 g4:3 | g4:1 e4:2 c4:2 e4:1 g#4:2 |
+# Le tapis : les notes de l'accord, tenues
+accordeon: [v2] [duty 1] [gate .95]
+accordeon: e4:8 | c4:8 | e4:8 | c4:8 | f4:8 | d4:4 b3:4 | e4:8 | e4:4 g#3:4 |
+basse:     ( a2:1 a3:1 )x16
+basse:     ( d2:1 d3:1 )x4 | ( d2:1 d3:1 )x2 ( g2:1 g3:1 )x2 | ( c2:1 c3:1 )x4 | ( c2:1 c3:1 )x2 ( e2:1 e3:1 )x2 |
+batterie:  ( [v6] n24:1 [v1] h:1 [v6] n24:1 [v3] s:1 [v6] n24:1 [v1] h:1 [v6] n24:1 [v3] s:1 | )x8
+
+== A2 ==
+# Encore, une octave plus haut sur le second carré (en écho, plus doux)
+melodie:   ( a4:1 e4:2 c4:2 a4:3 | )x4
+melodie:   a4:1 f4:2 d4:2 a4:3 | a4:1 f4:2 d4:2 g4:3 | g4:1 e4:2 c4:2 g4:3 | g4:1 e4:2 c4:2 e4:1 g#4:2 |
+accordeon: [v2] [duty 2] [gate .7]
+accordeon: ( -:1 a5:1 e5:2 c5:2 a5:2 | )x4
+accordeon: -:1 a5:1 f5:2 d5:2 a5:2 | -:1 a5:1 f5:2 d5:2 g5:2 | -:1 g5:1 e5:2 c5:2 g5:2 | -:1 g5:1 e5:2 c5:2 b4:2 |
+basse:     ( a2:1 a3:1 )x16
+basse:     ( d2:1 d3:1 )x4 | ( d2:1 d3:1 )x2 ( g2:1 g3:1 )x2 | ( c2:1 c3:1 )x4 | ( c2:1 c3:1 )x2 ( e2:1 e3:1 )x2 |
+batterie:  ( [v6] n24:1 [v2] h:1 [v6] n24:1 [v3] s:1 [v6] n24:1 [v2] h:1 [v6] n24:1 [v3] s:1 | )x7
+batterie:  [v6] n24:1 [v3] s:1 [v6] n24:1 [v3] s:1 [v4] s:1 s:1 [v5] s:1 s:1 |
+
+ordre: INTRO | A A2

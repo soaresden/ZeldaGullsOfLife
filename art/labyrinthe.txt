@@ -1,0 +1,17 @@
+# Le Labyrinthe des Lynels (le 3e jeu du forain, salle 5:e9) : 15 colonnes x 11 lignes, une case =
+# une brique de 16 x 16. Lu par tools/make_pacman.py, qui dessine les murs (un double trait bleu
+# qui suit leurs contours, comme dans Pac-Man) et écrit le plan story/salles/labyrinthe.txt.
+#   # mur     . un rubis     o une gemme de force (les Lynels ont peur)
+#   - la porte de l'enclos (Link ne passe pas, les Lynels oui)     p l'enclos     L Link arrive
+# Pas de cul-de-sac (les Lynels ne font jamais demi-tour) ; symétrique.
+###############
+#o...........o#
+#.##.##.##.##.#
+#.............#
+#.#.###-###.#.#
+#.#.#ppppp#.#.#
+#...#######...#
+#.#....L....#.#
+#.#.##.#.##.#.#
+#o.....#.....o#
+###############
