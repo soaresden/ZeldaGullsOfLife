@@ -196,6 +196,19 @@ def main():
     sheet.save(dst)
     print('->', os.path.relpath(dst, ROOT))
 
+    # L'île de Marine, après la fin (art/ile_marine.txt) : son épée
+    frames = read_frames(os.path.join(ROOT, 'art', 'ile_marine.txt'))
+    assert len(frames) <= 8
+    sheet = Image.new('P', (128, 16), 0)
+    sheet.putpalette(pal + [0] * (768 - len(pal)))
+    for n, frame in enumerate(frames):
+        for y, row in enumerate(frame):
+            for x, c in enumerate(row):
+                sheet.putpixel((n * 16 + x, y), index[c])
+    dst = os.path.join(DISASM, 'gfx_compressible', 'ages', 'spr_ballade_ile.png')
+    sheet.save(dst)
+    print('->', os.path.relpath(dst, ROOT))
+
     # Le boss du Terrier (art/rex.txt) : deux images de 32 x 32, chacune en quatre carrés de 16 x 16
     # (haut gauche, haut droite, bas gauche, bas droite) : les images 0-3, puis 4-7
     rows = [l.rstrip('\n') for l in open(os.path.join(ROOT, 'art', 'rex.txt'), encoding='utf-8')

@@ -3396,7 +3396,7 @@ groups:
       \col(1)Marin\col(0): What
       do we do?\stop
       \opt()Volley \opt()Talk
-      \opt()Nothing
+      \opt()Come! \opt()Nothing
   - name: TX_5b11
     index: 0x11
     text: |-
@@ -3546,6 +3546,25 @@ groups:
       were chasing a
       big monster that
       never slept!
+
+  # Marine suit Link, avec son épée (après la fin)
+  - name: TX_5b24
+    index: 0x24
+    text: |-
+      \col(1)Marin\col(0): I'm
+      coming! I have
+      my sword, look!\stop
+      Wherever you
+      go, I go. Even
+      into dungeons!
+  - name: TX_5b25
+    index: 0x25
+    text: |-
+      \col(1)Marin\col(0): Home!
+      I'll stay here
+      for a bit.\stop
+      Come get me on
+      the beach!
 
 
 - group: 0x00

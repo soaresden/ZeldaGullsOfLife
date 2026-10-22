@@ -3514,7 +3514,7 @@ groups:
       \col(1)Marine\col(0): On
       fait quoi?\stop
       \opt()Volley \opt()Parler
-      \opt()Rien
+      \opt()Viens! \opt()Rien
   - name: TX_5b11
     index: 0x11
     text: |-
@@ -3666,6 +3666,27 @@ groups:
       chassais un gros
       monstre qui ne
       dormait jamais!
+
+  # Marine suit Link, avec son épée (après la fin)
+  - name: TX_5b24
+    index: 0x24
+    text: |-
+      \col(1)Marine\col(0): Je
+      viens! J'ai mon
+      épée, regarde!\stop
+      Partout où tu
+      vas, je vais.
+      Même dans les
+      donjons!
+  - name: TX_5b25
+    index: 0x25
+    text: |-
+      \col(1)Marine\col(0): Ma
+      maison! Je reste
+      un peu ici.\stop
+      Reviens me
+      chercher sur la
+      plage!
 
 
 - group: 0x00

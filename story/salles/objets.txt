@@ -835,3 +835,8 @@ salle 5c
 	obj_Interaction INTERAC_BALLADE_CREUSE $16 $08 $08 ; le volley
 salle 6b
 	obj_Interaction INTERAC_BALLADE_OBJECT $00 $68 $58 ; le Bateau-Rondin
+# La plage aux palmiers : des monstres, pour se battre avec Marine
+salle 6c
+	obj_SpecificEnemyA $00 ENEMY_OCTOROK $00 $28 $28
+	obj_SpecificEnemyA     ENEMY_OCTOROK $00 $38 $58
+	obj_SpecificEnemyA     ENEMY_OCTOROK $00 $18 $48
