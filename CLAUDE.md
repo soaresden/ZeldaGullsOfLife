@@ -816,3 +816,29 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - À faire pour le vrai boss : le boss lui-même (ici : tremblement + SND_BOSS_DEAD), un repère visuel
   du rythme, qui donne l'épée (ici la salle de test la met sur A). Idée de Denis : le donjon final
   en 5 étages aussi, comme Lorule Castle.
+
+## Les Songes des Héros et le Sifflet de Marine (idée de Denis, île 6)
+- Au Nid des Vents, dans le Songe (0:48) : INTERAC_BALLADE_CREUSE $1c (Marine explique, TX_5b26,
+  tant que le 1er rêve n'est pas vu) crée la bulle $1d (y $48, x $68) ; Link la touche : le
+  prochain rêve (balladeSonges.nextDream). Trois rêves en groupe 5 (story/salles/songes.txt) :
+  5:eb la forêt (décor 7d ; la fée $1f l'interrompt toutes les 100 images, TX_5b27-2a ; en haut,
+  y < $1c : TX_5b2b), 5:ec la clairière des masques (décor 7d ; $20 crée trois masques $21, var03
+  = 0 la Pousse, 1 le Roc, 2 les Eaux ; A : le masque sur la tête de Link, TX_5b2d-2f ; les trois :
+  TX_5b30), 5:ed Célesbourg (décor 08 ; la princesse = $11, blonde ; $22 : TX_5b31, elle pousse
+  Link à droite dans le vide, Marine le rattrape, TX_5b32-33). Drapeaux GLOBALFLAG_BALLADE_SONGE1
+  ($5f), SONGE2 ($60), SIFFLET ($5e). backToNest : retour à 0:48 (le noctambule repart de zéro).
+- INTERAC_BALLADE_DREAM_FX $02 : l'ondulation sans le noctambule (les salles des rêves).
+- La Lanterne ne marche pas dans les groupes 4 et 5 (harpFluteParent.s : sinon, du groupe 5 au 4).
+- Musiques des rêves (audio/ages/group5IDs.bin) : 5:eb $0f (la fontaine des fées), 5:ec $1f, 5:ed
+  $15 (le Nid des Vents) ; pas de nouvelle musique.
+- Le Sifflet (link.s, linkState02) : la chute finie (pas TILETYPE_WARPHOLE) appelle
+  balladeMarine.checkSifflet (le drapeau, ou la salle 5:ed) -> wBalladeCatch = 1 ; Link attend
+  invisible à son point de retour ; siffletUpdate crée INTERAC_MARINE $07 (catcher) qui plonge du
+  haut de l'écran (3 px par image), puis wBalladeCatch = 3 : Link réapparaît sous elle sans dégâts
+  ni clignotement ; elle repart vers le ciel. La noyade (@substate5) n'est pas concernée.
+- Mémoire : wBalladeCatch $c595, wBalladeSongesMasks $c596, wBalladeSongesWorn $c597. Piège :
+  Interaction.var31 = pressedAButton (ne pas s'en servir pour un objet qu'on peut « parler » à A).
+- Dessins : art/ile_marine.txt, images 2 (la bulle), 3-4 (la fée), 5-7 (les masques).
+- Test : python tools/test_songes.py DOSSIER (une chute avant le Sifflet coûte de la vie ; les
+  trois rêves ; après, une chute au courant ascendant 1:75 : Marine le rattrape, pas de vie en
+  moins). Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/songes.png

@@ -186,6 +186,14 @@ Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, ave
 - Les Songes des Héros : rêves des autres Links (masques, fée qui crie, Zelda qui pousse Link
   d'une falaise à Célesbourg) et Marine qui commente ; le Sifflet de Marine (elle rattrape
   Link quand il tombe).
+- **Fait** (code/ages/balladeSonges.s, story/salles/songes.txt, tools/test_songes.py) : au Nid
+  des Vents, dans le Songe (0:48), Marine : « Ici passent les rêves de ceux qui voulaient voler. Et
+  ceux des héros d'avant toi ! » Une bulle de rêve ; trois rêves dans l'ordre, puis retour au Nid :
+  la forêt où une fée l'interrompt sans arrêt (« Elle te parlait comme ça TOUT le temps ?! ») ;
+  la clairière aux trois masques (la Pousse, le Roc, les Eaux : Link les met, Marine commente) ;
+  Célesbourg, où la princesse le pousse dans le vide (« Ton oiseau te rattrapera ! ») et Marine
+  plonge le rattraper. **Le Sifflet de Marine** : ensuite, partout, quand Link tombe dans un trou
+  ou dans le ciel, elle le rattrape : il ne perd pas de cœur (pas quand il se noie).
 
 ## Un Pac-Man avec des Lynels (demandé par Denis)
 - Ses mots : « un pacman like où c'est Link et des Lynel le poursuivent et sont invincibles, et il

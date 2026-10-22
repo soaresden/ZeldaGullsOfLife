@@ -1,0 +1,50 @@
+# Les Songes des Héros (code/ages/balladeSonges.s) : trois rêves, groupe 5 (15 x 11 briques). On y
+# entre par la bulle du Nid des Vents, dans le Songe (0:48) ; à la fin de chaque rêve, retour au Nid.
+# Décor 7d = le village du Songe (les briques du décor 10, en bleuté) : 08 09 / 2c 3c un arbre,
+#   3b sol, 2b herbe, cd buisson. Décor 08 = le Nid des Vents du Songe (les briques du décor 1a) :
+#   f3 le ciel (un trou), 3a sol, 20 21 herbe, 60 rocher.
+
+# --- 1. Le héros du temps : une forêt ; une fée suit Link et l'interrompt sans arrêt. Link arrive en
+# bas (ligne 9, colonne 7) ; le chemin fait le tour ; en haut (ligne 1, colonnes 6-8), le rêve finit ---
+salle 5:eb decor 7d
+08 09 08 09 08 09 cd cd cd 08 09 08 09 08 09
+2c 3c 2c 3c 2c 3c 3b 3b 3b 2c 3c 2c 3c 2c 3c
+08 09 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b cd 08 09
+2c 3c 3b 3b 08 09 08 09 08 09 2b 3b 3b 2c 3c
+08 09 3b 3b 2c 3c 2c 3c 2c 3c 2b 2b 3b 08 09
+2c 3c 3b 2b 2b 3b 3b 3b 3b 3b 3b 2b 3b 2c 3c
+08 09 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b 08 09
+2c 3c 3b 3b 08 09 08 09 08 09 08 09 3b 2c 3c
+08 09 3b 3b 2c 3c 2c 3c 2c 3c 2c 3c 3b 08 09
+2c 3c 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b 2c 3c
+cd cd cd cd cd cd cd cd cd cd cd cd cd cd cd
+
+# --- 2. Les masques : une clairière ; trois masques posés sur l'herbe (ligne 4, colonnes 4, 7, 10).
+# Link arrive en bas (ligne 8, colonne 7) ---
+salle 5:ec decor 7d
+08 09 08 09 08 09 08 09 08 09 08 09 08 09 cd
+2c 3c 2c 3c 2c 3c 2c 3c 2c 3c 2c 3c 2c 3c cd
+08 09 cd 3b 3b 3b 3b 3b 3b 3b 3b 3b cd 08 09
+2c 3c 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b 2c 3c
+cd 3b 3b 3b 2b 3b 3b 2b 3b 3b 2b 3b 3b 3b cd
+cd 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b cd
+08 09 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b 08 09
+2c 3c 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b 2c 3c
+08 09 cd 3b 3b 3b 3b 3b 3b 3b 3b 3b cd 08 09
+2c 3c 08 09 08 09 3b 3b 3b 08 09 08 09 2c 3c
+cd cd 2c 3c 2c 3c cd cd cd 2c 3c 2c 3c cd cd
+
+# --- 3. Célesbourg : une île dans le ciel. Link arrive à gauche (ligne 5, colonne 2) ; la princesse
+# attend au bord, à droite (ligne 4, colonne 9) ; à droite de la colonne 9, le vide ---
+salle 5:ed decor 08
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 3a 3a 20 21 3a 3a 3a 3a f3 f3 f3 f3 f3
+f3 3a 3a 3a 3a 3a 3a 3a 3a 3a f3 f3 f3 f3 f3
+f3 3a 3a 3a 60 3a 3a 3a 3a 3a f3 f3 f3 f3 f3
+f3 3a 3a 3a 3a 3a 3a 21 3a 3a f3 f3 f3 f3 f3
+f3 f3 3a 20 3a 3a 3a 3a 3a f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3

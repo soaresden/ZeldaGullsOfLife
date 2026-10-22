@@ -840,3 +840,21 @@ salle 6c
 	obj_SpecificEnemyA $00 ENEMY_OCTOROK $00 $28 $28
 	obj_SpecificEnemyA     ENEMY_OCTOROK $00 $38 $58
 	obj_SpecificEnemyA     ENEMY_OCTOROK $00 $18 $48
+
+# --- Les Songes des Héros (île 6 ; story/salles/songes.txt, code/ages/balladeSonges.s) ---
+# Le Nid, dans le Songe : Marine explique ; la bulle du prochain rêve
+salle 0:48
+	obj_Interaction INTERAC_BALLADE_CREUSE $1c $08 $08
+# 1. Le héros du temps : la forêt (la fée)
+salle 5:eb
+	obj_Interaction INTERAC_BALLADE_DREAM_FX $02
+	obj_Interaction INTERAC_BALLADE_CREUSE $1e $08 $08
+# 2. Les masques : la clairière
+salle 5:ec
+	obj_Interaction INTERAC_BALLADE_DREAM_FX $02
+	obj_Interaction INTERAC_BALLADE_CREUSE $20 $08 $08
+# 3. Célesbourg : la princesse au bord du vide
+salle 5:ed
+	obj_Interaction INTERAC_BALLADE_DREAM_FX $02
+	obj_Interaction INTERAC_BALLADE_CREUSE $22 $08 $08
+	obj_Interaction INTERAC_BALLADE_CREUSE $11 $48 $98

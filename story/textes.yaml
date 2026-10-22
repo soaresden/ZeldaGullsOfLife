@@ -3688,6 +3688,123 @@ groups:
       chercher sur la
       plage!
 
+  # Les Songes des Héros (code/ages/balladeSonges.s) : au Nid des Vents, dans le Songe
+  - name: TX_5b26
+    index: 0x26
+    text: |-
+      \col(1)Marine\col(0): Le
+      Nid des Vents...\stop
+      Ici passent les
+      rêves de ceux
+      qui voulaient
+      voler.\stop
+      Et ceux des
+      héros d'avant
+      toi! Touche une
+      bulle, tu vas
+      voir!
+
+  # La fée qui parle tout le temps (1er rêve)
+  - name: TX_5b27
+    index: 0x27
+    text: |-
+      \col(1)Fée\col(0): Hé!
+      Ho! Écoute-moi!
+  - name: TX_5b28
+    index: 0x28
+    text: |-
+      \col(1)Fée\col(0): Regarde!
+      Regarde par là!
+  - name: TX_5b29
+    index: 0x29
+    text: |-
+      \col(1)Fée\col(0): Link!
+      Link! Tu
+      m'écoutes?
+  - name: TX_5b2a
+    index: 0x2a
+    text: |-
+      \col(1)Fée\col(0): Hé!
+      Ho! C'est par
+      là!
+  - name: TX_5b2b
+    index: 0x2b
+    text: |-
+      \col(1)Marine\col(0): Elle
+      te parlait comme
+      ça TOUT le
+      temps?!\stop
+      Moi, je parle
+      seulement quand
+      c'est utile.\stop
+      ...Enfin,
+      presque.
+
+  # Les masques (2e rêve)
+  - name: TX_5b2c
+    index: 0x2c
+    text: |-
+      \col(1)Marine\col(0): Des
+      masques! Essaie-
+      les, pour voir!
+  - name: TX_5b2d
+    index: 0x2d
+    text: |-
+      \col(1)Marine\col(0): Tu
+      ressembles à une
+      noix qui boude!
+  - name: TX_5b2e
+    index: 0x2e
+    text: |-
+      \col(1)Marine\col(0): Tu
+      as l'air...
+      solide.\stop
+      Et un peu lourd.
+      Pardon!
+  - name: TX_5b2f
+    index: 0x2f
+    text: |-
+      \col(1)Marine\col(0): Oh!
+      Celui-là te va
+      bien! Un garçon
+      de la mer...
+  - name: TX_5b30
+    index: 0x30
+    text: |-
+      \col(1)Marine\col(0): Bon,
+      rends-les! Ils
+      me font un peu
+      peur, ces
+      masques...
+
+  # Célesbourg (3e rêve) : la princesse pousse Link ; Marine le rattrape
+  - name: TX_5b31
+    index: 0x31
+    text: |-
+      \col(1)Zelda\col(0): Link!
+      Tu as toujours
+      peur du vide?\stop
+      Allez, saute!
+      Ton oiseau te
+      rattrapera!
+  - name: TX_5b32
+    index: 0x32
+    text: |-
+      \col(1)Marine\col(0): Je
+      t'ai eu! Ouf...\stop
+      Elle est folle,
+      ta princesse!\stop
+      Si tu tombes
+      encore, siffle.
+      Je viendrai.
+  - name: TX_5b33
+    index: 0x33
+    text: |-
+      Le Sifflet de
+      Marine: quand tu
+      tombes, elle te
+      rattrape!
+
 
 - group: 0x00
   data:

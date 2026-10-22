@@ -3566,6 +3566,118 @@ groups:
       Come get me on
       the beach!
 
+  # Les Songes des Héros (code/ages/balladeSonges.s) : au Nid des Vents, dans le Songe
+  - name: TX_5b26
+    index: 0x26
+    text: |-
+      \col(1)Marin\col(0): The
+      Nest of Winds...\stop
+      The dreams of
+      all who wanted
+      to fly pass
+      through here.\stop
+      And the dreams
+      of the heroes
+      before you!
+      Touch a bubble,
+      you'll see!
+
+  # La fée qui parle tout le temps (1er rêve)
+  - name: TX_5b27
+    index: 0x27
+    text: |-
+      \col(1)Fairy\col(0): Hey!
+      Ho! Listen up!
+  - name: TX_5b28
+    index: 0x28
+    text: |-
+      \col(1)Fairy\col(0): Look!
+      Look over there!
+  - name: TX_5b29
+    index: 0x29
+    text: |-
+      \col(1)Fairy\col(0): Link!
+      Link! Are you
+      listening?
+  - name: TX_5b2a
+    index: 0x2a
+    text: |-
+      \col(1)Fairy\col(0): Hey!
+      Ho! It's this
+      way!
+  - name: TX_5b2b
+    index: 0x2b
+    text: |-
+      \col(1)Marin\col(0): She
+      talked like that
+      ALL the time?!\stop
+      I only talk
+      when it helps.\stop
+      ...Well,
+      almost.
+
+  # Les masques (2e rêve)
+  - name: TX_5b2c
+    index: 0x2c
+    text: |-
+      \col(1)Marin\col(0): Masks!
+      Try them on,
+      let's see!
+  - name: TX_5b2d
+    index: 0x2d
+    text: |-
+      \col(1)Marin\col(0): You
+      look like a
+      sulking nut!
+  - name: TX_5b2e
+    index: 0x2e
+    text: |-
+      \col(1)Marin\col(0): You
+      look... sturdy.\stop
+      And a bit heavy.
+      Sorry!
+  - name: TX_5b2f
+    index: 0x2f
+    text: |-
+      \col(1)Marin\col(0): Oh!
+      That one suits
+      you! A boy of
+      the sea...
+  - name: TX_5b30
+    index: 0x30
+    text: |-
+      \col(1)Marin\col(0): OK,
+      give them back!
+      These masks
+      creep me out...
+
+  # Célesbourg (3e rêve) : la princesse pousse Link ; Marine le rattrape
+  - name: TX_5b31
+    index: 0x31
+    text: |-
+      \col(1)Zelda\col(0): Link!
+      Still afraid of
+      heights?\stop
+      Come on, jump!
+      Your bird will
+      catch you!
+  - name: TX_5b32
+    index: 0x32
+    text: |-
+      \col(1)Marin\col(0): Got
+      you! Phew...\stop
+      Your princess is
+      crazy!\stop
+      If you fall
+      again, whistle.
+      I'll come.
+  - name: TX_5b33
+    index: 0x33
+    text: |-
+      Marin's Whistle:
+      if you fall, she
+      catches you!
+
 
 - group: 0x00
   data:
