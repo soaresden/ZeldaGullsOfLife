@@ -435,6 +435,9 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   `story/salles/objets.txt` ; `tools/make_rooms.py` (appelé par build.sh) écrit roomGGSS.bin et
   group1Tilesets.bin, et redéfinit les objets de nos salles à la fin de objects/ages/mainData.s
   (régénéré depuis upstream/hack-base : ne pas éditer ce fichier à la main pour nos salles).
+- Le dossier out/ (pas dans git) : la ROM (gulls_of_life.gbc), le patch (.bps), base.gbc ; les
+  aperçus à écouter dans out/apercus/ (tools/record_music.py, tools/test_rythme.py) ; les vieux
+  essais et captures dans out/archives/.
 - Fichier de disposition = selon le GROUPE de la salle (hack-base, @getLayoutGroup) : groupe 0 ->
   room00SS, 1 -> room02SS, 2 -> room01SS, 3 -> room03SS (l'octet 6 du décor est ignoré).
 - hack-base : chaque décor a ses propres images (gfx/ages/gfx_tilesetXX.png), briques
@@ -617,7 +620,7 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Le désassemblage de LADX est sur la machine : D:\DOCS\Documents\GitHub\ZeldaOracleCombinedFR\LADX-Disassembly-main
   (sons : src/code/audio/, musiques, sprites : src/gfx/...). Le lire là plutôt que sur GitHub.
 - Aperçus à écouter : `python tools/record_music.py [film titre phare ile auberge boss veilleur
-  miniboss theme grelot coffre lagune recif braise forge echos cathedrale tarkin]` -> out/NOM_apercu.wav ; `ROM=chemin` pour une autre ROM ; les morceaux sans
+  miniboss theme grelot coffre lagune recif braise forge echos cathedrale tarkin]` -> out/apercus/NOM_apercu.wav ; `ROM=chemin` pour une autre ROM ; les morceaux sans
   salle sont lancés en détournant playSound (crochet PyBoy). Denis veut ÉCOUTER une musique avant
   qu'on la pousse ; ses références : Wind Waker / Linebeck (marin), Resident Evil (salle de
   sauvegarde), Hyrule Warriors, Ninja Gaiden NES.
@@ -660,7 +663,7 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   écran titre et à chaque début de partie) ; balladeRhythm.checkTestStart (appelé par
   initializeGame, bank1.s) remplace le point de départ, et le vrai est rendu en arrivant dans la
   salle (wBalladeRhythmSpawn) : sauvegarder pendant le test ne change pas le départ du fichier.
-- Test + aperçu : python tools/test_rythme.py [DOSSIER] (ROM=...) -> out/rythme_apercu.wav (un
+- Test + aperçu : python tools/test_rythme.py [DOSSIER] (ROM=...) -> out/apercus/rythme_apercu.wav (un
   joueur qui rate le 1er tour puis réussit les 5 niveaux, Marine, le coup de grâce) ; il rejoue
   aussi les vrais coups de Denis et le code secret. Étape en $cdec, coups en $cdeb.
 - tools/rythme.html (navigateur) : la partition de la phrase avec un curseur ; Denis tape à la
