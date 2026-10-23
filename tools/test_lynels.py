@@ -140,7 +140,7 @@ ls = lynels()
 check(all(l[3] == 0 and l[1] == 0x58 for l in ls if l[0] != 3) and
       [abs(l[2] - 0x78) < 9 and l[1] == 0x38 for l in ls if l[0] == 3] == [True], 'tous à l\'enclos ' + str(ls))
 
-# Tous les rubis : gagné, retour chez le forain
+# Tous les rubis : gagné ; le forain envoie Link dans le 2e labyrinthe (5:ee), plus dur
 m[LINK_Y], m[LINK_X] = 0x78, 0x78
 w(150)
 m[LEFT] = 1
@@ -152,10 +152,27 @@ check(len(lynels()) == 0, 'les Lynels s\'en vont')
 w(30)
 shot('gagne')
 pieces = m[0xc6ac]
+for _ in range(3):
+    text_through()
+    w(60)
+w(150)
+check(m[0xcc30] == 0xee, 'le 2e labyrinthe (5:%02x)' % m[0xcc30])
+check(m[0xc6ac] == pieces, 'pas encore de quart de cœur (il est au bout du 2e)')
+w(150)
+shot('labyrinthe2')
+# Le 2e gagné : 50 rubis, un quart de cœur, retour chez le forain
+m[LINK_Y], m[LINK_X] = 0x78, 0x78
+w(60)
+m[LEFT] = 1
+m[INVINCIBLE] = 0x7f
+m[LINK_Y], m[LINK_X] = 0x18, 0x28
+w(10)
+check(m[STATE] == 2, 'le 2e labyrinthe : gagné')
+w(60)
 for _ in range(4):
     text_through()
     w(60)
-check(m[0xc6ac] != pieces, 'la première victoire : un quart de cœur (%d -> %d)' % (pieces, m[0xc6ac]))
+check(m[0xc6ac] != pieces, 'le 2e gagné : un quart de cœur (%d -> %d)' % (pieces, m[0xc6ac]))
 w(200)
 check(m[0xcc30] == 0xac, 'retour chez le forain (1:%02x)' % m[0xcc30])
 

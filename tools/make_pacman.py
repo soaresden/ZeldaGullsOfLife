@@ -1,6 +1,7 @@
 """Le Labyrinthe des Lynels (le 3e jeu du forain, façon Pac-Man) : son décor et son plan.
 
-Lit art/labyrinthe.txt (15 x 11 cases) et fabrique le décor $69 (copie du décor de grotte $59 faite
+Lit art/labyrinthe.txt et art/labyrinthe2.txt (15 x 11 cases : le 1er labyrinthe, 5:e9, et le 2e,
+plus dur, 5:ee, qu'on joue après avoir gagné le 1er) et fabrique le décor $69 (copie du décor de grotte $59 faite
 par tools/make_songe.py, avec la palette PALH_LABYRINTHE) : fond noir, des murs dessinés comme ceux
 de Pac-Man (un trait bleu qui suit le contour de chaque mur, arrondi aux coins, et un second trait
 sur le bord de la salle), les rubis à ramasser, les gemmes de force (deux images : elles clignotent)
@@ -23,7 +24,7 @@ from PIL import Image
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DISASM = os.path.join(ROOT, 'oracles-disasm')
 TILESET = 0x69
-ROOM = '5:e9'
+MAZES = [('5:e9', 'labyrinthe.txt'), ('5:ee', 'labyrinthe2.txt')]
 FLOOR, RUPEE, GEM, GEM_FLASH, DOOR, FIRST_WALL = 0xa0, 0xa3, 0xa4, 0xa5, 0xa6, 0xc8
 W, H = 15, 11
 
@@ -74,10 +75,10 @@ def path(kind):
             'col': os.path.join(DISASM, 'tileset_layouts_expanded', 'ages', 'tilesetCollisions%02x.bin' % TILESET)}[kind]
 
 
-def read_maze():
-    rows = [l.rstrip('\n') for l in open(os.path.join(ROOT, 'art', 'labyrinthe.txt'), encoding='utf-8')
+def read_maze(name):
+    rows = [l.rstrip('\n') for l in open(os.path.join(ROOT, 'art', name), encoding='utf-8')
             if l.strip() and not l.startswith('# ')]
-    assert len(rows) == H and all(len(r) == W for r in rows), 'art/labyrinthe.txt : %d x %d' % (W, H)
+    assert len(rows) == H and all(len(r) == W for r in rows), 'art/%s : %d x %d' % (name, W, H)
     return rows
 
 
@@ -121,7 +122,6 @@ def art(rows):
 
 
 def main():
-    rows = read_maze()
     original = Image.open(path('gfx'))
     palette = original.getpalette()
     im = Image.new('L', original.size, 255)
@@ -157,24 +157,28 @@ def main():
     put(GEM_FLASH, art(GEM_ART), 5, False)
     put(DOOR, art(DOOR_ART), 6, True)
 
-    # Les murs : une brique par dessin
-    walls, plan = {}, []
-    images = wall_images(rows)
-    for y in range(H):
-        line = []
-        for x in range(W):
-            c = rows[y][x]
-            if c == '#':
-                key = tuple(tuple(r) for r in images[(x, y)])
-                if key not in walls:
-                    mt = FIRST_WALL + len(walls)
-                    assert mt < 0xf0, 'trop de murs différents'
-                    walls[key] = mt
-                    put(mt, images[(x, y)], 2, True)
-                line.append(walls[key])
-            else:
-                line.append({'.': RUPEE, 'o': GEM, '-': DOOR}.get(c, FLOOR))
-        plan.append(line)
+    # Les murs : une brique par dessin (les deux labyrinthes se les partagent)
+    walls, plans = {}, []
+    for room, name in MAZES:
+        rows = read_maze(name)
+        images = wall_images(rows)
+        plan = []
+        for y in range(H):
+            line = []
+            for x in range(W):
+                c = rows[y][x]
+                if c == '#':
+                    key = tuple(tuple(r) for r in images[(x, y)])
+                    if key not in walls:
+                        mt = FIRST_WALL + len(walls)
+                        assert mt < 0xf0, 'trop de murs différents'
+                        walls[key] = mt
+                        put(mt, images[(x, y)], 2, True)
+                    line.append(walls[key])
+                else:
+                    line.append({'.': RUPEE, 'o': GEM, '-': DOOR}.get(c, FLOOR))
+            plan.append(line)
+        plans.append((room, name, plan, rows))
 
     index = {palette[3 * i]: i for i in range(4)}
     out = Image.new('P', im.size)
@@ -186,13 +190,13 @@ def main():
 
     with open(os.path.join(ROOT, 'story', 'salles', 'labyrinthe.txt'), 'w', encoding='utf-8', newline='\n') as f:
         f.write('# Le Labyrinthe des Lynels (le 3e jeu du forain). ÉCRIT PAR tools/make_pacman.py depuis\n'
-                '# art/labyrinthe.txt : modifier le labyrinthe là-bas.\n')
-        f.write('salle %s decor %02x\n' % (ROOM, TILESET))
-        for line in plan:
-            f.write(' '.join('%02x' % t for t in line) + '\n')
-    rupees = sum(r.count('.') for r in rows)
-    print('-> décor $%02x : %d murs, %d tuiles ; %d rubis, %d gemmes' %
-          (TILESET, len(walls), len(tiles), rupees, sum(r.count('o') for r in rows)))
-
+                '# art/labyrinthe.txt et art/labyrinthe2.txt : modifier les labyrinthes là-bas.\n')
+        for room, name, plan, rows in plans:
+            f.write('\n# art/%s\nsalle %s decor %02x\n' % (name, room, TILESET))
+            for line in plan:
+                f.write(' '.join('%02x' % t for t in line) + '\n')
+            print('-> %s : %d rubis, %d gemmes' % (room, sum(r.count('.') for r in rows),
+                                                   sum(r.count('o') for r in rows)))
+    print('-> décor $%02x : %d murs, %d tuiles' % (TILESET, len(walls), len(tiles)))
 
 main()

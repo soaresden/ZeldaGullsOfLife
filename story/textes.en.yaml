@@ -3789,6 +3789,15 @@ groups:
       jackpot is
       yours!
 
+  # Le 1er labyrinthe des Lynels gagné : le forain envoie Link dans le 2e
+  - name: TX_5b40
+    index: 0x40
+    text: |-
+      Not bad, kid!\stop
+      Now for the real
+      maze: they're
+      faster!
+
 
 - group: 0x00
   data:

@@ -3921,6 +3921,16 @@ groups:
       gros lot est
       pour toi!
 
+  # Le 1er labyrinthe des Lynels gagné : le forain envoie Link dans le 2e
+  - name: TX_5b40
+    index: 0x40
+    text: |-
+      Pas mal, petit!\stop
+      Mais voici le
+      vrai labyrinthe:
+      ils sont plus
+      rapides!
+
 
 - group: 0x00
   data:

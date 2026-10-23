@@ -786,6 +786,13 @@ salle 5:e9
 	obj_SpecificEnemyA     ENEMY_LYNEL $04 $58 $78
 	obj_SpecificEnemyA     ENEMY_LYNEL $05 $58 $68
 	obj_SpecificEnemyA     ENEMY_LYNEL $06 $58 $88
+# Le 2e labyrinthe (plus dur, après le 1er) : les mêmes
+salle 5:ee
+	obj_Interaction INTERAC_BALLADE_CREUSE $01 $08 $08
+	obj_SpecificEnemyA $00 ENEMY_LYNEL $03 $38 $78
+	obj_SpecificEnemyA     ENEMY_LYNEL $04 $58 $78
+	obj_SpecificEnemyA     ENEMY_LYNEL $05 $58 $68
+	obj_SpecificEnemyA     ENEMY_LYNEL $06 $58 $88
 
 # L'arène du Mamono (le 2e jeu du forain, code/ages/balladeMamono.s) : le contrôleur, et un ennemi
 # modèle de chaque niveau (Keese, Octorok, Moblin, Darknut, Lynel), caché et figé dès l'arrivée
