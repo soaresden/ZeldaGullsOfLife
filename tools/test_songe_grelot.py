@@ -7,7 +7,7 @@
 - le pont-levis : il n'existe que dans le Songe (0:13) ; on traverse, la Lanterne ramène dans le
   Réel sur l'îlot : le coffre du château de sable (50 rubis) ;
 - la place est un jeu de l'oie géant dans le Songe (0:11), Marine le remarque ;
-- les cinq trouvés : Tic donne un quart de cœur.
+- les cinq trouvés : Tic donne un quart de cœur et l'Anneau d'Armure.
 
 Usage : python tools/test_songe_grelot.py DOSSIER_CAPTURES   (ROM=chemin pour une autre ROM)
 """
@@ -180,6 +180,11 @@ g.text_through()
 g.w(60)
 g.text_through()
 check(g.m[HEART_PIECES] != hp, 'le quart de cœur de Tic et Tac')
+for _ in range(4):
+    g.w(40)
+    g.text_through()
+check(bool(g.m[0xc616] & 0x10) and 0x04 in [g.m[0xc6c6 + i] for i in range(5)],
+      "et l'Anneau d'Armure, dans la boîte")
 shoot('g10_quart', 'Le quart de cœur')
 check(say('up') and text_is(0x52), 'Tic : maintenant on se cache pour de vrai')
 g.text_through()

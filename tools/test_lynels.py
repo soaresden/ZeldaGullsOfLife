@@ -188,6 +188,8 @@ for _ in range(3):
 w(150)
 check(m[0xcc30] == 0xee, 'le 2e labyrinthe (5:%02x)' % m[0xcc30])
 check(m[0xc6ac] == pieces, 'pas encore de quart de cœur (il est au bout du 2e)')
+check(bool(m[0xc616] & 0x02) and 0x01 in [m[0xc6c6 + i] for i in range(5)],
+      "le 1er gagné : l'Anneau de Force, dans la boîte")
 w(150)
 shot('labyrinthe2')
 # Le 2e gagné : 50 rubis, un quart de cœur, retour chez le forain

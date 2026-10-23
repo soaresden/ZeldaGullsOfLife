@@ -224,6 +224,11 @@ def play_to_win(lvl, name, perfect=False):
         text_through()
 
 
+
+def ring(r):
+    """Un de nos anneaux est eu (wRingsObtained) et rangé dans la boîte (wRingBoxContents)."""
+    return bool(m[0xc616 + r // 8] & (1 << (r % 8))) and r in [m[0xc6c6 + i] for i in range(5)]
+
 # Nouvelle partie, la plage du forain
 for c in 'w900 start w150 start w60 a w60 a w80 a w10 start w20 a w60 a w60 a'.split():
     w(int(c[1:])) if c[0] == 'w' else press(c)
@@ -246,6 +251,7 @@ leave('facile')
 pieces = m[HEART_PIECES]
 play_to_win(1, 'dur', perfect=True)
 check(m[HEART_PIECES] != pieces, 'dur sans une égratignure : le gros lot, un quart de cœur (%d -> %d)' % (pieces, m[HEART_PIECES]))
+check(ring(0x16), "et l'Anneau Tornade, dans la boîte")
 leave('dur')
 
 # Un monstre trop fort, découvert à l'aveugle : il frappe de tout son niveau

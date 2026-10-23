@@ -3262,6 +3262,28 @@ groups:
 # ==============================================================================
 - group: 0x5b
   data:
+  # Marine on her island, everything done (the four game rings): her ring (Denis)
+  - name: TX_5b72
+    index: 0x72
+    text: |-
+      \col(1)Marine\col(0): You did
+      it all, saw it
+      all, won it all.\stop
+      Here. It's...
+      like an
+      engagement ring.\stop
+      Don't laugh!
+      Keep it on you,
+      always.
+  # The Chameleon Ring, in the menu: setting the tunic color
+  - name: TX_5b71
+    index: 0x71
+    text: |-
+      Up, down: red,
+      green, blue.
+      Left, right:
+      more or less.
+      A: done!
 
   # The ending, on top of the Sleepless Tower (code/ages/balladeFin.s): Zelda, dreaming
   - name: TX_5b00
@@ -4260,8 +4282,108 @@ groups:
       anyone?
 
 
+# Les anneaux de Gulls of Life (code/treasureAndDrops.s balladeGiveRing)
+- group: 0x30
+  data:
+  # Gulls of Life's five rings: name, effect
+  - name: TX_3041
+    index: 0x41
+    text: |-
+      Power Ring
+  - name: TX_3081
+    index: 0x81
+    text: |-
+      Sword \up
+      Damage \up
+  - name: TX_3044
+    index: 0x44
+    text: |-
+      Armor Ring
+  - name: TX_3084
+    index: 0x84
+    text: |-
+      Damage \down
+      Sword \down
+  - name: TX_3056
+    index: 0x56
+    text: |-
+      Charge Ring
+  - name: TX_3096
+    index: 0x96
+    text: |-
+      Spin Attack
+      charges quickly
+  - name: TX_3078
+    index: 0x78
+    text: |-
+      Chameleon Ring
+  - name: TX_30b8
+    index: 0xb8
+    text: |-
+      Your tunic,
+      your color
+  - name: TX_3073
+    index: 0x73
+    text: |-
+      Easter Egg Ring
+  - name: TX_30b3
+    index: 0xb3
+    text: |-
+      Given by
+      Marine.
+
 - group: 0x00
   data:
+  # Our rings (unused Ages texts: the ring box, fairy powder...)
+  - name: TX_0057
+    index: 0x57
+    text: |-
+      The \col(1)Power
+      Ring\col(0)!\stop
+      Your sword hits
+      harder, but you
+      take more harm.
+      A in the menu
+      to wear it.
+  - name: TX_0058
+    index: 0x58
+    text: |-
+      The \col(1)Armor
+      Ring\col(0)!\stop
+      You take less
+      harm, but your
+      sword hits
+      softer.
+  - name: TX_0059
+    index: 0x59
+    text: |-
+      The \col(1)Charge
+      Ring\col(0)!\stop
+      Your Spin Attack
+      charges much
+      faster.
+  - name: TX_0055
+    index: 0x55
+    text: |-
+      The \col(1)Chameleon
+      Ring\col(0)!\stop
+      Wear it in the
+      menu: you pick
+      your tunic's
+      color!
+  - name: TX_0056
+    index: 0x56
+    text: |-
+      The \col(1)Easter
+      Egg Ring\col(0)!
+  # A ring (appraised right away)
+  - name: TX_0054
+    index: 0x54
+    text: |-
+      You got a
+      \col(1)ring\col(0)! It is
+      in your box
+      (menu).
   # The 2nd dungeon's essence: the second verse
   - name: TX_000f
     index: 0x0f
@@ -4726,6 +4848,31 @@ groups:
 # Item descriptions (inventory)
 - group: 0x09
   data:
+  # The ring box (given from the start: five slots)
+  - name: TX_0917
+    index: 0x17
+    text: |-
+      Ring
+      Wear it from
+      the menu.
+  - name: TX_091d
+    index: 0x1d
+    text: |-
+      Ring Box
+      A on a ring to
+      wear it.
+  - name: TX_091e
+    index: 0x1e
+    text: |-
+      Ring Box
+      A on a ring to
+      wear it.
+  - name: TX_091f
+    index: 0x1f
+    text: |-
+      Ring Box
+      A on a ring to
+      wear it.
   - name: TX_0902
     index: 0x02
     text: |-

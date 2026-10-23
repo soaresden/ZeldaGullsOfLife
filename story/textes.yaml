@@ -3385,6 +3385,28 @@ groups:
 # ==============================================================================
 - group: 0x5b
   data:
+  # Marine sur son île, tout fini (les quatre anneaux des jeux) : sa bague (Denis)
+  - name: TX_5b72
+    index: 0x72
+    text: |-
+      \col(1)Marine\col(0): Tu as
+      tout fait, tout
+      vu, tout gagné.\stop
+      Tiens. C'est...
+      comme une bague
+      de fiançailles.\stop
+      Ne ris pas!
+      Garde-la sur
+      toi, toujours.
+  # L'Anneau Caméléon, dans le menu : le réglage de la couleur de la tunique
+  - name: TX_5b71
+    index: 0x71
+    text: |-
+      Haut, bas:
+      rouge, vert,
+      bleu. Gauche,
+      droite: plus ou
+      moins. A: fini!
 
   # La fin, en haut de la Tour Sans-Nuit (code/ages/balladeFin.s) : Zelda, en rêve
   - name: TX_5b00
@@ -4415,8 +4437,110 @@ groups:
       quelqu'un?
 
 
+# Les anneaux de Gulls of Life (code/treasureAndDrops.s balladeGiveRing)
+- group: 0x30
+  data:
+  # Les cinq anneaux du jeu : leur nom, ce qu'ils font
+  - name: TX_3041
+    index: 0x41
+    text: |-
+      Anneau de Force
+  - name: TX_3081
+    index: 0x81
+    text: |-
+      Épée \up
+      Blessures \up
+  - name: TX_3044
+    index: 0x44
+    text: |-
+      Anneau d'Armure
+  - name: TX_3084
+    index: 0x84
+    text: |-
+      Blessures \down
+      Épée \down
+  - name: TX_3056
+    index: 0x56
+    text: |-
+      Anneau Tornade
+  - name: TX_3096
+    index: 0x96
+    text: |-
+      Le tourbillon
+      se charge vite
+  - name: TX_3078
+    index: 0x78
+    text: |-
+      Anneau Caméléon
+  - name: TX_30b8
+    index: 0xb8
+    text: |-
+      Ta tunique,
+      ta couleur
+  - name: TX_3073
+    index: 0x73
+    text: |-
+      Bague Easter Egg
+  - name: TX_30b3
+    index: 0xb3
+    text: |-
+      Donnée par
+      Marine.
+
 - group: 0x00
   data:
+  # Nos anneaux (des textes d'Ages inutilisés : la boîte à anneaux, la poudre de fée...)
+  - name: TX_0057
+    index: 0x57
+    text: |-
+      L'\col(1)Anneau de
+      Force\col(0)!\stop
+      Ton épée frappe
+      plus fort, mais
+      tu prends plus
+      cher. A dans le
+      menu pour le
+      porter.
+  - name: TX_0058
+    index: 0x58
+    text: |-
+      L'\col(1)Anneau
+      d'Armure\col(0)!\stop
+      Tu prends moins
+      cher, mais ton
+      épée frappe
+      moins fort.
+  - name: TX_0059
+    index: 0x59
+    text: |-
+      L'\col(1)Anneau
+      Tornade\col(0)!\stop
+      Ton attaque
+      tourbillon se
+      charge bien plus
+      vite.
+  - name: TX_0055
+    index: 0x55
+    text: |-
+      L'\col(1)Anneau
+      Caméléon\col(0)!\stop
+      Mets-le dans le
+      menu: tu choisis
+      la couleur de ta
+      tunique!
+  - name: TX_0056
+    index: 0x56
+    text: |-
+      La \col(1)bague
+      Easter Egg\col(0)!
+  # Un anneau (il est identifié tout de suite)
+  - name: TX_0054
+    index: 0x54
+    text: |-
+      Tu as un
+      \col(1)anneau\col(0)!
+      Il est dans ta
+      boîte (menu).
   # L'essence du 2e donjon : le deuxième couplet
   - name: TX_000f
     index: 0x0f
@@ -5126,6 +5250,31 @@ groups:
 # Description des objets (inventaire)
 - group: 0x09
   data:
+  # La boîte à anneaux (donnée d'office : cinq places)
+  - name: TX_0917
+    index: 0x17
+    text: |-
+      Anneau
+      On le porte
+      depuis le menu.
+  - name: TX_091d
+    index: 0x1d
+    text: |-
+      Boîte à anneaux
+      A sur un anneau
+      pour le porter.
+  - name: TX_091e
+    index: 0x1e
+    text: |-
+      Boîte à anneaux
+      A sur un anneau
+      pour le porter.
+  - name: TX_091f
+    index: 0x1f
+    text: |-
+      Boîte à anneaux
+      A sur un anneau
+      pour le porter.
   - name: TX_0902
     index: 0x02
     text: |-

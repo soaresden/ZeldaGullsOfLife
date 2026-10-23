@@ -179,6 +179,11 @@ check(m[0xcc30] == 0xac, 'le port de pêche mène à la plage du forain (1:ac)')
 shot('plage')
 m[INV_A], m[INV_B] = ITEM_SWORD, ITEM_BOMBS
 
+
+def ring(r):
+    """Un de nos anneaux est eu (wRingsObtained) et rangé dans la boîte (wRingBoxContents)."""
+    return bool(m[0xc616 + r // 8] & (1 << (r % 8))) and r in [m[0xc6c6 + i] for i in range(5)]
+
 numbers_ok = [True]
 play(0, 'facile')
 check(numbers_ok[0], 'facile : chaque case creusée montre le nombre de bombes autour')
@@ -186,6 +191,10 @@ check(m[STATE] == 0 and m[LEFT] == 0, 'facile : toutes les cases sûres creusée
 check(m[0xcba0] != 0, 'facile : le forain le dit')
 text_through()
 check(m[INV_A] == ITEM_SWORD and m[INV_B] == ITEM_BOMBS, 'facile : ses objets reviennent (A %02x, B %02x)' % (m[INV_A], m[INV_B]))
+for _ in range(6):
+    w(30)
+    text_through()
+check(ring(0x38), "la première victoire : l'Anneau Caméléon, dans la boîte")
 w(120)
 print('rubis après la partie facile :', rupees())
 
