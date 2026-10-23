@@ -142,6 +142,9 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   TX_0918). Héloïse $0e, Bulle $0f (une Zora), le facteur $10 : habitants à deux répliques
   (masque d'essence $04). Le Récif Murmurant (1:36) : un totem dont la bouche (dd) sera l'entrée
   du donjon 3 ; Marine ne suit pas sous l'eau (TX_5a7b).
+- Le noctambule se recharge dans une maison du Songe (groupe 2 : objectLoading.s le remet à zéro au
+  chargement de la salle ; dehors, INTERAC_BALLADE_DREAM_FX repart de 7 s). L'auberge du Songe
+  (2:9e, DREAM_FX $01) compte quand même : on y arrive en dormant (Denis, 23 octobre 2026).
 - Le noctambule (7 s dans le Songe) : Link ne se réveille pas sur le fond de la mer ouverte, ni
   pendant un défilement d'écran (sinon : réveil dans l'eau profonde du Réel, noyades jusqu'au
   game over) ; la Lanterne refuse de marcher sur ce fond (harpFluteParent.s).
