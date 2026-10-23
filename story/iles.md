@@ -76,6 +76,12 @@ Terrain de jeu vide | Maison de Lila | École des Bonnets | Jardin des toupies
 **Le Songe** : la place est un plateau de jeu de l'oie géant. Le pont-levis du château de sable
 n'existe que dans le Songe.
 
+*Fait (23 octobre 2026)* : Tic et Tac au terrain de jeu (1:20) ; cinq cachettes dans le Songe (le
+bois, le manège, les toupies, sous l'arbre du cerf-volant, l'îlot du château de sable), le quart
+de cœur ; le cerf-volant de la colline (1:01) parle dans le Songe et dit où ils sont ; la place
+en jeu de l'oie (0:11) ; le grand château de sable est sur un îlot (1:13) : on traverse le
+pont-levis dans le Songe, la Lanterne ramène dans le Réel sur l'îlot, le coffre (50 rubis).
+
 **Donjon : le Coffre à Jouets** (dans le rêve de Lila ; on y entre en s'endormant près d'elle).
 Forme : **une malle à jouets**, un rectangle large avec son couvercle. Décor : le donjon de la
 Couronne d'*Ages* (sols de couleur, cubes à faire rouler). Énigmes : cubes de couleur, blocs qui

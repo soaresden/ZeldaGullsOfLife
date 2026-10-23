@@ -116,16 +116,20 @@ salle 12 decor 7b
 2e 2f 3a 3a 0c 0c 3a 3a 2e 2f
 3e 3f 3a 3a 0c 0c 3a 3a 3e 3f
 
-# --- La plage aux châteaux de sable. Ouest : lignes 3-4. Sud : colonnes 1-6. ---
+# --- La plage aux châteaux de sable. Ouest : lignes 3-4. Sud : colonnes 1-6. Le grand château de
+# sable est sur un îlot (colonnes 5-8), de l'autre côté de la douve (colonne 4) : pas de pont dans
+# le Réel. Son pont-levis n'existe que dans le Songe (story/salles/songe.txt, 0:13) : on traverse
+# dans le Songe, et la Lanterne ramène Link dans le Réel, sur l'îlot : le coffre (ligne 3,
+# colonne 6 : 50 rubis, chestData.s). ---
 salle 13 decor 7b
 fa fa fa fa fa fa fa fa fa fa
-f7 31 31 31 31 31 31 32 fa fa
-3b 3b 3b 3b d3 3b 3b 37 fa fa
-3b 3b 3b 3b 3b 3b 3b 37 fa fa
-3b 3b d3 3b 3b 3b 3b 37 fa fa
-3b 3b 3b 3b 3b d3 3b 37 fa fa
-f7 3b 3b 3b 3b 3b 3b 37 fa fa
-f7 3b 3b 3b 3b 3b 3b 37 fa fa
+f7 31 31 32 fa 30 31 31 32 fa
+3b 3b 3b 37 fa 36 d3 d3 37 fa
+3b 3b 3b 37 fa 36 f1 3b 37 fa
+3b 3b d3 37 fa 36 3b 3b 37 fa
+3b 3b 3b 37 fa 33 34 34 35 fa
+f7 3b 3b 37 fa fa fa fa fa fa
+f7 3b 3b 3b 31 31 31 32 fa fa
 
 # --- Le terrain de jeu vide : des piquets, un bac à sable, personne. Nord : colonnes 3-6. Est :
 # lignes 3-4. ---

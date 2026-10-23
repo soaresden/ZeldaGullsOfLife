@@ -183,6 +183,29 @@ salle 11
 	obj_Interaction INTERAC_BALLADE_OBJECT $0c $58 $98
 	obj_Interaction INTERAC_BALLADE_OBJECT $0a $08 $08
 	obj_Interaction INTERAC_BALLADE_OBJECT $3a $28 $38 ; l'Arbre-Passage (île 2)
+# Le terrain de jeu vide : Tic et Tac, les jumeaux qui ne savent plus se cacher (cache-cache dans le
+# Songe : balladeObjects.twins)
+salle 20
+	obj_Interaction INTERAC_BALLADE_OBJECT $3c $48 $48 ; Tic
+	obj_Interaction INTERAC_BALLADE_OBJECT $3d $48 $68 ; Tac
+# La colline : le vieux cerf-volant, coincé dans l'arbre (il ne parle que dans le Songe)
+salle 01
+	obj_Interaction INTERAC_BALLADE_OBJECT $3f $34 $30
+# Le Songe de l'île 2 : le cerf-volant parle ; les cinq cachettes des jumeaux ($3e) ; Marine ($40)
+salle 0:01
+	obj_Interaction INTERAC_BALLADE_OBJECT $3f $34 $30 ; le cerf-volant
+	obj_Interaction INTERAC_BALLADE_OBJECT $3e $54 $28 ; dans le buisson, sous son arbre (Link à sa droite)
+salle 0:10
+	obj_Interaction INTERAC_BALLADE_OBJECT $3e $54 $18 ; dans le buisson du bois (Link à sa gauche)
+salle 0:02
+	obj_Interaction INTERAC_BALLADE_OBJECT $3e $34 $48 ; derrière le plateau du manège
+salle 0:23
+	obj_Interaction INTERAC_BALLADE_OBJECT $3e $14 $38 ; dans les fleurs du jardin des toupies
+salle 0:11
+	obj_Interaction INTERAC_BALLADE_OBJECT $40 $08 $08 ; Marine : le jeu de l'oie
+salle 0:13
+	obj_Interaction INTERAC_BALLADE_OBJECT $40 $08 $08 ; Marine : le pont-levis
+	obj_Interaction INTERAC_BALLADE_OBJECT $3e $34 $68 ; derrière le grand château, sur l'îlot
 # L'école des Bonnets : Mme Bonnet
 salle 3:22
 	obj_Interaction INTERAC_BALLADE_OBJECT $0d $48 $38

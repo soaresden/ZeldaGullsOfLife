@@ -89,6 +89,18 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   nom TX_0942, reçu TX_0072. Donné par l'aubergiste pendant le tour du village ; parties anciennes :
   INTERAC_BALLADE_OBJECT $07 dans l'auberge. La banque des scripts ($0c) est pleine : les nouveaux
   habitants sont en ASM.
+- Le Songe de l'île 2 (story/iles.md ; balladeObjects.s twins / hidingTwin / kite / dreamComment) :
+  Tic $3c et Tac $3d (1:20) ; leur parler -> GLOBALFLAG_BALLADE_CACHE ($63). Un jumeau caché $3e
+  (spr_ballade_grelot $e8, art/grelot.txt) dans 0:10, 0:02, 0:23, 0:01, 0:13 (twinRooms) : A ->
+  drapeau $40 de la salle du Songe (groupe 0) ; les cinq : Tic donne le quart de cœur (ROOMFLAG_ITEM
+  de 1:20). Le cerf-volant $3f (1:01 muet, 0:01 parle et donne les cachettes). Marine $40 (drapeau
+  $80) : le jeu de l'oie (0:11, songe.txt), le pont-levis (0:13). 1:13 : le château sur un îlot,
+  la douve sans pont ; 0:13 : le ponton 1d/1e ; la Lanterne sur l'îlot -> le Réel : le coffre (3,6),
+  chestGroup1Data. Piège : roomGfxChanges.s chargeait l'arbre à voyager d'Ages en 0:13 (et 0:c1,
+  1:c1 : le lac de glace) : ses tuiles dessinent un rond par-dessus le décor ; retirés.
+- Test : python tools/test_songe_grelot.py DOSSIER (Tic et Tac, le cerf-volant, les cinq cachettes,
+  le pont-levis et le coffre, le jeu de l'oie, le quart de cœur).
+  Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/songe_grelot.png
 
 ## Le Coffre à Jouets (donjon 2)
 - story/salles/coffre.txt : les salles du 2e donjon d'Ages (groupe 4, $2b-$3b), décor 37 (le Donjon

@@ -4049,6 +4049,149 @@ groups:
       chiant ce bruit!?\stop
       Tiens, un bisou!
 
+  # Hameau-Grelot, le Songe : Tic et Tac jouent à cache-cache (balladeObjects.twins, hiding, kite)
+  - name: TX_5b4f
+    index: 0x4f
+    text: |-
+      Tic: On joue à
+      cache-cache!\stop
+      Tac: Mais on ne
+      sait plus se
+      cacher...\stop
+      Tic: Alors on
+      reste là, les
+      yeux ouverts.\stop
+      \col(1)Marine\col(0): Dans
+      le Songe, je
+      parie qu'ils
+      oseront!\stop
+      Cinq cachettes,
+      Link. A toi de
+      jouer!
+  - name: TX_5b50
+    index: 0x50
+    text: |-
+      Tic: Dans tes
+      rêves, tu nous
+      as trouvés
+      \num1 fois
+      sur 5!\stop
+      Tic: Cherche
+      encore! On est
+      forts, hein?
+  - name: TX_5b51
+    index: 0x51
+    text: |-
+      Tic: Tu nous as
+      trouvés partout!\stop
+      Même dans le
+      château de
+      sable!\stop
+      Tiens, c'est
+      notre trésor.
+  - name: TX_5b52
+    index: 0x52
+    text: |-
+      Tic: Maintenant
+      on se cache
+      pour de vrai!\stop
+      Compte jusqu'à
+      dix... Et ne
+      triche pas!
+  - name: TX_5b53
+    index: 0x53
+    text: |-
+      Tac: On ferme
+      les yeux... mais
+      on voit quand
+      même tout le
+      monde.
+  - name: TX_5b54
+    index: 0x54
+    text: |-
+      Tac: Le
+      château de
+      sable, c'était
+      ma cachette!\stop
+      Personne ne la
+      trouvait jamais.
+  - name: TX_5b55
+    index: 0x55
+    text: |-
+      Trouvé! Zut!\stop
+      Encore \num1
+      cachettes!
+  - name: TX_5b56
+    index: 0x56
+    text: |-
+      Trouvé! C'était
+      la dernière!\stop
+      Viens nous voir
+      au terrain de
+      jeu, réveillé!
+  - name: TX_5b57
+    index: 0x57
+    text: |-
+      Un vieux cerf-
+      volant, coincé
+      dans l'arbre.\stop
+      Il ne bouge
+      plus.
+  - name: TX_5b58
+    index: 0x58
+    text: |-
+      Cerf-volant:
+      Ah! Quelqu'un
+      qui rêve!\stop
+      D'ici, je vois
+      toute l'île.\stop
+      Les jumeaux du
+      terrain de jeu
+      s'ennuient. Va
+      les voir!
+  - name: TX_5b59
+    index: 0x59
+    text: |-
+      Cerf-volant:
+      Je les vois
+      d'ici!\stop
+      Dans le bois,
+      au manège, dans
+      les toupies...\stop
+      Sous mon arbre,
+      et dans le
+      château de
+      sable!
+  - name: TX_5b5a
+    index: 0x5a
+    text: |-
+      Cerf-volant:
+      Bravo! Moi aussi
+      un jour, je
+      repartirai dans
+      le vent.
+  - name: TX_5b5b
+    index: 0x5b
+    text: |-
+      \col(1)Marine\col(0): Oh!
+      La place est un
+      jeu de l'oie
+      géant!\stop
+      Dans le Songe,
+      même les pavés
+      veulent jouer!
+  - name: TX_5b5c
+    index: 0x5c
+    text: |-
+      \col(1)Marine\col(0): Le
+      pont-levis est
+      baissé!\stop
+      Dans le Réel, il
+      n'y a que l'eau.\stop
+      Et si tu te
+      réveillais sur
+      l'îlot?
+
 
 - group: 0x00
   data:

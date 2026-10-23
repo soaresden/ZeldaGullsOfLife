@@ -155,3 +155,29 @@ cd 3b f6 f6 f6 f6 f6 f6 3b cd
 cd cd fa fa 9e fa fa fa cd cd
 cd 3b fa fa fa fa fa fa 3b cd
 cd cd cd 3b cd 3b 3b cd cd cd
+
+# --- Hameau-Grelot (île 2), décor 7c ---
+# La place du Grelot : un jeu de l'oie géant (des cases 0c / 3b, les cases de l'oie 2a (fleuries), au centre
+# le plateau rond 9e) ; les passages ne changent pas (nord et sud colonnes 4-5, ouest et est
+# lignes 3-4)
+salle 0:11 decor 7c
+2e 2f f7 f7 0c 0c 3a 3a 2e 2f
+3e 3f 0c 3b 2a 3b 0c 3b 3e 3f
+f7 3a 3b 0c 3b 0c 3b 0c 3a 3a
+f7 0c 2a 3b 9e 9e 0c 3b 0c 0c
+0c 0c 3b 0c 9e 9e 3b 2a 0c 0c
+3a 3a 0c 3b 0c 3b 0c 3b 3a 3a
+2e 2f 3b 0c 3b 2a 3b 0c 2e 2f
+3e 3f 3a 3a 0c 0c 3a 3a 3e 3f
+
+# La plage aux châteaux de sable : le pont-levis est baissé (le ponton 1d / 1e, lignes 3-4) ; sur
+# l'îlot, pas de coffre (il n'est que dans le Réel) : un château de sable à sa place
+salle 0:13 decor 7c
+fa fa fa fa fa fa fa fa fa fa
+f7 31 31 32 fa 30 31 31 32 fa
+3b 3b 3b 37 fa 36 d3 d3 37 fa
+3b 3b 3b 3b 1d 3b d3 3b 37 fa
+3b 3b d3 3b 1e 3b 3b 3b 37 fa
+3b 3b 3b 37 fa 33 34 34 35 fa
+f7 3b 3b 37 fa fa fa fa fa fa
+f7 3b 3b 3b 31 31 31 32 fa fa

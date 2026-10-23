@@ -3915,6 +3915,142 @@ groups:
       annoying!\stop
       Here, a kiss!
 
+  # Bellhamlet, the Dream: Tic and Tac play hide-and-seek (balladeObjects.twins, hiding, kite)
+  - name: TX_5b4f
+    index: 0x4f
+    text: |-
+      Tic: Let's play
+      hide-and-seek!\stop
+      Tac: But we
+      forgot how to
+      hide...\stop
+      Tic: So we just
+      stand here, eyes
+      wide open.\stop
+      \col(1)Marin\col(0): In
+      the Dream, I bet
+      they'll dare!\stop
+      Five hiding
+      spots, Link.
+      Your turn!
+  - name: TX_5b50
+    index: 0x50
+    text: |-
+      Tic: In your
+      dreams, you
+      found us \num1
+      times out of 5!\stop
+      Tic: Keep
+      looking! We're
+      good, huh?
+  - name: TX_5b51
+    index: 0x51
+    text: |-
+      Tic: You found
+      us everywhere!\stop
+      Even in the
+      sandcastle!\stop
+      Here, it's our
+      treasure.
+  - name: TX_5b52
+    index: 0x52
+    text: |-
+      Tic: Now we
+      hide for real!\stop
+      Count to ten...
+      And no peeking!
+  - name: TX_5b53
+    index: 0x53
+    text: |-
+      Tac: We close
+      our eyes... but
+      we still see
+      everyone.
+  - name: TX_5b54
+    index: 0x54
+    text: |-
+      Tac: The
+      sandcastle was
+      my hiding spot!\stop
+      Nobody ever
+      found it.
+  - name: TX_5b55
+    index: 0x55
+    text: |-
+      Found! Drat!\stop
+      \num1 hiding
+      spots left!
+  - name: TX_5b56
+    index: 0x56
+    text: |-
+      Found! That was
+      the last one!\stop
+      Come see us at
+      the playground,
+      awake!
+  - name: TX_5b57
+    index: 0x57
+    text: |-
+      An old kite,
+      stuck in the
+      tree.\stop
+      It doesn't move
+      anymore.
+  - name: TX_5b58
+    index: 0x58
+    text: |-
+      Kite: Oh!
+      Someone who
+      dreams!\stop
+      From up here, I
+      see the whole
+      island.\stop
+      The twins at the
+      playground are
+      bored. Go see
+      them!
+  - name: TX_5b59
+    index: 0x59
+    text: |-
+      Kite: I can see
+      them from here!\stop
+      In the woods, at
+      the merry-go-
+      round, the tops
+      garden...\stop
+      Under my tree,
+      and in the
+      sandcastle!
+  - name: TX_5b5a
+    index: 0x5a
+    text: |-
+      Kite: Well done!
+      Someday, I'll
+      ride the wind
+      again too.
+  - name: TX_5b5b
+    index: 0x5b
+    text: |-
+      \col(1)Marin\col(0): Oh!
+      The square is a
+      giant board
+      game!\stop
+      In the Dream,
+      even the paving
+      wants to play!
+  - name: TX_5b5c
+    index: 0x5c
+    text: |-
+      \col(1)Marin\col(0): The
+      drawbridge is
+      down!\stop
+      In the Real
+      world, there's
+      only water.\stop
+      What if you
+      woke up on the
+      islet?
+
 
 - group: 0x00
   data:
