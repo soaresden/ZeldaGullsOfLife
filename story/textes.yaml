@@ -5571,4 +5571,239 @@ groups:
       toujours te
       réveiller...
 
+# Maple, l'apprentie de la sorcière Syrup (Ages) : elle percute Link en volant, leurs affaires
+# tombent. Traduction à nous (Denis l'avait encore en anglais, 23 octobre 2026)
+- group: 0x07
+  data:
+  - name: TX_0700
+    index: 0x00
+    text: |-
+      Aie! Aie! Aie!!!\stop
+      Regarde où tu
+      vas! Tu viens de
+      percuter \col(3)Maple\col(0),
+      l'apprentie de
+      la grande
+      sorcière Syrup!
+      Par ta faute,
+      tout est tombé
+      de mon sac! La
+      sorcière va être
+      furieuse!
+      Et il me faut ce
+      \col(1)livre d'images\col(0).
+      Qui peut bien
+      avoir ce \col(0x84)\item(0x09)
+      \col(1)livre\col(0)?\stop
+      Bref, ça m'a
+      mise en colère!
+      Alors je prends
+      tes affaires
+      aussi!
 
+  - name: TX_0701
+    index: 0x01
+    text: |-
+      Encore toi?\stop
+      Par ta faute,
+      tout mon sac
+      s'est vidé!
+      Il faut du
+      courage pour
+      percuter \col(3)Maple\col(0)
+      comme ça!
+      Je prends tes
+      affaires aussi!
+      C'est parti!
+
+  - name: TX_0702
+    index: 0x02
+    text: |-
+      A-I-E-!!!
+      ENCORE toi?
+      Tu m'en veux ou
+      quoi? Par ta
+      faute, tout mon
+      sac s'est vidé!
+      Bon, je prends
+      tes affaires
+      aussi!
+
+  - name: TX_0703
+    index: 0x03
+    text: |-
+      AH! Toutes mes
+      affaires sont
+      tombées! Je
+      prends aussi ce
+      que tu as fait
+      tomber! Voilà ce
+      qui arrive quand
+      on énerve
+      \col(3)Maple\col(0)!
+
+  - name: TX_0704
+    index: 0x04
+    text: |-
+      Aie...
+      Encore là?
+      Mon sac s'est
+      vidé! Je prends
+      aussi ce que tu
+      as fait tomber!
+
+  - name: TX_0705
+    index: 0x05
+    text: |-
+      On se retrouve!
+      Tu connais la
+      règle! Le plus
+      rapide gagne.
+      Prêt..? Partez!
+
+  - name: TX_0706
+    index: 0x06
+    text: |-
+      Ha ha ha ha!
+      Tu fais moins le
+      malin! J'ai plus
+      de choses qu'au
+      début!
+      Salut!
+
+  - name: TX_0707
+    index: 0x07
+    text: |-
+      Espèce de...
+      Je m'en
+      souviendrai!
+
+  - name: TX_0708
+    index: 0x08
+    text: |-
+      Hmm! Pas mal!\stop
+      Mais c'est tout
+      pour aujourd'hui
+
+  - name: TX_0709
+    index: 0x09
+    text: |-
+      Aie...\stop
+      Regarde où tu
+      vas! Tu viens de
+      percuter \col(3)Maple\col(0),
+      l'apprentie de
+      la grande
+      sorcière Syrup!\stop
+      Oh là là!
+
+  - name: TX_070a
+    index: 0x0a
+    text: |-
+      Ça, c'est pour
+      m'avoir foncé
+      dedans! Salut!
+
+  - name: TX_070c
+    index: 0x0c
+    text: |-
+      Ah!
+      . . . . . . . .\stop
+      Salut!\heart
+
+  - name: TX_070d
+    index: 0x0d
+    text: |-
+      Hé! Ce livre!
+
+  - name: TX_070e
+    index: 0x0e
+    text: |-
+      C'est le \col(0x84)\item(0x09)
+      \col(1)Livre Touchant\col(0)
+      que je dois
+      rapporter à
+      Syrup! Pourquoi
+      tu l'as? Fais-le
+      moi lire!
+
+  - name: TX_070f
+    index: 0x0f
+    text: |-
+      Quoi..?\stop
+      Oh là là...\stop
+      .........\stop
+      Ooh! ...........
+
+  - name: TX_0710
+    index: 0x10
+    text: |-
+      Ouiiiinnn!\stop
+      Snif... C'est
+      si touchant!
+
+  - name: TX_0711
+    index: 0x11
+    text: |-
+      Merci... (snif)
+      C'était beau...
+      Tiens, prends
+      ça. C'est le
+      premier que j'ai
+      fait. Syrup ne
+      m'a jamais fait
+      un compliment
+      dessus. Je garde
+      ce livre.
+      (Snif!)
+
+  - name: TX_0712
+    index: 0x12
+    text: |-
+      Aie...\stop
+      Regarde où tu
+      marches!
+      Je suis passée
+      par un tunnel
+      bizarre, je
+      volais toute
+      contente, et tu
+      me fonces
+      dedans! Je suis
+      \col(3)Maple\col(0),
+      l'apprentie de
+      la grande
+      sorcière Syrup!
+      Pourquoi ça
+      tombe sur moi?
+      La sorcière est
+      si méchante.
+      Elle m'a même
+      pris mon \col(1)livre
+      d'images\col(0)!
+      Personne n'a ce
+      \col(0x84)\item(0x09)\col(1)livre\col(0)?\stop
+      Et toi, tu me
+      fais tout
+      tomber!
+      Bref, ça m'a
+      mise en colère!
+      Je prends tes
+      affaires aussi!
+
+  - name: TX_0713
+    index: 0x13
+    text: |-
+      Aie...\stop
+      Regarde où tu
+      marches!
+      Je suis passée
+      par un tunnel
+      bizarre, je
+      volais toute
+      contente... Et
+      toi, qu'est-ce
+      que tu fais là?
+      Bon, je prends
+      tes affaires
+      aussi!
