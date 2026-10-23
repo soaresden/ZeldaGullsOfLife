@@ -566,10 +566,12 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   `story/salles/objets.txt` ; `tools/make_rooms.py` (appelé par build.sh) écrit roomGGSS.bin et
   group1Tilesets.bin, et redéfinit les objets de nos salles à la fin de objects/ages/mainData.s
   (régénéré depuis upstream/hack-base : ne pas éditer ce fichier à la main pour nos salles).
-- Le dossier out/ (pas dans git) : la ROM (gulls_of_life.gbc), le patch (.bps), base.gbc ; les
-  aperçus à écouter dans out/apercus/, numérotés par niveau (« 7-palais_apercu.wav » ; 0 = partout ;
-  tools/record_music.py, tools/test_rythme.py) ; les vieux
-  essais et captures dans out/archives/.
+- Le dossier out/ (pas dans git ; plan dans out/LISEZMOI.txt) : la ROM (gulls_of_life.gbc), le
+  patch (.bps), base.gbc ; les zips à donner dans out/livraisons/ (tools/make_zip.py) ; les aperçus
+  à écouter dans out/apercus/, numérotés par niveau (« 7-palais_apercu.wav » ; 0 = partout ;
+  tools/record_music.py, tools/test_rythme.py) ; les sorties des tests dans out/tests/ (lancer
+  python tools/test_X.py out/tests/t_X) ; les vieux essais dans out/archives/ (anciens_tests,
+  captures, images, logs, roms, scripts). Rien en vrac à la racine du dépôt ni de out/.
 - Fichier de disposition = selon le GROUPE de la salle (hack-base, @getLayoutGroup) : groupe 0 ->
   room00SS, 1 -> room02SS, 2 -> room01SS, 3 -> room03SS (l'octet 6 du décor est ignoré).
 - hack-base : chaque décor a ses propres images (gfx/ages/gfx_tilesetXX.png), briques
