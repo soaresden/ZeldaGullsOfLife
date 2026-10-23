@@ -866,3 +866,34 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Test : python tools/test_songes.py DOSSIER (une chute avant le Sifflet coûte de la vie ; les
   trois rêves ; après, une chute au courant ascendant 1:75 : Marine le rattrape, pas de vie en
   moins). Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/songes.png
+
+## Retours de Denis en jouant (23 octobre 2026)
+- La carte (Select) : tools/make_minimap.py (dans build.sh, après make_rooms) dessine nos îles d'après
+  les salles (tools/render_room.py), 5 palettes calculées, la mer autour ; les noms sous le curseur
+  (TX_0302-030a + la Brume $36-$38 ; tables pastMapTextIndices / presentMapTextIndices) ; plus les
+  images ni les changements de la carte d'Ages (bank2.s, mapMenu_state0 : @noSubstitutions).
+- Boussole et carte d'office dans chaque donjon (balladeFin.resetDungeon, en entrant) ; leurs
+  coffres donnent 30 rubis (postGameChest).
+- Après une essence : wActiveMusic = $ff (pas 0 : « pas de musique » jusqu'à une scène d'Ages).
+- Le Phare : ses salles 4:1d-1f avaient la musique d'Ages ($13) ; la Lanterne sort entière du coffre
+  (interaction60 $68 : animation 3) ; Ghini géant et Jack à 24 points de vie.
+- Marine félicite après chaque boss : INTERAC_MARINE $08 (balladeMarine.praise) dans 4:13, 4:2b,
+  4:bf, 4:54, 4:64, 5:c4, 5:c7, 5:ca, 4:d7 ; quand le drapeau $80 de la salle est mis (le Terrier :
+  le Bracelet), 45 images après le dernier texte ; TX_5b35-5b3d.
+- Boutiques (Port-Veille 3:5e, Pépin 3:20) : Link arrive face à la sortie (m_WarpDest $65 $0 $1 :
+  entrer « par le bas » le mettait en x $50, à cheval sur la sortie en x $58).
+- Pontons : 0e (pont vertical) ne se prend pas par le côté ; les pontons horizontaux (Brume 1:99,
+  1:ab, Lagune) = 1d / 1e. Bords qui menaient dans une salle de mer (noyade sans fin : on réapparaît
+  dans l'eau) : 1:99 (bas), 1:20 (bas) : une rangée de mer sous le rivage.
+- Le Carnet et le Sablier sur B/A : loadItemIconGfx prend la « petite version » des airs de la harpe
+  (index + 2 à partir de $a3) : make_sprites.py les dessine aussi 16 pixels plus loin.
+- Les jeux du forain : deux niveaux (Facile, Difficile ; TX_5a4b). Creuse-Rubis : le chiffre sous le
+  rubis (briques $41-$48 du décor $68, tools/make_mamono.py) ; quart de cœur en Difficile ($80).
+  Mamono : les cases sans rien autour découvrent leurs voisines (@flood, 4 par image), les monstres
+  vaincus gardent leur niveau dans un cadre (briques $69-$6d), « L-n » dans la barre (le niveau de
+  Link, drawNoctambuleTimer), l'épée du Darknut retirée à chaque image ; le gros lot = Dur sans être
+  blessé (wBalladeMamonoHurt) : quart de cœur la 1re fois ($80), 100 rubis ensuite (TX_5b3e-3f).
+  Lynels : attrapé = il ne reste qu'un cœur ; la 1re victoire : un quart de cœur ($80 de 5:e9).
+  (Les quarts du forain : 3 au lieu de 4.)
+- Le cap 1:7b : un vrai phare (tools/make_phare.py, briques $c0-$ca des décors $6c / $6d, copies
+  du $10 ; pas les tuiles 4-19 et 232-239 que l'animation de la mer réécrit).

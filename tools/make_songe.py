@@ -37,7 +37,7 @@ DATA = os.path.join(DISASM, 'data', 'ages')
 # Ailes recopié à l'index de donjon 6, en bleuté)
 COPIES = {0x7d: 0x10, 0x7e: 0x18, 0x7f: 0x2b, 0x7c: 0x00, 0x7b: 0x00, 0x06: 0x1e, 0x07: 0x13, 0x08: 0x1a,
           0x3b: 0x37, 0x0d: 0x10, 0x0e: 0x10, 0x0f: 0x02, 0x0c: 0x02, 0x67: 0x3d, 0x68: 0x18,
-          0x69: 0x59, 0x6a: 0x18, 0x6b: 0x34}
+          0x69: 0x59, 0x6a: 0x18, 0x6b: 0x34, 0x6c: 0x10, 0x6d: 0x10}
 
 # (décor, copie de, en-tête de palette d'origine, nouvel en-tête, octets du décor)
 SONGE = [
@@ -111,6 +111,10 @@ REEL = [
     # Le Terrier des Serpents (donjon facultatif, 4:d0-d7) : le Chemin du Maku d'Ages ($34, la terre
     # et les racines) à l'index de donjon $0b
     (0x6b, '$2b, $08, UNIQUE_GFXH_NONE, GFXH_TILESET_MAKU_PATH, PALH_TILESET_MAKU_PATH_PRESENT, $20, $04, $10'),
+    # Le cap du Phare (1:7b) : le village du passé ($10) avec un vrai phare (tools/make_phare.py) ;
+    # son Songe ($6d) : les couleurs du village du Songe
+    (0x6c, '$0f, $81, UNIQUE_GFXH_LYNNA_CITY_2, GFXH_TILESET_OVERWORLD_PAST, PALH_TILESET_LYNNA_VILLAGE, $0f, $02, $00'),
+    (0x6d, '$0f, $01, UNIQUE_GFXH_LYNNA_CITY_2, GFXH_TILESET_OVERWORLD_PAST, PALH_SONGE_VILLAGE, $0f, $00, $00'),
 ]
 # En-têtes de palette écrits à la main dans paletteHeaders.s (hors du bloc du Songe) : à compter
 # dans NUM_PALETTE_HEADERS. $d5 PALH_OMBRE : l'Ombre de Marine (le Swoop, palette 6 des sprites) ;

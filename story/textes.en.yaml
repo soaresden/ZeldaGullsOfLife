@@ -981,10 +981,10 @@ groups:
     index: 0x4b
     text: |-
       Easy: 10 rupees
-      Medium: 20
-      Hard: 30!\stop
-      \opt()Easy \opt()Medium
-      \opt()Hard \opt()No
+      Hard: 30, and
+      the jackpot!\stop
+      \opt()Easy \opt()Hard
+      \opt()No
 
   - name: TX_5a4d
     index: 0x4d
@@ -3770,6 +3770,24 @@ groups:
       beaten!\stop
       Not even a snake
       could do better!
+
+  # Le Mamono en Dur : gagné mais blessé ; le « perfect » (le gros lot)
+  - name: TX_5b3e
+    index: 0x3e
+    text: |-
+      Not bad at all!\stop
+      But the jackpot
+      means not one
+      scratch! Come
+      back anytime,
+      champ.
+  - name: TX_5b3f
+    index: 0x3f
+    text: |-
+      Not one scratch!\stop
+      Amazing! The
+      jackpot is
+      yours!
 
 
 - group: 0x00

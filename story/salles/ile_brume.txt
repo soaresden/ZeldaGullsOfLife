@@ -177,13 +177,14 @@ cd 3b 3b fa fa fa fa 3b 3b cd
 cd cd cd cd fa fa fa 3b 3b cd
 cd cd cd cd fa fa fa 3b 3b cd
 
-# --- Cap du Phare : l'entrée du Phare Éteint (porte en ligne 3, colonne 4) ---
+# --- Cap du Phare : l'entrée du Phare Éteint (porte en ligne 3, colonne 4) ; le phare : les briques
+# c0-ca du décor 6c (tools/make_phare.py : 3 x 4 briques, lignes 0-3, colonnes 3-5) ---
 # Ouest : lignes 3-4.
-salle 7b decor 10
-fc fc fc fc fc fc fc fc fc fc
-fc fa fa fa fa fa fa fa fa fc
-fa 3b 3b 99 99 99 99 3b 3b fa
-3b 3b 3b f6 de f6 f6 3b 3b fa
+salle 7b decor 6c
+fc fc fc c0 c1 c2 fc fc fc fc
+fc fa fa c3 c4 c5 fa fa fa fc
+fa 3b 3b c6 c7 c8 3b 3b 3b fa
+3b 3b 3b c9 de ca 3b 3b 3b fa
 3b 3b 3b 3b 0c 3b 3b 3b 3b fa
 fa 3b 3b 3b 0c 3b 3b 3b 3b fa
 fa fa 3b 3b 3b 3b 3b 3b fa fa

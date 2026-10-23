@@ -1,6 +1,6 @@
 """Test du Creuse-Rubis (la plage du forain, 1:ac) : une partie Facile gagnée (le test connaît les
-bombes et ne creuse que les cases sûres), une partie Moyen gagnée (le quart de cœur), puis une
-bombe (BOUM, perdu).
+bombes et ne creuse que les cases sûres ; chaque case creusée montre le nombre de bombes autour),
+une partie Difficile gagnée (le quart de cœur), puis une bombe (BOUM, perdu). Deux niveaux.
 
 Usage : python tools/test_creuse.py DOSSIER_CAPTURES
 """
@@ -108,9 +108,9 @@ def play(level, name, dig_mine=False):
     text_through(choose=[0, level])   # le Creuse-Rubis, puis le niveau
     w(30)
     check(m[STATE] == 1 and m[LEVEL] == level, '%s : la partie commence' % name)
-    check(money - rupees() == (10, 20, 30)[level], '%s : le prix' % name)
+    check(money - rupees() == (10, 30)[level], '%s : le prix' % name)
     mines = [i for i in range(24) if bit(MINES, i)]
-    check(len(mines) == (4, 6, 8)[level], '%s : %d bombes' % (name, len(mines)))
+    check(len(mines) == (4, 8)[level], '%s : %d bombes' % (name, len(mines)))
     text_through()       # Marine explique les couleurs
     cells = [i for i in range(24) if (i in mines) == dig_mine]
     for i in cells[:1] if dig_mine else cells:
@@ -122,6 +122,14 @@ def play(level, name, dig_mine=False):
             stand(row - 1, col)
             walk('down', 3)
         press('a', 20)
+        if not dig_mine:
+            # le chiffre sur la case : le nombre de bombes autour (sable lisse si aucune)
+            around = sum(1 for j in mines if j != i and abs(j // 6 - i // 6) <= 1 and abs(j % 6 - i % 6) <= 1)
+            pos = (row << 4) | col
+            want = 0x40 + around if around else 0xbf
+            if m[0xcf00 + pos] != want:
+                numbers_ok[0] = False
+                print('  case', i, 'tuile %02x' % m[0xcf00 + pos], 'attendu %02x' % want)
         if m[0xcba0]:
             break
     w(30)
@@ -151,7 +159,9 @@ w(60)
 check(m[0xcc30] == 0xac, 'le port de pêche mène à la plage du forain (1:ac)')
 shot('plage')
 
+numbers_ok = [True]
 play(0, 'facile')
+check(numbers_ok[0], 'facile : chaque case creusée montre le nombre de bombes autour')
 check(m[STATE] == 0 and m[LEFT] == 0, 'facile : toutes les cases sûres creusées, gagné')
 check(m[0xcba0] != 0, 'facile : le forain le dit')
 text_through()
@@ -160,14 +170,14 @@ print('rubis après la partie facile :', rupees())
 
 pieces = m[HEART_PIECES]
 m[RUPEES] = 0x99
-play(1, 'moyen')
-check(m[STATE] == 0 and m[LEFT] == 0, 'moyen : gagné')
+play(1, 'difficile')
+check(m[STATE] == 0 and m[LEFT] == 0, 'difficile : gagné')
 text_through()
 for _ in range(10):
     w(30)
     text_through()
-check(bool(m[ROOM_FLAGS] & 0x40), 'moyen : le quart de cœur est noté')
-check(m[HEART_PIECES] != pieces, 'moyen : un quart de cœur (%d -> %d)' % (pieces, m[HEART_PIECES]))
+check(bool(m[ROOM_FLAGS] & 0x80), 'difficile : le quart de cœur est noté')
+check(m[HEART_PIECES] != pieces, 'difficile : un quart de cœur (%d -> %d)' % (pieces, m[HEART_PIECES]))
 
 m[RUPEES] = 0x99
 life = m[HEALTH]

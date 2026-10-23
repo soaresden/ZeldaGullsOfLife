@@ -1,8 +1,10 @@
 """Test du Mamono (le 2e jeu du forain, dans son arène 5:ea) : le forain y envoie Link ; une partie
 Facile gagnée (le test connaît les monstres : il creuse les cases vides, puis les monstres du plus
-faible au plus fort, quand Link a le niveau) : les chiffres dans le sable, les vrais ennemis figés
-sur leur case puis en fumée, la montée de niveau ; une partie Moyen gagnée (le quart de cœur) ;
-puis un monstre trop fort découvert à l'aveugle (il frappe fort) ; on ressort par le haut.
+faible au plus fort, quand Link a le niveau) : les chiffres dans le sable, les cases sans rien
+autour qui découvrent leurs voisines toutes seules, les vrais ennemis figés sur leur case puis en
+fumée (leur case garde leur niveau dans un cadre), la montée de niveau ; une partie Dur sans une
+égratignure (le gros lot : un quart de cœur) ; puis un monstre trop fort découvert à l'aveugle (il
+frappe fort) ; on ressort par le haut. Deux niveaux : Facile, Dur.
 
 Usage : python tools/test_mamono.py DOSSIER_CAPTURES
 """
@@ -21,6 +23,7 @@ HEALTH, MAX_HEALTH = 0xc6aa, 0xc6ab
 RUPEES, HEART_PIECES = 0xc6ad, 0xc6ac
 CREUSE_LEVEL = 0xcdf6
 P_LEVEL, P_XP, PLACED, LEFT, STATE, SHOW, SHOW_SLOT, SLOTS = 0xc580, 0xc581, 0xc582, 0xc583, 0xc584, 0xc585, 0xc586, 0xc587
+HURT, FLOOD = 0xc599, 0xc59a
 LEVELS = 0xcfc0
 LAYOUT = 0xcf00
 ROWS, COLS = 8, 13
@@ -108,8 +111,17 @@ def dug(i):
     return m[LAYOUT + pos(i)] != 0x12
 
 
+def wait_flood():
+    """Les cases vides découvrent leurs voisines (quelques-unes par image) : attendre la fin."""
+    for _ in range(300):
+        if not m[FLOOD]:
+            return
+        w(1)
+
+
 def dig(i):
     """Link se met au-dessus de la case et creuse vers le bas."""
+    wait_flood()
     r, c = divmod(i, COLS)
     row, col = r + 2, c + 1
     goto(None, col * 16 + 8)
@@ -157,7 +169,7 @@ def leave(name):
     check(m[0xcc30] == 0xac, '%s : retour chez le forain' % name)
 
 
-def play_to_win(lvl, name):
+def play_to_win(lvl, name, perfect=False):
     arena(lvl, name)
     first = 3 * COLS + 6
     dig(first)
@@ -168,6 +180,9 @@ def play_to_win(lvl, name):
     check(m[PLACED] == 1 and all(levels[j] == 0 for j in neighbours(first) + [first]),
           '%s : les monstres sont cachés, loin de la 1re case' % name)
     check(m[LAYOUT + pos(first)] == 0xbf, '%s : la 1re case : rien autour' % name)
+    wait_flood()
+    auto = sum(1 for i in range(ROWS * COLS) if dug(i))
+    check(auto > 1, '%s : les cases vides découvrent leurs voisines toutes seules (%d cases)' % (name, auto))
     # Les cases vides
     for i in range(ROWS * COLS):
         if not levels[i] and not dug(i):
@@ -184,6 +199,8 @@ def play_to_win(lvl, name):
         for i in range(ROWS * COLS):
             if levels[i] == lv and m[STATE] == 1:
                 m[HEALTH] = m[MAX_HEALTH]
+                if perfect:
+                    m[HURT] = 0         # (le test joue le « perfect »)
                 dig(i)
                 if not shown and lv >= 2:
                     w(4)
@@ -197,7 +214,8 @@ def play_to_win(lvl, name):
     print('  (monstre, niveau de Link)', seen, flush=True)
     check(m[STATE] == 2 and m[LEFT] == 0, '%s : tous les monstres, gagné' % name)
     check(bool(seen) and max(p for _, p in seen) >= 3, '%s : Link est monté de niveau' % name)
-    check(all(dug(i) for i in range(ROWS * COLS) if levels[i]), '%s : leurs cases montrent leur chiffre' % name)
+    boxed = [i for i in range(ROWS * COLS) if levels[i] and m[LAYOUT + pos(i)] != 0x68 + levels[i]]
+    check(not boxed, '%s : les monstres vaincus laissent leur niveau dans un cadre %s' % (name, boxed[:5]))
     shot(name + '_fin')
     for _ in range(6):
         w(30)
@@ -223,12 +241,12 @@ check(m[0xcc30] == 0xac, 'la plage du forain')
 play_to_win(0, 'facile')
 leave('facile')
 pieces = m[HEART_PIECES]
-play_to_win(1, 'moyen')
-check(m[HEART_PIECES] != pieces, 'moyen : un quart de cœur (%d -> %d)' % (pieces, m[HEART_PIECES]))
-leave('moyen')
+play_to_win(1, 'dur', perfect=True)
+check(m[HEART_PIECES] != pieces, 'dur sans une égratignure : le gros lot, un quart de cœur (%d -> %d)' % (pieces, m[HEART_PIECES]))
+leave('dur')
 
 # Un monstre trop fort, découvert à l'aveugle : il frappe de tout son niveau
-arena(2, 'dur')
+arena(1, 'dur')
 first = 3 * COLS + 6
 dig(first)
 wait_show()

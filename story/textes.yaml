@@ -1021,10 +1021,10 @@ groups:
     index: 0x4b
     text: |-
       Facile: 10 rubis
-      Moyen: 20 rubis
-      Dur: 30 rubis\stop
-      \opt()Facile \opt()Moyen
-      \opt()Dur \opt()Non
+      Difficile: 30,
+      et le gros lot!\stop
+      \opt()Facile
+      \opt()Difficile \opt()Non
 
   - name: TX_5a4d
     index: 0x4d
@@ -3901,6 +3901,25 @@ groups:
       Un serpent
       n'aurait pas
       fait mieux!
+
+  # Le Mamono en Dur : gagné mais blessé ; le « perfect » (le gros lot)
+  - name: TX_5b3e
+    index: 0x3e
+    text: |-
+      Pas mal du tout!\stop
+      Mais le gros
+      lot, c'est sans
+      une égratignure!
+      Reviens quand tu
+      veux, champion.
+  - name: TX_5b3f
+    index: 0x3f
+    text: |-
+      Sans une
+      égratignure!\stop
+      Incroyable! Le
+      gros lot est
+      pour toi!
 
 
 - group: 0x00

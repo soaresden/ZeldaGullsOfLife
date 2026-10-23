@@ -1,6 +1,6 @@
 """Test du Labyrinthe des Lynels (le 3e jeu du forain, salle 5:e9, code/ages/balladePac.s) : on y
 arrive, les rubis sont comptés, les Lynels sortent de l'enclos et poursuivent Link, un rubis
-ramassé, une gemme (ils ont peur et Link en terrasse un), un Lynel attrape Link (un cœur en moins,
+ramassé, une gemme (ils ont peur et Link en terrasse un), un Lynel attrape Link (il ne lui reste qu'un cœur,
 tous à l'enclos), puis tous les rubis (gagné, retour chez le forain) ; enfin une défaite.
 
 Usage : python tools/test_lynels.py DOSSIER_CAPTURES
@@ -135,7 +135,7 @@ red = [l for l in lynels() if l[0] == 3][0]
 m[INVINCIBLE] = 0
 m[LINK_Y], m[LINK_X] = red[1], red[2]
 w(8)
-check(m[HEALTH] == 8, 'attrapé : un cœur en moins (12 -> %d)' % m[HEALTH])
+check(m[HEALTH] == 4, "attrapé : il ne reste qu'un cœur (12 -> %d)" % m[HEALTH])
 ls = lynels()
 check(all(l[3] == 0 and l[1] == 0x58 for l in ls if l[0] != 3) and
       [abs(l[2] - 0x78) < 9 and l[1] == 0x38 for l in ls if l[0] == 3] == [True], 'tous à l\'enclos ' + str(ls))
@@ -151,7 +151,11 @@ w(30)
 check(len(lynels()) == 0, 'les Lynels s\'en vont')
 w(30)
 shot('gagne')
-text_through()
+pieces = m[0xc6ac]
+for _ in range(4):
+    text_through()
+    w(60)
+check(m[0xc6ac] != pieces, 'la première victoire : un quart de cœur (%d -> %d)' % (pieces, m[0xc6ac]))
 w(200)
 check(m[0xcc30] == 0xac, 'retour chez le forain (1:%02x)' % m[0xcc30])
 

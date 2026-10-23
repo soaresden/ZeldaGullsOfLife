@@ -1,4 +1,4 @@
-"""Le Mamono du forain : les chiffres dessinés sur le sable de son arène.
+"""Les jeux du forain : les chiffres dessinés sur le sable (le Mamono, le Creuse-Rubis).
 
 L'arène du Mamono (5:ea, code/ages/balladeMamono.s) a son propre décor, $6a, copie de la plage
 d'Ages ($18) faite par tools/make_songe.py. On y ajoute des briques : $41-$68, le sable avec un
@@ -11,6 +11,11 @@ Images : gfx/ages/gfx_tileset68.png (tuile n de l'image = numéro (n ^ $80) dans
 vidéo 1) ; briques : tileset_layouts_expanded/ages/tilesetMappings68.bin (4 tuiles + 4 attributs) ;
 collisions : tilesetCollisions68.bin (0 : on marche dessus).
 
+Aussi : les monstres vaincus du Mamono laissent leur niveau dans un cadre (briques $69-$6d, 1 à 5 :
+on voit qu'il y avait là un monstre, pour continuer à compter) ; et la plage du Creuse-Rubis (1:ac,
+décor $68, copie de la même plage) reçoit les chiffres 1 à 8 ($41-$48) : le nombre de bombes autour
+d'une case creusée, sous le rubis (code/ages/balladeCreuse.s).
+
 Usage : python tools/make_mamono.py   (après tools/make_songe.py, avant tools/make_rooms.py)
 """
 import os
@@ -19,9 +24,9 @@ from PIL import Image
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DISASM = os.path.join(ROOT, 'oracles-disasm')
-TILESET = 0x6a
-ROOM = '5:ea'
-LAST_NUMBER = 40
+# (décor, fichier du plan, salle, dernier chiffre, cadres des monstres vaincus)
+DECORS = [(0x6a, 'mamono.txt', '5:ea', 40, True), (0x68, 'ile_brume.txt', 'ac', 8, False)]
+FIRST_BOXED = 0x68          # brique $68 + n : le monstre vaincu de niveau n (1-5)
 SAND = 0xbf                 # la brique de sable lisse
 FIRST_NUMBER = 0x40         # brique $40 + n : le chiffre n (1-40)
 GREY = {255: 0, 170: 1, 85: 2, 0: 3}
@@ -41,19 +46,19 @@ DIGITS = {
 }
 
 
-def path(kind):
-    return {'gfx': os.path.join(DISASM, 'gfx', 'ages', 'gfx_tileset%02x.png' % TILESET),
-            'map': os.path.join(DISASM, 'tileset_layouts_expanded', 'ages', 'tilesetMappings%02x.bin' % TILESET),
-            'col': os.path.join(DISASM, 'tileset_layouts_expanded', 'ages', 'tilesetCollisions%02x.bin' % TILESET)}[kind]
+def path(kind, tileset):
+    return {'gfx': os.path.join(DISASM, 'gfx', 'ages', 'gfx_tileset%02x.png' % tileset),
+            'map': os.path.join(DISASM, 'tileset_layouts_expanded', 'ages', 'tilesetMappings%02x.bin' % tileset),
+            'col': os.path.join(DISASM, 'tileset_layouts_expanded', 'ages', 'tilesetCollisions%02x.bin' % tileset)}[kind]
 
 
-def room_metatiles():
-    """Les briques de l'arène (le plan de story/salles/mamono.txt)."""
+def room_metatiles(plan, room):
+    """Les briques de la salle (son plan dans story/salles/)."""
     used, cur = set(), False
-    for line in open(os.path.join(ROOT, 'story', 'salles', 'mamono.txt'), encoding='utf-8'):
+    for line in open(os.path.join(ROOT, 'story', 'salles', plan), encoding='utf-8'):
         line = line.split('#')[0].strip()
         if line.startswith('salle'):
-            cur = line.split()[1] == ROOM
+            cur = line.split()[1] == room
             continue
         if cur and line:
             used.update(int(t, 16) for t in line.split())
@@ -61,12 +66,12 @@ def room_metatiles():
     return used
 
 
-def main():
-    original = Image.open(path('gfx'))
+def decor(TILESET, plan, room, last_number, boxed):
+    original = Image.open(path('gfx', TILESET))
     palette = original.getpalette()
     im = original.convert('L')
-    maps = bytearray(open(path('map'), 'rb').read())
-    cols = bytearray(open(path('col'), 'rb').read())
+    maps = bytearray(open(path('map', TILESET), 'rb').read())
+    cols = bytearray(open(path('col', TILESET), 'rb').read())
 
     def tile(n):
         x0, y0 = (n % 16) * 8, (n // 16) * 8
@@ -80,7 +85,7 @@ def main():
 
     # Les tuiles qu'on garde : toutes celles des briques de la salle
     keep = set()
-    for mt in room_metatiles():
+    for mt in room_metatiles(plan, room):
         for q in range(4):
             keep.add(maps[mt * 8 + q] ^ 0x80)
     free = [n for n in range(256) if n not in keep]
@@ -104,11 +109,20 @@ def main():
         maps[mt * 8:mt * 8 + 8] = bytes(entry + [attr] * 4)
         cols[mt] = 0
 
-    # Les chiffres de 1 à 40, au milieu du sable, foncés avec un liseré clair
-    for n in range(1, LAST_NUMBER + 1):
+    def number(n, box=False):
+        """Le chiffre n au milieu du sable, foncé avec un liseré clair ; box : dans un cadre foncé
+        (un monstre vaincu)."""
         glyphs = [DIGITS[c] for c in str(n)]
         width = sum(len(g[0]) for g in glyphs) + len(glyphs) - 1
         img = [row[:] for row in sand]
+        if box:
+            for y in range(1, 15):
+                for x in range(1, 15):
+                    edge = y in (1, 14) or x in (1, 14)
+                    corner = (y in (1, 14)) and (x in (1, 14))
+                    if corner:
+                        continue
+                    img[y][x] = 3 if edge else 0
         x0, y0 = (16 - width) // 2, 4
         ink = set()
         for g in glyphs:
@@ -121,20 +135,33 @@ def main():
             for dy in (-1, 0, 1):
                 for dx in (-1, 0, 1):
                     if 0 <= y + dy < 16 and 0 <= x + dx < 16 and (y + dy, x + dx) not in ink:
-                        img[y + dy][x + dx] = 0
+                        if not box or not (y + dy in (1, 14) or x + dx in (1, 14)):
+                            img[y + dy][x + dx] = 0
         for (y, x) in ink:
             img[y][x] = 3
-        add_metatile(FIRST_NUMBER + n, img)
+        return img
+
+    for n in range(1, last_number + 1):
+        add_metatile(FIRST_NUMBER + n, number(n))
+    if boxed:
+        for n in range(1, 6):
+            add_metatile(FIRST_BOXED + n, number(n, box=True))
 
     # Même format que l'image d'origine (en couleurs indexées, même palette)
     index = {palette[3 * i]: i for i in range(4)}
     out = Image.new('P', im.size)
     out.putpalette(palette)
     out.putdata([index[v] for v in im.getdata()])
-    out.save(path('gfx'))
-    open(path('map'), 'wb').write(maps)
-    open(path('col'), 'wb').write(cols)
-    print('-> décor $%02x : %d chiffres (%d tuiles libres restantes)' % (TILESET, LAST_NUMBER, len(free)))
+    out.save(path('gfx', TILESET))
+    open(path('map', TILESET), 'wb').write(maps)
+    open(path('col', TILESET), 'wb').write(cols)
+    print('-> décor $%02x : %d chiffres%s (%d tuiles libres restantes)'
+          % (TILESET, last_number, ' et 5 cadres' if boxed else '', len(free)))
+
+
+def main():
+    for args in DECORS:
+        decor(*args)
 
 
 main()
