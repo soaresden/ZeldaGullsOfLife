@@ -6,12 +6,12 @@
    roms/gbc/, s'il a changé.
 
 Rien n'est copié si rien n'a changé depuis la dernière fois.
-- out/retroid/AAAA-MM-JJ_HHMM/ : une copie par changement (jamais effacée)
-- out/retroid/dernier/ : la dernière copie (la sauvegarde pour les tests : dernier/*.srm)
-- out/retroid/planche.png : les images des save states et les captures, les plus récentes
+- retroid/AAAA-MM-JJ_HHMM/ : une copie par changement (jamais effacée)
+- retroid/dernier/ : la dernière copie (la sauvegarde pour les tests : dernier/*.srm)
+- retroid/planche.png : les images des save states et les captures, les plus récentes
   d'abord, avec leur nom et leur date (pour voir où en est Denis)
 
-Usage : python tools/retroid.py [--zip] [--quiet]   (out/ : pas dans git)
+Usage : python tools/retroid.py [--zip] [--quiet]   (retroid/ : pas dans git)
 Autre chemin du partage : RETROID_SHARE=\\\\192.168.1.21\\share
 """
 import hashlib
@@ -23,7 +23,7 @@ import time
 from PIL import Image, ImageDraw
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-OUT = os.path.join(ROOT, 'out', 'retroid')
+OUT = os.path.join(ROOT, 'retroid')
 SHARE = os.environ.get('RETROID_SHARE', r'\\BATOCERA\share')
 GAME = 'Legend of Zelda, The - Gulls of Life'
 ZIP = os.path.join(ROOT, GAME + '.zip')
@@ -121,7 +121,7 @@ def send_zip():
     if os.path.exists(dst) and os.path.getsize(dst) == os.path.getsize(ZIP) and sha1(dst) == sha1(ZIP):
         say('Zip : déjà à jour sur la Retroid.')
         return
-    # (l'ancien zip de la Retroid est gardé : out/retroid/zips/)
+    # (l'ancien zip de la Retroid est gardé : retroid/zips/)
     if os.path.exists(dst):
         keep = os.path.join(OUT, 'zips', time.strftime('%Y-%m-%d_%H%M', time.localtime(os.path.getmtime(dst)))
                             + '_' + os.path.basename(dst))

@@ -1,4 +1,5 @@
 out/
+retroid/
 tools-build/
 oracles-disasm/
 *.gbc

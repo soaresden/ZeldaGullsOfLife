@@ -18,9 +18,9 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   (titre, fichier 1, NEW GAME, nom « A », OK, vitesse du texte).
 - Adresses RAM : `oracles-disasm/ages.sym` (ex. w1Link=$d000, wcc50=$cc50, wDisabledObjects=$cc8a).
 - La Retroid de Denis (Batocera) : `python tools/retroid.py` copie sa sauvegarde (.srm), ses save
-  states et leurs images dans out/retroid/ (dernier/ + une copie datée) et fait
-  out/retroid/planche.png (où il en est) ; `--zip` envoie le zip du jeu dans roms/gbc/ (l'ancien
-  est gardé dans out/retroid/zips/). Par le partage `\\BATOCERA\share` (sans mot de passe ; le SSH
+  states et leurs images dans retroid/ à la racine (dernier/ + une copie datée ; pas dans git) et fait
+  retroid/planche.png (où il en est) ; `--zip` envoie le zip du jeu dans roms/gbc/ (l'ancien
+  est gardé dans retroid/zips/). Par le partage `\\BATOCERA\share` (sans mot de passe ; le SSH
   refuse les clés : /userdata est en exFAT). **Seulement quand Denis le demande** (« va piocher »,
   « envoie le zip ») : pas de tâche automatique, il l'a refusé.
 
@@ -879,7 +879,7 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   (TX_0302-030a + la Brume $36-$38 ; tables pastMapTextIndices / presentMapTextIndices) ; plus les
   images ni les changements de la carte d'Ages (bank2.s, mapMenu_state0 : @noSubstitutions).
 - Boussole et carte d'office dans chaque donjon (balladeFin.resetDungeon, en entrant) ; leurs
-  coffres donnent 30 rubis (postGameChest).
+  coffres donnent 10 rubis (postGameChest).
 - Après une essence : wActiveMusic = $ff (pas 0 : « pas de musique » jusqu'à une scène d'Ages).
 - Le Phare : ses salles 4:1d-1f avaient la musique d'Ages ($13) ; la Lanterne sort entière du coffre
   (interaction60 $68 : animation 3) ; Ghini géant et Jack à 24 points de vie.
@@ -898,8 +898,33 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   Mamono : les cases sans rien autour découvrent leurs voisines (@flood, 4 par image), les monstres
   vaincus gardent leur niveau dans un cadre (briques $69-$6d), « L-n » dans la barre (le niveau de
   Link, drawNoctambuleTimer), l'épée du Darknut retirée à chaque image ; le gros lot = Dur sans être
-  blessé (wBalladeMamonoHurt) : quart de cœur la 1re fois ($80), 100 rubis ensuite (TX_5b3e-3f).
-  Lynels : attrapé = il ne reste qu'un cœur ; la 1re victoire : un quart de cœur ($80 de 5:e9).
+  blessé (wBalladeMamonoHurt) : quart de cœur la 1re fois ($80), 30 rubis ensuite (TX_5b3e-3f).
+  Lynels : attrapé = il ne reste qu'un cœur ; le 1er labyrinthe gagné, le 2e (5:ee,
+  art/labyrinthe2.txt, plus dur) ; le 2e gagné : 20 rubis, un quart de cœur la 1re fois ($80 de 5:ee).
   (Les quarts du forain : 3 au lieu de 4.)
 - Le cap 1:7b : un vrai phare (tools/make_phare.py, briques $c0-$ca des décors $6c / $6d, copies
   du $10 ; pas les tuiles 4-19 et 232-239 que l'animation de la mer réécrit).
+- Pendant les jeux du forain, Link n'a que la Pelle (Creuse-Rubis, Mamono : sur A, elle ne sert pas,
+  A creuse) ou que son épée (Lynels : sur B, à son niveau) : balladeCreuse.setShovelLoadout /
+  setSwordLoadout à chaque image du jeu ; ses objets A / B gardés dans wBalladeLoadoutA/B ($c5bb,
+  dans la sauvegarde : $c5ba-$c5bf étaient libres) et rendus la partie finie ou en changeant de
+  salle (objectLoading.s, donc aussi au chargement d'une partie) ; pas d'inventaire (bank2.s
+  @openMenu : SND_ERROR), la Pelle ne sert pas (parentItemUsage.s).
+- Lynels : une gemme -> ils ont peur et Link brille (sa palette et la 3, l'orange : balladePac @glow,
+  w1Link.oamFlags, plus lentement les 2 dernières secondes) ; un coup d'épée en terrasse un
+  (@checkSword : l'objet ITEM_SWORD des emplacements d'objets $d6-$df à moins de 14 pixels) ; le
+  toucher ne fait rien. Combos 1, 2, 5, 10 rubis.
+- Les Arbres-Passages (INTERAC_BALLADE_OBJECT $3a, art/objets.txt image 5, palette 0) : au cœur de
+  chaque île (table `trees` de balladeObjects.s : 1:9b, 11, 07, 2a, 52, 67, b1, d9, 6c) ; le même
+  menu que le Bateau-Rondin (le premier texte : TX_5b4a-5b4d), on arrive sous l'arbre de l'île
+  choisie ; wBalladeTreeArrival ($c59d) : l'arbre d'arrivée dit « Île N » et son nom (TX_5b41+île).
+  findCurrentIsland cherche la salle dans `jetties` puis `trees`. Test : tools/test_arbres.py.
+- L'argent (Denis : « on gagne plein d'argent ») : coffres à rubis divisés par 2 à 4 (chestData.s),
+  boussole / carte 10, Creuse-Rubis vert (0-1 bombe), bleu (2), rouge (3+ ; TX_5a46 : le chiffre),
+  Mamono 30 après le quart, Lynels 20 et combos 1-10. À dépenser : Port-Veille (3:5e) le bouclier
+  (Link a déjà le bouclier de bois : le bouclier de fer 150, puis le miroir 300 ;
+  shopItemReplacementTable $03 / $11 / $12), la fée 60, 3 cœurs 10 ; Pépin (3:20) un quart de
+  cœur 300 (une fois), 10 bombes 20, 3 cœurs 10. Le prix s'écrit sous l'objet, où qu'il soit
+  (shopItemGetTilesForRupeeDisplay : d'après Interaction.xh). Textes FR des boutiques : TX_0e01,
+  0e03, 0e04, 0e29, 0e2a, TX_001f-0021 (ils étaient restés en anglais). Pas d'arc dans Ages : le
+  Lance-Graines (le veilleur).
