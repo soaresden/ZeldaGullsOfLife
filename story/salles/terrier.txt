@@ -17,7 +17,10 @@
 # absorbe (code/ages/balladeTerrier.s). Les portes des âmes (volets 78) s'ouvrent à 4, 8 et 12
 # âmes ; dans les salles des serpents, des fantômes et de l'antichambre, les ennemis reviennent
 # toujours. La statue sur le bouton : la petite clé ; la porte à clé ; les torches (salle sombre) ;
-# l'arène : les serpents viennent sans fin, et à 16 âmes, le boss apparaît ; battu, retour à
+# l'arène : les serpents viennent sans fin, et à 16 âmes, le boss apparaît : la machine possédée,
+# en grand (7 x 5 briques $c0-$e2 du décor, tools/make_rex.py, aux lignes 1-5, colonnes 4-10 : le sol
+# a0 ici, la machine sort de l'ombre). Une bombe l'arrête 5 secondes, un tourbillon la touche alors ;
+# cinq fois. Battue, retour à
 # l'entrée. Les serpents (gris, quatre coups d'épée) sont aussi à l'entrée, à la statue et à l'arène.
 #
 # Briques (comme les autres donjons) : b8 b0 b9 / b3 b1 / ba b2 bb murs ; a0 sol ; a3 a4 dallage ;

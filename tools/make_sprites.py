@@ -236,19 +236,16 @@ def main():
     sheet.save(dst)
     print('->', os.path.relpath(dst, ROOT))
 
-    # Le boss du Terrier (art/rex.txt) : quatre bandes de 32 x 16 (le haut avec et sans blindage, les
-    # pattes pas A et pas B), chacune en deux carrés de 16 x 16 (gauche, droite) : les images 0-7
-    rows = [l.rstrip('\n') for l in open(os.path.join(ROOT, 'art', 'rex.txt'), encoding='utf-8')
-            if l.strip() and not l.startswith('#')]
-    assert len(rows) == 64 and all(len(r) == 32 for r in rows), 'rex.txt : quatre bandes de 32 x 16'
+    # Les projectiles du boss du Terrier (art/rex.txt ; la machine est dans le décor :
+    # tools/make_rex.py) : le missile, le rocher, son ombre, l'étincelle
+    frames = read_frames(os.path.join(ROOT, 'art', 'rex.txt'))
+    assert len(frames) <= 8
     sheet = Image.new('P', (128, 16), 0)
     sheet.putpalette(pal + [0] * (768 - len(pal)))
-    for f in range(4):
-        for q in range(2):
-            n = f * 2 + q
-            for y in range(16):
-                for x in range(16):
-                    sheet.putpixel((n * 16 + x, y), index[rows[f * 16 + y][q * 16 + x]])
+    for n, frame in enumerate(frames):
+        for y, row in enumerate(frame):
+            for x, c in enumerate(row):
+                sheet.putpixel((n * 16 + x, y), index[c])
     dst = os.path.join(DISASM, 'gfx_compressible', 'ages', 'spr_ballade_rex.png')
     sheet.save(dst)
     print('->', os.path.relpath(dst, ROOT))

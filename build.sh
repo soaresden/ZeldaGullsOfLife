@@ -19,6 +19,7 @@ export PYTHONUTF8=1
 "$PYTHON" "$ROOT/tools/make_songe.py"
 "$PYTHON" "$ROOT/tools/make_mamono.py"
 "$PYTHON" "$ROOT/tools/make_phare.py"
+"$PYTHON" "$ROOT/tools/make_rex.py"
 "$PYTHON" "$ROOT/tools/make_pacman.py"
 "$PYTHON" "$ROOT/tools/make_rooms.py"
 "$PYTHON" "$ROOT/tools/make_minimap.py"

@@ -7,9 +7,10 @@ de test caché :
 - les serpents (4:d2) : gris (palette 6), quatre coups d'épée ; chaque ennemi battu laisse une âme
   qui vole jusqu'à Link ; ils reviennent ;
 - la porte des âmes s'ouvre à 4 âmes ;
-- l'arène (4:d7) : à 16 âmes, le boss (la machine possédée), qui marche (son dessin change) et va
-  jusqu'au mur de droite ; à moitié, son blindage tombe ; à zéro, le fantôme s'échappe ; battu : le
-  Bracelet des Âmes, puis retour à l'entrée du Terrier ; l'épée lance alors toujours un rayon.
+- l'arène (4:d7) : à 16 âmes, le boss (la machine possédée, en grand dans le décor) sort de l'ombre ;
+  des missiles, des rochers ; une bombe l'arrête, un tourbillon la touche alors, cinq fois ; elle
+  explose : le Bracelet des Âmes, puis retour à l'entrée du Terrier ; l'épée lance alors toujours
+  un rayon.
 
 Usage : python tools/test_terrier.py DOSSIER_CAPTURES   (ROM=chemin pour une autre ROM)
 """
@@ -150,51 +151,69 @@ g.text_through()
 g.w(30)
 boss = objects(0x0c)
 check(len(boss) == 1, 'la machine possédée')
+g.w(80)
+check([g.tile(0x14 + r * 16 + c) for r in range(5) for c in range(7)] == list(range(0xc0, 0xc0 + 35)),
+      "elle sort de l'ombre : ses 35 briques au fond de l'arène")
+check(g.m[0xd00b] >= 0x70, 'Link devant elle, pas dedans (y %02x)' % g.m[0xd00b])
 g.shot(os.path.join(OUT, 'r04_boss.png'))
 if boss:
     b = boss[0]
-    poses = set()
-    for _ in range(60):
+    # Ses attaques : des missiles, puis des rochers
+    shots = set()
+    for _ in range(260):
         g.w(1)
-        poses.add(g.m[obj(b, 0x1e)] | g.m[obj(b, 0x1f)] << 8)
-    check(len(poses) == 2, 'il marche : deux images de pattes (%d)' % len(poses))
-    # Link tout à droite : il vient jusqu'à lui (avant, il s'arrêtait à 32 pixels du mur)
-    g.m[obj(b, 0x0b)], g.m[obj(b, 0x0d)] = 0x58, 0x80
-    hearts = g.m[HEALTH]
-    for _ in range(150):
-        g.m[0xd00b], g.m[0xd00d] = 0x68, 0xd8
+        g.m[0xc6aa] = g.m[0xc6ab]            # (Link ne meurt pas pendant le test)
+        for s_ in objects(0x0f):
+            shots.add(g.m[obj(s_, 0x3e)])
+        if 0 in shots and 1 in shots:
+            break
+    check(0 in shots, 'des missiles')
+    check(1 in shots, 'des rochers')
+    g.shot(os.path.join(OUT, 'r05_attaques.png'))
+    # Une vraie bombe contre elle : elle s'arrête
+    g.m[INV_A], g.m[INV_B] = 0x05, 0x03     # l'épée, les bombes
+    g.m[0xc6b0] = 0x10                       # (des bombes)
+    g.m[0xd00b], g.m[0xd00d] = 0x6a, 0x78
+    g.face('up')
+    g.press('b', 4)
+    g.w(8)
+    g.hold('down', 20)
+    stunned = False
+    for _ in range(200):
         g.w(1)
-    check(g.m[obj(b, 0x0d)] >= 0xc8, 'Link à droite : il le rattrape (x %02x)' % g.m[obj(b, 0x0d)])
-    check(g.m[HEALTH] < hearts, 'et il le touche')
-    g.m[HEALTH] = hearts
-    g.m[obj(b, 0x0b)], g.m[obj(b, 0x0d)] = 0x48, 0x78
-    g.m[0xd00b], g.m[0xd00d] = 0x88, 0x78
-    g.w(2)
-    souls = g.m[SOULS]
-    hit(b)
-    g.w(10)
-    check(g.m[obj(b, 0x30)] == 11, 'un coup : une âme arrachée (vie 11)')
-    g.m[obj(b, 0x30)] = 7
-    g.m[obj(b, 0x31)] = 0
-    hit(b)
-    g.w(20)
-    check(g.m[obj(b, 0x32)] == 1, 'à moitié : son blindage tombe')
-    g.shot(os.path.join(OUT, 'r05_blesse.png'))
-    g.m[obj(b, 0x30)] = 1
-    g.m[obj(b, 0x31)] = 0
-    hit(b)
-    g.w(20)
-check(len(objects(0x0c)) == 0 and len(objects(0x0f)) == 1, 'la machine tombe : le fantôme s\'échappe')
-ghost = objects(0x0f)
-g.shot(os.path.join(OUT, 'r06_fantome.png'))
-if ghost:
-    s = ghost[0]
-    g.m[obj(s, 0x30)] = 1
-    g.m[obj(s, 0x31)] = 0
-    hit(s)
-    g.w(10)
-check(g.m[SOUL_STATE] & 2 == 2, 'le fantôme battu : le Bracelet des Âmes')
-check(g.wait_text(120), 'Marine... la relique')
+        g.m[0xc6aa] = g.m[0xc6ab]
+        if g.m[obj(b, 0x32)]:
+            stunned = True
+            break
+    check(stunned, 'une bombe explose contre elle : elle s\'arrête')
+    g.shot(os.path.join(OUT, 'r06_arretee.png'))
+    hp = g.m[obj(b, 0x30)]
+
+    def spin():
+        """Une vraie attaque tourbillon tout contre elle : A tenu, puis lâché."""
+        g.m[0xd00b], g.m[0xd00d] = 0x6a, 0x78
+        g.face('up')
+        g.hold('a', 60)
+        g.w(30)
+        g.m[0xc6aa] = g.m[0xc6ab]
+    spin()
+    check(g.m[obj(b, 0x30)] == hp - 1 and g.m[obj(b, 0x32)] == 0, 'un tourbillon : touchée (%d -> %d)' % (hp, g.m[obj(b, 0x30)]))
+    spin()
+    check(g.m[obj(b, 0x30)] == hp - 1, 'pas arrêtée : le tourbillon ne la touche pas')
+    for k in range(hp - 1):
+        g.m[obj(b, 0x32)] = 150
+        g.w(2)
+        spin()
+    check(g.m[obj(b, 0x04)] >= 3 or not objects(0x0c), 'cinq tourbillons : elle explose')
+    for _ in range(300):
+        g.w(1)
+        g.m[0xc6aa] = g.m[0xc6ab]
+        if g.m[SOUL_STATE] & 2:
+            break
+    check(g.tile(0x14) == 0xa0 and g.tile(0x56) == 0xa0, 'elle a disparu : le sol')
+    g.shot(os.path.join(OUT, 'r07_explosee.png'))
+check(g.m[SOUL_STATE] & 2 == 2, 'le gantelet absorbe son âme : le Bracelet des Âmes')
+check(g.wait_text(120), 'la relique')
 g.text_through()
 # Marine félicite Link (INTERAC_MARINE $08) : sa réplique, une fois les textes finis
 check(g.wait_text(150), 'Marine félicite Link')
