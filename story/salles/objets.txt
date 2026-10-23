@@ -175,6 +175,7 @@ salle 3:20
 # La maison de Lila : Lila (INTERAC_BALLADE_OBJECT $04) ; le lit (link.s) mène dans son rêve
 salle 3:21
 	obj_Interaction INTERAC_BALLADE_OBJECT $04 $48 $38
+	obj_Interaction INTERAC_BALLADE_OBJECT $3b $58 $18 ; Lila endormie, dans son lit
 	obj_Interaction INTERAC_BALLADE_OBJECT $0a $08 $08 ; la fin du chapitre 2 (au réveil)
 # La place du Grelot : les enfants ; la fin du chapitre 2
 salle 11

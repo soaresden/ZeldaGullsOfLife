@@ -940,7 +940,9 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - make_mamono.py : pas les tuiles 4-19 / 232-239 (l'animation de la mer : le « 3 » du Creuse-Rubis
   devenait un trou).
 - Lynels : le quart de cœur du 2e labyrinthe est ramassé (et son texte lu) avant de partir (@ending,
-  var31). Lila endormie : dans son lit (y $1c x $88), immobile ; on rejoint son rêve aussi en poussant
-  contre le lit une demi-seconde (link.s, l'épée sur A gênait). La maison de Lila : plus le logo des
+  var31). Lila endormie : 3:21 a deux lits (story/salles/grelot_interieurs.txt) ; elle dort dans celui
+  de gauche (INTERAC_BALLADE_OBJECT $3b, art/objets.txt image 6 : sa tête sur l'oreiller), Link prend
+  celui de droite ; on rejoint son rêve aussi en poussant contre le lit une demi-seconde (link.s,
+  l'épée sur A gênait). La maison de Lila : plus le logo des
   anneaux (a2 -> 97). La boutique de Pépin : la musique des boutiques ($3e). Textes FR du groupe 00
   qui restaient en anglais : 4 quarts de cœur (TX_0049), bombes, graines, sacoche.

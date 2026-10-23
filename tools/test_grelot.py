@@ -179,9 +179,9 @@ check(g.global_flag(GLOBALFLAG_BALLADE_LILA_ASLEEP), "Lila s'endort", g)
 check(not g.has(TREASURE_TRADEITEM), 'Lila a repris Sire Bouchon', g)
 
 g.w(30)
-lila = [(g.m[(sl << 8) + 0x4b], g.m[(sl << 8) + 0x4d]) for sl in range(0xd2, 0xe0)
-        if g.m[(sl << 8) + 0x41] == 0xed and g.m[(sl << 8) + 0x42] == 0x04]
-check(lila == [(0x1c, 0x88)], 'Lila dort dans son lit %s' % lila, g)
+objs = [(g.m[(sl << 8) + 0x42], g.m[(sl << 8) + 0x4b], g.m[(sl << 8) + 0x4d]) for sl in range(0xd2, 0xe0)
+        if g.m[(sl << 8) + 0x40] and g.m[(sl << 8) + 0x41] == 0xed and g.m[(sl << 8) + 0x42] in (0x04, 0x3b)]
+check(objs == [(0x3b, 0x58, 0x18)], 'Lila dort dans son lit (celui de gauche) %s' % objs, g)
 shoot(g, 'g15b_lila_dort', 'Lila dort')
 # Le lit : tout contre, tourné vers lui (case $27, vers la droite) ; l'épée sur A (comme Denis) :
 # pousser contre le lit -> « Dormir un peu ? »
