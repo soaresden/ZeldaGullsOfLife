@@ -12,7 +12,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from debug_menu import BOMBS, TEXT_ACTIVE, Game, sheet
+from debug_menu import BOMBS, INV_A, TEXT_ACTIVE, Game, sheet
 
 OUT = sys.argv[1]
 os.makedirs(OUT, exist_ok=True)
@@ -178,12 +178,18 @@ g.text_through()
 check(g.global_flag(GLOBALFLAG_BALLADE_LILA_ASLEEP), "Lila s'endort", g)
 check(not g.has(TREASURE_TRADEITEM), 'Lila a repris Sire Bouchon', g)
 
-# Le lit : A tout contre, tourné vers lui (case $27, vers la droite) -> « Dormir un peu ? »
+g.w(30)
+lila = [(g.m[(sl << 8) + 0x4b], g.m[(sl << 8) + 0x4d]) for sl in range(0xd2, 0xe0)
+        if g.m[(sl << 8) + 0x41] == 0xed and g.m[(sl << 8) + 0x42] == 0x04]
+check(lila == [(0x1c, 0x88)], 'Lila dort dans son lit %s' % lila, g)
+shoot(g, 'g15b_lila_dort', 'Lila dort')
+# Le lit : tout contre, tourné vers lui (case $27, vers la droite) ; l'épée sur A (comme Denis) :
+# pousser contre le lit -> « Dormir un peu ? »
+g.m[INV_A] = 0x05
 g.goto(None, 0x68)
 g.goto(0x28, None)
 g.goto(None, 0x78)
-g.face('right')
-g.press('a', 20)
+g.hold('right', 50)
 g.choose(0, 2)
 g.w(60)
 for _ in range(400):

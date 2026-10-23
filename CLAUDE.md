@@ -928,3 +928,19 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   (shopItemGetTilesForRupeeDisplay : d'après Interaction.xh). Textes FR des boutiques : TX_0e01,
   0e03, 0e04, 0e29, 0e2a, TX_001f-0021 (ils étaient restés en anglais). Pas d'arc dans Ages : le
   Lance-Graines (le veilleur).
+- Marine et le bip (balladeMarine.kissCheck, appelé par bank2.s playHeartBeepAtInterval) : ça bippe
+  et Link ne touche à rien 14 bips (~15 s) : TX_5b4e, vie = quart du max arrondi + 1 (plus de bip).
+  Pas pendant un texte, un menu, une scène, un jeu du forain. Test : tools/test_bisou.py.
+- Jeux du forain : on ne peut plus s'en aller pendant la partie (setLoadout met
+  wDisableScreenTransitions et wWarpsDisabled ; le Mamono : pas de sortie par le haut tant que
+  wBalladeMamonoState = 1). Creuse-Rubis : les bombes se placent au 1er coup (@placeMines : ni cette
+  case ni ses voisines, ni les 4 coins), une case sans bombe autour ouvre ses voisines (@flood, 4 par
+  image, wBalladeMamonoFlood / Budget réutilisés ; leurs rubis vont dans la bourse). Mamono : coins
+  jamais minés ; plus le bruit d'épée quand Link bat un monstre (SND_KILLENEMY).
+- make_mamono.py : pas les tuiles 4-19 / 232-239 (l'animation de la mer : le « 3 » du Creuse-Rubis
+  devenait un trou).
+- Lynels : le quart de cœur du 2e labyrinthe est ramassé (et son texte lu) avant de partir (@ending,
+  var31). Lila endormie : dans son lit (y $1c x $88), immobile ; on rejoint son rêve aussi en poussant
+  contre le lit une demi-seconde (link.s, l'épée sur A gênait). La maison de Lila : plus le logo des
+  anneaux (a2 -> 97). La boutique de Pépin : la musique des boutiques ($3e). Textes FR du groupe 00
+  qui restaient en anglais : 4 quarts de cœur (TX_0049), bombes, graines, sacoche.

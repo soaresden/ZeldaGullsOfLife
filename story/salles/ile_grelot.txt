@@ -5,7 +5,7 @@
 # Briques : 3a sol, 0c chemin, 01 herbe, 2a 2b herbe fleurie, 3b sable, c5 buisson,
 #   arbres 2 x 2 : 2e 2f / 3e 3f ; mer fa ; côte (la terre au bord de l'eau) : 31 eau au-dessus,
 #   34 eau en dessous, 36 eau à gauche, 37 eau à droite ; coins 30 32 33 35 ;
-#   maisons : petite verte 86 87 88 / 96 a2 98 / f6 de f6 (de = porte) ; boutique bleue 8a 84 df
+#   maisons : petite verte 86 87 88 / 96 97 98 / f6 de f6 (a2 : le logo des anneaux, retiré : Denis) (de = porte) ; boutique bleue 8a 84 df
 #   84 9a / 93 8c 8d 8e 95 / f6 de f6 f6 f6 ; école grise 89 df 81 df 99 / 90 91 91 91 92 /
 #   f6 de f6 f6 f6 ; falaise 64 (coins 60 61) ; d1 rochers (une bombe -> dd, l'entrée d'une grotte) ;
 #   f7 piquets ; 9e plateau rond ; d3 château de sable ; 1d 1e ponton (2 lignes).
@@ -144,7 +144,7 @@ fa fa fa fa fa fa fa fa fa f7
 salle 21 decor 7b
 3e 3f 3a 3a 0c 0c 3a 3a 3e 3f
 2e 2f 3a 86 87 88 3a 3a 2e 2f
-3e 3f 3a 96 a2 98 3a 2a 3e 3f
+3e 3f 3a 96 97 98 3a 2a 3e 3f
 0c 0c 0c f6 de f6 0c 0c 0c 0c
 0c 0c 0c 0c 0c 0c 0c 0c 0c 0c
 3a 2a 3a 3a 0c 0c 3a 3a 2b 3a

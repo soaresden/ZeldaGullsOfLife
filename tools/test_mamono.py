@@ -266,5 +266,11 @@ if strong:
     wait_show()
 else:
     check(False, 'pas de monstre fort à découvrir à l\'aveugle')
-leave('dur')
+# Pendant la partie, on ne s'en va pas (Denis)
+goto(None, 0x78)
+goto(0x18, None)
+for _ in range(6):
+    walk('up', 8)
+w(100)
+check(m[0xcc30] == 0xea and m[0xc689] == 0x15, "pendant la partie, on ne s'en va pas (salle 5:%02x)" % m[0xcc30])
 print('\nTout est bon.' if not errors else '\n%d problème(s)' % len(errors))

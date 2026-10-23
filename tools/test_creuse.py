@@ -112,11 +112,25 @@ def play(level, name, dig_mine=False):
     check(m[STATE] == 1 and m[LEVEL] == level, '%s : la partie commence' % name)
     check(money - rupees() == (10, 30)[level], '%s : le prix' % name)
     check(m[INV_A] == ITEM_SHOVEL and m[INV_B] == 0, '%s : rien que la Pelle (A %02x, B %02x)' % (name, m[INV_A], m[INV_B]))
+    check(not any(bit(MINES, i) for i in range(24)), '%s : pas encore de bombes' % name)
+    text_through()       # Marine explique le chiffre
+    # Le premier coup, dans le coin (2, 1) : les bombes se placent, jamais là ni autour, ni dans
+    # les coins ; s'il n'y a rien autour, les cases vides s'ouvrent toutes seules
+    left0 = m[LEFT]
+    stand(3, 1)
+    walk('up', 3)
+    press('a', 20)
+    w(60)
     mines = [i for i in range(24) if bit(MINES, i)]
     check(len(mines) == (4, 8)[level], '%s : %d bombes' % (name, len(mines)))
-    text_through()       # Marine explique les couleurs
-    cells = [i for i in range(24) if (i in mines) == dig_mine]
+    check(not any(i in mines for i in (0, 1, 6, 7, 5, 18, 23)), '%s : ni au 1er coup, ni autour, ni dans les coins %s' % (name, mines))
+    opened = left0 - m[LEFT]
+    print('  %s : %d cases ouvertes au 1er coup' % (name, opened))
+    check(opened >= 1 and bit(DUG, 0), '%s : le 1er coup' % name)
+    cells = [i for i in range(24) if (i in mines) == dig_mine and not bit(DUG, i)]
     for i in cells[:1] if dig_mine else cells:
+        if bit(DUG, i):
+            continue
         row, col = 2 + i // 6, 1 + i % 6
         if row < 5:
             stand(row + 1, col)
@@ -137,6 +151,8 @@ def play(level, name, dig_mine=False):
             break
     w(30)
     shot(name)
+    for r in range(1, 7):
+        print('   ', ' '.join('%02x' % m[0xcf00 + (r << 4) + c] for c in range(10)))
 
 
 # Nouvelle partie, la plage

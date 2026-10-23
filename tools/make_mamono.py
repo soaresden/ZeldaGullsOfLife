@@ -88,7 +88,9 @@ def decor(TILESET, plan, room, last_number, boxed):
     for mt in room_metatiles(plan, room):
         for q in range(4):
             keep.add(maps[mt * 8 + q] ^ 0x80)
-    free = [n for n in range(256) if n not in keep]
+    # (pas les tuiles que l'animation de la mer réécrit sans cesse : 4-19 et 232-239 de l'image,
+    # data/ages/animationGfxHeaders.s ; Denis voyait un trou à la place du « 3 »)
+    free = [n for n in range(256) if n not in keep and not (4 <= n < 20 or 232 <= n < 240)]
     attr = maps[SAND * 8 + 4]               # la palette du sable
     sand_tiles = [maps[SAND * 8 + q] ^ 0x80 for q in range(4)]
     sand = [[tile(sand_tiles[(y // 8) * 2 + x // 8])[y % 8][x % 8] for x in range(16)] for y in range(16)]

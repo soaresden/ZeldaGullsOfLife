@@ -101,6 +101,7 @@ ROOM_MUSIC = [
     (1, 0x3d, ILE_GRELOT),  # Hameau-Grelot dans le Réel
     (0, 0x3d, ILE_GRELOT),  # et dans le Songe
     (3, 0x3d, [0x21, 0x22]),  # la maison de Lila, l'école
+    (3, 0x3e, [0x20]),      # la boutique de Pépin : la musique des boutiques (comme Port-Veille, 3:5e)
     (2, 0x3d, [0x21]),      # le rêve de Lila
     (1, 0x25, ILE_LAGUNE),  # la Lagune des Serments dans le Réel
     (0, 0x25, ILE_LAGUNE),  # et dans le Songe

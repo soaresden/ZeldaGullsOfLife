@@ -4041,6 +4041,14 @@ groups:
        \opt()Brume \opt()Grelot
        \opt()Lagune \opt()Suite
 
+  # Le bip des cœurs, 15 secondes sans rien faire : Marine fait un bisou (balladeMarine.kissCheck)
+  - name: TX_5b4e
+    index: 0x4e
+    text: |-
+      \col(1)Marine\col(0): C'est
+      chiant ce bruit!?\stop
+      Tiens, un bisou!
+
 
 - group: 0x00
   data:
@@ -4557,6 +4565,77 @@ groups:
     text: |-
       Tu as eu le
       \col(1)bouclier miroir\col(0)!
+  - name: TX_0024
+    index: 0x24
+    text: |-
+      Tu as eu des
+      \col(1)bombes\col(0)! Elles
+      font sauter les
+      murs fissurés.
+      Pose-en une
+      avec \abtn ou \bbtn.
+  - name: TX_0029
+    index: 0x29
+    text: |-
+      Tu as eu des
+      \col(1)graines
+      odorantes\col(0)!
+      Leur odeur
+      attire les
+      monstres.
+  - name: TX_002a
+    index: 0x2a
+    text: |-
+      Tu as eu des
+      \col(1)graines
+      mystère\col(0)! Leur
+      effet est un
+      mystère...
+  - name: TX_002b
+    index: 0x2b
+    text: |-
+      Tu as eu des
+      \col(1)graines
+      Pégase\col(0)! Elles
+      te rendent vif
+      comme le vent!
+  - name: TX_002c
+    index: 0x2c
+    text: |-
+      Tu as eu des
+      \col(1)graines de
+      vent\col(0)! Leur
+      bourrasque
+      t'emporte.
+  - name: TX_002d
+    index: 0x2d
+    text: |-
+      \pos(2)Tu as eu une
+      \col(1)sacoche\col(0)! Et
+      20 \col(1)graines de
+      feu\col(0) dedans!
+  - name: TX_0049
+    index: 0x49
+    text: |-
+      Quatre \col(1)quarts
+      de cœur\col(0)! Ça
+      fait un \col(1)cœur
+      de plus\col(0)!
+  - name: TX_004f
+    index: 0x4f
+    text: |-
+      Tu as eu quatre
+      \col(1)graines de feu\col(0)!
+  - name: TX_0050
+    index: 0x50
+    text: |-
+      Tu as eu dix
+      \col(1)graines Pégase\col(0)!
+  - name: TX_007e
+    index: 0x7e
+    text: |-
+      Tu as eu
+      \col(1)20 bombes\col(0)!
 
 # Noms des lieux sur la carte (SELECT) : trois noms d'Ages repris pour l'île de la Brume
 # (data/ages/mapTextAndPopups.s)
