@@ -26,8 +26,8 @@ fc 26 bf bf bf bf bf bf bf bf
 salle 5c decor 18
 fc fc fc fc fc fc fc fc fc fc
 21 21 21 21 21 21 21 21 22 fc
-bf bf bf bf bf bf bf bf 27 fc
-bf bf bf bf 0e bf bf bf 27 fc
+81 bf bf bf bf bf bf bf 27 fc
+a1 bf bf bf 0e bf bf bf 27 fc
 bf bf bf bf 0e bf bf bf 27 fc
 bf bf bf bf 0e bf bf bf 27 fc
 bf bf bf bf 0e bf bf bf 27 fc

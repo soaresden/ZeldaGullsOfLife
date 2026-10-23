@@ -45,7 +45,7 @@ salle 0a decor 1e
 60 c5 1b 1a 1a 1a 1a 1a c5 60
 60 1a 1a 1a 1a 1a 1a 1a 1a 60
 60 1a 1a 1a 1a 1a 1a 1a 1a 60
-60 1a 1a 1a 1a 1a 1a 1a 1a 60
+60 60 60 60 1a 1a 1a 1a 60 60
 
 # --- Roche ---
 salle 0b decor 1e
@@ -89,7 +89,7 @@ salle 19 decor 1e
 60 1a 1b 1a 1a 1a 1a 1a 1a 60
 60 1a 1a 1a 1a 1a 1a 1a 1a 60
 60 1a 1a 1a 1a 1a 1a c5 1a 60
-60 1a 1a 1a 1a 1a 1a 1a 1a 60
+60 60 60 60 1a 1a 60 60 60 60
 
 # --- Les lacets : du village (sud, derrière les rochers c0 de 2a) au cratère (nord) ---
 salle 1a decor 1e
@@ -111,7 +111,7 @@ salle 1b decor 1e
 60 1a 1b fa fa fa fa 1a 1a 60
 60 1a 1a fa fa fa fa 1a 1a 60
 60 c5 1a 1a 1a 1a 1a 1a 1a 60
-60 1a 1a 1a 1a 1a 1a 1a 1a 60
+60 60 60 60 1a 1a 60 60 60 60
 
 # --- Roche ---
 salle 1c decor 1e
@@ -133,7 +133,7 @@ salle 28 decor 1e
 60 1a 1b 1a 1a 1a 1a 2c 3c 1a
 60 1a b0 b1 1a 1a 1a 1a 1a 60
 60 1a 1a b2 1a 1a 1a 1a 1a 60
-60 1a 1a 1a 1a 1a 1a 1a 1a 60
+60 60 60 60 60 60 60 60 60 60
 
 # --- Les lacets de l'ouest : nord -> l'atelier, ouest -> la mine, est -> le village, sud -> la plage ---
 salle 29 decor 1e

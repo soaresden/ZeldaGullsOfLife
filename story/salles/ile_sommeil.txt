@@ -48,7 +48,7 @@ cd 3b 3b 3b 3b 3b f6 de f6 cd
 3b 3b 3b 3b 0c 0c 3b 3b 3b 3b
 cd 3b 3b 3b 0c 0c 3b 3b 3b cd
 cd cd 3b 3b 0c 0c 3b 3b cd cd
-cd cd cd 3b 3b 3b 3b cd cd cd
+cd cd cd 09 3b 3b 08 cd cd cd
 
 # --- Le lac de glace (ouest) : on glisse ; des trous dans la glace ; le coffre (1,1) ; sud -> le ponton, nord -> le village, est -> la maison du veilleur ---
 salle c1 decor 0d
@@ -81,7 +81,7 @@ cd f6 de f6 3b 3b 3b 3b 3b cd
 3b 3b 0c 0c 0c 0c 0c 0c 0c 3b
 cd 3b 3b 3b 0c 0c 3b 3b 3b cd
 cd 08 09 3b 0c 0c 3b 08 09 cd
-cd 2c 3c 3b 3b 3b 3b 2c 3c cd
+cd 2c 3c cd 3b 3b cd 2c 3c cd
 
 # --- Le Palais Givré : sa porte (ligne 2, colonne 5) est prise dans la glace (f6 tant que le cristal du Songe n'a pas été frappé) ; l'étang gelé (un chemin de pavés le traverse, colonne 5) et le cristal pris dans un bloc de glace (f4, 5,4) ; ouest / est -> le village, sud -> la maison du veilleur ---
 salle b2 decor 0d
@@ -92,7 +92,7 @@ cd 3b f6 f6 f6 f6 f6 f6 3b cd
 3b 3b ea ea ea 0c ea ea 3b 3b
 cd 3b ea ea f4 0c ea ea 3b cd
 cd 3b ea ea ea 0c ea ea 3b cd
-cd cd cd 3b 3b 0c 3b cd cd cd
+cd cd cd cd 3b 0c 8a cd cd cd
 
 # --- Le village gelé (est) : la maison de la chanteuse (porte de en ligne 2, colonne 7 -> 3:29) ; ouest -> le palais, sud -> le lac, est / nord -> les branches ---
 salle b3 decor 0d
@@ -103,7 +103,7 @@ cd 3b 3b 3b 3b 3b f6 de f6 cd
 3b 0c 0c 0c 0c 0c 0c 0c 3b 3b
 cd 3b 3b 3b 0c 0c 3b 3b 3b cd
 cd 08 09 3b 0c 0c 3b 08 09 cd
-cd 2c 3c 3b 3b 3b 3b 2c 3c cd
+cd 2c 3c cd 3b 3b cd 2c 3c cd
 
 # --- La branche ouest : un bout de flocon, des sapins ; est -> le village ---
 salle b0 decor 0d

@@ -2337,22 +2337,23 @@ groups:
        \opt()Slumber
        \opt()Eye
 
-  # Bulle (3:24), after the Reef: the surfboard
+  # Bulle (3:24), after the Reef: her carbon fin (it was a surfboard)
   - name: TX_5adf
     index: 0xdf
     text: |-
       \col(1)Bulle\col(0): You
       silenced the
       Eel!\stop
-      Here: my
-      surfboard. I
-      don't need it
-      anymore.
+      Here: my carbon
+      fin. You'll zoom
+      across the
+      water!
 
   - name: TX_5ae0
     index: 0xe0
     text: |-
-      The \col(1)surfboard\col(0)!\stop
+      The \col(1)carbon
+      fin\col(0)!\stop
       On the water,
       you go twice as
       fast!

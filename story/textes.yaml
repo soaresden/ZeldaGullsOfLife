@@ -2428,23 +2428,25 @@ groups:
        \opt()Sommeil
        \opt()Œil
 
-  # Bulle (3:24), après le Récif : la planche de surf
+  # Bulle (3:24), après le Récif : sa palme carbone (Denis : « une palme carbone, bombarde sur
+  # l'eau ! » ; c'était une planche de surf)
   - name: TX_5adf
     index: 0xdf
     text: |-
       \col(1)Bulle\col(0): Tu as
       fait taire la
       Murène!\stop
-      Tiens: ma
-      planche de surf.
-      Je n'en ai plus
-      besoin.
+      Tiens: ma palme
+      carbone. Avec
+      ça, tu vas
+      bombarder sur
+      l'eau!
 
   - name: TX_5ae0
     index: 0xe0
     text: |-
-      La \col(1)planche de
-      surf\col(0)!\stop
+      La \col(1)palme
+      carbone\col(0)!\stop
       Sur l'eau, tu
       files deux fois
       plus vite!
