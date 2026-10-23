@@ -116,9 +116,21 @@ salle 0:42 decor 07
 60 60 60 60 60 60 60 60 60 60
 60 60 60 60 60 60 60 60 60 60
 60 60 60 87 ec 87 60 60 60 60
-60 02 3a 3a 3a 3a 11 3a d9 60
+60 02 3a 3a 3a 3a 11 3a 02 60
 60 3a 3a 3a 3a 3a 3a 3a 3a 60
 60 3a 3a 3a 3a 3a 1b 1b 11 60
+
+# Le cimetière de l'ouest dans le Songe : ni la pancarte ni la tombe de travers (l'entrée du
+# Terrier des Serpents n'est que dans le Réel, 1:60)
+salle 0:60 decor 07
+60 60 60 60 60 60 60 60 60 60
+60 3a 3a 3a 3a 1b 3a 3a 3a 60
+60 3a 02 3a 3a 02 3a 13 3a 60
+60 3a 13 3a 1b 11 11 3a 3a 3a
+60 3a 3a 3a 10 3a 3a 3a 10 3a
+60 3a 02 3a 3a 02 11 ad ae 60
+60 3a 3a 3a 3a 3a 3a bd be 60
+60 60 60 60 60 60 60 60 60 60
 
 salle 0:61 decor 07
 60 60 60 60 60 60 60 60 60 60

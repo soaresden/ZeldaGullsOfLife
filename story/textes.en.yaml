@@ -132,8 +132,8 @@ groups:
     index: 0x1a
     text: |-
       A soul door. It
-      opens with
-      \num1 souls.
+      still needs
+      \num1 more.
 
   - name: TX_5a1b
     index: 0x1b
@@ -4828,6 +4828,13 @@ groups:
       Behind the door,
       you hear someone
       pacing around.
+  # The west graveyard (1:60): the crooked chapel grave hides the Burrow's entrance
+  - name: TX_2e1e
+    index: 0x1e
+    text: |-
+      One of these
+      graves is out
+      of place.
 
 # Dungeon and item messages
 - group: 0x51

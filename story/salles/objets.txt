@@ -464,6 +464,12 @@ salle 63
 salle 64
 	obj_Interaction INTERAC_BALLADE_OBJECT $1e $58 $58
 	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+# et dans le Songe aussi (c'est là que Mamie Rose en parle ; Denis y a creusé)
+salle 0:64
+	obj_Interaction INTERAC_BALLADE_OBJECT $1e $58 $58
+# Le cimetière de l'ouest : la tombe-chapelle de travers, qui cache l'escalier du Terrier
+salle 60
+	obj_Interaction INTERAC_BALLADE_OBJECT $44 $38 $78
 # Le rocher de la veuve : Marée
 salle 74
 	obj_Interaction INTERAC_BALLADE_OBJECT $1c $28 $68
@@ -855,21 +861,26 @@ salle 5:ea
 
 # Le Terrier des Serpents (donjon facultatif, story/salles/terrier.txt ; code/ages/balladeTerrier.s) :
 # dans chaque salle, le contrôleur (les âmes, les ennemis qui reviennent, les portes des âmes)
+# Les serpents (ENEMY_ROPE) : gris, quatre coups d'épée (le contrôleur les règle)
 salle 4:d0
 	; « Le Terrier des Serpents » en entrant (INTERAC_DUNGEON_STUFF $00, texte TX_020b)
 	obj_Interaction $12 $00 $88 $78
 	obj_Interaction INTERAC_BALLADE_CREUSE $0a $08 $08
+	obj_SpecificEnemyA $00 ENEMY_ROPE $00 $38 $38
+	obj_SpecificEnemyA     ENEMY_ROPE $00 $38 $b8
 salle 4:d1
 	obj_Interaction INTERAC_BALLADE_CREUSE $0a $08 $08
 	obj_Interaction INTERAC_BALLADE_CREUSE $0d $58 $78 ; le Gantelet des âmes, sur son socle
 salle 4:d2
 	obj_Interaction INTERAC_BALLADE_CREUSE $0a $08 $08
-	obj_SpecificEnemyA $00 ENEMY_STALFOS $00 $38 $58
-	obj_SpecificEnemyA     ENEMY_STALFOS $00 $38 $98
-	obj_SpecificEnemyA     ENEMY_STALFOS $00 $78 $78
+	obj_SpecificEnemyA $00 ENEMY_ROPE $00 $38 $58
+	obj_SpecificEnemyA     ENEMY_ROPE $00 $38 $98
+	obj_SpecificEnemyA     ENEMY_ROPE $00 $78 $78
 # La statue sur le bouton (3,10) : le coffre de la petite clé (2,12)
 salle 4:d3
 	obj_Interaction INTERAC_BALLADE_CREUSE $0a $08 $08
+	obj_SpecificEnemyA $00 ENEMY_ROPE $00 $78 $38
+	obj_SpecificEnemyA     ENEMY_ROPE $00 $28 $78
 	obj_Part $09 $00 $3a
 	obj_Interaction $20 $00 $28 $c8
 salle 4:d4
@@ -889,8 +900,8 @@ salle 4:d6
 salle 4:d7
 	obj_Interaction INTERAC_MARINE $08 $08 $08 ; Marine félicite Link quand le boss est battu
 	obj_Interaction INTERAC_BALLADE_CREUSE $0a $08 $08
-	obj_SpecificEnemyA $00 ENEMY_GHINI $00 $38 $48
-	obj_SpecificEnemyA     ENEMY_GHINI $00 $78 $a8
+	obj_SpecificEnemyA $00 ENEMY_ROPE $00 $38 $48
+	obj_SpecificEnemyA     ENEMY_ROPE $00 $78 $a8
 
 # Le Nid de la Mouette, l'île de Marine (après la fin ; story/salles/ile_marine.txt, code/ages/balladeFin.s)
 salle 5b

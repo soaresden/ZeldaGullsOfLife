@@ -141,9 +141,9 @@ groups:
     index: 0x1a
     text: |-
       Une porte des
-      âmes. Elle
-      s'ouvre avec
-      \num1 âmes.
+      âmes. Il lui en
+      faut encore
+      \num1.
 
   - name: TX_5a1b
     index: 0x1b
@@ -5262,6 +5262,13 @@ groups:
       porte, on entend
       quelqu'un
       tourner en rond.
+  # Le cimetière de l'ouest (1:60) : la tombe-chapelle de travers cache l'entrée du Terrier
+  - name: TX_2e1e
+    index: 0x1e
+    text: |-
+      Une tombe n'est
+      pas à sa place
+      ici.
 
 # Messages du donjon et des objets (traduits pour la démo)
 - group: 0x51

@@ -4,7 +4,8 @@
 - la cabane du fossoyeur : Bêche prête la Pelle ;
 - la place du silence : Noé ne se souvient plus de la voix de sa grand-mère ; la Lanterne : dans
   le Songe (sépia), Mamie Rose dit où est enterrée la clé de la cathédrale ;
-- la chapelle (le sonneur), le cimetière de l'est : la Pelle déterre la clé devant la tombe fleurie ;
+- la chapelle (le sonneur), le cimetière de l'est : la Pelle déterre la clé devant la tombe fleurie
+  (dans le Songe : elle y est aussi) ;
 - Mamie Rose donne le quart de cœur de sa boîte à couture ;
 - le parvis, la cathédrale : la clé ouvre la grille ; la veuve Marée sur son rocher.
 
@@ -128,17 +129,22 @@ g.text_through()
 check(door(g, 'right', (1, 0x64)), "le cimetière de l'est (1:64)", g)
 check(g.wait_text(200), 'Marine : la tombe fleurie', g)
 g.text_through()
-# La Pelle sur B : creuser devant la tombe fleurie (ligne 5, colonne 5), Link en dessous
+# La Pelle sur B : creuser devant la tombe fleurie (ligne 5, colonne 5), Link en dessous. Dans le
+# Songe, là où Mamie Rose en parle (Denis y a creusé : la clé y est aussi)
+lantern(g, 0)
+check(g.where() == (0, 0x64), "le cimetière de l'est, dans le Songe (0:64)", g)
 g.route((4, 1), (6, 1), (6, 5))   # les fleurs bordent la tombe : on passe par en dessous
 g.face('up')
 g.m[INV_B] = TREASURE_SHOVEL
 g.press('b', 40)
 g.w(60)
-shoot(g, 'e05_cle', 'La clé déterrée')
+shoot(g, 'e05_cle', 'La clé déterrée (dans le Songe)')
 g.text_through()
 g.w(60)
 g.text_through()
 check(obtained(g, TREASURE_GRAVEYARD_KEY), 'la clé de la cathédrale', g)
+lantern(g, 1)
+check(g.where() == (1, 0x64), 'retour au Réel', g)
 
 # Mamie Rose : le quart de cœur
 g.route((6, 1), (4, 1))

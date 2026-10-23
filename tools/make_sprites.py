@@ -223,20 +223,19 @@ def main():
     sheet.save(dst)
     print('->', os.path.relpath(dst, ROOT))
 
-    # Le boss du Terrier (art/rex.txt) : deux images de 32 x 32, chacune en quatre carrés de 16 x 16
-    # (haut gauche, haut droite, bas gauche, bas droite) : les images 0-3, puis 4-7
+    # Le boss du Terrier (art/rex.txt) : quatre bandes de 32 x 16 (le haut avec et sans blindage, les
+    # pattes pas A et pas B), chacune en deux carrés de 16 x 16 (gauche, droite) : les images 0-7
     rows = [l.rstrip('\n') for l in open(os.path.join(ROOT, 'art', 'rex.txt'), encoding='utf-8')
             if l.strip() and not l.startswith('#')]
-    assert len(rows) == 64 and all(len(r) == 32 for r in rows), 'rex.txt : deux images de 32 x 32'
+    assert len(rows) == 64 and all(len(r) == 32 for r in rows), 'rex.txt : quatre bandes de 32 x 16'
     sheet = Image.new('P', (128, 16), 0)
     sheet.putpalette(pal + [0] * (768 - len(pal)))
-    for f in range(2):
-        for q in range(4):
-            n = f * 4 + q
-            qx, qy = (q % 2) * 16, (q // 2) * 16
+    for f in range(4):
+        for q in range(2):
+            n = f * 2 + q
             for y in range(16):
                 for x in range(16):
-                    sheet.putpixel((n * 16 + x, y), index[rows[f * 32 + qy + y][qx + x]])
+                    sheet.putpixel((n * 16 + x, y), index[rows[f * 16 + y][q * 16 + x]])
     dst = os.path.join(DISASM, 'gfx_compressible', 'ages', 'spr_ballade_rex.png')
     sheet.save(dst)
     print('->', os.path.relpath(dst, ROOT))

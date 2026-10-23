@@ -55,7 +55,14 @@ DRAWN = {
     'f': ['....', '.:##', '.#o.', '.#o.', '##o#', '.#o.', '.#o.', '.#o.', '.#o.', '....', '....'],
     'y': ['.....', '.....', '.....', '.....', '##.##', '#o.#o', '#o.#o', ':###o', '...#o', '...#o', ':##o:'],
     'd': ['.....', '...##', '...#o', '...#o', ':####', '#o.#o', '#o.#o', '#o.#o', ':##oo', '.....', '.....'],
+    # (le Terrier des Serpents : « Snakes Burrow »)
+    'B': ['#####:', '#o.:##', '#o..#o', '#####:', '#o..#o', '#o.:##', '#####:'],
+    'k': ['.....', '#o...', '#o...', '#o...', '#o.#o', '#o#o.', '##o..', '#o#o.', '#o.#o', '.....', '.....'],
 }
+
+# Le Terrier des Serpents (donjon facultatif $0b) : sur la carte, il prenait le nom d'Ages de ce
+# numéro, « L-8 Ancient Tomb » (gfx_blurb_heroscave) : son propre nom, sans numéro de niveau
+TERRIER = {'en': ('Snakes', 'Burrow'), 'fr': ('Terrier des', 'Serpents')}
 GRAVE = ['.#o..', '..:#.']        # l'accent grave, au-dessus d'une minuscule (à)
 ACUTE = ['..:#.', '.#o..']        # l'accent aigu, au-dessus d'une minuscule (é)
 ACCENT = ['...:#', '..#o.']        # l'accent aigu, au-dessus d'une majuscule
@@ -174,11 +181,37 @@ def make(n, lang, glyphs):
     print('->', os.path.relpath(dst, ROOT))
 
 
+def make_terrier(lang, glyphs):
+    im = original('heroscave')
+    px = im.load()
+    # Effacer l'ancien nom et « L-8 » (on garde le cadre et ses coins)
+    for y in range(13, 24):
+        for x in range(3, 61):
+            px[x, y] = 0
+    for y in range(0, 11):
+        for x in range(67, 125):
+            px[x, y] = 0
+    for y in range(1, 10):
+        for x in range(14, 50):
+            px[x, y] = 0
+    line1, line2 = TERRIER[lang]
+    write_line(px, glyphs, line1, 3, 61, 21)
+    write_line(px, glyphs, line2, 67, 125, 8)
+    suffix = '_fr' if lang == 'fr' else ''
+    dst = os.path.join(GFX, 'gfx_blurb_terrier%s.png' % suffix)
+    im.save(dst)
+    shutil.copyfile(os.path.join(GFX, 'gfx_blurb_heroscave.properties'),
+                    os.path.join(GFX, 'gfx_blurb_terrier%s.properties' % suffix))
+    print('->', os.path.relpath(dst, ROOT))
+
+
 def main():
     glyphs = font()
     for n in NAMES:
         for lang in ('en', 'fr'):
             make(n, lang, glyphs)
+    for lang in ('en', 'fr'):
+        make_terrier(lang, glyphs)
 
 
 main()
