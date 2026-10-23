@@ -155,4 +155,5 @@ def main():
     print('->', out)
 
 
-main()
+if __name__ == '__main__':
+    main()

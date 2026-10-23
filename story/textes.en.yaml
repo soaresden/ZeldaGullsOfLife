@@ -4044,6 +4044,47 @@ groups:
 # Map place names (SELECT): three Ages names reused for Mist Island
 - group: 0x03
   data:
+  # Les noms sur la carte (Select) : nos îles (tools/make_minimap.py écrit les tables)
+  - name: TX_0302
+    index: 0x02
+    text: |-
+      Jingle Hamlet
+  - name: TX_0303
+    index: 0x03
+    text: |-
+      Lagoon of
+      Vows
+  - name: TX_0304
+    index: 0x04
+    text: |-
+      Ember Peak
+  - name: TX_0305
+    index: 0x05
+    text: |-
+      Isle of
+      Echoes
+  - name: TX_0306
+    index: 0x06
+    text: |-
+      Nest of Winds
+  - name: TX_0307
+    index: 0x07
+    text: |-
+      Isle of the
+      Great Sleep
+  - name: TX_0308
+    index: 0x08
+    text: |-
+      Eye of
+      Insomnis
+  - name: TX_0309
+    index: 0x09
+    text: |-
+      Gull's Nest
+  - name: TX_030a
+    index: 0x0a
+    text: |-
+      The sea
   - name: TX_0336
     index: 0x36
     text: |-

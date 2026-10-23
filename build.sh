@@ -20,6 +20,7 @@ export PYTHONUTF8=1
 "$PYTHON" "$ROOT/tools/make_mamono.py"
 "$PYTHON" "$ROOT/tools/make_pacman.py"
 "$PYTHON" "$ROOT/tools/make_rooms.py"
+"$PYTHON" "$ROOT/tools/make_minimap.py"
 "$PYTHON" "$ROOT/tools/make_music.py"
 cd "$ROOT/oracles-disasm"
 make -j8 PYTHON="$PYTHON" ages

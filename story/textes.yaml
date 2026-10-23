@@ -4336,6 +4336,47 @@ groups:
 # (data/ages/mapTextAndPopups.s)
 - group: 0x03
   data:
+  # Les noms sur la carte (Select) : nos îles (tools/make_minimap.py écrit les tables)
+  - name: TX_0302
+    index: 0x02
+    text: |-
+      Hameau-Grelot
+  - name: TX_0303
+    index: 0x03
+    text: |-
+      Lagune des
+      Serments
+  - name: TX_0304
+    index: 0x04
+    text: |-
+      Mont-Braise
+  - name: TX_0305
+    index: 0x05
+    text: |-
+      Île des Échos
+  - name: TX_0306
+    index: 0x06
+    text: |-
+      Nid des Vents
+  - name: TX_0307
+    index: 0x07
+    text: |-
+      Île du Grand
+      Sommeil
+  - name: TX_0308
+    index: 0x08
+    text: |-
+      Œil de
+      l'Insomnis
+  - name: TX_0309
+    index: 0x09
+    text: |-
+      Nid de la
+      Mouette
+  - name: TX_030a
+    index: 0x0a
+    text: |-
+      La mer
   - name: TX_0336
     index: 0x36
     text: |-
