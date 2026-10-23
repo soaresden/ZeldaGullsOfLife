@@ -632,7 +632,10 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Patch : python tools/make_patch.py "chemin/ROM Ages (USA).gbc" -> out/gulls_of_life.bps.
 - Le zip du jeu complet (privé) : python tools/make_zip.py [ROM] [hud=bas|haut] ->
   out/livraisons/GullsOfLife-v1.0-8-complet[-barre-en-bas].zip (le patch BPS + LISEZMOI / README ;
-  la barre en bas par défaut). Jamais de ROM dans un zip.
+  la barre en bas par défaut). Jamais de ROM dans un zip à donner.
+- Le zip de Denis, pour lui seul : python tools/make_zip.py perso -> « Legend of Zelda, The - Gulls
+  of Life.zip » à la racine du dépôt (ignoré par git), avec la ROM prête à jouer, le patch, le
+  LISEZMOI. À refaire après chaque changement qu'il veut essayer.
   La ROM Ages (USA) est dans D:\DOCS\Documents\GitHub\ZeldaOracleCombinedFR\. Versions : v1.0/N
   (tag v1.0-N) = N donjons jouables ; v1.0-2 = chapitres 1-2 (ROM obtenue CRC32 6f5d4e60).
 - Nom des donjons sur la carte : tools/make_blurbs.py (NAMES ; lettres manquantes dessinées dans

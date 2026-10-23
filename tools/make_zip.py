@@ -4,8 +4,10 @@ On ne distribue jamais la ROM : le zip ne contient que le patch, à appliquer su
 (USA). Par défaut la barre d'état est en bas de l'écran (comme Link's Awakening) ; hud=haut la
 laisse en haut, comme Ages.
 
-Usage : python tools/make_zip.py ["chemin/ROM Ages (USA).gbc"] [hud=bas|haut]
+Usage : python tools/make_zip.py ["chemin/ROM Ages (USA).gbc"] [hud=bas|haut] [perso]
 Sortie : out/livraisons/GullsOfLife-v1.0-8-complet[-barre-en-bas].zip
+Avec « perso » : le zip de Denis, pour lui seul, à la racine du dépôt (ignoré par git) :
+« Legend of Zelda, The - Gulls of Life.zip », avec la ROM prête à jouer (à ne pas partager).
 (la ROM Ages (USA) est par défaut dans D:\\DOCS\\Documents\\GitHub\\ZeldaOracleCombinedFR)
 """
 import os
@@ -110,6 +112,9 @@ affiliated with Nintendo or Capcom. Do not sell it.
 def main():
     args = sys.argv[1:]
     hud = 'bas'
+    perso = 'perso' in args
+    if perso:
+        args.remove('perso')
     for a in list(args):
         if a.startswith('hud='):
             hud = a[4:]
@@ -141,6 +146,17 @@ def main():
     else:
         hud_fr = 'La barre d\'état est en haut de l\'écran, comme dans Oracle of Ages.'
         hud_en = 'The status bar is at the top of the screen, as in Oracle of Ages.'
+
+    if perso:
+        # Pour Denis seul : la ROM prête à jouer (le zip est ignoré par git : *.zip)
+        name = 'Legend of Zelda, The - Gulls of Life'
+        path = os.path.join(ROOT, name + '.zip')
+        with zipfile.ZipFile(path, 'w', zipfile.ZIP_DEFLATED) as z:
+            z.writestr(name + '.gbc', target)
+            z.writestr('gulls_of_life.bps', patch)
+            z.writestr('LISEZMOI.txt', LISEZMOI.format(version=VERSION, hud_fr=hud_fr, crc=crc).replace('\n', '\r\n'))
+        print("%s : la ROM (CRC32 %s, barre d'état en %s), le patch, le LISEZMOI" % (path, crc, hud))
+        return
 
     out_dir = os.path.join(ROOT, 'out', 'livraisons')
     os.makedirs(out_dir, exist_ok=True)
