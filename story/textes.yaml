@@ -4046,7 +4046,7 @@ groups:
     index: 0x4e
     text: |-
       \col(1)Marine\col(0): C'est
-      chiant ce bruit!?\stop
+      chiant ce bruit!\stop
       Tiens, un bisou!
 
   # Hameau-Grelot, le Songe : Tic et Tac jouent à cache-cache (balladeObjects.twins, hiding, kite)
