@@ -3827,6 +3827,81 @@ groups:
       Tu as appris le
       \col(1)contre parfait\col(0)!
 
+  # Marine félicite Link après chaque boss (INTERAC_MARINE $08, code/ages/balladeMarine.s)
+  - name: TX_5b35
+    index: 0x35
+    text: |-
+      \col(1)Marine\col(0): Bien
+      joué! T'es un
+      vrai chevalier!
+  - name: TX_5b36
+    index: 0x36
+    text: |-
+      \col(1)Marine\col(0): Wouah!
+      Tu l'as cassé
+      comme un jouet!\stop
+      Lila va être
+      fière de toi!
+  - name: TX_5b37
+    index: 0x37
+    text: |-
+      \col(1)Marine\col(0): Il
+      pouvait copier
+      tout le monde...\stop
+      Mais il n'y a
+      qu'un seul Link!
+  - name: TX_5b38
+    index: 0x38
+    text: |-
+      \col(1)Marine\col(0): Elle
+      avait ma voix...\stop
+      Mais toi, tu as
+      reconnu la
+      vraie. Merci.
+  - name: TX_5b39
+    index: 0x39
+    text: |-
+      \col(1)Marine\col(0): Tu as
+      brisé la glace!\stop
+      Plus rien ne
+      fait peur au
+      grand Link!
+  - name: TX_5b3a
+    index: 0x3a
+    text: |-
+      \col(1)Marine\col(0): Ton
+      ombre... et tu
+      l'as battue!\stop
+      Personne ne te
+      ressemble,
+      Link.
+  - name: TX_5b3b
+    index: 0x3b
+    text: |-
+      \col(1)Marine\col(0): Ganon!
+      Tu l'as encore
+      battu!\stop
+      T'es une
+      légende, Link!
+  - name: TX_5b3c
+    index: 0x3c
+    text: |-
+      \col(1)Marine\col(0): Le
+      cauchemar de
+      Cocolint...\stop
+      Tu n'as plus
+      peur de rien. Je
+      suis si fière!
+  - name: TX_5b3d
+    index: 0x3d
+    text: |-
+      \col(1)Marine\col(0): Une
+      machine hantée,
+      battue!\stop
+      Un serpent
+      n'aurait pas
+      fait mieux!
+
 
 - group: 0x00
   data:

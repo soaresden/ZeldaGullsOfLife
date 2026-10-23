@@ -3700,6 +3700,77 @@ groups:
       You learned the
       \col(1)perfect parry\col(0)!
 
+  # Marine félicite Link après chaque boss (INTERAC_MARINE $08, code/ages/balladeMarine.s)
+  - name: TX_5b35
+    index: 0x35
+    text: |-
+      \col(1)Marin\col(0): Well
+      done! You're a
+      real knight!
+  - name: TX_5b36
+    index: 0x36
+    text: |-
+      \col(1)Marin\col(0): Wow!
+      You broke it
+      like a toy!\stop
+      Lila will be so
+      proud of you!
+  - name: TX_5b37
+    index: 0x37
+    text: |-
+      \col(1)Marin\col(0): He
+      could copy
+      anyone...\stop
+      But there's only
+      one Link!
+  - name: TX_5b38
+    index: 0x38
+    text: |-
+      \col(1)Marin\col(0): She
+      had my voice...\stop
+      But you knew the
+      real me. Thanks.
+  - name: TX_5b39
+    index: 0x39
+    text: |-
+      \col(1)Marin\col(0): You
+      broke the ice!\stop
+      Nothing scares
+      the great Link!
+  - name: TX_5b3a
+    index: 0x3a
+    text: |-
+      \col(1)Marin\col(0): Your
+      own shadow...
+      and you beat it!\stop
+      No one is like
+      you, Link.
+  - name: TX_5b3b
+    index: 0x3b
+    text: |-
+      \col(1)Marin\col(0): Ganon!
+      You beat him
+      again!\stop
+      You're a legend,
+      Link!
+  - name: TX_5b3c
+    index: 0x3c
+    text: |-
+      \col(1)Marin\col(0): The
+      nightmare of
+      Koholint...\stop
+      You fear nothing
+      now. I'm so
+      proud!
+  - name: TX_5b3d
+    index: 0x3d
+    text: |-
+      \col(1)Marin\col(0): A
+      haunted machine,
+      beaten!\stop
+      Not even a snake
+      could do better!
+
 
 - group: 0x00
   data:

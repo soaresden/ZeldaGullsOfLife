@@ -127,6 +127,10 @@ def nightmare(room, flag_room):
         if g.m[GROUP5_FLAGS + flag_room] & 0x80:
             break
     g.w(120)
+    # (Marine félicite Link après un boss : INTERAC_MARINE $08)
+    for _ in range(3):
+        g.text_through()
+        g.w(40)
     return bool(g.m[GROUP5_FLAGS + flag_room] & 0x80)
 
 

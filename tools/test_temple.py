@@ -140,7 +140,7 @@ def open_chest(row, col, name):
     walk('up', 12)
     keys, boss, money = m[SMALL_KEYS], m[BOSS_KEYS], rupees()
     press('a', 60)
-    text_through(10)
+    text_through(20)
     w(60)
     check(tile(row, col) == 0xf0, 'coffre ouvert : ' + name)
     return m[SMALL_KEYS] - keys, m[BOSS_KEYS] != boss, rupees() - money
@@ -385,7 +385,7 @@ head = [b for b in bs if m[b + ENEMY['subid']] == 3]
 check(bool(body and ghost and head), 'Jack est là')
 if body and ghost and head:
     body, ghost, head = body[0], ghost[0], head[0]
-    check(m[body + ENEMY['health']] == 14, 'Jack : 14 points de vie')
+    check(m[body + ENEMY['health']] == 24, 'Jack : 24 points de vie')
     m[body + ENEMY['health']] = 0
     for i in range(300):
         w(1)

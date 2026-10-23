@@ -158,6 +158,9 @@ if ghost:
 check(g.m[SOUL_STATE] & 2 == 2, 'le fantôme battu : le Bracelet des Âmes')
 check(g.wait_text(120), 'Marine... la relique')
 g.text_through()
+# Marine félicite Link (INTERAC_MARINE $08) : sa réplique, une fois les textes finis
+check(g.wait_text(150), 'Marine félicite Link')
+g.text_through()
 
 # Le rayon des âmes : l'épée en B, un coup
 g.m[INV_B] = 0x05
