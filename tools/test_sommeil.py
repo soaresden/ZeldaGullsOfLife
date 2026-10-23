@@ -6,7 +6,8 @@
   graine du Lance-Graines, dégèle la porte du Réel ;
 - le roi dans le Songe (il dit où frapper) ; la maison de la famille : la petite sœur, la mère et
   le père endormis ;
-- la porte dégelée : l'entrée du Palais Givré.
+- la porte dégelée : l'entrée du Palais Givré ;
+- le coffre du lac de glace (1:c1) : 20 rubis (sur la glace, A en poussant vers le haut).
 Usage : python tools/test_sommeil.py DOSSIER_CAPTURES   (ROM=chemin pour une autre ROM)
 """
 import os
@@ -172,6 +173,28 @@ check(enter(g, 2, 5, (4, 0x55)), 'la porte dégelée : le Palais Givré (4:55)',
 g.settled()
 g.w(60)
 shoot(g, 's10_palais', 'Le Palais Givré')
+
+# Le coffre du lac de glace (1:c1, ligne 1, colonne 1) : sur la glace, Link glisse dès qu'on lâche la
+# croix : A en poussant vers le haut (il était dans la liste du groupe 2 : il ne s'ouvrait pas)
+g.warp(1, 0xc1, 0x21)
+g.settled()
+g.w(60)
+g.text_through()
+r0 = g.rupees()
+for _ in range(6):
+    g.pb.button_press('up')
+    g.w(8)
+    g.pb.button('a', 3)
+    g.w(4)
+    g.pb.button_release('up')
+    g.w(40)
+    if g.m[TEXT_ACTIVE]:
+        break
+g.text_through()
+g.w(60)
+g.text_through()
+check(g.tile(0x11) == 0xf0 and g.rupees() == r0 + 20, 'le coffre du lac de glace : 20 rubis (%d -> %d)' % (r0, g.rupees()), g)
+shoot(g, 's11_coffre_lac', 'Le coffre du lac de glace')
 
 sheet(shots, os.path.join(OUT, 'planche.png'))
 print()

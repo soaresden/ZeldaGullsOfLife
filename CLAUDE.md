@@ -396,6 +396,15 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   de la tour (81 83 9a) est solide, ouverte devant la porte. INTERAC_BALLADE_OBJECT $30 : avec les
   sept essences, quand Link s'approche (moins de 3 cases), Marine chante les sept couplets, la
   porte s'ouvre (drapeau $80 de 1:c9) ; sans elles : A devant, « sept marques ».
+- L'énigme Réel/Songe de l'île (« le soleil et la lune dans le ciel en même temps ») : deux vasques
+  (balladeObjects.brazier, spr_ballade_grelot images 2-5) : le soleil $41 (paupière ouest, 1:c8 et
+  0:c8) ne s'allume que dans le Réel, la lune $42 (paupière est, 1:ca et 0:ca) que dans le Songe ;
+  une graine de feu tout près (un Item ITEM_EMBER_SEED : le Lance-Graines) ; ailleurs, la flamme
+  s'éteint et Marine le dit (TX_5b62 / 5b63). Drapeaux : $40 de 1:c8 (soleil), $40 de 0:ca (lune).
+  La porte ($30) attend les deux (checkSunAndMoon) : sinon Marine le dit une fois (drapeau $40 de
+  1:c9, TX_5b64), puis A devant la porte. Jalon 34 du menu de test : les deux allumées.
+  Piège : pas de miroir (oamFlags bit 5) pour faire danser une flamme : les deux moitiés du sprite
+  s'inversent. Test : python tools/test_oeil.py DOSSIER.
 - story/salles/tour.txt : groupe 5, salles 5:c0-cc, décor 39 = le Donjon du Crâne d'Ages à l'index
   de donjon 8, de nuit (make_songe.py : night()). Cinq étages (dungeon08LayoutTour) ; on monte par
   des escaliers (brique 45, une téléportation : warpSources groupe 5 -> l'arrivée (8,7) de l'étage

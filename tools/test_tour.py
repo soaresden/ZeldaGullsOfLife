@@ -162,6 +162,9 @@ raft((3, 4), (3, 4), (0, 2))
 check(g.where() == (1, 0xd1), 'le Bateau-Rondin, 3e page : le Grand Sommeil (1:d1)')
 raft((3, 4), (3, 4), (1, 2))
 check(g.where() == (1, 0xd9), "et retour à l'Œil (1:d9)")
+# Le soleil et la lune déjà allumés (les vasques des paupières : tools/test_oeil.py les allume)
+g.m[0xc800 + 0xc8] |= 0x40
+g.m[0xc700 + 0xca] |= 0x40
 g.route((4, 4))
 check(g.go('up', (1, 0xc9)), 'le parvis de la tour (1:c9)')
 g.route((6, 4))

@@ -590,6 +590,16 @@ salle d9
 	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
 	obj_Interaction INTERAC_BALLADE_OBJECT $3a $28 $28 ; l'Arbre-Passage (île 8)
 # La tour : sa porte (ligne 4, colonnes 4-5) ; Marine chante les sept couplets
+# Les paupières : la vasque du soleil (à l'ouest : le Réel l'allume) et celle de la lune (à l'est :
+# le Songe l'allume) ; la porte de la tour attend les deux (balladeObjects.brazier)
+salle c8
+	obj_Interaction INTERAC_BALLADE_OBJECT $41 $48 $58 ; la vasque du soleil
+salle 0:c8
+	obj_Interaction INTERAC_BALLADE_OBJECT $41 $48 $58
+salle ca
+	obj_Interaction INTERAC_BALLADE_OBJECT $42 $48 $48 ; la vasque de la lune
+salle 0:ca
+	obj_Interaction INTERAC_BALLADE_OBJECT $42 $48 $48
 salle c9
 	obj_Interaction INTERAC_BALLADE_OBJECT $30 $48 $48
 

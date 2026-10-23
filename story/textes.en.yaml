@@ -4051,6 +4051,72 @@ groups:
       woke up on the
       islet?
 
+  # The Eye of the Insomnis: the sun and moon braziers (balladeObjects.brazier, towerDoor)
+  - name: TX_5b5d
+    index: 0x5d
+    text: |-
+      A brazier
+      shaped like the
+      sun. It's cold.
+  - name: TX_5b5e
+    index: 0x5e
+    text: |-
+      The sun shines
+      on the west
+      eyelid!
+  - name: TX_5b5f
+    index: 0x5f
+    text: |-
+      A brazier
+      shaped like the
+      moon. It's cold.
+  - name: TX_5b60
+    index: 0x60
+    text: |-
+      The moon shines
+      on the east
+      eyelid!
+  - name: TX_5b61
+    index: 0x61
+    text: |-
+      \col(1)Marin\col(0): The
+      sun and the moon
+      shine together!\stop
+      The Eye will
+      open. The tower
+      is waiting!
+  - name: TX_5b62
+    index: 0x62
+    text: |-
+      \col(1)Marin\col(0): The
+      flame went out!\stop
+      This brazier is
+      waiting for the
+      moon.\stop
+      A moon at
+      night... in a
+      dream, maybe?
+  - name: TX_5b63
+    index: 0x63
+    text: |-
+      \col(1)Marin\col(0): The
+      flame went out!\stop
+      There's no sun
+      in dreams...
+  - name: TX_5b64
+    index: 0x64
+    text: |-
+      \col(1)Marin\col(0): The
+      Eye stays shut.\stop
+      The sun and the
+      moon must shine
+      in the sky
+      together.\stop
+      To the west, a
+      sun brazier...\stop
+      To the east, a
+      moon brazier.
+
 
 - group: 0x00
   data:

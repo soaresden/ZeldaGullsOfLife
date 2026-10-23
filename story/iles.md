@@ -349,6 +349,11 @@ de glace à faire fondre (graines de feu du Lance-Graines), dormeurs qui bloquen
 *Une tour noire qui n'apparaît que quand le soleil et la lune sont dans le ciel en même temps.
 On l'ouvre en jouant les sept duos.*
 
+*L'énigme Réel/Songe (faite le 23 octobre 2026)* : sur les paupières, deux vasques. Le soleil
+(à l'ouest) ne s'allume que dans le Réel, la lune (à l'est) que dans le Songe : une graine de feu
+du Lance-Graines. Les deux allumées, le soleil et la lune brillent ensemble : Marine chante les
+sept couplets, la porte de la tour s'ouvre.
+
 **Forme** : un rocher en forme d'œil, et la tour au milieu. Décor : la Tour Noire d'*Ages*
 (dehors et dedans), son sommet pour le dernier étage.
 

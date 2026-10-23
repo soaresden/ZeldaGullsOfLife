@@ -4192,6 +4192,75 @@ groups:
       réveillais sur
       l'îlot?
 
+  # L'Œil de l'Insomnis : les vasques du soleil et de la lune (balladeObjects.brazier, towerDoor)
+  - name: TX_5b5d
+    index: 0x5d
+    text: |-
+      Une vasque en
+      forme de soleil.
+      Elle est froide.
+  - name: TX_5b5e
+    index: 0x5e
+    text: |-
+      Le soleil brille
+      sur la paupière
+      de l'ouest!
+  - name: TX_5b5f
+    index: 0x5f
+    text: |-
+      Une vasque en
+      forme de lune.
+      Elle est froide.
+  - name: TX_5b60
+    index: 0x60
+    text: |-
+      La lune brille
+      sur la paupière
+      de l'est!
+  - name: TX_5b61
+    index: 0x61
+    text: |-
+      \col(1)Marine\col(0): Le
+      soleil et la
+      lune brillent
+      ensemble!\stop
+      L'Œil va
+      s'ouvrir. La
+      tour nous
+      attend!
+  - name: TX_5b62
+    index: 0x62
+    text: |-
+      \col(1)Marine\col(0): La
+      flamme s'éteint!\stop
+      Cette vasque
+      attend la lune.\stop
+      Une lune la
+      nuit... dans un
+      rêve, peut-être?
+  - name: TX_5b63
+    index: 0x63
+    text: |-
+      \col(1)Marine\col(0): La
+      flamme s'éteint!\stop
+      Il n'y a pas de
+      soleil dans les
+      rêves...
+  - name: TX_5b64
+    index: 0x64
+    text: |-
+      \col(1)Marine\col(0): L'Œil
+      reste fermé.\stop
+      Le soleil et la
+      lune doivent
+      briller dans le
+      ciel ensemble.\stop
+      A l'ouest, une
+      vasque de
+      soleil...\stop
+      A l'est, une
+      vasque de lune.
+
 
 - group: 0x00
   data:
