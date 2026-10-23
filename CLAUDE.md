@@ -172,6 +172,10 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   $20 $01 (dungeonScript_bossDeath du donjon 3) ; l'essence apparaît dans sa salle (objet $08,
   drapeau $80 de 5:36) ; elle ramène sur la plage des bouteilles (1:35) : fin du chapitre 3
   (@endings : 1:35 puis 3:23), Mont-Braise repéré (GLOBALFLAG_BALLADE_ISLAND4).
+- Une seule petite clé (les serpents de 5:3e) : la porte de Vire. La porte nord du hall (vers
+  l'antichambre) est une porte du boss (74) : en porte à clé, on pouvait y dépenser la clé 1 et
+  rester bloqué sans les Écailles (Denis, 23 octobre 2026) ; l'ancien coffre de la clé 2 (5:3d)
+  donne des rubis. La première fois en 5:39, un texte explique les coquillages (TX_5b65).
 - Les coquillages-échos (5:39, INTERAC_BALLADE_OBJECT $13) : briques $11 ; A (ou B) face au grand
   (ligne 2, colonne 7) : il chante l'ordre (flûtes de Ricky, Dimitri, Moosh) ; toucher les petits
   dans cet ordre -> setTile du coffre de la clé du boss ($8b), drapeau $40 de la salle.
