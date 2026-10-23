@@ -2,7 +2,9 @@
 Spirale Céleste avec des Stalfos (4:41) :
 - sans rien faire, le Stalfos touche Link : il perd de la vie ;
 - même partie, Link sort l'épée (dos à l'ennemi : l'épée ne le touche pas) trois images avant le
-  choc : pas de dégâts, le Stalfos meurt d'un coup, Link passe de l'autre coté de l'ennemi.
+  choc : pas de dégâts, le Stalfos meurt d'un coup, Link passe de l'autre coté de l'ennemi ;
+- mais seulement une fois que Bulle le lui a appris (la Fosse, GLOBALFLAG_BALLADE_CONTRE $61) ;
+- et c'est difficile : huit images avant, c'est trop tôt (BALLADE_PARRY_WINDOW = 6).
 L'émulation est la même d'une partie à l'autre : on rejoue la même scène en appuyant au bon moment.
 Usage : python tools/test_contre.py DOSSIER_CAPTURES   (ROM=chemin pour une autre ROM)
 """
@@ -10,11 +12,12 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from debug_menu import HEALTH, INV_A, MAX_HEALTH, Game, sheet
+from debug_menu import GLOBAL_FLAGS, HEALTH, INV_A, MAX_HEALTH, Game, sheet
 
 OUT = sys.argv[1]
 os.makedirs(OUT, exist_ok=True)
 PARRY_ARMED = 0xcde4        # wcde3+1 : l'épée est sortie (remis à 0 par le contre)
+FLAG_CONTRE = 0x61
 errors, shots = [], []
 
 
@@ -24,7 +27,7 @@ def check(ok, what):
         errors.append(what)
 
 
-def scene(press_at=None, name=None):
+def scene(press_at=None, name=None, learned=True):
     """La même scène : Link attend au milieu de 4:41 ; press_at : l'image où il sort l'épée (tourné
     vers le haut, dos au Stalfos qui arrive)."""
     g = Game()
@@ -33,6 +36,10 @@ def scene(press_at=None, name=None):
         g.text_through()
         g.w(20)
     g.m[INV_A] = 0x05
+    if learned:
+        g.m[GLOBAL_FLAGS + FLAG_CONTRE // 8] |= 1 << (FLAG_CONTRE % 8)
+    else:
+        g.m[GLOBAL_FLAGS + FLAG_CONTRE // 8] &= ~(1 << (FLAG_CONTRE % 8)) & 0xff
     g.warp(4, 0x41, 0x57)
     g.w(30)
     g.m[HEALTH] = g.m[MAX_HEALTH]
@@ -61,6 +68,10 @@ def scene(press_at=None, name=None):
 
 base = scene(name='sans_contre')
 check(base['hit'] is not None and base['damage'] > 0, 'sans rien faire : le Stalfos touche Link (%s)' % base)
+r = scene(base['hit'] - 3, learned=False)
+check(r['damage'] > 0 and r['killed'] == 0, 'pas encore appris (la Fosse) : pas de contre, Link est touché')
+r = scene(base['hit'] - 8)
+check(r['armed'] == 1 and not r['moved'], "l'épée sortie 8 images avant : trop tôt, pas de contre (%s)" % r)
 r = scene(base['hit'] - 3, 'contre_parfait')
 check(r['damage'] == 0, "l'épée sortie 3 images avant : pas de dégâts")
 check(r['killed'] == 1, "le Stalfos meurt d'un coup")

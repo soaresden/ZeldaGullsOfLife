@@ -3678,6 +3678,28 @@ groups:
       if you fall, she
       catches you!
 
+  # Bulle apprend le contre parfait (la Fosse, 3e profondeur ; code/ages/balladeObjects.s)
+  - name: TX_5b34
+    index: 0x34
+    text: |-
+      \col(1)Bulle\col(0): You
+      went down deep!\stop
+      Down there, you
+      learn calm. The
+      real kind.\stop
+      Keep it in a
+      fight: when an
+      enemy strikes,
+      draw your sword
+      at the last
+      moment.\stop
+      Not before. Not
+      after. Right on
+      time: you slip
+      through him!\stop
+      You learned the
+      \col(1)perfect parry\col(0)!
+
 
 - group: 0x00
   data:

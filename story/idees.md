@@ -23,6 +23,10 @@ dessiné dans `docs/iles_plans.png` par `tools/make_plans.py`.
   fantômes ne le voient pas et font « ? » ; A, il en sort. Le regard des fantômes : deux points
   rouges devant chacun. Le radar : un petit écran vert en haut à droite, un point rouge par
   fantôme, un vert pour Link. (Pas refait : la barre d'état d'Ages en haut.)
+- **Fait (l'écran de Ghost Babel)** (Denis, 2026-10-23) : dans la salle des fantômes, la barre d'état
+  descend en bas de l'écran (la vie en bas, comme dans le jeu), le radar reste en haut à droite, et
+  les cases B et A disent **« NO ITEM »** : Link entre sans rien en main (l'épée ne sort pas), il n'a
+  que les boîtes. En quittant la salle, tout revient.
 
 ## Les photos de Cocolint (une scène avec Marine, pour créer du lien)
 - Une vraie scène où Link et Marine passent du temps ensemble, comme la balade sur la plage de
@@ -85,7 +89,8 @@ Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, ave
 - **Fait (la vitesse)** : Bulle, la monitrice du club de plongée de la Lagune (3:24), donne sa
   planche de surf une fois le Récif Murmurant sauvé (GLOBALFLAG_BALLADE_SURF) ; avec elle, la nage
   aux Écailles de Sirène monte à SPEED_200 (contre $120, $160 avec l'anneau du nageur) : environ
-  1,5 fois plus loin (tools/test_surf.py). **Reste** : le sprite de Link debout sur la planche.
+  1,5 fois plus loin (tools/test_surf.py). Le sprite de Link debout sur la planche : **abandonné**
+  (Denis, 2026-10-23 : « oublie le surfboard »).
 
 ## Gerudo Valley et le Chant des Tempêtes (demandés par Denis, scénario à trouver)
 - **Le Chant des Tempêtes** (*Ocarina of Time*) : c'est la chanson de l'homme du moulin ; le Nid des
@@ -113,7 +118,7 @@ Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, ave
   coup à la reprise : tremblement d'écran, flash blanc, gros son ; une recharge ou un coût.
 - **Fait** : le **Sablier** (TREASURE_14 ; code/ages/balladeObjects.s, tools/test_sablier.py). La
   Lune qui tombe (Tour Sans-Nuit, 1F) le laisse tomber en remontant (clin d'œil à *Majora's Mask*).
-  On le retourne (bouton B ou A) : 3 secondes de temps arrêté (ennemis et tirs figés, le décor
+  On le retourne (bouton B ou A) : 5 secondes de temps arrêté (Denis, 2026-10-23 ; 3 avant) (ennemis et tirs figés, le décor
   assombri, un tic-tac), Link frappe à volonté sans être blessé ; puis les coups éclatent **en
   crescendo** (« les dégâts en crescendo », Denis) : autant de coups de tonnerre que de coups
   donnés, l'écran tremble de plus en plus, une grande explosion sur chaque ennemi touché, et le
@@ -130,6 +135,11 @@ Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, ave
   avant qu'un ennemi touche Link (BALLADE_PARRY_WINDOW) : pas de dégâts, une explosion sonore,
   l'écran tremble, Link passe de l'autre côté de l'ennemi, qui meurt d'un coup ; un boss perd 8
   points (sans mourir de ce coup). À régler en jouant : la fenêtre, le son, un vrai flash blanc.
+- **Plus difficile, et à apprendre** (Denis, 2026-10-23 : « tricky comme dans Onimusha », débloqué
+  par la plongée, « on master la zénitude ») : la fenêtre passe à 6 images (un dixième de seconde) ;
+  le contre ne marche qu'une fois appris. Descendu à la 3e profondeur de la Fosse (5:d2), Link a
+  trouvé le calme : en remontant, Bulle le lui explique (« sors ton épée au dernier moment. Pas
+  avant. Pas après. ») : « Tu as appris le contre parfait ! »
 
 ## Le gantelet des âmes (*Onimusha*) : un donjon (demandé par Denis)
 - Ses mots : « un donjon où on nous donne le gantelet pour absorber les âmes des ennemis (comme
@@ -176,6 +186,9 @@ Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, ave
 - Écran bleuté et qui ondule doucement, comme sous l'eau dans *Ages* (demandé par Denis).
 
 ## Graphismes de Marine humaine (Songe)
+- **Déjà dans le jeu** : art/marine_humaine.txt, quatre poses (face, dos, deux profils) d'après la
+  branche `sprites/marin`, la robe redessinée. Les sprites de gekiganger3 ajouteraient seulement
+  d'autres poses (facultatif, et seulement avec son accord).
 - Base possible : la branche `sprites/marin` d'oracles-disasm (Marine au format Oracle).
 - Denis a trouvé des sprites étendus de Marine par **gekiganger3** sur DeviantArt
   (« Marin - Extended Sprites ») : à créditer, et demander son accord avant de les mettre

@@ -3805,6 +3805,28 @@ groups:
       tombes, elle te
       rattrape!
 
+  # Bulle apprend le contre parfait (la Fosse, 3e profondeur ; code/ages/balladeObjects.s)
+  - name: TX_5b34
+    index: 0x34
+    text: |-
+      \col(1)Bulle\col(0): Tu
+      es descendu
+      loin!\stop
+      Là-dessous, on
+      apprend le
+      calme. Le vrai.\stop
+      Garde-le en
+      combat: quand un
+      ennemi frappe,
+      sors ton épée au
+      dernier moment.\stop
+      Pas avant. Pas
+      après. Juste à
+      temps: tu passes
+      à travers lui!\stop
+      Tu as appris le
+      \col(1)contre parfait\col(0)!
+
 
 - group: 0x00
   data:

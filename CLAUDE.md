@@ -468,7 +468,17 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   bleuté), ils scintillent (cachés une image sur quatre), et à leur état $0f (le « ! ») Marine crie
   « Link? Link?! LIIINK! » (TX_5aec, comme « Snake? Snake?! SNAAAKE! »). Arrivée : TX_5aed
   (« Passe dans leur dos... Comme un serpent ! »).
-- À venir : la boîte en carton (maquette montrée à Denis), le regard visible, le HUD de Ghost Babel.
+- L'écran de Ghost Babel (2026-10-23) : le contrôleur ($05) met wBalladeGhostHud ($c598) à 1 et
+  crée « NO ITEM » ($23, invisible). wBalladeGhostHud : la barre d'état en bas (vblankBody,
+  balladeHudBas.s, comme l'option), balladeGhostInventoryB / A (banque 0) rendent 0 à la barre
+  (bank2.s, loadEquippedItemGfx et drawItemTilesOnStatusBar), checkUseItems (parentItemUsage.s)
+  ne lance aucun objet. « NO ITEM » : une fois la barre redessinée cases vides (wBItemTreasure =
+  wAItemTreasure = $ff), son dessin dans w4ItemIconGfx, les attributs des icônes ($08, décalage 8),
+  la priorité du décor retirée sur les cases (w4StatusBarAttributeMap +$01-02, +$06-07, deux lignes),
+  puis UNCMP_GFXH_02. Piège : les objets passent AVANT updateStatusBar ; une demande de rafraîchir
+  faite pendant l'arrivée se perd (« NO ITEM » la redemande tant que les cases ne sont pas vides).
+  En quittant la salle (objectLoading.s) : wBalladeGhostHud à 0, la barre se redessine.
+- Les 13 emplacements d'objets (interactions $d3-$df) sont tous pris dans cette salle.
 - Test : test_tour.py (les fantômes, vu, le réveil à l'escalier ; puis ils sont retirés).
 
 ## Les photos de Cocolint (idée de Denis : le flashback des photos de LADX avec Marine)
@@ -497,7 +507,8 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   (demi-tuiles $a7-$a8, TX_0943), treasureObjectData.s ($0a, $00, TX_0067, image $6a) ; l'icône
   art/sablier.txt, dessinée par make_sprites.py à la place de l'air des Courants (x = 56).
 - La Lune qui tombe (moonTorches, 5:c1) : TX_5add puis giveTreasureAboveLink, puis l'escalier.
-- Retourné : INTERAC_BALLADE_OBJECT $33 (sablier). 180 images : wDisabledObjects |= $0c (ennemis et
+- Retourné : INTERAC_BALLADE_OBJECT $33 (sablier). 300 images (5 s, Denis ; deux fois 150 :
+  counter1 et counter2) : wDisabledObjects |= $0c (ennemis et
   tirs), wDisableScreenTransitions, darkenRoomLightly (pas dans une salle déjà sombre) ; chaque
   image (sablierHold) : stunCounter à 1 (un ennemi ou tir figé ne blesse pas Link), var2a et
   invincibilityCounter comme updateEnemies (arrêté), un coup qui porte = la vie qui baisse
@@ -510,11 +521,16 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 ## Le contre parfait (idée de Denis, comme dans Onimusha)
 - code/ages/balladeParry.s (section à part) : swordParent.s note l'image où l'épée sort (wcde3 ;
   wcde3+1 = 1 : armé) ; collisionEffects.s (les coups qui touchent Link) : un ennemi (pas un
-  projectile) qui touche Link moins de BALLADE_PARRY_WINDOW (12) images après -> pas de dégâts,
+  projectile) qui touche Link moins de BALLADE_PARRY_WINDOW (6, difficile comme l'Issen) images
+  après -> pas de dégâts,
   SND_BIG_EXPLOSION, l'écran tremble, Link invincible 60 images et posé de l'autre côté de
   l'ennemi (si la case est libre), l'ennemi à 0 point de vie ; un boss ou mini-boss (identifiant
   $70 et plus, Ramrock) perd BALLADE_PARRY_BOSS_DAMAGE (8) points sans mourir de ce coup. wcde3 ne
   sert à Ages que pendant le générique.
+- Seulement une fois appris (GLOBALFLAG_BALLADE_CONTRE $61, testé dans collisionEffects.s) : à la 3e
+  profondeur de la Fosse (5:d2 et plus bas), fosseAir pose GLOBALFLAG_BALLADE_CONTRE_PRET ($62) ;
+  en remontant, Bulle (surfInstructor) le lui apprend tout de suite (TX_5b34). test_fosse.py le
+  vérifie ; test_contre.py : pas appris = touché ; 8 images avant = trop tôt (pas de contre).
 - Test : python tools/test_contre.py DOSSIER (la même scène rejouée : sans rien faire Link est
   touché ; l'épée sortie 3 images avant, dos au Stalfos : le contre).
 
