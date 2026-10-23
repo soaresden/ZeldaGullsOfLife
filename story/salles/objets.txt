@@ -352,6 +352,10 @@ salle 5:3d
 # Les coquillages-échos (INTERAC_BALLADE_OBJECT $13)
 salle 5:39
 	obj_Interaction INTERAC_BALLADE_OBJECT $13 $08 $08
+	obj_Interaction INTERAC_BALLADE_OBJECT $43 $28 $78 ; le grand coquillage
+	obj_Interaction INTERAC_BALLADE_OBJECT $43 $58 $38 ; les trois petits
+	obj_Interaction INTERAC_BALLADE_OBJECT $43 $58 $78
+	obj_Interaction INTERAC_BALLADE_OBJECT $43 $58 $b8
 # Sous l'eau : des méduses
 salle 5:30
 	obj_RandomEnemy $20 ENEMY_BARI $00

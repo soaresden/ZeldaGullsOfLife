@@ -197,9 +197,11 @@ b3 a0 a0 a0 a0 8a 8a 8a 8a f4 f4 08 f4 f4 b1
 b3 a0 a0 a0 a0 8a 8a 8a 8a f4 f4 f4 f4 f4 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
-# --- Une allée de glace (colonne 7) entre les trous ; au nord, la porte à clé (petite clé 2) ---
+# --- Une allée de glace (colonne 7) entre les trous ; au nord, l'antichambre, par une porte du boss
+# (74 : avant, une porte à clé ; avec la clé 1, on pouvait l'ouvrir au lieu de celle de 4:57 et
+# rester bloqué : la clé du boss est à l'est ; Denis, comme au Récif) ---
 salle 4:62 decor 38
-b8 b0 b0 b0 b0 b0 b0 70 b0 b0 b0 b0 b0 b0 b9
+b8 b0 b0 b0 b0 b0 b0 74 b0 b0 b0 b0 b0 b0 b9
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 f4 f4 f4 f4 f4 f4 8a f4 f4 f4 f4 f4 f4 b1
 b3 f4 f4 f4 f4 f4 f4 8a f4 f4 f4 f4 f4 f4 b1

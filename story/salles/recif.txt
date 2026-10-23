@@ -164,14 +164,16 @@ b3 a0 a0 a0 a0 a0 a0 a0 fa fa a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
-# --- Le lobe droit : les coquillages-échos (INTERAC_BALLADE_OBJECT) ; le grand coquillage (ligne 2, colonne 7) chante l'ordre des trois petits (ligne 5 : colonnes 3, 7, 11) ; le coffre de la clé du boss apparaît (ligne 8, colonne 11) ---
+# --- Le lobe droit : les coquillages-échos (INTERAC_BALLADE_OBJECT) ; le grand coquillage (ligne 2, colonne 7) chante l'ordre des trois petits (ligne 5 : colonnes 3, 7, 11) ; le coffre de la clé du boss apparaît (ligne 8, colonne 11). Les coquillages sont des objets dessinés
+# (INTERAC_BALLADE_OBJECT $43, le coquillage de l'île de Marine) : les briques 11 ressemblaient à des
+# jarres (Denis : « on n'a pas envie d'interagir avec ») ---
 salle 5:39 decor 3c
 b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
 b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
-b3 a0 a0 a0 a0 a0 a0 11 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 11 a0 a0 a0 11 a0 a0 a0 11 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
