@@ -17,6 +17,12 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   Nouvelle partie depuis le boot : `w900 start w120 start w60 a w60 a w80 a w10 start w20 a w60 a w60 a`
   (titre, fichier 1, NEW GAME, nom « A », OK, vitesse du texte).
 - Adresses RAM : `oracles-disasm/ages.sym` (ex. w1Link=$d000, wcc50=$cc50, wDisabledObjects=$cc8a).
+- La Retroid de Denis (Batocera) : `python tools/retroid.py` copie sa sauvegarde (.srm), ses save
+  states et leurs images dans out/retroid/ (dernier/ + une copie datée) et fait
+  out/retroid/planche.png (où il en est) ; `--zip` envoie le zip du jeu dans roms/gbc/ (l'ancien
+  est gardé dans out/retroid/zips/). Par le partage `\\BATOCERA\share` (sans mot de passe ; le SSH
+  refuse les clés : /userdata est en exFAT). **Seulement quand Denis le demande** (« va piocher »,
+  « envoie le zip ») : pas de tâche automatique, il l'a refusé.
 
 ## Menu de test caché (pour tester les niveaux sans tout rejouer)
 - Dans le jeu : à l'écran titre, **TENIR HAUT 5 secondes** (petit son de secret), puis Start et un
