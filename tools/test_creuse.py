@@ -18,6 +18,8 @@ m = pb.memory
 HEALTH, MAX_HEALTH = 0xc6aa, 0xc6ab
 RUPEES = 0xc6ad
 HEART_PIECES = 0xc6ac
+INV_B, INV_A = 0xc688, 0xc689
+ITEM_SWORD, ITEM_BOMBS, ITEM_SHOVEL = 0x05, 0x03, 0x15
 STATE, LEVEL, MINES, DUG, LEFT = 0xcdf5, 0xcdf6, 0xcdf7, 0xcdfa, 0xcdfd
 ROOM_FLAGS = 0xc800 + 0xac
 errors = []
@@ -109,6 +111,7 @@ def play(level, name, dig_mine=False):
     w(30)
     check(m[STATE] == 1 and m[LEVEL] == level, '%s : la partie commence' % name)
     check(money - rupees() == (10, 30)[level], '%s : le prix' % name)
+    check(m[INV_A] == ITEM_SHOVEL and m[INV_B] == 0, '%s : rien que la Pelle (A %02x, B %02x)' % (name, m[INV_A], m[INV_B]))
     mines = [i for i in range(24) if bit(MINES, i)]
     check(len(mines) == (4, 8)[level], '%s : %d bombes' % (name, len(mines)))
     text_through()       # Marine explique les couleurs
@@ -158,6 +161,7 @@ for _ in range(20):
 w(60)
 check(m[0xcc30] == 0xac, 'le port de pêche mène à la plage du forain (1:ac)')
 shot('plage')
+m[INV_A], m[INV_B] = ITEM_SWORD, ITEM_BOMBS
 
 numbers_ok = [True]
 play(0, 'facile')
@@ -165,6 +169,7 @@ check(numbers_ok[0], 'facile : chaque case creusée montre le nombre de bombes a
 check(m[STATE] == 0 and m[LEFT] == 0, 'facile : toutes les cases sûres creusées, gagné')
 check(m[0xcba0] != 0, 'facile : le forain le dit')
 text_through()
+check(m[INV_A] == ITEM_SWORD and m[INV_B] == ITEM_BOMBS, 'facile : ses objets reviennent (A %02x, B %02x)' % (m[INV_A], m[INV_B]))
 w(120)
 print('rubis après la partie facile :', rupees())
 

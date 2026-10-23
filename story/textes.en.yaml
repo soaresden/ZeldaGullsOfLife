@@ -936,11 +936,12 @@ groups:
   - name: TX_5a46
     index: 0x46
     text: |-
-      \col(1)Marin\col(0): Green,
-      nothing around.
-      Blue, one bomb.
-      Red, two...\stop
-      Gold... run!
+      \col(1)Marin\col(0): The
+      number: bombs
+      around.\stop
+      The more there
+      are, the bigger
+      the rupee!
 
   - name: TX_5a47
     index: 0x47
@@ -1006,13 +1007,16 @@ groups:
       invincible...
       unless you take
       a power gem!\stop
+      While you glow,
+      one sword swing
+      takes them down!\stop
       \opt()Let's go \opt()No
 
   - name: TX_5a4e
     index: 0x4e
     text: |-
       All the rupees?!\stop
-      Here, 50 more...
+      Here, 20 more...
       now scram before
       the Lynels get
       mad!
@@ -3797,6 +3801,110 @@ groups:
       Now for the real
       maze: they're
       faster!
+
+  # L'Arbre-Passage : on arrive sur l'île 1
+  - name: TX_5b41
+    index: 0x41
+    text: |2-
+          Island 1
+        Mist Island
+
+  - name: TX_5b42
+    index: 0x42
+    text: |2-
+          Island 2
+       Jingle Hamlet
+
+  - name: TX_5b43
+    index: 0x43
+    text: |2-
+          Island 3
+         Lagoon of
+            Vows
+
+  - name: TX_5b44
+    index: 0x44
+    text: |2-
+          Island 4
+         Ember Peak
+
+  - name: TX_5b45
+    index: 0x45
+    text: |2-
+          Island 5
+          Isle of
+           Echoes
+
+  - name: TX_5b46
+    index: 0x46
+    text: |2-
+          Island 6
+       Nest of Winds
+
+  - name: TX_5b47
+    index: 0x47
+    text: |2-
+          Island 7
+        Isle of the
+        Great Sleep
+
+  - name: TX_5b48
+    index: 0x48
+    text: |2-
+          Island 8
+           Eye of
+          Insomnis
+
+  - name: TX_5b49
+    index: 0x49
+    text: |2-
+          Island 9
+        Gull's Nest
+
+  # L'Arbre-Passage : le menu des îles (comme TX_5a50, 5a51, 5a52, 5aa8)
+  - name: TX_5b4a
+    index: 0x4a
+    text: |-
+      \col(1)Marin\col(0): The
+      Passage Tree's
+      roots reach
+      every isle.
+      Where to?\stop
+       \opt()Mist
+       \opt()Jingle
+
+  - name: TX_5b4b
+    index: 0x4b
+    text: |-
+      \col(1)Marin\col(0): The
+      Passage Tree's
+      roots reach
+      every isle.
+      Where to?\stop
+       \opt()Mist \opt()Jingle
+       \opt()Lagoon
+
+  - name: TX_5b4c
+    index: 0x4c
+    text: |-
+      \col(1)Marin\col(0): The
+      Passage Tree's
+      roots reach
+      every isle.
+      Where to?\stop
+       \opt()Mist \opt()Jingle
+       \opt()Lagoon \opt()Ember
+
+  - name: TX_5b4d
+    index: 0x4d
+    text: |-
+      \col(1)Marin\col(0): The
+      Passage Tree's
+      roots reach
+      every isle.
+      Where to?\stop
+       \opt()Mist \opt()Jingle
+       \opt()Lagoon \opt()More
 
 
 - group: 0x00

@@ -211,7 +211,7 @@ clear_enemies()
 keys, _, _ = open_chest(5, 7, 'les Zols')
 check(keys == 1, 'petite clé 1')
 
-# --- La statue sur le bouton (30 rubis), la porte à clé ---
+# --- La statue sur le bouton (10 rubis), la porte à clé ---
 route((6, 13), (5, 13))
 go('right', 0x24)
 route((5, 12))
@@ -228,7 +228,7 @@ check(tile(8, 12) == 0xf1, 'la statue sur le bouton : le coffre apparaît')
 shot('statue')
 route((3, 11), (9, 11))
 _, _, money = open_chest(8, 12, 'la statue')
-check(money == 30, '30 rubis')
+check(money == 10, '10 rubis')
 route((9, 7), (1, 7))
 go('up', 0x15)
 
@@ -237,7 +237,7 @@ clear_enemies()
 open_chest(5, 7, 'la Lanterne')
 check(0x11 in (m[0xc688], m[0xc689]), 'la Lanterne (A ou B)')
 
-# --- Le mur fissuré brûle ; le cristal ; 50 rubis ---
+# --- Le mur fissuré brûle ; le cristal ; 20 rubis ---
 route((6, 13), (5, 13))
 lantern('right')
 w(60)
@@ -250,7 +250,7 @@ w(60)
 check(bool(m[SWITCH] & 1), 'le cristal frappé')
 route((3, 12))
 _, _, money = open_chest(2, 12, 'derrière le mur')
-check(money == 50, '50 rubis')
+check(money == 20, '20 rubis')
 route((3, 1), (5, 1))
 go('left', 0x15)
 
@@ -346,7 +346,7 @@ check(boss, 'la clé du boss')
 route((6, 13), (5, 13))
 go('right', 0x12)
 
-# --- Le balcon est : le bloc, 100 rubis ---
+# --- Le balcon est : le bloc, 30 rubis ---
 clear_enemies()
 route((5, 13))
 go('right', 0x1a)
@@ -354,7 +354,7 @@ clear_enemies()
 route((5, 11), (2, 11))
 push('right', 1)
 _, _, money = open_chest(1, 12, 'le balcon est')
-check(money == 100, '100 rubis')
+check(money == 30, '30 rubis')
 route((2, 1), (5, 1))
 go('left', 0x12)
 

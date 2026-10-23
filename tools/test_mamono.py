@@ -153,6 +153,7 @@ def arena(lvl, name):
     w(30)
     text_through()                    # les règles
     check(m[STATE] == 1 and m[P_LEVEL] == 1, '%s : la partie commence (Link niveau 1)' % name)
+    check(m[0xc689] == 0x15 and m[0xc688] == 0, '%s : rien que la Pelle (A %02x, B %02x)' % (name, m[0xc689], m[0xc688]))
     slots = [m[SLOTS + k] for k in range(5)]
     check(all(slots), '%s : les cinq ennemis modèles %s' % (name, [hex(s) for s in slots]))
     check(all(not (m[(s << 8) + 0x9a] & 0x80) for s in slots if s), '%s : cachés' % name)
@@ -167,6 +168,7 @@ def leave(name):
             break
     w(200)
     check(m[0xcc30] == 0xac, '%s : retour chez le forain' % name)
+    check(m[0xc689] == 0x05 and m[0xc688] == 0x03, '%s : ses objets reviennent (A %02x, B %02x)' % (name, m[0xc689], m[0xc688]))
 
 
 def play_to_win(lvl, name, perfect=False):
@@ -233,6 +235,7 @@ for i in range(160):
 w(60)
 m[MAX_HEALTH] = 12
 m[HEALTH] = 12
+m[0xc689], m[0xc688] = 0x05, 0x03   # l'épée sur A, les bombes sur B
 for i, v in enumerate((0x81, 0xac, 0x00, 0x27, 0x03)):
     m[0xcc47 + i] = v
 w(250)

@@ -158,6 +158,7 @@ check(g.rupees() > r0, 'des rubis (%d -> %d)' % (r0, g.rupees()), g)
 
 # Le marché des copies, les Cuivres
 g.warp(1, 0x3a, 0x34)
+g.w(60)              # (Link ne bouge pas tout de suite en arrivant)
 check(talk(g, 3, 4), 'le marchand de copies', g)
 shoot(g, 'b08_marchand', 'Le marchand de copies')
 g.text_through()

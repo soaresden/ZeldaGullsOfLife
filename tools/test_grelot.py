@@ -85,10 +85,10 @@ g.w(30)
 check(g.where() == (3, 0x20), 'la porte mène dans la boutique de Pépin (3:20)', g)
 shoot(g, 'g05_boutique', 'Dedans')
 money = g.rupees()
-# prendre les bombes sur le comptoir (x $80), les porter au marchand
+# prendre les bombes sur le comptoir (x $68), les porter au marchand
 g.goto(None, 0x58)
 g.goto(0x40, None)
-g.goto(None, 0x80)
+g.goto(None, 0x68)
 g.hold('up', 8)
 g.press('a', 30)
 g.goto(None, 0x88)

@@ -1,5 +1,5 @@
 """Test de la boutique de Port-Veille (la maison de gauche de la place) : on y entre, on achète 3
-cœurs puis la fée en bouteille, et la fée relève Link quand il tombe à zéro cœur.
+cœurs, la fée en bouteille, le bouclier de fer (150 rubis), et la fée relève Link quand il tombe à zéro cœur.
 
 Usage : python tools/test_boutique.py DOSSIER_CAPTURES
 """
@@ -136,8 +136,12 @@ shot('boutique')
 
 paid = buy(0x80, 'coeurs')
 check(paid == 10 and m[HEALTH] > 4, '3 cœurs pour 10 rubis (vie %d)' % m[HEALTH])
-paid = buy(0x60, 'fee')
+paid = buy(0x68, 'fee')
 check(paid == 60 and bool(m[POTION[0]] & POTION[1]), 'la fée en bouteille pour 60 rubis')
+# Link a déjà un bouclier : le bouclier de fer (150)
+m[RUPEES], m[RUPEES + 1] = 0x99, 0x01
+paid = buy(0x50, 'bouclier')
+check(paid == 150 and m[0xc6af] == 2, 'le bouclier de fer pour 150 rubis (payé %d, niveau %d)' % (paid, m[0xc6af]))
 
 # Un coup qui devrait être fatal : la fée relève Link
 m[HEALTH] = 2

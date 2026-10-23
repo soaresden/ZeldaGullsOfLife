@@ -975,11 +975,12 @@ groups:
   - name: TX_5a46
     index: 0x46
     text: |-
-      \col(1)Marine\col(0): Vert,
-      rien autour.
-      Bleu, une bombe.
-      Rouge, deux...\stop
-      Doré... cours!
+      \col(1)Marine\col(0): Le
+      chiffre: les
+      bombes autour.\stop
+      Plus il y en a,
+      plus le rubis
+      est gros!
 
   - name: TX_5a47
     index: 0x47
@@ -1048,13 +1049,17 @@ groups:
       sauf si tu
       prends une gemme
       de force!\stop
+      Tant que tu
+      brilles, un coup
+      d'épée les
+      terrasse!\stop
       \opt()J'y vais \opt()Non
 
   - name: TX_5a4e
     index: 0x4e
     text: |-
       Tous les rubis?!\stop
-      Tiens, 50 de
+      Tiens, 20 de
       plus... et file
       avant que les
       Lynels se
@@ -3931,6 +3936,111 @@ groups:
       ils sont plus
       rapides!
 
+  # L'Arbre-Passage : on arrive sur l'île 1
+  - name: TX_5b41
+    index: 0x41
+    text: |2-
+           Île 1
+         Île de la
+           Brume
+
+  - name: TX_5b42
+    index: 0x42
+    text: |2-
+           Île 2
+       Hameau-Grelot
+
+  - name: TX_5b43
+    index: 0x43
+    text: |2-
+           Île 3
+         Lagune des
+          Serments
+
+  - name: TX_5b44
+    index: 0x44
+    text: |2-
+           Île 4
+        Mont-Braise
+
+  - name: TX_5b45
+    index: 0x45
+    text: |2-
+           Île 5
+       Île des Échos
+
+  - name: TX_5b46
+    index: 0x46
+    text: |2-
+           Île 6
+       Nid des Vents
+
+  - name: TX_5b47
+    index: 0x47
+    text: |2-
+           Île 7
+        Île du Grand
+          Sommeil
+
+  - name: TX_5b48
+    index: 0x48
+    text: |2-
+           Île 8
+           Œil de
+         l'Insomnis
+
+  - name: TX_5b49
+    index: 0x49
+    text: |2-
+           Île 9
+         Nid de la
+          Mouette
+
+  # L'Arbre-Passage : le menu des îles (comme TX_5a50, 5a51, 5a52, 5aa8)
+  - name: TX_5b4a
+    index: 0x4a
+    text: |-
+      \col(1)Marine\col(0): Les
+      racines de
+      l'Arbre-Passage
+      mènent partout.
+      Où va-t-on?\stop
+       \opt()Brume
+       \opt()Grelot
+
+  - name: TX_5b4b
+    index: 0x4b
+    text: |-
+      \col(1)Marine\col(0): Les
+      racines de
+      l'Arbre-Passage
+      mènent partout.
+      Où va-t-on?\stop
+       \opt()Brume \opt()Grelot
+       \opt()Lagune
+
+  - name: TX_5b4c
+    index: 0x4c
+    text: |-
+      \col(1)Marine\col(0): Les
+      racines de
+      l'Arbre-Passage
+      mènent partout.
+      Où va-t-on?\stop
+       \opt()Brume \opt()Grelot
+       \opt()Lagune \opt()Braise
+
+  - name: TX_5b4d
+    index: 0x4d
+    text: |-
+      \col(1)Marine\col(0): Les
+      racines de
+      l'Arbre-Passage
+      mènent partout.
+      Où va-t-on?\stop
+       \opt()Brume \opt()Grelot
+       \opt()Lagune \opt()Suite
+
 
 - group: 0x00
   data:
@@ -4432,14 +4542,21 @@ groups:
       la nuit la plus
       longue finit
       par un matin."
-
-
-
-
-
-
-
-
+  - name: TX_001f
+    index: 0x1f
+    text: |-
+      Tu as eu un
+      \col(1)bouclier\col(0)!
+  - name: TX_0020
+    index: 0x20
+    text: |-
+      Tu as eu le
+      \col(1)bouclier de fer\col(0)!
+  - name: TX_0021
+    index: 0x21
+    text: |-
+      Tu as eu le
+      \col(1)bouclier miroir\col(0)!
 
 # Noms des lieux sur la carte (SELECT) : trois noms d'Ages repris pour l'île de la Brume
 # (data/ages/mapTextAndPopups.s)
@@ -5005,6 +5122,38 @@ groups:
     index: 0x2b
     text: |-
         \opt()OK \opt()Non merci\cmd8(0x0f)
+  - name: TX_0e01
+    index: 0x01
+    text: |-
+      \col(1)Quart de cœur\col(0)\stop
+       \num1 rubis
+      \jump(TX_0e2b)
+  - name: TX_0e03
+    index: 0x03
+    text: |-
+      \col(1)Bouclier\col(0)\stop
+       \num1 rubis
+      \jump(TX_0e2b)
+  - name: TX_0e04
+    index: 0x04
+    text: |-
+      \col(1)10 bombes\col(0)\stop
+       \num1 rubis
+      \jump(TX_0e2b)
+  - name: TX_0e29
+    index: 0x29
+    text: |-
+      \col(1)Bouclier de
+      fer\col(0)\stop
+       \num1 rubis
+      \jump(TX_0e2b)
+  - name: TX_0e2a
+    index: 0x2a
+    text: |-
+      \col(1)Bouclier
+      miroir\col(0)\stop
+       \num1 rubis
+      \jump(TX_0e2b)
 
 # Le Soldat de Plomb (l'Armos Warrior, mini-boss du Coffre à Jouets)
 - group: 0x2f

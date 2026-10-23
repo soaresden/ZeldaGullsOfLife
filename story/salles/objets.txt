@@ -20,6 +20,7 @@ salle 9b
 	obj_Interaction INTERAC_BALLADE_NPC $05 $58 $78
 	obj_Interaction INTERAC_MARINE $05 $08 $08 ; la fin du chapitre 1 : le tour du village
 	obj_Interaction INTERAC_BALLADE_OBJECT $02 $08 $08 ; parties de la v1.0/1.1 : Marine lit le vent
+	obj_Interaction INTERAC_BALLADE_OBJECT $3a $18 $48 ; l'Arbre-Passage (île 1)
 
 # La plage est : les enfants qui ne jouent plus
 salle 9c
@@ -46,11 +47,13 @@ salle 3:9e
 	obj_Interaction INTERAC_MARINE $05 $08 $08 ; la fin du chapitre 1 : le tour du village
 	obj_Interaction INTERAC_BALLADE_OBJECT $07 $08 $08 ; parties de la v1.0/1.1 : le Carnet des Rêves
 
-# La boutique : le marchand ($46), 3 cœurs (10 rubis, $47 $01) et la fée en bouteille
-# (60 rubis, $47 $09 : la potion d'Ages, devenue une fée)
+# La boutique : le marchand ($46), le bouclier ($47 $03 ; Link a celui de bois : le bouclier de fer
+# 150, puis le miroir 300), la fée en bouteille (60 rubis, $47 $09 : la potion d'Ages, devenue une
+# fée), 3 cœurs (10 rubis, $47 $01). Le prix s'écrit sous l'objet (shopItem.s)
 salle 3:5e
-	obj_Interaction $47 $01 $28 $80
-	obj_Interaction $47 $09 $28 $60
+	obj_Interaction $47 $03 $28 $50 ; le bouclier (50 ; puis le bouclier de fer 150, le miroir 300)
+	obj_Interaction $47 $09 $28 $68 ; la fée en bouteille (60)
+	obj_Interaction $47 $01 $28 $80 ; 3 cœurs (10)
 	obj_Interaction $46 $00 $58 $88
 
 # L'auberge du Songe : Marine humaine, près du lit (Link se réveille dans le rêve en case $17)
@@ -162,10 +165,12 @@ salle 32
 salle 5:b0
 	obj_Interaction INTERAC_BALLADE_OBJECT $03 $18 $78
 	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
-# La boutique de Pépin : 10 bombes (20 rubis, $47 $04), 3 cœurs (10 rubis, $47 $01)
+# La boutique de Pépin : un quart de cœur (300 rubis, une fois, $47 $15), 10 bombes (20 rubis,
+# $47 $04), 3 cœurs (10 rubis, $47 $01)
 salle 3:20
-	obj_Interaction $47 $04 $28 $80
-	obj_Interaction $47 $01 $28 $60
+	obj_Interaction $47 $15 $28 $50 ; un quart de cœur (300, une fois)
+	obj_Interaction $47 $04 $28 $68 ; 10 bombes (20)
+	obj_Interaction $47 $01 $28 $80 ; 3 cœurs (10)
 	obj_Interaction $46 $00 $58 $88
 # La maison de Lila : Lila (INTERAC_BALLADE_OBJECT $04) ; le lit (link.s) mène dans son rêve
 salle 3:21
@@ -176,6 +181,7 @@ salle 11
 	obj_Interaction INTERAC_BALLADE_OBJECT $0b $58 $28
 	obj_Interaction INTERAC_BALLADE_OBJECT $0c $58 $98
 	obj_Interaction INTERAC_BALLADE_OBJECT $0a $08 $08
+	obj_Interaction INTERAC_BALLADE_OBJECT $3a $28 $38 ; l'Arbre-Passage (île 2)
 # L'école des Bonnets : Mme Bonnet
 salle 3:22
 	obj_Interaction INTERAC_BALLADE_OBJECT $0d $48 $38
@@ -345,6 +351,7 @@ salle 2a
 	obj_Interaction INTERAC_BALLADE_OBJECT $17 $38 $78
 	obj_Interaction INTERAC_BALLADE_OBJECT $17 $48 $88
 	obj_Interaction INTERAC_BALLADE_OBJECT $0a $08 $08 ; la fin du chapitre 4 (l'essence de la Forge)
+	obj_Interaction INTERAC_BALLADE_OBJECT $3a $58 $28 ; l'Arbre-Passage (île 4)
 # Le marché des copies : le marchand
 salle 3a
 	obj_Interaction INTERAC_BALLADE_OBJECT $18 $28 $48
@@ -452,6 +459,7 @@ salle 66
 salle 67
 	obj_Interaction INTERAC_BALLADE_OBJECT $22 $58 $78
 	obj_Interaction INTERAC_BALLADE_OBJECT $0a $08 $08 ; la fin du chapitre 6 (le vent revient)
+	obj_Interaction INTERAC_BALLADE_OBJECT $3a $28 $18 ; l'Arbre-Passage (île 6)
 salle 0:67
 	obj_Interaction INTERAC_BALLADE_OBJECT $23 $58 $78
 # Le pont de nuages : Marine (dans le Songe, rien ne tombe)
@@ -474,6 +482,7 @@ salle 0:d2
 # Le village gelé : la fin du chapitre 7 (l'essence ramène ici : tout le monde se réveille)
 salle b1
 	obj_Interaction INTERAC_BALLADE_OBJECT $0a $08 $08 ; la fin du chapitre 7 (la neige fond)
+	obj_Interaction INTERAC_BALLADE_OBJECT $3a $28 $78 ; l'Arbre-Passage (île 7)
 # Le Palais Givré : la porte gelée (ligne 2, colonne 5) ; Marine parle en arrivant
 salle b2
 	obj_Interaction INTERAC_BALLADE_OBJECT $2d $28 $58
@@ -555,6 +564,7 @@ salle 4:64
 salle d9
 	obj_Interaction INTERAC_BALLADE_OBJECT $00 $68 $58
 	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+	obj_Interaction INTERAC_BALLADE_OBJECT $3a $28 $28 ; l'Arbre-Passage (île 8)
 # La tour : sa porte (ligne 4, colonnes 4-5) ; Marine chante les sept couplets
 salle c9
 	obj_Interaction INTERAC_BALLADE_OBJECT $30 $48 $48
@@ -856,6 +866,15 @@ salle 6c
 	obj_SpecificEnemyA $00 ENEMY_OCTOROK $00 $28 $28
 	obj_SpecificEnemyA     ENEMY_OCTOROK $00 $38 $58
 	obj_SpecificEnemyA     ENEMY_OCTOROK $00 $18 $48
+	obj_Interaction INTERAC_BALLADE_OBJECT $3a $38 $38 ; l'Arbre-Passage (île 9)
+
+# L'Arbre-Passage (île 3)
+salle 07
+	obj_Interaction INTERAC_BALLADE_OBJECT $3a $48 $28 ; l'Arbre-Passage (île 3)
+
+# L'Arbre-Passage (île 5)
+salle 52
+	obj_Interaction INTERAC_BALLADE_OBJECT $3a $58 $78 ; l'Arbre-Passage (île 5)
 
 # --- Les Songes des Héros (île 6 ; story/salles/songes.txt, code/ages/balladeSonges.s) ---
 # Le Nid, dans le Songe : Marine explique ; la bulle du prochain rêve
