@@ -4040,9 +4040,14 @@ groups:
       Tu as trouvé la
       \col(1)Lanterne des
       Songes\col(0)!\stop
-      Sa lumière vient
-      du monde des
-      rêves...
+      Dans un donjon,
+      sa flamme allume
+      les torches.\stop
+      Dehors, sa
+      lumière t'ouvre
+      le chemin du
+      \col(1)Songe\col(0): le
+      monde des rêves!
 
   # Rubis, cœurs, carte, boussole (traduits pour la démo)
   - name: TX_0000

@@ -136,8 +136,8 @@ salle 20 decor 7b
 36 3a 3a 3b 3b 3b 3b 3a 0c 0c
 36 3a 3a 3b 3b 3b 3b 3a 0c 0c
 36 3a f7 3a 3a 3a 3a f7 3a 3a
-36 c5 3a 3a 9e 3a 3a 3a c5 f7
 33 34 34 34 34 34 34 34 34 f7
+fa fa fa fa fa fa fa fa fa f7
 
 # --- La maison de Lila (porte : ligne 3, colonne 4). Nord : colonnes 2-7. Ouest et est :
 # lignes 3-4. Sud : colonnes 3-6 vers la jetée. ---

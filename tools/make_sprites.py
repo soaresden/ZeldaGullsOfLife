@@ -71,14 +71,15 @@ def main():
         for y, row in enumerate(frame):
             for x, c in enumerate(row):
                 icons.putpixel((left + x, y), index[c])
-    # Le Carnet des Rêves (TREASURE_12) à la place de l'air des Échos (x = 24, demi-tuiles $a3-$a4)
-    for y, row in enumerate(read_frames(os.path.join(ROOT, 'art', 'carnet.txt'))[0]):
-        for x, c in enumerate(row):
-            icons.putpixel((24 + x, y), index[c])
-    # Le Sablier (TREASURE_14) à la place de l'air des Courants (x = 56, demi-tuiles $a7-$a8)
-    for y, row in enumerate(read_frames(os.path.join(ROOT, 'art', 'sablier.txt'))[0]):
-        for x, c in enumerate(row):
-            icons.putpixel((56 + x, y), index[c])
+    # Le Carnet des Rêves (TREASURE_12) à la place de l'air des Échos (x = 24, demi-tuiles $a3-$a4),
+    # et le Sablier (TREASURE_14) à la place de l'air des Courants (x = 56, $a7-$a8). Chaque air avait
+    # aussi sa « petite version » juste après (x + 16) : c'est elle que la case B ou A affiche
+    # (loadItemIconGfx, banque 2 : index + 2 à partir de $a3) ; la même image aux deux places
+    for name, left in (('carnet', 24), ('sablier', 56)):
+        for y, row in enumerate(read_frames(os.path.join(ROOT, 'art', name + '.txt'))[0]):
+            for x, c in enumerate(row):
+                icons.putpixel((left + x, y), index[c])
+                icons.putpixel((left + 16 + x, y), index[c])
     dst = os.path.join(DISASM, 'gfx', 'common', 'spr_item_icons_3.png')
     icons.save(dst)
     print('->', os.path.relpath(dst, ROOT))

@@ -112,8 +112,8 @@ salle 24 decor 18
 fc fc 26 bf bf bf bf 27 fa fa
 fc fc 26 bf bf bf bf 27 fa fa
 fc fc 26 bf bf bf bf 27 fa fa
-0e 0e 0e bf bf bf bf 27 fa fa
-0e 0e 0e bf bf bf bf 27 fa fa
+1d 1d 1d bf bf bf bf 27 fa fa
+1e 1e 1e bf bf bf bf 27 fa fa
 fc fc 28 24 24 24 24 2a f4 fa
 fc fc fc fc fc fc fc fc f4 fa
 fc fc fc fc fc fc fc fc f4 fa

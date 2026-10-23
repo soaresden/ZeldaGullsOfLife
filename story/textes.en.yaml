@@ -3859,9 +3859,14 @@ groups:
       You got the
       \col(1)Lantern of
       Dreams\col(0)!\stop
-      Its light comes
-      from the world
-      of dreams...
+      In a dungeon,
+      its flame lights
+      the torches.\stop
+      Outside, its
+      light opens the
+      way to the
+      \col(1)Dream\col(0): the
+      world of dreams!
 
   # The Power Bracelet (Brasia)
   - name: TX_0026

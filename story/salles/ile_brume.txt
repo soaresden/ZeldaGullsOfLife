@@ -73,8 +73,8 @@ salle ab decor 18
 4e 4e 4e 4e bf bf 4e 4e 4e 4e
 c5 bf bf bf bf bf bf bf bf bf
 c5 bf bf bf bf bf bf bf bf bf
-bf bf bf bf bf bf 0e 0e 0e fc
-bf bf bf bf bf bf 0e 0e 0e fc
+bf bf bf bf bf bf 1d 1d 1d fc
+bf bf bf bf bf bf 1e 1e 1e fc
 c5 bf bf bf bf bf bf bf 27 fc
 24 24 24 24 24 24 24 24 2a fc
 fc fc fc fc fc fc fc fc fc fc
@@ -86,10 +86,10 @@ fc fc fc fc fc fc fc fc fc fc
 fc fc fc fc 26 bf c5 c5 c5 4e
 fc fc fc fc 26 bf bf bf bf 4e
 fc fc fc fc 26 bf bf bf bf 4e
-fc fc 0e 0e 0e bf bf bf bf bf
-fc fc 0e 0e 0e bf bf bf bf bf
-fc fc fc fc 26 bf bf bf bf 4e
+fc fc 1d 1d 1d bf bf bf bf bf
+fc fc 1e 1e 1e bf bf bf bf bf
 fc fc fc fc 28 24 24 24 24 4e
+fc fc fc fc fc fc fc fc fc 4e
 
 # --- Port-Veille ouest : l'auberge (porte en ligne 3, colonne 5) ---
 # Sud : colonnes 4-5. Est et ouest : lignes 4-5. Nord : colonnes 2-3 vers le sentier.
