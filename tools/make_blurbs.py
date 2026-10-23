@@ -57,7 +57,6 @@ DRAWN = {
     'd': ['.....', '...##', '...#o', '...#o', ':####', '#o.#o', '#o.#o', '#o.#o', ':##oo', '.....', '.....'],
     # (le Terrier des Serpents : « Snakes Burrow »)
     'B': ['#####:', '#o.:##', '#o..#o', '#####:', '#o..#o', '#o.:##', '#####:'],
-    'k': ['.....', '#o...', '#o...', '#o...', '#o.#o', '#o#o.', '##o..', '#o#o.', '#o.#o', '.....', '.....'],
 }
 
 # Le Terrier des Serpents (donjon facultatif $0b) : sur la carte, il prenait le nom d'Ages de ce
