@@ -1,10 +1,15 @@
 """Test de l'île 4, Mont-Braise, par le menu de test caché (tools/debug_menu.py).
 
 - arrivée au ponton (Marine parle), le Bateau-Rondin : aller à la Lagune et revenir ;
-- la plage, les lacets, l'atelier : Pinceau ne peint que le volcan ;
-- la Lanterne : dans le Songe, Pinceau voit la mer et donne le tableau (l'objet d'échange 2) ;
+- la plage, les lacets, l'atelier : Pinceau ne peint que le volcan, ses couleurs ont séché ;
+- dans le Songe, sans les couleurs : pas de tableau ;
+- le jaune : le cristal de soufre de la source chaude (1:1b), à la nage ;
+- l'orange : le Boomerang dans le foyer de la forge de Brasia (1:2a) ;
+- le rouge : la lave du belvédère (1:2c) est solide ; par le Songe (la lave y dort) jusqu'à l'îlot,
+  la Lanterne, la pierre de lave ; retour par le Songe ;
+- Pinceau a ses trois couleurs ; dans le Songe, il peint la mer et donne le tableau ;
 - le village goron : Brasia voit le tableau, a une idée, donne le Bracelet de force ;
-- les rochers du nord du village se soulèvent : les lacets jusqu'au cratère ;
+- les rochers du nord du village se soulèvent : les lacets jusqu'au cratère, la porte de la Forge ;
 - la mine abandonnée (un coffre), le marché des copies, les Cuivres, le belvédère, la source.
 
 Usage : python tools/test_braise.py DOSSIER_CAPTURES   (ROM=chemin pour une autre ROM)
@@ -17,8 +22,9 @@ from debug_menu import INV_A, INV_B, TREASURES, Game, sheet
 
 OUT = sys.argv[1]
 os.makedirs(OUT, exist_ok=True)
-TREASURE_HARP, TREASURE_BRACELET, TREASURE_TRADEITEM = 0x11, 0x16, 0x41
+TREASURE_HARP, TREASURE_BRACELET, TREASURE_TRADEITEM, TREASURE_BOOMERANG = 0x11, 0x16, 0x41, 0x06
 TRADE_ITEM = 0xc6c0          # wTradeItem
+YELLOW, ORANGE, RED = 0x02, 0x04, 0x80     # les couleurs de Pinceau : drapeaux de 1:19
 errors, shots = [], []
 
 
@@ -48,6 +54,20 @@ def talk(g, row, col, facing='up'):
     ok = g.wait_text(60)
     g.w(30)
     return ok
+
+
+def colors(g):
+    return g.room_flags(1, 0x19)
+
+
+def lantern(g, group):
+    """La Lanterne (sur B) : passer dans l'autre monde (même salle, même case)."""
+    room = g.where()[1]
+    g.press('b', 10)
+    g.wait_until(lambda: g.where() == (group, room), 300)
+    g.settled()
+    g.w(160)   # l'arrivée : le rayon de lumière (Link ne bouge pas avant)
+    return g.where() == (group, room)
 
 
 def door(g, direction, room):
@@ -90,34 +110,88 @@ check(g.where() == (1, 0x38), 'et ramène à Mont-Braise', g)
 check(door(g, 'right', (1, 0x39)), 'la plage noire (1:39)', g)
 check(door(g, 'up', (1, 0x29)), "les lacets de l'ouest (1:29)", g)
 check(door(g, 'up', (1, 0x19)), "l'atelier des peintres (1:19)", g)
-check(talk(g, 4, 5), 'Pinceau ne peint que le volcan', g)
+check(talk(g, 4, 5), 'Pinceau : ses couleurs ont séché', g)
 shoot(g, 'b02_pinceau', 'Pinceau')
 g.text_through()
 
-# La Lanterne : dans le Songe, Pinceau voit la mer
-g.press('b', 10)
-g.wait_until(lambda: g.where() == (0, 0x19), 300)
-g.settled()
-g.w(160)   # l'arrivée dans le Songe : le rayon de lumière (Link ne bouge pas avant)
-check(g.where() == (0, 0x19), 'la Lanterne : le Songe (0:19)', g)
+# La Lanterne : dans le Songe, Pinceau voit la mer, mais sa palette est vide
+check(lantern(g, 0), 'la Lanterne : le Songe (0:19)', g)
 check(talk(g, 4, 5), 'Pinceau voit la mer', g)
-shoot(g, 'b03_songe', 'Pinceau dans le Songe')
 g.text_through()
 g.w(60)
 g.text_through()
-check(obtained(g, TREASURE_TRADEITEM) and g.m[TRADE_ITEM] == 2, 'le tableau de la mer (objet d\'échange 2)', g)
-shoot(g, 'b04_tableau', 'Le tableau de la mer')
-g.press('b', 10)
-g.wait_until(lambda: g.where() == (1, 0x19), 600)
-g.settled()
-check(g.where() == (1, 0x19), 'retour au Réel', g)
+check(not obtained(g, TREASURE_TRADEITEM), 'sans les couleurs, pas de tableau', g)
+check(lantern(g, 1), 'retour au Réel', g)
+
+# Le jaune : le cristal de soufre, au milieu de la source chaude (à la nage)
+g.warp(1, 0x1b, 0x24)
+check(g.where() == (1, 0x1b), 'la source chaude (1:1b)', g)
+shoot(g, 'b03_source', 'La source chaude : le soufre')
+g.stand(2, 5)
+for _ in range(16):     # à la nage, Link avance lentement
+    if colors(g) & YELLOW:
+        break
+    g.hold('down', 10)
+g.w(30)
+check(colors(g) & YELLOW, 'le cristal de soufre : le jaune', g)
+g.text_through()
+
+# L'orange : le Boomerang dans le foyer de la forge de Brasia (ligne 3, colonne 1)
+g.warp(1, 0x2a, 0x45)
+g.m[INV_A] = TREASURE_BOOMERANG
+g.stand(5, 1)
+g.face('up')
+g.press('a', 30)
+g.w(60)
+check(colors(g) & ORANGE, "le Boomerang rapporte une braise : l'orange", g)
+shoot(g, 'b04_forge', 'La forge de Brasia')
+g.text_through()
+g.w(60)
+g.m[INV_A] = 0x00
+
+# Le rouge : la coulée du belvédère ; la lave est solide
+g.warp(1, 0x2c, 0x33)
+check(g.where() == (1, 0x2c), 'le belvédère (1:2c)', g)
+g.stand(3, 3)
+g.hold('right', 40)
+check(g.link()[1] < 0x40, 'la lave du Réel arrête Link', g)
+shoot(g, 'b05_lave', 'La coulée de lave')
+g.stand(3, 3)
+check(lantern(g, 0), 'le Songe du belvédère (0:2c)', g)
+g.stand(3, 4)
+g.stand(3, 5)
+check(g.link()[1] >= 0x50, "dans le Songe, la lave dort : on marche jusqu'à l'îlot", g)
+shoot(g, 'b06_songe_lave', 'La lave froide du Songe')
+check(lantern(g, 1), "la Lanterne : l'îlot, dans le Réel", g)
+g.face('right')
+g.press('a', 30)
+g.w(30)
+check(colors(g) & RED, 'la pierre de lave : le rouge', g)
+g.text_through()
+check(lantern(g, 0), 'retour par le Songe', g)
+g.stand(3, 3)
+check(lantern(g, 1), 'et le Réel', g)
+
+# Pinceau a ses trois couleurs ; dans le Songe, il peint la mer
+g.warp(1, 0x19, 0x75)
+check(talk(g, 4, 5), 'Pinceau a les trois couleurs', g)
+g.text_through()
+check(lantern(g, 0), "le Songe de l'atelier", g)
+check(talk(g, 4, 5), 'Pinceau peint la mer au soleil couchant', g)
+shoot(g, 'b07_songe', 'Pinceau dans le Songe')
+g.text_through()
+g.w(60)
+g.text_through()
+check(obtained(g, TREASURE_TRADEITEM) and g.m[TRADE_ITEM] == 2, "le tableau de la mer (objet d'échange 2)", g)
+shoot(g, 'b08_tableau', 'Le tableau de la mer')
+check(lantern(g, 1), 'retour au Réel', g)
 
 # Le village goron : Brasia
 check(door(g, 'down', (1, 0x29)), 'retour aux lacets', g)
 check(door(g, 'right', (1, 0x2a)), 'le village goron (1:2a)', g)
-shoot(g, 'b05_village', 'Le village goron')
+shoot(g, 'b09_village', 'Le village goron')
 check(talk(g, 4, 2), 'Brasia voit le tableau', g)
-shoot(g, 'b06_brasia', 'Brasia a une idée')
+shoot(g, 'b10_brasia', 'Brasia a une idée')
 g.text_through()
 g.w(60)
 g.text_through()
@@ -141,7 +215,9 @@ g.m[INV_A] = 0x00
 check(door(g, 'up', (1, 0x1a)), 'les lacets du cratère (1:1a)', g)
 g.route((5, 4), (5, 2), (3, 2), (3, 7), (1, 7), (1, 4))
 check(g.go('up', (1, 0x0a)), 'le cratère (1:0a)', g)
-shoot(g, 'b07_cratere', 'Le cratère')
+shoot(g, 'b11_cratere', 'Le cratère : la porte de la Forge')
+g.stand(4, 4)
+check(g.go('up', (4, 0xbb)), 'la chaussée, la porte de la Forge (4:bb)', g)
 
 # La mine abandonnée (1:28, entrée ligne 1, colonne 3)
 g.warp(1, 0x28, 0x23)
@@ -160,7 +236,7 @@ check(g.rupees() > r0, 'des rubis (%d -> %d)' % (r0, g.rupees()), g)
 g.warp(1, 0x3a, 0x34)
 g.w(60)              # (Link ne bouge pas tout de suite en arrivant)
 check(talk(g, 3, 4), 'le marchand de copies', g)
-shoot(g, 'b08_marchand', 'Le marchand de copies')
+shoot(g, 'b12_marchand', 'Le marchand de copies')
 g.text_through()
 g.warp(1, 0x2a, 0x57)
 check(talk(g, 4, 7), 'les Cuivres', g)

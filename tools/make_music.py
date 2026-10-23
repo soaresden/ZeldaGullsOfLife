@@ -113,7 +113,7 @@ ROOM_MUSIC = [
     (1, 0x26, ILE_BRAISE),  # Mont-Braise dans le Réel
     (0, 0x26, ILE_BRAISE),  # et dans le Songe
     (5, 0x26, [0xb2]),      # la mine abandonnée
-    # la Forge Endormie (donjon 4 ; Copiator lance la musique du boss)
+    # la Forge Endormie (donjon 4 ; Grisaille lance la musique du boss)
     (4, 0x17, [0xae, 0xaf, 0xb0, 0xb1, 0xb2, 0xb6, 0xb9, 0xba, 0xbb, 0xbc, 0xbd, 0xbe, 0xbf]),
     (1, 0x13, ILE_ECHOS),   # l'île des Échos dans le Réel
     (0, 0x13, ILE_ECHOS),   # et dans le Songe

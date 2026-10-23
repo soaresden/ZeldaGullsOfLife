@@ -5,7 +5,8 @@
 # Briques : 1a 1b sol ; 60 roche (pas 64 : une falaise, Link saute) ; fc mer ; fa eau (la source chaude) ; c5 buisson ; c0 rocher
 #   (Bracelet de force : il devient 3a) ; dd entrée de grotte ; 90 91 92 / a0 a1 a2 visage de
 #   pierre goron ; 85 86 87 / 95 96 97 grand visage (96 bouche) ; 08 09 / 2c 3c gros rocher ;
-#   b0 b1 b2 cailloux ; f2 pancarte (ou chevalet) ; 0e planches.
+#   b0 b1 b2 cailloux ; f2 pancarte (ou chevalet) ; 0e planches ; 9f lave (solide ; dans le Songe,
+#   de la lave froide où l'on marche : make_songe.py, PATCHES).
 # Passages : nord / sud colonnes 4-5, est / ouest lignes 3-4.
 #
 # Plan (une case = un écran) :
@@ -36,15 +37,17 @@ salle 09 decor 1e
 60 60 60 60 60 60 60 60 60 60
 60 60 60 60 60 60 60 60 60 60
 
-# --- Le cratère : le grand visage de pierre (85-97), sa bouche (dd, ligne 1, colonne 4) mène à la Forge Endormie ; sud -> les lacets ---
+# --- Le cratère : la porte de la Forge Endormie (dd, ligne 1, colonne 4), une façade (linteau de,
+# piliers df d8 d9, socles d2) au bout d'une chaussée entre deux bras de lave (9f) ; sud -> les
+# lacets (Denis trouvait le grand visage de pierre « laid ») ---
 salle 0a decor 1e
-60 60 60 85 86 87 60 60 60 60
-60 60 60 95 dd 97 60 60 60 60
-60 60 1a 1a 1a 1b 1a 1a 60 60
-60 1b 1a 1a 1a 1b 1a 1a 1a 60
-60 c5 1b 1a 1a 1a 1a 1a c5 60
-60 1a 1a 1a 1a 1a 1a 1a 1a 60
-60 1a 1a 1a 1a 1a 1a 1a 1a 60
+60 60 de de de de de 60 60 60
+60 60 df d8 dd d9 df 60 60 60
+60 9f 9f d2 1a d2 9f 9f 60 60
+60 9f 9f 9f 1a 1a 9f 9f 9f 60
+60 c5 9f 9f 1a 1a 9f 9f c5 60
+60 1a 1b 9f 1a 1a 9f 1a 1a 60
+60 1a 1a 9f 1a 1a 9f 1a 1a 60
 60 60 60 60 1a 1a 1a 1a 60 60
 
 # --- Roche ---
@@ -102,7 +105,8 @@ salle 1a decor 1e
 60 60 1a 1a 1a 1a 60 60 60 60
 60 60 60 60 1a 1a 60 60 60 60
 
-# --- La source chaude : un bassin (fa) ; une pancarte (f2) ; sud -> les lacets de l'est ---
+# --- La source chaude : un bassin (fa) ; au milieu, le cristal de soufre (le jaune de Pinceau, $45 :
+# à la nage, avec les Palmes) ; une pancarte (f2, TX_2e04) ; sud -> les lacets de l'est ---
 salle 1b decor 1e
 60 60 60 60 60 60 60 60 60 60
 60 60 60 60 60 60 60 60 60 60
@@ -168,15 +172,18 @@ salle 2b decor 1e
 60 1a 1a 1a 1a 1a 1a 1a 1a 60
 60 60 60 60 1a 1a 60 60 60 60
 
-# --- Le belvédère : la vue sur la mer (une pancarte, f2) ; ouest -> les lacets ---
+# --- Le belvédère : une coulée de lave (9f, solide) sort de la roche et file vers la mer ; au
+# milieu, un îlot (ligne 3, colonnes 5-6) et la pierre de lave (le rouge de Pinceau, $47). Dans le
+# Songe, la lave dort (9f = sol froid) : on marche jusqu'à l'îlot, puis la Lanterne. Pancarte (f2,
+# ligne 2, colonne 2 : TX_2e03) ; ouest -> les lacets ---
 salle 2c decor 1e
 60 60 60 60 60 60 60 60 fc fc
-60 1b 1a 1b 1a 1b 1a 1a fc fc
-60 1a 1a 1a 1a 1b f2 1a fc fc
-1a 1b 1a 1a 1a 1b 1a 1a fc fc
-1a 1a 1b 1a 1a 1a 1a 1a fc fc
-60 1a 1a 1a 1a 1a 1a 1a fc fc
-60 1a 1a 1a 1a 1a 1a 1a fc fc
+60 1b 1a 1a 1a 9f 9f 60 fc fc
+60 1a f2 1a 9f 9f 9f 9f fc fc
+1a 1b 1a 1a 9f 1a 1a 9f fc fc
+1a 1a 1b 1a 9f 9f 9f 9f fc fc
+60 1a 1a 1a 1a 9f 9f 60 fc fc
+60 1a 1a 1a 1a 1a 9f 9f fc fc
 60 60 60 60 60 60 60 60 fc fc
 
 # --- Le ponton : planches 0e vers le sud (lignes 5-6, colonnes 3-4), le Bateau-Rondin à leur droite (ligne 6, colonne 5) ; est -> la plage ---

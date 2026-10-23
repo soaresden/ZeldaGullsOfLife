@@ -190,30 +190,54 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - story/salles/ile_braise.txt (1:08-3c, 5 x 4 ; tracé par un script jetable) : décor 1e (la Crête
   Roulante d'Ages, passé) ; son Songe = le décor 06 (à la place de la ville de Symétrie en ruine :
   make_songe.py, l'entrée 0x06 de tilesets.s est sur une ligne avec « ; Tileset 0x06 »).
+- Les couleurs du volcan (Denis : « pas de rouge, orange, jaune ») : le Réel a son en-tête de
+  palette PALH_BRAISE ($e1, make_songe.py : volcano() ; l'entrée 0x1e de tilesets.s est sur une
+  ligne) ; le Songe = dream(volcano()) un peu moins bleuté. Presque tout le décor est en palette 4 ;
+  l'eau (palette 6) reste de l'eau. La palette 5 (inutilisée) = la lave (PALETTE_OVERRIDES).
+- La lave : brique 9f (libre ; PAS e0-e8, qui sont les courants et la lave d'Ages dans
+  tileTypeMappings.s) : dans le Réel, l'eau aux couleurs de la palette 5, solide ; dans le Songe
+  ($06), de la pierre froide où l'on marche. Le noctambule ne réveille pas Link dessus
+  (balladeDreamFx.s) ; la Lanterne y renvoie Link (la case d'arrivée est bloquée).
   Passages : nord / sud colonnes 4-5, est / ouest lignes 3-4. Rochers c0 : Bracelet de force
   (garder le bouton face au rocher et tirer) -> sol 3a. La mine (1:28, dd) -> 5:b2 (un coffre).
-- La quête : Pinceau (1:19, $15) ne peint que le volcan ; dans le Songe (0:19, $16) il voit la mer,
-  peint le tableau (l'objet d'échange 2 : le sac puant d'Ages redessiné, art/tableau.txt, palette
-  5) ; Brasia (1:2a, $14) a une idée : le Bracelet de force (TX_0026, TX_092b) ; les rochers du nord
-  du village s'ouvrent sur les lacets (1:1a) et le cratère (1:0a, la bouche du grand visage : la
-  Forge Endormie, donjon 4). Les Cuivres ($17), le marchand de copies ($18) : villager (la table
+- La quête (Denis : « beaucoup trop simple ») : Pinceau (1:19, balladeObjects.painter, $15) ne
+  peint que le volcan, ses couleurs ont séché : il lui en faut trois (drapeaux de 1:19 : $02 jaune,
+  $04 orange, $80 rouge ; jamais $01 = ROOMFLAG_LAYOUTSWAP ni $08 dehors). Le jaune : le cristal de
+  soufre au milieu de la source chaude (1:1b, $45 : à la nage, les Palmes). L'orange : le foyer de
+  la forge de Brasia (1:2a, $46 : trop chaud pour les mains ; le Boomerang qui passe dedans rapporte
+  une braise, findItemNear). Le rouge : la pierre de lave sur l'îlot de la coulée du belvédère
+  (1:2c, $47) : la lave est solide dans le Réel ; dans le Songe elle dort, on marche jusqu'à l'îlot,
+  puis la Lanterne. Images : spr_ballade_braise (art/braise.txt, en-tête $e9) ; glowImage anime en
+  relatif (+4 / -4, var32 ; var31 = pressedAButton !). Pancartes : TX_2e03 (le belvédère) et
+  TX_2e04 (la source), à la place de deux pancartes d'Ages mortes (signText.s). Avec les trois,
+  dans le Songe (0:19, $16), Pinceau voit la mer au soleil couchant et peint le tableau (l'objet
+  d'échange 2 : le sac puant d'Ages redessiné, art/tableau.txt, palette 5) ; Brasia (1:2a, $14) a
+  une idée : le Bracelet de force (TX_0026, TX_092b) ; les rochers du nord du village s'ouvrent sur
+  les lacets (1:1a) et le cratère (1:0a : la porte de la Forge Endormie, donjon 4, une façade au
+  bout d'une chaussée entre deux bras de lave ; c'était un grand visage de pierre). Les Cuivres ($17), le marchand de copies ($18) : villager (la table
   @texts est maintenant cherchée par sous-type).
 - Piège : $1a / $1b sont du sol à Mont-Braise : la Lanterne et le noctambule ne regardent le « fond
   de la mer ouverte » que dans les décors $7d et $7e (wTilesetIndex).
-- Test : python tools/test_braise.py DOSSIER (arrivée, radeau, Pinceau dans les deux mondes, le
-  tableau, Brasia, les rochers, le cratère, la mine, le marché). Dans le Songe, attendre la fin du
+- Test : python tools/test_braise.py DOSSIER (arrivée, radeau, Pinceau dans les deux mondes, les
+  trois couleurs, le tableau, Brasia, les rochers, le cratère, la porte, la mine, le marché). Dans le Songe, attendre la fin du
   rayon de lumière (~160 images) avant d'agir.
   Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/braise.png
 
 ## La Forge Endormie (donjon 4)
 - story/salles/forge.txt (tracé par un script jetable) : groupe 4, les salles du Donjon de la
   Couronne d'Ages (décor 3a passé à l'index de donjon 4 : tilesets.s $25 -> $24), un étage en
-  enclume (dungeon04LayoutForge) : ae af b0 b1 b2 / be bf b6 / b9 ba bb bc bd. Entrée : la bouche
-  du grand visage du cratère (1:0a, dd) -> 4:bb $97 ; sortie -> 1:0a $24.
-- Les Copies (mini-boss) = 4 Arm Mimics (la liste d'Ages group4Mapc8EnemyObjectData, en
-  obj_BeforeEvent : ils ne reviennent pas) ; volets $1e $08-$0b ; puis la Canne des Songes (la
-  canne de Somaria, TX_0073 / TX_093c). Copiator = Smog d'Ages dans sa salle (4:bf, volet du haut
-  muré), TX_2f26 réécrit (Marine lui répond en chantant) ; l'essence apparaît en (7, 3) (à l'écart
+  enclume (dungeon04LayoutForge) : ae af b0 b1 b2 / be bf b6 / b9 ba bb bc bd. Entrée : la porte
+  du cratère (1:0a, dd) -> 4:bb $97 ; sortie -> 1:0a $24.
+- La Suie (mini-boss, 4:b1 ; Denis : « pas de miniboss ?! ») = l'Ombre-Sorcière d'Ages (Shadow Hag,
+  la liste inutilisée group4Map4aBeforeEventObjectData, en obj_BeforeEvent) : elle surgit 4 cases
+  derrière Link (seulement s'il y a la place), charge, s'enfuit s'il la regarde ; seules les graines
+  de feu la blessent : la flamme de la Lanterne posée devant Link quand elle n'est plus qu'à trois
+  cases, Link avance, elle passe dedans (la flamme ne dure qu'une demi-seconde). 8 points de vie
+  (extraEnemyData $26), 4 flammes ; la musique du mini-boss (enemyBoss_beginMiniboss) ; TX_2f2b
+  réécrit. Entrer en marchant (elle attend les volets). Volets $1e $08-$0b ; puis la Canne des
+  Songes (la canne de Somaria, TX_0073 / TX_093c). Grisaille (c'était Copiator) = Smog d'Ages dans
+  sa salle (4:bf, volet du haut muré) : la fumée du volcan qui rend tout gris et pareil ; TX_2f26
+  réécrit (Marine : « On va y remettre de la couleur ! », elle chante), TX_5b37, TX_5a8c ; l'essence apparaît en (7, 3) (à l'écart
   des blocs du combat ; elle ne tombe que si Link arrive juste en dessous, centré).
 - Boutons : PART_BUTTON avec le bit 7 du sous-type ($80, $81) ne reste pressé que sous un poids
   (Link, bloc poussé, bloc de la Canne) ; sans le bit 7, un seul pas le bloque pour de bon. Le

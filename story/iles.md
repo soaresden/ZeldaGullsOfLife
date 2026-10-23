@@ -179,7 +179,10 @@ Ponton (Bateau-Rondin) | Plage noire | Marché des copies | Plage noire | ~
 **Habitants** :
 - **Forgeronne Brasia** (Goron), aux 412 épées identiques. Elle donne le **Bracelet de force**
   quand on lui apporte une idée (un objet de la chaîne de troc).
-- **Pinceau**, un peintre qui peint toujours le même volcan. Le Songe lui montre la mer.
+- **Pinceau**, un peintre qui peint toujours le même volcan, et ses couleurs ont séché : le jaune
+  (le soufre de la source chaude, à la nage), l'orange (les braises de la forge de Brasia : le
+  Boomerang les attrape), le rouge (la lave du belvédère : par le Songe, où elle dort). Avec les
+  trois, le Songe lui montre la mer au soleil couchant.
 - **Les Cuivres**, une fanfare goron qui joue la même note : la **danse goron** d'*Ages* devient
   leur mini-jeu (suivre le rythme). **Quart de cœur.**
 - **Le marchand de copies**, qui vend des objets en double (et un faux quart de cœur).
@@ -199,10 +202,12 @@ dans le Songe.
 ```
 
 - **Objet : la Canne des Songes** (la canne de Somaria).
-- **Mini-boss : les Copies** (le Link Mimic) : de faux Link qui font tout comme lui.
-- **Boss : Copiator** (Ramrock, le golem de pierre aux quatre phases) : chaque phase se bat avec
-  un objet différent, et il copie la précédente. Il parle : « Montre-moi. Tout ce que tu fais,
-  je le refais. En mieux. » Marine : « Et ça, tu sais le faire ? » (elle chante).
+- **Entrée** : une porte de forge au bout d'une chaussée, entre deux bras de lave.
+- **Mini-boss : la Suie** (l'Ombre-Sorcière d'*Ages*) : une ombre de suie qui surgit derrière
+  Link et s'enfuit si on la regarde ; la flamme de la Lanterne, posée sur son chemin, la brûle.
+- **Boss : Grisaille** (le Smog d'*Ages*) : la fumée du volcan, qui rend tout gris et pareil
+  (« Tout est gris, tout se ressemble… »). Marine : « On va y remettre de la couleur ! » (elle
+  chante). Battue, le volcan se réveille.
 - Couplet 4.
 
 ---

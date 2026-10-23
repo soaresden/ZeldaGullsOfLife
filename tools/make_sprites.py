@@ -223,6 +223,19 @@ def main():
     sheet.save(dst)
     print('->', os.path.relpath(dst, ROOT))
 
+    # Mont-Braise (art/braise.txt) : les trois couleurs de Pinceau (le soufre, la forge, la lave)
+    frames = read_frames(os.path.join(ROOT, 'art', 'braise.txt'))
+    assert len(frames) <= 8
+    sheet = Image.new('P', (128, 16), 0)
+    sheet.putpalette(pal + [0] * (768 - len(pal)))
+    for n, frame in enumerate(frames):
+        for y, row in enumerate(frame):
+            for x, c in enumerate(row):
+                sheet.putpixel((n * 16 + x, y), index[c])
+    dst = os.path.join(DISASM, 'gfx_compressible', 'ages', 'spr_ballade_braise.png')
+    sheet.save(dst)
+    print('->', os.path.relpath(dst, ROOT))
+
     # Le boss du Terrier (art/rex.txt) : quatre bandes de 32 x 16 (le haut avec et sans blindage, les
     # pattes pas A et pas B), chacune en deux carrés de 16 x 16 (gauche, droite) : les images 0-7
     rows = [l.rstrip('\n') for l in open(os.path.join(ROOT, 'art', 'rex.txt'), encoding='utf-8')

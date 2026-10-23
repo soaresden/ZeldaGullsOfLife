@@ -50,6 +50,10 @@ SONGE = [
     # (en-tête $d0 : le $cf est celui de l'écran titre, PALH_TITLE)
     (0x7c, 'PALH_TILESET_LYNNA_CITY', 0xd0, 'PALH_SONGE_GRELOT',
      '$0f, $01, UNIQUE_GFXH_LYNNA_CITY_1, GFXH_TILESET_OVERWORLD_PRESENT, PALH_SONGE_GRELOT, $00, $00, $00'),
+    # Mont-Braise (île 4), le Réel : la Crête Roulante d'Ages ($1e) aux couleurs du volcan (Denis :
+    # « c'est censé être un volcan, il n'y a même pas de rouge, orange, jaune ») ; le $06 : son Songe
+    (0x1e, 'PALH_TILESET_ROLLING_RIDGE_PAST', 0xe1, 'PALH_BRAISE',
+     '$0f, $81, UNIQUE_GFXH_ROLLING_RIDGE_PAST, GFXH_TILESET_OVERWORLD_PAST, PALH_BRAISE, $09, $02, $02'),
     (0x06, 'PALH_TILESET_ROLLING_RIDGE_PAST', 0xd1, 'PALH_SONGE_BRAISE',
      '$0f, $01, UNIQUE_GFXH_ROLLING_RIDGE_PAST, GFXH_TILESET_OVERWORLD_PAST, PALH_SONGE_BRAISE, $09, $00, $02'),
     (0x07, 'PALH_TILESET_YOLL_GRAVEYARD_ALTERNATE', 0xd2, 'PALH_SONGE_ECHOS',
@@ -83,13 +87,22 @@ SEPIA = (0x07,)   # ces Songes-là sont sépia (voir sepia())
 ICE = (0x0d, 0x38)        # en glace (voir ice()) ; le $0e : la glace, puis le Songe
 ICE_DREAM = (0x0e,)
 NIGHT = (0x39,)           # de nuit (voir night()) : la Tour Sans-Nuit
+VOLCANO = (0x1e,)         # aux couleurs du volcan (voir volcano()) : Mont-Braise (un Réel, pas un
+VOLCANO_DREAM = (0x06,)   # Songe) ; le $06 : le volcan, puis le Songe
 # (décor, brique, 4 tuiles + 4 attributs) : la glace = le sol du village (9e) aux couleurs de l'eau
 # (palette 6) ; dans le Palais, le dallage f8 (80) aux couleurs du f9 (palette 2). Et le cristal du
 # Songe (PART_SWITCH dehors = la brique 9e, 9f une fois frappé) : le losange db (éteint), le carreau
 # da (allumé), aux couleurs de l'eau ; solides. Dernier nombre : la collision
 PATCHES = [(0x0d, 0xea, '9e9e9e9e0e0e0e0e', 0), (0x0e, 0xea, '9e9e9e9e0e0e0e0e', 0),
            (0x38, 0x8a, '808080800a0a0a0a', 0),
-           (0x0e, 0x9e, 'e6e8e7e90e0e0e0e', 0x0f), (0x0e, 0x9f, 'bebebebe0e2e4e6e', 0x0f)]
+           (0x0e, 0x9e, 'e6e8e7e90e0e0e0e', 0x0f), (0x0e, 0x9f, 'bebebebe0e2e4e6e', 0x0f),
+           # Mont-Braise : la lave (brique 9f, libre : pas e0-e8, les courants et la lave d'Ages) = l'eau (fa) aux couleurs de la palette 5
+           # (LAVA), solide ; dans le Songe, la lave dort : le sol (1b) en pierre froide, on y marche
+           (0x1e, 0x9f, '888888880d0d0d0d', 0x0f), (0x06, 0x9f, '9f9f9f9f0d0d0d0d', 0)]
+# Palettes réécrites (décor, numéro de palette) : la palette 5 de la Crête Roulante n'est utilisée
+# par aucune brique ; à Mont-Braise, c'est la lave (jaune, orange, rouge), froide dans le Songe
+PALETTE_OVERRIDES = {(0x1e, 5): [(31, 28, 8), (31, 16, 2), (22, 4, 0), (8, 0, 0)],
+                     (0x06, 5): [(15, 15, 18), (11, 11, 14), (7, 7, 10), (2, 2, 5)]}
 # Copies du Réel : (décor, octets du décor) ; mêmes palettes, drapeau « passé » ($80)
 REEL = [
     (0x7b, '$0f, $81, UNIQUE_GFXH_LYNNA_CITY_1, GFXH_TILESET_OVERWORLD_PRESENT, PALH_TILESET_LYNNA_CITY, $00, $02, $00'),
@@ -150,7 +163,34 @@ def night(r, g, b):
     return tuple(max(0, min(31, round(o * k + t * (1 - k)))) for o, t in ((r, tr), (g, tg), (b, tb)))
 
 
+def volcano(r, g, b):
+    """Couleur de Mont-Braise : la même lumière, du rouge sombre (l'ombre, la roche) à l'orange (le
+    sol) et au jaune de la lave (le clair)."""
+    if r == g == b == 0:
+        return (0, 0, 0)
+    t = min(1.0, (0.30 * r + 0.59 * g + 0.11 * b) / 31)
+    stops = ((0.0, (4, 0, 0)), (0.33, (16, 3, 1)), (0.66, (30, 12, 2)), (1.0, (31, 28, 10)))
+    for (t0, c0), (t1, c1) in zip(stops, stops[1:]):
+        if t <= t1:
+            u = (t - t0) / (t1 - t0)
+            target = [a + (b_ - a) * u for a, b_ in zip(c0, c1)]
+            break
+    k = 0.2
+    return tuple(max(0, min(31, round(o * k + t_ * (1 - k)))) for o, t_ in zip((r, g, b), target))
+
+
+def watery(group):
+    """Une palette (4 couleurs) avec du bleu : l'eau, que Mont-Braise garde telle quelle."""
+    return any(b > r + 2 and b > g + 2 for r, g, b in group)
+
+
 def recolor(tileset, c):
+    if tileset in VOLCANO:
+        return volcano(*c)
+    if tileset in VOLCANO_DREAM:
+        # (le Songe d'un volcan : encore des braises, sous le voile bleu du rêve)
+        v = volcano(*c)
+        return tuple(round(0.55 * a + 0.45 * b) for a, b in zip(v, dream(*v)))
     if tileset in NIGHT:
         return night(*c)
     if tileset in SEPIA:
@@ -210,9 +250,22 @@ def main():
             if start + restore not in headers:
                 headers = headers.replace(start, start + restore, 1)
         hdr_lines += ['\tm_PaletteHeaderEnd', '']
-        pal_lines.append('paletteData%s: ; Songe : %s en bleuté' % (short, label))
+        pal_lines.append('paletteData%s: ; %s : %s %s' % (
+            short, 'Réel' if tileset in VOLCANO else 'Songe', label,
+            'aux couleurs du volcan' if tileset in VOLCANO else 'en bleuté'))
         for i, c in enumerate(rgb):
-            pal_lines.append('\tm_RGB16 $%02x $%02x $%02x' % recolor(tileset, c))
+            override = PALETTE_OVERRIDES.get((tileset, first + i // 4))
+            if override:
+                pal_lines.append('	m_RGB16 $%02x $%02x $%02x' % override[i % 4])
+                if i % 4 == 3:
+                    pal_lines.append('')
+                continue
+            if tileset in VOLCANO + VOLCANO_DREAM and watery(rgb[i - i % 4:i - i % 4 + 4]):
+                # (l'eau de Mont-Braise reste de l'eau : la mer des plages noires, le ponton)
+                new = c if tileset in VOLCANO else dream(*c)
+            else:
+                new = recolor(tileset, c)
+            pal_lines.append('\tm_RGB16 $%02x $%02x $%02x' % new)
             if i % 4 == 3:
                 pal_lines.append('')
         if tileset in OUTDOOR:
@@ -223,7 +276,8 @@ def main():
                 pal_lines.append('\tm_RGB16 $%02x $%02x $%02x' % (c if i == 2 else dream(*c)))
             pal_lines.append('')
         tilesets = re.sub(r'\t\.db [^\n]*; Tileset 0x%02x\n' % tileset,
-                          '\t.db %s ; Tileset 0x%02x BALLADE: Songe\n' % (line, tileset), tilesets)
+                          '\t.db %s ; Tileset 0x%02x BALLADE: %s\n'
+                          % (line, tileset, 'Réel' if tileset in VOLCANO else 'Songe'), tilesets)
     for tileset, line in REEL:
         tilesets = re.sub(r'\t\.db [^\n]*; Tileset 0x%02x[^\n]*\n' % tileset,
                           '\t.db %s ; Tileset 0x%02x BALLADE: Réel\n' % (line, tileset), tilesets)

@@ -1779,8 +1779,8 @@ groups:
     text: |-
       \col(1)Brasia\col(0): Is
       that...
-      the sea?!
-      Blue, moving,
+      the sea?! At
+      sunset! Moving,
       never sitting
       still!\stop
       A sword shaped
@@ -1808,13 +1808,21 @@ groups:
       \col(1)Pinceau\col(0): The
       volcano. The
       volcano again.\stop
-      It's all I can
-      paint. They say
-      there's a sea
-      down below.\stop
-      I can't see it.
-      Not even with
-      my eyes closed.
+      And my paints
+      dried up! No
+      yellow, no
+      orange, no red.\stop
+      Yellow: the
+      sulphur of the
+      hot spring.\stop
+      Orange: the
+      embers of
+      Brasia's forge.\stop
+      Red: the lava,
+      by the lookout.\stop
+      But lava burns!
+      You'd have to
+      dream it cold.
 
   - name: TX_5a85
     index: 0x85
@@ -1833,9 +1841,11 @@ groups:
     text: |-
       \col(1)Pinceau\col(0): The
       sea! I can see
-      it! With my eyes
-      closed, I see
-      it!\stop
+      it! And the sun
+      setting on it!\stop
+      Your yellow,
+      your orange,
+      your red...
       Quick, quick...
       There!\stop
       Take this
@@ -1903,6 +1913,8 @@ groups:
       The hammering
       changed. Bong!
       Bing! Kaboom!\stop
+      And the grey
+      smoke is gone!\stop
       The volcano woke
       up... but
       gently.
@@ -3724,10 +3736,11 @@ groups:
     index: 0x37
     text: |-
       \col(1)Marin\col(0): He
-      could copy
-      anyone...\stop
-      But there's only
-      one Link!
+      made everything
+      grey...\stop
+      Look! The
+      colors are
+      coming back!
   - name: TX_5b38
     index: 0x38
     text: |-
@@ -4129,6 +4142,122 @@ groups:
       The small ones
       repeat it, in
       the same order.
+
+  # Pinceau (1:19, $15): the missing color (balladeObjects.painter), then all three
+  - name: TX_5b66
+    index: 0x66
+    text: |-
+      \col(1)Pinceau\col(0): I
+      still need
+      yellow: the
+      sulphur of the
+      hot spring, to
+      the east.
+
+  - name: TX_5b67
+    index: 0x67
+    text: |-
+      \col(1)Pinceau\col(0): I
+      still need
+      orange: the
+      embers of
+      Brasia's forge,
+      in the village.
+
+  - name: TX_5b68
+    index: 0x68
+    text: |-
+      \col(1)Pinceau\col(0): I
+      still need red:
+      the lava by the
+      lookout.\stop
+      It burns! You'd
+      have to dream
+      it cold...
+
+  - name: TX_5b69
+    index: 0x69
+    text: |-
+      \col(1)Pinceau\col(0):
+      Yellow, orange,
+      red! Thank you!\stop
+      But I still
+      only see the
+      volcano...\stop
+      If only I could
+      dream of the
+      sea, just once.
+
+  # Pinceau in the Dream (0:19, $16), without the three colors
+  - name: TX_5b6a
+    index: 0x6a
+    text: |-
+      \col(1)Pinceau\col(0): The
+      sea! I can see
+      it! With my eyes
+      closed, I see
+      it!\stop
+      But my palette
+      is empty... I
+      need the colors
+      of the volcano.
+
+  # The sulphur crystal ($45, the hot spring 1:1b): yellow
+  - name: TX_5b6b
+    index: 0x6b
+    text: |-
+      A \col(1)sulphur
+      crystal\col(0)! It
+      smells like
+      rotten eggs...\stop
+      Yellow for
+      Pinceau!
+
+  # The forge hearth ($46, the village 1:2a): A in front; the Boomerang brings back an ember; after
+  - name: TX_5b6c
+    index: 0x6c
+    text: |-
+      The embers of
+      Brasia's forge.
+      Too hot for
+      your hands!\stop
+      You'd have to
+      catch them from
+      afar...
+
+  - name: TX_5b6d
+    index: 0x6d
+    text: |-
+      The
+      \col(1)Boomerang\col(0)
+      brings back an
+      ember! Orange
+      for Pinceau!
+
+  # The lava stone ($47, the islet in the lava flow, 1:2c): red
+  - name: TX_5b6e
+    index: 0x6e
+    text: |-
+      A \col(1)lava stone\col(0),
+      still red!\stop
+      Red for
+      Pinceau!
+
+  - name: TX_5b6f
+    index: 0x6f
+    text: |-
+      Brasia's embers
+      glow softly.
+
+  # Pinceau (1:19), the painting given, before the Sleeping Forge
+  - name: TX_5b70
+    index: 0x70
+    text: |-
+      \col(1)Pinceau\col(0): My
+      sunset on the
+      sea... Did you
+      show it to
+      anyone?
 
 
 - group: 0x00
@@ -4811,6 +4940,21 @@ groups:
 # Signs nailed on the doors of the Port-Veille square (data/ages/signText.s)
 - group: 0x2e
   data:
+  # Mont-Braise: the lookout sign (1:2c) and the hot spring sign (1:1b)
+  - name: TX_2e03
+    index: 0x03
+    text: |-
+      "Lookout"\stop
+      Danger: lava!
+      It only sleeps
+      in dreams...
+  - name: TX_2e04
+    index: 0x04
+    text: |-
+      "Hot spring"\stop
+      Sulphur water.
+      Swimming with
+      flippers only!
   - name: TX_2e1f
     index: 0x1f
     text: |-
@@ -4860,6 +5004,26 @@ groups:
 # The Tin Soldier (the Armos Warrior, the Toy Chest's mini-boss)
 - group: 0x2f
   data:
+  # The Soot (the Sleeping Forge's mini-boss: Ages' Shadow Hag): she rises from Link's
+  # shadow; the Lantern's flame burns her
+  - name: TX_2f2b
+    index: 0x2b
+    text: |-
+      Heh heh heh!\stop
+      I am the Soot.
+      I sleep in the
+      Forge's
+      shadows...\stop
+      Your shadow will
+      do nicely!\stop
+      Looking for me?
+      I'm always
+      behind you!\stop
+      Fire? Bah!
+      Nobody lights
+      the Forge
+      anymore...
+
   - name: TX_2f01
     index: 0x01
     text: |-
@@ -4944,25 +5108,30 @@ groups:
       of this!
       Hee hee!
 
-  # Copiator (Ages' Smog, the Sleeping Forge's boss); Marin answers by singing
+  # Greyhaze (Ages' Smog, the Sleeping Forge's boss): the volcano's smoke that makes everything
+  # grey and the same (was Copiator); Marin answers by singing
   - name: TX_2f26
     index: 0x26
     text: |-
-      \pos(2)Show me.
-      Everything you
-      do, I do again.
-      Better.\stop
-      \col(1)Marin\col(0): And
-      can you do
-      this?\stop
+      \pos(2)Fffff... All
+      is grey. All
+      looks the same.\stop
+      Four hundred
+      and twelve
+      swords... One
+      volcano. Nothing
+      new.\stop
+      \col(1)Marin\col(0): Let's
+      bring the color
+      back!\stop
       La la laaa...
       la la LAAA!\stop
-      \col(1)Copiator\col(0): ...!\stop
-      I break into
-      pieces! Gather
-      me, then blow me
-      away... if you
-      can!
+      \col(1)Greyhaze\col(0):
+      Fffff...!\stop
+      I scatter!
+      Gather me, then
+      blow me away...
+      if you can!
 
   # Ganon (the Sleepless Tower, 3F): he rises; his defeat
   - name: TX_2f0d

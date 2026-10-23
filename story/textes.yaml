@@ -1852,8 +1852,9 @@ groups:
     index: 0x82
     text: |-
       \col(1)Brasia\col(0): C'est...
-      la mer?! Bleue,
-      qui bouge, qui
+      la mer?! Au
+      soleil couchant!
+      Qui bouge, qui
       ne tient pas en
       place!\stop
       Une épée en
@@ -1881,14 +1882,24 @@ groups:
       \col(1)Pinceau\col(0): Le
       volcan. Encore
       le volcan.\stop
-      Je ne sais
-      peindre que lui.
-      Pourtant, il
-      paraît qu'il y a
-      la mer, en bas.\stop
-      Je ne la vois
-      pas. Même les
-      yeux fermés.
+      Et mes couleurs
+      ont séché! Plus
+      de jaune, plus
+      d'orange, plus
+      de rouge.\stop
+      Le jaune: le
+      soufre de la
+      source chaude.\stop
+      L'orange: les
+      braises de la
+      forge de Brasia.\stop
+      Le rouge: la
+      lave, près du
+      belvédère.\stop
+      Mais la lave,
+      ça brûle...
+      Il faudrait la
+      rêver froide.
 
   - name: TX_5a85
     index: 0x85
@@ -1907,10 +1918,12 @@ groups:
     text: |-
       \col(1)Pinceau\col(0): La
       mer! Je la vois!
-      Les yeux fermés,
-      je la vois!\stop
-      Vite, vite...
-      Voilà!\stop
+      Et le soleil qui
+      s'y couche!\stop
+      Ton jaune, ton
+      orange, ton
+      rouge... Vite,
+      vite... Voilà!\stop
       Prends ce
       tableau. Montre-
       le à quelqu'un
@@ -1978,6 +1991,9 @@ groups:
       Ça ne cogne plus
       pareil. Bong!
       Bing! Badaboum!\stop
+      Et la fumée
+      grise est
+      partie!\stop
       Le volcan s'est
       réveillé... mais
       en douceur.
@@ -3853,10 +3869,11 @@ groups:
     index: 0x37
     text: |-
       \col(1)Marine\col(0): Il
-      pouvait copier
-      tout le monde...\stop
-      Mais il n'y a
-      qu'un seul Link!
+      rendait tout
+      gris...\stop
+      Regarde! Les
+      couleurs
+      reviennent!
   - name: TX_5b38
     index: 0x38
     text: |-
@@ -4275,6 +4292,127 @@ groups:
       Les petits le
       répètent, dans
       le même ordre.
+
+  # Pinceau (1:19, $15) : la couleur qui manque (balladeObjects.painter), puis les trois
+  - name: TX_5b66
+    index: 0x66
+    text: |-
+      \col(1)Pinceau\col(0): Il
+      me manque le
+      jaune: le soufre
+      de la source
+      chaude, à l'est.
+
+  - name: TX_5b67
+    index: 0x67
+    text: |-
+      \col(1)Pinceau\col(0): Il
+      me manque
+      l'orange: les
+      braises de la
+      forge de Brasia,
+      au village.
+
+  - name: TX_5b68
+    index: 0x68
+    text: |-
+      \col(1)Pinceau\col(0): Il
+      me manque le
+      rouge: la lave
+      du belvédère.\stop
+      Elle brûle! Il
+      faudrait la
+      rêver froide...
+
+  - name: TX_5b69
+    index: 0x69
+    text: |-
+      \col(1)Pinceau\col(0): Du
+      jaune, de
+      l'orange, du
+      rouge! Merci!\stop
+      Mais je ne vois
+      toujours que le
+      volcan...\stop
+      Si je pouvais
+      rêver de la
+      mer, juste une
+      fois...
+
+  # Pinceau dans le Songe (0:19, $16), sans les trois couleurs
+  - name: TX_5b6a
+    index: 0x6a
+    text: |-
+      \col(1)Pinceau\col(0): La
+      mer! Je la vois!
+      Les yeux fermés,
+      je la vois!\stop
+      Mais ma palette
+      est vide... Il
+      me faut les
+      couleurs du
+      volcan.
+
+  # Le cristal de soufre ($45, la source chaude 1:1b) : le jaune
+  - name: TX_5b6b
+    index: 0x6b
+    text: |-
+      Un cristal de
+      \col(1)soufre\col(0)! Il
+      sent l'œuf
+      pourri...\stop
+      Du jaune pour
+      Pinceau!
+
+  # Le foyer de la forge ($46, le village 1:2a) : A devant ; le Boomerang rapporte une braise ; après
+  - name: TX_5b6c
+    index: 0x6c
+    text: |-
+      Les braises de
+      la forge de
+      Brasia. Trop
+      chaudes pour
+      tes mains!\stop
+      Il faudrait les
+      attraper de
+      loin...
+
+  - name: TX_5b6d
+    index: 0x6d
+    text: |-
+      Le \col(1)Boomerang\col(0)
+      rapporte une
+      braise! De
+      l'orange pour
+      Pinceau!
+
+  # La pierre de lave ($47, l'îlot de la coulée, 1:2c) : le rouge
+  - name: TX_5b6e
+    index: 0x6e
+    text: |-
+      Une \col(1)pierre de
+      lave\col(0), encore
+      rouge!\stop
+      Du rouge pour
+      Pinceau!
+
+  - name: TX_5b6f
+    index: 0x6f
+    text: |-
+      Les braises de
+      Brasia
+      rougeoient.
+
+  # Pinceau (1:19), le tableau donné, avant la Forge Endormie
+  - name: TX_5b70
+    index: 0x70
+    text: |-
+      \col(1)Pinceau\col(0): Mon
+      coucher de
+      soleil sur la
+      mer... Tu l'as
+      montré à
+      quelqu'un?
 
 
 - group: 0x00
@@ -5244,6 +5382,23 @@ groups:
 # Pancartes clouées sur les portes de la place de Port-Veille (data/ages/signText.s)
 - group: 0x2e
   data:
+  # Mont-Braise : la pancarte du belvédère (1:2c) et celle de la source chaude (1:1b)
+  - name: TX_2e03
+    index: 0x03
+    text: |-
+      "Belvédère"\stop
+      Danger: lave!
+      Elle ne dort
+      que dans les
+      rêves...
+  - name: TX_2e04
+    index: 0x04
+    text: |-
+      "Source chaude"\stop
+      Eau soufrée.
+      Baignade avec
+      palmes
+      seulement!
   - name: TX_2e1f
     index: 0x1f
     text: |-
@@ -5471,6 +5626,27 @@ groups:
 # Le Soldat de Plomb (l'Armos Warrior, mini-boss du Coffre à Jouets)
 - group: 0x2f
   data:
+  # La Suie (le mini-boss de la Forge Endormie : l'Ombre-Sorcière d'Ages, Shadow Hag) : elle
+  # surgit de l'ombre de Link ; la flamme de la Lanterne la brûle
+  - name: TX_2f2b
+    index: 0x2b
+    text: |-
+      Hé hé hé!\stop
+      Je suis la Suie.
+      Je dors dans les
+      ombres de la
+      Forge...\stop
+      Ton ombre fera
+      très bien
+      l'affaire!\stop
+      Tu me cherches?
+      Je suis toujours
+      derrière toi!\stop
+      Le feu? Bah!
+      Plus personne ne
+      rallume la
+      Forge...
+
   - name: TX_2f01
     index: 0x01
     text: |-
@@ -5553,22 +5729,26 @@ groups:
       le saura!
       Hi hi hi!
 
-  # Copiator (Smog d'Ages, le boss de la Forge Endormie) ; Marine lui répond en chantant
+  # Grisaille (Smog d'Ages, le boss de la Forge Endormie) : la fumée du volcan qui rend tout
+  # gris et pareil (c'était Copiator) ; Marine lui répond en chantant
   - name: TX_2f26
     index: 0x26
     text: |-
-      \pos(2)Montre-moi. Tout
-      ce que tu fais,
-      je le refais.
-      En mieux.\stop
-      \col(1)Marine\col(0): Et
-      ça, tu sais le
-      faire?\stop
+      \pos(2)Fffff... Tout
+      est gris. Tout
+      se ressemble.\stop
+      Quatre cent
+      douze épées...
+      Un seul volcan.
+      Rien de neuf.\stop
+      \col(1)Marine\col(0): On va
+      y remettre de la
+      couleur!\stop
       La la laaa...
       la la LAAA!\stop
-      \col(1)Copiator\col(0): ...!\stop
-      Je me coupe en
-      morceaux!
+      \col(1)Grisaille\col(0):
+      Fffff...!\stop
+      Je me disperse!
       Rassemble-moi,
       puis souffle-
       moi... si tu

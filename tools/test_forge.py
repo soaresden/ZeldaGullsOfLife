@@ -1,11 +1,11 @@
 """Test de la Forge Endormie (donjon 4), jouée de bout en bout depuis le menu de test caché
-(4. Donjon) : la petite clé 1, la porte à clé, les Copies et la Canne des Songes, la carte, le
-bouton (un bloc de la Canne : la petite clé 2), les deux boutons (un bloc poussé, un bloc de la
-Canne : la clé du boss), la boussole, l'antichambre, Copiator (Smog d'Ages), l'essence, la fin du
-chapitre 4.
+(4. Donjon) : la petite clé 1, la porte à clé, la Suie (le mini-boss : une vraie flamme de la
+Lanterne la brûle) et la Canne des Songes, la carte, le bouton (un bloc de la Canne : la petite clé
+2), les deux boutons (un bloc poussé, un bloc de la Canne : la clé du boss), la boussole,
+l'antichambre, Grisaille (Smog d'Ages), l'essence, la fin du chapitre 4.
 
-Seule triche : les ennemis, le mini-boss et le boss sont retirés (leur vie mise à zéro), et Link
-garde sa vie pleine.
+Seule triche : les ennemis, le mini-boss (après une flamme qui le touche) et le boss sont retirés
+(leur vie mise à zéro), et Link garde sa vie pleine.
 
 Usage : python tools/test_forge.py DOSSIER_CAPTURES   (ROM=chemin pour une autre ROM)
 """
@@ -18,7 +18,8 @@ from debug_menu import BOSS_KEYS, ESSENCES, HEALTH, INV_A, INV_B, MAX_HEALTH, TR
 OUT = sys.argv[1]
 os.makedirs(OUT, exist_ok=True)
 TREASURE_CANE = 0x04
-ENEMY_ARM_MIMIC, ENEMY_SMOG = 0x4e, 0x7c
+ENEMY_SHADOW_HAG, ENEMY_SMOG = 0x7a, 0x7c
+TREASURE_HARP = 0x11
 INTERAC_ESSENCE = 0x7f
 errors, shots = [], []
 g = Game()
@@ -81,16 +82,46 @@ g.route((7, 7), (7, 2))   # ressortir du creux par en dessous
 check(door('left', (4, 0xbc)), 'retour')
 check(door('up', (4, 0xb6)), 'la porte à clé mène au couloir (4:b6)')
 g.clear_enemies()
-check(door('up', (4, 0xb1)), 'les Copies (4:b1)')
-g.w(60)
-shoot('f02_copies', 'Les Copies')
-check(bool(g.enemies(ENEMY_ARM_MIMIC)), 'les Copies sont là')
+check(door('up', (4, 0xb1)), 'la Suie (4:b1)')
+check(bool(g.enemies(ENEMY_SHADOW_HAG)), 'la Suie est là')
+# Elle surgit derrière Link (4 cases) et le charge ; s'il la regarde, elle s'enfuit. Link au milieu,
+# tourné vers le haut : quand elle arrive (à trois cases), la flamme de la Lanterne devant lui, et il
+# avance ; elle passe dans la flamme
+g.m[INV_B] = TREASURE_HARP
+hag = g.enemies(ENEMY_SHADOW_HAG)[0]
+life = g.m[hag + 0x29]
+shot_taken = False
+for _ in range(2000):
+    full_life()
+    if not g.m[hag] or g.m[hag + 0x29] < life:
+        break
+    if g.m[0xcba0]:
+        if not shot_taken:
+            g.w(30)
+            shoot('f02_suie', 'La Suie')
+            shot_taken = True
+        g.press('a', 10)
+        continue
+    # (la flamme brûle une demi-seconde : la poser quand la Suie n'est plus qu'à trois cases)
+    if g.m[hag + 4] == 0x12 and g.m[hag + 0x0b] - g.link()[0] <= 0x30:
+        g.press('b', 2)
+        g.hold('up', 40)
+        g.w(30)
+        continue
+    ly, lx = g.link()
+    if abs(ly - 0x58) > 6 or abs(lx - 0x78) > 6:
+        g.stand(5, 7)
+        g.stand(4, 7)
+        g.hold('up', 3)
+    g.w(4)
+check(g.m[hag + 0x29] < life, 'la flamme de la Lanterne brûle la Suie (%d -> %d)' % (life, g.m[hag + 0x29]))
+g.m[INV_B] = 0x00
 for _ in range(4):
     full_life()
     g.clear_enemies()
     g.text_through()
 g.w(200)
-check(not g.enemies(ENEMY_ARM_MIMIC), 'les Copies sont battues')
+check(not g.enemies(ENEMY_SHADOW_HAG), 'la Suie est battue')
 check(g.open_chest(5, 7), 'le coffre apparaît : la Canne des Songes')
 check(obtained(TREASURE_CANE), 'la Canne des Songes')
 shoot('f03_canne', 'La Canne des Songes')
@@ -99,7 +130,7 @@ g.m[INV_B] = TREASURE_CANE
 check(door('right', (4, 0xb2)), "l'est : la carte (4:b2)")
 g.clear_enemies()
 check(g.open_chest(5, 11), 'coffre ouvert : la carte')
-check(door('left', (4, 0xb1)), 'retour aux Copies')
+check(door('left', (4, 0xb1)), 'retour chez la Suie')
 g.route((7, 12), (7, 2))   # le coffre de la Canne est au milieu de la salle
 check(door('left', (4, 0xb0)), 'le bouton (4:b0)')
 # Un bloc de la Canne sur le bouton (ligne 8, colonne 3) : le coffre de la petite clé 2 (2, 2)
@@ -135,7 +166,7 @@ check(bool(g.m[BOSS_KEYS] & 0x10), 'la clé du boss')
 # Retour à l'entrée, puis l'ouest : la boussole, la porte à clé de l'antichambre
 check(door('right', (4, 0xaf)) and door('right', (4, 0xb0)), 'retour vers le bouton')
 g.route((9, 1), (9, 13))   # le gouffre : par le bas
-check(door('right', (4, 0xb1)), 'retour vers les Copies')
+check(door('right', (4, 0xb1)), 'retour vers la Suie')
 g.route((7, 2), (7, 7))
 check(door('down', (4, 0xb6)) and door('down', (4, 0xbc)) and door('left', (4, 0xbb)), "retour à l'entrée")
 check(door('left', (4, 0xba)), "à l'ouest de l'entrée (4:ba)")
@@ -146,21 +177,21 @@ check(g.open_chest(5, 3), 'coffre ouvert : la boussole')
 check(door('right', (4, 0xba)), 'retour')
 check(door('up', (4, 0xbe)), "la porte du boss (la clé du boss) mène à l'antichambre (4:be)")
 shoot('f06_antichambre', "L'antichambre")
-check(door('right', (4, 0xbf)), 'la porte du boss : Copiator (4:bf)')
+check(door('right', (4, 0xbf)), 'la porte du boss : Grisaille (4:bf)')
 g.w(60)
-check(g.wait_text(300), 'Copiator parle, Marine chante')
-shoot('f07_copiator', 'Copiator')
+check(g.wait_text(300), 'Grisaille parle, Marine chante')
+shoot('f07_grisaille', 'Grisaille')
 for _ in range(10):
     g.text_through()
     g.w(30)
-check(bool(g.enemies(ENEMY_SMOG)), 'Copiator est là')
+check(bool(g.enemies(ENEMY_SMOG)), 'Grisaille est là')
 for _ in range(12):
     full_life()
     g.clear_enemies()
     g.text_through()
 g.w(300)
 g.text_through()
-check(not g.enemies(ENEMY_SMOG), 'Copiator est battu')
+check(not g.enemies(ENEMY_SMOG), 'Grisaille est battu')
 check(g.room_flags(4, 0xbf) & 0x80, 'drapeau de sa salle ($80)')
 g.w(200)
 shoot('f08_essence', "L'essence")

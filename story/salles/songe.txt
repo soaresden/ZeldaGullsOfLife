@@ -86,15 +86,16 @@ ff ff ff fa fa fa fa fa fa fa
 fa fa fa fa fa fa fa fa fa fa
 fa fa fa fa fa fa fa fa fa fa
 
-# --- Mont-Braise (île 4) dans le Songe : le cratère et la mine sont fermés ---
+# --- Mont-Braise (île 4) dans le Songe : la porte de la Forge et la mine sont murées (la lave du
+# cratère y dort : 9f = de la pierre froide) ---
 salle 0:0a decor 06
-60 60 60 85 86 87 60 60 60 60
-60 60 60 95 96 97 60 60 60 60
-60 60 1a 1a 1a 1b 1a 1a 60 60
-60 1b 1a 1a 1a 1b 1a 1a 1a 60
-60 c5 1b 1a 1a 1a 1a 1a c5 60
-60 1a 1a 1a 1a 1a 1a 1a 1a 60
-60 1a 1a 1a 1a 1a 1a 1a 1a 60
+60 60 de de de de de 60 60 60
+60 60 df d8 60 d9 df 60 60 60
+60 9f 9f d2 1a d2 9f 9f 60 60
+60 9f 9f 9f 1a 1a 9f 9f 9f 60
+60 c5 9f 9f 1a 1a 9f 9f c5 60
+60 1a 1b 9f 1a 1a 9f 1a 1a 60
+60 1a 1a 9f 1a 1a 9f 1a 1a 60
 60 1a 1a 1a 1a 1a 1a 1a 1a 60
 
 salle 0:28 decor 06
