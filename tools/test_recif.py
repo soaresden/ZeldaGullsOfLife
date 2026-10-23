@@ -123,6 +123,7 @@ check(door('up', (5, 0x3b)), 'le bassin profond (5:3b)')
 g.clear_enemies()
 check(door('left', (5, 0x3a), True), "à l'ouest : la boussole (5:3a)")
 g.clear_enemies()
+full_life()   # (les gelées ont mordu)
 check(g.open_chest(5, 3), 'coffre ouvert : la boussole')
 check(door('right', (5, 0x3b)), 'retour au bassin')
 
@@ -168,7 +169,11 @@ check(swim_chest(5, 11), 'coffre ouvert : la petite clé 2')
 check(g.small_keys(3) == 1, 'la petite clé 2')
 check(door('left', (5, 0x3c)), 'retour au bassin de l\'est')
 check(door('up', (5, 0x39)), 'le lobe droit : les coquillages-échos (5:39)')
+# La première fois, ce que sont ces coquillages (TX_5b65)
+check(g.wait_text(120), 'les coquillages-échos expliqués (la première fois)')
+g.w(60)
 shoot('r06_coquillages', 'Les coquillages-échos')
+g.text_through()
 
 # Le grand coquillage (ligne 2, colonne 7) chante l'ordre : Dimitri (milieu), Moosh (droite),
 # Ricky (gauche). Link touche chaque coquillage par en dessous (A)
@@ -203,6 +208,7 @@ check(door('left', (5, 0x2e)) and door('left', (5, 0x30)), 'retour sous le bassi
 swim_to(8, 3)
 dive()
 check(g.where() == (5, 0x3b), 'on remonte dans le bassin profond (5:3b)')
+full_life()
 swim_to(5, 7)
 check(door('down', (5, 0x3e)) and door('right', (5, 0x3f)), 'retour au hall')
 

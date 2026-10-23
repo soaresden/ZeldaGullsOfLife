@@ -4261,6 +4261,19 @@ groups:
       A l'est, une
       vasque de lune.
 
+  # Le Récif Murmurant (5:39) : les coquillages-échos, la première fois (balladeObjects.echoShells)
+  - name: TX_5b65
+    index: 0x65
+    text: |-
+      Des coquillages-
+      échos...\stop
+      Le grand chante
+      un air (A devant
+      lui).\stop
+      Les petits le
+      répètent, dans
+      le même ordre.
+
 
 - group: 0x00
   data:

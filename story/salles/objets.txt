@@ -318,9 +318,10 @@ salle 5:3e
 # Le bassin profond : des chauves-souris
 salle 5:3b
 	obj_RandomEnemy $30 ENEMY_KEESE $00
-# Ouest (la boussole) : des gelées
+# Ouest (la boussole) : des serpents (les gelées d'Ages qui changent de couleur ne meurent que sur
+# un sol de couleur, d'une graine Mystère : chez nous, impossibles à tuer ; Denis)
 salle 5:3a
-	obj_RandomEnemy $40 ENEMY_COLOR_CHANGING_GEL $00
+	obj_RandomEnemy $40 ENEMY_ROPE $00
 # Vire (le mini-boss de la Grotte des Sirènes d'Ages, ses objets de 5:12) : volet du bas fermé tant
 # qu'il vit ; le script de sa mort (INTERAC_DUNGEON_SCRIPT $00 du donjon 3) ; puis le coffre des
 # Écailles de Sirène (INTERAC_DUNGEON_STUFF $02)
@@ -425,9 +426,9 @@ salle 4:ae
 # Ouest de l'entrée : des soldats de bois
 salle 4:ba
 	obj_RandomEnemy $40 ENEMY_STALFOS $00
-# La boussole : des gelées
+# La boussole : des soldats de bois (les gelées d'Ages ne mouraient pas : voir le Récif, 5:3a)
 salle 4:b9
-	obj_RandomEnemy $40 ENEMY_COLOR_CHANGING_GEL $00
+	obj_RandomEnemy $40 ENEMY_STALFOS $00
 # Copiator : Smog d'Ages (ses objets de 4:bf ; le script de sa mort : $01 du donjon 4) ; Marine
 # lui répond (dans son texte, TX_2f26) ; l'essence apparaît dans sa salle (INTERAC_BALLADE_OBJECT $08)
 salle 4:bf

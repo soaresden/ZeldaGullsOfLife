@@ -4117,6 +4117,18 @@ groups:
       To the east, a
       moon brazier.
 
+  # Le Récif Murmurant (5:39) : les coquillages-échos, la première fois (balladeObjects.echoShells)
+  - name: TX_5b65
+    index: 0x65
+    text: |-
+      Echo shells...\stop
+      The big one
+      sings a tune (A
+      in front of it).\stop
+      The small ones
+      repeat it, in
+      the same order.
+
 
 - group: 0x00
   data:
