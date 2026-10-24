@@ -998,3 +998,31 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   l'épée sur A gênait). La maison de Lila : plus le logo des
   anneaux (a2 -> 97). La boutique de Pépin : la musique des boutiques ($3e). Textes FR du groupe 00
   qui restaient en anglais : 4 quarts de cœur (TX_0049), bombes, graines, sacoche.
+- Les anneaux (Denis, 24/10) : pas de Vasu. treasureAndDrops.s @mode9 -> balladeGiveRing : un anneau
+  trouvé est identifié (wRingsObtained) et rangé dans la boîte ; la boîte de 5 d'office
+  (objectLoading.s) ; seulement nos cinq anneaux : Force (POWER_RING_L1, le 1er labyrinthe des
+  Lynels), Armure (ARMOR_RING_L1, Tic et Tac), Tornade (CHARGE_RING, le Mamono), Caméléon
+  (BALLADE_CAMELEON_RING = HUNDREDTH_RING, le Creuse-Rubis), la bague Easter Egg
+  (BALLADE_EASTER_RING = GBA_NATURE_RING, Marine sur son île quand les quatre autres sont là) ;
+  bank0.balladeRingReward les fait apparaître sur Link (TREASURE_OBJECT_RING_29-2d, textes TX_0055-0059).
+  Maple et les vieux coffres d'Ages donnent des rubis. Caméléon : A sur lui dans le menu (bank2.s
+  balladeTunicEditor) : le réglage RVB (wBalladeTunicRGB, $c5fd-$c5ff, la fin de l'ancienne liste
+  wUnappraisedRings), la tunique = couleur 2 de la palette 0 des sprites (bank0.balladeTunicPalette, à
+  la fin de loadPaletteHeader et en sortant du menu). Tests : test_anneaux (+ test_lynels,
+  test_songe_grelot, test_mamono, test_creuse).
+- Le boss du Terrier (24/10, Denis : « comme dans Ghost Babel ») : la machine en grand dans le décor
+  (tools/make_rex.py : 7 x 5 briques $c0-$e2 du décor $6b, palettes BG 5 et 1 : PALH_REX, _STUN, _HIT) ;
+  missiles et rochers ($0f : leur type d'après leur position, un objet tout neuf est vidé avant sa
+  première image : var03 / var3e posés à la création sont perdus) ; une bombe l'arrête 5 s, un
+  tourbillon (l'épée en état 4) la touche ; cinq fois. Puis retour à l'entrée (4:d0).
+- L'Easter Egg (24/10) : la bague portée, on pousse vers le haut contre le miroir de Marine
+  (INTERAC_BALLADE_OBJECT $48, 3:2a) : la salle secrète 5:ef (décor 2b) : remerciements $49, sound test
+  $4a et music test $4b (un choix +1, -1, Jouer, Fin ; A devant eux : objectAddToAButtonSensitive-
+  ObjectList, sinon A sert l'objet de Link), bestiaire $4c (wDisabledObjects bit 2 + collisions des
+  ennemis coupées). Test : test_easter.
+- LA ROM EST PLEINE (2 Mo) : deux musiques de plus ne rentraient pas (« No room for section ... in
+  ROM bank 119 »). Pour les aperçus d'Encounter et des Corons (music/encounter.txt, corons.txt, pas
+  encore dans make_music.SONGS : Denis doit d'abord écouter out/apercus/0-encounter_apercu.wav et
+  0-corons_apercu.wav), j'ai retiré musRosaDate et musSyrup d'Ages (soundChannelData.s,
+  soundChannelPointers.s) et pris leurs numéros ($27, $3c), puis tout remis. À refaire pour de bon,
+  ou passer la ROM à 4 Mo (include/rominfo.s ; attention aux banques des graphismes, sur 6 bits).
