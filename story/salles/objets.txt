@@ -641,13 +641,12 @@ salle 5:c3
 	obj_Interaction $24 $01 $00 $00
 	obj_Interaction $1e $05 $5e $00
 	obj_RandomEnemy $30 ENEMY_KEESE $00
-# 2F, Dark Link : deux Link de l'ombre (ENEMY_LINK_MIMIC) ; la porte de l'ouest fermée tant qu'ils
-# vivent ; l'escalier en (5,7)
+# 2F, Dark Link : un seul, un vrai duel (ENEMY_LINK_MIMIC, son IA : object_code/ages/enemies/linkMimic.s) ;
+# la porte de l'ouest fermée tant qu'il vit ; l'escalier en (5,7)
 salle 5:c4
 	obj_Interaction INTERAC_MARINE $08 $08 $08 ; Marine félicite Link quand le boss est battu
 	obj_Interaction $1e $0b $50 $00
-	obj_SpecificEnemyA $00 $64 $00 $38 $b8
-	obj_SpecificEnemyA $00 $64 $00 $78 $b8
+	obj_SpecificEnemyA $00 $64 $00 $58 $b8
 	obj_Interaction INTERAC_BALLADE_OBJECT $32 $58 $78
 	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
 salle 5:c5

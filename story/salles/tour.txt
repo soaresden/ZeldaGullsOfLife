@@ -70,7 +70,7 @@ b3 a0 a0 2a a0 a0 a0 61 61 a0 a0 2a a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 61 61 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
-# --- 2F, Dark Link : des Link de l'ombre (le Link Mimic d'Ages) ; la porte de l'ouest se ferme ; l'escalier apparaît (5,7) ---
+# --- 2F, Dark Link : un seul, en duel (il tourne autour de Link, esquive, se fend ; on le touche quand il souffle) ; la porte de l'ouest se ferme ; l'escalier apparaît (5,7) ---
 salle 5:c4 decor 39
 b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1

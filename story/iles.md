@@ -385,7 +385,7 @@ Chaque étage reprend un cauchemar de Link et une mécanique du jeu :
 | Étage | Le cauchemar | Ce qu'on y refait | Ce que la musique gagne |
 | --- | --- | --- | --- |
 | 1 | **La Lune qui tombe** (un compte à rebours au plafond) | Réel ↔ Songe, torches | métronome + basse |
-| 2 | **Dark Link** (Link Mimic, en duel) : Marine ne peut pas aider | Boomerang, bombes | + percussions |
+| 2 | **Dark Link** (un seul, un vrai duel : il tourne, esquive d'un bond, se fend sur Link ; on le touche quand il souffle) : Marine ne peut pas aider | Boomerang, bombes | + percussions |
 | 3 | **Ganon** (celui d'*Ages*, version *A Link to the Past*) : éteindre et rallumer les torches | Canne des Songes, Grappin | + harmonie (cuivres) |
 | 4 | **Le Cauchemar de Cocolint** : « TU ME RECONNAIS ? » | Cape de Roc, Clochette | + contre-chant |
 | 5 | **L'Insomnis** : le boss en rythme, la berceuse | l'épée, en rythme | + la voix de Marine |

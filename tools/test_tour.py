@@ -3,7 +3,7 @@ caché (8. Plage) :
 - arrivée au ponton ; la porte de la tour : Marine chante les sept couplets, elle s'ouvre ;
 - 1F la Lune qui tombe : quatre torches allumées en même temps (le Lance-Graines, quatre
   directions) : le Sablier, l'escalier ;
-- 2F le cristal de l'autre coté de la lave, un saut ; Dark Link (les Link de l'ombre) ;
+- 2F le cristal de l'autre coté de la lave, un saut ; Dark Link (un seul, en duel) ;
 - 3F le bouton de l'îlot (le Grappin-Écho, un bloc de la Canne) ; Ganon : sans l'Épée de Légende,
   ses coups ne comptent pas (Marine parle de la Fosse) ; avec elle, il tombe ;
 - 4F Ghost Babel (deux fantômes : vu, « LIIINK! », retour à l'escalier) ; la Cape de Roc, un garde
@@ -218,6 +218,23 @@ g.route((5, 13))
 check(g.go('right', (5, 0xc4)), '2F : Dark Link (5:c4)')
 g.w(60)
 shoot('t05_dark_link', 'Dark Link')
+# Un seul, et un vrai duel (balladeDarkLink.s) : Link immobile, il bouge et se fend tout seul
+dark = g.enemies(0x64)
+check(len(dark) == 1, 'un seul Dark Link (%d)' % len(dark))
+if dark:
+    wait_intro()                # (Marine parle en entrant : tout est figé)
+    full_life()
+    moves, lunges, last, pos = 0, 0, None, (g.m[dark[0] + 0x0b], g.m[dark[0] + 0x0d])
+    for _ in range(600):
+        g.w(1)
+        p = (g.m[dark[0] + 0x0b], g.m[dark[0] + 0x0d])
+        moves += p != pos
+        pos = p
+        ph = g.m[dark[0] + 0x31]
+        lunges += ph == 2 and last != 2
+        last = ph
+    full_life()
+    check(moves > 100 and lunges >= 2, 'Dark Link se bat seul (%d pas, %d fentes)' % (moves, lunges))
 check(nightmare(0xc4, 0xc4), 'Dark Link vaincu')
 check(g.tile(0x57) == 0x45, "l'escalier")
 check(stairs(5, 7, (5, 0xc5)), "l'escalier : 3F (5:c5)")
