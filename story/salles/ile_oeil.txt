@@ -3,23 +3,23 @@
 # Décor 0f = la Tour Noire d'Ages, dehors, côté présent (décor 02), recopiée en décor du Réel
 # (make_songe.py, REEL) ; son Songe : le 0c (bleuté).
 #
-# Briques : a7 dalles du parvis ; c0 rocher ; fc mer ; la tour 84-9f, 6f 7e 7f le haut de la porte,
+# Briques : a7 dalles du parvis ; b9 muret de briques grises (la pierre de la tour ; les rochers jaunes juraient, Denis) ; fc mer ; la tour 84-9f, 6f 7e 7f le haut de la porte,
 #   df la porte (82 tant qu'elle est close), ed l'œil de la porte (une téléportation aussi) ;
 #   la base de la tour (81 83 9a, solides) est ouverte devant la porte (a7).
 # Passages : ponton (d9) -> parvis colonnes 4-5 ; parvis (c9) -> paupières lignes 6-7.
 #
 # Plan (une case = un écran) :
-#   b8 mer           | b9 paupière nord (rochers) | ba mer
+#   b8 mer           | b9 paupière nord (murets) | ba mer
 #   c8 paupière ouest | c9 la Tour Sans-Nuit       | ca paupière est
 #   d8 mer           | d9 ponton                  | da mer
 
 # --- Le ponton (l'arrivée) : une langue de dalles (colonne 4, lignes 5-6), le Bateau-Rondin à coté (6,5) ; nord -> la tour ---
 salle d9 decor 0f
 fc fc fc fc a7 a7 fc fc fc fc
-fc fc c0 a7 a7 a7 a7 c0 fc fc
-fc c0 a7 a7 a7 a7 a7 a7 c0 fc
-fc c0 a7 a7 a7 a7 a7 a7 c0 fc
-fc fc c0 a7 a7 a7 a7 c0 fc fc
+fc fc b9 a7 a7 a7 a7 b9 fc fc
+fc b9 a7 a7 a7 a7 a7 a7 b9 fc
+fc b9 a7 a7 a7 a7 a7 a7 b9 fc
+fc fc b9 a7 a7 a7 a7 b9 fc fc
 fc fc fc fc a7 fc fc fc fc fc
 fc fc fc fc a7 fc fc fc fc fc
 fc fc fc fc fc fc fc fc fc fc
@@ -33,40 +33,40 @@ salle c9 decor 0f
 83 9c 8d 82 82 82 8a 82 6d 9f
 aa 83 9d 81 a7 a7 9a 83 7d a8
 a7 a7 a7 a7 a7 a7 a7 a7 a7 a7
-c0 c0 c0 c0 a7 a7 c0 c0 c0 c0
+b9 b9 b9 b9 a7 a7 b9 b9 b9 b9
 
-# --- La paupière ouest : un croissant de rochers ; est (ligne 6) -> la tour ; le bas fermé (la mer) ---
+# --- La paupière ouest : un croissant de murets ; est (ligne 6) -> la tour ; le bas fermé (la mer) ---
 salle c8 decor 0f
 fc fc fc fc fc fc fc fc fc fc
-fc fc fc fc fc c0 c0 c0 c0 c0
-fc fc fc c0 c0 a7 a7 a7 a7 c0
-fc fc c0 a7 a7 a7 a7 a7 a7 c0
-fc c0 a7 a7 a7 a7 a7 a7 a7 c0
-fc c0 a7 a7 a7 a7 a7 a7 a7 c0
-fc fc c0 a7 a7 a7 a7 a7 a7 a7
-fc fc fc c0 c0 c0 c0 c0 c0 c0
+fc fc fc fc fc b9 b9 b9 b9 b9
+fc fc fc b9 b9 a7 a7 a7 a7 b9
+fc fc b9 a7 a7 a7 a7 a7 a7 b9
+fc b9 a7 a7 a7 a7 a7 a7 a7 b9
+fc b9 a7 a7 a7 a7 a7 a7 a7 b9
+fc fc b9 a7 a7 a7 a7 a7 a7 a7
+fc fc fc b9 b9 b9 b9 b9 b9 b9
 
-# --- La paupière est : un croissant de rochers ; ouest (ligne 6) -> la tour ; le bas fermé (la mer) ---
+# --- La paupière est : un croissant de murets ; ouest (ligne 6) -> la tour ; le bas fermé (la mer) ---
 salle ca decor 0f
 fc fc fc fc fc fc fc fc fc fc
-c0 c0 c0 c0 c0 fc fc fc fc fc
-c0 a7 a7 a7 a7 c0 c0 fc fc fc
-c0 a7 a7 a7 a7 a7 a7 c0 fc fc
-c0 a7 a7 a7 a7 a7 a7 a7 c0 fc
-c0 a7 a7 a7 a7 a7 a7 a7 c0 fc
-a7 a7 a7 a7 a7 a7 a7 c0 fc fc
-c0 c0 c0 c0 c0 c0 c0 fc fc fc
+b9 b9 b9 b9 b9 fc fc fc fc fc
+b9 a7 a7 a7 a7 b9 b9 fc fc fc
+b9 a7 a7 a7 a7 a7 a7 b9 fc fc
+b9 a7 a7 a7 a7 a7 a7 a7 b9 fc
+b9 a7 a7 a7 a7 a7 a7 a7 b9 fc
+a7 a7 a7 a7 a7 a7 a7 b9 fc fc
+b9 b9 b9 b9 b9 b9 b9 fc fc fc
 
-# --- La paupière nord : des rochers derrière la tour (on n'y va pas) ---
+# --- La paupière nord : des murets derrière la tour (on n'y va pas) ---
 salle b9 decor 0f
 fc fc fc fc fc fc fc fc fc fc
 fc fc fc fc fc fc fc fc fc fc
-fc fc fc c0 c0 c0 c0 fc fc fc
-fc c0 c0 c0 c0 c0 c0 c0 c0 fc
-c0 c0 c0 c0 c0 c0 c0 c0 c0 c0
-c0 c0 c0 c0 c0 c0 c0 c0 c0 c0
-c0 c0 c0 c0 c0 c0 c0 c0 c0 c0
-c0 c0 c0 c0 c0 c0 c0 c0 c0 c0
+fc fc fc b9 b9 b9 b9 fc fc fc
+fc b9 b9 b9 b9 b9 b9 b9 b9 fc
+b9 b9 b9 b9 b9 b9 b9 b9 b9 b9
+b9 b9 b9 b9 b9 b9 b9 b9 b9 b9
+b9 b9 b9 b9 b9 b9 b9 b9 b9 b9
+b9 b9 b9 b9 b9 b9 b9 b9 b9 b9
 
 # --- La mer ---
 salle b8 decor 0f

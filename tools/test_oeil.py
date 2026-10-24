@@ -14,7 +14,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from debug_menu import INV_A, INV_B, TEXT_ACTIVE, Game, sheet
+from debug_menu import GLOBAL_FLAGS, INV_A, INV_B, TEXT_ACTIVE, Game, sheet
 
 OUT = sys.argv[1]
 os.makedirs(OUT, exist_ok=True)
@@ -64,6 +64,11 @@ def moon():
 g = Game()
 g.level(8, 'Ville')
 g.m[INV_A] = 0x05
+# (Marine a déjà demandé à revenir à l'auberge : sinon sa réplique, dehors, arrive au milieu)
+g.m[GLOBAL_FLAGS + 0x64 // 8] |= 1 << (0x64 % 8)
+for _ in range(4):
+    g.text_through()
+    g.w(30)
 check(g.where() == (1, 0xc9), 'le parvis de la tour (1:c9)')
 g.route((6, 4))
 check(g.wait_text(200), "Marine : l'Œil reste fermé, il faut le soleil et la lune")
