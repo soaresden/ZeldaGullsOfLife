@@ -252,7 +252,8 @@ use(TREASURE_SWITCH_HOOK, 'left', 120)
 check(at(5, 2), 'le Grappin-Écho : retour')
 g.route((5, 1))
 g.go('left', (5, 0xc7))
-check(g.where() == (5, 0xf5), '3F : Ganon pose son arène (5:c7 devient 5:f5)')
+check(g.where() == (5, 0xc7) and g.m[0xd00d] >= 0xc0,
+      "3F : Ganon se bat dans la salle de la Tour, Link reste là où il est entré (à l'est, x %02x)" % g.m[0xd00d])
 for _ in range(40):          # Marine, le crâne qui gronde, Ganon apparaît
     g.text_through()
     g.w(20)
