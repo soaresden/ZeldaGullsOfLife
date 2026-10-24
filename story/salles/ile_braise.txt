@@ -152,8 +152,8 @@ salle 29 decor 1e
 
 # --- Le village goron : la forge de Brasia ; au nord, deux rochers (c0) à soulever (Bracelet de force) -> les lacets du cratère ---
 salle 2a decor 1e
-60 60 60 60 c0 c0 60 60 60 60
-60 90 91 92 1a 1b 90 91 92 60
+60 60 60 60 1a 1a 60 60 60 60
+60 90 91 92 c0 c0 90 91 92 60
 60 a0 a1 a2 1a 1b a0 a1 a2 60
 1a 1b 1a 1a 1a 1b 1a 1a 1a 1b
 1a 1a 1b 1a 1a 1a 1a 1a 1a 1a
@@ -193,8 +193,8 @@ fc 1b 1a 1b 1a 1b 1a 1a 1a fc
 fc 1a 1a 1a 1a 1b 1a 1a 1a fc
 fc 1b 1a 1a 1a 1b 1a 1a 1a 1b
 fc 1a 1b 1a 1a 1a 1a 1a 1a 1a
-fc fc fc 0e 0e fc fc fc fc fc
-fc fc fc 0e 0e fc fc fc fc fc
+fc fc fc fc 0e fc fc fc fc fc
+fc fc fc fc 0e fc fc fc fc fc
 fc fc fc fc fc fc fc fc fc fc
 
 # --- La plage noire de l'ouest : nord -> les lacets ---

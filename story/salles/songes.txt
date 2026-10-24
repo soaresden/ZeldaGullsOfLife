@@ -19,14 +19,15 @@ salle 5:eb decor 7d
 2c 3c 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b 2c 3c
 cd cd cd cd cd cd cd cd cd cd cd cd cd cd cd
 
-# --- 2. Les masques : une clairière ; trois masques posés sur l'herbe (ligne 4, colonnes 4, 7, 10).
+# --- 2. Les masques : une clairière ; trois masques posés sur des souches (d7 ; ligne 4, colonnes 4,
+# 7, 10 : posés dans l'herbe, Denis y voyait des têtes de sorcières sans corps).
 # Link arrive en bas (ligne 8, colonne 7) ---
 salle 5:ec decor 7d
 08 09 08 09 08 09 08 09 08 09 08 09 08 09 cd
 2c 3c 2c 3c 2c 3c 2c 3c 2c 3c 2c 3c 2c 3c cd
 08 09 cd 3b 3b 3b 3b 3b 3b 3b 3b 3b cd 08 09
 2c 3c 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b 2c 3c
-cd 3b 3b 3b 2b 3b 3b 2b 3b 3b 2b 3b 3b 3b cd
+cd 3b 3b 3b d7 3b 3b d7 3b 3b d7 3b 3b 3b cd
 cd 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b cd
 08 09 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b 08 09
 2c 3c 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b 3b 2c 3c

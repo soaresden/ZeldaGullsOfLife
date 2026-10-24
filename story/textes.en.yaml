@@ -162,11 +162,10 @@ groups:
       It becomes a
       relic: the
       \col(1)Soul Bracelet\col(0)!\stop
-      Your sword now
-      always shoots a
-      beam, and each
-      hit gives you
-      back some life.
+      Your Spin Attack
+      draws out the
+      souls of foes
+      around you.
 
   # Where did all the items of Link's Awakening go?
   - name: TX_5a15
@@ -3695,27 +3694,35 @@ groups:
     text: |-
       \col(1)Marin\col(0): Masks!
       Try them on,
-      let's see!
+      let's see!\stop
+      A in front of
+      one. All three,
+      okay?
   - name: TX_5b2d
     index: 0x2d
     text: |-
-      \col(1)Marin\col(0): You
-      look like a
+      \col(1)Marin\col(0):
+      \col(1)SMOKIN'!\col(0)\stop
+      You look like a
       sulking nut!
   - name: TX_5b2e
     index: 0x2e
     text: |-
-      \col(1)Marin\col(0): You
-      look... sturdy.\stop
+      \col(1)Marin\col(0):
+      \col(1)SMOKIN'!\col(0)\stop
+      You look...
+      sturdy.\stop
       And a bit heavy.
       Sorry!
   - name: TX_5b2f
     index: 0x2f
     text: |-
-      \col(1)Marin\col(0): Oh!
-      That one suits
-      you! A boy of
-      the sea...
+      \col(1)Marin\col(0):
+      \col(1)SMOKIN'!\col(0)\stop
+      Oh! That one
+      suits you! A
+      boy of the
+      sea...
   - name: TX_5b30
     index: 0x30
     text: |-

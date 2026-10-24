@@ -177,11 +177,11 @@ groups:
       relique: le
       \col(1)Bracelet des
       âmes\col(0)!\stop
-      Ton épée lance
-      toujours un
-      rayon, et chaque
-      coup te rend un
-      peu de vie.
+      Ton attaque
+      tourbillon
+      aspire l'âme des
+      ennemis autour
+      de toi.
 
   # Juste avant : où sont passés tous les objets de Link's Awakening ?
   - name: TX_5a15
@@ -3824,29 +3824,37 @@ groups:
     index: 0x2c
     text: |-
       \col(1)Marine\col(0): Des
-      masques! Essaie-
-      les, pour voir!
+      masques! Mets-
+      les, pour voir!\stop
+      A devant un
+      masque, et les
+      trois, hein!
   - name: TX_5b2d
     index: 0x2d
     text: |-
-      \col(1)Marine\col(0): Tu
-      ressembles à une
-      noix qui boude!
+      \col(1)Marine\col(0):
+      \col(1)SSSSPLENDIDE!\col(0)\stop
+      Tu ressembles à
+      une noix qui
+      boude!
   - name: TX_5b2e
     index: 0x2e
     text: |-
-      \col(1)Marine\col(0): Tu
-      as l'air...
+      \col(1)Marine\col(0):
+      \col(1)SSSSPLENDIDE!\col(0)\stop
+      Tu as l'air...
       solide.\stop
       Et un peu lourd.
       Pardon!
   - name: TX_5b2f
     index: 0x2f
     text: |-
-      \col(1)Marine\col(0): Oh!
-      Celui-là te va
-      bien! Un garçon
-      de la mer...
+      \col(1)Marine\col(0):
+      \col(1)SSSSPLENDIDE!\col(0)\stop
+      Oh! Celui-là
+      te va bien! Un
+      garçon de la
+      mer...
   - name: TX_5b30
     index: 0x30
     text: |-

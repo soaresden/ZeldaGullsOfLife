@@ -189,8 +189,8 @@ fc 3a 3a 3a 3a 1b 3a 3a 3a fc
 fc 3a 1b 3a 3a 3a 3a 13 3a fc
 fc 3a 13 3a 1b 11 11 3a 3a 3a
 fc 3a 3a 3a 10 3a 3a 3a 10 3a
-fc fc fc 0e 0e fc fc fc fc fc
-fc fc fc 0e 0e fc fc fc fc fc
+fc fc fc fc 0e fc fc fc fc fc
+fc fc fc fc 0e fc fc fc fc fc
 fc fc fc fc fc fc fc fc fc fc
 
 # --- La plage grise : nord -> le village ---

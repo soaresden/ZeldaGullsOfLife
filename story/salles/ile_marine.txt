@@ -40,8 +40,8 @@ fc 26 bf bf bf bf bf bf bf bf
 fc 26 bf bf c5 bf bf bf bf bf
 fc 26 bf bf bf bf bf bf bf bf
 fc 26 bf bf bf bf bf bf bf bf
-fc fc fc 0e 0e fc fc fc fc fc
-fc fc fc 0e 0e fc fc fc fc fc
+fc fc fc fc 0e fc fc fc fc fc
+fc fc fc fc 0e fc fc fc fc fc
 fc fc fc fc fc fc fc fc fc fc
 
 # --- La plage aux palmiers (sud-est) ---
