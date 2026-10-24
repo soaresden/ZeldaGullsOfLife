@@ -1,4 +1,4 @@
-"""Test du quiz de Marine sur Cocolint (idée de Denis) : à l'auberge, juste après les photos.
+"""Test du quiz de Marine sur Cocolint (idée de Denis) : à l'auberge du Songe (2:9e), juste après les photos.
 - une première fois avec une erreur : « Tu as oublié des choses... On recommencera ! » ;
 - en revenant à l'auberge : tout juste (le Village des Animaux, il plonge, Richard, le Coq
   Volant, sa mère : pas notée, Mario) : la blague de Tarkin, sa tirade, puis le bisou
@@ -49,9 +49,10 @@ for _ in range(20):
     g.w(20)
 g.m[GLOBAL_FLAGS + GLOBALFLAG_BALLADE_PHOTOS // 8] |= 1 << (GLOBALFLAG_BALLADE_PHOTOS % 8)
 g.m[HEALTH] = 4
+g.m[0xc79e] |= 0x40          # (l'auberge du Songe, 2:9e : le câlin de la première nuit est passé)
 
 # Avec une erreur (le morse : il a dansé)
-g.warp(3, 0x9e, 0x57)
+g.warp(2, 0x9e, 0x17)
 wrong = list(ANSWERS)
 wrong[1] = (0, 3)
 quiz(wrong)
@@ -61,7 +62,7 @@ for _ in range(40):
 check(not g.global_flag(GLOBALFLAG_BALLADE_QUIZ), 'une erreur : pas de bisou')
 
 # Tout juste
-g.warp(3, 0x9e, 0x57)
+g.warp(2, 0x9e, 0x17)
 quiz(ANSWERS, 'z')
 g.text_through(4)
 check(g.wait_text(200), 'la blague de Tarkin, la tirade')
@@ -77,7 +78,7 @@ check(g.m[HEALTH] == g.m[MAX_HEALTH], 'les cœurs pleins')
 for _ in range(10):
     g.text_through()
     g.w(10)
-g.warp(3, 0x9e, 0x57)
+g.warp(2, 0x9e, 0x17)
 g.w(200)
 check(not g.m[TEXT_ACTIVE], 'le quiz ne revient plus')
 

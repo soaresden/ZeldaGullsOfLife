@@ -2611,10 +2611,9 @@ groups:
   - name: TX_5ae8
     index: 0xe8
     text: |-
-      \col(1)Marine\col(0): Hé,
-      qu'est-ce que tu
-      as dans la
-      poche...\stop
+      \col(1)Marine\col(0):
+      J'AI TROUVÉ ÇA
+      DANS TES POCHES!\stop
       Oh! Nos photos!\stop
       Mais comment tu
       fais pour porter
@@ -2691,7 +2690,7 @@ groups:
       \col(1)Marine\col(0): Bon...
       On va voir si tu
       te souviens de
-      Cocolint...
+      tout!
 
   - name: TX_5aef
     index: 0xef
@@ -4582,6 +4581,27 @@ groups:
       J'ai quelque
       chose à te
       dire...
+
+  # À l'auberge, après le chapitre 5 : Marine envoie Link dormir (balladeObjects.inviteDream)
+  - name: TX_5b7b
+    index: 0x7b
+    text: |-
+      \col(1)Marine\col(0): Link...
+      il faut que je
+      te dise un truc,
+      en face à face.\stop
+      Va dormir!
+      Dans le Songe,
+      j'ai un corps!
+
+  # L'auberge du Songe : Marine fouille les poches de Link (balladeObjects.photoScene)
+  - name: TX_5b7c
+    index: 0x7c
+    text: |-
+      \col(1)Marine\col(0): Te
+      voilà! Bouge
+      pas... Fais voir
+      tes poches!
 
   # Les nombres, de 0 à 100 (appelés par \call : wTextSubstitutions)
   - name: TX_5b80

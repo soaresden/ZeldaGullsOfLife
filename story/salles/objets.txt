@@ -42,8 +42,7 @@ salle ab
 # L'auberge (la maison de Nayru d'Ages) : l'aubergiste
 salle 3:9e
 	obj_Interaction INTERAC_BALLADE_NPC $00 $48 $38
-	obj_Interaction INTERAC_BALLADE_OBJECT $37 $08 $08 ; après le chapitre 5 : les photos de Cocolint
-	obj_Interaction INTERAC_BALLADE_OBJECT $39 $08 $08 ; puis le quiz de Marine sur Cocolint
+	obj_Interaction INTERAC_BALLADE_OBJECT $54 $08 $08 ; après le chapitre 5 : « en face à face... va dormir ! »
 	obj_Interaction INTERAC_MARINE $05 $08 $08 ; la fin du chapitre 1 : le tour du village
 	obj_Interaction INTERAC_BALLADE_OBJECT $07 $08 $08 ; parties de la v1.0/1.1 : le Carnet des Rêves
 
@@ -59,6 +58,8 @@ salle 3:5e
 # L'auberge du Songe : Marine humaine, près du lit (Link se réveille dans le rêve en case $17)
 salle 2:9e
 	obj_Interaction INTERAC_BALLADE_NPC $07 $28 $68
+	obj_Interaction INTERAC_BALLADE_OBJECT $37 $08 $08 ; après le chapitre 5 : elle fouille ses poches, les photos de Cocolint
+	obj_Interaction INTERAC_BALLADE_OBJECT $39 $08 $08 ; puis le quiz de Marine sur Cocolint
 
 # --- Le Phare Éteint (donjon 1, groupe 4) ---
 # Le cap, au pied du Phare : après l'essence, Marine parle puis « À suivre... »

@@ -2506,9 +2506,9 @@ groups:
   - name: TX_5ae8
     index: 0xe8
     text: |-
-      \col(1)Marin\col(0): Hey,
-      what's that in
-      your pocket...\stop
+      \col(1)Marin\col(0):
+      I FOUND THIS IN
+      YOUR POCKETS!\stop
       Oh! Our photos!\stop
       How do you carry
       all that stuff?
@@ -2581,7 +2581,7 @@ groups:
       \col(1)Marin\col(0): So...
       Let's see if you
       remember
-      Koholint...
+      everything!
 
   - name: TX_5aef
     index: 0xef
@@ -4417,6 +4417,28 @@ groups:
       to the inn?\stop
       I have something
       to tell you...
+
+  # At the inn, after chapter 5: Marin sends Link to sleep (balladeObjects.inviteDream)
+  - name: TX_5b7b
+    index: 0x7b
+    text: |-
+      \col(1)Marin\col(0): Link...
+      I need to tell
+      you something,
+      face to face.\stop
+      Go to sleep!
+      In the Dream,
+      I have a body...
+
+  # The Dream inn: Marin searches Link's pockets (balladeObjects.photoScene)
+  - name: TX_5b7c
+    index: 0x7c
+    text: |-
+      \col(1)Marin\col(0): There
+      you are! Hold
+      still... Let me
+      check your
+      pockets!
 
   # Les nombres, de 0 à 100 (appelés par \call : wTextSubstitutions)
   - name: TX_5b80
