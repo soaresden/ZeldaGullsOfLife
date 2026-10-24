@@ -282,15 +282,21 @@ Courant ascendant (arrivée) | Prairie suspendue | * | *
 - **Un Rito égaré** (clin d'œil à *Wind Waker*), qui a oublié comment rentrer chez lui.
 
 **Donjon : la Spirale Céleste.** Forme : **une spirale** qui s'enroule vers le centre. Décor : le
-Donjon des Ailes d'*Ages*. Énigmes : sauts et vols planés au-dessus des trous, courants d'air.
+Donjon des Ailes d'*Ages*. Refaite le 24 octobre 2026 (Denis s'y ennuyait) : chaque salle a son
+énigme, chaque cristal agit sous les yeux de Link (des ponts qui se posent case par case, deux
+ponts qui s'échangent), Marine porte la bombe par-dessus des statues jusqu'à un cristal emmuré,
+des murs fissurés à bombarder (dont une salle secrète), et la Cape se gagne au milieu (le
+Fouisseur) puis sert dans toute la seconde moitié (îlots, piliers, torches sur des îlots). Le plan
+salle par salle : story/salles/spirale.txt.
 
 ```donjon 6
+# | # | # | M | #
+# | # | # | B | #
 # | # | # | # | #
-# | M | # | B | #
-# | # | C | # | #
-# | . | . | K | #
+# | S | . | # | K
 # | # | # | # | E
 ```
+(M : le Fouisseur et la Cape ; S : la salle secrète ; K : la clé du boss.)
 
 - **Objet : la Cape de Roc** (la plume niveau 2 : sauter plus loin, planer).
 - **Mini-boss : le Fouisseur** (le Subterror d'*Ages*, la taupe qu'on déterre avec la Pelle de

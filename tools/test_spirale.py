@@ -3,12 +3,18 @@ Donjon). Chaque énigme est résolue comme un joueur :
 - 3d le premier saut (la Plume de Roc) ;
 - 3e le bouton de l'îlot : un saut, un bloc de la Canne dessus, le volet de l'ouest s'ouvre ;
 - 3f trois cases de gouffre : le Grappin-Écho (l'îlot, la petite clé 1, puis la rive ouest) ;
+- 40 le cristal de la rive d'en face au Boomerang : le pont se pose case par case ;
+- 41 le mur fissuré : une bombe, la salle secrète (49, 100 rubis) ;
 - 42 le carrelage bleu peint d'un seul trait (la carte) ;
 - 43 les chauves-souris (la boussole) ; le cristal au Boomerang-Toupie (le volet du nord) ;
+- 44 le cristal emmuré de statues : Marine porte la bombe (Select), le volet de l'est s'ouvre ;
+- 45 les deux ponts : le cristal frappé depuis l'îlot, un pont se replie, l'autre se déploie ;
 - 46 le Grappin-Écho puis un saut (la petite clé 2), et le retour par deux sauts ;
-- 4c le cristal frappé à l'épée : le pont de 4d (la clé du boss) ;
-- 50 la Cape de Roc ; 51 et 53 le double saut ; le Fouisseur ; l'Ombre de Marine ; l'essence ;
-  la fin du chapitre 6.
+- 47 le Fouisseur battu : le coffre de la Cape de Roc ;
+- 48 le premier vol ; 4b la Cape puis le Grappin-Écho ; 4c la Cape et le mur à bombarder ;
+- 4d la Cape jusqu'à l'îlot, Marine et la bombe : la clé du boss ; 4f de pilier en pilier ;
+- 50 deux torches sur deux îlots (la Cape, la Lanterne) ; 51 le double saut ; 52 l'embuscade ;
+  53 le gouffre de trois colonnes ; l'Ombre de Marine ; l'essence ; la fin du chapitre 6.
 
 Seule triche : les ennemis, le mini-boss et le boss sont retirés (leur vie mise à zéro), et Link
 garde sa vie pleine.
@@ -25,6 +31,8 @@ from debug_menu import (BOSS_KEYS, ESSENCES, HEALTH, INV_A, INV_B, MAX_HEALTH, T
 OUT = sys.argv[1]
 os.makedirs(OUT, exist_ok=True)
 TREASURE_CANE, TREASURE_BOOMERANG, TREASURE_SWITCH_HOOK, TREASURE_FEATHER = 0x04, 0x06, 0x0a, 0x17
+TREASURE_BOMBS, TREASURE_HARP = 0x03, 0x11
+TORCHES = 0xcc8f            # wNumTorchesLit
 FEATHER_LEVEL = 0xc6f8      # wFeatherLevel
 GLOBALFLAG_BALLADE_ISLAND7 = 0x56
 INTERAC_ESSENCE = 0x7f
@@ -115,6 +123,29 @@ def chest_up(row, col):
     return g.tile(row * 16 + col) == 0xf0
 
 
+def bomb(facing, away):
+    """Une bombe posée devant Link, puis s'éloigner jusqu'à la case away et attendre l'explosion."""
+    g.m[INV_B] = TREASURE_BOMBS
+    g.face(facing)
+    g.tap('b', 30)              # au-dessus de la tête
+    g.tap('b', 10)              # posée
+    g.route(away)
+    g.w(150)
+
+
+def marine_bomb(facing, wait=250):
+    """Une bombe au-dessus de la tête, Select : Marine l'emporte cinq cases plus loin."""
+    g.m[INV_B] = TREASURE_BOMBS
+    g.face(facing)
+    g.tap('b', 30)
+    g.press('select', 10)
+    g.w(wait)
+
+
+def lantern(facing):
+    use(TREASURE_HARP, facing, 90)
+
+
 def key_door(direction, room):
     g.hold(direction, 40)
     g.w(40)
@@ -172,10 +203,34 @@ hook('left')
 check(at(5, 2), 'le Grappin-Écho : la rive ouest')
 g.route((5, 1))
 check(g.go('left', (4, 0x40)), 'le coin sud-ouest (4:40)')
+# --- 40 : le cristal de la rive nord, le Boomerang : le pont se pose case par case
+check(g.tile(0x27) == 0xf4, 'pas encore de pont')
+g.stand(5, 3)
+use(TREASURE_BOOMERANG, 'up', 30)
+g.w(10)
+shoot('s04a_pont', 'Le pont du cristal se pose')
+g.w(40)
+check(all(g.tile(p) == 0xa0 for p in (0x47, 0x37, 0x27)), 'le cristal au Boomerang : le pont (colonne 7)')
 g.route((5, 7), (1, 7))
 check(key_door('up', (4, 0x41)), 'la porte à clé : 4:41')
+
+# --- 41 : le mur fissuré, la salle secrète
 clear()
-g.route((1, 7))
+check(g.tile(0x5e) == 0x31, "le mur fissuré de l'est")
+g.route((5, 13))
+bomb('right', (5, 9))
+check(g.tile(0x5e) != 0x31, 'une bombe : le mur saute')
+r0 = g.rupees()
+g.route((5, 13))
+check(g.go('right', (4, 0x49)), 'la salle secrète (4:49)')
+g.text_through()
+g.route((5, 2), (6, 2), (6, 7))
+check(chest_up(5, 7), 'le coffre de la salle secrète')
+check(g.rupees() >= r0 + 100, 'cent rubis (%d -> %d)' % (r0, g.rupees()))
+shoot('s04b_secrete', 'La salle secrète')
+g.route((6, 2), (5, 2), (5, 1))
+check(g.go('left', (4, 0x41)), 'retour à 4:41')
+g.route((5, 7), (1, 7))
 check(g.go('up', (4, 0x42)), 'le carrelage bleu (4:42)')
 
 # --- 42 : tout peindre d'un seul trait
@@ -205,11 +260,32 @@ use(TREASURE_BOOMERANG, 'right', 90)
 check(g.tile(0x07) != 0x78, "le cristal au Boomerang-Toupie : le volet s'ouvre")
 shoot('s05_cristal', 'Le cristal au Boomerang-Toupie')
 g.route((1, 7))
-check(g.go('up', (4, 0x44)), 'le coin nord-ouest (4:44)')
-g.route((9, 13), (5, 13))
-check(g.go('right', (4, 0x45)), '4:45')
-clear()
-g.route((5, 13))
+check(g.go('up', (4, 0x44)), 'le cristal emmuré (4:44)')
+
+# --- 44 : le cristal emmuré : Marine porte la bombe par-dessus les statues
+check(g.wait_text(120), 'Marine : moi, je vole')
+g.text_through()
+check(g.tile(0x5e) == 0x79, "le volet de l'est fermé")
+g.route((9, 7), (9, 2), (5, 2))
+marine_bomb('right', 30)
+shoot('s05b_marine', 'Marine porte la bombe par-dessus les statues')
+g.w(220)
+check(g.tile(0x5e) != 0x79, "la bombe sur le cristal emmuré : le volet de l'est s'ouvre")
+g.route((9, 2), (9, 12), (5, 12), (5, 13))
+check(g.go('right', (4, 0x45)), 'les deux ponts (4:45)')
+
+# --- 45 : les deux ponts
+WEST, EAST = (0x53, 0x54, 0x55), (0x59, 0x5a, 0x5b, 0x5c)
+check(all(g.tile(p) == 0xa0 for p in WEST) and all(g.tile(p) == 0xf4 for p in EAST),
+      "le pont de l'ouest posé, pas celui de l'est")
+g.route((5, 2), (5, 7), (4, 7))
+use(TREASURE_BOOMERANG, 'up', 30)
+g.w(10)
+shoot('s05c_ponts', 'Un pont se replie, l\'autre se déploie')
+g.w(60)
+check(all(g.tile(p) == 0xf4 for p in WEST) and all(g.tile(p) == 0xa0 for p in EAST),
+      "le cristal depuis l'îlot : un pont se replie, l'autre se déploie")
+g.route((5, 7), (5, 13))
 check(g.go('right', (4, 0x46)), 'la petite clé 2 (4:46)')
 
 # --- 46 : le Grappin-Écho, puis un saut ; retour par deux sauts
@@ -224,59 +300,117 @@ shoot('s06_cle2', 'Le Grappin-Écho, puis un saut')
 jump(2, 5, 'left')
 check(g.where() == (4, 0x46) and g.link()[0] < 0x30 and g.link()[1] < 0x40, "le retour : la corniche")
 g.route((2, 1), (5, 1), (7, 1), (7, 13), (5, 13))   # le diamant est resté en (6,3)
-check(g.go('right', (4, 0x47)), 'les deux tranchées (4:47)')
-jump(5, 4, 'right')
-jump(5, 8, 'right')
-g.route((5, 13))
-check(g.go('right', (4, 0x48)), 'le coin nord-est (4:48)')
-g.route((5, 7), (9, 7))
-check(key_door('down', (4, 0x4b)), 'la porte à clé : 4:4b')
-clear()
-g.route((9, 7))
-check(g.go('down', (4, 0x4c)), 'le cristal des tranchées (4:4c)')
+check(g.go('right', (4, 0x47)), 'le Fouisseur (4:47)')
 
-# --- 4c : le cristal à l'épée ; 4d : le pont, la clé du boss
-jump(1, 7, 'down', run=12)   # vers le bas : partir une case avant le trou (les pieds y arrivent plus tôt)
-g.route((4, 11))
-g.face('right')
-g.press('a', 10)
-g.w(30)
-check(g.tile(0x4c) == 0x0b, 'le cristal frappé')
-jump(4, 7, 'down', run=12)
-g.route((9, 7))
-check(g.go('down', (4, 0x4d)), "l'îlot de la clé du boss (4:4d)")
-check(all(g.tile(p) == 0xa0 for p in (0x98, 0x99, 0x9a)), 'le pont du cristal')
-shoot('s07_pont', "Le pont : le cristal de la salle d'avant")
-g.route((9, 7), (9, 11))
-check(chest_up(8, 11), 'le coffre de la clé du boss')
-check(g.m[BOSS_KEYS] & 0x40, 'la clé du boss')
-g.route((9, 7), (5, 7), (5, 1))
-check(g.go('left', (4, 0x4e)), '4:4e')
-clear()
-g.route((5, 7), (1, 7))
-check(g.go('up', (4, 0x4f)), '4:4f')
-jump(7, 5, 'left')
-g.route((5, 1))
-check(g.go('left', (4, 0x50)), 'le cœur de la spirale (4:50)')
-
-# --- 50 : la Cape de Roc ; 51 : le double saut
-g.route((6, 13), (6, 7))
-check(chest_up(5, 7), 'le coffre de la Cape de Roc')
-check(g.m[FEATHER_LEVEL] == 2, 'la Cape de Roc (plume niveau %d)' % g.m[FEATHER_LEVEL])
-shoot('s08_cape', 'Le cœur de la spirale : la Cape de Roc')
-g.route((6, 1), (5, 1))
-check(g.go('left', (4, 0x51)), 'le gouffre de trois cases (4:51)')
-jump(5, 7, 'up', double=True, back=6)
-check(g.link()[0] < 0x20, 'la Cape : le double saut')
-g.route((1, 7))
-check(g.go('up', (4, 0x52)), 'le Fouisseur (4:52)')
+# --- 47 : le Fouisseur ; battu, le coffre de la Cape de Roc
 check(wait_intro(), 'le Fouisseur se présente')
-shoot('s09_fouisseur', 'Le Fouisseur')
-check(g.tile(0xa7) == 0x7a, 'les volets fermés')
+shoot('s07_fouisseur', 'Le Fouisseur')
+check(g.tile(0x50) == 0x7b and g.tile(0x5e) == 0x79, 'les volets fermés')
 g.clear_enemies()
 g.w(240)
 full_life()
-check(g.tile(0xa7) != 0x7a, 'le Fouisseur battu : les volets ouverts')
+check(g.tile(0x5e) != 0x79, 'le Fouisseur battu : les volets ouverts')
+check(g.tile(0x37) == 0xf1, 'le coffre de la Cape apparaît')
+g.route((5, 7), (4, 7))
+check(chest_up(3, 7), 'le coffre de la Cape de Roc')
+check(g.m[FEATHER_LEVEL] == 2, 'la Cape de Roc (plume niveau %d)' % g.m[FEATHER_LEVEL])
+shoot('s08_cape', 'Le Fouisseur battu : la Cape de Roc')
+g.route((5, 7), (5, 13))
+check(g.go('right', (4, 0x48)), 'le premier vol (4:48)')
+
+# --- 48 : le premier vol, sans danger
+g.route((5, 7))
+jump(5, 7, 'down', double=True, back=6)
+check(g.where() == (4, 0x48) and g.link()[0] > 0x88, 'la Cape : trois lignes de gouffre')
+g.route((9, 7))
+check(key_door('down', (4, 0x4b)), 'la porte à clé (petite clé 2) : 4:4b')
+
+# --- 4b : la Cape jusqu'à l'îlot, puis le Grappin-Écho
+clear()
+g.route((1, 7), (1, 3))
+jump(1, 3, 'down', double=True, run=14)   # (de l'élan : au bord du trou, la Plume ne part plus)
+check(g.where() == (4, 0x4b) and at(6, 3, 12), "la Cape : l'îlot")
+g.stand(6, 5)
+hook('right')
+check(at(6, 10), "le Grappin-Écho : la rive est")
+shoot('s09_grappin', 'La Cape, puis le Grappin-Écho')
+g.route((6, 13), (9, 13), (9, 7))
+check(g.go('down', (4, 0x4c)), 'le mur à bombarder (4:4c)')
+
+# --- 4c : la Cape, une bombe contre le mur fissuré
+g.route((4, 7))
+jump(4, 7, 'down', double=True, run=12)
+check(g.where() == (4, 0x4c) and g.link()[0] > 0x88, 'la Cape : la rive du bas')
+check(g.tile(0xa7) == 0x32, 'le mur fissuré du sud')
+g.stand(9, 7)
+bomb('down', (9, 3))
+check(g.tile(0xa7) != 0x32, 'une bombe : le passage vers 4d')
+g.route((9, 7))
+check(g.go('down', (4, 0x4d)), 'le cristal du vide (4:4d)')
+
+# --- 4d : la Cape jusqu'à l'îlot ; de là, Marine porte la bombe
+g.route((1, 7), (1, 5))
+jump(1, 5, 'down', double=True, run=14)
+check(g.where() == (4, 0x4d) and at(6, 5, 12), "la Cape : l'îlot")
+g.stand(7, 6)
+marine_bomb('right', 30)
+shoot('s10_vide', 'Depuis l\'îlot, Marine porte la bombe')
+g.w(220)
+check(g.tile(0x65) == 0xf1, "le cristal du vide : le coffre de la clé du boss apparaît sur l'îlot")
+g.stand(7, 5)
+check(chest_up(6, 5), 'le coffre de la clé du boss')
+check(g.m[BOSS_KEYS] & 0x40, 'la clé du boss')
+jump(7, 5, 'left', double=True, back=6)
+check(g.where() == (4, 0x4d) and g.link()[1] < 0x20, 'la Cape : la rive ouest')
+g.route((5, 1))
+check(g.go('left', (4, 0x4e)), '4:4e')
+clear()
+g.route((5, 7), (1, 7))
+check(g.go('up', (4, 0x4f)), 'les piliers (4:4f)')
+
+# --- 4f : de pilier en pilier
+clear()
+jump(9, 7, 'up', double=True, back=6)
+check(g.where() == (4, 0x4f) and g.link()[0] < 0x60, 'la Cape : le pilier')
+g.stand(5, 7)
+jump(5, 7, 'left', double=True)
+check(g.where() == (4, 0x4f) and g.link()[1] < 0x40, "la Cape : la rive de l'ouest")
+g.route((5, 1))
+check(g.go('left', (4, 0x50)), 'le cœur de la spirale (4:50)')
+
+# --- 50 : deux torches sur deux îlots
+check(g.tile(0x50) == 0x7b, "le volet de l'ouest fermé")
+g.route((4, 13))
+jump(4, 13, 'left', double=True)
+check(at(4, 9, 12), "la Cape : l'îlot de l'est")
+g.stand(4, 9)
+lantern('down')
+check(g.m[TORCHES] == 1, 'la Lanterne : une torche (%d)' % g.m[TORCHES])
+jump(4, 8, 'left')
+check(at(4, 6, 12), "la Plume : l'îlot de l'ouest")
+g.stand(4, 5)
+lantern('down')
+g.w(60)
+check(g.m[TORCHES] == 2 and g.tile(0x50) != 0x7b, "les deux torches : le volet de l'ouest s'ouvre")
+shoot('s11_torches', 'Le cœur : les deux torches')
+jump(4, 5, 'left', double=True)
+check(g.link()[1] < 0x20, "la Cape : l'anneau")
+g.route((5, 1))
+check(g.go('left', (4, 0x51)), 'le gouffre de trois lignes (4:51)')
+jump(5, 7, 'up', double=True, back=6)
+check(g.link()[0] < 0x20, 'la Cape : le double saut')
+g.route((1, 7))
+check(g.go('up', (4, 0x52)), "l'embuscade (4:52)")
+
+# --- 52 : l'embuscade (les portes se ferment quand Link s'en écarte)
+g.route((7, 7))
+g.w(60)
+check(g.tile(0xa7) == 0x7a or g.tile(0x5e) == 0x79, 'les portes se ferment')
+shoot('s12_embuscade', "L'embuscade")
+g.clear_enemies()
+g.w(120)
+full_life()
+check(g.tile(0x5e) != 0x79, "les ennemis battus : la porte de l'est s'ouvre")
 g.route((8, 7), (8, 13), (5, 13))
 check(g.go('right', (4, 0x53)), 'le gouffre de trois cases (4:53)')
 jump(5, 4, 'right', double=True, back=6)

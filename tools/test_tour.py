@@ -252,8 +252,20 @@ if ganon:
     check(g.m[ganon[0] + 0x29] == life, "sans l'Épée de Légende, Ganon ne perd rien (vie %d)" % life)
     check(g.wait_text(60), "Marine : « Bulle parlait d'une épée, au fond de la Fosse... »")
     shoot('t07b_ganon_marine', "Sans l'Épée de Légende")
-    g.text_through()
+# Puis « On sort d'ici ? On reviendra avec l'épée ! » : Oui, le parvis de la tour
+for _ in range(30):
+    if g.where()[0] == 1:
+        break
+    g.press('a', 15)
+g.settled()
+check(g.where() == (1, 0xc9), "Marine : « On sort d'ici ? » Oui : le parvis de la tour (1:c9)")
+# Revenu avec l'Épée de Légende : « Maintenant, tu n'as aucune chance ! »
 g.m[SWORD_LEVEL] = 3          # (l'Épée de Légende)
+g.warp(5, 0xc7, 0x5d)
+g.settled()
+check(g.wait_text(300), "Marine : « Maintenant, tu n'as aucune chance ! »")
+shoot('t07c_chance', "Maintenant, tu n'as aucune chance !")
+g.text_through()
 check(nightmare(0xc7, 0xc7), "avec l'Épée de Légende : Ganon vaincu")
 shoot('t08_ganon_fin', 'Ganon vaincu')
 check(stairs(5, 7, (5, 0xc8)), "l'escalier : 4F (5:c8)")

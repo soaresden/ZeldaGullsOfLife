@@ -1,29 +1,57 @@
 # La Spirale Céleste (donjon 6, dans le Nid des Vents) : groupe 4, des salles du Donjon des Ailes
-# d'Ages (4:3c-48) et de la Grotte Lunaire (4:4b-54) avec le décor 3b (une copie du Donjon des
+# d'Ages (4:3c-49) et de la Grotte Lunaire (4:4b-54) avec le décor 3b (une copie du Donjon des
 # Ailes, à l'index de donjon 6, aux couleurs du ciel : make_songe.py). Un seul étage
 # (dungeon06LayoutSpirale), en spirale. Voir story/iles.md.
 #
 # Briques : b8 b0 b9 / b3 b1 / ba b2 bb murs ; a0 sol ; a3 tapis ; 26 statues ; 10 pots ; f4 trou ;
-#   f1 coffre ; 0c bouton ; 0a cristal ; db diamant (le Grappin-Écho) ; 9f carrelage bleu (9e la
-#   case jaune, 9d rouge) ; 70 / 72 porte à clé (haut / bas) ; 75 porte du boss (droite) ; 78-7b
-#   volets ; e0-e6 l'arche de l'entrée.
+#   f1 coffre ; 08 torche (la Lanterne l'allume) ; 0c bouton ; 0a cristal ; db diamant (le
+#   Grappin-Écho) ; 9f carrelage bleu (9e la case jaune, 9d rouge) ; 70 / 72 porte à clé (haut /
+#   bas) ; 75 porte du boss (droite) ; 78-7b volets (haut, droite, bas, gauche) ; 30-33 mur fissuré
+#   (haut, droite, bas, gauche : une bombe l'ouvre, des deux côtés) ; e0-e6 l'arche de l'entrée.
 #
-# Plan (la spirale) :
-#   44 | 45 | 46 clé 2 | 47 | 48
-#   43 boussole, cristal | 52 Fouisseur | 53 | 54 l'Ombre | 4b
-#   42 carte (carrelage) | 51 | 50 le cœur (la Cape) | 4f | 4c cristal
-#   41 | . | . | 4e | 4d clé du boss
-#   40 | 3f clé 1 | 3e bouton | 3d premier saut | 3c l'entrée
+# Plan (la spirale ; 49 = la salle secrète, derrière le mur fissuré de 41) :
+#   44 cristal emmuré | 45 deux ponts       | 46 clé 2            | 47 Fouisseur, la Cape | 48 premier vol
+#   43 boussole       | 52 embuscade        | 53 porte du boss    | 54 l'Ombre            | 4b vol + grappin
+#   42 carte          | 51 double saut      | 50 deux torches     | 4f les piliers        | 4c mur à bombarder
+#   41 mur fissuré    | 49 (secrète)        | .                   | 4e raccourci          | 4d clé du boss
+#   40 pont du cristal| 3f clé 1            | 3e bouton           | 3d premier saut       | 3c l'entrée
 #
-# Les énigmes :
-#   3d la Plume de Roc, sans danger ; le gouffre du haut : le raccourci du cœur (4e -> 3d), à la Cape
-#   3e le bouton sur l'îlot ne tient que sous un poids : un bloc de la Canne dessus ouvre l'ouest
-#   3f deux cases de gouffre : la Plume ne suffit pas, le Grappin-Écho et le diamant de l'îlot
+# Refaite le 24 octobre 2026 (Denis : « on fait que marcher en rond, les switch qu'on tape je vois
+# même pas leur effet, la cape niveau 2 elle est gratuite et elle sert juste à un seul saut, on
+# utilise jamais nos objets ; le coup de la bombe avec Marine et Select faut l'exploiter »). Chaque
+# salle a son énigme, chaque interrupteur agit sous les yeux de Link, la Cape se gagne au milieu et
+# sert dans toute la seconde moitié. Les objets : Plume (3d), Canne (3e), Grappin-Écho (3f, 46,
+# 4b), Boomerang (40, 43, 45), Marine et la bombe (44, 4d), bombes (41, 4c), Pelle (le Fouisseur),
+# Cape (48, 4b, 4c, 4d, 4f, 50, 51, 53, le raccourci 4e -> 3d), Lanterne (50).
+#
+# Les énigmes, dans l'ordre :
+#   3d la Plume, sans danger ; au nord, un gouffre de trois cases : le raccourci du retour (Cape)
+#   3e le bouton de l'îlot ne tient que sous un poids : un bloc de la Canne (le volet de l'ouest)
+#   3f l'îlot de la petite clé 1 : le Grappin-Écho, d'un diamant à l'autre
+#   40 un cristal sur la rive d'en face : le Boomerang par-dessus le gouffre, et un pont se pose
+#      case par case (porte à clé, clé 1)
+#   41 des Stalfos ; le mur de l'est est fissuré (la carte montre une salle derrière) : une bombe,
+#      la salle secrète 49 (100 rubis)
 #   42 le carrelage bleu : tout peindre d'un seul trait (la carte)
-#   43 le cristal de l'autre coté du gouffre : le Boomerang-Toupie (le volet du nord)
-#   46 le Grappin-Écho jusqu'à un îlot, puis un saut (la petite clé 2)
-#   4c -> 4d le cristal d'une salle jette un pont dans la suivante (la clé du boss)
-#   50 la Cape de Roc ; 51 le double saut ; 53 trois cases ; le Fouisseur (la Pelle) ; l'Ombre
+#   43 les chauves-souris (la boussole) ; le cristal de l'autre côté du gouffre : le Boomerang
+#   44 un cristal emmuré de statues : ni l'épée ni le Boomerang n'y arrivent. Une bombe, Select :
+#      Marine la dépose par-dessus les statues, le cristal s'allume, le volet de l'est s'ouvre
+#   45 deux ponts : de la rive ouest à l'îlot, puis de l'îlot à la rive est ; le cristal du pilier
+#      les échange. Le frapper depuis l'îlot (Boomerang) : un pont se replie, l'autre se déploie
+#   46 le Grappin-Écho puis un saut : la petite clé 2
+#   47 le Fouisseur (la Pelle le déterre) ; vaincu, le coffre de la Cape de Roc apparaît
+#   48 le premier vol, sans danger : trois lignes de gouffre devant la porte à clé (clé 2)
+#   4b la Cape jusqu'à l'îlot, puis le Grappin-Écho jusqu'au diamant de la rive est
+#   4c pas de porte au sud : un mur fissuré au-delà de trois lignes de gouffre. La Cape, une bombe
+#      (ou Marine depuis la rive) : le passage vers 4d
+#   4d le cristal emmuré, au milieu du vide : trop loin de la rive pour Marine. La Cape jusqu'à
+#      l'îlot, de là Marine porte la bombe : le coffre de la clé du boss apparaît sur l'îlot
+#   4e des ennemis ; au sud, le raccourci vers 3d (l'entrée), à la Cape
+#   4f deux sauts de Cape de pilier en pilier, des chauves-souris
+#   50 le cœur : deux torches sur deux îlots (la Cape, puis la Lanterne) ouvrent le volet de l'ouest
+#   51 trois lignes de gouffre sous la porte du nord (la Cape)
+#   52 l'embuscade : les portes se ferment, des Stalfos et des chauves-souris
+#   53 trois colonnes de gouffre ; la porte du boss ; 54 l'Ombre de Marine
 
 # --- L'entrée : l'arche du bas ramène au Nid (1:48) ; ouest ---
 salle 4:3c decor 3b
@@ -81,13 +109,13 @@ b3 a0 a0 a0 f4 f4 f4 f4 f4 f4 f4 a0 a0 a0 b1
 b3 a0 a0 a0 f4 f4 f4 f4 f4 f4 f4 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
-# --- Le coin sud-ouest : la porte à clé du nord (petite clé 1) ---
+# --- Le pont du cristal : le cristal (1,3) sur la rive nord, au-delà de trois lignes de gouffre ; le Boomerang depuis la rive sud ; le pont (colonne 7, lignes 2-4) se pose case par case (balladeObjects.skyBridge) ; la porte à clé du nord (petite clé 1) ---
 salle 4:40 decor 3b
 b8 b0 b0 b0 b0 b0 b0 70 b0 b0 b0 b0 b0 b0 b9
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 26 a0 a0 a0 a0 a0 26 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 0a a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 b1
+b3 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 b1
+b3 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 26 a0 a0 a0 a0 a0 26 a0 a0 a0 b1
@@ -95,16 +123,16 @@ b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
-# --- Des Stalfos ; sud : la porte à clé, nord ---
+# --- Des Stalfos ; sud : la porte à clé, nord ; à l'est, le mur fissuré (31) : la salle secrète (49) ---
 salle 4:41 decor 3b
 b8 b0 b0 b0 b0 b0 b0 a0 b0 b0 b0 b0 b0 b0 b9
 b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 26 a0 a0 a0 a0 a0 a0 a0 26 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 31
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 26 a0 a0 a0 a0 a0 a0 a0 26 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 72 b2 b2 b2 b2 b2 b2 bb
@@ -137,32 +165,32 @@ b3 a0 a0 a0 a0 a0 a0 a0 a0 f4 f4 f4 f4 f4 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 a0 b2 b2 b2 b2 b2 b2 bb
 
-# --- Le coin nord-ouest : un anneau de trous (on en fait le tour) ---
+# --- Le cristal emmuré (5,7) : huit statues autour, un anneau de gouffre ; une bombe portée par Marine (Select) depuis (5,2), (5,12) ou (9,7) ; le volet de l'est (79) s'ouvre ---
 salle 4:44 decor 3b
 b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 f4 f4 f4 f4 f4 f4 f4 f4 f4 a0 a0 b1
-b3 a0 a0 f4 a0 a0 a0 a0 a0 a0 a0 f4 a0 a0 b1
-b3 a0 a0 f4 a0 a0 a0 26 a0 a0 a0 f4 a0 a0 a0
-b3 a0 a0 f4 a0 a0 a0 a0 a0 a0 a0 f4 a0 a0 b1
-b3 a0 a0 f4 f4 f4 f4 f4 f4 f4 f4 f4 a0 a0 b1
+b3 a0 a0 a0 a0 f4 f4 f4 f4 f4 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 f4 26 26 26 f4 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 f4 26 0a 26 f4 a0 a0 a0 a0 79
+b3 a0 a0 a0 a0 f4 26 26 26 f4 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 f4 f4 f4 f4 f4 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 a0 b2 b2 b2 b2 b2 b2 bb
 
-# --- Des Stalfos ; ouest, est ---
+# --- Les deux ponts : le pont de l'ouest (ligne 5, colonnes 3-5) est posé quand le cristal du pilier (1,7) est éteint, celui de l'est (colonnes 9-12) quand il est allumé ; le Boomerang depuis l'îlot (4,7) ---
 salle 4:45 decor 3b
 b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 26 a0 a0 a0 a0 a0 26 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 26 a0 a0 a0 a0 a0 26 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 f4 f4 f4 f4 0a f4 f4 f4 f4 f4 a0 b1
+b3 a0 a0 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 a0 b1
+b3 a0 a0 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 a0 b1
+b3 a0 a0 f4 f4 f4 a0 a0 a0 f4 f4 f4 f4 a0 b1
+a0 a0 a0 f4 f4 f4 a0 a0 a0 f4 f4 f4 f4 a0 a0
+b3 a0 a0 f4 f4 f4 a0 a0 a0 f4 f4 f4 f4 a0 b1
+b3 a0 a0 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 a0 b1
+b3 a0 a0 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 a0 b1
+b3 a0 a0 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 a0 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
 # --- La petite clé 2 : le Grappin-Écho jusqu'au diamant (2,3) depuis (6,3) (trois cases de gouffre), puis un saut d'une case jusqu'à l'îlot du coffre (1,5) ---
@@ -179,74 +207,90 @@ b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
-# --- Deux tranchées (colonnes 5 et 9) ---
+# --- Le Fouisseur (mini-boss) : portes ouvertes dans le plan, leurs contrôleurs les ferment tant qu'il vit
+# (un volet déjà fermé dans le plan bloque le combat : le boss attend que wcc93 retombe) ; vaincu, le
+# coffre de la Cape de Roc apparaît (3,7) ---
 salle 4:47 decor 3b
 b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
-b3 a0 a0 a0 a0 f4 a0 a0 a0 f4 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 f4 a0 26 a0 f4 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 f4 a0 a0 a0 f4 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 f4 a0 a0 a0 f4 a0 a0 a0 a0 b1
-a0 a0 a0 a0 a0 f4 a0 a0 a0 f4 a0 a0 a0 a0 a0
-b3 a0 a0 a0 a0 f4 a0 a0 a0 f4 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 f4 a0 a0 a0 f4 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 f4 a0 26 a0 f4 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 f4 a0 a0 a0 f4 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
-# --- Le coin nord-est : la porte à clé du sud (petite clé 2) ---
+# --- Le premier vol, sans danger : trois lignes de gouffre (6-8) entre l'ouest et la porte à clé du sud (petite clé 2) ---
 salle 4:48 decor 3b
 b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 26 a0 a0 a0 a0 a0 26 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 26 a0 a0 a0 a0 a0 26 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 b1
+b3 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 b1
+b3 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 72 b2 b2 b2 b2 b2 b2 bb
 
-# --- Des ennemis ; nord : la porte à clé, sud ---
+# --- La salle secrète (derrière le mur fissuré de 41) : un coffre (100 rubis), des pots ---
+salle 4:49 decor 3b
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 10 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 10 b1
+b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
+b3 a0 a0 a0 a3 a3 a3 a3 a3 a3 a3 a0 a0 a0 b1
+b3 a0 a0 a0 a3 a3 a3 a3 a3 a3 a3 a0 a0 a0 b1
+33 a0 a0 a0 a3 a3 a3 f1 a3 a3 a3 a0 a0 a0 b1
+b3 a0 a0 a0 a3 a3 a3 a3 a3 a3 a3 a0 a0 a0 b1
+b3 a0 a0 a0 a3 a3 a3 a3 a3 a3 a3 a0 a0 a0 b1
+b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
+b3 10 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 10 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- La Cape puis le Grappin-Écho : de la rive nord (deux lignes : de l'élan), trois lignes de gouffre jusqu'à l'îlot (lignes 6-7, colonnes 1-5) ; de l'îlot (6,5), le diamant (6,10) : la rive est, puis la porte du sud ---
 salle 4:4b decor 3b
 b8 b0 b0 b0 b0 b0 b0 70 b0 b0 b0 b0 b0 b0 b9
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 f4 f4 f4 f4 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 f4 f4 f4 f4 b1
+b3 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 b1
+b3 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 b1
+b3 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 b1
+b3 a0 a0 a0 a0 a0 f4 f4 f4 f4 db a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 f4 f4 f4 f4 f4 f4 f4 a0 b1
+b3 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 a0 b1
+b3 f4 f4 f4 f4 f4 f4 a0 a0 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 a0 b2 b2 b2 b2 b2 b2 bb
 
-# --- Deux tranchées (lignes 3 et 6 : la Plume porte presque trois cases, il faut deux lignes pour atterrir) ; le cristal (4,12) : un pont apparaît dans la salle suivante (4d) ---
+# --- Pas de porte au sud : le mur fissuré (32) au-delà de trois lignes de gouffre (6-8) ; la Cape jusqu'à la rive du bas, une bombe (ou Marine depuis la rive du haut) : le passage vers 4d ---
 salle 4:4c decor 3b
 b8 b0 b0 b0 b0 b0 b0 a0 b0 b0 b0 b0 b0 b0 b9
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 26 a0 a0 a0 a0 a0 a0 a0 26 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 0a a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 b1
 b3 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-ba b2 b2 b2 b2 b2 b2 a0 b2 b2 b2 b2 b2 b2 bb
+ba b2 b2 b2 b2 b2 b2 32 b2 b2 b2 b2 b2 b2 bb
 
-# --- L'îlot de la clé du boss (8,11) : trois et quatre cases de gouffre ; le pont (9,8)-(9,10) apparaît quand le cristal de 4c est frappé ---
+# --- Le cristal emmuré (7,11) au milieu du vide, trop loin des rives pour Marine ; l'îlot (lignes 6-8, colonnes 5-6) à trois cases de chaque rive (la Cape ; la rive nord a deux lignes, pour l'élan) ; de l'îlot (7,6), Marine porte la bombe : le coffre de la clé du boss apparaît sur l'îlot (6,5) ; nord : le mur fissuré de 4c ---
 salle 4:4d decor 3b
-b8 b0 b0 b0 b0 b0 b0 a0 b0 b0 b0 b0 b0 b0 b9
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 f4 f4 f4 f4 f4 f4 b1
-a0 a0 a0 a0 a0 a0 a0 a0 f4 f4 f4 f4 f4 f4 b1
-b3 a0 a0 a0 a0 a0 a0 a0 f4 f4 f4 f4 f4 f4 b1
-b3 a0 a0 a0 a0 a0 a0 a0 f4 f4 f4 f4 f4 f4 b1
-b3 a0 a0 a0 a0 a0 a0 a0 f4 f4 f4 f1 f4 f4 b1
-b3 a0 a0 a0 a0 a0 a0 a0 f4 f4 f4 a0 f4 f4 b1
+b8 b0 b0 b0 b0 b0 b0 30 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 a0 a0 f4 f4 f4 f4 f4 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 f4 f4 f4 f4 f4 b1
+b3 a0 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 b1
+b3 a0 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 b1
+a0 a0 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 b1
+b3 a0 f4 f4 f4 a0 a0 f4 f4 f4 26 26 26 f4 b1
+b3 a0 f4 f4 f4 a0 a0 f4 f4 f4 26 0a 26 f4 b1
+b3 a0 f4 f4 f4 a0 a0 f4 f4 f4 26 26 26 f4 b1
+b3 a0 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
 # --- Des ennemis ; est, nord ; au sud, le raccourci vers 3d (l'entrée), à la Cape ---
@@ -263,31 +307,31 @@ b3 a0 26 a0 a0 a0 a0 a0 a0 a0 a0 a0 26 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 a0 b2 b2 b2 b2 b2 b2 bb
 
-# --- Des trous (colonnes 4 et 10, ligne 5) ---
+# --- Les piliers : de la rive du sud (ligne 9), la Cape jusqu'au pilier (lignes 4-5, colonne 7), puis jusqu'à la rive de l'ouest (lignes 4-6, colonnes 1-3) ; des chauves-souris ---
 salle 4:4f decor 3b
 b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
-b3 a0 a0 a0 f4 a0 a0 a0 a0 a0 f4 a0 a0 a0 b1
-b3 a0 a0 a0 f4 a0 a0 a0 a0 a0 f4 a0 a0 a0 b1
-b3 a0 a0 a0 f4 a0 a0 a0 a0 a0 f4 a0 a0 a0 b1
-b3 a0 a0 a0 f4 a0 a0 a0 a0 a0 f4 a0 a0 a0 b1
-a0 a0 a0 a0 f4 f4 f4 f4 f4 f4 f4 a0 a0 a0 b1
-b3 a0 a0 a0 f4 a0 a0 a0 a0 a0 f4 a0 a0 a0 b1
-b3 a0 a0 a0 f4 a0 a0 a0 a0 a0 f4 a0 a0 a0 b1
-b3 a0 a0 a0 f4 a0 a0 a0 a0 a0 f4 a0 a0 a0 b1
-b3 a0 a0 a0 f4 a0 a0 a0 a0 a0 f4 a0 a0 a0 b1
+b3 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 b1
+b3 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 b1
+b3 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 b1
+b3 a0 a0 a0 f4 f4 f4 a0 f4 f4 f4 f4 f4 f4 b1
+a0 a0 a0 a0 f4 f4 f4 a0 f4 f4 f4 f4 f4 f4 b1
+b3 a0 a0 a0 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 b1
+b3 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 b1
+b3 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 b1
+b3 f4 f4 f4 f4 f4 a0 a0 a0 f4 f4 f4 f4 f4 b1
 ba b2 b2 b2 b2 b2 b2 a0 b2 b2 b2 b2 b2 b2 bb
 
-# --- Le cœur de la spirale : le coffre de la Cape de Roc (5,7) ---
+# --- Le cœur de la spirale : deux torches éteintes, chacune sur un îlot à trois cases de l'anneau (la Cape) ; la Lanterne les allume ; le volet de l'ouest (7b) s'ouvre ---
 salle 4:50 decor 3b
 b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 26 a3 a3 a3 a3 a3 a3 a3 a3 a3 26 a0 b1
-b3 a0 a0 a3 a3 a3 a3 a3 a3 a3 a3 a3 a0 a0 b1
-b3 a0 a0 a3 a3 a3 a3 a3 a3 a3 a3 a3 a0 a0 b1
-a0 a0 a0 a3 a3 a3 a3 f1 a3 a3 a3 a3 a0 a0 a0
-b3 a0 a0 a3 a3 a3 a3 a3 a3 a3 a3 a3 a0 a0 b1
-b3 a0 a0 a3 a3 a3 a3 a3 a3 a3 a3 a3 a0 a0 b1
-b3 a0 26 a3 a3 a3 a3 a3 a3 a3 a3 a3 26 a0 b1
+b3 a0 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 a0 b1
+b3 a0 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 a0 b1
+b3 a0 f4 f4 f4 a0 a0 f4 a0 a0 f4 f4 f4 a0 b1
+7b a0 f4 f4 f4 08 a0 f4 a0 08 f4 f4 f4 a0 a0
+b3 a0 f4 f4 f4 a0 a0 f4 a0 a0 f4 f4 f4 a0 b1
+b3 a0 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 a0 b1
+b3 a0 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 f4 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
@@ -305,19 +349,18 @@ b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
-# --- Le Fouisseur (mini-boss) : portes ouvertes dans le plan, leurs contrôleurs les ferment tant qu'il vit
-# (un volet déjà fermé dans le plan bloque le combat : le boss attend que wcc93 retombe) ---
+# --- L'embuscade : portes ouvertes dans le plan, leurs contrôleurs les ferment tant qu'il reste des ennemis ---
 salle 4:52 decor 3b
 b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
+b3 a0 a0 26 a0 a0 a0 a0 a0 a0 a0 26 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 26 a0 a0 a0 a0 a0 a0 a0 26 a0 a0 b1
+b3 10 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 10 b1
 ba b2 b2 b2 b2 b2 b2 a0 b2 b2 b2 b2 b2 b2 bb
 
 # --- Un gouffre de trois cases (colonnes 5-7) ; à l'est, la porte du boss (75) ---

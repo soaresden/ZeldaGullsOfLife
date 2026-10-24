@@ -338,6 +338,10 @@ for x, what in ((0x18, 'des bombes'), (0xd8, 'des graines')):
     g.face('up')
     g.press('a', 20)
     g.w(30)
+g.w(20)
+check(all(g.tile(p) == t for p, t in ((0x11, 0x20), (0x12, 0x21), (0x21, 0x20), (0x22, 0x21),
+                                     (0x1c, 0x20), (0x1d, 0x21), (0x2c, 0x20), (0x2d, 0x21))),
+      'les fougères repoussent aussitôt coupées')
 # (sortis sous les pieds de Link : ramassés aussitôt)
 got = (g.m[0xc6b0], g.m[0xc6b9])
 check((4 in drops() or got[0]) and (5 in drops() or got[1]),

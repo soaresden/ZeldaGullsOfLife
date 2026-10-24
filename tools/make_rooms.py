@@ -98,7 +98,8 @@ def read_plans():
 
 # Donjons : un octet par salle dans rooms/ages/groupNDungeonProperties.bin
 # (constants/common/dungeonRoomProperties.s) : les ouvertures pour la mini-carte, coffre, boss, noir
-WALLS = {0xb0, 0xb1, 0xb2, 0xb3, 0xb8, 0xb9, 0xba, 0xbb}
+WALLS = {0xb0, 0xb1, 0xb2, 0xb3, 0xb8, 0xb9, 0xba, 0xbb,
+         0x30, 0x31, 0x32, 0x33}   # (un mur fissuré : un mur sur la carte, la salle se devine)
 DARK, BOSS, CHEST = 0x80, 0x40, 0x20
 
 

@@ -188,6 +188,26 @@ groups:
       lui qui la fait
       marcher!
 
+  # La Spirale : le cristal emmuré (4:44), puis la salle secrète (4:49)
+  - name: TX_5a1e
+    index: 0x1e
+    text: |-
+      \col(1)Marine\col(0): Ce
+      cristal est bien
+      gardé...\stop
+      Toi, tu ne
+      passes pas les
+      statues. Moi, je
+      vole, tu sais.
+  - name: TX_5a1f
+    index: 0x1f
+    text: |-
+      \col(1)Marine\col(0): Une
+      salle cachée!\stop
+      Le mur sonnait
+      creux. Bien vu,
+      Link!
+
   - name: TX_5a1d
     index: 0x1d
     text: |-
@@ -372,6 +392,16 @@ groups:
       tunique!
 
   # Partout ailleurs : une réplique au hasard
+  # La tour : devant Ganon sans l'Épée de Légende, Marine propose de sortir (Select)
+  - name: TX_5a0f
+    index: 0x0f
+    text: |-
+      \col(1)Marine\col(0): On
+      sort d'ici? On
+      reviendra avec
+      l'épée!
+        \opt()Oui \opt()Non
+
   - name: TX_5a10
     index: 0x10
     text: |-
@@ -3682,6 +3712,15 @@ groups:
       chanson.
 
   # Le volley : le score
+  # La tour : revenu avec l'Épée de Légende, Marine à Ganon
+  - name: TX_5b17
+    index: 0x17
+    text: |-
+      \col(1)Marine\col(0):
+      Maintenant, tu
+      n'as aucune
+      chance!
+
   - name: TX_5b18
     index: 0x18
     text: |-

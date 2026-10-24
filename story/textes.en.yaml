@@ -171,6 +171,26 @@ groups:
       is inside! It's
       making it walk!
 
+  # La Spirale : le cristal emmuré (4:44), puis la salle secrète (4:49)
+  - name: TX_5a1e
+    index: 0x1e
+    text: |-
+      \col(1)Marin\col(0): That
+      crystal is well
+      guarded...\stop
+      You can't get
+      past statues.
+      I can fly, you
+      know.
+  - name: TX_5a1f
+    index: 0x1f
+    text: |-
+      \col(1)Marin\col(0): A
+      hidden room!\stop
+      That wall
+      sounded hollow.
+      Nice one, Link!
+
   - name: TX_5a1d
     index: 0x1d
     text: |-
@@ -350,6 +370,16 @@ groups:
       tunic!
 
   # Anywhere else: a random line
+  # La tour : devant Ganon sans l'Épée de Légende, Marine propose de sortir (Select)
+  - name: TX_5a0f
+    index: 0x0f
+    text: |-
+      \col(1)Marin\col(0): Let's
+      get out of here?
+      We'll come back
+      with the sword!
+        \opt()Yes \opt()No
+
   - name: TX_5a10
     index: 0x10
     text: |-
@@ -3549,6 +3579,14 @@ groups:
       song.
 
   # Volleyball: the score
+  # La tour : revenu avec l'Épée de Légende, Marine à Ganon
+  - name: TX_5b17
+    index: 0x17
+    text: |-
+      \col(1)Marin\col(0): Now
+      you don't stand
+      a chance!
+
   - name: TX_5b18
     index: 0x18
     text: |-

@@ -24,7 +24,7 @@ fc fc fc fc a7 fc fc fc fc fc
 fc fc fc fc a7 fc fc fc fc fc
 fc fc fc fc fc fc fc fc fc fc
 
-# --- La Tour Sans-Nuit : sa porte (ligne 4, colonne 4) est un mur (82) tant que Marine n'a pas chanté les sept couplets ; sud -> le ponton, ouest / est (lignes 6-7) -> les paupières ---
+# --- La Tour Sans-Nuit : sa porte (ligne 4, colonne 4) est un mur (82) tant que Marine n'a pas chanté les sept couplets ; sud (colonnes 4-5 seulement : ailleurs, on tombait dans la mer du ponton, Denis) -> le ponton, ouest / est (ligne 6) -> les paupières ---
 salle c9 decor 0f
 84 85 86 86 86 86 86 86 87 88
 94 95 96 96 96 96 96 96 97 98
@@ -33,9 +33,9 @@ salle c9 decor 0f
 83 9c 8d 82 82 82 8a 82 6d 9f
 aa 83 9d 81 a7 a7 9a 83 7d a8
 a7 a7 a7 a7 a7 a7 a7 a7 a7 a7
-a7 a7 a7 a7 a7 a7 a7 a7 a7 a7
+c0 c0 c0 c0 a7 a7 c0 c0 c0 c0
 
-# --- La paupière ouest : un croissant de rochers ; est (lignes 6-7) -> la tour ---
+# --- La paupière ouest : un croissant de rochers ; est (ligne 6) -> la tour ; le bas fermé (la mer) ---
 salle c8 decor 0f
 fc fc fc fc fc fc fc fc fc fc
 fc fc fc fc fc c0 c0 c0 c0 c0
@@ -44,9 +44,9 @@ fc fc c0 a7 a7 a7 a7 a7 a7 c0
 fc c0 a7 a7 a7 a7 a7 a7 a7 c0
 fc c0 a7 a7 a7 a7 a7 a7 a7 c0
 fc fc c0 a7 a7 a7 a7 a7 a7 a7
-fc fc fc c0 c0 c0 a7 a7 a7 a7
+fc fc fc c0 c0 c0 c0 c0 c0 c0
 
-# --- La paupière est : un croissant de rochers ; ouest (lignes 6-7) -> la tour ---
+# --- La paupière est : un croissant de rochers ; ouest (ligne 6) -> la tour ; le bas fermé (la mer) ---
 salle ca decor 0f
 fc fc fc fc fc fc fc fc fc fc
 c0 c0 c0 c0 c0 fc fc fc fc fc
@@ -55,7 +55,7 @@ c0 a7 a7 a7 a7 a7 a7 c0 fc fc
 c0 a7 a7 a7 a7 a7 a7 a7 c0 fc
 c0 a7 a7 a7 a7 a7 a7 a7 c0 fc
 a7 a7 a7 a7 a7 a7 a7 c0 fc fc
-a7 a7 a7 a7 c0 c0 c0 fc fc fc
+c0 c0 c0 c0 c0 c0 c0 fc fc fc
 
 # --- La paupière nord : des rochers derrière la tour (on n'y va pas) ---
 salle b9 decor 0f
