@@ -250,5 +250,19 @@ def main():
     sheet.save(dst)
     print('->', os.path.relpath(dst, ROOT))
 
+    # Le miroir de Marine, la porte tournante de Link's Awakening DX (art/miroir.txt,
+    # tools/make_miroir.py)
+    frames = read_frames(os.path.join(ROOT, 'art', 'miroir.txt'))
+    assert len(frames) <= 8
+    sheet = Image.new('P', (128, 16), 0)
+    sheet.putpalette(pal + [0] * (768 - len(pal)))
+    for n, frame in enumerate(frames):
+        for y, row in enumerate(frame):
+            for x, c in enumerate(row):
+                sheet.putpixel((n * 16 + x, y), index[c])
+    dst = os.path.join(DISASM, 'gfx_compressible', 'ages', 'spr_ballade_miroir.png')
+    sheet.save(dst)
+    print('->', os.path.relpath(dst, ROOT))
+
 
 main()

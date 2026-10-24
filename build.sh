@@ -10,6 +10,7 @@ export PATH="$WLA:/c/msys64/usr/bin:$PATH"
 # Les outils Python lisent les .yaml sans préciser l'encodage : forcer l'UTF-8 (accents)
 export PYTHONUTF8=1
 "$PYTHON" "$ROOT/tools/make_text.py"
+"$PYTHON" "$ROOT/tools/make_miroir.py"
 "$PYTHON" "$ROOT/tools/make_sprites.py"
 "$PYTHON" -W ignore "$ROOT/tools/make_film.py"
 "$PYTHON" "$ROOT/tools/make_photos.py"

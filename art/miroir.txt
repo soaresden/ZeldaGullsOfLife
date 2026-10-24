@@ -1,0 +1,94 @@
+# Le miroir de Marine, la porte tournante de Link's Awakening DX (tools/make_miroir.py : les
+# poses de DX aux couleurs du miroir ; la face à la main). Une image 16 x 16 par pose ; l'image
+# n prend les tuiles 4n à 4n+3 (spr_ballade_miroir.png). Palette 6 des sprites (PALH_TERRIER) :
+# . transparent  k noir  r gris acier  w la vitre cyan.
+#
+# 0. la face du miroir (au repos, et au milieu du tour)
+kkkkkkkkkkkkkkkk
+krrrrrrrrrrrrrrk
+krkkkkkkkkkkkkrk
+krkwwwwwwwwwwkrk
+krkwrwwwwwwwwkrk
+krkwwrwwwwwwwkrk
+krkwwwrwwwwwwkrk
+krkwwwwwwwwrwkrk
+krkwwwwwwwrwwkrk
+krkwwwwwwrwwwkrk
+krkwwwwwwwwwwkrk
+krkwwwwwwwwwwkrk
+krkkkkkkkkkkkkrk
+krrrrrrrrrrrrrrk
+kkkkkkkkkkkkkkkk
+.kkkkkkkkkkkkkk.
+#
+# 1. Link pousse le panneau (un reflet dans la vitre)
+rkkkwrrrrrwkkkkr
+rkkwrwwwwwrwkkkr
+rkwrrwrrwwwrrwkr
+rwrwrrwwwwwrwrwr
+rwrwrwrrrrwrwrwr
+rwrwrrrrrrrrwrwr
+rwrwwrrrrrrwwrwr
+rwwrwwrwwrwwrwwr
+rwrrwwrwwrwwrrwr
+rrwwrwwwwwwrwrrr
+rwwwrrrrrrrrwwwr
+rwwrrwwwwwwrrwwr
+rrrrwwwwwwwwrrrr
+rwwrrrwwwwrrrwwr
+rwrwwwrrrrwwwrwr
+rrrrrrrrrrrrrrrr
+#
+# 2. Link aplati, le panneau tourne avec lui
+rrrrrkkkrrrrrrrr
+rrrrkkkrwwwwrrrr
+rrrkkkrwwwwrwwrr
+rrrwwwrwrwrwwwrr
+rrrwwwrrwrwwwrrr
+rrrwwwrrwwrrrwrr
+rrrwwwrrwwrwrwwr
+rrrwwwrrwwrwwwrr
+rrrwwwrrrwrwwrrr
+rrrwwwrrwrwrrrrr
+rrrwwwrwwwrwwwrr
+rrrwwwrwwrrwwwrr
+rrrwwwrwwrwwwwrr
+rwrwwwrrrrrrrrrr
+rwrwwwrrrrwwwrwr
+rwrrrrrrrrrrrrwr
+#
+# 3. le panneau de biais : derrière, le passage noir
+rrrrrwwkkkkrrrrr
+rrrrrwwwkkkkrrrr
+rrrrrwwwwkkkkrrr
+rrrrrwwwwwkkkrrr
+rrrrrwwwwwkkkrrr
+rrrrrwwwwwkkkrrr
+rrwrrwwwwwkkkrrr
+rrwrrwwwwwkkkrrr
+rrrkrwwwwwkkkrrr
+rrrrkkwwwwkkkrrr
+rrrrrwkkkwkkkrrr
+rrrrrrwwwwkkkrrr
+rrrrrrrwwwkkkrrr
+rwwwwwrrwwkkkrwr
+rwwwwwwrrwkkkrwr
+rwwwwwwwrrrrrrwr
+#
+# 4. le panneau de biais, de l'autre côté
+rrrrrkkkkwwrrrrr
+rrrrkkkkwwwrrrrr
+rrrkkkkwwwwrrrrr
+rrrkkkwwwwwrrrrr
+rrrkkkwwwwwrrrrr
+rrrkkkwwwwwrrrrr
+rrrkkkwwwwwrrrrr
+rrrkkkwwwwwrrrrr
+rrrkkkwwwwwrrrrr
+rrrkkkwwwwwrrrrr
+rrrkkkwwwwwrrrrr
+rrrkkkwwwwrrrrrr
+rrrkkkwwwrrrrrrr
+rwrkkkwwrrwwwwwr
+rwrkkkwrrwwwwwwr
+rwrrrrrrwwwwwwwr

@@ -45,6 +45,22 @@ def push_up(frames=50):
     g.w(40)
 
 
+def through(name=None):
+    """Pousser le miroir avec la bague : il tourne avec Link (la porte tournante de DX, 7 poses de
+    8 images), puis le passage."""
+    g.face('up')
+    g.pb.button_press('up')
+    g.w(34)
+    g.pb.button_release('up')
+    for k in range(7):
+        g.w(8)
+        if name:
+            shoot('%s_%d' % (name, k))
+    g.w(30)
+    g.settled()
+    g.w(40)
+
+
 g = Game()
 g.level(5, 'Ville')
 g.text_through()
@@ -64,8 +80,8 @@ g.m[RINGS + EASTER // 8] |= 1 << (EASTER % 8)
 g.m[BOX] = EASTER
 g.m[ACTIVE] = EASTER
 g.stand(6, 6)
-push_up(60)
-check(g.where() == (5, 0xef), 'la bague portée : à travers le miroir, la salle secrète (5:ef)')
+through('e01b_tour')
+check(g.where() == (5, 0xef), 'la bague portée : le miroir tourne avec Link, la salle secrète (5:ef)')
 g.text_through()
 shoot('e02_salle')
 
@@ -108,7 +124,7 @@ g.w(20)
 g.text_through()
 g.stand(9, 5, y_first=True)     # (le miroir est solide : on passe à coté)
 g.stand(9, 7)
-push_up(60)
+through()
 check(g.where() == (3, 0x2a), 'le miroir du retour : chez Marine')
 shoot('e05_retour')
 print('\nTout est bon.' if not errors else '\n%d problème(s)' % len(errors))
