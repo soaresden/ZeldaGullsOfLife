@@ -40,7 +40,9 @@ import numpy as np
 from pyboy import PyBoy
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PLAY_SOUND = 0x0c09   # playSound (banque 0, voir oracles-disasm/ages.sym)
+# playSound (banque 0) : lu dans oracles-disasm/ages.sym (il bouge quand la banque 0 change)
+PLAY_SOUND = next(int(l.split()[0][3:], 16) for l in open(os.path.join(ROOT, 'oracles-disasm', 'ages.sym'))
+                  if l.strip().endswith(' playSound') and l.startswith('00:'))
 MUS_PHARE = 0x41
 # nom : (groupe, salle, position, musique à la place de celle du Phare, secondes)
 TRACKS = {
