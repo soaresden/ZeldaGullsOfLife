@@ -13,6 +13,8 @@ export PYTHONUTF8=1
 "$PYTHON" "$ROOT/tools/make_miroir.py"
 "$PYTHON" "$ROOT/tools/make_tarkin.py"
 "$PYTHON" "$ROOT/tools/make_sprites.py"
+"$PYTHON" "$ROOT/tools/make_marine_dx.py"
+"$PYTHON" "$ROOT/tools/make_pnj_dx.py"
 "$PYTHON" -W ignore "$ROOT/tools/make_film.py"
 "$PYTHON" "$ROOT/tools/make_photos.py"
 "$PYTHON" "$ROOT/tools/make_title.py"
