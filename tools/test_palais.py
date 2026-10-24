@@ -267,9 +267,8 @@ shooter('up', 'right')
 check(g.tile(0x87) == 0xf1, 'une graine en biais : le cristal, le coffre apparaît')
 shoot('p08_cristal', 'Le cristal frappé en biais')
 g.route((9, 3), (9, 7))     # sous le pilier
-r0 = g.rupees()
 check(chest_up(8, 7), 'le coffre du cristal')
-check(g.small_keys(7) == 0 and g.rupees() > r0, 'des rubis, pas de clé (la petite clé 2 ne sert plus)')
+check(g.small_keys(7) == 1, 'la petite clé 2')
 g.route((9, 7))
 check(g.go('down', (4, 0x5e)), 'retour au carrefour')
 
@@ -289,7 +288,8 @@ check(g.go('up', (4, 0x5e)), 'retour au carrefour')
 
 # --- 5f : deux torches entourées de trous (la clé du boss)
 g.route((7, 7), (7, 13), (5, 13))
-check(g.go('right', (4, 0x5f)), 'les torches entourées de trous (4:5f)')
+check(key_door('right', (4, 0x5f)), 'la porte à clé (petite clé 2) : les torches entourées de trous (4:5f)')
+check(g.small_keys(7) == 0, 'la petite clé 2 a servi')
 g.stand(2, 4)
 shooter('right')
 g.stand(8, 4)
@@ -323,6 +323,11 @@ check(wait_intro(), 'Givrolin se présente')
 full_life()
 g.w(30)
 shoot('p12_combat', 'Givrolin (le combat)')
+g.m[0xc6b0], g.m[0xc6b9] = 0, 0       # wNumBombs, wNumEmberSeeds : plus rien
+g.w(200)
+drops = [g.m[(s << 8) + 0xc2] & 0x7f for s in range(0xd0, 0xe0)
+         if g.m[(s << 8) + 0xc0] and g.m[(s << 8) + 0xc1] == 0x01]
+check(4 in drops and 5 in drops, 'Givrolin : des bombes et des graines apparaissent (%s)' % drops)
 # Givrolin a quatre formes (l'épée, les bombes, le Lance-Graines, le bracelet) ; sa vie ne compte
 # pas : on le met à la fin de la dernière (état $0c, sous-état 4, var35 = 3 coups : enemyBoss_dead)
 for _ in range(12):

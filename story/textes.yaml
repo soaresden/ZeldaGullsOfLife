@@ -11,6 +11,26 @@
 groups:
 - group: 0x5a
   data:
+  # L'autre meunier (1:66, $4d) : avant, après le Chant des Tempêtes
+  - name: TX_5a6f
+    index: 0x6f
+    text: |-
+      \col(1)Meunier\col(0): Mon
+      frère attend le
+      vent. Moi, je
+      l'appelle!\stop
+      Mais il ne
+      répond plus.
+      Il dort, lui
+      aussi.
+  - name: TX_5a8f
+    index: 0x8f
+    text: |-
+      \col(1)Meunier\col(0): Tu
+      l'as réveillé!\stop
+      Écoute-le
+      siffler dans les
+      ailes!
 
   # Prologue (film d'ouverture)
   - name: TX_5a00
@@ -1425,7 +1445,14 @@ groups:
       droit de jouer.\stop
       Qui a dit ça?
       On ne sait
-      plus...
+      plus...\stop
+      Quand je
+      dormais avant,
+      j'arrivais à
+      parler aux
+      objets!\stop
+      Tu devrais
+      essayer!
 
   - name: TX_5a69
     index: 0x69
@@ -1444,7 +1471,13 @@ groups:
       Mais se cacher,
       à quoi bon?
       Personne ne
-      cherche.
+      cherche.\stop
+      Mon cerf-volant
+      est coincé dans
+      l'arbre.\stop
+      C'est marrant,
+      on dirait qu'il
+      était vivant!
 
   - name: TX_5a6b
     index: 0x6b
@@ -4531,6 +4564,18 @@ groups:
 
 - group: 0x00
   data:
+  # La sacoche (en anglais jusque-là)
+  - name: TX_0052
+    index: 0x52
+    text: |-
+      Ta \col(1)sacoche\col(0)
+      est pleine!
+  - name: TX_0080
+    index: 0x80
+    text: |-
+      Ta \col(1)sacoche\col(0)
+      peut porter plus
+      de \col(1)graines\col(0)!
   # Nos anneaux (des textes d'Ages inutilisés : la boîte à anneaux, la poudre de fée...)
   - name: TX_0057
     index: 0x57
@@ -5292,6 +5337,73 @@ groups:
 # Description des objets (inventaire)
 - group: 0x09
   data:
+  # La sacoche et les graines (Denis : en anglais dans le menu)
+  - name: TX_092d
+    index: 0x2d
+    text: |-
+      Sacoche
+      Pour porter des
+      graines.
+  - name: TX_0932
+    index: 0x32
+    text: |-
+      Graines de feu
+      Une gerbe de
+      flammes.
+  - name: TX_0937
+    index: 0x37
+    text: |-
+      Graines de feu
+      Une gerbe de
+      flammes!
+  - name: TX_0933
+    index: 0x33
+    text: |-
+      Graines odeur
+      Un parfum qui
+      attire.
+  - name: TX_0938
+    index: 0x38
+    text: |-
+      Graines odeur
+      Un parfum qui
+      attire!
+  - name: TX_0934
+    index: 0x34
+    text: |-
+      Graines Pégase
+      Pour courir
+      vite.
+  - name: TX_0939
+    index: 0x39
+    text: |-
+      Graines Pégase
+      Pour courir
+      vite!
+  - name: TX_0935
+    index: 0x35
+    text: |-
+      Graines vent
+      Un grand coup
+      de vent.
+  - name: TX_093a
+    index: 0x3a
+    text: |-
+      Graines vent
+      Un grand coup
+      de vent!
+  - name: TX_0936
+    index: 0x36
+    text: |-
+      Graines mystère
+      On ne sait
+      jamais.
+  - name: TX_093b
+    index: 0x3b
+    text: |-
+      Graines mystère
+      On ne sait
+      jamais!
   # La boîte à anneaux (donnée d'office : cinq places)
   - name: TX_0917
     index: 0x17
@@ -5817,6 +5929,21 @@ groups:
 # Le Soldat de Plomb (l'Armos Warrior, mini-boss du Coffre à Jouets)
 - group: 0x2f
   data:
+  # L'Ombre de Marine (le Swoop d'Ages, boss de la Spirale Céleste)
+  - name: TX_2f00
+    index: 0x00
+    text: |-
+      Reste endormi,
+      Link. Reste
+      avec moi...
+  # Le Fouisseur (le Subterror, mini-boss de la Spirale) : la Pelle le déterre
+  - name: TX_2f03
+    index: 0x03
+    text: |-
+      \pos(2)Tant que je suis
+      sous terre, tes
+      coups ne me font
+      rien!
   # La Suie (le mini-boss de la Forge Endormie : l'Ombre-Sorcière d'Ages, Shadow Hag) : elle
   # surgit de l'ombre de Link ; la flamme de la Lanterne la brûle
   - name: TX_2f2b
