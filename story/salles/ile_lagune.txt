@@ -23,7 +23,7 @@ salle 04 decor 18
 fc fc fc fc f4 f4 fc fc f4 fc
 fc fc 20 21 21 21 21 21 21 21
 fc fc 26 bf bf bf bf bf bf bf
-fc fc 26 bf bf c0 bf c1 bf bf
+fc fc 26 bf bf c0 bf c0 bf bf
 fc fc 26 bf bf bf bf bf bf bf
 fc fc 26 bf bf bf bf bf bf bf
 fc fc 26 bf bf bf bf 29 24 24
@@ -44,7 +44,7 @@ fa fa fa fa fa fa fa fa fa fa
 salle 06 decor 18
 fc fc fc fc fc fc fc fc fc fc
 21 21 21 21 21 21 21 21 21 21
-bf c5 bf c0 c1 c2 bf c5 bf bf
+bf c5 bf c0 c0 c3 bf c5 bf bf
 bf bf bf d3 dd d3 bf bf bf bf
 bf bf bf bf bf bf bf bf bf bf
 bf bf bf bf bf bf bf bf bf bf
@@ -99,7 +99,7 @@ fa fa fa fa fa fa fa fa fa fa
 # --- Le club de plongée de Bulle (porte dd en ligne 2, colonne 6 -> 3:24). ---
 salle 17 decor 18
 fa fa fa fa 26 bf bf bf 27 fc
-fa fa fa fa 26 c2 c3 c4 27 fc
+fa fa fa fa 26 c3 c3 c3 27 fc
 fa fa fa fa 26 d2 dd d2 27 fc
 fa fa fa fa 26 bf bf bf 27 fc
 fa fa fa fa 26 bf bf bf 27 fc

@@ -101,7 +101,7 @@ groups:
       pas me plaindre!\stop
       Tu es content
       de me revoir?
-        \opt()Oui \opt()Carrément!
+      \opt()Oui \opt()Carrément!
 
   - name: TX_5a03
     index: 0x03
@@ -2718,7 +2718,7 @@ groups:
       un château sur
       l'île, c'est...?\stop
        \opt()Richard
-       \opt()Tarkin \opt()Kanalet
+      \opt()Tarkin \opt()Kanalet
 
   - name: TX_5af6
     index: 0xf6
@@ -2734,7 +2734,7 @@ groups:
     text: |-
       Et ma mère?
       Tu sais qui
-      c'est, toi?\stop
+      c'est, toi?
        \opt()Oui... \opt()Non
 
   - name: TX_5af8

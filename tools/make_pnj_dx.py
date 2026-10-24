@@ -23,16 +23,20 @@ OUT = os.path.join(ROOT, 'oracles-disasm', 'gfx_compressible', 'ages', 'spr_ball
 PREVIEW = os.path.join(ROOT, 'art', 'pnj_dx.png')
 WALK = ((0, 1), (2, 3), (4, 5), (6, 7))       # face, dos, profil, profil un pas
 NO_BACK = ((0, 1), (0, 1), (4, 5), (6, 7))    # pas de dos dans DX : de face
-# (nom, fichier, bande, poses) ; deux par feuille, la feuille n est le header $eb + n
+FACE_BACK = ((0, 1), (2, 3), (0, 1), (0, 1))  # de face et de dos seulement
+STILL = ((0, 1), (0, 1), (0, 1), (0, 1))      # une seule pose
+# (nom, fichier, bande, poses) ; deux par feuille, la feuille n est le header $eb + n. Seulement des
+# humains : chaque bande vérifiée dans les salles de DX qui la chargent (Denis : pas de monstres en
+# villageois ! la bande 3 de oam_npc_1 était un Moblin, la 6 un Goriya, la 19 de oam_npc_3 le coq)
 SHEETS = [
-    [('le garçon', 'oam_npc_3.cgb.png', 39, WALK),
-     ('la fille', 'oam_npc_3.cgb.png', 19, WALK)],
-    [('le petit', 'oam_npc_1.cgb.png', 8, WALK),
-     ('le gamin à la mèche', 'oam_npc_1.cgb.png', 3, WALK)],
-    [('la dame', 'oam_npc_2.cgb.png', 7, WALK),
-     ("l'homme", 'oam_npc_1.cgb.png', 4, WALK)],
-    [("l'homme aux cheveux fous", 'oam_npc_1.cgb.png', 6, WALK),
-     ("l'homme aux cheveux en pétard", 'oam_npc_2.cgb.png', 27, NO_BACK)],
+    [('un enfant de Mabe', 'oam_npc_3.cgb.png', 39, WALK),             # KID_70-72 (Mabe)
+     ('un autre enfant de Mabe', 'oam_npc_3.cgb.png', 28, FACE_BACK)], # KID_73 (Mabe)
+    [('le marchand', 'oam_npc_1.cgb.png', 8, WALK),                     # SHOP_OWNER
+     ('Papahl', 'oam_npc_2.cgb.png', 45, STILL)],                       # PAPAHL
+    [('Madame Miaou-Miaou', 'oam_npc_2.cgb.png', 7, WALK),              # MADAM_MEOWMEOW
+     ("l'homme du Jeu Branché", 'oam_npc_1.cgb.png', 4, WALK)],         # TRENDY_GAME_OWNER, RAFT_OWNER, FISHERMAN
+    [('Grand-mère Ulrira', 'oam_npc_2.cgb.png', 3, ((2, 3), (2, 3), (6, 7), (6, 7))),  # GRANDMA_ULRIRA
+     ('Richard', 'oam_npc_2.cgb.png', 27, NO_BACK)],                    # RICHARD
 ]
 # Les palettes 0-3 des sprites d'Ages (standardSpritePaletteData), pour l'aperçu
 PREVIEW_PALS = [[(255, 255, 255), (0, 0, 0), main, (248, 208, 136)]

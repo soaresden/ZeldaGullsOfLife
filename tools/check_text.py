@@ -32,7 +32,9 @@ def main():
         for group in doc['groups']:
             for entry in group['data']:
                 for line in entry['text'].split('\n'):
-                    visible = COMMANDS.sub('', line).replace('\\Link', 'X' * 5)
+                    # Un choix (\opt()) : le curseur prend une case (sinon, en bout de ligne, il
+                    # recouvre la première lettre du choix : « Kanalet », Denis)
+                    visible = COMMANDS.sub('', line.replace('\\opt()', '>')).replace('\\Link', 'X' * 5)
                     # Les boutons A et B font 2 caractères à l'écran
                     visible = visible.replace('\\abtn', 'AA').replace('\\bbtn', 'BB')
                     # Une icône d'objet (\item) aussi

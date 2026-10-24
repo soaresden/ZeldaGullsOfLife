@@ -15,7 +15,7 @@
 salle 5b decor 18
 fc fc fc fc fc fc fc fc fc fc
 fc 20 21 21 21 21 21 21 21 21
-fc 26 bf bf c0 c1 c2 bf 80 81
+fc 26 bf bf c0 c0 c3 bf 80 81
 fc 26 bf bf d3 dd d3 bf a0 a1
 fc 26 bf bf bf bf bf bf bf bf
 fc 26 bf bf bf bf bf bf bf bf

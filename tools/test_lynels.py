@@ -188,8 +188,7 @@ for _ in range(3):
 w(150)
 check(m[0xcc30] == 0xee, 'le 2e labyrinthe (5:%02x)' % m[0xcc30])
 check(m[0xc6ac] == pieces, 'pas encore de quart de cœur (il est au bout du 2e)')
-check(bool(m[0xc616] & 0x02) and 0x01 in [m[0xc6c6 + i] for i in range(5)],
-      "le 1er gagné : l'Anneau de Force, dans la boîte")
+check(not m[0xc616] & 0x02, "le 1er gagné : pas encore l'Anneau de Force (au 2e, Denis)")
 w(150)
 shot('labyrinthe2')
 # Le 2e gagné : 50 rubis, un quart de cœur, retour chez le forain
@@ -205,6 +204,11 @@ for _ in range(4):
     text_through()
     w(60)
 check(m[0xc6ac] != pieces, 'le 2e gagné : un quart de cœur (%d -> %d)' % (pieces, m[0xc6ac]))
+for _ in range(6):
+    w(60)
+    text_through()
+check(bool(m[0xc616] & 0x02) and 0x01 in [m[0xc6c6 + i] for i in range(5)],
+      "le 2e gagné : l'Anneau de Force, dans la boîte")
 w(200)
 check(m[0xcc30] == 0xac, 'retour chez le forain (1:%02x)' % m[0xcc30])
 check(m[INV_A] == ITEM_SWORD and m[INV_B] == ITEM_BOMBS, 'ses objets reviennent (A %02x, B %02x)' % (m[INV_A], m[INV_B]))

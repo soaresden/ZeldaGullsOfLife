@@ -2,7 +2,8 @@
 Facile gagnée (le test connaît les monstres : il creuse les cases vides, puis les monstres du plus
 faible au plus fort, quand Link a le niveau) : les chiffres dans le sable, les cases sans rien
 autour qui découvrent leurs voisines toutes seules, les vrais ennemis figés sur leur case puis en
-fumée (leur case garde leur niveau dans un cadre), la montée de niveau ; une partie Dur sans une
+fumée (leur case montre alors la somme des niveaux autour, comme les autres), la montée de
+niveau ; les notes du joueur (B : 1 à 5 puis rien ; une case notée ne se creuse pas) ; une partie Dur sans une
 égratignure (le gros lot : un quart de cœur) ; puis un monstre trop fort découvert à l'aveugle (il
 frappe fort) ; on ressort par le haut. Deux niveaux : Facile, Dur.
 
@@ -119,8 +120,8 @@ def wait_flood():
         w(1)
 
 
-def dig(i):
-    """Link se met au-dessus de la case et creuse vers le bas."""
+def face(i):
+    """Link se met au-dessus de la case, tourné vers elle."""
     wait_flood()
     r, c = divmod(i, COLS)
     row, col = r + 2, c + 1
@@ -128,6 +129,11 @@ def dig(i):
     goto((row - 1) * 16 + 8, None)
     goto(None, col * 16 + 8)
     walk('down', 2)
+
+
+def dig(i):
+    """Link se met au-dessus de la case et creuse vers le bas."""
+    face(i)
     press('a', 30)
 
 
@@ -185,6 +191,21 @@ def play_to_win(lvl, name, perfect=False):
     wait_flood()
     auto = sum(1 for i in range(ROWS * COLS) if dug(i))
     check(auto > 1, '%s : les cases vides découvrent leurs voisines toutes seules (%d cases)' % (name, auto))
+    # Les notes du joueur (B) : sur une case pas creusée dont la case du dessus est creusée
+    spot = next(i for i in range(COLS, ROWS * COLS) if not dug(i) and dug(i - COLS))
+    face(spot)
+    notes = []
+    for _ in range(6):
+        press('b', 12)
+        notes.append(m[LAYOUT + pos(spot)])
+    check(notes == [0x69, 0x6a, 0x6b, 0x6c, 0x6d, 0x12], '%s : B, les notes 1 à 5 puis rien %s' % (
+        name, ['%02x' % t for t in notes]))
+    press('b', 12)
+    press('a', 30)
+    check(m[LAYOUT + pos(spot)] == 0x69 and not m[SHOW], '%s : une case notée ne se creuse pas' % name)
+    for _ in range(5):
+        press('b', 12)
+    check(m[LAYOUT + pos(spot)] == 0x12, '%s : la note effacée' % name)
     # Les cases vides
     for i in range(ROWS * COLS):
         if not levels[i] and not dug(i):
@@ -216,8 +237,9 @@ def play_to_win(lvl, name, perfect=False):
     print('  (monstre, niveau de Link)', seen, flush=True)
     check(m[STATE] == 2 and m[LEFT] == 0, '%s : tous les monstres, gagné' % name)
     check(bool(seen) and max(p for _, p in seen) >= 3, '%s : Link est monté de niveau' % name)
-    boxed = [i for i in range(ROWS * COLS) if levels[i] and m[LAYOUT + pos(i)] != 0x68 + levels[i]]
-    check(not boxed, '%s : les monstres vaincus laissent leur niveau dans un cadre %s' % (name, boxed[:5]))
+    boxed = [i for i in range(ROWS * COLS) if levels[i] and
+             m[LAYOUT + pos(i)] != (0xbf if expect[i] == 0 else 0x40 + expect[i])]
+    check(not boxed, '%s : la case d\'un monstre vaincu montre la somme autour (Denis) %s' % (name, boxed[:5]))
     shot(name + '_fin')
     for _ in range(6):
         w(30)

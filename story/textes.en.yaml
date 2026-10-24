@@ -2625,7 +2625,7 @@ groups:
     text: |-
       And my mother?
       Do you know who
-      she is?\stop
+      she is?
        \opt()Yes... \opt()No
 
   - name: TX_5af8

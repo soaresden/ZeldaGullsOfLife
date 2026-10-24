@@ -127,6 +127,24 @@ def play(level, name, dig_mine=False):
     opened = left0 - m[LEFT]
     print('  %s : %d cases ouvertes au 1er coup' % (name, opened))
     check(opened >= 1 and bit(DUG, 0), '%s : le 1er coup' % name)
+    if not dig_mine:
+        # B : un drapeau sur une bombe ; A ne la creuse pas ; B l'enlève
+        i = next(j for j in mines if not bit(DUG, j))
+        row, col = 2 + i // 6, 1 + i % 6
+        if row < 5:
+            stand(row + 1, col)
+            walk('up', 3)
+        else:
+            stand(row - 1, col)
+            walk('down', 3)
+        tile = 0xcf00 + ((row << 4) | col)
+        press('b', 12)
+        flagged = m[tile]
+        press('a', 20)
+        safe = m[tile] == 0x49 and m[STATE] == 1 and not bit(DUG, i)
+        press('b', 12)
+        check(flagged == 0x49 and safe and m[tile] == 0x12,
+              '%s : B, un drapeau sur la bombe ; A ne creuse pas ; B l\'enlève' % name)
     cells = [i for i in range(24) if (i in mines) == dig_mine and not bit(DUG, i)]
     for i in cells[:1] if dig_mine else cells:
         if bit(DUG, i):
