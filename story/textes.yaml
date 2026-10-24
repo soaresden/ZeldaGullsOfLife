@@ -3385,6 +3385,40 @@ groups:
 # ==============================================================================
 - group: 0x5b
   data:
+  # La salle secrète (l'Easter Egg, 5:ef) : les remerciements, le music test, le sound test
+  - name: TX_5b73
+    index: 0x73
+    text: |-
+      \col(1)Merci!\col(0)\stop
+      À Denis: les
+      idées, les
+      tests, les fous
+      rires.\stop
+      À Drenn et aux
+      auteurs de
+      oracles-disasm.\stop
+      À Nintendo et
+      Capcom: Oracle
+      of Ages, Link's
+      Awakening.\stop
+      Clins d'oeil:
+      Konami, Pierre
+      Bachelet, Taylor
+      Davis, Euro-Mir.\stop
+      Et à toi, pour
+      avoir tout fini!
+  - name: TX_5b74
+    index: 0x74
+    text: |-
+      Musique \num1
+       \opt()+1 \opt()-1
+       \opt()Jouer \opt()Fin
+  - name: TX_5b75
+    index: 0x75
+    text: |-
+      Bruitage \num1
+       \opt()+1 \opt()-1
+       \opt()Jouer \opt()Fin
   # Marine sur son île, tout fini (les quatre anneaux des jeux) : sa bague (Denis)
   - name: TX_5b72
     index: 0x72

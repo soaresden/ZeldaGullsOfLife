@@ -3262,6 +3262,40 @@ groups:
 # ==============================================================================
 - group: 0x5b
   data:
+  # The secret room (the Easter Egg, 5:ef): thanks, music test, sound test
+  - name: TX_5b73
+    index: 0x73
+    text: |-
+      \col(1)Thank you!\col(0)\stop
+      To Denis: the
+      ideas, the
+      tests, the
+      laughs.\stop
+      To Drenn and the
+      authors of
+      oracles-disasm.\stop
+      To Nintendo and
+      Capcom: Oracle
+      of Ages, Link's
+      Awakening.\stop
+      The winks:
+      Konami, Pierre
+      Bachelet, Taylor
+      Davis, Euro-Mir.\stop
+      And to you, for
+      seeing it all!
+  - name: TX_5b74
+    index: 0x74
+    text: |-
+      Music \num1
+       \opt()+1 \opt()-1
+       \opt()Play \opt()Done
+  - name: TX_5b75
+    index: 0x75
+    text: |-
+      Sound \num1
+       \opt()+1 \opt()-1
+       \opt()Play \opt()Done
   # Marine on her island, everything done (the four game rings): her ring (Denis)
   - name: TX_5b72
     index: 0x72
