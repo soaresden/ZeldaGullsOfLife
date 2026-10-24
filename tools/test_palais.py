@@ -324,10 +324,33 @@ full_life()
 g.w(30)
 shoot('p12_combat', 'Givrolin (le combat)')
 g.m[0xc6b0], g.m[0xc6b9] = 0, 0       # wNumBombs, wNumEmberSeeds : plus rien
-g.w(200)
-drops = [g.m[(s << 8) + 0xc2] & 0x7f for s in range(0xd0, 0xe0)
-         if g.m[(s << 8) + 0xc0] and g.m[(s << 8) + 0xc1] == 0x01]
-check(4 in drops and 5 in drops, 'Givrolin : des bombes et des graines apparaissent (%s)' % drops)
+
+
+def drops():
+    return [g.m[(s << 8) + 0xc2] & 0x7f for s in range(0xd0, 0xe0)
+            if g.m[(s << 8) + 0xc0] and g.m[(s << 8) + 0xc1] == 0x01]
+
+
+g.w(120)
+check(not drops(), 'Givrolin : rien ne traîne au sol (cachés dans les fougères)')
+for x, what in ((0x18, 'des bombes'), (0xd8, 'des graines')):
+    g.m[0xd00b], g.m[0xd00d] = 0x38, x
+    g.face('up')
+    g.press('a', 20)
+    g.w(30)
+# (sortis sous les pieds de Link : ramassés aussitôt)
+got = (g.m[0xc6b0], g.m[0xc6b9])
+check((4 in drops() or got[0]) and (5 in drops() or got[1]),
+      'Givrolin : un coup d\'épée dans chaque fougère, des bombes et des graines (au sol %s, en poche %s)' % (drops(), got))
+# Le Bracelet des Âmes n'aspire pas un boss (Givrolin vidé ne renvoyait plus ses bras : bloqué)
+rr = next(s << 8 | 0x80 for s in range(0xd0, 0xe0) if g.m[(s << 8) + 0x80] and g.m[(s << 8) + 0x81] == 0x07)
+hp = g.m[rr + 0x29]
+g.m[0xc6c5] |= 0x02
+g.m[0xd00b], g.m[0xd00d] = g.m[rr + 0x0b] + 20, g.m[rr + 0x0d]
+g.face('up')
+g.hold('a', 70)
+g.w(20)
+check(g.m[rr + 0x29] == hp, 'le tourbillon du Bracelet laisse Givrolin entier (%d -> %d)' % (hp, g.m[rr + 0x29]))
 # Givrolin a quatre formes (l'épée, les bombes, le Lance-Graines, le bracelet) ; sa vie ne compte
 # pas : on le met à la fin de la dernière (état $0c, sous-état 4, var35 = 3 coups : enemyBoss_dead)
 for _ in range(12):
