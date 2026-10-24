@@ -4552,6 +4552,429 @@ groups:
 
 
 # Les anneaux de Gulls of Life (code/treasureAndDrops.s balladeGiveRing)
+
+  # La progression vers le 100 % (le menu, 3e page, B ; balladeTracker.s) : les nombres en \call
+  - name: TX_5b78
+    index: 0x78
+    text: |-
+      \col(1)Marine\col(0): On
+      en est à \call($ff)
+      pour cent!\stop
+      Couplets: \call($fe)/8
+      Cœurs: \call($fd)/12
+      Quarts: \call($fc)/4
+  - name: TX_5b79
+    index: 0x79
+    text: |-
+      Objets: \call($ff)/19
+      Anneaux: \call($fe)/5
+      Coffres: \call($fd)/\call($fc)
+  # Les nombres, de 0 à 100 (appelés par \call : wTextSubstitutions)
+  - name: TX_5b80
+    index: 0x80
+    text: |-
+      0
+  - name: TX_5b81
+    index: 0x81
+    text: |-
+      1
+  - name: TX_5b82
+    index: 0x82
+    text: |-
+      2
+  - name: TX_5b83
+    index: 0x83
+    text: |-
+      3
+  - name: TX_5b84
+    index: 0x84
+    text: |-
+      4
+  - name: TX_5b85
+    index: 0x85
+    text: |-
+      5
+  - name: TX_5b86
+    index: 0x86
+    text: |-
+      6
+  - name: TX_5b87
+    index: 0x87
+    text: |-
+      7
+  - name: TX_5b88
+    index: 0x88
+    text: |-
+      8
+  - name: TX_5b89
+    index: 0x89
+    text: |-
+      9
+  - name: TX_5b8a
+    index: 0x8a
+    text: |-
+      10
+  - name: TX_5b8b
+    index: 0x8b
+    text: |-
+      11
+  - name: TX_5b8c
+    index: 0x8c
+    text: |-
+      12
+  - name: TX_5b8d
+    index: 0x8d
+    text: |-
+      13
+  - name: TX_5b8e
+    index: 0x8e
+    text: |-
+      14
+  - name: TX_5b8f
+    index: 0x8f
+    text: |-
+      15
+  - name: TX_5b90
+    index: 0x90
+    text: |-
+      16
+  - name: TX_5b91
+    index: 0x91
+    text: |-
+      17
+  - name: TX_5b92
+    index: 0x92
+    text: |-
+      18
+  - name: TX_5b93
+    index: 0x93
+    text: |-
+      19
+  - name: TX_5b94
+    index: 0x94
+    text: |-
+      20
+  - name: TX_5b95
+    index: 0x95
+    text: |-
+      21
+  - name: TX_5b96
+    index: 0x96
+    text: |-
+      22
+  - name: TX_5b97
+    index: 0x97
+    text: |-
+      23
+  - name: TX_5b98
+    index: 0x98
+    text: |-
+      24
+  - name: TX_5b99
+    index: 0x99
+    text: |-
+      25
+  - name: TX_5b9a
+    index: 0x9a
+    text: |-
+      26
+  - name: TX_5b9b
+    index: 0x9b
+    text: |-
+      27
+  - name: TX_5b9c
+    index: 0x9c
+    text: |-
+      28
+  - name: TX_5b9d
+    index: 0x9d
+    text: |-
+      29
+  - name: TX_5b9e
+    index: 0x9e
+    text: |-
+      30
+  - name: TX_5b9f
+    index: 0x9f
+    text: |-
+      31
+  - name: TX_5ba0
+    index: 0xa0
+    text: |-
+      32
+  - name: TX_5ba1
+    index: 0xa1
+    text: |-
+      33
+  - name: TX_5ba2
+    index: 0xa2
+    text: |-
+      34
+  - name: TX_5ba3
+    index: 0xa3
+    text: |-
+      35
+  - name: TX_5ba4
+    index: 0xa4
+    text: |-
+      36
+  - name: TX_5ba5
+    index: 0xa5
+    text: |-
+      37
+  - name: TX_5ba6
+    index: 0xa6
+    text: |-
+      38
+  - name: TX_5ba7
+    index: 0xa7
+    text: |-
+      39
+  - name: TX_5ba8
+    index: 0xa8
+    text: |-
+      40
+  - name: TX_5ba9
+    index: 0xa9
+    text: |-
+      41
+  - name: TX_5baa
+    index: 0xaa
+    text: |-
+      42
+  - name: TX_5bab
+    index: 0xab
+    text: |-
+      43
+  - name: TX_5bac
+    index: 0xac
+    text: |-
+      44
+  - name: TX_5bad
+    index: 0xad
+    text: |-
+      45
+  - name: TX_5bae
+    index: 0xae
+    text: |-
+      46
+  - name: TX_5baf
+    index: 0xaf
+    text: |-
+      47
+  - name: TX_5bb0
+    index: 0xb0
+    text: |-
+      48
+  - name: TX_5bb1
+    index: 0xb1
+    text: |-
+      49
+  - name: TX_5bb2
+    index: 0xb2
+    text: |-
+      50
+  - name: TX_5bb3
+    index: 0xb3
+    text: |-
+      51
+  - name: TX_5bb4
+    index: 0xb4
+    text: |-
+      52
+  - name: TX_5bb5
+    index: 0xb5
+    text: |-
+      53
+  - name: TX_5bb6
+    index: 0xb6
+    text: |-
+      54
+  - name: TX_5bb7
+    index: 0xb7
+    text: |-
+      55
+  - name: TX_5bb8
+    index: 0xb8
+    text: |-
+      56
+  - name: TX_5bb9
+    index: 0xb9
+    text: |-
+      57
+  - name: TX_5bba
+    index: 0xba
+    text: |-
+      58
+  - name: TX_5bbb
+    index: 0xbb
+    text: |-
+      59
+  - name: TX_5bbc
+    index: 0xbc
+    text: |-
+      60
+  - name: TX_5bbd
+    index: 0xbd
+    text: |-
+      61
+  - name: TX_5bbe
+    index: 0xbe
+    text: |-
+      62
+  - name: TX_5bbf
+    index: 0xbf
+    text: |-
+      63
+  - name: TX_5bc0
+    index: 0xc0
+    text: |-
+      64
+  - name: TX_5bc1
+    index: 0xc1
+    text: |-
+      65
+  - name: TX_5bc2
+    index: 0xc2
+    text: |-
+      66
+  - name: TX_5bc3
+    index: 0xc3
+    text: |-
+      67
+  - name: TX_5bc4
+    index: 0xc4
+    text: |-
+      68
+  - name: TX_5bc5
+    index: 0xc5
+    text: |-
+      69
+  - name: TX_5bc6
+    index: 0xc6
+    text: |-
+      70
+  - name: TX_5bc7
+    index: 0xc7
+    text: |-
+      71
+  - name: TX_5bc8
+    index: 0xc8
+    text: |-
+      72
+  - name: TX_5bc9
+    index: 0xc9
+    text: |-
+      73
+  - name: TX_5bca
+    index: 0xca
+    text: |-
+      74
+  - name: TX_5bcb
+    index: 0xcb
+    text: |-
+      75
+  - name: TX_5bcc
+    index: 0xcc
+    text: |-
+      76
+  - name: TX_5bcd
+    index: 0xcd
+    text: |-
+      77
+  - name: TX_5bce
+    index: 0xce
+    text: |-
+      78
+  - name: TX_5bcf
+    index: 0xcf
+    text: |-
+      79
+  - name: TX_5bd0
+    index: 0xd0
+    text: |-
+      80
+  - name: TX_5bd1
+    index: 0xd1
+    text: |-
+      81
+  - name: TX_5bd2
+    index: 0xd2
+    text: |-
+      82
+  - name: TX_5bd3
+    index: 0xd3
+    text: |-
+      83
+  - name: TX_5bd4
+    index: 0xd4
+    text: |-
+      84
+  - name: TX_5bd5
+    index: 0xd5
+    text: |-
+      85
+  - name: TX_5bd6
+    index: 0xd6
+    text: |-
+      86
+  - name: TX_5bd7
+    index: 0xd7
+    text: |-
+      87
+  - name: TX_5bd8
+    index: 0xd8
+    text: |-
+      88
+  - name: TX_5bd9
+    index: 0xd9
+    text: |-
+      89
+  - name: TX_5bda
+    index: 0xda
+    text: |-
+      90
+  - name: TX_5bdb
+    index: 0xdb
+    text: |-
+      91
+  - name: TX_5bdc
+    index: 0xdc
+    text: |-
+      92
+  - name: TX_5bdd
+    index: 0xdd
+    text: |-
+      93
+  - name: TX_5bde
+    index: 0xde
+    text: |-
+      94
+  - name: TX_5bdf
+    index: 0xdf
+    text: |-
+      95
+  - name: TX_5be0
+    index: 0xe0
+    text: |-
+      96
+  - name: TX_5be1
+    index: 0xe1
+    text: |-
+      97
+  - name: TX_5be2
+    index: 0xe2
+    text: |-
+      98
+  - name: TX_5be3
+    index: 0xe3
+    text: |-
+      99
+  - name: TX_5be4
+    index: 0xe4
+    text: |-
+      100
+
 - group: 0x30
   data:
   # Les cinq anneaux du jeu : leur nom, ce qu'ils font

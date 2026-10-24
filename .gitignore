@@ -12,3 +12,6 @@ __pycache__/
 !romhacking/GullsOfLife-*.zip
 *.iso
 *.bin
+
+# Le désassemblage de Link's Awakening DX (déposé par Denis) : une source où piocher, jamais commité
+LADX-Disassembly-main/

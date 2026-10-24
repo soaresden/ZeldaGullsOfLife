@@ -9,8 +9,8 @@ de test caché :
 - la porte des âmes s'ouvre à 4 âmes ;
 - l'arène (4:d7) : à 16 âmes, le boss (la machine possédée, en grand dans le décor) sort de l'ombre ;
   des missiles, des rochers ; une bombe l'arrête, un tourbillon la touche alors, cinq fois ; elle
-  explose : le Bracelet des Âmes, puis retour à l'entrée du Terrier ; l'épée lance alors toujours
-  un rayon.
+  explose : le Bracelet des Âmes, puis retour à l'entrée du Terrier ; l'épée ne lance pas de
+  rayon (le Bracelet n'agit que sur l'attaque tourbillon : il aspire les âmes, Denis).
 
 Usage : python tools/test_terrier.py DOSSIER_CAPTURES   (ROM=chemin pour une autre ROM)
 """
@@ -227,7 +227,7 @@ g.w(40)
 check(g.where() == (4, 0xd0), "puis retour à l'entrée du Terrier")
 g.text_through()
 
-# Le rayon des âmes : l'épée en B, un coup
+# Plus de rayon des âmes (Denis : le Bracelet n'agit que sur le tourbillon) : l'épée en B, un coup
 g.m[INV_B] = 0x05
 g.w(10)
 g.press('b', 4)
@@ -237,5 +237,5 @@ for _ in range(30):
     if any(g.m[(s << 8)] and g.m[(s << 8) + 1] == 0x27 for s in range(0xd6, 0xe0)):
         beam = True
         break
-check(beam, "l'épée lance un rayon")
+check(not beam, "l'épée ne lance pas de rayon")
 print('\nTout est bon.' if not errors else '\n%d problème(s)' % len(errors))

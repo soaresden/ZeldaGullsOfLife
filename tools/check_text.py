@@ -39,6 +39,9 @@ def main():
                     visible = re.sub(r'\\item\([^)]*\)', 'II', visible)
                     # Le cœur (\heart) : un caractère
                     visible = visible.replace('\\heart', '#')
+                    # Un texte appelé (\call : nos petits nombres, 2 chiffres) ; \num1, \num2 : 3 chiffres
+                    visible = re.sub(r'\\call\([^)]*\)', 'NN', visible)
+                    visible = visible.replace('\\num1', 'NNN').replace('\\num2', 'NNN')
                     if len(visible) > 16:
                         print('%s %s : %d caractères : %s' % (name, entry['name'], len(visible), line))
                         bad += 1
