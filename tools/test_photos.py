@@ -14,6 +14,7 @@ OUT = sys.argv[1]
 os.makedirs(OUT, exist_ok=True)
 CUTSCENE_INDEX = 0xc2ef
 GLOBALFLAG_BALLADE_PHOTOS = 0x5b
+GLOBALFLAG_BALLADE_PHOTOS_HINT = 0x64
 errors, shots = [], []
 g = Game()
 
@@ -37,6 +38,18 @@ for _ in range(20):
     g.text_through()
     g.w(20)
 check(not g.global_flag(GLOBALFLAG_BALLADE_PHOTOS), 'pas encore de photos')
+# La fin du chapitre passée, dehors, Marine le dit une fois (Denis) : « Link... on peut revenir à
+# l'auberge ? J'ai quelque chose à te dire... »
+said = g.global_flag(GLOBALFLAG_BALLADE_PHOTOS_HINT)
+for _ in range(60):
+    if said:
+        break
+    g.w(10)
+    if g.m[TEXT_ACTIVE]:
+        shoot('p00_auberge', "Marine : on peut revenir à l'auberge ?")
+    said = g.global_flag(GLOBALFLAG_BALLADE_PHOTOS_HINT)
+    g.text_through()
+check(said, "Marine : « Link... on peut revenir à l'auberge ? »")
 g.warp(3, 0x9e, 0x57)
 check(g.wait_text(200), "l'auberge : Marine fouille la poche de Link")
 g.w(30)

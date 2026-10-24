@@ -4408,6 +4408,16 @@ groups:
       Items: \call($ff)/19
       Rings: \call($fe)/5
       Chests: \call($fd)/\call($fc)
+  # Après le chapitre 5 : Marine veut revenir à l'auberge (les photos ; balladeMarine.photosHint)
+  - name: TX_5b7a
+    index: 0x7a
+    text: |-
+      \col(1)Marin\col(0): Link...
+      can we go back
+      to the inn?\stop
+      I have something
+      to tell you...
+
   # Les nombres, de 0 à 100 (appelés par \call : wTextSubstitutions)
   - name: TX_5b80
     index: 0x80
