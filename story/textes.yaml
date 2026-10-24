@@ -2314,20 +2314,23 @@ groups:
   - name: TX_5aa0
     index: 0xa0
     text: |-
-      \col(1)Tarkin\col(0): Oh! Un
-      visiteur!\stop
-      Assieds-toi,
-      petit. La soupe
-      est presque
-      prête.\stop
-      Je mets toujours
-      trois assiettes.
-      Ma fille va
-      rentrer.\stop
-      Elle chante au
-      bord de la mer.
-      Elle rentre
-      toujours.
+      \col(1)Tarkin\col(0): OH!
+      LINK! Quel
+      plaisir!\stop
+      Tu as vu Marine?
+      Elle doit être
+      encore au
+      village des
+      animaux.\stop
+      Et ton bouclier,
+      celui que je
+      t'ai ramassé à
+      la mer?\stop
+      Quoi?! Tu l'as
+      reperdu?!\stop
+      T'es gonflé!
+      J'y retourne
+      pas!
 
   - name: TX_5aa1
     index: 0xa1
@@ -2361,8 +2364,8 @@ groups:
   - name: TX_5aa3
     index: 0xa3
     text: |-
-      \col(1)Tarkin\col(0): Elle va
-      rentrer. Elle
+      \col(1)Tarkin\col(0): Marine
+      va rentrer. Elle
       rentre toujours.
 
   # Fin du chapitre 5 : la place du silence (1:62), les cloches chantent

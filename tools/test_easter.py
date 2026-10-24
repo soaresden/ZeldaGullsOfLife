@@ -66,8 +66,8 @@ g.level(5, 'Ville')
 g.text_through()
 g.m[GLOBAL_FLAGS + GLOBALFLAG_BALLADE_FIN // 8] |= 1 << (GLOBALFLAG_BALLADE_FIN % 8)
 
-# Sans la bague : rien
-g.warp(3, 0x2a, 0x66)
+# Sans la bague : rien (le miroir est contre le mur du haut, à côté de la commode : (1,6))
+g.warp(3, 0x2a, 0x26)
 g.settled()
 g.w(40)
 g.text_through()
@@ -79,7 +79,7 @@ shoot('e01_miroir')
 g.m[RINGS + EASTER // 8] |= 1 << (EASTER % 8)
 g.m[BOX] = EASTER
 g.m[ACTIVE] = EASTER
-g.stand(6, 6)
+g.stand(2, 6)
 through('e01b_tour')
 check(g.where() == (5, 0xef), 'la bague portée : le miroir tourne avec Link, la salle secrète (5:ef)')
 g.text_through()

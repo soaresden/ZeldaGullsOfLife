@@ -862,9 +862,10 @@ salle 5:7d
 salle 5:7b
 	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
 	obj_Interaction INTERAC_BALLADE_OBJECT $08 $68 $78
-# Le souvenir (la maison de Marine à Mabe) : Tarkin à sa table
+# Le souvenir (la maison de Marine à Mabe, comme dans DX) : Tarkin assis de dos, sur le tabouret
+# sous la table (6,8)
 salle 3:26
-	obj_Interaction INTERAC_BALLADE_OBJECT $20 $48 $58
+	obj_Interaction INTERAC_BALLADE_OBJECT $20 $68 $88
 
 # La Fosse de Bulle (story/salles/fosse.txt) : le souffle qui se vide, dans chaque salle ; au fond,
 # l'Épée de Légende
@@ -991,9 +992,10 @@ salle 5:ed
 	obj_Interaction INTERAC_BALLADE_CREUSE $22 $08 $08
 	obj_Interaction INTERAC_BALLADE_CREUSE $11 $48 $98
 
-# L'Easter Egg : le miroir de la maison de Marine (à coté de l'armoire) ; derrière, la salle secrète
+# L'Easter Egg : le miroir de la maison de Marine (contre le mur, à coté de l'armoire : la commode de
+# DX) ; derrière, la salle secrète
 salle 3:2a
-	obj_Interaction INTERAC_BALLADE_OBJECT $48 $58 $68
+	obj_Interaction INTERAC_BALLADE_OBJECT $48 $18 $68
 salle 5:ef
 	obj_Interaction INTERAC_BALLADE_OBJECT $48 $88 $78 ; le miroir du retour
 	obj_Interaction INTERAC_BALLADE_OBJECT $49 $28 $18 ; les remerciements

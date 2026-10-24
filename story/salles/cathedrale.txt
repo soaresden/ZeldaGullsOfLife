@@ -304,14 +304,18 @@ b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 a0 b2 b2 b2 b2 b2 b2 bb
 
-# --- Le souvenir : la maison de Marine à Mabe (3:26, décor 2b des maisons) : deux lits, la
-# cheminée, la table de Tarkin ; la porte du bas ramène au chœur (5:7b) ---
+# --- Le souvenir : la maison de Marine à Mabe (3:26, décor 2b des maisons), comme dans Link's
+# Awakening DX (la maison de Tarin et Marin, salle B $A3 ; les meubles de DX : tools/make_maison_dx.py) :
+# deux lits sur le dallage, la commode contre le mur du haut, deux caisses, la table et ses tabourets,
+# deux jarres. Tarkin est assis de dos, sur le tabouret sous la table (6,8). La porte du bas ramène au
+# chœur (5:7b). Briques : c0 c1 le lit (haut, bas) ; c2 c3 la table ; c4 c7 la commode (haut, bas) ;
+# c8 la caisse ; c9 le tabouret ; ca la jarre ; cb le dallage ---
 salle 3:26 decor 2b
-b8 b0 b0 80 83 80 b0 b0 b0 b9
-b3 dd a0 81 82 81 a0 a0 dd b1
-b3 ee a0 a0 a0 a0 a0 a0 ee b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 88 a0 a0 1c a0 a0 6a 5a b1
-b3 a0 a0 a0 a0 a0 a0 6b 6c b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b8 b0 b0 b0 b0 b0 b0 c4 b0 b9
+b3 cb cb cb cb cb a0 c7 c8 b1
+b3 c0 cb c0 cb cb a0 a0 c8 b1
+b3 c1 cb c1 cb cb a0 a0 a0 b1
+b3 cb cb cb cb cb a0 a0 c9 b1
+b3 a0 a0 a0 a0 a0 a0 c2 c3 b1
+b3 ca ca a0 a0 a0 a0 a0 c9 b1
 ba b2 b2 b2 e0 e1 b2 b2 b2 bb

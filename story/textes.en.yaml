@@ -2217,19 +2217,21 @@ groups:
   - name: TX_5aa0
     index: 0xa0
     text: |-
-      \col(1)Tarin\col(0): Oh! A
-      visitor!\stop
-      Sit down, kid.
-      The soup's
-      almost ready.\stop
-      I always set
-      three plates.
-      My daughter's
-      coming home.\stop
-      She sings by
-      the sea. She
-      always comes
-      home.
+      \col(1)Tarin\col(0): OH!
+      LINK! What a
+      pleasure!\stop
+      Have you seen
+      Marin? She must
+      still be at the
+      Animal Village.\stop
+      And your shield,
+      the one I fished
+      out of the sea?\stop
+      What?! You lost
+      it again?!\stop
+      You've got some
+      nerve! I'm not
+      going back!
 
   - name: TX_5aa1
     index: 0xa1
@@ -2261,9 +2263,9 @@ groups:
   - name: TX_5aa3
     index: 0xa3
     text: |-
-      \col(1)Tarin\col(0): She'll be
-      home soon. She
-      always comes
+      \col(1)Tarin\col(0): Marin'll
+      be home soon.
+      She always comes
       home.
 
   # End of chapter 5: the square of silence (1:62), the bells sing

@@ -277,11 +277,10 @@ g.settled()
 g.w(60)
 check(g.where() == (3, 0x26), 'le souvenir : la maison de Marine à Mabe (3:26)')
 
-# --- Le souvenir : Tarkin ---
-g.stand(5, 5)
-g.hold('up', 8)
-g.press('a', 20)
-check(g.wait_text(60), 'Tarkin')
+# --- Le souvenir : Tarkin (assis de dos sous la table, en (6,8) ; il connaît Link : quand Link
+# approche, il se retourne de lui-même, « OH ! LINK ! Quel plaisir ! ») ---
+g.route((6, 4), (6, 6))
+check(g.wait_text(60), 'Tarkin : « OH ! LINK ! Quel plaisir ! »')
 g.w(40)
 shoot('c11_tarkin', 'Tarkin')
 g.text_through()
