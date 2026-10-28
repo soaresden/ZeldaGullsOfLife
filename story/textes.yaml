@@ -5122,6 +5122,505 @@ groups:
       joue la Ballade
       du Poisson-Rêve.
 
+  - name: TX_5beb
+    index: 0xeb
+    text: |-
+      Ta tunique sent
+      le poisson.\stop
+      ...Ah non, c'est
+      moi. Pardon!
+
+  - name: TX_5bec
+    index: 0xec
+    text: |-
+      Si tu me laisses
+      encore dans ta
+      poche avec tes
+      bombes, je
+      démissionne!
+
+  - name: TX_5bed
+    index: 0xed
+    text: |-
+      Une mouette dans
+      la main vaut
+      mieux que deux
+      dans le ciel.\stop
+      ...Personne ne
+      dit ça? Bon.
+
+  - name: TX_5bee
+    index: 0xee
+    text: |-
+      J'ai compté: tu
+      as coupé 347
+      buissons depuis
+      ce matin.\stop
+      Les buissons te
+      détestent, Link.
+
+  - name: TX_5bef
+    index: 0xef
+    text: |-
+      Quand je serai
+      humaine pour de
+      bon, tu porteras
+      mes coquillages.\stop
+      C'est la loi.
+
+  - name: TX_5bf0
+    index: 0xf0
+    text: |-
+      Tu ronfles, tu
+      sais. Même dans
+      le Songe.
+
+  - name: TX_5bf1
+    index: 0xf1
+    text: |-
+      Une mouette qui
+      parle tout le
+      temps, un garçon
+      qui ne dit rien.\stop
+      On forme un duo
+      parfait!
+
+  - name: TX_5bf2
+    index: 0xf2
+    text: |-
+      J'ai faim. Tu
+      n'aurais pas une
+      sardine? Une
+      miette? Un rubis
+      à croquer?
+
+  - name: TX_5bf3
+    index: 0xf3
+    text: |-
+      Si tu tombes
+      encore dans un
+      trou, je ne te
+      rattrape plus.\stop
+      ...Bon, si. Mais
+      je râlerai.
+
+  - name: TX_5bf4
+    index: 0xf4
+    text: |-
+      Tarkin dirait:
+      "Encore un
+      champignon?"\stop
+      Non, Link. Pas
+      de champignon.
+
+  - name: TX_5bf5
+    index: 0xf5
+    text: |-
+      Bon, sérieux...\stop
+      Le Phare Éteint,
+      au nord: il faut
+      le rallumer.\stop
+      Le pêcheur du
+      port aurait une
+      épée à prêter...
+
+  - name: TX_5bf6
+    index: 0xf6
+    text: |-
+      Bon, sérieux...\stop
+      Le Bateau-Rondin
+      nous attend au
+      ponton!\stop
+      Hameau-Grelot:
+      les enfants n'y
+      jouent plus...
+
+  - name: TX_5bf7
+    index: 0xf7
+    text: |-
+      Bon, sérieux...\stop
+      La Lagune: ce
+      vieux couple qui
+      s'oublie chaque
+      matin...\stop
+      Et il te faudra
+      nager: les
+      Palmes de Zora!
+
+  - name: TX_5bf8
+    index: 0xf8
+    text: |-
+      Bon, sérieux...\stop
+      Mont-Braise: la
+      forgeronne a un
+      bracelet de
+      force.\stop
+      Et la Forge dort
+      dans le cratère.
+
+  - name: TX_5bf9
+    index: 0xf9
+    text: |-
+      Bon, sérieux...\stop
+      L'île des Échos:
+      le fossoyeur a
+      une pelle...\stop
+      Et la cathédrale
+      est fermée à
+      clé.
+
+  - name: TX_5bfa
+    index: 0xfa
+    text: |-
+      Bon, sérieux...\stop
+      Le vent monte,
+      quelque part...\stop
+      Je dois le lire
+      pour trouver le
+      Nid des Vents!
+
+  - name: TX_5bfb
+    index: 0xfb
+    text: |-
+      Bon, sérieux...\stop
+      Au Grand
+      Sommeil, tout le
+      monde dort.\stop
+      Une clochette
+      les réveillerait
+      peut-être...
+
+  - name: TX_5bfc
+    index: 0xfc
+    text: |-
+      Bon, sérieux...\stop
+      Sept couplets!
+      L'Œil de
+      l'Insomnis...\stop
+      Le soleil et la
+      lune ensemble:
+      le Réel et le
+      Songe!
+
+  - name: TX_5bfd
+    index: 0xfd
+    text: |-
+      Bon, sérieux...\stop
+      Viens sur mon
+      île! Le volley,
+      mes anneaux...\stop
+      Et il te manque
+      peut-être des
+      quarts de cœur!
+
+- group: 0x5c
+  data:
+  # L'après-jeu (suite) : le téléphone de Zelda, Zelda sur l'île, Tarkin le voisin
+  - name: TX_5c00
+    index: 0x00
+    text: |-
+      Un téléphone,
+      comme les
+      cabines de
+      Cocolint!\stop
+      Appeler Zelda?
+        \opt()Oui \opt()Non
+
+  - name: TX_5c01
+    index: 0x01
+    text: |-
+      \col(1)Zelda\col(0): Allo?
+      Link? Tu
+      m'appelles d'un
+      coquillage?\stop
+      ...Ah, un
+      téléphone. Bien
+      sûr.
+
+  - name: TX_5c02
+    index: 0x02
+    text: |-
+      \col(1)Zelda\col(0): Depuis
+      la berceuse de
+      Marine, je dors
+      comme un bébé!\stop
+      Merci à vous
+      deux.
+
+  - name: TX_5c03
+    index: 0x03
+    text: |-
+      \col(1)Zelda\col(0): Impa
+      demande si tu
+      manges assez.\stop
+      ...Je lui ai dit
+      que oui.
+
+  - name: TX_5c04
+    index: 0x04
+    text: |-
+      \col(1)Zelda\col(0): Hyrule
+      va bien. Le
+      château est
+      calme...\stop
+      Trop calme, sans
+      toi.
+
+  - name: TX_5c05
+    index: 0x05
+    text: |-
+      \col(1)Zelda\col(0): Dis à
+      Marine que je
+      chante sa
+      chanson aux
+      oiseaux du
+      jardin.
+
+  - name: TX_5c06
+    index: 0x06
+    text: |-
+      \col(1)Zelda\col(0): Tu as
+      encore perdu ton
+      bouclier quelque
+      part? Je le
+      savais!
+
+  - name: TX_5c07
+    index: 0x07
+    text: |-
+      \col(1)Zelda\col(0): Dis...
+      je peux venir
+      vous voir sur
+      l'île?
+        \opt()Oui \opt()Non
+
+  - name: TX_5c08
+    index: 0x08
+    text: |-
+      \col(1)Zelda\col(0): J'arrive!
+      Je prends le
+      premier bateau!
+
+  - name: TX_5c09
+    index: 0x09
+    text: |-
+      \col(1)Zelda\col(0): Une
+      autre fois,
+      alors. Bisous,
+      Link!
+
+  - name: TX_5c0a
+    index: 0x0a
+    text: |-
+      \col(1)Zelda\col(0): Je suis
+      tout près,
+      Link...\stop
+      Retourne-toi!
+
+  - name: TX_5c0b
+    index: 0x0b
+    text: |-
+      \col(1)Zelda\col(0): Quelle
+      belle île!
+      Marine a de la
+      chance.
+
+  - name: TX_5c0c
+    index: 0x0c
+    text: |-
+      \col(1)Zelda\col(0): Le
+      volley? J'ai
+      gagné le tournoi
+      du château trois
+      ans de suite.
+
+  - name: TX_5c0d
+    index: 0x0d
+    text: |-
+      \col(1)Zelda\col(0): Je dors
+      enfin la nuit.\stop
+      Plus jamais
+      d'Insomnis!
+
+  - name: TX_5c0e
+    index: 0x0e
+    text: |-
+      \col(1)Zelda\col(0): Ne dis
+      pas à Impa que
+      je suis ici,
+      d'accord?
+
+  - name: TX_5c0f
+    index: 0x0f
+    text: |-
+      \col(1)Tarkin\col(0): Oh!
+      Link! Entre,
+      entre!\stop
+      Je me suis
+      installé près
+      de Marine.
+
+  - name: TX_5c10
+    index: 0x10
+    text: |-
+      \col(1)Tarkin\col(0): Ma
+      fille chante
+      tous les matins.\stop
+      Les mouettes lui
+      répondent!
+
+  - name: TX_5c11
+    index: 0x11
+    text: |-
+      \col(1)Tarkin\col(0): J'ai
+      planté des
+      champignons
+      derrière.\stop
+      ...Ne les mange
+      pas.
+
+  - name: TX_5c12
+    index: 0x12
+    text: |-
+      \col(1)Tarkin\col(0): Tu
+      sais, Link...\stop
+      Merci d'avoir
+      ramené ma
+      Marine.
+
+  - name: TX_5c13
+    index: 0x13
+    text: |-
+      \col(1)Tarkin\col(0): Le
+      raton laveur?
+      Quel raton
+      laveur?\stop
+      Je ne vois pas
+      de quoi tu
+      parles.
+  # Le générique (Denis : « un truc à défilement », comme DX) : des cartons de deux lignes qui
+  # se ferment seuls
+
+  - name: TX_5c14
+    index: 0x14
+    text: |2-
+       THE LEGEND OF
+            ZELDA\wait(150)
+
+  - name: TX_5c15
+    index: 0x15
+    text: |2-
+        Gulls of Life
+      \wait(150)
+
+  - name: TX_5c16
+    index: 0x16
+    text: |-
+      Une idée de
+      Denis.\wait(150)
+
+  - name: TX_5c17
+    index: 0x17
+    text: |-
+      Histoire:
+      Denis et Claude\wait(150)
+
+  - name: TX_5c18
+    index: 0x18
+    text: |-
+      Énigmes:
+      Denis et Claude\wait(150)
+
+  - name: TX_5c19
+    index: 0x19
+    text: |-
+      Programme:
+      Claude\wait(150)
+
+  - name: TX_5c1a
+    index: 0x1a
+    text: |-
+      Musiques:
+      Claude,\wait(150)
+
+  - name: TX_5c1b
+    index: 0x1b
+    text: |-
+      d'après les airs
+      de Cocolint.\wait(150)
+
+  - name: TX_5c1c
+    index: 0x1c
+    text: |-
+      Dessins: Claude,
+      et les sprites\wait(150)
+
+  - name: TX_5c1d
+    index: 0x1d
+    text: |-
+      de Link's
+      Awakening DX.\wait(150)
+
+  - name: TX_5c1e
+    index: 0x1e
+    text: |-
+      Testeur en chef:
+      Denis,\wait(150)
+
+  - name: TX_5c1f
+    index: 0x1f
+    text: |-
+      sur sa Retroid!
+      \wait(150)
+
+  - name: TX_5c20
+    index: 0x20
+    text: |-
+      Outils:
+      LynnaLab,\wait(150)
+
+  - name: TX_5c21
+    index: 0x21
+    text: |-
+      oracles-disasm,
+      hack-base.\wait(150)
+
+  - name: TX_5c22
+    index: 0x22
+    text: |-
+      D'après Link's
+      Awakening DX et\wait(150)
+
+  - name: TX_5c23
+    index: 0x23
+    text: |-
+      Oracle of Ages:
+      Nintendo, Capcom\wait(150)
+
+  - name: TX_5c24
+    index: 0x24
+    text: |-
+      Merci, Denis:
+      ton envie a fait\wait(150)
+
+  - name: TX_5c25
+    index: 0x25
+    text: |-
+      ce jeu.
+      \wait(150)
+
+  - name: TX_5c26
+    index: 0x26
+    text: |-
+      Merci d'avoir
+      joué!\wait(150)
+
+  - name: TX_5c27
+    index: 0x27
+    text: |2-
+
+            FIN\wait(150)
+
 - group: 0x30
   data:
   # Les cinq anneaux du jeu : leur nom, ce qu'ils font

@@ -502,10 +502,16 @@ salle 75
 # La prairie suspendue : le Rito égaré, au bord
 salle 76
 	obj_Interaction INTERAC_BALLADE_OBJECT $21 $38 $78
-# Les moulins à vent : deux meuniers
+# Les moulins à vent : deux meuniers ; les deux moulins (dessinés, 32 x 32 : $5d)
 salle 66
 	obj_Interaction INTERAC_BALLADE_OBJECT $24 $28 $18
 	obj_Interaction INTERAC_BALLADE_OBJECT $4d $28 $88
+	obj_Interaction INTERAC_BALLADE_OBJECT $5d $20 $30
+	obj_Interaction INTERAC_BALLADE_OBJECT $5d $20 $70
+# et dans le Songe (la même salle, bleutée)
+salle 0:66
+	obj_Interaction INTERAC_BALLADE_OBJECT $5d $20 $30
+	obj_Interaction INTERAC_BALLADE_OBJECT $5d $20 $70
 # Le village des plumes : Zéphyr et ses ailes, au bord ; dans le Songe, il vole
 salle 67
 	obj_Interaction INTERAC_BALLADE_OBJECT $22 $58 $78
@@ -969,7 +975,8 @@ salle 4:d7
 
 # Le Nid de la Mouette, l'île de Marine (après la fin ; story/salles/ile_marine.txt, code/ages/balladeFin.s)
 salle 5b
-	obj_Interaction INTERAC_BALLADE_CREUSE $15 $58 $38 ; le coquillage qui appelle Zelda
+	obj_Interaction INTERAC_BALLADE_CREUSE $15 $58 $38 ; le téléphone qui appelle Zelda
+	obj_Interaction INTERAC_BALLADE_CREUSE $24 $58 $78 ; Zelda, invitée au téléphone (GLOBALFLAG_BALLADE_ZELDA)
 salle 5c
 	obj_Interaction INTERAC_BALLADE_CREUSE $14 $28 $78 ; Marine
 	obj_Interaction INTERAC_BALLADE_CREUSE $16 $08 $08 ; le volley
@@ -1017,6 +1024,9 @@ salle 3:2a
 	obj_Interaction INTERAC_BALLADE_OBJECT $5a $68 $18
 	obj_Interaction INTERAC_BALLADE_OBJECT $5b $28 $88
 	obj_Interaction INTERAC_BALLADE_OBJECT $5c $58 $78
+# La maison de Tarkin, à côté : Tarkin, le voisin (après la fin)
+salle 3:2b
+	obj_Interaction INTERAC_BALLADE_CREUSE $25 $48 $28
 salle 5:ef
 	obj_Interaction INTERAC_BALLADE_OBJECT $48 $88 $78 ; le miroir du retour
 	obj_Interaction INTERAC_BALLADE_OBJECT $49 $28 $18 ; les remerciements

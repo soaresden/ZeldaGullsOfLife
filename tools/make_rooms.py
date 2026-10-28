@@ -167,6 +167,13 @@ def write_objects(keys):
         f.write('\n'.join(lines).rstrip('\n') + '\n' + '\n'.join(out) + '\n')
 
 
+def write_if_changed(path, data):
+    """N'écrit que si le contenu change : sinon make recompresse toutes les salles (~10 min)."""
+    if os.path.exists(path) and open(path, 'rb').read() == data:
+        return
+    open(path, 'wb').write(data)
+
+
 def main():
     plans, decors = read_plans()
     tilesets = {g: bytearray(open(tilesets_path(g), 'rb').read()) for g in range(6)}
@@ -176,22 +183,20 @@ def main():
         tilesets[g][r] = (tilesets[g][r] & 0x80) | ts
         # Grandes salles : 16e colonne de remplissage à 0, comme les salles d'Ages
         pad = [0] if g in LARGE else []
-        with open(room_file(g, r), 'wb') as f:
-            f.write(bytes(b for row in p['rows'] for b in row + pad))
+        write_if_changed(room_file(g, r), bytes(b for row in p['rows'] for b in row + pad))
     for (g, r), (ts, copy) in decors.items():
         tilesets[g][r] = (tilesets[g][r] & 0x80) | ts
         if copy:
-            with open(room_file(g, r), 'wb') as f:
-                f.write(open(room_file(*copy), 'rb').read())
+            write_if_changed(room_file(g, r), open(room_file(*copy), 'rb').read())
     for g, t in tilesets.items():
-        open(tilesets_path(g), 'wb').write(t)
+        write_if_changed(tilesets_path(g), bytes(t))
     for g in LARGE:
         path = os.path.join(DISASM, 'rooms', 'ages', 'group%dDungeonProperties.bin' % g)
         props = bytearray(open(path, 'rb').read())
         for p in plans:
             if p['key'][0] == g:
                 props[p['key'][1]] = dungeon_property(p)
-        open(path, 'wb').write(props)
+        write_if_changed(path, bytes(props))
     print('%d salles construites (Réel et Songe)' % len(plans))
 
 

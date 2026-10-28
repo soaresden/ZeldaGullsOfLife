@@ -20,6 +20,7 @@ export PYTHONUTF8=1
 "$PYTHON" "$ROOT/tools/make_title.py"
 "$PYTHON" "$ROOT/tools/make_menus_fr.py"
 "$PYTHON" "$ROOT/tools/make_blurbs.py"
+"$PYTHON" -W ignore "$ROOT/tools/make_maison_ile.py"
 "$PYTHON" "$ROOT/tools/make_songe.py"
 "$PYTHON" "$ROOT/tools/make_mamono.py"
 "$PYTHON" "$ROOT/tools/make_phare.py"
@@ -31,6 +32,7 @@ export PYTHONUTF8=1
 "$PYTHON" "$ROOT/tools/make_music.py"
 "$PYTHON" "$ROOT/tools/make_tracker.py"
 "$PYTHON" "$ROOT/tools/make_islands.py"
+"$PYTHON" "$ROOT/tools/make_map_marks.py"
 cd "$ROOT/oracles-disasm"
 make -j8 PYTHON="$PYTHON" ages
 cp -f ages.gbc "$ROOT/out/gulls_of_life.gbc"

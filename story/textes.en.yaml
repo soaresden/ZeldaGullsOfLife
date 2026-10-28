@@ -4956,6 +4956,489 @@ groups:
       Ballad of the
       Wind Fish.
 
+  - name: TX_5beb
+    index: 0xeb
+    text: |-
+      Your tunic
+      smells of fish.\stop
+      ...Oh no, that's
+      me. Sorry!
+
+  - name: TX_5bec
+    index: 0xec
+    text: |-
+      If you leave me
+      in your pocket
+      with your bombs
+      again, I quit!
+
+  - name: TX_5bed
+    index: 0xed
+    text: |-
+      A gull in the
+      hand is worth
+      two in the sky.\stop
+      ...Nobody says
+      that? Fine.
+
+  - name: TX_5bee
+    index: 0xee
+    text: |-
+      I counted: you
+      cut 347 bushes
+      since this
+      morning.\stop
+      The bushes hate
+      you, Link.
+
+  - name: TX_5bef
+    index: 0xef
+    text: |-
+      When I'm human
+      for good, you'll
+      carry my shells.\stop
+      That's the law.
+
+  - name: TX_5bf0
+    index: 0xf0
+    text: |-
+      You snore, you
+      know. Even in
+      the Dream.
+
+  - name: TX_5bf1
+    index: 0xf1
+    text: |-
+      A gull who never
+      stops talking, a
+      boy who never
+      says a word.\stop
+      A perfect duo!
+
+  - name: TX_5bf2
+    index: 0xf2
+    text: |-
+      I'm hungry. Got
+      a sardine? A
+      crumb? A rupee
+      to munch on?
+
+  - name: TX_5bf3
+    index: 0xf3
+    text: |-
+      If you fall in
+      one more hole, I
+      won't catch you.\stop
+      ...Okay, I will.
+      But I'll moan.
+
+  - name: TX_5bf4
+    index: 0xf4
+    text: |-
+      Tarin would say:
+      "Another
+      mushroom?"\stop
+      No, Link. No
+      mushroom.
+
+  - name: TX_5bf5
+    index: 0xf5
+    text: |-
+      Seriously...\stop
+      The Dark
+      Lighthouse, up
+      north: light it!\stop
+      The fisherman
+      at the port may
+      lend a sword...
+
+  - name: TX_5bf6
+    index: 0xf6
+    text: |-
+      Seriously...\stop
+      The Log Raft is
+      waiting at the
+      jetty!\stop
+      Jinglet: the
+      kids don't play
+      anymore...
+
+  - name: TX_5bf7
+    index: 0xf7
+    text: |-
+      Seriously...\stop
+      The Lagoon: that
+      old couple who
+      forget each
+      other...\stop
+      And you'll need
+      to swim: Zora's
+      Flippers!
+
+  - name: TX_5bf8
+    index: 0xf8
+    text: |-
+      Seriously...\stop
+      Ember Peak: the
+      blacksmith has a
+      Power Bracelet.\stop
+      And the Forge
+      sleeps in the
+      crater.
+
+  - name: TX_5bf9
+    index: 0xf9
+    text: |-
+      Seriously...\stop
+      Echo Isle: the
+      gravedigger has
+      a shovel...\stop
+      And the
+      cathedral is
+      locked.
+
+  - name: TX_5bfa
+    index: 0xfa
+    text: |-
+      Seriously...\stop
+      The wind rises,
+      somewhere...\stop
+      I must read it
+      to find the
+      Windnest!
+
+  - name: TX_5bfb
+    index: 0xfb
+    text: |-
+      Seriously...\stop
+      Deep Sleep Isle:
+      everyone sleeps
+      there.\stop
+      A little bell
+      might wake them
+      up...
+
+  - name: TX_5bfc
+    index: 0xfc
+    text: |-
+      Seriously...\stop
+      Seven verses!
+      The Sleepless
+      Eye...\stop
+      Sun and moon
+      together: the
+      Real and the
+      Dream!
+
+  - name: TX_5bfd
+    index: 0xfd
+    text: |-
+      Seriously...\stop
+      Come to my
+      island! Volley,
+      my rings...\stop
+      And you may miss
+      some heart
+      pieces!
+
+- group: 0x5c
+  data:
+  # L'après-jeu (suite) : le téléphone de Zelda, Zelda sur l'île, Tarkin le voisin
+  - name: TX_5c00
+    index: 0x00
+    text: |-
+      A telephone,
+      like the booths
+      on Koholint!\stop
+      Call Zelda?
+        \opt()Yes \opt()No
+
+  - name: TX_5c01
+    index: 0x01
+    text: |-
+      \col(1)Zelda\col(0): Hello?
+      Link? You call
+      me from a
+      seashell?\stop
+      ...Oh, a phone.
+      Of course.
+
+  - name: TX_5c02
+    index: 0x02
+    text: |-
+      \col(1)Zelda\col(0): Since
+      Marin's
+      lullaby, I sleep
+      like a baby!\stop
+      Thanks to you
+      both.
+
+  - name: TX_5c03
+    index: 0x03
+    text: |-
+      \col(1)Zelda\col(0): Impa
+      asks if you eat
+      enough.\stop
+      ...I told her
+      you do.
+
+  - name: TX_5c04
+    index: 0x04
+    text: |-
+      \col(1)Zelda\col(0): Hyrule
+      is fine. The
+      castle is
+      quiet...\stop
+      Too quiet,
+      without you.
+
+  - name: TX_5c05
+    index: 0x05
+    text: |-
+      \col(1)Zelda\col(0): Tell
+      Marin I sing her
+      song to the
+      garden birds.
+
+  - name: TX_5c06
+    index: 0x06
+    text: |-
+      \col(1)Zelda\col(0): Did
+      you lose your
+      shield again? I
+      knew it!
+
+  - name: TX_5c07
+    index: 0x07
+    text: |-
+      \col(1)Zelda\col(0): Say...
+      may I come and
+      visit you on the
+      island?
+        \opt()Yes \opt()No
+
+  - name: TX_5c08
+    index: 0x08
+    text: |-
+      \col(1)Zelda\col(0): On my
+      way! I'll take
+      the first boat!
+
+  - name: TX_5c09
+    index: 0x09
+    text: |-
+      \col(1)Zelda\col(0): Some
+      other time,
+      then. See you,
+      Link!
+
+  - name: TX_5c0a
+    index: 0x0a
+    text: |-
+      \col(1)Zelda\col(0): I'm
+      right next to
+      you, Link...\stop
+      Turn around!
+
+  - name: TX_5c0b
+    index: 0x0b
+    text: |-
+      \col(1)Zelda\col(0): What a
+      lovely island!
+      Marin is lucky.
+
+  - name: TX_5c0c
+    index: 0x0c
+    text: |-
+      \col(1)Zelda\col(0): Volley?
+      I won the castle
+      tournament three
+      years in a row.
+
+  - name: TX_5c0d
+    index: 0x0d
+    text: |-
+      \col(1)Zelda\col(0): I
+      finally sleep at
+      night.\stop
+      No more
+      Sleepless!
+
+  - name: TX_5c0e
+    index: 0x0e
+    text: |-
+      \col(1)Zelda\col(0): Don't
+      tell Impa I'm
+      here, okay?
+
+  - name: TX_5c0f
+    index: 0x0f
+    text: |-
+      \col(1)Tarin\col(0): Oh!
+      Link! Come in,
+      come in!\stop
+      I moved in next
+      to Marin.
+
+  - name: TX_5c10
+    index: 0x10
+    text: |-
+      \col(1)Tarin\col(0): My
+      girl sings every
+      morning.\stop
+      The gulls answer
+      her!
+
+  - name: TX_5c11
+    index: 0x11
+    text: |-
+      \col(1)Tarin\col(0): I
+      planted
+      mushrooms out
+      back.\stop
+      ...Don't eat
+      them.
+
+  - name: TX_5c12
+    index: 0x12
+    text: |-
+      \col(1)Tarin\col(0): You
+      know, Link...\stop
+      Thank you for
+      bringing my
+      Marin back.
+
+  - name: TX_5c13
+    index: 0x13
+    text: |-
+      \col(1)Tarin\col(0): A
+      raccoon? What
+      raccoon?\stop
+      I don't know
+      what you mean.
+  # Le générique (Denis : « un truc à défilement », comme DX) : des cartons de deux lignes qui
+  # se ferment seuls
+
+  - name: TX_5c14
+    index: 0x14
+    text: |2-
+       THE LEGEND OF
+            ZELDA\wait(150)
+
+  - name: TX_5c15
+    index: 0x15
+    text: |2-
+        Gulls of Life
+      \wait(150)
+
+  - name: TX_5c16
+    index: 0x16
+    text: |-
+      An idea by
+      Denis.\wait(150)
+
+  - name: TX_5c17
+    index: 0x17
+    text: |-
+      Story:
+      Denis and Claude\wait(150)
+
+  - name: TX_5c18
+    index: 0x18
+    text: |-
+      Puzzles:
+      Denis and Claude\wait(150)
+
+  - name: TX_5c19
+    index: 0x19
+    text: |-
+      Programming:
+      Claude\wait(150)
+
+  - name: TX_5c1a
+    index: 0x1a
+    text: |-
+      Music:
+      Claude,\wait(150)
+
+  - name: TX_5c1b
+    index: 0x1b
+    text: |-
+      after the tunes
+      of Koholint.\wait(150)
+
+  - name: TX_5c1c
+    index: 0x1c
+    text: |-
+      Graphics: Claude
+      and the sprites\wait(150)
+
+  - name: TX_5c1d
+    index: 0x1d
+    text: |-
+      of Link's
+      Awakening DX.\wait(150)
+
+  - name: TX_5c1e
+    index: 0x1e
+    text: |-
+      Chief tester:
+      Denis,\wait(150)
+
+  - name: TX_5c1f
+    index: 0x1f
+    text: |-
+      on his Retroid!
+      \wait(150)
+
+  - name: TX_5c20
+    index: 0x20
+    text: |-
+      Tools:
+      LynnaLab,\wait(150)
+
+  - name: TX_5c21
+    index: 0x21
+    text: |-
+      oracles-disasm,
+      hack-base.\wait(150)
+
+  - name: TX_5c22
+    index: 0x22
+    text: |-
+      Based on Link's
+      Awakening DX and\wait(150)
+
+  - name: TX_5c23
+    index: 0x23
+    text: |-
+      Oracle of Ages:
+      Nintendo, Capcom\wait(150)
+
+  - name: TX_5c24
+    index: 0x24
+    text: |-
+      Thanks, Denis:
+      your drive made\wait(150)
+
+  - name: TX_5c25
+    index: 0x25
+    text: |-
+      this game.
+      \wait(150)
+
+  - name: TX_5c26
+    index: 0x26
+    text: |-
+      Thanks for
+      playing!\wait(150)
+
+  - name: TX_5c27
+    index: 0x27
+    text: |2-
+
+            END\wait(150)
+
 - group: 0x30
   data:
   # Gulls of Life's five rings: name, effect

@@ -24,7 +24,7 @@ import yaml
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DISASM = os.path.join(ROOT, 'oracles-disasm')
 BASE = 'text/ages/text.yaml'
-OUR_GROUPS = (0x5a, 0x5b)    # le 0x5b : la fin du jeu et l'après-jeu (le 0x5a est plein)
+OUR_GROUPS = (0x5a, 0x5b, 0x5c)    # le 0x5b : la fin du jeu et l'après-jeu (le 0x5a est plein) ; le 0x5c : la suite
 LANGUAGES = (('textes.en.yaml', 'text/ages/text.yaml'), ('textes.yaml', 'text/ages/text_fr.yaml'))
 
 

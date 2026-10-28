@@ -2,7 +2,7 @@
 # écrans 1:5b-6c (libres, entre les îles). On y vient en Bateau-Rondin une fois le jeu fini
 # (GLOBALFLAG_BALLADE_FIN). Code : code/ages/balladeFin.s.
 #
-#   5b la maison de Marine (sa porte dd -> 3:2a), le coquillage qui appelle Zelda
+#   5b la maison de Marine (sa porte dd -> 3:2a ; à droite dedans, la maison de Tarkin 3:2b), le téléphone qui appelle Zelda (et Zelda, si on l'a invitée)
 #   5c la plage du volley (le filet : les planches 0e, colonne 4) ; Marine
 #   6b le ponton (le Bateau-Rondin)
 #   6c la plage aux palmiers
@@ -11,12 +11,13 @@
 # au-dessus), 26 (à gauche), 27 (à droite), coins 20 22 ; c0 c1 c2 / d3 dd d3 la hutte (dd : la
 # porte) ; 80 81 / a0 a1 un palmier ; 0e planches.
 
-# --- La maison de Marine (nord-ouest) ; le coquillage devant ---
+# --- La maison de Marine (nord-ouest) : une vraie maison (Denis), le toit a6 a7 a8, les murs a9 aa,
+# la porte de (tools/make_maison_ile.py, art/maison_marine.txt) ; le téléphone devant ---
 salle 5b decor 18
 fc fc fc fc fc fc fc fc fc fc
 fc 20 21 21 21 21 21 21 21 21
-fc 26 bf bf c0 c0 c3 bf 80 81
-fc 26 bf bf d3 dd d3 bf a0 a1
+fc 26 bf bf a6 a7 a8 bf 80 81
+fc 26 bf bf a9 de aa bf a0 a1
 fc 26 bf bf bf bf bf bf bf bf
 fc 26 bf bf bf bf bf bf bf bf
 fc 26 bf c5 bf bf bf bf c5 bf
@@ -55,8 +56,31 @@ fc fc fc fc fc fc fc fc fc fc
 fc fc fc fc fc fc fc fc fc fc
 fc fc fc fc fc fc fc fc fc fc
 
-# --- La maison de Marine (dedans) : la même disposition que sa maison de Mabe (le souvenir, 3:26) ---
-decor 3:2a 2b copie 3:26
+# --- La maison de Marine (dedans) : la même disposition que sa maison de Mabe (le souvenir, 3:26),
+# plus une ouverture à droite (ligne 3) : la maison de Tarkin, à côté (3:2b ; Denis : « une porte à
+# droite chez elle qui emmène chez Tarkin ») ---
+salle 3:2a decor 2b
+b8 b0 b0 b0 b0 b0 b0 c4 b0 b9
+b3 cb cb cb cb cb a0 c7 c8 b1
+b3 c0 cb c0 cb cb a0 a0 c8 b1
+b3 c1 cb c1 cb cb a0 a0 a0 a0
+b3 cb cb cb cb cb a0 a0 c9 b1
+b3 a0 a0 a0 a0 a0 a0 c2 c3 b1
+b3 ca ca a0 a0 a0 a0 a0 c9 b1
+ba b2 b2 b2 e0 e1 b2 b2 b2 bb
+
+# --- La maison de Tarkin, à côté de celle de Marine (on y entre par l'ouverture de gauche, ligne
+# 3) : son lit, sa table et son tabouret, ses jarres ; Tarkin, le voisin (INTERAC_BALLADE_CREUSE $25)
+# ---
+salle 3:2b decor 2b
+b8 b0 c4 b0 b0 b0 b0 b0 b0 b9
+b3 a0 c7 a0 cb cb cb cb a0 b1
+b3 a0 a0 a0 cb c0 cb cb a0 b1
+a0 a0 a0 a0 cb c1 cb cb a0 b1
+b3 a0 a0 a0 cb cb cb cb a0 b1
+b3 c2 c3 a0 a0 a0 a0 a0 a0 b1
+b3 c9 a0 a0 a0 a0 a0 ca ca b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 bb
 
 # --- Derrière le miroir de Marine (l'Easter Egg : la bague portée, on fonce dans le miroir de sa
 # maison, code/ages/balladeObjects.s easterMirror) : la salle secrète, comme le reflet de sa maison.

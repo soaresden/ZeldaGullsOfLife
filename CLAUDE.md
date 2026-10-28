@@ -1096,3 +1096,44 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   0-corons_apercu.wav), j'ai retiré musRosaDate et musSyrup d'Ages (soundChannelData.s,
   soundChannelPointers.s) et pris leurs numéros ($27, $3c), puis tout remis. À refaire pour de bon,
   ou passer la ROM à 4 Mo (include/rominfo.s ; attention aux banques des graphismes, sur 6 bits).
+
+## Retours de Denis (28-29 octobre 2026) : « fais tout »
+- Les îles sont voisines sur la carte d'Ages : par un bord, on passait dans l'île d'à côté (et le
+  Songe gardait les dessins de l'île d'avant : 0:17, 0:27, 0:35, 0:36 « buggés »). bank1.s refuse
+  le changement d'écran vers une autre île (balladeIslands.blockedCrossing ; la table « salle -> île »
+  : tools/make_islands.py, d'après story/salles/ile_*.txt).
+- tools/check_edges.py compte aussi les rochers qu'on soulève (c0-c4), la terre qu'on creuse (cb cc
+  cd : Denis a creusé le bord de 1:9b et s'est retrouvé dans le buisson de 1:9c) et les rochers qu'on
+  fait sauter ; --fix met un buisson épais (4e) ; la Brume et le Grand Sommeil corrigés.
+- tools/make_rooms.py n'écrit plus que les salles qui changent (sinon make recompressait tout).
+- 1:89 : un quart de cœur enterré au milieu du motif (un tas de terre cd ; INTERAC_BALLADE_OBJECT
+  $58, drapeau $40) ; 0:c1 : le coffre du Songe a un contenu (chestGroup0Data) ; la statue d3 poussée
+  reste une statue (pushableTiles.s : $02 est une tombe chez nous).
+- La boutique : un bouclier se vend si Link en a un de niveau plus bas (shopkeeper.s) ; plus
+  d'arrière-boutique (3:5e, 3:20 : le mur du fond d'un seul tenant).
+- Plus de Carnet des Rêves : l'aubergiste ne le donne plus, objectLoading.s le retire (loseTreasure),
+  la progression compte 18 objets.
+- Marine qui suit (balladeFin.follower) : derrière Link (la case dans son dos), un pixel par image,
+  jamais sur l'eau, un trou ou un mur (@walkable) ; coincée loin de lui 1,5 s : un nuage, elle
+  revient ; elle frappe seule un ennemi à moins de 28 pixels (@nearEnemy) ; la bombe : elle
+  redevient mouette (un nuage) le temps que la mouette emporte la bombe (@bombCheck).
+- L'auberge du Songe : Marine à une place au hasard à chaque visite (balladeNpc.s, @marinePlaces).
+- L'île de Marine : une vraie maison (tools/make_maison_ile.py, art/maison_marine.txt : les briques
+  a6-aa et la porte de du décor 18, lancé avant make_songe) ; le téléphone (art/braise.txt image 7)
+  appelle Zelda : six répliques (TX_5c01-06), puis « je peux venir ? » -> GLOBALFLAG_BALLADE_ZELDA
+  ($66), Zelda sur l'île (INTERAC_BALLADE_CREUSE $24, TX_5c0b-0e). Sa maison : le miroir au mur,
+  quatre clins d'œil ($59-$5c, TX_5be7-5bea), une ouverture à droite vers la maison de Tarkin (3:2b ;
+  Tarkin le voisin, CREUSE $25, TX_5c0f-13). Marine solide sur son île.
+- Les moulins du Nid des Vents dessinés (art/moulin.txt, spr_ballade_moulin $f0, 32 x 32 ;
+  INTERAC_BALLADE_OBJECT $5d dans 1:66 et 0:66) : ils tournent après le chapitre 6. Piège : une
+  durée d'animation de $ff est lue comme la fin de la boucle.
+- Marine (Select) : une vanne au hasard (TX_5beb-5bf4), puis « Bon, sérieux... » et l'indice du
+  chapitre (TX_5bf5-5bfd ; balladeObjects.marineChat, $5e).
+- Le générique (Denis : « d'une tristesse à appuyer sur A ») : 20 cartons de deux lignes qui se
+  ferment seuls (TX_5c14-5c27, \wait) sur la musique de fin ; Marine chante en se balançant
+  (wBalladeEpilogue = 4). Un vrai défilement de texte, comme DX, demanderait un moteur à part.
+- Après la fin, sur la carte, ce qui reste clignote : des étincelles (quarts), un anneau, un
+  petit coffre (coffres ; ceux d'un donjon sur son entrée ; pas de cœur dans les sprites de la carte) : code/ages/balladeMapMarks.s, la table de
+  tools/make_map_marks.py (une marque par sorte et par case).
+- Nouveau groupe de textes 0x5c (tools/make_text.py, OUR_GROUPS) : Zelda, Tarkin, le générique.
+- Les cœurs : 10 quarts maintenant (le 10e enterré en 1:89) : la progression compte 34 quarts.

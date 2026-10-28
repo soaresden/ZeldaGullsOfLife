@@ -38,12 +38,12 @@ f3 f3 21 20 c5 3a 20 21 f3 f3
 f3 f3 f3 20 21 20 21 f3 f3 f3
 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
 
-# --- Les moulins à vent (arrêtés) : deux moulins (60) ; les meuniers ; sud -> la prairie, est -> le village ---
+# --- Les moulins à vent : deux moulins dessinés (INTERAC_BALLADE_OBJECT $5d, art/moulin.txt, 32 x 32, solides ; arrêtés, ils tournent après le chapitre 6), sur le ciel et le sol (lignes 1-2, colonnes 2-3 et 6-7) ; les meuniers ; sud -> la prairie, est -> le village ---
 salle 66 decor 1a
 f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
-f3 f3 60 60 f3 f3 60 60 f3 f3
-f3 3a 60 60 3a 3a 60 60 3a f3
-f3 3a 3a 60 3a 3a 60 3a 3a 3a
+f3 f3 f3 f3 f3 f3 f3 f3 f3 f3
+f3 3a 3a 3a 3a 3a 3a 3a 3a f3
+f3 3a 3a 3a 3a 3a 3a 3a 3a 3a
 f3 1b 3a 3a 3a 10 3a 3a 3a 3a
 f3 f3 3a 20 3a 3a 21 3a f3 f3
 f3 f3 f3 21 3a 3a 20 f3 f3 f3

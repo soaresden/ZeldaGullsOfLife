@@ -197,6 +197,19 @@ def main():
     sheet.save(dst)
     print('->', os.path.relpath(dst, ROOT))
 
+    # Les moulins à vent du Nid des Vents (art/moulin.txt) : 32 x 32, ailes en + puis en x
+    frames = read_frames(os.path.join(ROOT, 'art', 'moulin.txt'))
+    assert len(frames) == 8
+    sheet = Image.new('P', (128, 16), 0)
+    sheet.putpalette(pal + [0] * (768 - len(pal)))
+    for n, frame in enumerate(frames):
+        for y, row in enumerate(frame):
+            for x, c in enumerate(row):
+                sheet.putpixel((n * 16 + x, y), index[c])
+    dst = os.path.join(DISASM, 'gfx_compressible', 'ages', 'spr_ballade_moulin.png')
+    sheet.save(dst)
+    print('->', os.path.relpath(dst, ROOT))
+
     # Le Terrier des Serpents (art/terrier.txt) : le gantelet, une âme, la jarre, le fantôme
     frames = read_frames(os.path.join(ROOT, 'art', 'terrier.txt'))
     assert len(frames) <= 8
