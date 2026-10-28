@@ -18,7 +18,11 @@ PLAN = ([os.path.abspath(a) for a in sys.argv[1:] if not a.startswith('--')]
 COLLISIONS = os.path.join(ROOT, 'oracles-disasm', 'tileset_layouts_expanded', 'ages',
                           'tilesetCollisions%02x.bin')
 SWORD_CUTTABLE = {0xc5, 0xc6, 0xc7, 0xc8, 0xc9, 0xca}   # buissons (breakableTiles.s, modes 1 à 6)
-SOLID = {0x18: '4e', 0x7b: 'f7'}   # par décor : brique pleine, qu'on ne coupe pas
+# ce qui s'ouvre autrement : rochers qu'on soulève (c0-c4), tas de terre qu'on creuse à la Pelle
+# (cb cc cd : Denis a creusé le bord de 1:9b et s'est retrouvé dans le buisson épais de 1:9c),
+# rochers qu'on fait sauter (ce cf d1 da db)
+SWORD_CUTTABLE |= {0xc0, 0xc1, 0xc2, 0xc3, 0xc4, 0xcb, 0xcc, 0xcd, 0xce, 0xcf, 0xd1, 0xda, 0xdb}
+SOLID = {0x18: '4e', 0x7b: 'f7', 0x10: '4e', 0x0d: '4e'}   # par décor : brique pleine, qu'on ne coupe pas (ni ne creuse)
 
 
 def load():

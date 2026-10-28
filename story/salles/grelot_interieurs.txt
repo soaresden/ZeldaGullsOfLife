@@ -1,7 +1,16 @@
 # Hameau-Grelot (île 2) : les intérieurs.
 
-# La boutique de Pépin : même disposition que la boutique de Port-Veille (3:5e)
-decor 3:20 28 copie 3:5e
+# La boutique de Pépin : même disposition que la boutique de Port-Veille (3:5e), sans
+# arrière-boutique
+salle 3:20 decor 28
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a6 a6 a6 a6 a6 a6 a6 a6 b1
+b3 a6 a6 a6 a6 a6 a6 a6 a6 b1
+b3 e8 e8 e8 e8 e8 e8 e8 e8 b1
+b3 a0 a0 d2 a0 a0 a0 a0 a0 b1
+b3 a0 a0 d2 a0 a0 a0 5c a0 b1
+b3 a0 a0 d2 a0 a0 a0 a0 a0 b1
+ba e0 e1 b2 b2 e0 e1 b2 b2 bb
 # La maison de Lila : la disposition de l'auberge (3:9e), avec deux lits (Denis : sinon Link se
 # couche sur elle) : celui de Lila à gauche (dd ee, lignes 5-6, colonne 1 : elle y dort,
 # INTERAC_BALLADE_OBJECT $3b), celui de droite pour Link (link.s @bedSpots)

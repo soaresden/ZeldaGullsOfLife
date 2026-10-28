@@ -30,6 +30,7 @@ export PYTHONUTF8=1
 "$PYTHON" "$ROOT/tools/make_minimap.py"
 "$PYTHON" "$ROOT/tools/make_music.py"
 "$PYTHON" "$ROOT/tools/make_tracker.py"
+"$PYTHON" "$ROOT/tools/make_islands.py"
 cd "$ROOT/oracles-disasm"
 make -j8 PYTHON="$PYTHON" ages
 cp -f ages.gbc "$ROOT/out/gulls_of_life.gbc"

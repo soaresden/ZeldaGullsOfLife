@@ -96,8 +96,8 @@ fc fc fc fc fc fc fc fc fc 4e
 salle 9a decor 10
 08 09 3b 3b 08 09 08 09 08 09
 2c 3c 3b 3b 2c 3c 2c 3c 2c 3c
-cd 3b 3b 8f 8f 8f 8f 8f 3b cd
-cd 3b 3b f6 a3 de a3 f6 3b cd
+4e 3b 3b 8f 8f 8f 8f 8f 3b cd
+4e 3b 3b f6 a3 de a3 f6 3b cd
 3b 3b 3b 3b 0c 0c 3b 3b 3b 3b
 3b 3b 3b 3b 0c 0c 3b 3b 3b 3b
 08 09 08 09 0c 0c 08 09 08 09
@@ -109,9 +109,9 @@ cd 3b 3b f6 a3 de a3 f6 3b cd
 # Ouest et est : lignes 4-5. Sud : colonnes 4-5 vers le port de pêche.
 salle 9b decor 10
 08 09 08 09 08 09 08 09 08 09
-cd 8a 81 82 3b 3b 8a 81 82 cd
-cd 90 91 92 3b 3b 90 91 92 cd
-cd f6 de f6 0c 0c f6 f2 f6 cd
+4e 8a 81 82 3b 3b 8a 81 82 4e
+cd 90 91 92 3b 3b 90 91 92 4e
+cd f6 de f6 0c 0c f6 f2 f6 4e
 3b 3b 0c 0c 0c 0c 0c 0c 3b 3b
 3b 3b 3b 3b 0c 0c 3b 3b 3b 3b
 08 09 08 09 0c 0c 08 09 08 09
@@ -132,23 +132,23 @@ fc fc fc fc fc fc fc fc fc fc
 # --- Sentier : la rivière au pont cassé (entier dans le Songe) ---
 # Sud : colonnes 2-3. Ouest et est : lignes 3-4. Nord : colonnes 7-8.
 salle 8a decor 10
-cd cd cd cd fa fa fa 3b 3b cd
-cd 3b 3b cd fa fa fa 3b 3b cd
+4e cd cd cd fa fa fa 3b 3b cd
+4e 3b 3b cd fa fa fa 3b 3b cd
 cd 3b 3b 3b fa fa fa 3b 3b cd
 3b 3b 3b 3b 1d fa 1d 3b 3b 3b
 3b 3b 3b 3b 1e fa 1e 3b 3b 3b
 cd 3b 3b 3b fa fa fa 3b 3b cd
-cd cd 3b 3b fa fa fa cd cd cd
-cd cd 3b 3b fa fa fa cd cd cd
+4e cd 3b 3b fa fa fa cd cd cd
+4e 4e 3b 3b fa fa fa 4e 4e 4e
 
-# --- Bois de la Brume ---
+# --- Bois de la Brume : au milieu du motif, un tas de terre (cd) : la Pelle y déterre un quart de cœur (INTERAC_BALLADE_OBJECT $58) ---
 # Est : lignes 3-4.
 salle 89 decor 10
 08 09 08 09 08 09 08 09 08 09
 2c 3c 2c 3c 2c 3c 2c 3c 2c 3c
 08 09 3b 3b 3b 3b 3b 3b cd cd
 2c 3c 3b 2b 2b 2b 3b 3b 3b 3b
-08 09 3b 2b f8 2b 3b 3b 3b 3b
+08 09 3b 2b cd 2b 3b 3b 3b 3b
 2c 3c 3b 2b 2b 2b 3b 3b cd cd
 08 09 08 09 08 09 08 09 08 09
 2c 3c 2c 3c 2c 3c 2c 3c 2c 3c
@@ -163,7 +163,7 @@ cd 3b 3b 3b 3b fa f4 fa fc fc
 3b 3b 3b 3b 3b fa f4 fa fc fc
 cd 3b 3b 3b cd fa fa fa fc fc
 cd cd cd cd cd fc fc fc fc fc
-cd cd cd cd cd fc fc fc fc fc
+4e 4e 4e 4e 4e fc fc fc fc fc
 
 # --- Falaises nord ---
 # Sud : colonnes 7-8. Est : lignes 3-4.
@@ -175,7 +175,7 @@ cd 3b 3b 3b 3b 3b 3b 3b 3b 3b
 cd 3b 3b fa fa fa 3b 3b 3b 3b
 cd 3b 3b fa fa fa fa 3b 3b cd
 cd cd cd cd fa fa fa 3b 3b cd
-cd cd cd cd fa fa fa 3b 3b cd
+4e cd cd cd fa fa fa 3b 3b cd
 
 # --- Cap du Phare : l'entrée du Phare Éteint (porte en ligne 3, colonne 4) ; le phare : les briques
 # c0-ca du décor 6c (tools/make_phare.py : 3 x 4 briques, lignes 0-3, colonnes 3-5) ---
@@ -191,5 +191,15 @@ fa fa 3b 3b 3b 3b 3b 3b fa fa
 fc fa fa fa fa fa fa fa fa fc
 
 # --- La boutique de Port-Veille (la maison de gauche de la place) : la boutique de Lynna
-# d'Ages (décor $28, disposition de 2:5e), dans une salle du Réel (groupe 3) ---
-decor 3:5e 28 copie 2:5e
+# d'Ages (décor $28, disposition de 2:5e), dans une salle du Réel (groupe 3) ; sans son
+# arrière-boutique (le coin du haut à gauche et sa porte 34 : on ne pouvait pas y aller, Denis) :
+# le mur du fond d'un seul tenant ---
+salle 3:5e decor 28
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a6 a6 a6 a6 a6 a6 a6 a6 b1
+b3 a6 a6 a6 a6 a6 a6 a6 a6 b1
+b3 e8 e8 e8 e8 e8 e8 e8 e8 b1
+b3 a0 a0 d2 a0 a0 a0 a0 a0 b1
+b3 a0 a0 d2 a0 a0 a0 5c a0 b1
+b3 a0 a0 d2 a0 a0 a0 a0 a0 b1
+ba e0 e1 b2 b2 e0 e1 b2 b2 bb

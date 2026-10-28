@@ -48,11 +48,11 @@ cd 3b 3b 3b 3b 3b f6 de f6 cd
 3b 3b 3b 3b 0c 0c 3b 3b 3b 3b
 cd 3b 3b 3b 0c 0c 3b 3b 3b cd
 cd cd 3b 3b 0c 0c 3b 3b cd cd
-cd cd cd 09 3b 3b 08 cd cd cd
+cd cd 4e 09 3b 3b 08 4e cd cd
 
 # --- Le lac de glace (ouest) : on glisse ; des trous dans la glace ; le coffre (1,1) ; sud -> le ponton, nord -> le village, est -> la maison du veilleur ---
 salle c1 decor 0d
-cd cd cd cd 3b 3b cd cd cd cd
+cd 4e 4e cd 3b 3b cd 4e 4e cd
 cd f1 ea ea ea ea ea ea ea cd
 cd ea f3 f3 ea ea f3 ea ea cd
 cd ea ea ea ea ea f3 ea ea 3b
@@ -63,7 +63,7 @@ cd cd cd cd 3b 3b cd cd cd cd
 
 # --- Le lac de glace (est) : la glace craque ; ouest -> la maison du veilleur, nord -> le village (est) ---
 salle c3 decor 0d
-cd cd cd cd 3b 3b cd cd cd cd
+cd 4e 4e cd 3b 3b cd 4e 4e cd
 cd ea ea ea ea ea ea ea ea cd
 cd ea f3 ea ea ea ea f3 ea cd
 3b ea ea ea f3 ea ea ea ea cd
@@ -92,7 +92,7 @@ cd 3b f6 f6 f6 f6 f6 f6 3b cd
 3b 3b ea ea ea 0c ea ea 3b 3b
 cd 3b ea ea f4 0c ea ea 3b cd
 cd 3b ea ea ea 0c ea ea 3b cd
-cd cd cd cd 3b 0c 8a cd cd cd
+cd 4e 4e cd 3b 0c 8a 4e 4e cd
 
 # --- Le village gelé (est) : la maison de la chanteuse (porte de en ligne 2, colonne 7 -> 3:29) ; ouest -> le palais, sud -> le lac, est / nord -> les branches ---
 salle b3 decor 0d
@@ -136,7 +136,7 @@ fc fc 08 09 3b 3b 08 09 fc fc
 fc fc 2c 3c 3b 3b 2c 3c fc fc
 fc fc fc cd 3b 3b cd fc fc fc
 fc fc fc cd 3b 3b cd fc fc fc
-fc fc fc cd 3b 3b cd fc fc fc
+fc fc fc 4e 3b 3b 4e fc fc fc
 
 # --- La branche nord-est : un bout de flocon ; sud -> le village ---
 salle a3 decor 0d
@@ -147,7 +147,7 @@ fc fc 08 09 3b 3b 08 09 fc fc
 fc fc 2c 3c 3b 3b 2c 3c fc fc
 fc fc fc cd 3b 3b cd fc fc fc
 fc fc fc cd 3b 3b cd fc fc fc
-fc fc fc cd 3b 3b cd fc fc fc
+fc fc fc 4e 3b 3b 4e fc fc fc
 
 # --- La mer ---
 salle a0 decor 0d

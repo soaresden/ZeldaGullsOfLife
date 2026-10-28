@@ -4581,7 +4581,7 @@ groups:
   - name: TX_5b79
     index: 0x79
     text: |-
-      Objets: \call($ff)/19
+      Objets: \call($ff)/18
       Anneaux: \call($fe)/5
       Coffres: \call($fd)/\call($fc)
   # Après le chapitre 5 : Marine veut revenir à l'auberge (les photos ; balladeMarine.photosHint)
@@ -5078,6 +5078,49 @@ groups:
       faut un autre
       couplet de
       Marine!
+
+  - name: TX_5be7
+    index: 0xe7
+    text: |-
+      Dans la commode,
+      une robe à
+      fleurs rouges...\stop
+      Celle que Marine
+      portait à
+      Cocolint.
+
+  - name: TX_5be8
+    index: 0xe8
+    text: |-
+      Un champignon
+      séché, dans la
+      jarre...\stop
+      Tarkin en a
+      mangé un, un
+      jour: il s'est
+      changé en raton
+      laveur!
+
+  - name: TX_5be9
+    index: 0xe9
+    text: |-
+      Une caisse de
+      coquillages
+      secrets.\stop
+      Marine les a
+      tous comptés:
+      il y en a
+      cinquante!
+
+  - name: TX_5bea
+    index: 0xea
+    text: |-
+      Sur la table, un
+      œuf sculpté...\stop
+      Dedans, une
+      boîte à musique
+      joue la Ballade
+      du Poisson-Rêve.
 
 - group: 0x30
   data:

@@ -4419,7 +4419,7 @@ groups:
   - name: TX_5b79
     index: 0x79
     text: |-
-      Items: \call($ff)/19
+      Items: \call($ff)/18
       Rings: \call($fe)/5
       Chests: \call($fd)/\call($fc)
   # Après le chapitre 5 : Marine veut revenir à l'auberge (les photos ; balladeMarine.photosHint)
@@ -4916,6 +4916,45 @@ groups:
       you need another
       of Marine's
       verses!
+
+  - name: TX_5be7
+    index: 0xe7
+    text: |-
+      In the dresser,
+      a dress with red
+      flowers...\stop
+      The one Marin
+      wore on
+      Koholint.
+
+  - name: TX_5be8
+    index: 0xe8
+    text: |-
+      A dried mushroom
+      in the jar...\stop
+      Tarin ate one,
+      once: he turned
+      into a raccoon!
+
+  - name: TX_5be9
+    index: 0xe9
+    text: |-
+      A crate of
+      secret
+      seashells.\stop
+      Marin counted
+      them all: fifty
+      of them!
+
+  - name: TX_5bea
+    index: 0xea
+    text: |-
+      On the table, a
+      carved egg...\stop
+      Inside, a music
+      box plays the
+      Ballad of the
+      Wind Fish.
 
 - group: 0x30
   data:

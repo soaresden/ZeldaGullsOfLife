@@ -23,6 +23,10 @@ salle 9b
 	obj_Interaction INTERAC_BALLADE_OBJECT $3a $18 $48 ; l'Arbre-Passage (île 1)
 
 # La plage est : les enfants qui ne jouent plus
+# Le bois de la Brume : un quart de cœur enterré au milieu du motif (le tas de terre, ligne 4,
+# colonne 4 ; Denis : « le motif donne envie de creuser »)
+salle 89
+	obj_Interaction INTERAC_BALLADE_OBJECT $58 $48 $48
 salle 9c
 	obj_Interaction INTERAC_BALLADE_NPC $02 $38 $38
 	obj_Interaction INTERAC_BALLADE_NPC $03 $48 $68
@@ -1007,7 +1011,12 @@ salle 5:ed
 # L'Easter Egg : le miroir de la maison de Marine (contre le mur, à coté de l'armoire : la commode de
 # DX) ; derrière, la salle secrète
 salle 3:2a
-	obj_Interaction INTERAC_BALLADE_OBJECT $48 $18 $68
+	obj_Interaction INTERAC_BALLADE_OBJECT $48 $08 $68 ; au mur (Denis : « le miroir est censé être au mur »)
+# Les clins d'œil (A devant le meuble) : la commode, la jarre, la caisse, la table
+	obj_Interaction INTERAC_BALLADE_OBJECT $59 $18 $78
+	obj_Interaction INTERAC_BALLADE_OBJECT $5a $68 $18
+	obj_Interaction INTERAC_BALLADE_OBJECT $5b $28 $88
+	obj_Interaction INTERAC_BALLADE_OBJECT $5c $58 $78
 salle 5:ef
 	obj_Interaction INTERAC_BALLADE_OBJECT $48 $88 $78 ; le miroir du retour
 	obj_Interaction INTERAC_BALLADE_OBJECT $49 $28 $18 ; les remerciements

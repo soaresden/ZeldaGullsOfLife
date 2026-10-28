@@ -217,13 +217,8 @@ shoot(g, 'g17_coffre', 'Le Coffre à Jouets')
 g.choose(1, 2)               # « Non » (le donjon n'est pas encore là)
 g.w(30)
 
-# Le Carnet des Rêves (sur B) : la page de la Brume et de Grelot
-g.m[0xc688] = 0x12
-g.press('b', 20)
-check(g.wait_text(60), 'le Carnet des Rêves se lit', g)
-g.w(60)
-shoot(g, 'g18_carnet', 'Le Carnet des Rêves')
-g.text_through()
+# (plus de Carnet des Rêves : Denis l'a fait enlever)
+check(not g.has(0x12), "pas de Carnet des Rêves", g)
 g.stop()
 sheet(shots, os.path.join(OUT, 'planche.png'))
 

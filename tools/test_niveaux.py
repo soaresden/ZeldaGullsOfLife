@@ -145,7 +145,7 @@ def grelot():
     g = run(2, 'Plage')
     check(g.where() == (1, 0x31), '2.Plage : la jetée de Hameau-Grelot (1:31)')
     check(g.global_flag(0x50) and g.global_flag(0x51), '2.Plage : le Bateau-Rondin, Hameau-Grelot repéré')
-    check(g.has(0x12), '2.Plage : le Carnet des Rêves')
+    check(not g.has(0x12), '2.Plage : pas de Carnet des Rêves (enlevé)')
     check(g.wait_text(200), '2.Plage : Marine parle en arrivant')
     g.w(40)
     shoot(g, '2_plage', '2. Plage : la jetée')
