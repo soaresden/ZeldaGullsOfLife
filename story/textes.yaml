@@ -2544,12 +2544,16 @@ groups:
       très bas.\stop
       Sous l'eau, tes
       cœurs sont ton
-      souffle: plus tu
-      en as, plus tu
-      tiens.\stop
-      Au fond, une
-      épée dort dans
-      le sable...
+      souffle: ils se
+      vident!\stop
+      Chaque couplet
+      de Marine te
+      donne le cran
+      d'un mètre de
+      plus.\stop
+      Au fond, à 7 m,
+      une épée dort
+      dans le sable...
       dit-on.\stop
       On plonge?
         \opt()Oui \opt()Non
@@ -2601,12 +2605,13 @@ groups:
   - name: TX_5ae7
     index: 0xe7
     text: |-
-      L'épée est prise
-      dans le sable...\stop
+      Plus bas, l'eau
+      est noire comme
+      de l'encre...\stop
       Il te faudrait
-      plus de souffle
-      pour la dégager:
-      plus de cœurs!
+      un autre couplet
+      de Marine pour
+      oser y aller.
 
   - name: TX_5ae8
     index: 0xe8
@@ -5008,6 +5013,35 @@ groups:
     index: 0xe4
     text: |-
       100
+
+  - name: TX_5be5
+    index: 0xe5
+    text: |-
+      \col(1)Bulle\col(0): Au
+      large, la Fosse
+      descend très,
+      très bas.\stop
+      Sous l'eau, tes
+      cœurs sont ton
+      souffle: ils se
+      vident!\stop
+      Chaque couplet
+      de Marine te
+      donne le cran
+      d'un mètre de
+      plus.\stop
+      Au fond, à 7 m,
+      une épée dort
+      dans le sable...
+      dit-on.\stop
+      \col(1)Marine\col(0): Et
+      à 3 m, à gauche,
+      un truc brille
+      dans un trou!\stop
+      Un quart de
+      cœur, je parie!\stop
+      On plonge?
+        \opt()Oui \opt()Non
 
 - group: 0x30
   data:

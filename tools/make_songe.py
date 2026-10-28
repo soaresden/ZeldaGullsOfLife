@@ -36,7 +36,7 @@ DATA = os.path.join(DISASM, 'data', 'ages')
 # décor du Songe -> décor du Réel copié (0x3b : la Spirale Céleste, pas un Songe : le Donjon des
 # Ailes recopié à l'index de donjon 6, en bleuté)
 COPIES = {0x7d: 0x10, 0x7e: 0x18, 0x7f: 0x2b, 0x7c: 0x00, 0x7b: 0x00, 0x06: 0x1e, 0x07: 0x13, 0x08: 0x1a,
-          0x3b: 0x37, 0x0d: 0x10, 0x0e: 0x10, 0x0f: 0x02, 0x0c: 0x02, 0x67: 0x3d, 0x68: 0x18,
+          0x3b: 0x37, 0x0d: 0x10, 0x0e: 0x10, 0x0f: 0x02, 0x0c: 0x02, 0x67: 0x51, 0x68: 0x18,
           0x69: 0x59, 0x6a: 0x18, 0x6b: 0x34, 0x6c: 0x10, 0x6d: 0x10}
 
 # (décor, copie de, en-tête de palette d'origine, nouvel en-tête, octets du décor)
@@ -108,9 +108,10 @@ REEL = [
     (0x7b, '$0f, $81, UNIQUE_GFXH_LYNNA_CITY_1, GFXH_TILESET_OVERWORLD_PRESENT, PALH_TILESET_LYNNA_CITY, $00, $02, $00'),
     # L'Œil de l'Insomnis (île 8) : la Tour Noire (copie du $02, présent)
     (0x0f, '$0f, $81, UNIQUE_GFXH_BLACK_TOWER_OUTSIDE, GFXH_TILESET_OVERWORLD_PRESENT, PALH_TILESET_BLACK_TOWER_OUTSIDE_PRESENT, $02, $02, $01'),
-    # La Fosse de Bulle (la plongée, au large de la Lagune) : le Récif sous l'eau (3d), à l'index
-    # de donjon 9 (à la place du Chemin du Maku d'Ages, qu'on ne visite pas)
-    (0x67, '$29, $c8, UNIQUE_GFXH_NONE, GFXH_TILESET_MERMAIDS_CAVE, PALH_TILESET_MERMAIDS_CAVE_PAST_UNDERWATER, $26, $05, $13'),
+    # La Fosse de Bulle (la plongée, au large de la Lagune) : vue de côté, comme les salles sous
+    # l'eau de Link's Awakening (Denis) : la Grotte des Sirènes du passé en défilement latéral (51),
+    # à l'index de donjon 9 (à la place du Chemin du Maku d'Ages, qu'on ne visite pas)
+    (0x67, '$39, $a8, UNIQUE_GFXH_NONE, GFXH_TILESET_SIDESCROLL, PALH_TILESET_SIDESCROLL_MERMAIDS_CAVE_PAST, $32, $05, $12'),
     # La plage du forain (1:ac) : la plage ($18), avec les chiffres et les monstres du Mamono
     # (tools/make_mamono.py)
     (0x68, '$0f, $81, UNIQUE_GFXH_CRESCENT_ISLAND, GFXH_TILESET_OVERWORLD_PAST, PALH_TILESET_CRESCENT_ISLAND_PAST, $04, $02, $01'),

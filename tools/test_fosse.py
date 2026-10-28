@@ -1,23 +1,26 @@
-"""Test de la Fosse de Bulle (la plongée, idée de Denis) et de l'Épée de Légende :
-- Bulle (3:24) : la planche de surf, puis « On plonge ? » -> la Fosse (5:d0), les cœurs pleins ;
-- sous l'eau, les cœurs se vident (le souffle) ;
-- avec 8 cœurs (avant le donjon 7), on atteint le fond (5:d4), mais l'épée est prise dans le
-  sable (il faut neuf cœurs de souffle) ; on remonte à bout de souffle ;
-- avec 9 cœurs, on atteint l'Épée de Légende (le niveau 3 de l'épée), puis Bulle remonte Link ;
-- Ganon ne craint qu'elle : sans elle sa vie revient et Marine parle de la Fosse.
-Usage : python tools/test_fosse.py DOSSIER_CAPTURES [mesure]   (ROM=chemin pour une autre ROM)
-« mesure » : le souffle remis à plein à chaque étape, pour mesurer le temps de la descente.
+"""Test de la Fosse de Bulle (la plongée, idée de Denis), en vue de côté comme les salles sous l'eau
+de Link's Awakening DX, et de l'Épée de Légende :
+- Bulle (3:24) : la planche de surf, puis « On plonge ? » ; tant que le quart de cœur de 3 m est là,
+  Marine le signale (TX_5be5) -> la Fosse (5:d0 = 1 m), les cœurs pleins ;
+- sous l'eau, les cœurs se vident (le souffle) ; la barre d'état montre la profondeur (« 1m »...) ;
+- on remonte par la surface de 1 m ;
+- avec trois couplets (après le Récif), on descend jusqu'à 3 m : les rubis de 2 m, le quart de cœur
+  de 3 m (il scintille) ; plus bas, « l'eau est noire » (TX_5ae7) : pas de passage ; à bout de
+  souffle, Bulle tire sur la corde ; le contre parfait ;
+- avec sept couplets, on descend jusqu'au fond (7 m) : l'Épée de Légende, puis Bulle remonte Link.
+Usage : python tools/test_fosse.py DOSSIER_CAPTURES   (ROM=chemin pour une autre ROM)
 """
 import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from debug_menu import HEALTH, INV_A, INV_B, MAX_HEALTH, TEXT_ACTIVE, Game, sheet
+from debug_menu import ESSENCES, HEALTH, INV_A, MAX_HEALTH, TEXT_ACTIVE, Game, sheet
 
 OUT = sys.argv[1]
-MEASURE = len(sys.argv) > 2 and sys.argv[2] == 'mesure'
 os.makedirs(OUT, exist_ok=True)
 SWORD_LEVEL = 0xc6b2
+TEXT_INDEX = 0xcba2           # wTextIndex (l'octet bas du numéro du texte)
+DISABLE_TRANSITIONS = 0xcc91  # wDisableScreenTransitions
 errors, shots = [], []
 g = Game()
 
@@ -36,17 +39,15 @@ def shoot(name, label):
     shots.append((path, label))
 
 
-frames = [0]
-
-
-def w(n):
+def swim(direction, n):
+    g.pb.button_press(direction)
     g.w(n)
-    frames[0] += n
+    g.pb.button_release(direction)
+    g.w(2)
 
 
-def swim_to(row, col, limit=60):
-    """Sous l'eau, Link glisse : des coups de nage (4 images appuyé, 3 relâché), x puis y (à
-    quelques pixels près : il glisse)."""
+def swim_to(row, col, limit=80):
+    """Nager jusqu'au centre d'une case (en x, puis en y ; à quelques pixels près : Link glisse)."""
     y, x = row * 16 + 8, col * 16 + 8
     for axis, target, minus, plus in (('x', x, 'left', 'right'), ('y', y, 'up', 'down')):
         for _ in range(limit):
@@ -54,81 +55,78 @@ def swim_to(row, col, limit=60):
             cur = lx if axis == 'x' else ly
             if abs(cur - target) <= 3:
                 break
-            b = minus if cur > target else plus
-            g.pb.button_press(b)
-            w(4 if abs(cur - target) > 10 else 1)
-            g.pb.button_release(b)
-            w(3)
-            if MEASURE:
-                g.m[HEALTH] = g.m[MAX_HEALTH]
+            swim(minus if cur > target else plus, 4 if abs(cur - target) > 10 else 1)
 
 
-def down_to(room):
+def down_to(room, limit=40):
     """Nager vers le bas jusqu'à la salle suivante."""
-    for _ in range(80):
-        g.pb.button_press('down')
-        w(4)
-        g.pb.button_release('down')
-        w(3)
+    for _ in range(limit):
+        swim('down', 6)
         if g.where() == (5, room):
             break
-    w(30)
+    g.w(30)
     return g.where() == (5, room)
 
 
-ROUTE = {0xd0: [(4, 7), (4, 2), (9, 2)],
-         0xd1: [(1, 2), (1, 11), (4, 11), (4, 2), (6, 2), (6, 12), (9, 12)],
-         0xd2: [(1, 12), (4, 12), (4, 2), (6, 2), (6, 12), (9, 12), (9, 2)],
-         0xd3: [(1, 2), (4, 2), (4, 12), (6, 12), (6, 7), (9, 7)],
-         0xd4: [(4, 7)]}
+# Le chemin de chaque salle (ligne, colonne ; story/salles/fosse.txt), jusqu'au passage du bas
+ROUTE = {0xd0: [(1, 12), (9, 12)],
+         0xd1: [(1, 12), (1, 3), (6, 3), (6, 12), (8, 12), (9, 2)],
+         0xd2: [(1, 2), (1, 11), (6, 11), (6, 12), (9, 12)],
+         0xd3: [(1, 12), (7, 12), (7, 7)],
+         0xd4: [(1, 7), (3, 7), (3, 12), (8, 12), (8, 2)],
+         0xd5: [(1, 2), (7, 2), (7, 12)],
+         0xd6: [(1, 12), (8, 12), (9, 9)]}
 
 
-def dive_down(stop_at=None):
-    """De 5:d0 à l'épée ; renvoie le nombre d'images depuis le départ à chaque salle."""
-    times = {}
-    for room in (0xd0, 0xd1, 0xd2, 0xd3, 0xd4):
+def cross(room):
+    for cell in ROUTE[room]:
+        swim_to(*cell)
         if g.where() != (5, room):
-            return times
-        times[room] = frames[0]
-        for cell in ROUTE[room]:
-            swim_to(*cell)
-            if g.where() != (5, room):
-                return times
-        if room != 0xd4:
-            if not down_to(room + 1):
-                return times
-    times['epee'] = frames[0]
-    return times
+            return False
+    return True
 
 
-def bulle(answer_yes=True):
-    """Parler à Bulle (3:24) ; « On plonge ? » : Oui."""
+def bulle():
+    """Parler à Bulle (3:24) jusqu'à « On plonge ? » ; renvoie l'octet bas du numéro du texte."""
     g.stand(5, 3)
     g.face('up')
     g.press('a', 20)
-    for _ in range(30):
+    index = g.m[TEXT_INDEX]
+    for _ in range(40):
         g.w(10)
         if g.options_shown():
             break
         if g.m[TEXT_ACTIVE]:
             g.press('a', 4)
-    if not g.options_shown():
-        return False
-    g.choose(0 if answer_yes else 1, 2)
-    g.w(60)
-    g.settled()
-    g.w(40)
-    return True
+    return index if g.options_shown() else None
 
 
-def start(hearts):
+def dive(hearts):
     g.m[MAX_HEALTH] = hearts * 4
     g.m[HEALTH] = 4
     g.warp(3, 0x24, 0x53)
     g.w(40)
     g.text_through()
-    frames[0] = 0
-    return bulle()
+    index = bulle()
+    if index is None:
+        return None
+    g.choose(0, 2)
+    g.w(60)
+    g.settled()
+    g.w(40)
+    return index
+
+
+def surface():
+    """Faire défiler les textes jusqu'au retour au club."""
+    for _ in range(40):
+        g.text_through()
+        g.w(30)
+        if g.where() == (3, 0x24):
+            break
+    g.settled()
+    g.w(20)
+    return g.where() == (3, 0x24)
 
 
 g.level(3, 'Fin')
@@ -136,6 +134,7 @@ g.m[INV_A] = 0x05
 for _ in range(10):
     g.text_through()
     g.w(20)
+check(bin(g.m[ESSENCES]).count('1') == 3, 'après le Récif : trois couplets')
 # (la planche de surf d'abord : la 1re fois, Bulle la donne)
 g.warp(3, 0x24, 0x53)
 g.w(40)
@@ -147,67 +146,115 @@ for _ in range(10):
     g.text_through()
     g.w(30)
 
-if MEASURE:
-    check(start(14), 'Bulle : « On plonge ? » Oui')
-    t = dive_down()
-    print('temps (images) :', {('%02x' % k if isinstance(k, int) else k): v for k, v in t.items()})
-    sys.exit(0)
-
-# 8 cœurs : on voit le fond, mais pas l'épée
-check(start(8), 'Bulle : « On plonge ? » Oui')
-check(g.where() == (5, 0xd0), 'la Fosse (5:d0)')
+# --- La surface de 1 m ---
+check(dive(8) == 0xe5, 'Bulle propose la plongée ; Marine signale le quart de cœur (TX_5be5)')
+check(g.where() == (5, 0xd0), 'la Fosse : 1 m (5:d0)')
 check(g.m[HEALTH] == 32, 'on part le souffle plein (8 cœurs)')
-shoot('f01_fosse', 'La Fosse de Bulle')
+shoot('f01_1m', 'La Fosse, vue de côté : 1 m')
 h0 = g.m[HEALTH]
-w(120)
-check(g.m[HEALTH] < h0, 'sous l\'eau, les cœurs se vident (%d -> %d quarts)' % (h0, g.m[HEALTH]))
-t = dive_down()
-print('   8 cœurs :', {('%02x' % k if isinstance(k, int) else k): v for k, v in t.items()})
-check(0xd4 in t, 'avec 8 cœurs, on voit le fond (5:d4)')
-if 'epee' in t:
-    shoot('f02_fond', 'Le fond : l\'Épée de Légende')
-    g.press('a', 20)        # (Link arrive par le haut : il la regarde)
-    check(g.wait_text(60), "avec 8 cœurs : l'épée est prise dans le sable")
-    w(20)
-    shoot('f03_sable', 'Prise dans le sable : il faut plus de souffle')
-    g.text_through()
-for _ in range(400):
-    w(2)
+g.w(120)
+check(g.m[HEALTH] < h0, "sous l'eau, les cœurs se vident (%d -> %d quarts)" % (h0, g.m[HEALTH]))
+swim_to(1, 7)
+for _ in range(20):
+    swim('up', 6)
+    if g.where() != (5, 0xd0):
+        break
+check(surface(), 'par la surface de 1 m, on remonte au club')
+check(g.m[DISABLE_TRANSITIONS] == 0, "au club, les transitions d'écran marchent")
+
+# --- Trois couplets : jusqu'à 3 m ---
+check(dive(8) == 0xe5, 'on replonge')
+check(cross(0xd0) and down_to(0xd1), '1 m -> 2 m (on nage vers le bas)')
+shoot('f02_2m', '2 m : les rubis flottent')
+rupees = g.rupees()
+for cell in ((1, 12), (1, 3), (6, 3), (6, 13)):
+    swim_to(*cell)
+g.w(30)
+g.text_through()
+check(g.rupees() > rupees, 'les rubis de 2 m (%d -> %d)' % (rupees, g.rupees()))
+swim_to(8, 12)
+swim_to(9, 2)
+check(down_to(0xd2), '2 m -> 3 m')
+check(g.global_flag(0x62), 'à 3 m, Link a trouvé le calme (le contre parfait sera appris)')
+swim_to(1, 2)
+swim_to(1, 11)
+swim_to(6, 11)
+swim_to(6, 3)
+swim_to(6, 2)
+g.w(12)
+shoot('f03_3m', '3 m : le quart de cœur scintille dans son trou')
+swim_to(8, 2)
+for _ in range(60):
+    g.w(5)
     if g.m[TEXT_ACTIVE]:
         break
-check(g.m[TEXT_ACTIVE] != 0, 'à bout de souffle : Bulle tire sur la corde')
+shoot('f04_quart', 'Le quart de cœur')
+check(g.m[TEXT_ACTIVE] != 0, 'le quart de cœur : son texte')
 g.text_through()
-w(120)
-g.settled()
-check(g.where() == (3, 0x24), 'retour au club (3:24)')
-# Descendu à la 3e profondeur : Bulle apprend le contre parfait (TX_5b34, wTextIndex $cba2)
-check(g.wait_text(120) and g.m[0xcba2] == 0x34, 'Bulle apprend le contre parfait')
-shoot('f03b_contre', 'Bulle : le contre parfait')
+check(g.room_flags(5, 0xd2) & 0x20, 'le quart de cœur est pris (drapeau $20 de 5:d2)')
+# Plus bas que 3 m : l'eau est noire
+swim_to(6, 2)
+swim_to(6, 12)
+for _ in range(30):
+    swim('down', 6)
+    if g.m[TEXT_ACTIVE]:
+        break
+g.w(60)
+# (wTextIndex n'est pas fiable pendant l'affichage d'un long texte : le souffle n'est pas épuisé,
+# c'est donc TX_5ae7 ; la planche le montre)
+check(g.m[TEXT_ACTIVE] and g.m[HEALTH] > 2 and g.link()[0] >= 0x90,
+      "plus bas que 3 m : « l'eau est noire » (TX_5ae7)")
+shoot('f05_noire', 'Trois couplets : pas plus bas que 3 m')
+g.text_through()
+for _ in range(10):
+    swim('down', 6)
+check(g.where() == (5, 0xd2), 'pas de passage vers 4 m')
+# À bout de souffle
+for _ in range(1500):
+    g.w(5)
+    if g.m[TEXT_ACTIVE]:
+        break
+g.w(30)     # (le numéro du texte s'écrit quand la boîte s'ouvre)
+shoot('f05b_souffle', 'À bout de souffle')
+check(g.m[TEXT_ACTIVE] and g.m[HEALTH] <= 2, "à bout de souffle : Bulle tire sur la corde (« Plus d'air ! »)")
+check(surface(), 'retour au club (3:24)')
+check(g.m[DISABLE_TRANSITIONS] == 0, "les transitions d'écran remarchent")
+check(g.wait_text(120) and g.m[TEXT_INDEX] == 0x34, 'Bulle apprend le contre parfait')
 g.text_through()
 check(g.global_flag(0x61), 'le contre parfait est appris')
-check(g.m[SWORD_LEVEL] < 3, 'avec 8 cœurs, pas d\'épée')
 check(g.m[HEALTH] == g.m[MAX_HEALTH], 'les cœurs pleins en remontant')
+check(bulle() == 0xe1, 'le quart de cœur pris : Bulle seule (TX_5ae1)')
+g.choose(1, 2)
+g.text_through()
 
-# 9 cœurs : l'Épée de Légende
-check(start(9), 'Bulle : on replonge avec 9 cœurs')
-t = dive_down()
-print('   9 cœurs :', {('%02x' % k if isinstance(k, int) else k): v for k, v in t.items()})
-check('epee' in t, 'avec 9 cœurs, on atteint l\'épée (il reste %d quarts)' % g.m[HEALTH])
-g.press('a', 20)
+# --- Sept couplets : jusqu'au fond ---
+g.m[ESSENCES] = 0x7f
+check(dive(15) == 0xe1, 'sept couplets : on replonge')
+left = {}
+for room in range(0xd0, 0xd6):
+    left['%d m' % (room - 0xcf)] = g.m[HEALTH]
+    if not (cross(room) and down_to(room + 1)):
+        check(False, 'descendre de 5:%02x' % room)
+        break
+    if room + 1 == 0xd3:
+        shoot('f06_4m', '4 m')
+    if room + 1 == 0xd5:
+        shoot('f07_6m', '6 m')
+print('   souffle (quarts) en arrivant à chaque mètre :', left, flush=True)
+check(g.where() == (5, 0xd6), 'le fond : 7 m (5:d6)')
+swim_to(1, 12)
+swim_to(8, 12)
+g.w(20)
+shoot('f08_7m', "7 m : l'Épée de Légende, plantée dans le sable")
+swim_to(9, 9)
 for _ in range(60):
-    w(5)
+    g.w(5)
     if g.m[TEXT_ACTIVE]:
         break
-w(30)
-shoot('f04_epee', "L'Épée de Légende")
-check(g.m[SWORD_LEVEL] == 3, "l'Épée de Légende (l'épée niveau 3)")
-for _ in range(20):
-    g.text_through()
-    w(30)
-    if g.where() == (3, 0x24):
-        break
-g.settled()
-check(g.where() == (3, 0x24), 'Bulle remonte Link au club')
+g.w(30)
+shoot('f09_epee', "L'Épée de Légende")
+check(g.m[SWORD_LEVEL] == 3, "l'Épée de Légende (l'épée niveau 3), il restait %d quarts" % g.m[HEALTH])
+check(surface(), 'Bulle remonte Link au club')
 
 sheet(shots, os.path.join(OUT, 'fosse.png'))
 print()

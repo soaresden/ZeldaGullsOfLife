@@ -136,6 +136,19 @@ def main():
     for y, row in enumerate(moon):
         for x, c in enumerate(row):
             hud.putpixel((24 + x, y), int(c))
+    # Un « m » (tuile $1e, inutilisée par Ages) : la profondeur de la Fosse de Bulle, « 3m », à la
+    # place du compteur de clés (balladeMarine.drawNoctambuleTimer)
+    meter = ['22222222',
+             '22222222',
+             '33323322',
+             '33333332',
+             '33232332',
+             '33232332',
+             '33232332',
+             '22222222']
+    for y, row in enumerate(meter):
+        for x, c in enumerate(row):
+            hud.putpixel((112 + x, 8 + y), int(c))
     dst = os.path.join(DISASM, 'gfx_compressible', 'common', 'gfx_hud.png')
     hud.save(dst)
     print('->', os.path.relpath(dst, ROOT))

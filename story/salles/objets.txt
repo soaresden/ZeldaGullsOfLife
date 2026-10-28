@@ -868,19 +868,26 @@ salle 5:7b
 salle 3:26
 	obj_Interaction INTERAC_BALLADE_OBJECT $20 $68 $88
 
-# La Fosse de Bulle (story/salles/fosse.txt) : le souffle qui se vide, dans chaque salle ; au fond,
-# l'Épée de Légende
+# La Fosse de Bulle (story/salles/fosse.txt, vue de côté) : le souffle qui se vide et la profondeur,
+# dans chaque salle ; les trésors flottants ($55) ; au fond, l'Épée de Légende
 salle 5:d0
 	obj_Interaction INTERAC_BALLADE_OBJECT $34 $08 $08
 salle 5:d1
 	obj_Interaction INTERAC_BALLADE_OBJECT $34 $08 $08
+	obj_Interaction INTERAC_BALLADE_OBJECT $55 $68 $d8
 salle 5:d2
 	obj_Interaction INTERAC_BALLADE_OBJECT $34 $08 $08
+	obj_Interaction INTERAC_BALLADE_OBJECT $55 $88 $28
 salle 5:d3
 	obj_Interaction INTERAC_BALLADE_OBJECT $34 $08 $08
+	obj_Interaction INTERAC_BALLADE_OBJECT $55 $48 $28
 salle 5:d4
 	obj_Interaction INTERAC_BALLADE_OBJECT $34 $08 $08
-	obj_Interaction INTERAC_BALLADE_OBJECT $35 $58 $78
+salle 5:d5
+	obj_Interaction INTERAC_BALLADE_OBJECT $34 $08 $08
+salle 5:d6
+	obj_Interaction INTERAC_BALLADE_OBJECT $34 $08 $08
+	obj_Interaction INTERAC_BALLADE_OBJECT $35 $98 $88
 
 # Le Labyrinthe des Lynels (le 3e jeu du forain, code/ages/balladePac.s) : le contrôleur, et les
 # quatre Lynels (rouge au-dessus de la porte de l'enclos ; rose, bleu, orange dedans)
