@@ -7,7 +7,10 @@ de Link's Awakening DX, et de l'Épée de Légende :
 - avec trois couplets (après le Récif), on descend jusqu'à 3 m : les rubis de 2 m, le quart de cœur
   de 3 m (il scintille) ; plus bas, « l'eau est noire » (TX_5ae7) : pas de passage ; à bout de
   souffle, Bulle tire sur la corde ; le contre parfait ;
-- avec sept couplets, on descend jusqu'au fond (7 m) : l'Épée de Légende, puis Bulle remonte Link.
+- avec sept couplets, on saute dans le bassin du club (Denis : « un carré d'eau dans la maison du
+  Zora ») et on descend jusqu'au fond (7 m) : l'Épée de Légende, puis Bulle remonte Link ; plus de
+  coffre ouvert (case marron) là où étaient les objets ;
+- Bulle entière (la Zora d'Ages, 3 sprites de large : il lui manquait le bout de la tête).
 Usage : python tools/test_fosse.py DOSSIER_CAPTURES   (ROM=chemin pour une autre ROM)
 """
 import os
@@ -145,6 +148,13 @@ g.press('a', 20)
 for _ in range(10):
     g.text_through()
     g.w(30)
+g.stand(6, 4)
+g.w(10)
+shoot('f00_club', 'Le club : Bulle (la tête entière) et son bassin')
+# (les sprites autour de Bulle, en $48 $38 : la Zora d'Ages en a trois, nos villageois deux)
+oam = [(g.pb.memory[0xfe00 + i * 4] - 16, g.pb.memory[0xfe01 + i * 4] - 8) for i in range(40)]
+near = [o for o in oam if 0x38 <= o[0] <= 0x50 and 0x28 <= o[1] <= 0x50]
+check(len(near) >= 3, 'Bulle : trois sprites, la Zora en entier (%d)' % len(near))
 
 # --- La surface de 1 m ---
 check(dive(8) == 0xe5, 'Bulle propose la plongée ; Marine signale le quart de cœur (TX_5be5)')
@@ -227,12 +237,26 @@ check(bulle() == 0xe1, 'le quart de cœur pris : Bulle seule (TX_5ae1)')
 g.choose(1, 2)
 g.text_through()
 
-# --- Sept couplets : jusqu'au fond ---
+# --- Sept couplets : on saute dans le bassin, jusqu'au fond ---
 g.m[ESSENCES] = 0x7f
-check(dive(15) == 0xe1, 'sept couplets : on replonge')
+g.m[MAX_HEALTH] = 60
+g.m[HEALTH] = 4
+g.stand(4, 4)
+g.face('right')
+for _ in range(30):
+    swim('right', 4)
+    if g.where() != (3, 0x24):
+        break
+g.settled()
+g.w(40)
+check(g.where() == (5, 0xd0), 'sept couplets : on saute dans le bassin, la Fosse (5:d0)')
+check(g.m[HEALTH] == 60, 'le souffle plein (15 cœurs)')
 left = {}
 for room in range(0xd0, 0xd6):
     left['%d m' % (room - 0xcf)] = g.m[HEALTH]
+    if room in (0xd1, 0xd2, 0xd3):
+        pos = {0xd1: 0x6d, 0xd2: 0x82, 0xd3: 0x42}[room]
+        check(g.tile(pos) == 0x1b, "5:%02x : l'objet pris, de l'eau à sa place (pas de case marron)" % room)
     if not (cross(room) and down_to(room + 1)):
         check(False, 'descendre de 5:%02x' % room)
         break

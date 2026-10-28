@@ -480,6 +480,13 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Bulle (3:24, surfInstructor) : après le Récif, la 1re fois la planche de surf, ensuite « On
   plonge ? » (TX_5ae1 ; TX_5be5 tant que le quart de cœur de 3 m est là : Marine le signale ;
   TX_5ae6 une fois l'épée trouvée ; Non : TX_5ae3) -> 5:d0 $17, les cœurs pleins.
+- Le bassin (Denis, 28/10 : « un carré d'eau dans la maison du Zora ») : 3:24 a sa propre
+  disposition (celle de l'auberge + 2 x 2 cases d'eau fa, lignes 3-4, colonnes 5-6) ; une fois la
+  planche donnée, Link y saute (wActiveTileType = TILETYPE_WATER) : la plongée (INTERAC_BALLADE_OBJECT
+  $56, fossePool -> fosseDive, la même que « Oui »). Bulle en parle (TX_5ae1, 5be5, 5ae3).
+- Bulle = la Zora d'Ages, 3 sprites de large : avec les cadres à 2 sprites des villageois, il lui
+  manquait le bout de la tête. INTERAC_BALLADE_OBJECT a ses propres listes (interactionedAnimations
+  / interactionedOamDataPointers = celles des villageois + l'animation $0e de la Zora).
 - Vue de côté, comme les salles sous l'eau de Link's Awakening DX (Denis, 25 octobre 2026) :
   story/salles/fosse.txt, 5:d0-d6 l'une sous l'autre (dungeon09Layout), une salle par mètre (1 m à
   7 m) ; décor 67 = copie du 51 (la Grotte des Sirènes du passé en défilement latéral : eau 1b, surface
@@ -499,8 +506,9 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   FOSSE_FRAMES (90) images ; à une demi-coeur, TX_5ae2 puis fosseSurface : retour devant Bulle
   (3:24 $53), les cœurs pleins (wDisableScreenTransitions remis à 0).
 - Plus de coffres (on ne les ouvre pas de côté) : des trésors flottants ($55, fosseTreasure :
-  INTERAC_TREASURE posé dans l'eau, drapeau $20 de la salle comme les anciens coffres, que
-  chestData.s garde pour l'écran de progression) : 20 rubis (5:d1), le quart de cœur dans un trou à
+  INTERAC_TREASURE posé dans l'eau, drapeau $20 de la salle comme les anciens coffres ; dans
+  chestData.s, ces lignes sont en commentaire « trésor flottant », que make_tracker.py compte : un
+  vrai coffre faisait poser un coffre ouvert, une case marron, une fois l'objet pris) : 20 rubis (5:d1), le quart de cœur dans un trou à
   gauche (5:d2, il scintille), 30 rubis (5:d3).
 - L'Épée de Légende ($35, art/objets.txt image 4, 5:d6 (9,8)) : la toucher (ou A) ->
   TREASURE_SWORD sous-ligne 2 (niveau 3, TX_001e réécrit en FR), puis TX_5ae4 et retour au club.

@@ -3,7 +3,9 @@
 Les coffres de la Ballade sont les entrées commentées de data/ages/chestData.s (les autres sont des
 restes d'Ages, dans des salles où l'on ne va pas), sauf les coffres d'Ages modifiés pour retirer
 leurs anneaux au hasard (« plus d'anneaux au hasard »). Un coffre ouvert met le drapeau $20 de sa
-salle : on écrit (groupe, salle) pour chacun, sans doublon.
+salle : on écrit (groupe, salle) pour chacun, sans doublon. Les trésors flottants de la Fosse (vue de
+côté) sont des lignes en commentaire marquées « trésor flottant » : comptées, mais sans coffre (le
+jeu poserait un coffre ouvert à leur place).
 
 Usage : python tools/make_tracker.py   (build.sh)
 Sortie : oracles-disasm/code/ages/balladeTrackerChests.s
@@ -22,10 +24,12 @@ def chests():
         if m:
             group = int(m.group(1))
             continue
-        m = re.match(r'\s+m_ChestData \$(\w\w), \$(\w\w), (\w+)\s*(;.*)?$', line)
-        if not m or not m.group(4) or "plus d'anneaux au hasard" in m.group(4):
+        m = re.match(r'\s+(;?)m_ChestData \$(\w\w), \$(\w\w), (\w+)\s*(;.*)?$', line)
+        if not m or not m.group(5) or "plus d'anneaux au hasard" in m.group(5):
             continue
-        key = (group, int(m.group(2), 16))
+        if m.group(1) and 'trésor flottant' not in m.group(5):
+            continue
+        key = (group, int(m.group(3), 16))
         if key not in out:
             out.append(key)
     return out

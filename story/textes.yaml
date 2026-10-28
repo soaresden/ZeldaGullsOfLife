@@ -2538,8 +2538,9 @@ groups:
   - name: TX_5ae1
     index: 0xe1
     text: |-
-      \col(1)Bulle\col(0): Au
-      large, la Fosse
+      \col(1)Bulle\col(0): Mon
+      bassin mène à la
+      Fosse. Elle
       descend très,
       très bas.\stop
       Sous l'eau, tes
@@ -2570,7 +2571,8 @@ groups:
     index: 0xe3
     text: |-
       \col(1)Bulle\col(0): Quand
-      tu veux!
+      tu veux! Saute
+      dans le bassin!
 
   - name: TX_5ae4
     index: 0xe4
@@ -5017,8 +5019,9 @@ groups:
   - name: TX_5be5
     index: 0xe5
     text: |-
-      \col(1)Bulle\col(0): Au
-      large, la Fosse
+      \col(1)Bulle\col(0): Mon
+      bassin mène à la
+      Fosse. Elle
       descend très,
       très bas.\stop
       Sous l'eau, tes
@@ -5040,7 +5043,8 @@ groups:
       dans un trou!\stop
       Un quart de
       cœur, je parie!\stop
-      On plonge?
+      \col(1)Bulle\col(0): On
+      plonge?
         \opt()Oui \opt()Non
 
 - group: 0x30

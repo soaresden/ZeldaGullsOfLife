@@ -2,8 +2,19 @@
 
 # La maison d'Héloïse et Gaspard : même disposition que l'auberge (3:9e)
 decor 3:23 2b copie 3:9e
-# Le club de plongée de Bulle
-decor 3:24 2b copie 3:9e
+# Le club de plongée de Bulle : la disposition de l'auberge (3:9e), plus le bassin de plongée (Denis :
+# « je m'attendais à avoir un carré d'eau dans la maison du Zora ») : 2 x 2 cases d'eau profonde (fa)
+# lignes 3-4, colonnes 5-6, à côté de Bulle ; on y saute pour plonger dans la Fosse
+# (INTERAC_BALLADE_OBJECT $56, balladeObjects.fossePool)
+salle 3:24 decor 2b
+a7 a7 a7 b8 80 83 80 b0 df b9
+a7 a7 a7 b3 81 82 81 a5 dd b1
+b8 b0 e5 b7 87 a0 a0 a5 ee b1
+b3 a0 1c a0 a0 fa fa a5 a5 b1
+b3 88 a0 a0 a0 fa fa 6a 5a b1
+b3 a0 a0 a0 a0 a0 a0 6b 6c b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 e0 e1 b2 b2 b2 bb
 
 # --- La grotte des amoureux (groupe 5, décor 58 : les grottes d'Ages). On arrive par l'escalier
 # (ligne 9, colonne 7, qui ramène dehors). Au fond, le coffre (ligne 1, colonne 7) ; des cœurs
