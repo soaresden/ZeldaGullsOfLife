@@ -2433,11 +2433,18 @@ groups:
   - name: TX_5ae1
     index: 0xe1
     text: |-
-      \col(1)Bulle\col(0): My
-      pool leads to
-      the Pit. It goes
-      down very, very
-      deep.\stop
+      \col(1)Bulle\col(0): Hi
+      \Link! Want to
+      join the Bubulle
+      Team?\stop
+      Then dive into
+      my pool: it
+      leads to the
+      Pit.\stop
+      You'll need lots
+      of strength to
+      reach the very
+      bottom!\stop
       Underwater, your
       hearts are your
       breath: they
@@ -2449,8 +2456,9 @@ groups:
       At the bottom,
       at 7 m, a sword
       sleeps in the
-      sand... or so
-      they say.\stop
+      sand...\stop
+      But you'll be a
+      real Bubulle!\stop
       Shall we dive?
         \opt()Yes \opt()No
 
@@ -2506,10 +2514,8 @@ groups:
       Further down,
       the water is as
       black as ink...\stop
-      You'd need
-      another of
-      Marine's verses
-      to dare go on.
+      Everything goes
+      dark...
 
   - name: TX_5ae8
     index: 0xe8
@@ -4857,11 +4863,18 @@ groups:
   - name: TX_5be5
     index: 0xe5
     text: |-
-      \col(1)Bulle\col(0): My
-      pool leads to
-      the Pit. It goes
-      down very, very
-      deep.\stop
+      \col(1)Bulle\col(0): Hi
+      \Link! Want to
+      join the Bubulle
+      Team?\stop
+      Then dive into
+      my pool: it
+      leads to the
+      Pit.\stop
+      You'll need lots
+      of strength to
+      reach the very
+      bottom!\stop
       Underwater, your
       hearts are your
       breath: they
@@ -4873,8 +4886,9 @@ groups:
       At the bottom,
       at 7 m, a sword
       sleeps in the
-      sand... or so
-      they say.\stop
+      sand...\stop
+      But you'll be a
+      real Bubulle!\stop
       \col(1)Marine\col(0): And
       at 3 m, on the
       left, something
@@ -4885,6 +4899,23 @@ groups:
       \col(1)Bulle\col(0): Shall
       we dive?
         \opt()Yes \opt()No
+
+  - name: TX_5be6
+    index: 0xe6
+    text: |-
+      \col(1)Bulle\col(0): Haha!
+      You're no real
+      Bubulle, you've
+      got no breath!\stop
+      I had to save
+      you from a
+      blackout!\stop
+      Watch out for
+      the narcosis!\stop
+      To go deeper,
+      you need another
+      of Marine's
+      verses!
 
 - group: 0x30
   data:

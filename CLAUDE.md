@@ -498,10 +498,15 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   (balladeMarine.s : donjons 3 et 9 ; pas de bisou non plus, kissCheck : il remplirait le souffle).
 - La profondeur : la barre d'état montre « 3m » à la place de la petite clé (Denis y lisait « A x0 »),
   balladeMarine.drawNoctambuleTimer ; le « m » = la tuile $1e de gfx_hud (make_sprites.py). Link
-  descend aussi bas qu'il a de couplets de Marine (essences, 7 m au plus : fosseMaxDepth) ;
-  au-dessus du passage du bas du dernier mètre permis, wDisableScreenTransitions = 1, Link ne
-  descend pas sous y $a0, et TX_5ae7 (« l'eau est noire ») une fois. On remonte par la surface de
-  1 m (en poussant vers le haut ; sinon y >= $0c).
+  descend aussi bas qu'il a de couplets de Marine (essences, 7 m au plus : fosseMaxDepth). Un
+  mètre plus bas (Denis, 28/10 : « le screen blackout si on n'a pas le niveau ») : TX_5ae7 (« l'eau
+  est noire... Tout devient noir »), fadeoutToBlack, puis GLOBALFLAG_BALLADE_SYNCOPE ($65) et
+  fosseSurface d'un coup (wWarpTransition2 = 1 : le fondu au blanc rallumait l'écran) ; au club,
+  fossePool rallume l'écran (fadeinFromBlack) et Bulle se moque (« T'es pas un vrai Bubulle...
+  une syncope... la narcose ! », TX_5be6), une fois. On remonte par la surface de 1 m (en poussant
+  vers le haut ; sinon y >= $0c).
+- Bulle accueille Link (Denis) : « Salut \Link ! Tu veux faire partie de la Bubulle Team ? »
+  (TX_5ae1 / 5be5, « Mais tu seras un vrai Bubulle ! »).
 - Le souffle (INTERAC_BALLADE_OBJECT $34, dans chaque salle) : un quart de cœur toutes les
   FOSSE_FRAMES (90) images ; à une demi-coeur, TX_5ae2 puis fosseSurface : retour devant Bulle
   (3:24 $53), les cœurs pleins (wDisableScreenTransitions remis à 0).

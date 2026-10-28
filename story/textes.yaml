@@ -2538,11 +2538,18 @@ groups:
   - name: TX_5ae1
     index: 0xe1
     text: |-
-      \col(1)Bulle\col(0): Mon
-      bassin mène à la
-      Fosse. Elle
-      descend très,
-      très bas.\stop
+      \col(1)Bulle\col(0): Salut
+      \Link! Tu veux
+      faire partie de
+      la Bubulle Team?\stop
+      Alors plonge
+      dans mon bassin:
+      il mène à la
+      Fosse.\stop
+      Il te faudra
+      beaucoup de
+      force pour aller
+      tout en bas!\stop
       Sous l'eau, tes
       cœurs sont ton
       souffle: ils se
@@ -2554,8 +2561,9 @@ groups:
       plus.\stop
       Au fond, à 7 m,
       une épée dort
-      dans le sable...
-      dit-on.\stop
+      dans le sable...\stop
+      Mais tu seras un
+      vrai Bubulle!\stop
       On plonge?
         \opt()Oui \opt()Non
 
@@ -2610,10 +2618,8 @@ groups:
       Plus bas, l'eau
       est noire comme
       de l'encre...\stop
-      Il te faudrait
-      un autre couplet
-      de Marine pour
-      oser y aller.
+      Tout devient
+      noir...
 
   - name: TX_5ae8
     index: 0xe8
@@ -5019,11 +5025,18 @@ groups:
   - name: TX_5be5
     index: 0xe5
     text: |-
-      \col(1)Bulle\col(0): Mon
-      bassin mène à la
-      Fosse. Elle
-      descend très,
-      très bas.\stop
+      \col(1)Bulle\col(0): Salut
+      \Link! Tu veux
+      faire partie de
+      la Bubulle Team?\stop
+      Alors plonge
+      dans mon bassin:
+      il mène à la
+      Fosse.\stop
+      Il te faudra
+      beaucoup de
+      force pour aller
+      tout en bas!\stop
       Sous l'eau, tes
       cœurs sont ton
       souffle: ils se
@@ -5035,8 +5048,9 @@ groups:
       plus.\stop
       Au fond, à 7 m,
       une épée dort
-      dans le sable...
-      dit-on.\stop
+      dans le sable...\stop
+      Mais tu seras un
+      vrai Bubulle!\stop
       \col(1)Marine\col(0): Et
       à 3 m, à gauche,
       un truc brille
@@ -5046,6 +5060,24 @@ groups:
       \col(1)Bulle\col(0): On
       plonge?
         \opt()Oui \opt()Non
+
+  - name: TX_5be6
+    index: 0xe6
+    text: |-
+      \col(1)Bulle\col(0): Ahah!
+      T'es pas un vrai
+      Bubulle, t'as
+      pas de souffle!\stop
+      J'ai été obligée
+      de te sauver
+      d'une syncope!\stop
+      Attention à la
+      narcose!\stop
+      Pour descendre
+      plus bas, il te
+      faut un autre
+      couplet de
+      Marine!
 
 - group: 0x30
   data:

@@ -5,8 +5,9 @@ de Link's Awakening DX, et de l'Épée de Légende :
 - sous l'eau, les cœurs se vident (le souffle) ; la barre d'état montre la profondeur (« 1m »...) ;
 - on remonte par la surface de 1 m ;
 - avec trois couplets (après le Récif), on descend jusqu'à 3 m : les rubis de 2 m, le quart de cœur
-  de 3 m (il scintille) ; plus bas, « l'eau est noire » (TX_5ae7) : pas de passage ; à bout de
-  souffle, Bulle tire sur la corde ; le contre parfait ;
+  de 3 m (il scintille) ; à 4 m, « l'eau est noire » (TX_5ae7), l'écran devient noir : Bulle
+  remonte Link et se moque de lui au club (TX_5be6) ; le contre parfait ; à bout de souffle, Bulle
+  tire sur la corde ;
 - avec sept couplets, on saute dans le bassin du club (Denis : « un carré d'eau dans la maison du
   Zora ») et on descend jusqu'au fond (7 m) : l'Épée de Légende, puis Bulle remonte Link ; plus de
   coffre ouvert (case marron) là où étaient les objets ;
@@ -202,40 +203,49 @@ shoot('f04_quart', 'Le quart de cœur')
 check(g.m[TEXT_ACTIVE] != 0, 'le quart de cœur : son texte')
 g.text_through()
 check(g.room_flags(5, 0xd2) & 0x20, 'le quart de cœur est pris (drapeau $20 de 5:d2)')
-# Plus bas que 3 m : l'eau est noire
+# Plus bas que 3 m (trois couplets) : l'écran noir, une syncope ; Bulle remonte Link et s'en moque
 swim_to(6, 2)
 swim_to(6, 12)
-for _ in range(30):
+for _ in range(40):
     swim('down', 6)
     if g.m[TEXT_ACTIVE]:
         break
-g.w(60)
-# (wTextIndex n'est pas fiable pendant l'affichage d'un long texte : le souffle n'est pas épuisé,
-# c'est donc TX_5ae7 ; la planche le montre)
-check(g.m[TEXT_ACTIVE] and g.m[HEALTH] > 2 and g.link()[0] >= 0x90,
-      "plus bas que 3 m : « l'eau est noire » (TX_5ae7)")
-shoot('f05_noire', 'Trois couplets : pas plus bas que 3 m')
+g.w(40)
+check(g.where() == (5, 0xd3) and g.m[TEXT_ACTIVE], "4 m avec trois couplets : « l'eau est noire » (TX_5ae7)")
+shoot('f05_noire', "Trois couplets, à 4 m : « l'eau est noire »")
 g.text_through()
-for _ in range(10):
-    swim('down', 6)
-check(g.where() == (5, 0xd2), 'pas de passage vers 4 m')
+g.w(45)
+shoot('f05b_noir', "L'écran devient noir")
+check(surface(), 'une syncope : Bulle remonte Link au club')
+check(g.m[DISABLE_TRANSITIONS] == 0, "les transitions d'écran remarchent")
+check(g.wait_text(120) and g.m[TEXT_INDEX] == 0x34, 'Bulle apprend le contre parfait')
+# (la moquerie suit aussitôt le contre parfait : on avance le texte jusqu'à elle)
+mocked = False
+for _ in range(40):
+    g.press('a', 20)
+    if g.m[TEXT_ACTIVE] and g.m[TEXT_INDEX] == 0xe6:
+        mocked = True
+        break
+check(g.global_flag(0x61), 'le contre parfait est appris')
+check(mocked, "Bulle se moque : « T'es pas un vrai Bubulle ! » (TX_5be6)")
+g.w(30)
+shoot('f05c_bubulle', "Au club : « T'es pas un vrai Bubulle ! »")
+g.text_through()
+check(not g.global_flag(0x65), 'la moquerie, une seule fois')
+check(g.m[HEALTH] == g.m[MAX_HEALTH], 'les cœurs pleins en remontant')
+
 # À bout de souffle
+check(dive(8) == 0xe1, 'le quart de cœur pris : Bulle seule (TX_5ae1)')
 for _ in range(1500):
     g.w(5)
     if g.m[TEXT_ACTIVE]:
         break
 g.w(30)     # (le numéro du texte s'écrit quand la boîte s'ouvre)
-shoot('f05b_souffle', 'À bout de souffle')
+shoot('f05d_souffle', 'À bout de souffle')
 check(g.m[TEXT_ACTIVE] and g.m[HEALTH] <= 2, "à bout de souffle : Bulle tire sur la corde (« Plus d'air ! »)")
 check(surface(), 'retour au club (3:24)')
-check(g.m[DISABLE_TRANSITIONS] == 0, "les transitions d'écran remarchent")
-check(g.wait_text(120) and g.m[TEXT_INDEX] == 0x34, 'Bulle apprend le contre parfait')
-g.text_through()
-check(g.global_flag(0x61), 'le contre parfait est appris')
-check(g.m[HEALTH] == g.m[MAX_HEALTH], 'les cœurs pleins en remontant')
-check(bulle() == 0xe1, 'le quart de cœur pris : Bulle seule (TX_5ae1)')
-g.choose(1, 2)
-g.text_through()
+g.w(150)
+check(not g.m[TEXT_ACTIVE], "pas de moquerie (ce n'était pas une syncope)")
 
 # --- Sept couplets : on saute dans le bassin, jusqu'au fond ---
 g.m[ESSENCES] = 0x7f
