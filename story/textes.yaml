@@ -4576,7 +4576,7 @@ groups:
       en est à \call($ff)
       pour cent!\stop
       Couplets: \call($fe)/8
-      Cœurs: \call($fd)/12
+      Cœurs: \call($fd)/11
       Quarts: \call($fc)/4
   - name: TX_5b79
     index: 0x79

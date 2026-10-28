@@ -126,18 +126,18 @@ b3 a0 a0 2a a0 a0 a0 a0 a0 a0 a0 2a a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
-# --- 4F, l'arrivée (l'escalier de 3F arrive en (8,7)) ; est. Ghost Babel : deux fantômes font leur ronde (la ligne 5, la colonne 12 : rien sur leur chemin) ; les statues cachent ---
+# --- 4F, l'arrivée (l'escalier de 3F arrive en (8,7)) ; est. Ghost Babel, le labyrinthe (Denis, 28/10 : « plus difficile, un labyrinthe où les gardes vont et viennent et on doit se déporter pour les éviter ») : de l'arrivée (lignes 8-9), un passage (colonne 7) mène au couloir du milieu (ligne 5, la porte de l'est au bout) ; deux fantômes y font la navette (ouest, est) ; des niches pour s'écarter (6,3) (6,11), deux passages vers le couloir du nord (colonnes 4 et 8) où un troisième fait la navette, une niche (2,1), et la descente de l'est (colonne 13) jusqu'à la porte ; des piliers (1d) ---
 salle 5:c8 decor 39
 b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 2a a0 a0 a0 a0 a0 a0 a0 2a a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 1d 1d a0 1d 1d 1d a0 1d 1d 1d 1d a0 b1
+b3 1d 1d 1d a0 1d 1d 1d a0 1d 1d 1d 1d a0 b1
+b3 1d 1d 1d a0 1d 1d 1d a0 1d 1d 1d 1d a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 2a a0 a0 a0 a0 a0 a0 a0 2a a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 1d 1d a0 1d 1d 1d a0 1d 1d 1d a0 1d 1d b1
+b3 1d 1d 1d 1d 1d 1d a0 1d 1d 1d 1d 1d 1d b1
+b3 1d 1d 1d 1d a0 a0 a0 a0 a0 1d 1d 1d 1d b1
+b3 1d 1d 1d 1d a0 a0 a0 a0 a0 1d 1d 1d 1d b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
 # --- 4F : un gouffre de trois cases (colonnes 5-7) : la Cape de Roc ; un garde endormi debout devant la porte de l'est (5,13) : la Clochette d'Aube ---

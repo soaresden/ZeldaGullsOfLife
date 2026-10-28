@@ -6,7 +6,7 @@ caché (8. Plage) :
 - 2F le cristal de l'autre coté de la lave, un saut ; Dark Link (un seul, en duel) ;
 - 3F le bouton de l'îlot (le Grappin-Écho, un bloc de la Canne) ; Ganon : sans l'Épée de Légende,
   ses coups ne comptent pas (Marine parle de la Fosse) ; avec elle, il tombe ;
-- 4F Ghost Babel (deux fantômes : vu, « LIIINK! », retour à l'escalier) ; la Cape de Roc, un garde
+- 4F Ghost Babel (le labyrinthe, trois fantômes : vu, « LIIINK! », retour à l'escalier) ; la Cape de Roc, un garde
   endormi (la Clochette d'Aube) ; le Cauchemar (l'œil) ;
 - 5F l'Insomnis : le boss en rythme commence (il a son propre test, tools/test_rythme.py).
 
@@ -288,12 +288,12 @@ check(nightmare(0xc7, 0xc7), "avec l'Épée de Légende : Ganon vaincu")
 shoot('t08_ganon_fin', 'Ganon vaincu')
 check(stairs(5, 7, (5, 0xc8)), "l'escalier : 4F (5:c8)")
 
-# --- 4F : Ghost Babel (deux fantômes font leur ronde) ; la Cape, un garde endormi ; le Cauchemar
+# --- 4F : Ghost Babel (le labyrinthe, trois fantômes font la navette) ; la Cape, un garde endormi ; le Cauchemar
 check(g.wait_text(200), 'Marine : « Passe dans leur dos... Comme un serpent ! »')
 g.text_through()
 g.w(30)
 ghosts = g.enemies(0x54)
-check(len(ghosts) == 2, 'deux fantômes (les Veilleurs)')
+check(len(ghosts) == 3, 'trois fantômes (les Veilleurs du labyrinthe)')
 check(all(g.m[b + 0x1b] & 7 == 6 for b in ghosts), 'en fantômes (la palette 6, PALH_FANTOME)')
 shoot('t08b_fantomes', 'Ghost Babel : les fantômes du 4F')
 g.stand(5, 7)                 # au milieu, sous leurs yeux

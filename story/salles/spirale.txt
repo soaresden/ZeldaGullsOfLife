@@ -378,7 +378,7 @@ b3 a0 a0 a0 a0 f4 f4 f4 a0 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
 # --- L'Ombre de Marine (le Swoop d'Ages) : porte ouverte dans le plan, son contrôleur la ferme tant qu'elle vit ---
-salle 4:54 decor 3b
+salle 4:54 decor 3b boss
 b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1

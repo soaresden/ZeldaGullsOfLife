@@ -443,15 +443,27 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   PART_LIGHTABLE_TORCH $01 de 300 images autour de (5,7), les quatre ensemble) et $32 (plus
   d'ennemis, une seconde après l'arrivée) ; drapeau $80 de la salle.
 - Les étages : 1F la Lune (le Lance-Graines dans les quatre directions) ; 2F le cristal de
-  l'autre coté de la lave (61) et un saut, puis Dark Link (deux ENEMY_LINK_MIMIC) ; 3F le bouton de
+  l'autre coté de la lave (61) et un saut, puis Dark Link (un ENEMY_LINK_MIMIC, un vrai duel :
+  code/ages/balladeDarkLink.s ; Denis, 28/10 : « il m'envoie même pas de coup d'épée... des
+  bombes, des flèches ! » : sa fente montre l'épée (le coup d'épée de Marine, CREUSE $1b, qui suit
+  sa fente et ne touche pas les ennemis : var31-32 = $ff) ; en garde, toutes les 1,3-1,8 s, une
+  flèche (PART_ENEMY_ARROW) s'il est aligné à plus de 32 pixels, sinon une fois sur deux une bombe
+  (PART_BOMB, lancée vers Link l'image suivante ; elle explose en tombant)) ; 3F le bouton de
   l'îlot (Grappin-Écho + bloc de la Canne), puis Ganon (ENEMY_GANON d'Ages, voulu par Denis) : en
   entrant il pose son arène à la place de la salle (wActiveRoom 5:c7 -> 5:f5 : warpSources a un
   escalier pour 5:f5, floorStairs retient sa victoire dans 5:c7) ; sa résurrection (le jeu lié)
   n'existe plus : ganon_state1 donne le signal tout de suite ; liste balladeTourGanonBeforeEvent
   (enemyData.s) ; textes TX_2f0d / TX_2f0e réécrits ; 4F la Cape, un garde endormi (la
   Clochette), puis le Cauchemar de Cocolint (l'Eyesoar d'Ages, « TU ME RECONNAIS ? ») ; 5F
-  l'Insomnis : INTERAC_BALLADE_RHYTHM (le boss en rythme ; après lui, retour au titre comme le
-  prototype : l'épilogue reste à écrire).
+  l'Insomnis : INTERAC_BALLADE_RHYTHM (le boss en rythme). Denis (28/10 : « y'a même pas de boss...
+  un sprite de cauchemar par terre agonisant » ; « quand elle dit "je vais me le faire", il faut
+  qu'elle sorte de la tunique ») : l'Insomnis à terre (INTERAC_BALLADE_OBJECT $57, 5:cc $70 $78 ;
+  art/braise.txt images 5-6, 32 x 16, cadres interactionOamDataBalladeInsomnisA/B, il respire
+  mal) ; startFinale crée INTERAC_MARINE $09 (balladeMarine.finale) : elle sort de la tunique (un
+  nuage, son cri), plane au-dessus de lui pendant son chant, pique sur lui au « RETOURNE D'OÙ TU
+  VIENS ! » (la 2e boîte), le picore ; au boss vaincu (wBalladeRhythmStage = 3), il explose
+  (SND_BOSS_DEAD, tremblement, INTERAC_EXPLOSION : dans la tour, plus le son du prototype) ; puis
+  Marine reste en mouette à côté de Link pendant la scène de Zelda (balladeFin.towerEnding).
 - Musique : la tour gagne un instrument à chaque étage (les cinq niveaux du boss en rythme : $47,
   $49, $4b, $37, $3a) ; 5:cc silencieuse en entrant ; l'île : $28 (la Tour Noire d'Ages).
 - La banque $12 (objets) était pleine : make_rooms.py retire maintenant aussi les listes d'objets
@@ -567,6 +579,22 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   En quittant la salle (objectLoading.s) : wBalladeGhostHud à 0, la barre se redessine.
 - Les 13 emplacements d'objets (interactions $d3-$df) sont tous pris dans cette salle.
 - Test : test_tour.py (les fantômes, vu, le réveil à l'escalier ; puis ils sont retirés).
+- Le labyrinthe (Denis, 28/10 : « plus difficile, un labyrinthe où les gardes vont et viennent et
+  on doit se déporter pour les éviter ») : 5:c8 en piliers (1d, story/salles/tour.txt) ; de
+  l'arrivée (lignes 8-9), le passage de la colonne 7 mène au couloir du milieu (ligne 5, la porte
+  au bout) ; deux passages (colonnes 4 et 8) vers le couloir du nord, la descente de l'est (colonne
+  13) ; des niches (6,3) (6,11) (2,1). Trois fantômes font la navette : rondes $15 (le nord), $16 (le
+  milieu, ouest, plus vite), $17 (le milieu, est, devant la porte) (ambiGuard.s). Ils voient par une
+  sonde (PART_DETECTION_HELPER) que les murs arrêtent. Les deux boîtes sont à l'arrivée (une boîte
+  posée boucherait un couloir d'une case).
+- Plus de « NO ITEM » ni de radar (Denis : « oublie l'inventaire... le radar est mal fait ») : le
+  contrôleur ne crée plus que le regard ; noItem / radar / radarDot et wBalladeGhostHud restent dans
+  le code, inutilisés.
+- Vu par deux fantômes à la fois : le 1er réveille Link (ambiGuard_balladeWakeLink débloque tout),
+  le 2e a rebloqué wMenuDisabled ($80) juste avant le rechargement de la salle : le menu et les
+  escaliers restaient bloqués. Le contrôleur ($05) remet wMenuDisabled, wDisabledObjects et
+  wDisableScreenTransitions à 0 en arrivant (test_tour le voyait : l'escalier du 5F). Le test ne
+  traverse pas le labyrinthe (il retire les fantômes) : à jouer.
 
 ## Les photos de Cocolint (idée de Denis : le flashback des photos de LADX avec Marine)
 - Les VRAIES photos de l'album de Link's Awakening DX où il y a Marine : la chute sur Link, Tarkin
@@ -972,6 +1000,19 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Pontons : 0e (pont vertical) ne se prend pas par le côté ; les pontons horizontaux (Brume 1:99,
   1:ab, Lagune) = 1d / 1e. Bords qui menaient dans une salle de mer (noyade sans fin : on réapparaît
   dans l'eau) : 1:99 (bas), 1:20 (bas) : une rangée de mer sous le rivage.
+- L'épée de Marine vers la gauche (balladeFin.marineSword) : l'animation 5 d'INTERAC_BALLADE_CREUSE
+  (les deux moitiés échangées) ; le seul miroir (oamFlags bit 5) retournait chaque moitié sur place
+  (Denis : « le sprite n'est pas dans le bon sens »).
+- L'écran de progression : le 8e couplet compte après la fin (GLOBALFLAG_BALLADE_FIN : Marine le
+  chante à Zelda ; « 7/8 » faisait croire à Denis que le jeu était infinissable).
+- Les cœurs (28/10) : 3 + 6 réceptacles (Jack 4:13, Pantin 4:2b, la Murène 5:36, Grisaille 4:bf,
+  l'Ombre de Marine 4:54, Givrolin 4:64 ; pas la Cathédrale, la Tour, le Terrier) + 9 quarts
+  (Creuse-Rubis 1:ac, Mamono 5:ea, Lynels 5:ee, la carte au trésor 1:74, la grand-mère de Noé 0:62,
+  la chanteuse 3:29, la Fosse 5:d2, Tic et Tac 1:20, Pépin 3:20) = 11 cœurs et un quart ; le
+  compteur dit /11 et compte 33 quarts. Il en manque 3 pour un compte rond (idée : en cacher un
+  sous le motif de 1:89, que Denis voulait creuser). Les salles de boss de la Forge, de la Spirale
+  et du Récif n'avaient pas « boss » dans leur plan : après la fin (resetDungeon), leurs boss
+  revenaient et redonnaient un réceptacle (Denis avait 15 cœurs : « Cœurs 15/12 »).
 - Le Carnet et le Sablier sur B/A : loadItemIconGfx prend la « petite version » des airs de la harpe
   (index + 2 à partir de $a3) : make_sprites.py les dessine aussi 16 pixels plus loin.
 - Les jeux du forain : deux niveaux (Facile, Difficile ; TX_5a4b). Creuse-Rubis : le chiffre sous le

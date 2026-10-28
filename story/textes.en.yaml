@@ -4414,7 +4414,7 @@ groups:
       at \call($ff)
       percent!\stop
       Verses: \call($fe)/8
-      Hearts: \call($fd)/12
+      Hearts: \call($fd)/11
       Pieces: \call($fc)/4
   - name: TX_5b79
     index: 0x79
