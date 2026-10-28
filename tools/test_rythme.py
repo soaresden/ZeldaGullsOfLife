@@ -276,7 +276,8 @@ for r in range(1, 6):
         print('   tour', r + 1, ': niveau', level() + 1, 'musique', hex(pb.memory[MUSIC]), 'enchaînement', combo())
         check(level() == r and pb.memory[MUSIC] == LEVEL_MUSIC[r],
               'niveau %d : musique $%02x' % (r + 1, LEVEL_MUSIC[r]))
-check(pb.memory[STAGE] == 2, 'après le niveau 5 : Marine chante (étape 2)')
+# (la bulle de Marine du 6e tour retarde un peu le début du tour suivant : on attend le chant)
+check(until(lambda: pb.memory[STAGE] == 2, 120), 'après le niveau 5 : Marine chante (étape 2)')
 check(pb.memory[MUSIC] == 0x48, 'MUS_BALLADE_RYTHME_FIN ($48)')
 check(until(lambda: pb.memory[TEXT_ACTIVE], 60), 'Marine : « Je vais me le faire ! »')
 shot('marine')
