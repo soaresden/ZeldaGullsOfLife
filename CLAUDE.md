@@ -1071,8 +1071,10 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   Au démineur, B pose une croix (brique $6e du décor $6a) ; au Mamono, un monstre vaincu laisse son
   image (briques $6f-$73, ses vrais sprites aux couleurs du sable : la moitié gauche et son miroir,
   comme le jeu les dessine ; sinon « un gribouillis ») qui alterne avec son chiffre, une seconde
-  chacun (@blinkDead). Les monstres modèles de l'arène perdent leur collision à chaque image (le
-  Darknut caché blessait Link au démineur). Link sort la Pelle (parentItemUsage.s ne la bloque
+  chacun (@blinkDead). Les monstres modèles de l'arène perdent leur collision et sont rangés hors de
+  l'écran à chaque image ; leurs parties (l'épée du Darknut, PART_ENEMY_SWORD) sont effacées ET
+  perdent leur collision (Part.collisionType : effacée, l'épée touchait encore Link en longeant le
+  haut de l'arène ; trouvé en piégeant collisionEffect02 dans PyBoy). Link sort la Pelle (parentItemUsage.s ne la bloque
   plus) mais elle ne creuse rien dans l'arène (shovel.s : wBalladeMamonoState) ; l'icône de B
   pendant une partie : le drapeau (démineur) ou « 1-5 » (Mamono) : balladeMamono.drawBIcon, comme
   « NO ITEM » de Ghost Babel.
