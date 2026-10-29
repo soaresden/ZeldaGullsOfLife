@@ -55,8 +55,11 @@ SONGS = [
     ('tempetes.txt', 'musBalladeTempetes'),    # $2b (au lieu du thème de Maple), le Chant des Tempêtes
     ('gerudo.txt', 'musBalladeGerudo'),        # $0b (au lieu du village de Lynna), la Vallée Gerudo du forain
     ('quiz.txt', 'musBalladeQuiz'),            # $0a (au lieu de la ville de Lynna), le quiz de Marine
-    ('lynels.txt', 'musBalladeLynels'),
-    ('generique.txt', 'musBalladeGenerique'),  # $1d (au lieu de la Salle des Rites), le générique de fin        # $0c (au lieu du village zora), le Labyrinthe des Lynels (Euro-Mir)
+    ('lynels.txt', 'musBalladeLynels'),        # $0c (au lieu du village zora), le Labyrinthe des Lynels (Euro-Mir)
+    ('zelda2.txt', 'musBalladeZelda2'),        # $2c (au lieu du jeu de Maple), Dark Link : le Temple de Zelda II
+    ('generique.txt', 'musBalladeGenerique'),  # $1d (au lieu de la Salle des Rites), le générique de fin
+    ('berceuse.txt', 'musBalladeBerceuse'),    # $38 (au lieu de « Zelda sauvée »), la berceuse de Zelda
+    ('duo.txt', 'musBalladeDuo'),              # $2a (au lieu du 2e générique), le duo Marine / Zelda
 ]
 # Niveaux du boss en rythme : mêmes notes à frapper que rythme.txt (vérifié)
 RHYTHM_LEVELS = ['rythme2.txt', 'rythme3.txt', 'rythme4.txt', 'rythme5.txt']
@@ -140,7 +143,8 @@ ROOM_MUSIC = [
     # La Tour Sans-Nuit (donjon 8) : la musique gagne un instrument à chaque étage (les cinq niveaux
     # du boss en rythme) ; l'Insomnis : silence en entrant, le boss lance son morceau
     (5, 0x47, [0xc0, 0xc1]),
-    (5, 0x49, [0xc2, 0xc3, 0xc4]),
+    (5, 0x49, [0xc2, 0xc3]),
+    (5, 0x2c, [0xc4]),      # le duel contre Dark Link : le thème du Temple de Zelda II (Denis)
     (5, 0x4b, [0xc5, 0xc6, 0xc7]),
     (5, 0x37, [0xc8, 0xc9, 0xca]),
     (5, 0x3a, [0xcb]),
@@ -203,9 +207,16 @@ def expand(tokens):
     return out
 
 
+# Une section peut avoir sa propre mesure (« mesure 6 » sous « == B == » : une valse au milieu
+# d'un morceau à 4 temps) : rempli par parse(), lu par build_song()
+SECTION_BARS = {}
+
+
 def parse(path):
     tempo, bar = 9, 6
     sections, order, cur = {}, None, None
+    SECTION_BARS.clear()
+    cur_name = None
     with open(path, encoding='utf-8') as f:
         for num, raw in enumerate(f, 1):
             line = strip_comment(raw).strip()
@@ -214,6 +225,7 @@ def parse(path):
             m = re.fullmatch(r'==\s*(\S+)\s*==', line)
             if m:
                 cur = sections.setdefault(m.group(1), {v: [] for v in VOICES})
+                cur_name = m.group(1)
                 continue
             m = re.fullmatch(r'(\w+)\s*:\s*(.*)', line)
             if m and m.group(1) == 'ordre':
@@ -229,6 +241,8 @@ def parse(path):
             if m:
                 if m.group(1) == 'tempo':
                     tempo = float(m.group(2))
+                elif cur_name is not None:
+                    SECTION_BARS[cur_name] = int(m.group(2))
                 else:
                     bar = int(m.group(2))
                 continue
@@ -447,7 +461,9 @@ def build_song(path, label):
         if s not in sections:
             raise ScoreError('section inconnue dans ordre : ' + s)
     parsed = {}
+    song_bar, section_bars = bar, dict(SECTION_BARS)
     for s, voices in sections.items():
+        bar = section_bars.get(s, song_bar)
         lengths = set()
         echoes = []
         for v, toks in voices.items():

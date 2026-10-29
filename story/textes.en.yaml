@@ -3395,7 +3395,7 @@ groups:
   - name: TX_5b00
     index: 0x00
     text: |-
-      \col(1)Zelda\col(0): Link...?
+      \col(1)Zelda\col(0): \Link...?
       Is that you...?\stop
       I waited for
       you so long...
@@ -3426,10 +3426,7 @@ groups:
     index: 0x03
     text: |-
       \col(1)Marin\col(0): "Sleep,
-      little light.
-      What you dream
-      hard is never
-      lost."
+      little light.\wait(200)
   - name: TX_5b04
     index: 0x04
     text: |-
@@ -3440,7 +3437,7 @@ groups:
     index: 0x05
     text: |-
       \col(1)Zelda\col(0): Thank
-      you... Link...
+      you... \Link...
       I can finally...
       sleep...
 
@@ -5438,6 +5435,42 @@ groups:
     text: |2-
 
             END\wait(150)
+
+  - name: TX_5c28
+    index: 0x28
+    text: |-
+      What you dream
+      hard...\wait(200)
+  - name: TX_5c29
+    index: 0x29
+    text: |-
+      ...is never
+      lost."\wait(200)
+  - name: TX_5c2a
+    index: 0x2a
+    text: |-
+      \col(1)Zelda\col(0): And I
+      have mine...\wait(200)
+  - name: TX_5c2b
+    index: 0x2b
+    text: |-
+      Their two songs
+      intertwined...\wait(200)
+  - name: TX_5c2c
+    index: 0x2c
+    text: |-
+      \col(1)Marin\col(0): My
+      voice! My arms!\wait(200)
+  - name: TX_5c2d
+    index: 0x2d
+    text: |-
+      I'm singing with
+      my real voice!\wait(200)
+  - name: TX_5c2e
+    index: 0x2e
+    text: |-
+      And their voices
+      became one.\wait(200)
 
 - group: 0x30
   data:

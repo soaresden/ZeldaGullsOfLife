@@ -1,7 +1,8 @@
 """Test de la fin du jeu et de l'après-jeu (code/ages/balladeFin.s), par le menu de test caché :
 
-- en haut de la Tour (5:cc), l'Insomnis battu : Zelda apparaît, en rêve ; Marine lui chante sa
-  chanson ; Zelda s'endort ; fondu : la plage du réveil (1:aa) ;
+- en haut de la Tour (5:cc), l'Insomnis battu : Zelda apparaît, en rêve, sur sa berceuse ; le duo :
+  Marine (mouette) lui chante sa chanson, Zelda chante avec elle, Marine redevient humaine, le
+  huitième couplet ; Zelda s'endort ; fondu : la plage du réveil (1:aa) ;
 - l'épilogue : Marine humaine, le générique ; le jeu continue (GLOBALFLAG_BALLADE_FIN) ;
 - l'île de Marine : le coquillage appelle Zelda ; la maison ; Marine et le volley (le ballon tombe
   chez Link : point pour Marine ; Link sous le ballon : il le renvoie).
@@ -21,6 +22,7 @@ EPILOGUE = 0xc5ab
 VOLLEY_STATE, VOLLEY_SCORE = 0xc5ac, 0xc5ad
 FLAG_FIN = 0x5d
 INTERAC = 0xeb
+MUSIC = 0xcc35   # wActiveMusic
 errors = []
 
 
@@ -74,20 +76,44 @@ g.w(60)
 g.text_through()
 check(g.where() == (5, 0xcc), 'le sommet de la Tour (5:cc)')
 
-# L'Insomnis battu
+# L'Insomnis battu ; Marine sort de la tunique (INTERAC_MARINE $09, comme à la fin du combat)
+slot = max(s for s in range(0xd0, 0xe0) if not g.m[obj(s, 0)])
+for k in range(0x40):
+    g.m[obj(slot, k)] = 0
+g.m[obj(slot, 1)], g.m[obj(slot, 2)], g.m[obj(slot, 0)] = 0xe7, 0x09, 0x01
 g.m[RHYTHM_STAGE] = 3
 g.w(200)
 check(len(objects(0x11)) == 1, 'Zelda apparaît, en rêve')
+check(g.m[MUSIC] == 0x38, 'sa berceuse (MUS_BALLADE_BERCEUSE $38)')
 g.w(70)
 check(g.wait_text(120), 'Zelda : « Link... ? C\'est toi... ? »')
 g.shot(os.path.join(OUT, 'f01_zelda.png'))
-seen = follow({0x03: 'f02_couplet'}, lambda: g.where()[0] != 5)
-check(all(i in seen for i in range(0x01, 0x04)), 'les textes de la fin, Zelda puis Marine (%s)' % [hex(i) for i in seen])
+seen = follow({0x02: 'f02_chanson'}, lambda: g.m[MUSIC] == 0x2a)
+check(0x01 in seen and 0x02 in seen, 'Marine : « C\'est elle, hein ? », « Dors, princesse » (%s)' % [hex(i) for i in seen])
+check(g.m[MUSIC] == 0x2a, 'le duo commence (MUS_BALLADE_DUO $2a)')
+# Le duo : on ne touche à rien (les répliques se ferment seules) ; la mouette chante (5), Zelda avec
+# elle (6), Marine redevient humaine (4) ; à la fin, la Ballade est complète
+epi, shots = [], {5: 'f02b_mouette', 6: 'f02c_zelda_chante', 4: 'f02d_marine_humaine'}
+for _ in range(700):
+    g.w(10)
+    if not epi or epi[-1] != g.m[EPILOGUE]:
+        epi.append(g.m[EPILOGUE])
+        if epi[-1] in shots:
+            g.w(120)
+            g.shot(os.path.join(OUT, shots[epi[-1]] + '.png'))
+    if g.m[0xc6bf] & 0x80:
+        break
+check(epi[:3] == [5, 6, 4], 'le duo : la mouette, puis Zelda, puis Marine humaine (%s)' % epi)
+check(len(objects(0x13)) == 1 and not [s for s in range(0xd0, 0xe0) if g.m[obj(s, 0)] and g.m[obj(s, 1)] == 0xe7],
+      'Marine est humaine (la mouette a disparu)')
+check(g.m[0xc6bf] & 0x80, "la Ballade est complète : le huitième couplet est dans l'inventaire (wEssencesObtained bit 7)")
+g.w(60)
+g.shot(os.path.join(OUT, 'f02e_complete.png'))
+follow({}, lambda: g.where()[0] != 5)
 g.wait_until(lambda: g.where() == (1, 0xaa), 900)
 g.settled()
 g.w(60)
 check(g.where() == (1, 0xaa), 'fondu : la plage du réveil (1:aa)')
-check(g.m[0xc6bf] & 0x80, "le huitième couplet est dans l'inventaire (wEssencesObtained bit 7)")
 
 # L'épilogue et le générique
 g.w(120)

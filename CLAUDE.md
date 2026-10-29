@@ -464,6 +464,17 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   VIENS ! » (la 2e boîte), le picore ; au boss vaincu (wBalladeRhythmStage = 3), il explose
   (SND_BOSS_DEAD, tremblement, INTERAC_EXPLOSION : dans la tour, plus le son du prototype) ; puis
   Marine reste en mouette à côté de Link pendant la scène de Zelda (balladeFin.towerEnding).
+- La scène de Zelda (Denis, 29/10 : « fais en sorte que ce soit les deux qui chantent qui fait que
+  Marine redevient humaine ; tu la fais chanter en mouette puis en humaine, et les deux finissent
+  par chanter ensemble ») : Zelda apparaît sur sa berceuse (MUS_BALLADE_BERCEUSE $38) ; TX_5b00-02
+  (A) ; puis le duo (MUS_BALLADE_DUO $2a, music/duo.txt) : towerEnding suit la musique à l'image
+  près (@duoMoments : l'image, la valeur de wBalladeEpilogue, le texte ; horloge var30-31, qui
+  tourne pendant les textes grâce à interactionSetAlwaysUpdateBit, sinon elle prend du retard). Les
+  répliques du duo (TX_5b03, TX_5c28-2e) se ferment seules (\wait(200)). wBalladeEpilogue : 5 la
+  mouette chante (des notes s'envolent), 6 Zelda chante avec elle, 7 la mouette redevient Marine
+  (balladeMarine.finale @becomeHuman : un nuage, CREUSE $13 à sa place, qui chante : 4), 0 à la
+  fin ; puis « La Ballade est complète ! » (TX_5b04, le huitième couplet), Zelda s'endort.
+  Test : tools/test_epilogue.py (il crée la mouette lui-même, comme startFinale).
 - Musique : la tour gagne un instrument à chaque étage (les cinq niveaux du boss en rythme : $47,
   $49, $4b, $37, $3a) ; 5:cc silencieuse en entrant ; l'île : $28 (la Tour Noire d'Ages).
 - La banque $12 (objets) était pleine : make_rooms.py retire maintenant aussi les listes d'objets
@@ -893,6 +904,25 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
     noire ; accords fa#m ré mi do#, confirmés par Chordify). Le violon = l'onde avec sa forme
     d'onde WF_BALLADE_VIOLON ($2f, une dent de scie adoucie) et du vibrato : sur un carré, Denis
     n'entendait « pas un seul violon » ; pas de basse continue (« trop de basse »). Validée (v2).
+  - $2c MUS_BALLADE_ZELDA2 : music/zelda2.txt, le thème du Temple de Zelda II, pour le duel contre
+    Dark Link (5:c4 ; 5:c2-c3 gardent $49). Relevé par un script dans la partition MuseScore de
+    Denis (« Zelda 2_ Temple Theme.mscz ») ; au lieu de MUS_MAPLE_GAME. Validé (« excellent »).
+  - $38 MUS_BALLADE_BERCEUSE : music/berceuse.txt, la berceuse de Zelda, relevée dans la
+    partition de Denis (« a-Violon\Zelda's Lullaby.mscz », clarinette + harpe : la bonne ; l'autre
+    « Partoche\MSCZ\Zelda's Lullaby.mscz », un trio de flûtes, a le pont une octave trop haut) ;
+    au lieu de MUS_ZELDA_SAVED (« Zelda sauvée » d'Ages, que Denis ne reconnaît pas comme la
+    berceuse). Zelda à la tour, Zelda au téléphone.
+  - $2a MUS_BALLADE_DUO : music/duo.txt, le duo Marine / Zelda en haut de la tour (au lieu de
+    MUS_CREDITS_2) : la Ballade chantée par la mouette, la berceuse avec Marine une sixte au-dessus
+    (en mouette, puis sa vraie voix), le pont de la berceuse à l'unisson, la harpe pour finir.
+  - $1d MUS_BALLADE_GENERIQUE : music/generique.txt, le générique : la Ballade, un pont, la
+    berceuse (la même partition), le matin, la Ballade ; en douceur (Denis : « un générique de
+    fin, moins violent et plus doux » : charleston seul, volumes bas). Denis : « ça va faire
+    pleurer ».
+  - Une section peut avoir sa propre ligne `mesure` (3/4 au milieu d'un 4/4).
+  - Les partitions MuseScore (.mscz = un zip avec un .mscx) : un script lit chaque portée (voix 1,
+    la note du haut ou du bas des accords, liaisons fusionnées, reprises dépliées d'après la
+    1re portée) ; les durées de plus de 255 images sont à couper.
   - Plus AUCUN numéro vide : $24 n'est PAS libre (MUS_SYMMETRY_PRESENT, avec un cas spécial dans
     bank1.s). Pour une nouvelle île, réutiliser un morceau d'Ages qu'on n'entend plus (comme $25
     et $18 : vérifier qu'aucun code ne le teste, grep MUS_xxx).
@@ -903,7 +933,8 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
 - Le désassemblage de LADX est sur la machine : D:\DOCS\Documents\GitHub\ZeldaOracleCombinedFR\LADX-Disassembly-main
   (sons : src/code/audio/, musiques, sprites : src/gfx/...). Le lire là plutôt que sur GitHub.
 - Aperçus à écouter : `python tools/record_music.py [film titre phare ile auberge boss veilleur
-  miniboss theme grelot coffre lagune recif braise forge echos cathedrale tarkin]` -> out/apercus/NOM_apercu.wav ; `ROM=chemin` pour une autre ROM ; les morceaux sans
+  miniboss theme grelot coffre lagune recif braise forge echos cathedrale tarkin ... generique
+  zelda2 berceuse duo]` -> out/apercus/NOM_apercu.wav ; `ROM=chemin` pour une autre ROM ; les morceaux sans
   salle sont lancés en détournant playSound (crochet PyBoy). Denis veut ÉCOUTER une musique avant
   qu'on la pousse ; ses références : Wind Waker / Linebeck (marin), Resident Evil (salle de
   sauvegarde), Hyrule Warriors, Ninja Gaiden NES.

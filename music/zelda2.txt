@@ -1,0 +1,63 @@
+# Le thème du Temple (Zelda II: The Adventure of Link) — le duel contre Dark Link (la Tour Sans-Nuit,
+# 2F, 5:c4 ; MUS_BALLADE_ZELDA2 $2c, au lieu de la musique du jeu de Maple, que nous n'utilisons pas).
+#
+# Demandé par Denis (« il est ouf ce morceau ») : relevé dans sa partition (MuseScore, l'arrangement
+# piano de lara6683, « Zelda 2_ Temple Theme.mscz ») par un script : la note du haut de la main droite
+# (la mélodie), la 2e (l'accompagnement), la note du bas de la main gauche (la basse) ; la reprise
+# dépliée. Sol mineur, 4/4. Dark Link vient de Zelda II : son thème, pour son duel.
+# Même notation que music/phare.txt (l'unité est la croche : 8 par mesure).
+
+tempo 11         # images par croche (noire = 22 images, ~164 à la minute)
+mesure 8
+
+== INTRO ==
+melodie:   [v6] [duty 2] [vib 00] [gate .9] [detune 0]
+melodie:   g4:1 g4:1 -:1 g4:2 g4:3 | bb4:1 bb4:1 bb4:1 a4:1 a4:1 a4:1 ab4:1 ab4:1 |
+accordeon: [v3] [duty 1] [vib 00] [gate .8] [detune 0]
+accordeon: d4:1 d4:1 -:1 d4:2 d4:3 | f4:1 f4:1 f4:1 e4:1 e4:1 e4:1 eb4:1 eb4:1 |
+basse:     [onde 0e] [vib 00] [gate .85]
+basse:     g2:1 g2:1 -:1 g2:2 g3:1 g2:1 g3:1 | bb2:3 a2:3 ab2:2 |
+batterie:  ( [v3] s:1 [v1] h:1 [v2] h:1 [v1] h:1 [v3] s:1 [v1] h:1 [v2] h:1 [v1] h:1 | )x2
+
+== A ==
+# Le thème, puis les d d d d (la tension), la montée (do ré mib fa), et la fin en do si sol ré
+melodie:   g4:1 d4:1 bb3:1 g4:2 a4:1 bb4:1 d5:1 | eb5:3 bb4:3 eb5:2 | e5:3 bb4:3 e5:2 | eb5:2 g5:1 f5:2 eb5:3 |
+melodie:   g4:1 d4:1 bb3:1 g4:2 a4:1 bb4:1 d5:1 | eb5:3 bb4:3 eb5:2 | e5:3 bb4:3 e5:2 | eb5:2 g5:1 f5:2 eb5:3 |
+melodie:   d5:1 d5:1 -:1 d5:1 -:1 d5:1 c5:1 -:9 | d5:1 d5:1 -:1 d5:1 -:1 d5:1 eb5:1 -:9 | d5:1 d5:1 -:1 d5:1 -:1 d5:1 c5:1 -:9 | d5:1 d5:1 -:1 d5:1 -:1 d5:1 f5:1 -:2 eb5:3 d5:4 |
+melodie:   g4:1 d4:1 bb3:1 g4:2 a4:1 bb4:1 d5:1 | eb5:3 bb4:3 eb5:2 | e5:3 bb4:3 e5:2 | eb5:2 g5:1 f5:2 eb5:3 |
+melodie:   g4:1 d4:1 bb3:1 g4:2 a4:1 bb4:1 d5:1 | eb5:3 bb4:3 eb5:2 | e5:3 bb4:3 e5:2 | eb5:2 g5:1 f5:2 eb5:3 |
+melodie:   c5:1 a4:1 bb4:1 c5:2 bb4:1 a4:2 | a4:1 f#4:1 g4:1 a4:2 g4:1 f#4:2 | f5:1 c5:1 d5:1 eb5:2 d5:1 c5:2 | c5:1 ab4:1 bb4:1 c5:2 d5:1 eb5:2 |
+melodie:   c5:1 a4:1 bb4:1 c5:2 bb4:1 a4:2 | a4:1 f#4:1 g4:1 a4:2 g4:1 f#4:2 | d4:1 d4:1 -:1 eb4:5 | d4:1 d4:1 -:1 f#4:2 a4:2 c5:1 |
+melodie:   d5:8 | c5:2 bb4:2 a4:2 bb4:2 | c5:2 d5:2 eb5:2 f5:2 | f5:8 |
+melodie:   eb5:2 d5:2 eb5:2 d5:2 | c5:2 d5:2 eb5:2 f5:2 | g5:8 | g4:2 a4:2 b4:2 c5:2 |
+melodie:   d5:2 e5:2 f5:2 g5:2 | f5:8 | eb5:2 d5:2 eb5:2 d5:2 | c5:2 d5:2 eb5:2 f5:2 |
+melodie:   d5:1 d5:1 -:1 d5:1 -:1 d5:1 c5:1 -:9 | d5:1 d5:1 -:1 d5:1 -:1 d5:1 eb5:1 -:9 | d5:1 d5:1 -:1 d5:1 -:1 d5:1 c5:1 -:9 | d5:1 d5:1 -:1 d5:1 -:1 d5:1 f5:1 -:2 eb5:3 d5:4 |
+melodie:   g4:8 | c6:2 b5:2 g5:2 d5:2 | c6:2 b5:2 g5:2 d5:2 | c6:2 b5:2 g5:2 d5:2 |
+melodie:   c6:2 b5:2 g5:2 d5:10 |
+accordeon: d4:1 -:2 d4:2 d4:1 -:2 | g4:3 g4:3 bb4:2 | g4:3 g4:3 bb4:2 | g4:2 g4:1 g4:2 g4:3 |
+accordeon: d4:1 -:2 d4:2 d4:1 -:2 | g4:3 g4:3 bb4:2 | g4:3 g4:3 bb4:2 | g4:2 g4:1 g4:2 g4:3 |
+accordeon: f#4:1 f#4:1 -:1 f#4:1 -:1 f#4:1 f#4:1 -:9 | f#4:1 f#4:1 -:1 f#4:1 -:1 f#4:1 f#4:1 -:9 | f#4:1 f#4:1 -:1 f#4:1 -:1 f#4:1 f#4:1 -:9 | f#4:1 f#4:1 -:1 f#4:1 -:1 f#4:1 f#4:1 -:2 f#4:3 f#4:4 |
+accordeon: d4:1 -:2 d4:2 d4:1 -:2 | g4:3 g4:3 bb4:2 | g4:3 g4:3 bb4:2 | g4:2 g4:1 g4:2 g4:3 |
+accordeon: d4:1 -:2 d4:2 d4:1 -:2 | g4:3 g4:3 bb4:2 | g4:3 g4:3 bb4:2 | g4:2 g4:1 g4:2 g4:3 |
+accordeon: f#4:1 -:2 f#4:2 d4:1 f#4:2 | d4:1 -:2 d4:2 d4:1 d4:2 | ab4:1 -:2 ab4:2 ab4:1 ab4:2 | f4:1 -:2 f4:2 f4:1 f4:2 |
+accordeon: f#4:1 -:2 f#4:2 d4:1 f#4:2 | d4:1 -:2 d4:2 d4:1 d4:2 | f#3:1 f#3:1 -:1 f#3:5 | f#3:1 f#3:1 -:1 f#3:2 d4:2 d4:1 |
+accordeon: bb4:8 | g4:2 g4:2 g4:2 g4:2 | g4:2 g4:2 g4:2 g4:2 | c5:8 |
+accordeon: ab4:2 ab4:2 ab4:2 ab4:2 | ab4:2 ab4:2 ab4:2 ab4:2 | e5:8 | -:2 g4:2 g4:2 g4:2 |
+accordeon: g4:2 g4:2 g4:2 g4:2 | c5:8 | ab4:2 ab4:2 ab4:2 ab4:2 | ab4:2 ab4:2 ab4:2 ab4:2 |
+accordeon: f#4:1 f#4:1 -:1 f#4:1 -:1 f#4:1 f#4:1 -:9 | f#4:1 f#4:1 -:1 f#4:1 -:1 f#4:1 f#4:1 -:9 | f#4:1 f#4:1 -:1 f#4:1 -:1 f#4:1 f#4:1 -:9 | f#4:1 f#4:1 -:1 f#4:1 -:1 f#4:1 f#4:1 -:2 f#4:3 f#4:4 |
+accordeon: -:8 -:8 -:8 -:8 -:8 -:8 |
+basse:     g2:2 d3:2 d3:1 g3:1 d3:1 g3:1 | eb2:1 eb3:1 g3:1 bb3:1 eb3:1 g3:1 eb3:1 g3:1 | e2:1 e3:1 g3:1 bb3:1 e3:1 g3:1 e3:1 g3:1 | eb2:1 eb3:1 g3:1 eb3:1 bb3:1 eb3:1 g3:1 eb3:1 |
+basse:     g2:2 d3:2 d3:1 g3:1 d3:1 g3:1 | eb2:1 eb3:1 g3:1 bb3:1 eb3:1 g3:1 eb3:1 g3:1 | e2:1 e3:1 g3:1 bb3:1 e3:1 g3:1 e3:1 g3:1 | eb2:1 eb3:1 g3:1 eb3:1 bb3:1 eb3:1 g3:1 eb3:1 |
+basse:     d2:1 d2:1 -:1 d2:1 -:1 d2:1 d2:1 -:3 d2:1 -:1 f#2:1 -:1 a2:1 -:1 | d2:1 d2:1 -:1 d2:1 -:1 d2:1 d2:1 -:3 d2:1 -:1 f#2:1 -:1 a2:1 -:1 | d2:1 d2:1 -:1 d2:1 -:1 d2:1 d2:1 -:3 d2:1 -:1 f#2:1 -:1 a2:1 -:1 | d2:1 d2:1 -:1 d2:1 -:1 d2:1 d2:1 -:2 d2:2 d2:1 d3:4 |
+basse:     g2:2 d3:2 d3:1 g3:1 d3:1 g3:1 | eb2:1 eb3:1 g3:1 bb3:1 eb3:1 g3:1 eb3:1 g3:1 | e2:1 e3:1 g3:1 bb3:1 e3:1 g3:1 e3:1 g3:1 | eb2:1 eb3:1 g3:1 eb3:1 bb3:1 eb3:1 g3:1 eb3:1 |
+basse:     g2:2 d3:2 d3:1 g3:1 d3:1 g3:1 | eb2:1 eb3:1 g3:1 bb3:1 eb3:1 g3:1 eb3:1 g3:1 | e2:1 e3:1 g3:1 bb3:1 e3:1 g3:1 e3:1 g3:1 | eb2:1 eb3:1 g3:1 eb3:1 bb3:1 eb3:1 g3:1 eb3:1 |
+basse:     d2:1 a2:1 d3:1 a2:2 d3:1 a2:1 d3:1 | d2:1 a2:1 d3:1 a2:2 f#3:1 a2:1 d3:1 | f2:1 c3:1 f3:1 c3:2 ab3:1 c3:1 f3:1 | f2:1 c3:1 f3:1 c3:2 f3:1 c3:1 f3:1 |
+basse:     d2:1 a2:1 d3:1 a2:2 d3:1 a2:1 d3:1 | d2:1 a2:1 d3:1 a2:2 f#3:1 a2:1 d3:1 | d2:1 d2:1 -:1 d2:2 d2:1 f#2:1 a2:1 | d2:1 d2:1 -:1 d2:2 d2:1 d3:2 |
+basse:     g2:1 bb2:1 d3:1 g3:1 d3:1 bb2:1 g2:1 bb2:1 | d3:1 g3:1 d3:1 bb2:1 g2:1 bb2:1 d3:1 g3:1 | d3:1 bb2:1 g2:1 bb2:1 d3:1 g3:1 d3:1 bb2:1 | f2:1 ab2:1 c3:1 f3:1 c3:1 ab2:1 f2:1 ab2:1 |
+basse:     c3:1 f3:1 c3:1 ab2:1 f2:1 ab2:1 c3:1 f3:1 | c3:1 ab2:1 f2:1 ab2:1 c3:1 f3:1 c3:1 ab2:1 | e2:1 g2:1 b2:1 e3:1 b2:1 g2:1 e2:1 g2:1 | b2:1 e3:1 b2:1 g2:1 e2:1 g2:1 b2:1 e3:1 |
+basse:     b2:1 g2:1 e2:1 g2:1 b2:1 e3:1 b2:1 g2:1 | f2:1 ab2:1 c3:1 f3:1 c3:1 ab2:1 f2:1 ab2:1 | c3:1 f3:1 c3:1 ab2:1 f2:1 ab2:1 c3:1 f3:1 | c3:1 ab2:1 f2:2 f3:2 f2:2 |
+basse:     d2:1 d2:1 -:1 d2:1 -:1 d2:1 d2:1 -:3 d2:1 -:1 f#2:1 -:1 a2:1 -:1 | d2:1 d2:1 -:1 d2:1 -:1 d2:1 d2:1 -:3 d2:1 -:1 f#2:1 -:1 a2:1 -:1 | d2:1 d2:1 -:1 d2:1 -:1 d2:1 d2:1 -:3 d2:1 -:1 f#2:1 -:1 a2:1 -:1 | d2:1 d2:1 -:1 d2:1 -:1 d2:1 d2:1 -:2 d2:2 d2:1 d3:4 |
+basse:     g1:16 g1:16 g1:16 |
+batterie:  ( [v3] s:1 [v1] h:1 [v2] h:1 [v1] h:1 [v3] s:1 [v1] h:1 [v2] s:1 [v1] h:1 | )x58
+
+ordre: INTRO | A

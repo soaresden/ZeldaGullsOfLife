@@ -1,0 +1,41 @@
+# La berceuse de Zelda — MUS_ZELDA_SAVED ($38 ; au lieu de la musique d'Ages « Zelda sauvée », qui
+# n'est pas la berceuse) : quand Zelda apparaît en haut de la tour (code/ages/balladeFin.s,
+# towerEnding) et quand elle décroche le téléphone (shell).
+#
+# Relevée dans la partition de Denis (MuseScore, « Zelda's Lullaby.mscz », clarinette et harpe,
+# d'après Koji Kondo) par un script : la clarinette = la mélodie, la harpe (ses arpèges) =
+# l'accompagnement, la note grave de chaque mesure une octave plus bas = la basse. Sol majeur, 3/4,
+# noire à 90. L'intro (la harpe seule), puis le thème, sa reprise et le pont, en boucle.
+# Même notation que music/phare.txt (l'unité est la croche).
+
+tempo 20         # images par croche (noire = 40 images, 90 à la minute)
+mesure 6
+
+== INTRO ==
+melodie:   [v5] [duty 2] [vib 32] [gate .95] [detune 0]
+melodie:   -:6 | -:6 | -:6 | -:6 |
+accordeon: [v3] [duty 2] [vib 00] [gate .95] [detune 0]
+accordeon: c3:1 g3:1 e4:4 | c3:1 a3:1 f#4:4 | c3:1 g3:1 e4:4 | c3:1 a3:1 f#4:4 |
+basse:     [onde 08] [vib 00] [gate .95]
+basse:     c2:6 | c2:6 | c2:6 | c2:6 |
+batterie:  -:6 | -:6 | -:6 | -:6 |
+
+== A ==
+melodie:   b4:4 d5:2 | a4:4 g4:1 a4:1 | b4:4 d5:2 | a4:6 | b4:4 d5:2 | a5:4 g5:2 |
+melodie:   d5:4 c5:1 b4:1 | a4:6 | b4:4 d5:2 | a4:4 g4:1 a4:1 | b4:4 d5:2 | a4:6 |
+melodie:   b4:4 d5:2 | a5:4 g5:2 | d5:6 | d5:6 | d5:4 c5:1 b4:1 | c5:1 b4:1 g4:4 |
+melodie:   c5:4 b4:1 a4:1 | b4:1 a4:1 e4:4 | d5:4 c5:1 b4:1 | c5:1 b4:1 g4:2 c5:2 | g5:6 | g5:2 g5:1 f4:1 a4:1 c5:1 |
+melodie:   -:2 b4:1 g5:3 |
+accordeon: c3:1 g3:1 e4:4 | c3:1 a3:1 f#4:4 | c3:1 g3:1 e4:4 | c3:1 a3:1 f#4:4 | b2:1 d4:1 g4:4 | bb2:1 c#4:1 g4:4 |
+accordeon: a2:1 c4:1 g4:4 | d3:1 c4:1 f#4:4 | c3:1 g3:1 e4:4 | c3:1 a3:1 f#4:4 | c3:1 g3:1 e4:4 | c3:1 a3:1 f#4:4 |
+accordeon: b2:1 d4:1 g4:4 | bb2:1 c#4:1 g4:4 | a2:1 c4:1 g4:4 | b2:1 c4:1 f#4:4 | f3:1 c4:1 e4:4 | e3:1 b3:1 d4:4 |
+accordeon: d3:1 a3:1 c4:4 | c3:1 g3:1 b3:4 | f3:1 c4:1 e4:4 | e3:1 b3:1 d4:4 | eb3:1 bb3:1 c#4:4 | d3:1 a3:1 d4:2 -:2 |
+accordeon: g3:1 d4:3 -:2 |
+basse:     c2:6 | c2:6 | c2:6 | c2:6 | b1:6 | bb1:6 |
+basse:     a1:6 | d2:6 | c2:6 | c2:6 | c2:6 | c2:6 |
+basse:     b1:6 | bb1:6 | a1:6 | b1:6 | f2:6 | e2:6 |
+basse:     d2:6 | c2:6 | f2:6 | e2:6 | eb2:6 | d2:6 |
+basse:     g2:6 |
+batterie:  ( -:6 | )x25
+
+ordre: INTRO | A

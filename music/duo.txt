@@ -1,0 +1,86 @@
+# Le duo, en haut de la tour (MUS_BALLADE_DUO $2a, au lieu du 2e générique d'Ages ; code/ages/
+# balladeFin.s, towerEnding : la scène suit cette musique à l'image près, voir DUO_* là-bas).
+#
+# Denis : « fais en sorte que ce soit les deux qui chantent qui fait que Marine redevient humaine ;
+# tu la fais chanter en mouette puis en humaine, et les deux finissent par chanter ensemble ».
+# - MARINE : Marine, encore mouette, chante sa Ballade à Zelda (la voix de mouette de LADX) ; la
+#   harpe dessous.
+# - PONT : la harpe monte en ré 7 vers sol : Zelda répond avec sa berceuse.
+# - ZELDA : la berceuse de Zelda (la partition de Denis, music/berceuse.txt) ; Marine chante avec
+#   elle, une sixte au-dessus, toujours en mouette ; la harpe passe sur l'onde.
+# - HUMAINE : Marine redevient humaine : même chose, avec sa vraie voix.
+# - ENSEMBLE : le pont de la berceuse et la fin, les deux voix à l'unisson (un peu désaccordées :
+#   elles n'en font plus qu'une).
+# - FIN : la harpe, tout doucement (en boucle).
+# Même notation que music/phare.txt (l'unité est la croche).
+
+tempo 20         # images par croche (noire = 40 images, 90 à la minute)
+mesure 8
+
+== MARINE ==
+melodie:   [v7] [duty 0] [vib 42] [gate .95] [detune 0] [chant mouette]
+melodie:   d6:6 b5:1 c#6:1 | d6:6 c#6:1 b5:1 | f#5:1 a5:3 b5:4 | -:6 b5:1 c#6:1 |
+melodie:   d6:6 a5:1 d6:1 | g6:6 f#6:1 e6:1 | f#6:8 | -:8 |
+accordeon: [v2] [duty 2] [vib 00] [gate .6] [detune 0]
+accordeon: b3:1 d4:1 f#4:1 b4:1 d5:1 b4:1 f#4:1 d4:1 | g3:1 b3:1 d4:1 g4:1 b4:1 g4:1 d4:1 b3:1 |
+accordeon: e3:1 g3:1 b3:1 e4:1 g4:1 e4:1 b3:1 g3:1 | f#3:1 a#3:1 c#4:1 f#4:1 a#4:1 f#4:1 c#4:1 a#3:1 |
+accordeon: b3:1 d4:1 f#4:1 b4:1 d5:1 b4:1 f#4:1 d4:1 | g3:1 b3:1 d4:1 g4:1 b4:1 g4:1 d4:1 b3:1 |
+accordeon: d4:1 f#4:1 a4:1 d5:1 f#5:1 d5:1 a4:1 f#4:1 | a3:1 c#4:1 e4:1 a4:1 c#5:1 a4:1 e4:1 c#4:1 |
+basse:     [onde 08] [vib 00] [gate .9]
+basse:     b1:8 | g1:8 | e2:8 | f#1:8 | b1:8 | g1:8 | d2:8 | a1:8 |
+batterie:  ( -:8 | )x8
+
+== PONT ==
+mesure 6
+melodie:   [chant 0] -:6 | -:6 |
+accordeon: d4:1 f#4:1 a4:1 c5:1 a4:1 f#4:1 | d4:1 f#4:1 a4:1 c5:1 d5:1 f#5:1 |
+basse:     d2:6 | d2:6 |
+batterie:  -:6 | -:6 |
+
+== ZELDA ==
+mesure 6
+melodie:   [v5] [duty 1] [vib 32] [gate .95] [detune 0]
+melodie:   b4:4 d5:2 | a4:4 g4:1 a4:1 | b4:4 d5:2 | a4:6 | b4:4 d5:2 | a5:4 g5:2 |
+melodie:   d5:4 c5:1 b4:1 | a4:6 |
+accordeon: [v6] [duty 0] [vib 42] [gate .95] [detune 0] [chant mouette]
+accordeon: g5:4 b5:2 | f#5:4 e5:1 f#5:1 | g5:4 b5:2 | f#5:6 | g5:4 b5:2 | f#6:4 e6:2 |
+accordeon: b5:4 a5:1 g5:1 | f#5:6 |
+basse:     [onde 08] [gate .95]
+basse:     c3:1 g3:1 e4:4 | c3:1 a3:1 f#4:4 | c3:1 g3:1 e4:4 | c3:1 a3:1 f#4:4 | b2:1 d4:1 g4:4 | bb2:1 c#4:1 g4:4 |
+basse:     a2:1 c4:1 g4:4 | d3:1 c4:1 f#4:4 |
+batterie:  ( -:6 | )x8
+
+== HUMAINE ==
+mesure 6
+melodie:   b4:4 d5:2 | a4:4 g4:1 a4:1 | b4:4 d5:2 | a4:6 | b4:4 d5:2 | a5:4 g5:2 |
+melodie:   d5:6 | d5:6 |
+accordeon: [chant 0] [v4] [duty 2] [vib 32] [gate .95] [detune 0]
+accordeon: g5:4 b5:2 | f#5:4 e5:1 f#5:1 | g5:4 b5:2 | f#5:6 | g5:4 b5:2 | f#6:4 e6:2 |
+accordeon: b5:6 | b5:6 |
+basse:     c3:1 g3:1 e4:4 | c3:1 a3:1 f#4:4 | c3:1 g3:1 e4:4 | c3:1 a3:1 f#4:4 | b2:1 d4:1 g4:4 | bb2:1 c#4:1 g4:4 |
+basse:     a2:1 c4:1 g4:4 | b2:1 c4:1 f#4:4 |
+batterie:  ( -:6 | )x8
+
+== ENSEMBLE ==
+mesure 6
+melodie:   [v5]
+melodie:   d5:4 c5:1 b4:1 | c5:1 b4:1 g4:4 | c5:4 b4:1 a4:1 | b4:1 a4:1 e4:4 | d5:4 c5:1 b4:1 | c5:1 b4:1 g4:2 c5:2 |
+melodie:   g5:6 | f#5:6 | b4:4 d5:2 | a5:4 g5:2 | d5:4 c5:1 b4:1 | a4:6 |
+melodie:   g5:6 |
+accordeon: [v5] [detune 1]
+accordeon: d5:4 c5:1 b4:1 | c5:1 b4:1 g4:4 | c5:4 b4:1 a4:1 | b4:1 a4:1 e4:4 | d5:4 c5:1 b4:1 | c5:1 b4:1 g4:2 c5:2 |
+accordeon: g5:6 | f#5:6 | b4:4 d5:2 | a5:4 g5:2 | d5:4 c5:1 b4:1 | a4:6 |
+accordeon: g5:6 |
+basse:     f3:1 c4:1 e4:4 | e3:1 b3:1 d4:4 | d3:1 a3:1 c4:4 | c3:1 g3:1 b3:4 | f3:1 c4:1 e4:4 | e3:1 b3:1 d4:4 |
+basse:     eb3:1 bb3:1 c#4:4 | d3:1 a3:1 c4:4 | b2:1 d4:1 g4:4 | bb2:1 c#4:1 g4:4 | a2:1 c4:1 g4:4 | d3:1 c4:1 f#4:2 g4:2 |
+basse:     g3:6 |
+batterie:  ( -:6 | )x13
+
+== FIN ==
+mesure 6
+melodie:   -:6 | -:6 |
+accordeon: -:6 | -:6 |
+basse:     [gate .9] g2:1 d3:1 b3:4 | g2:1 d3:1 b3:4 |
+batterie:  -:6 | -:6 |
+
+ordre: MARINE PONT ZELDA HUMAINE ENSEMBLE | FIN

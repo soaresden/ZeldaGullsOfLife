@@ -3524,7 +3524,7 @@ groups:
   - name: TX_5b00
     index: 0x00
     text: |-
-      \col(1)Zelda\col(0): Link...?
+      \col(1)Zelda\col(0): \Link...?
       C'est toi...?\stop
       Je t'ai attendu
       si longtemps...
@@ -3556,10 +3556,7 @@ groups:
     index: 0x03
     text: |-
       \col(1)Marine\col(0): "Dors,
-      petite lumière.
-      Ce qu'on rêve
-      fort ne se perd
-      jamais."
+      petite lumière.\wait(200)
   - name: TX_5b04
     index: 0x04
     text: |-
@@ -3570,7 +3567,7 @@ groups:
     index: 0x05
     text: |-
       \col(1)Zelda\col(0): Merci...
-      Link... Je vais
+      \Link... Je vais
       enfin...
       dormir...
 
@@ -5620,6 +5617,42 @@ groups:
     text: |2-
 
             FIN\wait(150)
+
+  - name: TX_5c28
+    index: 0x28
+    text: |-
+      Ce qu'on rêve
+      fort...\wait(200)
+  - name: TX_5c29
+    index: 0x29
+    text: |-
+      ...ne se perd
+      jamais."\wait(200)
+  - name: TX_5c2a
+    index: 0x2a
+    text: |-
+      \col(1)Zelda\col(0): Et moi,
+      j'ai la mienne.\wait(200)
+  - name: TX_5c2b
+    index: 0x2b
+    text: |-
+      Leurs deux airs
+      se mêlèrent...\wait(200)
+  - name: TX_5c2c
+    index: 0x2c
+    text: |-
+      \col(1)Marine\col(0): Ma
+      voix! Mes bras!\wait(200)
+  - name: TX_5c2d
+    index: 0x2d
+    text: |-
+      Je chante avec
+      ma vraie voix!\wait(200)
+  - name: TX_5c2e
+    index: 0x2e
+    text: |-
+      Et leurs deux
+      voix s'unirent.\wait(200)
 
 - group: 0x30
   data:
