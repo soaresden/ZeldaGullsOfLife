@@ -3,7 +3,7 @@ Facile gagnée (le test connaît les monstres : il creuse les cases vides, puis 
 faible au plus fort, quand Link a le niveau) : les chiffres dans le sable, les cases sans rien
 autour qui découvrent leurs voisines toutes seules, les vrais ennemis figés sur leur case puis en
 fumée (leur case montre alors la somme des niveaux autour, comme les autres), la montée de
-niveau ; les notes du joueur (B : 1 à 5 puis rien ; une case notée ne se creuse pas) ; une partie Dur sans une
+niveau ; les notes du joueur (B : 1 à 5 puis rien ; une case notée se creuse quand même) ; une partie Dur sans une
 égratignure (le gros lot : un quart de cœur) ; puis un monstre trop fort découvert à l'aveugle (il
 frappe fort) ; on ressort par le haut. Deux niveaux : Facile, Dur.
 
@@ -192,7 +192,7 @@ def play_to_win(lvl, name, perfect=False):
     auto = sum(1 for i in range(ROWS * COLS) if dug(i))
     check(auto > 1, '%s : les cases vides découvrent leurs voisines toutes seules (%d cases)' % (name, auto))
     # Les notes du joueur (B) : sur une case pas creusée dont la case du dessus est creusée
-    spot = next(i for i in range(COLS, ROWS * COLS) if not dug(i) and dug(i - COLS))
+    spot = next(i for i in range(COLS, ROWS * COLS) if not dug(i) and dug(i - COLS) and not levels[i])
     face(spot)
     notes = []
     for _ in range(6):
@@ -202,10 +202,8 @@ def play_to_win(lvl, name, perfect=False):
         name, ['%02x' % t for t in notes]))
     press('b', 12)
     press('a', 30)
-    check(m[LAYOUT + pos(spot)] == 0x69 and not m[SHOW], '%s : une case notée ne se creuse pas' % name)
-    for _ in range(5):
-        press('b', 12)
-    check(m[LAYOUT + pos(spot)] == 0x12, '%s : la note effacée' % name)
+    # (Denis : « mettre un chiffre ça doit pas nous empêcher de creuser »)
+    check(m[LAYOUT + pos(spot)] != 0x69, '%s : une case notée se creuse quand même' % name)
     # Les cases vides
     for i in range(ROWS * COLS):
         if not levels[i] and not dug(i):

@@ -988,20 +988,8 @@ groups:
   - name: TX_5a43
     index: 0x43
     text: |-
-      Approche,
-      approche! Trois
+      Approche! Trois
       jeux pour toi!\stop
-      Le Creuse-Rubis:
-      creuse, ramasse
-      les rubis... et
-      gare aux bombes!\stop
-      Le Mamono: des
-      monstres dorment
-      sous le sable...\stop
-      Le Labyrinthe:
-      ramasse les
-      rubis, fuis les
-      Lynels!\stop
       \opt()Creuse \opt()Mamono
       \opt()Lynels \opt()Non
 
@@ -1052,21 +1040,9 @@ groups:
   - name: TX_5a4a
     index: 0x4a
     text: |-
-      Le Mamono! Les
-      chiffres disent
-      combien de
-      niveaux de
-      monstres dorment
-      autour.\stop
-      Bats les petits
-      pour grandir...
-      avant d'oser
-      les gros!\stop
-      \col(1)Marine\col(0): Et ne
-      creuse pas au
-      hasard: un
-      monstre surpris
-      frappe fort!
+      Chaque chiffre:
+      les niveaux des
+      monstres autour.
 
   - name: TX_5a4b
     index: 0x4b
@@ -1090,19 +1066,10 @@ groups:
   - name: TX_5a4c
     index: 0x4c
     text: |-
-      Le Labyrinthe
-      des Lynels!
-      Ramasse tous
-      les rubis.\stop
-      Les Lynels sont
-      invincibles...
-      sauf si tu
-      prends une gemme
-      de force!\stop
-      Tant que tu
-      brilles, un coup
-      d'épée les
-      terrasse!\stop
+      Ramasse les
+      rubis! Avec une
+      gemme, tu bats
+      les Lynels!\stop
       \opt()J'y vais \opt()Non
 
   - name: TX_5a4e
@@ -5666,6 +5633,19 @@ groups:
     text: |-
       Et leurs deux
       voix s'unirent.\wait(200)
+
+  - name: TX_5c2f
+    index: 0x2f
+    text: |-
+      Dommage! Tu ne
+      joueras pas pour
+      le gros lot...\stop
+      Mais continue!
+  - name: TX_5c30
+    index: 0x30
+    text: |-
+      Hé! La partie
+      n'est pas finie!
 
 - group: 0x30
   data:

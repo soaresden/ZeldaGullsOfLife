@@ -949,18 +949,7 @@ groups:
     index: 0x43
     text: |-
       Step right up!
-      Three games for
-      you!\stop
-      The Rupee Dig:
-      dig, grab the
-      rupees... and
-      watch for bombs!\stop
-      The Mamono:
-      monsters sleep
-      under the sand!\stop
-      The Maze: grab
-      the rupees, run
-      from the Lynels!\stop
+      Three games!\stop
       \opt()Dig \opt()Mamono
       \opt()Lynels \opt()No
 
@@ -1010,20 +999,9 @@ groups:
   - name: TX_5a4a
     index: 0x4a
     text: |-
-      The Mamono! The
-      numbers tell how
-      many monster
-      levels sleep
-      around.\stop
-      Beat the small
-      ones to grow...
-      before you face
-      the big ones!\stop
-      \col(1)Marin\col(0): And
-      don't dig at
-      random: a
-      startled monster
-      hits hard!
+      Each number: the
+      monster levels
+      around it.
 
   - name: TX_5a4b
     index: 0x4b
@@ -1047,16 +1025,9 @@ groups:
   - name: TX_5a4c
     index: 0x4c
     text: |-
-      The Lynel Maze!
-      Grab every
-      rupee.\stop
-      The Lynels are
-      invincible...
-      unless you take
-      a power gem!\stop
-      While you glow,
-      one sword swing
-      takes them down!\stop
+      Grab the rupees!
+      With a gem, you
+      beat the Lynels!\stop
       \opt()Let's go \opt()No
 
   - name: TX_5a4e
@@ -5483,6 +5454,19 @@ groups:
     text: |-
       And their voices
       became one.\wait(200)
+
+  - name: TX_5c2f
+    index: 0x2f
+    text: |-
+      Too bad! No
+      jackpot for you
+      this time...\stop
+      But keep going!
+  - name: TX_5c30
+    index: 0x30
+    text: |-
+      Hey! The game's
+      not over yet!
 
 - group: 0x30
   data:
