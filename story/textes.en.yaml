@@ -6232,6 +6232,14 @@ groups:
       Night ends with
       a morning.
 
+  - name: TX_0908
+    index: 0x08
+    text: |-
+      Eighth verse
+      The lullaby you
+      sing to those
+      who can't sleep.
+
 
 
 

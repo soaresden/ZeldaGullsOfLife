@@ -87,6 +87,7 @@ g.wait_until(lambda: g.where() == (1, 0xaa), 900)
 g.settled()
 g.w(60)
 check(g.where() == (1, 0xaa), 'fondu : la plage du réveil (1:aa)')
+check(g.m[0xc6bf] & 0x80, "le huitième couplet est dans l'inventaire (wEssencesObtained bit 7)")
 
 # L'épilogue et le générique
 g.w(120)

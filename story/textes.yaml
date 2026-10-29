@@ -6782,6 +6782,15 @@ groups:
       La nuit finit
       par un matin.
 
+  - name: TX_0908
+    index: 0x08
+    text: |-
+      Huitième couplet
+      La berceuse
+      qu'on chante à
+      ceux qui ne
+      dorment plus.
+
 
 
 

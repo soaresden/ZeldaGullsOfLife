@@ -1137,3 +1137,7 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   tools/make_map_marks.py (une marque par sorte et par case).
 - Nouveau groupe de textes 0x5c (tools/make_text.py, OUR_GROUPS) : Zelda, Tarkin, le générique.
 - Les cœurs : 10 quarts maintenant (le 10e enterré en 1:89) : la progression compte 34 quarts.
+- Le huitième couplet (Denis : « je vais finir par avoir la 8e dans mon inventaire ? ») : à « La
+  Ballade de la Mouette est complète ! » (balladeFin.towerEnding), le bit 7 de wEssencesObtained (la
+  8e essence d'Ages, TX_0908) ; objectLoading.s le donne aux parties déjà finies. Ce qui vérifie les
+  sept couplets masque avec $7f (la porte de la tour) ou plafonne à 7 (la Fosse).
