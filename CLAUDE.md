@@ -1069,6 +1069,13 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   textID ; on repayait). Mamono : une case notée se creuse ; « Dommage... » (TX_5c2f) à la 1re
   blessure en Dur. Tests : tools/test_creuse.py (le démineur, les coffres), test_mamono.py,
   test_lynels.py.
+- La progression (29/10, Denis : « l'écran comme les secrets d'Ages ») : menu, 3e page, B ->
+  CUTSCENE_BALLADE_PROGRESS ($24, cutscenes/generique.s, progress) : un écran noir, le titre en or,
+  six lignes (le nombre / son maximum) et le total ; A, B ou Start : retour en place (une
+  téléportation, comme les photos). balladeTracker.s compte et met les nombres dans wTmpcbb6-cbbc ;
+  les libellés : tools/make_credits.py (PROGRESS, progressMapFr / En ; les mêmes tuiles que le
+  générique) ; drawNumber écrit les chiffres (l'écran éteint). Pendant une cinématique, lire
+  wKeysJustPressed (wGameKeysJustPressed ne bouge pas). Test : tools/test_progression.py.
 - Les anneaux gagnés (balladeRingReward) : un donneur (CREUSE $26, balladeFin.ringGiver) attend la
   fin du texte et du trésor d'avant, puis Link brandit l'anneau, avec son texte (Denis : pas
   d'annonce ; chez Tic et Tac, il brandissait le quart donné en même temps).

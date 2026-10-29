@@ -30,6 +30,10 @@ OUT = os.path.join(DISASM, 'code', 'ages')
 MUSIC_FRAMES = (4 * 8 + 8 * 8 + 2 * 6 + 23 * 6 + 8 * 8 + 8 * 8) * 15
 STOP_FRAME = MUSIC_FRAMES - 300       # FIN reste 5 s au milieu avant la fin de la musique
 SCREEN_ROWS, WIDTH = 18, 20
+# L'écran de la progression : le titre, puis les six sortes (une toutes les deux rangées), le total
+PROGRESS = {'fr': ('PROGRESSION', ['Couplets', 'Cœurs', 'Quarts', 'Objets', 'Anneaux', 'Coffres'], 'Total'),
+            'en': ('PROGRESS', ['Verses', 'Hearts', 'Pieces', 'Items', 'Rings', 'Chests'], 'Total')}
+PROGRESS_FIRST_ROW, PROGRESS_TOTAL_ROW, PROGRESS_SLASH_COL = 3, 16, 16
 # Les lettres spéciales (oracles-disasm/tools/build/parseText.py, US_available)
 SPECIAL = dict(zip("ÀÂÄÆÇÈÉÊËÎÏÑÖŒÙÛÜàâäæçèéêëîïñöœùûü",
                    [0x80, 0x81, 0x82, 0x83, 0x84, 0x85, 0x86, 0x87, 0x88, 0x89, 0x8a, 0x8b, 0x8c, 0x8d,
@@ -101,6 +105,30 @@ def main():
             rows.append([0x80] * 32)
             pals.append(0)
         out[lang] = (rows, pals, end, step)
+    # L'écran de la progression (CUTSCENE_BALLADE_PROGRESS, generique.s : Denis, « l'écran comme les
+    # secrets d'Ages, et ça le dit tout simplement ») : 18 rangées de 20 tuiles, les libellés et les
+    # « / » ; les nombres, écrits par le jeu (digits : les chiffres 0-9, le haut et le bas)
+    progress = {}
+    for lang, (title, labels, total) in PROGRESS.items():
+        rows, pals = [[0x80] * 20 for _ in range(SCREEN_ROWS)], [0] * SCREEN_ROWS
+
+        def put(row, col, text):
+            for i, ch in enumerate(text):
+                t, b = glyph(font, ch)
+                rows[row][col + i], rows[row + 1][col + i] = tile(t), tile(b)
+        put(0, (WIDTH - len(title)) // 2, title)
+        pals[0] = pals[1] = 1
+        for i, label in enumerate(labels):
+            put(PROGRESS_FIRST_ROW + 2 * i, 2, label)
+            put(PROGRESS_FIRST_ROW + 2 * i, PROGRESS_SLASH_COL, '/')
+        put(PROGRESS_TOTAL_ROW, 2, total)
+        put(PROGRESS_TOTAL_ROW, PROGRESS_SLASH_COL + 1, '%')
+        pals[PROGRESS_TOTAL_ROW] = pals[PROGRESS_TOTAL_ROW + 1] = 1
+        progress[lang] = (rows, pals)
+    digits = []
+    for d in '0123456789':
+        t, b = glyph(font, d)
+        digits += [tile(t), tile(b)]
     assert len(tiles) <= 128, 'trop de tuiles : %d' % len(tiles)
     # (generique.s prend la vitesse du français pour les deux langues)
     assert len({v[3] for v in out.values()}) == 1, 'les deux langues doivent défiler à la même vitesse'
@@ -114,7 +142,17 @@ def main():
         L = lang.upper()
         head += ['.define CREDITS_SCROLL_END_%s %d ; FIN au milieu de l\'écran (en pixels)' % (L, end),
                  '.define CREDITS_STEP_%s $%02x ; la vitesse, en 1/256 de pixel par image' % (L, step)]
+    head += ['.define PROGRESS_FIRST_ROW %d ; la progression : la 1re ligne (couplets), puis une toutes les 2 rangées' % PROGRESS_FIRST_ROW,
+             '.define PROGRESS_TOTAL_ROW %d ; le total' % PROGRESS_TOTAL_ROW,
+             '.define PROGRESS_SLASH_COL %d ; le « / » (le nombre avant, son maximum après)' % PROGRESS_SLASH_COL]
     lines = head
+    lines += ['', '; La progression : les chiffres 0-9 (la tuile du haut, celle du bas)', 'progressDigits:',
+              '\t.db ' + ' '.join('$%02x' % d for d in digits)]
+    for lang, (rows, pals) in progress.items():
+        lines += ['', '; La progression (%s) : 18 rangées de 20 tuiles, puis la palette de chaque rangée' % lang,
+                  'progressMap%s:' % lang.capitalize()]
+        lines += ['\t.db ' + ' '.join('$%02x' % b for b in r) for r in rows]
+        lines += ['progressPalettes%s:' % lang.capitalize(), '\t.db ' + ' '.join(str(p) for p in pals)]
     tl = ['; Généré par tools/make_credits.py (ne pas modifier à la main) : les tuiles du générique, dans',
           '; une section alignée sur 16 octets (la copie DMA du GBC ignore les 4 bits bas de la source)',
           '', '; Les tuiles (2 bits par pixel ; la lettre en couleur 3), à copier en $8800', 'creditsTiles:']
