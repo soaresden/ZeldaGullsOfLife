@@ -211,7 +211,7 @@ def play_to_win(lvl, name):
     bad = [i for i in range(ROWS * COLS) if not levels[i] and
            m[LAYOUT + pos(i)] != (0xbf if sum(levels[j] for j in neighbours(i)) == 0
                                   else 0x40 + sum(levels[j] for j in neighbours(i)))]
-    check(not bad, '%s : chaque case montre les bombes autour %s' % (name, bad[:5]))
+    check(not bad, '%s : chaque case montre les bombes autour %s' % (name, [(i, hex(m[LAYOUT + pos(i)])) for i in bad[:5]]))
     check(m[STATE] == 2 and m[LEFT] == 0, '%s : toutes les cases sûres, gagné' % name)
     check(m[RUPEES] != rupees, '%s : des rubis (%02x -> %02x)' % (name, rupees, m[RUPEES]))
     shot(name + '_fin')

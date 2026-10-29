@@ -223,7 +223,8 @@ def main():
         spr = Image.open(os.path.join(DISASM, src))
         for y in range(16):
             for x in range(16):
-                sheet.putpixel((n * 16 + x, y), spr.getpixel((x, y)))
+                # (la moitié gauche et son miroir, comme le jeu les dessine)
+                sheet.putpixel((n * 16 + x, y), spr.getpixel((x if x < 8 else 15 - x, y)))
     dst = os.path.join(DISASM, 'gfx_compressible', 'ages', 'spr_ballade_forain.png')
     sheet.save(dst)
     print('->', os.path.relpath(dst, ROOT))

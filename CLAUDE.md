@@ -1069,8 +1069,13 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   $f1 / $f0 par make_mamono.py, qui ne s'ouvrent pas tout seuls) ; les icônes : la bombe dessinée,
   le vrai Moblin masqué et le vrai Lynel (Denis : « dessine pas, mets son sprite » ; palette 2).
   Au démineur, B pose une croix (brique $6e du décor $6a) ; au Mamono, un monstre vaincu laisse son
-  image (briques $6f-$73, ses vrais sprites aux couleurs du sable). Les monstres modèles de l'arène
-  perdent leur collision à chaque image (le Darknut caché blessait Link au démineur).
+  image (briques $6f-$73, ses vrais sprites aux couleurs du sable : la moitié gauche et son miroir,
+  comme le jeu les dessine ; sinon « un gribouillis ») qui alterne avec son chiffre, une seconde
+  chacun (@blinkDead). Les monstres modèles de l'arène perdent leur collision à chaque image (le
+  Darknut caché blessait Link au démineur). Link sort la Pelle (parentItemUsage.s ne la bloque
+  plus) mais elle ne creuse rien dans l'arène (shovel.s : wBalladeMamonoState) ; l'icône de B
+  pendant une partie : le drapeau (démineur) ou « 1-5 » (Mamono) : balladeMamono.drawBIcon, comme
+  « NO ITEM » de Ghost Babel.
   Pendant une partie, le forain dit TX_5c30 au lieu de relancer ses jeux (balladeNpc.s change son
   textID ; on repayait). Mamono : une case notée se creuse ; « Dommage... » (TX_5c2f) à la 1re
   blessure en Dur. Tests : tools/test_creuse.py (le démineur, les coffres), test_mamono.py,

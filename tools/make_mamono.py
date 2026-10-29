@@ -224,7 +224,9 @@ def decor(TILESET, plan, room, last_number, marks):
         img = [row[:] for row in sand]
         for y in range(16):
             for x in range(16):
-                c = spr.getpixel((x, y))
+                # (la moitié gauche et son miroir : le jeu dessine ces ennemis ainsi ; les 16
+                # premiers pixels de la feuille mélangeaient deux images, Denis : « ce gribouillis »)
+                c = spr.getpixel((x if x < 8 else 15 - x, y))
                 if c:
                     img[y][x] = {1: 3, 2: 2, 3: 0}[c]
         return img

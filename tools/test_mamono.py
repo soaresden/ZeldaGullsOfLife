@@ -235,8 +235,17 @@ def play_to_win(lvl, name, perfect=False):
     print('  (monstre, niveau de Link)', seen, flush=True)
     check(m[STATE] == 2 and m[LEFT] == 0, '%s : tous les monstres, gagné' % name)
     check(bool(seen) and max(p for _, p in seen) >= 3, '%s : Link est monté de niveau' % name)
-    boxed = [i for i in range(ROWS * COLS) if levels[i] and m[LAYOUT + pos(i)] != 0x6e + levels[i]]
-    check(not boxed, "%s : la case d'un monstre vaincu garde son image (Denis) %s" % (name, boxed[:5]))
+    # Un monstre vaincu : sa case alterne entre son image et son chiffre (Denis), une seconde chacun
+    dead = [i for i in range(ROWS * COLS) if levels[i]]
+    shown_tiles = {i: set() for i in dead}
+    for _ in range(40):
+        w(5)
+        for i in dead:
+            shown_tiles[i].add(m[LAYOUT + pos(i)])
+    number = {i: 0xbf if expect[i] == 0 else 0x40 + expect[i] for i in dead}
+    bad = [i for i in dead if shown_tiles[i] != {0x6e + levels[i], number[i]}]
+    check(not bad, "%s : la case d'un monstre vaincu alterne entre son image et son chiffre (Denis) %s"
+          % (name, [(i, sorted(hex(t) for t in shown_tiles[i])) for i in bad[:3]]))
     shot(name + '_fin')
     for _ in range(6):
         w(30)
