@@ -1160,9 +1160,18 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   durée d'animation de $ff est lue comme la fin de la boucle.
 - Marine (Select) : une vanne au hasard (TX_5beb-5bf4), puis « Bon, sérieux... » et l'indice du
   chapitre (TX_5bf5-5bfd ; balladeObjects.marineChat, $5e).
-- Le générique (Denis : « d'une tristesse à appuyer sur A ») : 20 cartons de deux lignes qui se
-  ferment seuls (TX_5c14-5c27, \wait) sur la musique de fin ; Marine chante en se balançant
-  (wBalladeEpilogue = 4). Un vrai défilement de texte, comme DX, demanderait un moteur à part.
+- Le générique (Denis : « le générique, il fallait reprendre celui de Link's Awakening ! pas de
+  barre de texte ! ») : CUTSCENE_BALLADE_GENERIQUE ($23, code/ages/cutscenes/generique.s, sur le
+  modèle des photos) : un écran noir, les crédits montent (titres en or, noms en blanc) sur la
+  musique de fin, « FIN » s'arrête au milieu, fondu au blanc et retour sur la plage (1:aa). Les
+  crédits : story/generique.txt (FR/EN) ; tools/make_credits.py (build.sh) en fait les tuiles
+  (gfx_font.png, une lettre 8 x 16 par colonne) et la carte (32 tuiles par rangée), copiées en
+  VRAM par queueDmaTransfer (la carte de l'écran tourne : rangée L -> L & 31). Les données copiées
+  par DMA doivent être alignées sur 16 octets (le GBC ignore les 4 bits bas de la source : sinon
+  le texte est décalé et des pointillés apparaissent) : sections `ALIGN $10`. Les anciens cartons
+  TX_5c14-5c27 ne sont plus affichés. Le matin de l'épilogue : MUS_TITLESCREEN (la Ballade avec
+  les mouettes) ; Marine (TX_5b08) rentre voir son père, Tarkin, et choisit l'îlot où elle se
+  posait, mouette (le Nid de la Mouette).
 - Après la fin, sur la carte, ce qui reste clignote : des étincelles (quarts), un anneau, un
   petit coffre (coffres ; ceux d'un donjon sur son entrée ; pas de cœur dans les sprites de la carte) : code/ages/balladeMapMarks.s, la table de
   tools/make_map_marks.py (une marque par sorte et par case).

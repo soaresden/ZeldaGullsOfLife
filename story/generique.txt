@@ -1,0 +1,181 @@
+# Le générique de fin, qui défile comme celui de Link's Awakening (Denis : « pas de barre de
+# texte ! ») : CUTSCENE_BALLADE_GENERIQUE (code/ages/cutscenes/generique.s), sur la musique de fin
+# (music/generique.txt). tools/make_credits.py en fait les tuiles (la police du jeu) et la carte.
+#
+# Une ligne = une ligne à l'écran (20 lettres au plus), centrée. « * » devant : un titre, en or ;
+# sinon en blanc. Une ligne vide = un blanc d'une ligne. La dernière ligne (FIN / END) s'arrête au
+# milieu de l'écran. Lettres : celles de la police du jeu (pas de ô).
+
+== fr ==
+* THE LEGEND OF
+* ZELDA
+
+Gulls of Life
+
+
+
+Une idée de
+Denis
+
+
+
+* Histoire
+Denis et Claude
+
+
+
+* Énigmes
+Denis et Claude
+
+
+
+* Programme
+Claude
+
+
+
+* Musiques
+Claude
+d'après les airs
+de Cocolint
+
+
+
+* Arrangements
+d'après les
+partitions de Denis
+Zelda II, berceuse
+
+
+
+* Dessins
+Claude
+et les sprites de
+Link's Awakening DX
+
+
+
+* Testeur en chef
+Denis
+sur sa Retroid!
+
+
+
+* Outils
+LynnaLab
+oracles-disasm
+hack-base
+
+
+
+* D'après
+Link's Awakening DX
+et Oracle of Ages
+Nintendo, Capcom
+
+
+
+Merci, Denis:
+ton envie a fait
+ce jeu.
+
+
+
+
+
+Merci d'avoir joué!
+
+
+
+
+
+
+
+* FIN
+
+== en ==
+* THE LEGEND OF
+* ZELDA
+
+Gulls of Life
+
+
+
+An idea by
+Denis
+
+
+
+* Story
+Denis and Claude
+
+
+
+* Puzzles
+Denis and Claude
+
+
+
+* Programming
+Claude
+
+
+
+* Music
+Claude
+after the tunes
+of Koholint
+
+
+
+* Arrangements
+after the scores
+of Denis
+Zelda II, lullaby
+
+
+
+* Graphics
+Claude
+and the sprites of
+Link's Awakening DX
+
+
+
+* Chief tester
+Denis
+on the Retroid!
+
+
+
+* Tools
+LynnaLab
+oracles-disasm
+hack-base
+
+
+
+* Based on
+Link's Awakening DX
+and Oracle of Ages
+Nintendo, Capcom
+
+
+
+Thank you, Denis:
+your wish made
+this game.
+
+
+
+
+
+Thanks for playing!
+
+
+
+
+
+
+
+* END

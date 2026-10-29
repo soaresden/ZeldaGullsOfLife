@@ -3595,14 +3595,27 @@ groups:
   - name: TX_5b08
     index: 0x08
     text: |-
-      \col(1)Marine\col(0): Je
-      reste ici. J'ai
-      trouvé une île
-      rien qu'à moi:
-      le Nid de la
-      Mouette.\stop
-      Rentre à Hyrule
-      quand tu veux...\stop
+      \col(1)Marine\col(0): Tu
+      sais ce que je
+      vais faire?\stop
+      D'abord, rentrer
+      voir Papa. Il
+      met toujours
+      trois assiettes!\stop
+      Tu te souviens
+      de l'îlot où je
+      me posais, quand
+      j'étais mouette?\stop
+      J'y chantais à
+      la mer, le soir.
+      C'est là que je
+      veux vivre.\stop
+      Le Nid de la
+      Mouette... et
+      Papa juste
+      en face!\stop
+      Toi, rentre voir
+      ta princesse...\stop
       Mais pas avant
       une partie de
       volley!
@@ -5495,8 +5508,8 @@ groups:
       Je ne vois pas
       de quoi tu
       parles.
-  # Le générique (Denis : « un truc à défilement », comme DX) : des cartons de deux lignes qui
-  # se ferment seuls
+  # (Plus affichés : l'ancien générique en cartons. Le générique défile maintenant sans boîte de
+  # texte, comme dans Link's Awakening : story/generique.txt, tools/make_credits.py.)
 
   - name: TX_5c14
     index: 0x14

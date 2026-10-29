@@ -3465,16 +3465,28 @@ groups:
   - name: TX_5b08
     index: 0x08
     text: |-
-      \col(1)Marin\col(0): I'm
-      staying. I found
-      an island all my
-      own: the Gull's
-      Nest.\stop
-      Go home to
-      Hyrule whenever
-      you want...\stop
-      But not before a
-      game of
+      \col(1)Marin\col(0): You
+      know what I'll
+      do?\stop
+      First, go see
+      Dad. He still
+      sets three
+      plates!\stop
+      Remember the
+      islet where I'd
+      land, when I was
+      a gull?\stop
+      I sang there to
+      the sea, nights.
+      That's where I
+      want to live.\stop
+      The Gull's Nest
+      ...and Dad right
+      next door!\stop
+      Go see your
+      princess...\stop
+      But not before
+      a game of
       volleyball!
   - name: TX_5b09
     index: 0x09
@@ -5313,8 +5325,8 @@ groups:
       raccoon?\stop
       I don't know
       what you mean.
-  # Le générique (Denis : « un truc à défilement », comme DX) : des cartons de deux lignes qui
-  # se ferment seuls
+  # (Plus affichés : l'ancien générique en cartons. Le générique défile maintenant sans boîte de
+  # texte, comme dans Link's Awakening : story/generique.txt, tools/make_credits.py.)
 
   - name: TX_5c14
     index: 0x14

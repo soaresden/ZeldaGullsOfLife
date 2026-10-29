@@ -17,6 +17,7 @@ export PYTHONUTF8=1
 "$PYTHON" "$ROOT/tools/make_pnj_dx.py"
 "$PYTHON" -W ignore "$ROOT/tools/make_film.py"
 "$PYTHON" "$ROOT/tools/make_photos.py"
+"$PYTHON" "$ROOT/tools/make_credits.py"
 "$PYTHON" "$ROOT/tools/make_title.py"
 "$PYTHON" "$ROOT/tools/make_menus_fr.py"
 "$PYTHON" "$ROOT/tools/make_blurbs.py"

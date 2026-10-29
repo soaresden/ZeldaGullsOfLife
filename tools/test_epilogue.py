@@ -3,7 +3,8 @@
 - en haut de la Tour (5:cc), l'Insomnis battu : Zelda apparaît, en rêve, sur sa berceuse ; le duo :
   Marine (mouette) lui chante sa chanson, Zelda chante avec elle, Marine redevient humaine, le
   huitième couplet ; Zelda s'endort ; fondu : la plage du réveil (1:aa) ;
-- l'épilogue : Marine humaine, le générique ; le jeu continue (GLOBALFLAG_BALLADE_FIN) ;
+- l'épilogue : Marine humaine ; le générique qui défile, comme dans Link's Awakening ; retour sur
+  la plage, le jeu continue (GLOBALFLAG_BALLADE_FIN) ;
 - l'île de Marine : le coquillage appelle Zelda ; la maison ; Marine et le volley (le ballon tombe
   chez Link : point pour Marine ; Link sous le ballon : il le renvoie).
 
@@ -23,6 +24,7 @@ VOLLEY_STATE, VOLLEY_SCORE = 0xc5ac, 0xc5ad
 FLAG_FIN = 0x5d
 INTERAC = 0xeb
 MUSIC = 0xcc35   # wActiveMusic
+CUTSCENE, CUTSCENE_STATE, SCY = 0xc2ef, 0xcc03, 0xc486   # wCutsceneIndex, wCutsceneState, wGfxRegs1.SCY
 errors = []
 
 
@@ -120,21 +122,30 @@ g.w(120)
 check(len(objects(0x13)) == 1, 'Marine, humaine, le matin')
 check(g.wait_text(200), 'l\'épilogue : « Cette nuit-là... »')
 g.shot(os.path.join(OUT, 'f03_epilogue.png'))
-# Le générique : 20 cartons (TX_5c14-5c27) qui se ferment seuls (\wait) ; d'abord on lit l'épilogue
-seen = follow({0x07: 'f04_marine'}, lambda: g.m[EPILOGUE] == 4, 60)
+# Le générique qui défile (CUTSCENE_BALLADE_GENERIQUE, comme dans Link's Awakening : pas de boîte de
+# texte) ; d'abord on lit l'épilogue
+seen = follow({0x07: 'f04_marine', 0x08: 'f04b_ile'}, lambda: g.m[CUTSCENE] == 0x23, 60)
 check(0x07 in seen and 0x08 in seen, "l'épilogue : Marine (%s)" % [hex(i) for i in seen])
-check(g.m[EPILOGUE] == 4, 'le générique commence (Marine chante)')
-g.w(80)
-g.shot(os.path.join(OUT, 'f05_generique.png'))
-# un carton se ferme tout seul (sans A) et le suivant s'ouvre
-closed = g.wait_until(lambda: not g.m[0xcba0], 400)
-reopened = g.wait_until(lambda: g.m[0xcba0], 60)
-check(closed and reopened, "le générique défile tout seul (un carton se ferme, le suivant s'ouvre)")
-seen = follow({}, lambda: flag(FLAG_FIN), 200)
-g.shot(os.path.join(OUT, 'f05d_fin.png'))
+check(g.m[CUTSCENE] == 0x23, 'le générique commence (CUTSCENE_BALLADE_GENERIQUE)')
 check(flag(FLAG_FIN), 'le jeu est fini : GLOBALFLAG_BALLADE_FIN')
+g.w(200)
+check(g.m[MUSIC] == 0x1d, 'la musique de fin (MUS_BALLADE_GENERIQUE)')
+g.w(900)
+scy = g.m[SCY]
+g.w(300)
+check(g.m[SCY] != scy and not g.m[0xcba0], 'il défile tout seul, sans boîte de texte (SCY %d -> %d)' % (scy, g.m[SCY]))
+g.shot(os.path.join(OUT, 'f05_generique.png'))
+for k in range(3):
+    g.w(1100)
+    g.shot(os.path.join(OUT, 'f05%s_generique.png' % 'bcd'[k]))
+g.wait_until(lambda: g.m[CUTSCENE_STATE] >= 3, 2400)
+check(g.m[0xcbb7] * 256 + g.m[0xcbb6] == 1424, 'FIN au milieu de l\'écran (défilement %d)' % (g.m[0xcbb7] * 256 + g.m[0xcbb6]))
+g.wait_until(lambda: g.m[CUTSCENE] != 0x23, 900)
+g.settled()
 g.w(60)
-check(len(objects(0x13)) == 0 and g.m[EPILOGUE] == 0, 'Marine part vers son île')
+check(g.where() == (1, 0xaa) and g.m[CUTSCENE] != 0x23, 'retour sur la plage (1:aa)')
+g.shot(os.path.join(OUT, 'f05e_retour.png'))
+check(len(objects(0x13)) == 0 and g.m[EPILOGUE] == 0, 'Marine est partie vers son île')
 
 # L'île de Marine : le Bateau-Rondin des Échos (1:70) a une 3e page avec « Mouette »
 g.warp(1, 0x70, 0x44)
