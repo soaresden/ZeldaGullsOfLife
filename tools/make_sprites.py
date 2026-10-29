@@ -210,15 +210,20 @@ def main():
     sheet.save(dst)
     print('->', os.path.relpath(dst, ROOT))
 
-    # Les coffres du forain (art/forain.txt) : le coffre fermé, ouvert, la bombe, le monstre, le Lynel
+    # Les icônes des coffres du forain : la bombe (art/forain.txt), puis le Moblin masqué et le Lynel
+    # (leurs vrais sprites, la 1re image : de face)
     frames = read_frames(os.path.join(ROOT, 'art', 'forain.txt'))
-    assert len(frames) == 5
+    assert len(frames) == 1
     sheet = Image.new('P', (128, 16), 0)
     sheet.putpalette(pal + [0] * (768 - len(pal)))
-    for n, frame in enumerate(frames):
-        for y, row in enumerate(frame):
-            for x, c in enumerate(row):
-                sheet.putpixel((n * 16 + x, y), index[c])
+    for y, row in enumerate(frames[0]):
+        for x, c in enumerate(row):
+            sheet.putpixel((x, y), index[c])
+    for n, src in enumerate(('gfx_compressible/common/spr_moblin_ghini.png', 'gfx_compressible/common/spr_lynel.png'), 1):
+        spr = Image.open(os.path.join(DISASM, src))
+        for y in range(16):
+            for x in range(16):
+                sheet.putpixel((n * 16 + x, y), spr.getpixel((x, y)))
     dst = os.path.join(DISASM, 'gfx_compressible', 'ages', 'spr_ballade_forain.png')
     sheet.save(dst)
     print('->', os.path.relpath(dst, ROOT))

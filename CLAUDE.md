@@ -1065,6 +1065,12 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   les quarts, il permet d'ouvrir le coffre quand son jeu est gagné en Dur
   (GLOBALFLAG_BALLADE_FORAIN_CREUSE / _MAMONO / _LYNELS, $67-$69 ; TX_5c31-33) ; fermé : TX_5c34.
   Le quart du coffre garde son ancien drapeau (1:ac, 5:ea, 5:ee, bit 7 : la progression, la carte).
+  Les coffres sont les vrais coffres d'Ages (briques $41 fermé / $42 ouvert du décor $68 : copies de
+  $f1 / $f0 par make_mamono.py, qui ne s'ouvrent pas tout seuls) ; les icônes : la bombe dessinée,
+  le vrai Moblin masqué et le vrai Lynel (Denis : « dessine pas, mets son sprite » ; palette 2).
+  Au démineur, B pose une croix (brique $6e du décor $6a) ; au Mamono, un monstre vaincu laisse son
+  image (briques $6f-$73, ses vrais sprites aux couleurs du sable). Les monstres modèles de l'arène
+  perdent leur collision à chaque image (le Darknut caché blessait Link au démineur).
   Pendant une partie, le forain dit TX_5c30 au lieu de relancer ses jeux (balladeNpc.s change son
   textID ; on repayait). Mamono : une case notée se creuse ; « Dommage... » (TX_5c2f) à la 1re
   blessure en Dur. Tests : tools/test_creuse.py (le démineur, les coffres), test_mamono.py,

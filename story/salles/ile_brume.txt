@@ -50,7 +50,7 @@ fc fc fc fc fc fc fc fc fc fc
 bf 21 21 21 21 21 21 21 22 fc
 bf bf bf bf bf bf bf bf 27 fc
 fc bf bf bf bf bf bf bf 27 fc
-fc bf bf bf bf bf bf bf 27 fc
+fc bf 41 bf 41 bf 41 bf 27 fc
 fc bf bf bf bf bf bf bf 27 fc
 fc 24 24 24 24 24 24 24 2a fc
 fc fc fc fc fc fc fc fc fc fc

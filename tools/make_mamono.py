@@ -17,6 +17,11 @@ du Creuse-Rubis (1:ac, décor $68, copie de la même plage) reçoit les chiffres
 nombre de bombes autour d'une case creusée, sous le rubis (code/ages/balladeCreuse.s) ; et le
 drapeau ($49 : B, « ici, une bombe ! », sur le sable meuble).
 
+Le 29/10 (Denis) : le démineur (dans l'arène) a sa croix ($6e : B, sur le sable meuble), plus les
+notes ; un monstre vaincu laisse son image sur sa case ($6f-$73 : son vrai sprite, aux couleurs du
+sable) ; la plage du forain n'a plus de champ : ses trois coffres y prennent les briques $41 (fermé)
+et $42 (ouvert), copies des vrais coffres ($f1, $f0) qui ne sont pas des coffres d'Ages.
+
 Usage : python tools/make_mamono.py   (après tools/make_songe.py, avant tools/make_rooms.py)
 """
 import os
@@ -26,9 +31,18 @@ from PIL import Image
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DISASM = os.path.join(ROOT, 'oracles-disasm')
 # (décor, fichier du plan, salle, dernier chiffre, marques du joueur : 'notes' ou 'drapeau')
-DECORS = [(0x6a, 'mamono.txt', '5:ea', 40, 'notes'), (0x68, 'ile_brume.txt', 'ac', 8, 'drapeau')]
+DECORS = [(0x6a, 'mamono.txt', '5:ea', 40, 'notes'), (0x68, 'ile_brume.txt', 'ac', 0, 'coffres')]
 FIRST_NOTE = 0x68           # brique $68 + n : la note n du joueur (1-5), sur le sable meuble
 FLAG = 0x49                 # le drapeau du Creuse-Rubis, sur le sable meuble
+MINE_X = 0x6e               # le démineur : la croix du joueur (B), sur le sable meuble
+FIRST_DEAD = 0x6f           # brique $6f + n : le monstre de niveau n + 1 vaincu (le Mamono), sur le sable
+# les monstres du Mamono, du niveau 1 au 5 (leurs vrais sprites : la 1re image, de face)
+MONSTERS = ['gfx_compressible/common/spr_keese_firekeese_unknownbeams.png',
+            'gfx/common/spr_octorok_leever_tektite_zora.png',
+            'gfx_compressible/common/spr_moblin_ghini.png',
+            'gfx_compressible/common/spr_darknut.png',
+            'gfx_compressible/common/spr_lynel.png']
+CHESTS = {0x41: 0xf1, 0x42: 0xf0}   # la plage du forain : ses coffres (les vrais : fermé, ouvert), sans être des coffres d'Ages
 UNDUG = 0x12                # la brique de sable meuble (pas creusé)
 SPRITE_TILES = {0x29, 0x2a, 0x2b, 0x5c, 0x5d, 0x5e, 0x5f}   # réécrites pendant le Mamono
 SAND = 0xbf                 # la brique de sable lisse
@@ -190,11 +204,43 @@ def decor(TILESET, plan, room, last_number, marks):
                     img[y][x] = 0
         return img
 
+    def cross():
+        """La croix du démineur : foncée, cernée de clair, sur le sable meuble."""
+        img = [row[:] for row in undug]
+        ink = {(y, x) for y in range(3, 13) for x in range(3, 13) if x - y in (0, 1) or x + y in (15, 16)}
+        for (y, x) in ink:
+            for dy in (-1, 0, 1):
+                for dx in (-1, 0, 1):
+                    if (y + dy, x + dx) not in ink and 0 <= y + dy < 16 and 0 <= x + dx < 16:
+                        img[y + dy][x + dx] = 0
+        for (y, x) in ink:
+            img[y][x] = 3
+        return img
+
+    def monster(png):
+        """Un monstre vaincu : sa 1re image (son vrai sprite), aux couleurs du sable (son contour
+        foncé, son clair en clair), sur le sable lisse."""
+        spr = Image.open(os.path.join(DISASM, png))
+        img = [row[:] for row in sand]
+        for y in range(16):
+            for x in range(16):
+                c = spr.getpixel((x, y))
+                if c:
+                    img[y][x] = {1: 3, 2: 2, 3: 0}[c]
+        return img
+
     for n in range(1, last_number + 1):
         add_metatile(FIRST_NUMBER + n, number(n))
     if marks == 'notes':
         for n in range(1, 6):
             add_metatile(FIRST_NOTE + n, number(n, undug, 0, 3), undug_tiles, undug_attrs)
+        add_metatile(MINE_X, cross(), undug_tiles, undug_attrs)
+        for n, png in enumerate(MONSTERS):
+            add_metatile(FIRST_DEAD + n, monster(png))
+    elif marks == 'coffres':
+        for mt, chest in CHESTS.items():
+            maps[mt * 8:mt * 8 + 8] = maps[chest * 8:chest * 8 + 8]
+            cols[mt] = 0x0f
     else:
         add_metatile(FLAG, flag(), undug_tiles, undug_attrs)
 
@@ -207,7 +253,7 @@ def decor(TILESET, plan, room, last_number, marks):
     open(path('map', TILESET), 'wb').write(maps)
     open(path('col', TILESET), 'wb').write(cols)
     print('-> décor $%02x : %d chiffres, %s (%d tuiles libres restantes, dont %d hautes)'
-          % (TILESET, last_number, '5 notes' if marks == 'notes' else 'le drapeau', len(free),
+          % (TILESET, last_number, {'notes': '5 notes, la croix, les 5 monstres', 'coffres': 'les coffres'}.get(marks, 'le drapeau'), len(free),
              sum(1 for n in free if n >= 0x80)))
 
 
