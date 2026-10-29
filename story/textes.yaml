@@ -5647,6 +5647,37 @@ groups:
       Hé! La partie
       n'est pas finie!
 
+  - name: TX_5c31
+    index: 0x31
+    text: |-
+      Quoi?! Tout
+      trouvé, en
+      Difficile?!\stop
+      Le coffre à la
+      bombe, sur la
+      plage: ouvre-le!
+  - name: TX_5c32
+    index: 0x32
+    text: |-
+      Sans une
+      égratignure!\stop
+      Le coffre au
+      monstre, sur la
+      plage: ouvre-le!
+  - name: TX_5c33
+    index: 0x33
+    text: |-
+      Tous les rubis?!\stop
+      Le coffre au
+      Lynel, sur la
+      plage: ouvre-le!
+  - name: TX_5c34
+    index: 0x34
+    text: |-
+      Fermé... Gagne
+      le jeu du forain
+      en Dur d'abord!
+
 - group: 0x30
   data:
   # Les cinq anneaux du jeu : leur nom, ce qu'ils font

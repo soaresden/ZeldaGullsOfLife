@@ -5468,6 +5468,35 @@ groups:
       Hey! The game's
       not over yet!
 
+  - name: TX_5c31
+    index: 0x31
+    text: |-
+      What?! All of it
+      on Hard?!\stop
+      The bomb chest
+      on the beach:
+      open it!
+  - name: TX_5c32
+    index: 0x32
+    text: |-
+      Not a scratch!\stop
+      The monster
+      chest on the
+      beach: open it!
+  - name: TX_5c33
+    index: 0x33
+    text: |-
+      Every rupee?!\stop
+      The Lynel chest
+      on the beach:
+      open it!
+  - name: TX_5c34
+    index: 0x34
+    text: |-
+      Locked... Win
+      the barker's
+      game on Hard!
+
 - group: 0x30
   data:
   # Gulls of Life's five rings: name, effect

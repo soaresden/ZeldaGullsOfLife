@@ -32,10 +32,14 @@ salle 9c
 	obj_Interaction INTERAC_BALLADE_NPC $03 $48 $68
 	obj_Interaction INTERAC_MARINE $05 $08 $08 ; la fin du chapitre 1 : le tour du village
 
-# La plage du forain : le forain et le Creuse-Rubis (le champ de sable)
+# La plage du forain : le forain (ses jeux se jouent dans l'arène, 5:ea et 5:e9) ; ses trois coffres,
+# chacun avec son icône (balladeObjects.forainChest : ouverts quand le jeu est gagné en Dur)
 salle ac
 	obj_Interaction INTERAC_BALLADE_NPC $08 $38 $78
 	obj_Interaction INTERAC_BALLADE_CREUSE $00 $08 $08
+	obj_Interaction INTERAC_BALLADE_OBJECT $5f $48 $28 ; la bombe : le démineur
+	obj_Interaction INTERAC_BALLADE_OBJECT $60 $48 $48 ; le monstre : le Mamono
+	obj_Interaction INTERAC_BALLADE_OBJECT $61 $48 $68 ; le Lynel : le Labyrinthe
 
 # Le port de pêche : le vieux pêcheur, au début du ponton
 salle ab

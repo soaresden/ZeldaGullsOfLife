@@ -1,0 +1,92 @@
+# Les coffres du forain, sur sa plage (1:ac ; Denis : « fais plutôt les coffres, ouvrables
+# uniquement si on a fini les jeux en mode dur ; tu mets une icône au-dessus de chaque coffre :
+# une bombe, un monstre et un Lynel ») : spr_ballade_forain.png (tools/make_sprites.py), en-tête $f1.
+# Images 16 x 16 : 0 le coffre fermé, 1 le coffre ouvert, 2 la bombe (le démineur), 3 le monstre
+# (le Mamono), 4 le Lynel (le Labyrinthe).
+# Palette de sprite 3 : . transparent   k noir   r orange (le bois)   w crème
+#
+# 0. Le coffre fermé
+................
+................
+..kkkkkkkkkkkk..
+.krrrrrrrrrrrrk.
+.krwrrrrrrrrwrk.
+.krrrrrrrrrrrrk.
+.kkkkkkkkkkkkkk.
+.krrrrrkkrrrrrk.
+.krwrrkwwkrrwrk.
+.krrrrkwwkrrrrk.
+.krrrrrkkrrrrrk.
+.krrrrrrrrrrrrk.
+.krwrrrrrrrrwrk.
+.krrrrrrrrrrrrk.
+..kkkkkkkkkkkk..
+................
+# 1. Le coffre ouvert
+..kkkkkkkkkkkk..
+.krrrrrrrrrrrrk.
+.krwrrrrrrrrwrk.
+.kkkkkkkkkkkkkk.
+.kwkkkkkkkkkkwk.
+.kwkkkkkkkkkkwk.
+.kkkkkkkkkkkkkk.
+.krrrrrrrrrrrrk.
+.krwrrrrrrrrwrk.
+.krrrrrrrrrrrrk.
+.krrrrrrrrrrrrk.
+.krrrrrrrrrrrrk.
+.krwrrrrrrrrwrk.
+.krrrrrrrrrrrrk.
+..kkkkkkkkkkkk..
+................
+# 2. La bombe
+..........w.....
+.........w.w....
+..........r.....
+.........r......
+......kkkr......
+....kkkkkkkk....
+...kkkkkkkkkk...
+..kkwwkkkkkkkk..
+..kkwkkkkkkkkk..
+..kkkkkkkkkkkk..
+..kkkkkkkkkkkk..
+..kkkkkkkkkkkk..
+...kkkkkkkkkk...
+....kkkkkkkk....
+......kkkk......
+................
+# 3. Le monstre (une tête de Moblin)
+................
+...kk......kk...
+..krrk....krrk..
+..krrrkkkkrrrk..
+...krrrrrrrrk...
+..krrrrrrrrrrk..
+..krkkrrrrkkrk..
+..krkwrrrrkwrk..
+..krrrrrrrrrrk..
+..krrrkkkkrrrk..
+..krrkwrrwkrrk..
+..krrkrrrrkrrk..
+...krrkkkkrrk...
+....krrrrrrk....
+.....kkkkkk.....
+................
+# 4. Le Lynel (une tête de lion, la crinière)
+....rrrrrrrr....
+..rrrrrrrrrrrr..
+.rrrkkkkkkkkrrr.
+.rrkwwwwwwwwkrr.
+rrkwwwwwwwwwwkrr
+rrkwkkwwwwkkwkrr
+rrkwwkwwwwkwwkrr
+rrkwwwwwwwwwwkrr
+rrkwwwwkkwwwwkrr
+.rrkwwwkkwwwkrr.
+.rrkwkwwwwkwkrr.
+..rrkwkkkkwkrr..
+..rrrkwwwwkrrr..
+...rrrkkkkrrr...
+.....rrrrrr.....
+................

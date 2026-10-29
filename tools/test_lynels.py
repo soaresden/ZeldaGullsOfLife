@@ -191,7 +191,7 @@ check(m[0xc6ac] == pieces, 'pas encore de quart de cœur (il est au bout du 2e)'
 check(not m[0xc616] & 0x02, "le 1er gagné : pas encore l'Anneau de Force (au 2e, Denis)")
 w(150)
 shot('labyrinthe2')
-# Le 2e gagné : 50 rubis, un quart de cœur, retour chez le forain
+# Le 2e gagné : 50 rubis, le coffre au Lynel (sur la plage), retour chez le forain
 m[LINK_Y], m[LINK_X] = 0x78, 0x78
 w(60)
 m[LEFT] = 1
@@ -203,7 +203,8 @@ w(60)
 for _ in range(4):
     text_through()
     w(60)
-check(m[0xc6ac] != pieces, 'le 2e gagné : un quart de cœur (%d -> %d)' % (pieces, m[0xc6ac]))
+check(bool(m[0xc6d0 + 0x69 // 8] & (1 << (0x69 % 8))),
+      "le 2e gagné : le forain permet d'ouvrir le coffre au Lynel (le quart y est)")
 for _ in range(6):
     w(60)
     text_through()

@@ -4,7 +4,7 @@ faible au plus fort, quand Link a le niveau) : les chiffres dans le sable, les c
 autour qui découvrent leurs voisines toutes seules, les vrais ennemis figés sur leur case puis en
 fumée (leur case montre alors la somme des niveaux autour, comme les autres), la montée de
 niveau ; les notes du joueur (B : 1 à 5 puis rien ; une case notée se creuse quand même) ; une partie Dur sans une
-égratignure (le gros lot : un quart de cœur) ; puis un monstre trop fort découvert à l'aveugle (il
+égratignure (le gros lot : le coffre au monstre, sur la plage) ; puis un monstre trop fort découvert à l'aveugle (il
 frappe fort) ; on ressort par le haut. Deux niveaux : Facile, Dur.
 
 Usage : python tools/test_mamono.py DOSSIER_CAPTURES
@@ -268,9 +268,9 @@ check(m[0xcc30] == 0xac, 'la plage du forain')
 
 play_to_win(0, 'facile')
 leave('facile')
-pieces = m[HEART_PIECES]
 play_to_win(1, 'dur', perfect=True)
-check(m[HEART_PIECES] != pieces, 'dur sans une égratignure : le gros lot, un quart de cœur (%d -> %d)' % (pieces, m[HEART_PIECES]))
+check(bool(m[0xc6d0 + 0x68 // 8] & (1 << (0x68 % 8))),
+      "dur sans une égratignure : le gros lot, le forain permet d'ouvrir le coffre au monstre")
 check(ring(0x16), "et l'Anneau Tornade, dans la boîte")
 leave('dur')
 

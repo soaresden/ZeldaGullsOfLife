@@ -1046,8 +1046,8 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   revenaient et redonnaient un réceptacle (Denis avait 15 cœurs : « Cœurs 15/12 »).
 - Le Carnet et le Sablier sur B/A : loadItemIconGfx prend la « petite version » des airs de la harpe
   (index + 2 à partir de $a3) : make_sprites.py les dessine aussi 16 pixels plus loin.
-- Les jeux du forain : deux niveaux (Facile, Difficile ; TX_5a4b). Creuse-Rubis : le chiffre sous le
-  rubis (briques $41-$48 du décor $68, tools/make_mamono.py) ; quart de cœur en Difficile ($80).
+- Les jeux du forain : deux niveaux (Facile, Difficile ; TX_5a4b). (Avant le 29/10, le Creuse-Rubis
+  se jouait sur la plage : le chiffre sous le rubis, briques $41-$48 du décor $68.)
   Mamono : les cases sans rien autour découvrent leurs voisines (@flood, 4 par image), les monstres
   vaincus gardent leur niveau dans un cadre (briques $69-$6d), « L-n » dans la barre (le niveau de
   Link, drawNoctambuleTimer), l'épée du Darknut retirée à chaque image ; le gros lot = Dur sans être
@@ -1055,6 +1055,27 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   Lynels : attrapé = il ne reste qu'un cœur ; le 1er labyrinthe gagné, le 2e (5:ee,
   art/labyrinthe2.txt, plus dur) ; le 2e gagné : 20 rubis, un quart de cœur la 1re fois ($80 de 5:ee).
   (Les quarts du forain : 3 au lieu de 4.)
+- Le forain, depuis le 29/10 (Denis) : le démineur (le Creuse-Rubis) se joue dans l'arène du Mamono,
+  à sa taille (13 x 8 ; balladeMamono.s, wBalladeCreuseMode 0) : des bombes de niveau 1 (14 en
+  Facile, 20 en Difficile : @mineCounts), le chiffre = les bombes autour ; une case sûre : des
+  rubis (1-2 bombes 1, 3-4 : 5, plus : 20 ; @mineSafe) ; toutes : gagné (@mineWin, l'Anneau
+  Caméléon) ; une bombe : BOUM (@boom). Le champ de la plage n'existe plus : à sa place, les trois
+  coffres du forain (balladeObjects.forainChest, INTERAC_BALLADE_OBJECT $5f la bombe, $60 le monstre,
+  $61 le Lynel ; art/forain.txt, en-tête $f1, l'icône au-dessus du coffre) : le forain ne donne plus
+  les quarts, il permet d'ouvrir le coffre quand son jeu est gagné en Dur
+  (GLOBALFLAG_BALLADE_FORAIN_CREUSE / _MAMONO / _LYNELS, $67-$69 ; TX_5c31-33) ; fermé : TX_5c34.
+  Le quart du coffre garde son ancien drapeau (1:ac, 5:ea, 5:ee, bit 7 : la progression, la carte).
+  Pendant une partie, le forain dit TX_5c30 au lieu de relancer ses jeux (balladeNpc.s change son
+  textID ; on repayait). Mamono : une case notée se creuse ; « Dommage... » (TX_5c2f) à la 1re
+  blessure en Dur. Tests : tools/test_creuse.py (le démineur, les coffres), test_mamono.py,
+  test_lynels.py.
+- Les anneaux gagnés (balladeRingReward) : un donneur (CREUSE $26, balladeFin.ringGiver) attend la
+  fin du texte et du trésor d'avant, puis Link brandit l'anneau, avec son texte (Denis : pas
+  d'annonce ; chez Tic et Tac, il brandissait le quart donné en même temps).
+- Les bords d'écran (29/10, Denis : « on peut finir dans l'eau ou bloqué ») :
+  balladeIslands.blockedCrossing refuse aussi d'arriver dans un mur ($0f) ou dans l'eau profonde
+  ($10) sans les Palmes, d'après les tables edgeBlocked / edgeWater (tools/make_islands.py, lues dans
+  les salles compilées, le Songe et le Réel).
 - Le cap 1:7b : un vrai phare (tools/make_phare.py, briques $c0-$ca des décors $6c / $6d, copies
   du $10 ; pas les tuiles 4-19 et 232-239 que l'animation de la mer réécrit).
 - Pendant les jeux du forain, Link n'a que la Pelle (Creuse-Rubis, Mamono : sur A, elle ne sert pas,

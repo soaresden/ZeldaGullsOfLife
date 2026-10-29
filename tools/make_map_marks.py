@@ -23,9 +23,9 @@ FLAGS = {0: 'wGroup0RoomFlags', 1: 'wGroup1RoomFlags', 2: 'wGroup0RoomFlags', 3:
 
 # Les quarts de cœur : la case, l'octet, le masque, ce que c'est
 HEARTS = [
-    (0xac, 'wGroup1RoomFlags+$ac', '$80', 'le Creuse-Rubis, en Difficile'),
-    (0xac, 'wGroup5RoomFlags+$ea', '$80', 'le Mamono, en Dur sans être blessé'),
-    (0xac, 'wGroup5RoomFlags+$ee', '$80', 'le 2e Labyrinthe des Lynels'),
+    (0xac, 'wGroup1RoomFlags+$ac', '$80', 'le coffre à la bombe du forain (le démineur en Difficile)'),
+    (0xac, 'wGroup5RoomFlags+$ea', '$80', 'le coffre au monstre du forain (le Mamono en Dur sans être blessé)'),
+    (0xac, 'wGroup5RoomFlags+$ee', '$80', 'le coffre au Lynel du forain (le 2e Labyrinthe des Lynels)'),
     (0x74, 'wGroup1RoomFlags+$74', '$40', 'la carte au trésor'),
     (0x62, 'wGroup0RoomFlags+$62', '$20', 'la grand-mère de Noé (le Songe)'),
     (0xb3, 'wGroup1RoomFlags+$b3', '$02', 'la chanteuse du Grand Sommeil'),

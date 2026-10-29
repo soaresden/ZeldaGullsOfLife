@@ -210,6 +210,19 @@ def main():
     sheet.save(dst)
     print('->', os.path.relpath(dst, ROOT))
 
+    # Les coffres du forain (art/forain.txt) : le coffre fermé, ouvert, la bombe, le monstre, le Lynel
+    frames = read_frames(os.path.join(ROOT, 'art', 'forain.txt'))
+    assert len(frames) == 5
+    sheet = Image.new('P', (128, 16), 0)
+    sheet.putpalette(pal + [0] * (768 - len(pal)))
+    for n, frame in enumerate(frames):
+        for y, row in enumerate(frame):
+            for x, c in enumerate(row):
+                sheet.putpixel((n * 16 + x, y), index[c])
+    dst = os.path.join(DISASM, 'gfx_compressible', 'ages', 'spr_ballade_forain.png')
+    sheet.save(dst)
+    print('->', os.path.relpath(dst, ROOT))
+
     # Le Terrier des Serpents (art/terrier.txt) : le gantelet, une âme, la jarre, le fantôme
     frames = read_frames(os.path.join(ROOT, 'art', 'terrier.txt'))
     assert len(frames) <= 8

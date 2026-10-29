@@ -48,10 +48,10 @@ fc fc fc fc fc fc fc fc fc fc
 salle ac decor 68
 fc fc fc fc fc fc fc fc fc fc
 bf 21 21 21 21 21 21 21 22 fc
-bf 12 12 12 12 12 12 bf 27 fc
-fc 12 12 12 12 12 12 bf 27 fc
-fc 12 12 12 12 12 12 bf 27 fc
-fc 12 12 12 12 12 12 bf 27 fc
+bf bf bf bf bf bf bf bf 27 fc
+fc bf bf bf bf bf bf bf 27 fc
+fc bf bf bf bf bf bf bf 27 fc
+fc bf bf bf bf bf bf bf 27 fc
 fc 24 24 24 24 24 24 24 2a fc
 fc fc fc fc fc fc fc fc fc fc
 
