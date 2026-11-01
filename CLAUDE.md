@@ -436,13 +436,42 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   1:c9, TX_5b64), puis A devant la porte. Jalon 34 du menu de test : les deux allumées.
   Piège : pas de miroir (oamFlags bit 5) pour faire danser une flamme : les deux moitiés du sprite
   s'inversent. Test : python tools/test_oeil.py DOSSIER.
-- story/salles/tour.txt : groupe 5, salles 5:c0-cc, décor 39 = le Donjon du Crâne d'Ages à l'index
-  de donjon 8, de nuit (make_songe.py : night()). Cinq étages (dungeon08LayoutTour) ; on monte par
+- story/salles/tour.txt : groupe 5, salles 5:a0-a5 et 5:c0-cc, décor 39 = le Donjon du Crâne d'Ages
+  à l'index de donjon 8, de nuit (make_songe.py : night()). Sept étages, B1-6F (dungeon08LayoutTour ;
+  w2DungeonLayout n'a que $100 octets, mais clearDungeonLayout en vide $200 : 8 étages tiennent) ; on monte par
   des escaliers (brique 45, une téléportation : warpSources groupe 5 -> l'arrivée (8,7) de l'étage
   suivant), qui apparaissent quand l'étage est vaincu : $31 (1F, la Lune qui tombe : quatre torches
   PART_LIGHTABLE_TORCH $01 de 300 images autour de (5,7), les quatre ensemble) et $32 (plus
   d'ennemis, une seconde après l'arrivée) ; drapeau $80 de la salle.
-- Les étages : 1F la Lune (le Lance-Graines dans les quatre directions) ; 2F le cristal de
+- Link prisonnier (Denis, 01/11/2026 ; code/ages/balladePrison.s, sa propre section) : passé l'arche,
+  BONK ($62 dans 5:c0 : LINK_STATE_08 + wcc50 = LINK_ANIM_MODE_COLLAPSED ; surtout pas DISABLE_LINK
+  dans wDisabledObjects, sinon Link ne tombe pas), Marine crie son nom (TX_5c35), écran noir
+  (fadeoutToBlack, téléportation instantanée), ses objets confisqués (B, A et la réserve, 18
+  octets, dans les drapeaux des salles 5:d7-e8 : dans la sauvegarde). Réveil au cachot 5:a0 ($63 :
+  fadeinFromBlack, Link couché, TX_5c36) ; la statue 2a du mur se pousse deux fois (un bloc 1c,
+  poussé, devient 1d fixe et boucherait la sortie ; dans ce décor 1c se pousse, 1d est fixe). Six
+  coffres vides ($64 + chestData $0000 ; ouvert = ROOMFLAG_ITEM) rendent les objets par groupes
+  (itemGroup : 1 bouclier a1, 2 graines c0, 3 Boomerang/bombes/Cape c2 (la lave de c3 se saute),
+  4 Canne/Grappin/Bracelet/Pelle/Lanterne a2, 5 le reste a5, 6 l'épée ca) ; le coffre du bout d'un
+  étage fait apparaître l'escalier. Les gardes (ENEMY_AMBI_GUARD rondes $18-$24, avec $38 et
+  CREUSE $05 dans chaque salle) n'existent que si GLOBALFLAG_BALLADE_PRISON ($6a) ; vu : « AU
+  CACHOT ! » (TX_5c37), retour au cachot (balladePrison.caught) ; l'étage est retenu (5:a9) et un
+  passage (17, en (1,1)) ramène à son arrivée. Point de retour (mort, Sauvegarder et Quitter) :
+  le cachot, puis l'entrée une fois Marine libre. La herse (1d) sous l'arche tant que prisonnier.
+  5F (5:c4) : Marine en cage (INTERAC_MARINE $0a, cagedMarine) encourage Link ; Dark Link battu,
+  la cage s'ouvre, PRISON effacé, la 8e essence (INTERAC_ESSENCE var03 = 7, en (7,7) : pas sur
+  l'escalier (5,7) ; essence.s état 7 -> balladePrison.essenceDone : pas de sortie du donjon, la
+  salle se rallume) ; si Link monte sans elle, elle l'attend. 6F : l'Insomnis (5:cc ; $65 mure la
+  porte de l'ouest jusqu'au rythme gagné), puis Ganon (5:c7) : sans l'Épée de Légende, TX_5ae5 (le
+  4e mur : « je ferais Sauvegarder et Quitter... va trouver l'épée 3, le Zora ») et rien d'autre ;
+  bit 5 de 5:c7 : un escalier direct (5,7) dans l'entrée monte au 6F. Ganon battu : la scène de
+  Zelda (balladeFin.towerEnding dans 5:c7 crée Marine $09 avec var03 = 1 : posée tout de suite).
+  GLOBALFLAG_BALLADE_PRISON / ASSOMME = $6a / $6b, dans la liste BALLADE : les drapeaux après
+  « LINKED SECRETS » dépassent $80 (la zone de 16 octets) et écraseraient wChildStage, wc6e2...
+  La banque $0e (ennemis) était pleine : les rondes d'Ages $00-$0c et $80-$8c pointent sur une seule.
+  Piège des tests : retirer un ennemi en mettant seulement son octet enabled à 0 laisse son état ;
+  un Keese créé à sa place hérite de l'état $0b et le jeu plante (40 octets à 0, comme le jeu).
+- Avant le 01/11 (l'ancien plan, une salle par étage ; les mécaniques restent) : 1F la Lune (le Lance-Graines dans les quatre directions) ; 2F le cristal de
   l'autre coté de la lave (61) et un saut, puis Dark Link (un ENEMY_LINK_MIMIC, un vrai duel :
   code/ages/balladeDarkLink.s ; Denis, 28/10 : « il m'envoie même pas de coup d'épée... des
   bombes, des flèches ! » : sa fente montre l'épée (le coup d'épée de Marine, CREUSE $1b, qui suit
@@ -483,10 +512,14 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   Sommeil Œil : TX_5aa8, TX_5aac, TX_5ade ; états 4 à 7 de raft).
 - arrivalTalk : sans texte pour la salle (ex. Ganon qui change wActiveRoom), il rend la main
   (wDisabledObjects à 0) avant de disparaître ; sinon tout restait gelé.
-- Menu de test : île 8 Plage (1:d9) / Ville (le parvis, 1:c9) / Donjon (5:c0) / M-boss (3F, 5:c5)
-  / Boss (5F, 5:cb) ; jalons 33-36. Le prototype du boss en rythme (4:4a) garde son code secret.
-- Test : python tools/test_tour.py DOSSIER (le radeau à huit îles, sur trois pages ; l'île, la porte,
-  chaque étage, le début de l'Insomnis).
+- Menu de test : île 8 Plage (1:d9) / Ville (le parvis, 1:c9) / Donjon (5:c0 : le coup sur la tête)
+  / M-boss (5F, 5:cb, prisonnier : Dark Link et Marine en cage) / Boss (6F, 5:cc) ; jalons 33-36.
+  Le prototype du boss en rythme (4:4a) garde son code secret.
+- Tests : python tools/test_tour.py DOSSIER (le radeau à huit îles, sur trois pages ; l'île, la
+  porte, l'entrée) ; python tools/test_prison.py DOSSIER (tout le donjon : le coup, le cachot, les
+  gardes, le passage, les six coffres, Dark Link, la cage, l'essence, l'Insomnis, Ganon et le 4e
+  mur, l'escalier direct, Ganon battu ; il sauve des états PyBoy par étage dans DOSSIER) ;
+  tools/test_epilogue.py (la fin dans 5:c7).
   Planche : https://raw.githubusercontent.com/soaresden/ZeldaGullsOfLife/main/docs/tests/tour.png
 - Compiler quand le Python du Store refuse (« Permission denied ») : PYTHON=/c/msys64/clang64/bin/python.exe
   et /c/msys64/clang64/bin en tête du PATH (Pillow y est installé : pacman,

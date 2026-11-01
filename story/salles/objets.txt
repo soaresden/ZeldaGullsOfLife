@@ -642,72 +642,119 @@ salle c9
 	obj_Interaction INTERAC_BALLADE_OBJECT $30 $48 $48
 
 # --- La Tour Sans-Nuit (donjon 8, groupe 5 ; story/salles/tour.txt) ---
-# L'entrée : « Niveau 8 - Tour Sans-Nuit » ($09), puis Marine ($01)
+# Link prisonnier (code/ages/balladePrison.s) : les gardes (ENEMY_AMBI_GUARD, rondes $18-$24 :
+# ambiGuard.s) ne sont là que tant qu'il l'est ; $38 leur couleur et leur cri, CREUSE $05 leur
+# regard ; CREUSE $04 une boîte en carton ; $64 un coffre des objets confisqués.
+# B1, le cachot : le réveil, le passage ($63)
+salle 5:a0
+	obj_Interaction INTERAC_BALLADE_OBJECT $63 $08 $08
+	obj_Interaction INTERAC_BALLADE_OBJECT $38 $08 $08
+	obj_Interaction INTERAC_BALLADE_CREUSE $05 $08 $08 ; le regard des gardes
+	obj_SpecificEnemyA $00 ENEMY_AMBI_GUARD $18 $18 $68
+	obj_Interaction INTERAC_BALLADE_CREUSE $04 $88 $28 ; une boîte en carton
+# B1, le couloir : le bouclier
+salle 5:a1
+	obj_Interaction INTERAC_BALLADE_OBJECT $64 $28 $b8 ; le coffre des objets confisqués
+	obj_Interaction INTERAC_BALLADE_OBJECT $38 $08 $08
+	obj_Interaction INTERAC_BALLADE_CREUSE $05 $08 $08 ; le regard des gardes
+	obj_SpecificEnemyA $00 ENEMY_AMBI_GUARD $19 $98 $98
+# L'entrée : « Niveau 8 - Tour Sans-Nuit » ($09), Marine ($01), le coup sur la tête ($62) ; les
+# graines
 salle 5:c0
 	obj_Interaction INTERAC_BALLADE_OBJECT $09 $08 $08
 	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+	obj_Interaction INTERAC_BALLADE_OBJECT $62 $08 $08
+	obj_Interaction INTERAC_BALLADE_OBJECT $64 $18 $c8 ; le coffre des objets confisqués
+	obj_Interaction INTERAC_BALLADE_OBJECT $38 $08 $08
+	obj_Interaction INTERAC_BALLADE_CREUSE $05 $08 $08 ; le regard des gardes
+	obj_SpecificEnemyA $00 ENEMY_AMBI_GUARD $1a $58 $28
+	obj_SpecificEnemyA $00 ENEMY_AMBI_GUARD $1b $18 $b8
 # 1F, la Lune qui tombe : quatre torches peu de temps allumées ; l'escalier en (8,7)
 salle 5:c1
 	obj_Interaction INTERAC_BALLADE_OBJECT $31 $88 $78
 	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+# 2F, l'arrivée : le Boomerang-Toupie, les bombes, la Cape de Roc
 salle 5:c2
+	obj_Interaction INTERAC_BALLADE_OBJECT $64 $18 $78 ; le coffre des objets confisqués
+	obj_Interaction INTERAC_BALLADE_OBJECT $38 $08 $08
+	obj_Interaction INTERAC_BALLADE_CREUSE $05 $08 $08 ; le regard des gardes
+	obj_SpecificEnemyA $00 ENEMY_AMBI_GUARD $1c $58 $c8
+	obj_SpecificEnemyA $00 ENEMY_AMBI_GUARD $1d $28 $48
+	obj_Interaction INTERAC_BALLADE_CREUSE $04 $88 $c8 ; une boîte en carton
 # 2F : le cristal (PART_SWITCH, bit 0) -> bit 0 de wActiveTriggers -> le volet de l'est ($1e $05)
 salle 5:c3
 	obj_Part $05 $01 $2b
 	obj_Interaction $24 $01 $00 $00
 	obj_Interaction $1e $05 $5e $00
 	obj_RandomEnemy $30 ENEMY_KEESE $00
-# 2F, Dark Link : un seul, un vrai duel (ENEMY_LINK_MIMIC, son IA : object_code/ages/enemies/linkMimic.s) ;
-# la porte de l'ouest fermée tant qu'il vit ; l'escalier en (5,7)
-salle 5:c4
-	obj_Interaction INTERAC_MARINE $08 $08 $08 ; Marine félicite Link quand le boss est battu
-	obj_Interaction $1e $0b $50 $00
-	obj_SpecificEnemyA $00 $64 $00 $58 $b8
-	obj_Interaction INTERAC_BALLADE_OBJECT $32 $58 $78
-	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+# 2F, le coffre du bout : la Canne, le Grappin, le Bracelet, la Pelle, la Lanterne
+salle 5:a2
+	obj_Interaction INTERAC_BALLADE_OBJECT $64 $28 $b8 ; le coffre des objets confisqués
+	obj_Interaction INTERAC_BALLADE_OBJECT $38 $08 $08
+	obj_Interaction INTERAC_BALLADE_CREUSE $05 $08 $08 ; le regard des gardes
+	obj_SpecificEnemyA $00 ENEMY_AMBI_GUARD $1e $18 $58
+	obj_SpecificEnemyA $00 ENEMY_AMBI_GUARD $1f $98 $98
+# 3F, l'arrivée
 salle 5:c5
+	obj_Interaction INTERAC_BALLADE_OBJECT $38 $08 $08
+	obj_Interaction INTERAC_BALLADE_CREUSE $05 $08 $08 ; le regard des gardes
+	obj_SpecificEnemyA $00 ENEMY_AMBI_GUARD $20 $58 $c8
 # 3F : le bouton de l'îlot (PART_BUTTON bit 0, $80 : seulement sous un poids) -> le volet de l'ouest
 salle 5:c6
 	obj_Part $09 $80 $57
 	obj_Interaction $1e $07 $50 $00
-# 3F, Ganon (ENEMY_GANON d'Ages, sans sa résurrection) : en entrant, il pose sa propre arène (5:f5)
-# ; il ne craint que l'Épée de Légende ($36 : sinon sa vie revient, Marine parle de la Fosse)
-# à la place de la salle ; tant qu'il n'est pas vaincu (drapeau $80 de 5:c7) ; l'escalier en (5,7)
-salle 5:c7
-	obj_Interaction INTERAC_MARINE $08 $08 $08 ; Marine félicite Link quand le boss est battu
-	obj_BeforeEvent balladeTourGanonBeforeEventObjectData
-	obj_Interaction INTERAC_BALLADE_OBJECT $36 $08 $08
-	obj_Interaction INTERAC_BALLADE_OBJECT $32 $58 $78
-	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
+# 3F, le coffre du bout : la Clochette d'Aube, le reste
+salle 5:a5
+	obj_Interaction INTERAC_BALLADE_OBJECT $64 $28 $38 ; le coffre des objets confisqués
+	obj_Interaction INTERAC_BALLADE_OBJECT $38 $08 $08
+	obj_Interaction INTERAC_BALLADE_CREUSE $05 $08 $08 ; le regard des gardes
+	obj_SpecificEnemyA $00 ENEMY_AMBI_GUARD $21 $18 $98
+	obj_SpecificEnemyA $00 ENEMY_AMBI_GUARD $22 $98 $58
 # 4F, l'arrivée : l'infiltration (Ghost Babel), un labyrinthe (story/salles/tour.txt) : trois
 # fantômes de cauchemar font la navette (ambiGuard.s, rondes $15 : le couloir du nord ; $16 : le
-# couloir du milieu, ouest ; $17 : le même, est, devant la porte) ; vu, Link se réveille à
-# l'escalier ; $38 : leur couleur, « Link? Link?! LIIINK! »
+# couloir du milieu, ouest ; $17 : le même, est, devant la porte)
 salle 5:c8
 	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
 	obj_Interaction INTERAC_BALLADE_OBJECT $38 $08 $08
+	obj_Interaction INTERAC_BALLADE_CREUSE $05 $08 $08 ; le regard des gardes
 	obj_SpecificEnemyA $00 ENEMY_AMBI_GUARD $15 $18 $d8
 	obj_SpecificEnemyA $00 ENEMY_AMBI_GUARD $16 $58 $18
 	obj_SpecificEnemyA $00 ENEMY_AMBI_GUARD $17 $58 $c8
-	obj_Interaction INTERAC_BALLADE_CREUSE $05 $08 $08 ; Ghost Babel : le regard des fantômes
 	obj_Interaction INTERAC_BALLADE_CREUSE $04 $88 $58 ; une boîte en carton (l'arrivée)
 	obj_Interaction INTERAC_BALLADE_CREUSE $04 $98 $98 ; une autre (l'arrivée : les couloirs n'ont qu'une case de large, une boîte posée les boucherait)
 # 4F : un garde endormi debout devant la porte de l'est (la Clochette d'Aube)
 salle 5:c9
 	obj_Interaction INTERAC_BALLADE_OBJECT $2f $58 $d8
-# 4F, le Cauchemar de Cocolint : un œil (l'Eyesoar d'Ages, la liste de 4:6b) ; la porte de l'ouest
-# fermée tant qu'il vit ; l'escalier en (8,7)
+# 4F, l'épée : le dernier coffre
 salle 5:ca
-	obj_Interaction INTERAC_MARINE $08 $08 $08 ; Marine félicite Link quand le boss est battu
-	obj_Interaction $1e $0b $50 $00
-	obj_BeforeEvent group4Map6bBeforeEventObjectData
-	obj_Interaction INTERAC_BALLADE_OBJECT $32 $88 $78
+	obj_Interaction INTERAC_BALLADE_OBJECT $64 $58 $c8 ; le coffre des objets confisqués
+	obj_Interaction INTERAC_BALLADE_OBJECT $38 $08 $08
+	obj_Interaction INTERAC_BALLADE_CREUSE $05 $08 $08 ; le regard des gardes
+	obj_SpecificEnemyA $00 ENEMY_AMBI_GUARD $23 $18 $78
+	obj_SpecificEnemyA $00 ENEMY_AMBI_GUARD $24 $28 $38
+# 5F, Dark Link : un seul, un vrai duel (ENEMY_LINK_MIMIC, son IA : object_code/ages/enemies/linkMimic.s) ;
+# la porte de l'est fermée tant qu'il vit ; l'escalier en (5,7) ; Marine en cage (INTERAC_MARINE $0a :
+# elle encourage Link ; lui battu, la cage s'ouvre, la 8e essence)
+salle 5:c4
+	obj_Interaction INTERAC_MARINE $0a $28 $78
+	obj_Interaction $1e $0b $5e $00
+	obj_SpecificEnemyA $00 $64 $00 $58 $38
+	obj_Interaction INTERAC_BALLADE_OBJECT $32 $58 $78
 	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
 salle 5:cb
-# 5F, l'Insomnis : le boss en rythme
+# 6F, l'Insomnis : le boss en rythme ; la porte de l'ouest (Ganon) s'ouvre quand il est battu ($65)
 salle 5:cc
+	obj_Interaction INTERAC_BALLADE_OBJECT $65 $08 $08
 	obj_Interaction INTERAC_BALLADE_RHYTHM $00 $58 $78
 	obj_Interaction INTERAC_BALLADE_OBJECT $57 $70 $78 ; l'Insomnis à terre (Marine le frappe : INTERAC_MARINE $09)
+# 6F, Ganon (ENEMY_GANON d'Ages, sans sa résurrection), le boss final : il ne craint que l'Épée de
+# Légende ($36 : sinon sa vie revient, Marine casse le 4e mur : Sauvegarder et Quitter) ; battu
+# (drapeau $80 de 5:c7, $32), la fin : Zelda, en rêve (CREUSE $10, code/ages/balladeFin.s)
+salle 5:c7
+	obj_BeforeEvent balladeTourGanonBeforeEventObjectData
+	obj_Interaction INTERAC_BALLADE_OBJECT $36 $08 $08
+	obj_Interaction INTERAC_BALLADE_OBJECT $32 $58 $78
+	obj_Interaction INTERAC_BALLADE_OBJECT $01 $08 $08
 	obj_Interaction INTERAC_BALLADE_CREUSE $10 $08 $08 ; la fin : Zelda, en rêve (code/ages/balladeFin.s)
 
 # --- La Spirale Céleste (donjon 6, groupe 4 ; story/salles/spirale.txt) ---

@@ -1,23 +1,60 @@
-# La Tour Sans-Nuit (donjon 8, sur l'Œil de l'Insomnis) : groupe 5, salles 5:c0-cc, décor 39 = le
-# Donjon du Crâne d'Ages, passé à l'index de donjon 8 et de nuit (make_songe.py : night()). Cinq
-# étages (dungeon08LayoutTour), un cauchemar par étage ; la musique gagne un instrument à chaque
-# étage (les cinq niveaux du boss en rythme). Les escaliers (45) sont des téléportations
-# (warpSources.s) ; ils apparaissent quand l'étage est vaincu (INTERAC_BALLADE_OBJECT $31, $32).
+# La Tour Sans-Nuit (donjon 8, sur l'Œil de l'Insomnis) : groupe 5, décor 39 = le Donjon du
+# Crâne d'Ages, passé à l'index de donjon 8 et de nuit (make_songe.py : night()). Sept étages
+# (dungeon08LayoutTour), du sous-sol au 6F ; la musique gagne un instrument à chaque étage. Les
+# escaliers (45) sont des téléportations (warpSources.s).
 #
-# Briques : b8 b0 b9 / b3 b1 / ba b2 bb murs ; a0 sol ; 61 lave ; f4 trou ; 1d pilier ; 2a statues ;
-#   08 torche ; 0a cristal ; 0c bouton ; db diamant ; e0-e6 l'arche de l'entrée.
+# Link prisonnier (Denis, 01/11/2026 ; code/ages/balladePrison.s) : passé l'arche, il est assommé,
+# Marine est emportée dans une cage ; il se réveille au cachot, sans rien, et remonte la tour en
+# récupérant ses objets dans des coffres (le bouclier, les graines, ... l'épée en dernier) ; des
+# gardes partout (les Veilleurs en fantômes) : vu, retour au cachot. Au 5F, Dark Link, Marine en
+# cage (la 8e essence) ; au 6F l'Insomnis (le rythme), puis Ganon : sans l'Épée de Légende, Marine
+# casse le 4e mur (Sauvegarder et Quitter, va voir le Zora).
+#
+# Briques : b8 b0 b9 / b3 b1 / ba b2 bb murs ; a0 sol ; 61 lave ; f4 trou ; 1c bloc qui se pousse (une fois : il devient 1d) ;
+#   1d bloc fixe ; 2a statues ; 08 torche ; 0a cristal ; 0c bouton ; db diamant ; e0-e6 l'arche de
+#   l'entrée ; f1 coffre ; 17 le passage du cachot.
 #
 # Plan (une ligne par étage, du bas vers le haut) :
-#   1F : c1 la Lune qui tombe | c0 l'entrée
-#   2F : c2 arrivée | c3 la lave, le cristal | c4 Dark Link
-#   3F : c7 Ganon | c6 le bouton de l'îlot | c5 arrivée
-#   4F : c8 arrivée | c9 la Cape, un garde endormi | ca le Cauchemar
-#   5F : cc l'Insomnis | cb arrivée
+#   B1 : a0 le cachot | a1 le couloir (le bouclier)
+#   1F : c1 la Lune qui tombe | c0 l'entrée (les graines)
+#   2F : c2 arrivée (le Boomerang, les bombes, la Cape) | c3 la lave, le cristal | a2 la Canne, le Grappin...
+#   3F : a5 la Clochette, le reste | c6 le bouton de l'îlot | c5 arrivée
+#   4F : c8 arrivée (Ghost Babel) | c9 la Cape, un garde endormi | ca l'épée
+#   5F : c4 Dark Link, Marine en cage | cb arrivée
+#   6F : c7 Ganon | cc l'Insomnis
 
-# --- 1F, l'entrée : l'arche du bas ramène sur le parvis (1:c9) ; ouest ---
-salle 5:c0 decor 39
+# --- B1, le cachot : Link se réveille dans sa cellule (1-3, 1-3) ; la statue du mur (2,4) se pousse (deux fois : un bloc 1c, une fois poussé, deviendrait fixe et boucherait la sortie) : la sortie ; le passage (1,1) apparaît quand il a déjà été pris (il ramène à son étage) ; un garde fait la navette (colonne 6) ; la porte de l'est ---
+salle 5:a0 decor 39
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 1d a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 2a a0 a0 a0 a0 1d a0 a0 1d a0 b1
+b3 a0 a0 a0 1d a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 1d 1d 1d 1d a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 1d a0 a0 a0 a0 1d a0 a0 1d a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- B1, le couloir : le coffre du bouclier (2,11) ; l'escalier apparaît (8,11) ; un garde (colonne 9) ; ouest ---
+salle 5:a1 decor 39
 b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 1d 1d 1d a0 1d 1d 1d a0 a0 f1 a0 a0 b1
+b3 a0 1d 1d 1d a0 1d 1d 1d a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 1d 1d 1d a0 1d 1d 1d a0 a0 a0 a0 a0 b1
+b3 a0 1d 1d 1d a0 1d 1d 1d a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- 1F, l'entrée : l'arche du bas ramène sur le parvis (1:c9) (prisonnier : la herse, (9,7)) ; l'escalier du sous-sol arrive en (2,7) ; le coffre des graines (1,12) ; deux gardes (ligne 5, colonne 11) ; l'escalier direct du 6F apparaît au milieu (5,7) ; ouest ---
+salle 5:c0 decor 39
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 f1 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 2a a0 a0 a0 a0 a0 2a a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
@@ -42,10 +79,10 @@ b3 61 61 61 a0 a0 a0 a0 a0 a0 a0 61 61 61 b1
 b3 61 61 61 a0 a0 a0 a0 a0 a0 a0 61 61 61 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
-# --- 2F, l'arrivée (l'escalier de 1F arrive en (8,7)) ; est ---
+# --- 2F, l'arrivée (l'escalier de 1F arrive en (8,7)) ; le coffre du Boomerang, des bombes et de la Cape de Roc (1,7 : la lave d'à côté se saute) ; deux gardes (lignes 2 et 5) ; est ---
 salle 5:c2 decor 39
 b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 f1 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 2a a0 a0 a0 a0 a0 a0 a0 2a a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
@@ -56,7 +93,7 @@ b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
-# --- 2F : une rivière de lave (colonnes 7-8) ; le cristal (2,11) de l'autre coté : le Boomerang-Toupie ouvre le volet de l'est ; on saute la lave ---
+# --- 2F : une rivière de lave (colonnes 7-8) ; le cristal (2,11) de l'autre coté : le Boomerang-Toupie ouvre le volet de l'est ; on saute la lave (vers a2) ---
 salle 5:c3 decor 39
 b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
 b3 a0 a0 a0 a0 a0 a0 61 61 a0 a0 a0 a0 a0 b1
@@ -70,21 +107,21 @@ b3 a0 a0 2a a0 a0 a0 61 61 a0 a0 2a a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 61 61 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
-# --- 2F, Dark Link : un seul, en duel (il tourne autour de Link, esquive, se fend ; on le touche quand il souffle) ; la porte de l'ouest se ferme ; l'escalier apparaît (5,7) ---
-salle 5:c4 decor 39
+# --- 2F, le coffre du bout : la Canne, le Grappin, le Bracelet, la Pelle, la Lanterne (2,11) ; l'escalier apparaît (8,11) ; deux gardes (colonnes 5 et 9) ; ouest ---
+salle 5:a2 decor 39
 b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 2a a0 a0 a0 a0 a0 a0 a0 a0 a0 2a a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 1d 1d 1d a0 1d 1d 1d a0 a0 f1 a0 a0 b1
+b3 a0 1d a0 1d a0 1d a0 1d a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 2a a0 a0 a0 a0 a0 a0 a0 a0 a0 2a a0 b1
+b3 a0 1d a0 1d a0 1d a0 1d a0 a0 a0 a0 a0 b1
+b3 a0 1d 1d 1d a0 1d 1d 1d a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
-# --- 3F, l'arrivée (l'escalier de 2F arrive en (8,7)) ; ouest ---
+# --- 3F, l'arrivée (l'escalier de 2F arrive en (8,7)) ; un garde (ligne 5) ; ouest ---
 salle 5:c5 decor 39
 b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
@@ -98,7 +135,7 @@ b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
-# --- 3F : le bouton (5,7) sur un îlot, au milieu d'un gouffre ; le Grappin-Écho (le diamant de l'îlot, depuis (5,2)), un bloc de la Canne sur le bouton : le volet de l'ouest s'ouvre ---
+# --- 3F : le bouton (5,7) sur un îlot, au milieu d'un gouffre ; le Grappin-Écho (le diamant de l'îlot, depuis (5,2)), un bloc de la Canne sur le bouton : le volet de l'ouest s'ouvre (vers a5) ---
 salle 5:c6 decor 39
 b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
@@ -112,17 +149,17 @@ b3 a0 a0 a0 f4 f4 f4 f4 f4 f4 f4 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
-# --- 3F, Ganon : en entrant, il pose sa propre arène (5:f5) ; l'escalier apparaît (5,7) ---
-salle 5:c7 decor 39
+# --- 3F, le coffre du bout : la Clochette d'Aube, le reste (2,3) ; l'escalier apparaît (8,3) ; deux gardes (colonnes 5 et 9) ; est ---
+salle 5:a5 decor 39
 b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 2a a0 a0 a0 a0 a0 a0 a0 2a a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 f1 a0 a0 1d 1d 1d a0 1d 1d 1d a0 b1
+b3 a0 a0 a0 a0 a0 1d a0 1d a0 1d a0 1d a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 2a a0 a0 a0 a0 a0 a0 a0 2a a0 a0 b1
+b3 a0 a0 a0 a0 a0 1d a0 1d a0 1d a0 1d a0 b1
+b3 a0 a0 a0 a0 a0 1d 1d 1d a0 1d 1d 1d a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
@@ -154,21 +191,35 @@ b3 a0 a0 a0 a0 f4 f4 f4 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 f4 f4 f4 a0 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
-# --- 4F, le Cauchemar de Cocolint : un œil (l'Eyesoar d'Ages) ; la porte de l'ouest se ferme ; l'escalier apparaît (8,7) ---
+# --- 4F, l'épée : le dernier coffre (5,12) ; l'escalier apparaît (8,7) ; deux gardes (colonne 7, ligne 2) ; ouest ---
 salle 5:ca decor 39
 b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 2a a0 a0 a0 a0 a0 a0 a0 a0 a0 2a a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 f1 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 2a a0 a0 a0 a0 a0 a0 a0 a0 a0 2a a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
-# --- 5F, l'arrivée (l'escalier de 4F arrive en (8,7)) ; ouest ---
+# --- 5F, Dark Link : un seul, en duel (il tourne autour de Link, esquive, se fend ; on le touche quand il souffle) ; la porte de l'est se ferme ; Marine, en mouette, dans la cage du haut (lignes 1-3, colonnes 6-8 ; la porte (3,7) s'ouvre quand il est battu) ; l'escalier apparaît (5,7) ---
+salle 5:c4 decor 39
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 1d a0 1d a0 a0 a0 a0 a0 b1
+b3 a0 2a a0 a0 a0 1d a0 1d a0 a0 a0 2a a0 b1
+b3 a0 a0 a0 a0 a0 1d 1d 1d a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 2a a0 a0 a0 a0 a0 a0 a0 a0 a0 2a a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- 5F, l'arrivée (l'escalier de 4F arrive en (8,7)) ; ouest (Dark Link) ---
 salle 5:cb decor 39
 b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
@@ -182,16 +233,30 @@ b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
 
-# --- 5F, l'Insomnis : le boss en rythme (INTERAC_BALLADE_RHYTHM) ; la musique se tait en entrant ---
+# --- 6F, l'Insomnis : le boss en rythme (INTERAC_BALLADE_RHYTHM) ; la musique se tait en entrant ; l'escalier de Dark Link arrive en (8,7) ; la porte de l'ouest (Ganon) murée tant qu'il n'est pas battu (balladePrison.towerTop) ---
 salle 5:cc decor 39 boss
 b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb
+
+# --- 6F, Ganon (le boss final, Denis 01/11) : il ne craint que l'Épée de Légende ; battu, la fin (balladeFin.towerEnding) ; est ---
+salle 5:c7 decor 39 boss
+b8 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b0 b9
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 2a a0 a0 a0 a0 a0 a0 a0 2a a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
-b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
+b3 a0 a0 2a a0 a0 a0 a0 a0 a0 a0 2a a0 a0 b1
 b3 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 a0 b1
 ba b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 b2 bb

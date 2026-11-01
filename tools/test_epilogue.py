@@ -1,6 +1,6 @@
 """Test de la fin du jeu et de l'après-jeu (code/ages/balladeFin.s), par le menu de test caché :
 
-- en haut de la Tour (5:cc), l'Insomnis battu : Zelda apparaît, en rêve, sur sa berceuse ; le duo :
+- en haut de la Tour (5:c7), Ganon battu (après l'Insomnis) : Zelda apparaît, en rêve, sur sa berceuse ; le duo :
   Marine (mouette) lui chante sa chanson, Zelda chante avec elle, Marine redevient humaine, le
   huitième couplet ; Zelda s'endort ; fondu : la plage du réveil (1:aa) ;
 - l'épilogue : Marine humaine ; le générique qui défile, comme dans Link's Awakening ; retour sur
@@ -71,19 +71,15 @@ def flag(f):
 g = Game()
 g.level(8, 'Boss')
 g.m[INV_A], g.m[INV_B] = 0x00, 0x00
+g.m[0xca00 + 0xcc] |= 0x80      # (l'Insomnis battu : le rythme ne recommence pas)
 g.text_through()
-g.warp(5, 0xcc, 0x97)
+# Ganon battu (le boss final, après l'Insomnis : 5:c7)
+g.m[0xca00 + 0xc7] |= 0x80
+g.warp(5, 0xc7, 0x5d)
 g.settled()
 g.w(60)
 g.text_through()
-check(g.where() == (5, 0xcc), 'le sommet de la Tour (5:cc)')
-
-# L'Insomnis battu ; Marine sort de la tunique (INTERAC_MARINE $09, comme à la fin du combat)
-slot = max(s for s in range(0xd0, 0xe0) if not g.m[obj(s, 0)])
-for k in range(0x40):
-    g.m[obj(slot, k)] = 0
-g.m[obj(slot, 1)], g.m[obj(slot, 2)], g.m[obj(slot, 0)] = 0xe7, 0x09, 0x01
-g.m[RHYTHM_STAGE] = 3
+check(g.where() == (5, 0xc7), 'le sommet de la Tour, Ganon battu (5:c7)')
 g.w(200)
 check(len(objects(0x11)) == 1, 'Zelda apparaît, en rêve')
 check(g.m[MUSIC] == 0x38, 'sa berceuse (MUS_BALLADE_BERCEUSE $38)')
@@ -103,12 +99,12 @@ for _ in range(700):
         if epi[-1] in shots:
             g.w(120)
             g.shot(os.path.join(OUT, shots[epi[-1]] + '.png'))
-    if g.m[0xc6bf] & 0x80:
+    if len(epi) >= 3 and g.m[EPILOGUE] == 0:     # (la Ballade complète : balladeFin @complete)
         break
 check(epi[:3] == [5, 6, 4], 'le duo : la mouette, puis Zelda, puis Marine humaine (%s)' % epi)
 check(len(objects(0x13)) == 1 and not [s for s in range(0xd0, 0xe0) if g.m[obj(s, 0)] and g.m[obj(s, 1)] == 0xe7],
       'Marine est humaine (la mouette a disparu)')
-check(g.m[0xc6bf] & 0x80, "la Ballade est complète : le huitième couplet est dans l'inventaire (wEssencesObtained bit 7)")
+check(g.m[0xc6bf] & 0x80, "la Ballade est complète : le huitième couplet est dans l'inventaire (wEssencesObtained bit 7 ; déjà là depuis Dark Link)")
 g.w(60)
 g.shot(os.path.join(OUT, 'f02e_complete.png'))
 follow({}, lambda: g.where()[0] != 5)

@@ -19,7 +19,7 @@ Les grilles (blocs `ile` et `donjon` ; `~` = la mer, `*` = le ciel) sont lues pa
   avec la Lanterne, et le noctambule (le temps compté dans le Songe) reste la règle dehors.
 - **Taille** : une île fait de 12 à 20 écrans (l'île de la Brume en fait 16). Les donjons
   grandissent doucement : 12 salles pour le premier (5 minutes), jusqu'à 22 pour le septième ; la
-  Tour Sans-Nuit a 5 étages.
+  Tour Sans-Nuit a 7 étages, du cachot au sommet.
 - **Chaque donjon a une forme** qu'on reconnaît sur la carte (Select), comme le Phare : un coffre
   à jouets, un cœur, une enclume, une cathédrale, une spirale, un flocon, une tour.
 - **Chaque boss parle** en entrant, et Marine lui répond (comme Jack).
@@ -374,33 +374,50 @@ Paupière ouest | La Tour Sans-Nuit | Paupière est
 ~ | Ponton (Bateau-Rondin) | ~
 ```
 
-**Le donjon final, inspiré du Château de Lorule** (*A Link Between Worlds*) : **5 étages**, et la
-musique qui **gagne un instrument à chaque étage**. Au rez-de-chaussée, presque rien : un
-métronome et une basse. Au sommet, tout l'orchestre, et la voix de Marine. Les cinq niveaux de
-musique du boss en rythme (session « Prototype of the rhythm final boss », MUS $47, $49, $4b,
-$37, $3a) servent aussi aux cinq étages : toute la tour est un long crescendo jusqu'au combat.
+**Le donjon final, inspiré du Château de Lorule** (*A Link Between Worlds*) : la musique **gagne
+un instrument à chaque étage**. Au rez-de-chaussée, presque rien : un métronome et une basse. Au
+sommet, tout l'orchestre, et la voix de Marine. Les cinq niveaux de musique du boss en rythme
+(session « Prototype of the rhythm final boss », MUS $47, $49, $4b, $37, $3a) servent aussi aux
+étages : toute la tour est un long crescendo jusqu'au combat.
 
-Chaque étage reprend un cauchemar de Link et une mécanique du jeu :
+**Link prisonnier** (l'idée de Denis, 1er novembre 2026 ; code/ages/balladePrison.s) : passé
+l'arche, **BONK**, Link est assommé ; Marine est emportée dans une cage et **crie son nom**. Il se
+réveille **au cachot, au sous-sol, sans aucun objet**, et remonte la tour en récupérant ses affaires
+dans des coffres, étage après étage : **le bouclier d'abord, puis les graines, ... et l'épée en
+dernier**. Des **gardes partout** (les fantômes de Ghost Babel) : vu, « AU CACHOT ! », retour à la
+cellule. Pour ne pas tout refaire, un **passage** s'ouvre au fond de la cellule : il ramène à
+l'arrivée de l'étage où Link a été pris. Mourir ou Sauvegarder et Quitter ramène aussi au cachot.
 
-| Étage | Le cauchemar | Ce qu'on y refait | Ce que la musique gagne |
-| --- | --- | --- | --- |
-| 1 | **La Lune qui tombe** (un compte à rebours au plafond) | Réel ↔ Songe, torches | métronome + basse |
-| 2 | **Dark Link** (un seul, un vrai duel : il tourne, esquive d'un bond, se fend sur Link ; on le touche quand il souffle) : Marine ne peut pas aider | Boomerang, bombes | + percussions |
-| 3 | **Ganon** (celui d'*Ages*, version *A Link to the Past*) : éteindre et rallumer les torches | Canne des Songes, Grappin | + harmonie (cuivres) |
-| 4 | **Le Cauchemar de Cocolint** : « TU ME RECONNAIS ? » | Cape de Roc, Clochette | + contre-chant |
-| 5 | **L'Insomnis** : le boss en rythme, la berceuse | l'épée, en rythme | + la voix de Marine |
+| Étage | Ce qu'on y trouve | Le coffre (ce qui est rendu) |
+| --- | --- | --- |
+| B1 | Le cachot (une statue dans le mur se pousse), le couloir, un garde | le bouclier |
+| 1F | L'entrée (la herse baissée sous l'arche) ; **la Lune qui tombe** (quatre torches) | les graines, le Lance-Graines |
+| 2F | Le cristal de l'autre côté de la lave, deux gardes, le bout de l'étage | le Boomerang, les bombes, la Cape de Roc ; puis la Canne, le Grappin, le Bracelet, la Pelle, la Lanterne |
+| 3F | Le bouton de l'îlot (Grappin + Canne), des gardes | la Clochette d'Aube, tout le reste |
+| 4F | **Ghost Babel** (le labyrinthe), le garde endormi (la Clochette) | **l'épée** |
+| 5F | **Dark Link** (un seul, un vrai duel) ; **Marine, en mouette, dans une cage** : elle encourage Link ; battu, la cage s'ouvre, **la 8e essence** | |
+| 6F | **L'Insomnis** (le boss en rythme), puis **Ganon** (le boss final) | |
+
+**Ganon et le 4e mur** : sans l'Épée de Légende, les coups ne lui font rien. Marine : « Ton épée...
+elle pue. Moi, à ta place, je ferais **Sauvegarder et Quitter**. Et on n'a jamais eu cette
+discussion ! Va trouver l'épée 3 ! Le Zora en sait quelque chose, je pense ! » Le joueur fait
+vraiment Sauvegarder et Quitter : il revient à l'entrée de la tour (Marine est libre, la herse
+levée), va chercher l'Épée de Légende (la Fosse de Bulle) ; au retour, un **escalier direct** au
+milieu de l'entrée monte au 6F. Ganon battu : la fin.
 
 ```donjon 8
-. | # | 5 | # | .
-. | # | 4 | # | .
-. | # | 3 | # | .
-. | # | 2 | # | .
-# | # | 1 | # | #
-. | . | E | . | .
+. | B | # | .
+. | B | # | .
+. | # | # | C
+C | # | # | .
+. | C | # | C
+. | # | E | .
+. | # | C | .
 ```
 
-(Construit : story/salles/tour.txt, deux ou trois salles par étage, 5:c0-cc. Le 3F a le vrai
-Ganon d'Ages, dans son arène. L'épilogue, après l'Insomnis, reste à écrire.)
+(Construit : story/salles/tour.txt, 5:a0-a5 et 5:c0-cc ; les objets : story/salles/objets.txt ;
+le test : tools/test_prison.py. Le plan, de haut en bas : 6F Ganon et l'Insomnis, 5F Dark Link,
+4F, 3F, 2F, 1F l'entrée, B1 le cachot ; C : les coffres.)
 
 ### La fin (décidée avec Denis le 22 octobre 2026)
 

@@ -2565,11 +2565,21 @@ groups:
       \col(1)Marine\col(0): Nos
       coups ne lui
       font rien!\stop
-      Bulle parlait
-      d'une épée, au
-      fond de la Fosse
-      de la Lagune...\stop
-      Il nous la faut!
+      Ton épée... elle
+      pue, \Link.\stop
+      Bon. Écoute.
+      Moi, à ta place,
+      je ferais
+      \col(1)Sauvegarder et
+      Quitter\col(0).\stop
+      Et on n'a jamais
+      eu cette
+      discussion!\stop
+      Va trouver
+      l'épée 3! Le
+      Zora en sait
+      quelque chose,
+      je pense!
 
   - name: TX_5ae6
     index: 0xe6
@@ -5678,6 +5688,102 @@ groups:
       le jeu du forain
       en Dur d'abord!
 
+  # La Tour Sans-Nuit, Link prisonnier (code/ages/balladePrison.s)
+  - name: TX_5c35
+    index: 0x35
+    text: |-
+      \col(1)Marine\col(0):
+      \Link?! \Link!\stop
+      Lâchez-moi!
+      LÂCHEZ-MOI!\stop
+      \Link!!!
+      \Link!!!
+  - name: TX_5c36
+    index: 0x36
+    text: |-
+      Aïe... Ta tête!\stop
+      Plus d'épée,
+      plus de
+      bouclier...
+      Plus rien!\stop
+      Et Marine n'est
+      plus là.\stop
+      Il faut sortir
+      d'ici! Cette
+      statue, dans le
+      mur...
+  - name: TX_5c37
+    index: 0x37
+    text: |-
+      Hé! Le
+      prisonnier!
+      AU CACHOT!
+  - name: TX_5c38
+    index: 0x38
+    text: |-
+      Ton \col(1)bouclier\col(0)!
+      Ils l'avaient
+      rangé là.
+  - name: TX_5c39
+    index: 0x39
+    text: |-
+      Ta sacoche et
+      le \col(1)Lance-
+      Graines\col(0)!
+  - name: TX_5c3a
+    index: 0x3a
+    text: |-
+      Le \col(1)Boomerang-
+      Toupie\col(0), tes
+      \col(1)bombes\col(0) et la
+      \col(1)Cape de Roc\col(0)!
+  - name: TX_5c3b
+    index: 0x3b
+    text: |-
+      La \col(1)Canne\col(0), le
+      \col(1)Grappin\col(0), le
+      \col(1)Bracelet\col(0), la
+      \col(1)Pelle\col(0) et la
+      \col(1)Lanterne\col(0)!
+  - name: TX_5c3c
+    index: 0x3c
+    text: |-
+      La \col(1)Clochette
+      d'Aube\col(0)...
+      Tout le reste!
+  - name: TX_5c3d
+    index: 0x3d
+    text: |-
+      Ton \col(1)épée\col(0)!
+      Tu as tout
+      retrouvé!\stop
+      Marine est
+      là-haut...
+  - name: TX_5c3e
+    index: 0x3e
+    text: |-
+      \col(1)Marine\col(0):
+      \Link! Je suis
+      là, dans la
+      cage!\stop
+      C'est ton
+      reflet... Dark
+      Link!\stop
+      Tu peux le
+      battre! VAS-Y!
+  - name: TX_5c3f
+    index: 0x3f
+    text: |-
+      \col(1)Marine\col(0):
+      \Link! Tu l'as
+      eu!\stop
+      J'ai cru que je
+      ne te reverrais
+      jamais...\stop
+      Allez, on monte!
+      L'Insomnis est
+      tout en haut!
+
 - group: 0x30
   data:
   # Les cinq anneaux du jeu : leur nom, ce qu'ils font
@@ -6291,6 +6397,20 @@ groups:
       la nuit la plus
       longue finit
       par un matin."
+  # L'essence de Dark Link (la Tour, 5F) : le huitième couplet
+  - name: TX_0015
+    index: 0x15
+    text: |-
+      \pos(2)\slow()Ton reflet
+      s'est effacé.\stop
+      Tu as trouvé le
+      \col(1)huitième
+      couplet\col(0) de la
+      chanson de
+      Marine!\stop
+      \col(1)Marine\col(0): "Il ne
+      manque plus que
+      la fin..."
   - name: TX_001f
     index: 0x1f
     text: |-

@@ -11,7 +11,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from debug_menu import INV_A, INV_B, Game
+from debug_menu import GLOBAL_FLAGS, INV_A, INV_B, Game
 
 OUT = sys.argv[1]
 os.makedirs(OUT, exist_ok=True)
@@ -41,6 +41,8 @@ g = Game()
 g.level(8, 'Donjon')
 g.m[INV_A], g.m[INV_B] = 0x00, 0x05     # l'épée en B
 g.text_through()
+# (les fantômes ne gardent la tour que tant que Link est prisonnier : GLOBALFLAG_BALLADE_PRISON $6a)
+g.m[GLOBAL_FLAGS + 0x6a // 8] |= 1 << (0x6a % 8)
 g.warp(5, 0xc8, 0x87)
 g.settled()
 g.w(60)

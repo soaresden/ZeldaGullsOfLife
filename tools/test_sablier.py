@@ -1,7 +1,7 @@
 """Test du Sablier (idée de Denis : « un sablier oui, et les dégâts en crescendo ») :
-- 1F de la Tour Sans-Nuit (5:c1) : les quatre torches, la lune remonte et laisse tomber le Sablier
-  (TREASURE_14), puis l'escalier ;
-- 2F, Dark Link (5:c4) : on retourne le Sablier, les ennemis sont figés (wDisabledObjects) et ne
+- la Lune qui tombe (1F, 5:c1) donne le Sablier : c'est dans tools/test_prison.py (le donjon entier) ;
+- 5F, Dark Link (5:c4), par le menu de test (île 8, M-boss) : on retourne le Sablier, les ennemis
+  sont figés (wDisabledObjects) et ne
   blessent pas Link ; on frappe un Link de l'ombre plusieurs fois : les coups sont comptés ;
 - à la fin, les coups éclatent : la vie de l'ennemi baisse en plus (1 + 2 + ... + n-1), le temps
   repart ; le Sablier ne se retourne plus tant que le sable n'est pas retombé.
@@ -15,7 +15,7 @@ from debug_menu import HEALTH, LINK_X, LINK_Y, INV_A, INV_B, MAX_HEALTH, TEXT_AC
 
 OUT = sys.argv[1]
 os.makedirs(OUT, exist_ok=True)
-TREASURE_SHOOTER, TREASURE_SABLIER = 0x0f, 0x14
+TREASURE_SABLIER = 0x14
 DISABLED_OBJECTS = 0xcc8a
 errors, shots = [], []
 g = Game()
@@ -44,45 +44,13 @@ def sablier():
     return None
 
 
-# --- 1F : la Lune laisse tomber le Sablier
-g.level(8, 'Donjon')
+# --- 5F, Dark Link : le temps arrêté (le menu de test donne le Sablier, jalon 35)
+g.level(8, 'M-boss')
 g.m[INV_A] = 0x05
 g.m[HEALTH] = g.m[MAX_HEALTH]
-check(not g.has(TREASURE_SABLIER), 'pas encore de Sablier')
-for _ in range(6):          # le nom du donjon
-    g.text_through()
-    g.w(20)
-g.route((5, 7), (5, 1))
-check(g.go('left', (5, 0xc1)), '1F : la Lune qui tombe (5:c1)')
-check(g.wait_text(120), 'Marine : la lune tombe')
-g.text_through()
-g.route((5, 12), (4, 12), (4, 7), (5, 7))
-g.m[INV_B] = TREASURE_SHOOTER
-for facing in ('up', 'right', 'down', 'left'):
-    g.face(facing)
-    g.press('b', 4)
-    g.w(14)
-check(g.wait_text(120), 'Marine : la lune remonte, elle a laissé tomber quelque chose')
-got = False
-for _ in range(80):         # les pages de Marine, puis le Sablier au-dessus de la tête de Link
-    g.w(10)
-    if g.has(TREASURE_SABLIER) and g.m[TEXT_ACTIVE]:
-        got = True
-        g.w(30)
-        shoot('s01_sablier', 'La lune laisse tomber le Sablier')
-        break
-    if g.m[TEXT_ACTIVE]:
-        g.press('a', 6)
-check(got, 'le Sablier : son texte')
-for _ in range(6):
-    g.text_through()
-    g.w(20)
 check(g.has(TREASURE_SABLIER), 'le Sablier (TREASURE_14)')
-g.w(40)
-check(g.tile(0x87) == 0x45, "puis l'escalier")
-
-# --- 2F, Dark Link : le temps arrêté
-g.warp(5, 0xc4, 0x57)
+g.route((5, 7), (5, 1))
+check(g.go('left', (5, 0xc4)), '5F : Dark Link (5:c4)')
 g.w(60)
 for _ in range(60):
     g.text_through()

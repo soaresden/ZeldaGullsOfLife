@@ -2465,11 +2465,20 @@ groups:
       \col(1)Marin\col(0): Our
       blows do nothing
       to him!\stop
-      Bulle spoke of a
-      sword at the
-      bottom of the
-      Lagoon's Pit...\stop
-      We need it!
+      Your sword...
+      stinks, \Link.\stop
+      OK. Listen.
+      If I were you,
+      I'd hit \col(1)Save
+      and Quit\col(0).\stop
+      And we never
+      had this
+      conversation!\stop
+      Go find sword
+      number 3! The
+      Zora knows
+      something, I
+      bet!
 
   - name: TX_5ae6
     index: 0xe6
@@ -5497,6 +5506,103 @@ groups:
       the barker's
       game on Hard!
 
+  # The Sleepless Tower, Link taken prisoner (code/ages/balladePrison.s)
+  - name: TX_5c35
+    index: 0x35
+    text: |-
+      \col(1)Marin\col(0):
+      \Link?! \Link!\stop
+      Let go of me!
+      LET GO OF ME!\stop
+      \Link!!!
+      \Link!!!
+  - name: TX_5c36
+    index: 0x36
+    text: |-
+      Ouch... your
+      head...\stop
+      No sword, no
+      shield...
+      Nothing left!\stop
+      And Marin is
+      gone.\stop
+      Got to get out
+      of here! That
+      statue in the
+      wall...
+  - name: TX_5c37
+    index: 0x37
+    text: |-
+      Hey! The
+      prisoner!
+      BACK TO THE
+      CELL!
+  - name: TX_5c38
+    index: 0x38
+    text: |-
+      Your \col(1)shield\col(0)!
+      They put it
+      away in here.
+  - name: TX_5c39
+    index: 0x39
+    text: |-
+      Your satchel
+      and the \col(1)Seed
+      Shooter\col(0)!
+  - name: TX_5c3a
+    index: 0x3a
+    text: |-
+      The \col(1)Top
+      Boomerang\col(0), your
+      \col(1)bombs\col(0) and the
+      \col(1)Roc's Cape\col(0)!
+  - name: TX_5c3b
+    index: 0x3b
+    text: |-
+      The \col(1)Cane\col(0), the
+      \col(1)Hook\col(0), the
+      \col(1)Bracelet\col(0), the
+      \col(1)Shovel\col(0) and the
+      \col(1)Lantern\col(0)!
+  - name: TX_5c3c
+    index: 0x3c
+    text: |-
+      The \col(1)Dawn
+      Bell\col(0)...
+      Everything else!
+  - name: TX_5c3d
+    index: 0x3d
+    text: |-
+      Your \col(1)sword\col(0)!
+      You got it all
+      back!\stop
+      Marin is up
+      there...
+  - name: TX_5c3e
+    index: 0x3e
+    text: |-
+      \col(1)Marin\col(0):
+      \Link! I'm here,
+      in the cage!\stop
+      It's your own
+      reflection...
+      Dark Link!\stop
+      You can beat
+      him! GO!
+  - name: TX_5c3f
+    index: 0x3f
+    text: |-
+      \col(1)Marin\col(0):
+      \Link! You got
+      him!\stop
+      I thought I'd
+      never see you
+      again...\stop
+      Come on, let's
+      go up! The
+      Insomnis is at
+      the very top!
+
 - group: 0x30
   data:
   # Gulls of Life's five rings: name, effect
@@ -5945,6 +6051,19 @@ groups:
 - group: 0x03
   data:
   # Les noms sur la carte (Select) : nos îles (tools/make_minimap.py écrit les tables)
+  # The essence of Dark Link (the Tower, 5F): the eighth verse
+  - name: TX_0015
+    index: 0x15
+    text: |-
+      \pos(2)\slow()Your reflection
+      has faded.\stop
+      You found the
+      \col(1)eighth
+      verse\col(0) of
+      Marin's song!\stop
+      \col(1)Marin\col(0): "Only
+      the ending is
+      left..."
   - name: TX_0302
     index: 0x02
     text: |-
