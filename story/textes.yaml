@@ -6811,6 +6811,50 @@ groups:
       Repêchée en mer
       par un vieux
       pêcheur.
+  # Les descriptions du menu des objets d'Ages restées en anglais (Denis : « l'Iron Shield est pas
+  # en français »)
+  - name: TX_0920
+    index: 0x20
+    text: |-
+      Bouclier de bois
+      Un petit
+      bouclier.
+  - name: TX_0921
+    index: 0x21
+    text: |-
+      Bouclier de fer
+      Un grand
+      bouclier.
+  - name: TX_0922
+    index: 0x22
+    text: |-
+      Bouclier miroir
+      Il renvoie les
+      tirs.
+  - name: TX_0924
+    index: 0x24
+    text: |-
+      Épée noble
+      Une lame sacrée.
+  - name: TX_0925
+    index: 0x25
+    text: |-
+      Épée de Légende
+      Elle blesse ce
+      que rien d'autre
+      ne touche.
+  - name: TX_093e
+    index: 0x3e
+    text: |-
+      Grappin long
+      Échange de place
+      de loin.
+  - name: TX_093f
+    index: 0x3f
+    text: |-
+      Gants de force
+      Pour soulever
+      les gros objets.
   - name: TX_0960
     index: 0x60
     text: |-
