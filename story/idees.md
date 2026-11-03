@@ -79,7 +79,7 @@ Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, ave
   montre la profondeur) ; on descend d'**un mètre par couplet de Marine**. **Les cœurs sont le
   souffle** (ils se vident d'un quart toutes les 1,5 s) ; à bout de souffle, Bulle tire sur la
   corde ; on peut aussi remonter par la surface. Des rubis, un **quart de cœur** à 3 m (dans un trou
-  qui scintille ; Marine le signale avant la plongée), et au fond, à 7 m, l'**Épée de Légende**
+  qui scintille ; Marine le signale avant la plongée), et au fond, à 7 m, la **Master Sword**
   plantée dans le sable. **Ganon ne craint qu'elle** (Tour Sans-Nuit, 3F : sans elle, Marine pense
   à la Fosse).
 
@@ -126,7 +126,7 @@ Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, ave
   donnés, l'écran tremble de plus en plus, une grande explosion sur chaque ennemi touché, et le
   k-ième coup reçu par un ennemi compte k-1 de plus (3 coups = 3 de plus, 6 coups = 15 de plus).
   Recharge : 8 secondes (le sable retombe). À régler en jouant : la durée, la recharge, le bonus ;
-  Ganon (seulement l'Épée de Légende) ne devra pas y céder.
+  Ganon (seulement la Master Sword) ne devra pas y céder.
 
 ## Le contre parfait (*Onimusha*) (demandé par Denis)
 - Ses mots : « si on sort son épée au bon moment, un son puissant, et ça permet de se téléporter à

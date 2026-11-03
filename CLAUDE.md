@@ -462,8 +462,8 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   la cage s'ouvre, PRISON effacé, la 8e essence (INTERAC_ESSENCE var03 = 7, en (7,7) : pas sur
   l'escalier (5,7) ; essence.s état 7 -> balladePrison.essenceDone : pas de sortie du donjon, la
   salle se rallume) ; si Link monte sans elle, elle l'attend. 6F : l'Insomnis (5:cc ; $65 mure la
-  porte de l'ouest jusqu'au rythme gagné), puis Ganon (5:c7) : sans l'Épée de Légende, TX_5ae5 (le
-  4e mur : « je ferais Sauvegarder et Quitter... va trouver l'épée 3, le Zora ») et rien d'autre ;
+  porte de l'ouest jusqu'au rythme gagné), puis Ganon (5:c7) : sans la Master Sword, TX_5ae5 (le
+  4e mur : « je ferais Sauvegarder et Quitter... va trouver la Master Sword, le Zora ») et rien d'autre ;
   bit 5 de 5:c7 : un escalier direct (5,7) dans l'entrée monte au 6F. Ganon battu : la scène de
   Zelda (balladeFin.towerEnding dans 5:c7 crée Marine $09 avec var03 = 1 : posée tout de suite).
   GLOBALFLAG_BALLADE_PRISON / ASSOMME = $6a / $6b, dans la liste BALLADE : les drapeaux après
@@ -532,7 +532,7 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   en tapotant la direction (un coup = SND_SPLASH). Pas encore de sprite de Link sur la planche.
 - Test : python tools/test_surf.py DOSSIER (huit coups de nage dans la lagune, avant / après).
 
-## La Fosse de Bulle et l'Épée de Légende (idée de Denis, plongeur)
+## La Fosse de Bulle et la Master Sword (idée de Denis, plongeur)
 - Bulle (3:24, surfInstructor) : après le Récif, la 1re fois la planche de surf, ensuite « On
   plonge ? » (TX_5ae1 ; TX_5be5 tant que le quart de cœur de 3 m est là : Marine le signale ;
   TX_5ae6 une fois l'épée trouvée ; Non : TX_5ae3) -> 5:d0 $17, les cœurs pleins.
@@ -571,7 +571,7 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   chestData.s, ces lignes sont en commentaire « trésor flottant », que make_tracker.py compte : un
   vrai coffre faisait poser un coffre ouvert, une case marron, une fois l'objet pris) : 20 rubis (5:d1), le quart de cœur dans un trou à
   gauche (5:d2, il scintille), 30 rubis (5:d3).
-- L'Épée de Légende ($35, art/objets.txt image 4, 5:d6 (9,8)) : la toucher (ou A) ->
+- La Master Sword ($35, art/objets.txt image 4, 5:d6 (9,8)) : la toucher (ou A) ->
   TREASURE_SWORD sous-ligne 2 (niveau 3, TX_001e réécrit en FR), puis TX_5ae4 et retour au club.
   Piège : en vue de côté, l'objet ne tourne pas pendant le texte du trésor (attendre le début du
   texte ne marche pas : un délai de 30 images, puis la fin du texte).

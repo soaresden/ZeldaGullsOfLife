@@ -398,11 +398,11 @@ l'arrivée de l'étage où Link a été pris. Mourir ou Sauvegarder et Quitter r
 | 5F | **Dark Link** (un seul, un vrai duel) ; **Marine, en mouette, dans une cage** : elle encourage Link ; battu, la cage s'ouvre, **la 8e essence** | |
 | 6F | **L'Insomnis** (le boss en rythme), puis **Ganon** (le boss final) | |
 
-**Ganon et le 4e mur** : sans l'Épée de Légende, les coups ne lui font rien. Marine : « Ton épée...
+**Ganon et le 4e mur** : sans la Master Sword, les coups ne lui font rien. Marine : « Ton épée...
 elle pue. Moi, à ta place, je ferais **Sauvegarder et Quitter**. Et on n'a jamais eu cette
-discussion ! Va trouver l'épée 3 ! Le Zora en sait quelque chose, je pense ! » Le joueur fait
+discussion ! Va trouver la Master Sword ! Le Zora en sait quelque chose, je pense ! » Le joueur fait
 vraiment Sauvegarder et Quitter : il revient à l'entrée de la tour (Marine est libre, la herse
-levée), va chercher l'Épée de Légende (la Fosse de Bulle) ; au retour, un **escalier direct** au
+levée), va chercher la Master Sword (la Fosse de Bulle) ; au retour, un **escalier direct** au
 milieu de l'entrée monte au 6F. Ganon battu : la fin.
 
 ```donjon 8

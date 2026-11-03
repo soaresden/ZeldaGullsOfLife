@@ -1,5 +1,5 @@
 """Test de la Fosse de Bulle (la plongée, idée de Denis), en vue de côté comme les salles sous l'eau
-de Link's Awakening DX, et de l'Épée de Légende :
+de Link's Awakening DX, et de la Master Sword :
 - Bulle (3:24) : la planche de surf, puis « On plonge ? » ; tant que le quart de cœur de 3 m est là,
   Marine le signale (TX_5be5) -> la Fosse (5:d0 = 1 m), les cœurs pleins ;
 - sous l'eau, les cœurs se vident (le souffle) ; la barre d'état montre la profondeur (« 1m »...) ;
@@ -9,7 +9,7 @@ de Link's Awakening DX, et de l'Épée de Légende :
   remonte Link et se moque de lui au club (TX_5be6) ; le contre parfait ; à bout de souffle, Bulle
   tire sur la corde ;
 - avec sept couplets, on saute dans le bassin du club (Denis : « un carré d'eau dans la maison du
-  Zora ») et on descend jusqu'au fond (7 m) : l'Épée de Légende, puis Bulle remonte Link ; plus de
+  Zora ») et on descend jusqu'au fond (7 m) : la Master Sword, puis Bulle remonte Link ; plus de
   coffre ouvert (case marron) là où étaient les objets ;
 - Bulle entière (la Zora d'Ages, 3 sprites de large : il lui manquait le bout de la tête).
 Usage : python tools/test_fosse.py DOSSIER_CAPTURES   (ROM=chemin pour une autre ROM)
@@ -279,15 +279,15 @@ check(g.where() == (5, 0xd6), 'le fond : 7 m (5:d6)')
 swim_to(1, 12)
 swim_to(8, 12)
 g.w(20)
-shoot('f08_7m', "7 m : l'Épée de Légende, plantée dans le sable")
+shoot('f08_7m', "7 m : la Master Sword, plantée dans le sable")
 swim_to(9, 9)
 for _ in range(60):
     g.w(5)
     if g.m[TEXT_ACTIVE]:
         break
 g.w(30)
-shoot('f09_epee', "L'Épée de Légende")
-check(g.m[SWORD_LEVEL] == 3, "l'Épée de Légende (l'épée niveau 3), il restait %d quarts" % g.m[HEALTH])
+shoot('f09_epee', "La Master Sword")
+check(g.m[SWORD_LEVEL] == 3, "la Master Sword (l'épée niveau 3), il restait %d quarts" % g.m[HEALTH])
 check(surface(), 'Bulle remonte Link au club')
 
 sheet(shots, os.path.join(OUT, 'fosse.png'))

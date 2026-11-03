@@ -10,8 +10,8 @@ depuis le menu de test caché (8. Plage) :
 - 3F, 4F : les coffres, l'épée en dernier ;
 - 5F Dark Link, Marine en cage : battu, la cage s'ouvre, la 8e essence (Link reste dans la tour) ;
 - 6F l'Insomnis (son test : tools/test_rythme.py ; ici son étape mise à 3), la porte de Ganon ;
-  Ganon sans l'Épée de Légende : Marine casse le 4e mur (Sauvegarder et Quitter : le retour à
-  l'entrée) ; l'escalier direct de l'entrée au 6F ; avec l'Épée de Légende, Ganon tombe.
+  Ganon sans la Master Sword : Marine casse le 4e mur (Sauvegarder et Quitter : le retour à
+  l'entrée) ; l'escalier direct de l'entrée au 6F ; avec la Master Sword, Ganon tombe.
 
 Triches : les gardes retirés une fois qu'on a vu qu'ils attrapent, les ennemis des cauchemars
 retirés (leur vie mise à zéro), la vie de Link pleine.
@@ -445,7 +445,7 @@ check(stairs(5, 7, (5, 0xcc)), "l'escalier : 6F (5:cc)")
 check(g.tile(0x50) == 0xa0, "la porte de Ganon reste ouverte")
 g.m[SWORD_LEVEL] = 3
 g.route((5, 7), (5, 1))
-check(g.go('left', (5, 0xc7)), '6F : Ganon, avec l\'Épée de Légende')
+check(g.go('left', (5, 0xc7)), '6F : Ganon, avec la Master Sword')
 # (après l'arrivée de Ganon et ses textes ; ganonGuard efface le bit 5 de 5:c7 en lançant TX_5b17)
 chance = False
 for _ in range(80):

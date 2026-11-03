@@ -392,7 +392,7 @@ groups:
       tunique!
 
   # Partout ailleurs : une réplique au hasard
-  # La tour : devant Ganon sans l'Épée de Légende, Marine propose de sortir (Select)
+  # La tour : devant Ganon sans la Master Sword, Marine propose de sortir (Select)
   - name: TX_5a0f
     index: 0x0f
     text: |-
@@ -2575,9 +2575,9 @@ groups:
       Et on n'a jamais
       eu cette
       discussion!\stop
-      Va trouver
-      l'épée 3! Le
-      Zora en sait
+      Va trouver la
+      \col(1)Master Sword\col(0)!
+      Le Zora en sait
       quelque chose,
       je pense!
 
@@ -3714,7 +3714,7 @@ groups:
       chanson.
 
   # Le volley : le score
-  # La tour : revenu avec l'Épée de Légende, Marine à Ganon
+  # La tour : revenu avec la Master Sword, Marine à Ganon
   - name: TX_5b17
     index: 0x17
     text: |-
@@ -6095,9 +6095,8 @@ groups:
   - name: TX_001e
     index: 0x1e
     text: |-
-      Tu as trouvé
-      l'\col(1)Épée de
-      Légende\col(0)!\stop
+      Tu as trouvé la
+      \col(1)Master Sword\col(0)!\stop
       Elle peut
       blesser ce que
       rien d'autre ne
@@ -6839,7 +6838,7 @@ groups:
   - name: TX_0925
     index: 0x25
     text: |-
-      Épée de Légende
+      Master Sword
       Elle blesse ce
       que rien d'autre
       ne touche.
