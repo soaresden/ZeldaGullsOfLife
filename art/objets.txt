@@ -115,22 +115,24 @@ krrrrrwrrrrrrrrk
 #
 # 6. Lila endormie (3:21) : sa tête sur l'oreiller, les yeux fermés, la couverture jusqu'au menton.
 #    Palette de sprite 2 : r = le rouge (cheveux, couverture), w = la peau
-................
-................
-......kkkk......
-....kkrrrrkk....
-...krrrrrrrrk...
-...krrrrrrrrk...
-..krrwwwwwwrrk..
-..krwwwwwwwwrk..
-..krwkkwwkkwrk..
-..krwwwwwwwwrk..
-..krrwwwwwwrrk..
-...krrwwwwrrk...
+#    (Denis, 03/11 : « elle a une sale gueule, pourtant elle était mignonne debout » : sa tête
+#    est maintenant celle de son sprite debout (la dame d'Ages), les yeux fermés)
+.....kkkkkkk....
+....krrwwrrrk...
+...krkrrrkrrrk..
+...kkrrrkwkrrk..
+...krrrkwwkrkk..
+.kkkkkkwwkwkwkkk
+.krrkwwwwwwkwkrk
+.krkwkkwwkkwkrrk
+..krkwwwwwwkrrk.
+...kkkwwwwkkkk..
 ..kkkkkkkkkkkk..
-..krrrrrrrrrrk..
-..krrrrrrrrrrk..
-..krrrrrrrrrrk..
+.krrrrrrrrrrrrk.
+.krrrrrrrrrrrrk.
+.krrrrrrrrrrrrk.
+.krrrrrrrrrrrrk.
+.kkkkkkkkkkkkkk.
 #
 # 7. Bulle, la monitrice du club de plongée (une Zora : sa crête, ses grands yeux, ses nageoires ;
 #    Denis : le Zora d'Ages était « mal fait »). Palette de sprite 1 : r = le bleu, w = la crème
