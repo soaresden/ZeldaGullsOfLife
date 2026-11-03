@@ -159,9 +159,11 @@ Un seul personnage, un forain un peu louche sur la plage est de Port-Veille, ave
   chaque ennemi battu laisse une âme qui vole jusqu'à Link ; une jarre se remplit dans le coin de
   l'écran ; les portes des âmes s'ouvrent à 6, 12 et 18 ; les ennemis reviennent toujours. L'arène :
   à 24 âmes, le boss, **une machine à la Metal Gear REX possédée par un fantôme** (Denis ; dessinée à
-  la main, art/rex.txt) : chaque coup lui arrache une âme, à moitié son blindage tombe, il va plus
-  vite et s'efface ; le fantôme s'en échappe, trois coups ; le **Bracelet des Âmes** : l'épée lance
-  toujours un rayon, et chaque ennemi touché rend un quart de cœur.
+  la main, art/rex.txt) ; depuis le 03/11, **un combat en rythme façon Dance Dance Revolution**
+  (Denis) : cinq manches sur des musiques de la série (la Berceuse de Zelda, la Ballade de la
+  Déesse, le Chant des Tempêtes, la Vallée Gerudo, le Château de Lorule), des flèches qui montent
+  vers quatre cibles, la croix au bon moment ; le **Bracelet des Âmes** (l'attaque tourbillon aspire
+  les âmes).
 
 ## Les cœurs : 12 au maximum
 - 3 au départ + 7 réceptacles (un par boss) = 10 ; + 2 cœurs en quarts (8 quarts).

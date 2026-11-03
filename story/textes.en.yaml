@@ -5603,6 +5603,56 @@ groups:
       Insomnis is at
       the very top!
 
+  # The Burrow boss as a rhythm game (balladeTerrier.rex): the machine starts dancing
+  - name: TX_5c40
+    index: 0x40
+    text: |-
+      \col(1)Marin\col(0): It's
+      dancing?!\stop
+      Follow the
+      arrows with the
+      Control Pad,\stop
+      just as they
+      touch the grey
+      ones!
+  # Each round (a bubble that closes by itself)
+  - name: TX_5c41
+    index: 0x41
+    text: |-
+      Round 1 of 5:
+      \col(1)Zelda's Lullaby\col(0)!\wait(120)
+  - name: TX_5c42
+    index: 0x42
+    text: |-
+      Round 2 of 5:
+      \col(1)Goddess Ballad\col(0)!\wait(120)
+  - name: TX_5c43
+    index: 0x43
+    text: |-
+      Round 3 of 5:
+      \col(1)Song of Storms\col(0)!\wait(120)
+  - name: TX_5c44
+    index: 0x44
+    text: |-
+      Round 4 of 5:
+      \col(1)Gerudo Valley\col(0)!\wait(120)
+  - name: TX_5c45
+    index: 0x45
+    text: |-
+      Final round:
+      \col(1)Lorule Castle\col(0)!\wait(120)
+  # A round won, a round lost
+  - name: TX_5c46
+    index: 0x46
+    text: |-
+      \col(1)Marin\col(0): That
+      hurt him!\wait(120)
+  - name: TX_5c47
+    index: 0x47
+    text: |-
+      \col(1)Marin\col(0): Missed!
+      One more time!\wait(120)
+
 - group: 0x30
   data:
   # Gulls of Life's five rings: name, effect

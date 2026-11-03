@@ -933,6 +933,10 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
     (nappes, écho, gouttes) ; au lieu de MUS_MERMAIDS_CAVE.
   - $0b MUS_BALLADE_GERUDO : music/gerudo.txt, la Vallée Gerudo d'Ocarina of Time dans la version
     violon de Taylor Davis (la plage du forain, 1:ac et 0:ac ; au lieu du village de Lynna).
+  - $3c MUS_BALLADE_DEESSE : music/deesse.txt, la Ballade de la Déesse (Skyward Sword) = la berceuse
+    de Denis jouée à l'envers ; au lieu de MUS_SYRUP. $33 MUS_BALLADE_LORULE : music/lorule.txt, le
+    Château de Lorule relevé dans la partition de Denis (Partoche\MSCZ) ; au lieu de MUS_TWINROVA (plus
+    de combat contre Twinrova). Les deux : le boss dansant du Terrier ; à faire valider à l'oreille.
     Relevée dans son mp3 (hauteur dominante toutes les 23 ms, grille de doubles-croches à 120 à la
     noire ; accords fa#m ré mi do#, confirmés par Chordify). Le violon = l'onde avec sa forme
     d'onde WF_BALLADE_VIOLON ($2f, une dent de scie adoucie) et du vibrato : sur un carré, Denis
@@ -1186,10 +1190,25 @@ Ne pas dévoiler le twist de l'histoire à Denis : il veut le découvrir en joua
   la fin de loadPaletteHeader et en sortant du menu). Tests : test_anneaux (+ test_lynels,
   test_songe_grelot, test_mamono, test_creuse).
 - Le boss du Terrier (24/10, Denis : « comme dans Ghost Babel ») : la machine en grand dans le décor
-  (tools/make_rex.py : 7 x 5 briques $c0-$e2 du décor $6b, palettes BG 5 et 1 : PALH_REX, _STUN, _HIT) ;
-  missiles et rochers ($0f : leur type d'après leur position, un objet tout neuf est vidé avant sa
-  première image : var03 / var3e posés à la création sont perdus) ; une bombe l'arrête 5 s, un
-  tourbillon (l'épée en état 4) la touche ; cinq fois. Puis retour à l'entrée (4:d0).
+  (tools/make_rex.py : 7 x 5 briques $c0-$e2 du décor $6b, palettes BG 5 et 1 : PALH_REX, _STUN, _HIT).
+  Depuis le 03/11 elle DANSE (Denis : « le Metal Gear pas animé, laid, je sais pas le tuer, plus de
+  bombes » -> « un jeu de rythme genre Dance Dance Revolution, 5 manches, des musiques Zelda ») :
+  Link figé (wDisabledObjects DISABLE_LINK, wMenuDisabled) face à elle ; quatre cibles grises ($28,
+  fixes en haut de l'écran, palette 6) ; des flèches ($27, image 7 de art/rex.txt : haut et gauche,
+  les autres retournées ; leur direction d'après leur x, un objet tout neuf est vidé avant sa
+  première image : var03 / var3e posés à la création sont perdus). Cinq manches, de la plus facile à
+  la plus dure : la Berceuse ($38), la Ballade de la Déesse ($3c, music/deesse.txt : la berceuse à
+  l'envers), le Chant des Tempêtes ($2b), la Vallée Gerudo ($0b, la basse = le violon), le Château
+  de Lorule ($33, music/lorule.txt, la partition de Denis). Les flèches : tools/make_music.py
+  DANCE_ROUNDS -> data/ages/balladeDanseCharts.s (temps = l'horloge wBalladeRhythmClock, la
+  direction d'après la hauteur de la note, la voix ouverte jusqu'à la flèche suivante) ; coup juste
+  à 10 images près = la voix du thème s'entend (NR51), sinon coupée. 2/3 de coups justes : elle a
+  mal ; sinon un cœur de moins (jamais le dernier quart), la manche recommence. Cinq : elle explose,
+  le Bracelet des Âmes, retour à l'entrée (4:d0). Les projectiles ($0f) ne servent plus.
+  Tests : tools/test_danse.py (les cinq manches, ratée, mauvaise direction, une sur trois ratée ; le
+  robot danseur tools/danse_bot.py) ; tools/test_terrier.py (le donjon + la dernière manche).
+  Piège des tests : $d000-$dfff est la WRAM banque 1 ; pendant un texte le jeu en affiche une autre :
+  lire g.m[1, adresse].
 - L'Easter Egg (24/10) : la bague portée, on pousse vers le haut contre le miroir de Marine
   (INTERAC_BALLADE_OBJECT $48, 3:2a) : la salle secrète 5:ef (décor 2b) : remerciements $49, sound test
   $4a et music test $4b (un choix +1, -1, Jouer, Fin ; A devant eux : objectAddToAButtonSensitive-

@@ -5784,6 +5784,55 @@ groups:
       L'Insomnis est
       tout en haut!
 
+  # Le boss du Terrier en rythme (balladeTerrier.rex) : la machine se met à danser
+  - name: TX_5c40
+    index: 0x40
+    text: |-
+      \col(1)Marine\col(0): Elle
+      danse?!\stop
+      Suis les flèches
+      avec la croix,\stop
+      pile quand elles
+      touchent les
+      grises!
+  # Chaque manche (une bulle qui se ferme seule)
+  - name: TX_5c41
+    index: 0x41
+    text: |-
+      Manche 1 sur 5:
+      \col(1)Berceuse Zelda\col(0)!\wait(120)
+  - name: TX_5c42
+    index: 0x42
+    text: |-
+      Manche 2 sur 5:
+      \col(1)Ballade Déesse\col(0)!\wait(120)
+  - name: TX_5c43
+    index: 0x43
+    text: |-
+      Manche 3 sur 5:
+      \col(1)Chant Tempêtes\col(0)!\wait(120)
+  - name: TX_5c44
+    index: 0x44
+    text: |-
+      Manche 4 sur 5:
+      \col(1)Vallée Gerudo\col(0)!\wait(120)
+  - name: TX_5c45
+    index: 0x45
+    text: |-
+      Dernière manche:
+      \col(1)Château Lorule\col(0)!\wait(120)
+  # Une manche gagnée, une manche ratée
+  - name: TX_5c46
+    index: 0x46
+    text: |-
+      \col(1)Marine\col(0): Ça
+      lui fait mal!\wait(120)
+  - name: TX_5c47
+    index: 0x47
+    text: |-
+      \col(1)Marine\col(0): Raté!
+      On recommence!\wait(120)
+
 - group: 0x30
   data:
   # Les cinq anneaux du jeu : leur nom, ce qu'ils font

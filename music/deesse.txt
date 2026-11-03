@@ -1,0 +1,33 @@
+# La Ballade de la Déesse (Skyward Sword) — MUS_BALLADE_DEESSE ($3c, au lieu de la boutique de Sirop,
+# qu'on n'entend plus) : la 2e manche du boss en rythme du Terrier (code/ages/balladeDanse.s).
+#
+# La Ballade de la Déesse est la berceuse de Zelda jouée à l'envers : on a retourné la berceuse de
+# Denis (music/berceuse.txt, validée) note pour note, rythme compris, et ses accords avec. Même
+# tonalité (sol majeur), 3/4, un peu plus lent et plus grand : la harpe, des cordes tenues, une
+# timbale sur le premier temps. À vérifier à l'oreille.
+# Même notation que music/phare.txt (l'unité est la croche).
+
+tempo 22         # images par croche (noire = 44 images, 82 à la minute)
+mesure 6
+
+== INTRO ==
+# La harpe seule, deux mesures
+melodie:   [v5] [duty 2] [vib 32] [gate .95] [detune 0]
+melodie:   -:6 | -:6 |
+accordeon: [v3] [duty 2] [vib 00] [gate .95] [detune 0]
+accordeon: d3:1 c4:1 f#4:4 | a2:1 c4:1 g4:4 |
+basse:     [onde 08] [vib 00] [gate .95]
+basse:     d2:6 | a1:6 |
+batterie:  -:6 | -:6 |
+
+== A ==
+# La berceuse à l'envers (ses 16 premières mesures, de la dernière à la première)
+melodie:   a4:6 | b4:1 c5:1 d5:4 | g5:2 a5:4 | d5:2 b4:4 | a4:6 | d5:2 b4:4 | a4:1 g4:1 a4:4 | d5:2 b4:4 |
+melodie:   d5:6 | d5:6 | g5:2 a5:4 | d5:2 b4:4 | a4:6 | d5:2 b4:4 | a4:1 g4:1 a4:4 | d5:2 b4:4 |
+accordeon: d3:1 c4:1 f#4:4 | a2:1 c4:1 g4:4 | bb2:1 c#4:1 g4:4 | b2:1 d4:1 g4:4 | c3:1 a3:1 f#4:4 | c3:1 g3:1 e4:4 | c3:1 a3:1 f#4:4 | c3:1 g3:1 e4:4 |
+accordeon: b2:1 c4:1 f#4:4 | a2:1 c4:1 g4:4 | bb2:1 c#4:1 g4:4 | b2:1 d4:1 g4:4 | c3:1 a3:1 f#4:4 | c3:1 g3:1 e4:4 | c3:1 a3:1 f#4:4 | c3:1 g3:1 e4:4 |
+basse:     d2:6 | a1:6 | bb1:6 | b1:6 | c2:6 | c2:6 | c2:6 | c2:6 |
+basse:     b1:6 | a1:6 | bb1:6 | b1:6 | c2:6 | c2:6 | c2:6 | g1:6 |
+batterie:  ( [v2] s:1 -:5 | -:6 | )x8
+
+ordre: INTRO | A

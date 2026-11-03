@@ -1,0 +1,40 @@
+# Lorule Castle (A Link Between Worlds) — MUS_BALLADE_LORULE ($33, au lieu de Twinrova, qu'on ne
+# combat plus) : la 5e et dernière manche du boss en rythme du Terrier (code/ages/balladeDanse.s).
+#
+# Relevée par un script dans la partition de Denis (« Partoche\MSCZ\Lorule Castle.mscz »,
+# l'arrangement d'orchestre d'Eric Christensen) : le thème = le hautbois (mesures 2 à 10, la flûte
+# et le piccolo jouent la même chose plus haut) ; la pulsation = les croches des seconds violons sur
+# le la ; les premiers violons (la si do mi) font l'intro. 12/8, la mineur ; la basse et la caisse
+# claire sont à nous (la partition n'en a pas à cet endroit).
+# Même notation que music/phare.txt (l'unité est la croche, 12 par mesure).
+
+tempo 10         # images par croche (noire pointée = 30 images, 120 à la minute)
+mesure 12
+
+== INTRO ==
+# Les premiers violons (la si do mi, une note par temps), la pulsation ; le thème entre à la fin
+# de la 2e mesure (la si do)
+melodie:   [v6] [duty 2] [vib 22] [gate .9] [detune 0]
+melodie:   -:12 | -:9 a4:1 b4:1 c5:1 |
+accordeon: [v2] [duty 0] [vib 00] [gate .5] [detune 0]
+accordeon: ( a4:1 -:2 b4:1 -:2 c5:1 -:2 e5:1 -:2 | )x2
+basse:     [onde 0e] [vib 00] [gate .6]
+basse:     ( a1:3 )x4 | ( a1:3 )x4 |
+batterie:  ( [v2] h:1 h:1 h:1 h:1 h:1 h:1 h:1 h:1 h:1 h:1 h:1 h:1 | )x2
+
+== A ==
+# Le thème (mesures 3 à 10 de la partition)
+melodie:   e5:3 a4:1 b4:1 c5:1 e5:3 a4:1 b4:1 c5:1 | e5:3 g5:3 f#5:3 d5:1 d5:1 e5:1 |
+melodie:   f5:3 f5:1 e5:1 d5:1 e5:3 a4:1 b4:1 c5:1 | b4:2 c5:1 d5:2 f5:1 e5:1 d5:1 c5:1 b4:1 c5:1 d5:1 |
+melodie:   e5:3 a4:1 b4:1 c5:1 e5:3 a4:1 b4:1 c5:1 | e5:3 g5:3 f#5:3 d5:1 d5:1 e5:1 |
+melodie:   f5:3 f5:1 e5:1 d5:1 e5:3 a4:1 b4:1 c5:1 | b4:3 g#4:1 a4:1 b4:1 a4:3 -:3 |
+# La pulsation des seconds violons (des croches sur le la ; sur le ré quand le thème monte)
+accordeon: ( a4:1 )x12 | ( a4:1 )x6 ( a4:1 )x6 | ( a4:1 )x12 | ( g4:1 )x6 ( e4:1 )x6 |
+accordeon: ( a4:1 )x12 | ( a4:1 )x6 ( a4:1 )x6 | ( a4:1 )x12 | ( e4:1 )x6 ( a4:1 )x6 |
+# La basse, une note par temps : la, la-ré, fa-la, sol-mi ; puis mi-la pour finir
+basse:     a1:3 a1:3 a1:3 a1:3 | a1:3 a1:3 d2:3 d2:3 | f1:3 f1:3 a1:3 a1:3 | g1:3 g1:3 e1:3 e1:3 |
+basse:     a1:3 a1:3 a1:3 a1:3 | a1:3 a1:3 d2:3 d2:3 | f1:3 f1:3 a1:3 a1:3 | e1:3 e1:3 a1:3 a1:3 |
+# Le charleston en croches, la caisse claire sur les 2e et 4e temps
+batterie:  ( [v2] h:1 h:1 h:1 [v3] s:1 [v1] h:1 h:1 [v2] h:1 h:1 h:1 [v3] s:1 [v1] h:1 h:1 | )x8
+
+ordre: INTRO | A

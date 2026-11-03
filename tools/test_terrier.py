@@ -8,9 +8,9 @@ de test caché :
   qui vole jusqu'à Link ; ils reviennent ;
 - la porte des âmes s'ouvre à 4 âmes ;
 - l'arène (4:d7) : à 16 âmes, le boss (la machine possédée, en grand dans le décor) sort de l'ombre ;
-  des missiles, des rochers ; une bombe l'arrête, un tourbillon la touche alors, cinq fois ; elle
-  explose : le Bracelet des Âmes, puis retour à l'entrée du Terrier ; l'épée ne lance pas de
-  rayon (le Bracelet n'agit que sur l'attaque tourbillon : il aspire les âmes, Denis).
+  elle danse (la dernière manche seulement : tools/test_danse.py teste tout) ; elle explose : le
+  Bracelet des Âmes, puis retour à l'entrée du Terrier ; l'épée ne lance pas de rayon (le Bracelet
+  n'agit que sur l'attaque tourbillon : il aspire les âmes, Denis).
 
 Usage : python tools/test_terrier.py DOSSIER_CAPTURES   (ROM=chemin pour une autre ROM)
 """
@@ -19,6 +19,7 @@ import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from debug_menu import INV_A, INV_B, Game
+from danse_bot import play_round, ram
 
 OUT = sys.argv[1]
 os.makedirs(OUT, exist_ok=True)
@@ -157,57 +158,17 @@ check([g.tile(0x14 + r * 16 + c) for r in range(5) for c in range(7)] == list(ra
 check(g.m[0xd00b] >= 0x70, 'Link devant elle, pas dedans (y %02x)' % g.m[0xd00b])
 g.shot(os.path.join(OUT, 'r04_boss.png'))
 if boss:
+    # Elle danse (tools/test_danse.py teste les cinq manches) : ici, directement la dernière
     b = boss[0]
-    # Ses attaques : des missiles, puis des rochers
-    shots = set()
-    for _ in range(260):
+    check(g.wait_text(200), 'Marine explique la danse')
+    g.m[1, obj(b, 0x30)] = 1
+    g.text_through()
+    hits, judged = play_round(g, b)
+    check(hits == judged and judged > 0, 'la dernière manche dansée (%d/%d)' % (hits, judged))
+    g.w(20)
+    check(ram(g, obj(b, 0x04)) >= 3, 'elle explose')
+    for _ in range(400):
         g.w(1)
-        g.m[0xc6aa] = g.m[0xc6ab]            # (Link ne meurt pas pendant le test)
-        for s_ in objects(0x0f):
-            shots.add(g.m[obj(s_, 0x3e)])
-        if 0 in shots and 1 in shots:
-            break
-    check(0 in shots, 'des missiles')
-    check(1 in shots, 'des rochers')
-    g.shot(os.path.join(OUT, 'r05_attaques.png'))
-    # Une vraie bombe contre elle : elle s'arrête
-    g.m[INV_A], g.m[INV_B] = 0x05, 0x03     # l'épée, les bombes
-    g.m[0xc6b0] = 0x10                       # (des bombes)
-    g.m[0xd00b], g.m[0xd00d] = 0x6a, 0x78
-    g.face('up')
-    g.press('b', 4)
-    g.w(8)
-    g.hold('down', 20)
-    stunned = False
-    for _ in range(200):
-        g.w(1)
-        g.m[0xc6aa] = g.m[0xc6ab]
-        if g.m[obj(b, 0x32)]:
-            stunned = True
-            break
-    check(stunned, 'une bombe explose contre elle : elle s\'arrête')
-    g.shot(os.path.join(OUT, 'r06_arretee.png'))
-    hp = g.m[obj(b, 0x30)]
-
-    def spin():
-        """Une vraie attaque tourbillon tout contre elle : A tenu, puis lâché."""
-        g.m[0xd00b], g.m[0xd00d] = 0x6a, 0x78
-        g.face('up')
-        g.hold('a', 60)
-        g.w(30)
-        g.m[0xc6aa] = g.m[0xc6ab]
-    spin()
-    check(g.m[obj(b, 0x30)] == hp - 1 and g.m[obj(b, 0x32)] == 0, 'un tourbillon : touchée (%d -> %d)' % (hp, g.m[obj(b, 0x30)]))
-    spin()
-    check(g.m[obj(b, 0x30)] == hp - 1, 'pas arrêtée : le tourbillon ne la touche pas')
-    for k in range(hp - 1):
-        g.m[obj(b, 0x32)] = 150
-        g.w(2)
-        spin()
-    check(g.m[obj(b, 0x04)] >= 3 or not objects(0x0c), 'cinq tourbillons : elle explose')
-    for _ in range(300):
-        g.w(1)
-        g.m[0xc6aa] = g.m[0xc6ab]
         if g.m[SOUL_STATE] & 2:
             break
     check(g.tile(0x14) == 0xa0 and g.tile(0x56) == 0xa0, 'elle a disparu : le sol')

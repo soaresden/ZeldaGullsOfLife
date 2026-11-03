@@ -32,6 +32,8 @@ Usage : python tools/record_music.py [NOM ...]   (sans nom : tout)
   zelda2    out/apercus/N-zelda2_apercu.wav    le duel contre Dark Link : le Temple de Zelda II ($2c)
   berceuse  out/apercus/N-berceuse_apercu.wav  la berceuse de Zelda (la partition de Denis, $38)
   duo       out/apercus/N-duo_apercu.wav       le duo Marine / Zelda en haut de la tour ($2a)
+  deesse    out/apercus/N-deesse_apercu.wav    la Ballade de la Déesse (la berceuse à l'envers, $3c)
+  lorule    out/apercus/N-lorule_apercu.wav    Lorule Castle (la partition de Denis, $33)
 Pour le boss et le miniboss (pas de salle où ils jouent d'office), l'appel à playSound qui lance
 la musique du Phare est détourné vers la leur (crochet PyBoy sur playSound, ROM intacte).
 """
@@ -77,6 +79,8 @@ TRACKS = {
     'zelda2': (4, 0x24, 0x51, 0x2c, 90),
     'berceuse': (4, 0x24, 0x51, 0x38, 60),
     'duo': (4, 0x24, 0x51, 0x2a, 90),
+    'deesse': (4, 0x24, 0x51, 0x3c, 45),
+    'lorule': (4, 0x24, 0x51, 0x33, 40),
 }
 wanted = sys.argv[1:] or ['film', 'titre'] + list(TRACKS)
 
@@ -116,7 +120,8 @@ def warp(g, r, pos):
 # 0 pour ce qui sert partout (film, titre, thème, boss)
 LEVEL = {'ile': 1, 'phare': 1, 'auberge': 1, 'grelot': 2, 'coffre': 2, 'lagune': 3, 'recif': 3, 'braise': 4,
          'forge': 4, 'echos': 5, 'cathedrale': 5, 'tarkin': 5, 'nid': 6, 'spirale': 6, 'tempetes': 6,
-         'sommeil': 7, 'palais': 7, 'rythme': 8, 'gerudo': 1, 'quiz': 5, 'lynels': 1}
+         'sommeil': 7, 'palais': 7, 'rythme': 8, 'gerudo': 1, 'quiz': 5, 'lynels': 1,
+         'deesse': 5, 'lorule': 5}
 
 
 def save(name):

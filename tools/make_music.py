@@ -60,7 +60,22 @@ SONGS = [
     ('generique.txt', 'musBalladeGenerique'),  # $1d (au lieu de la Salle des Rites), le générique de fin
     ('berceuse.txt', 'musBalladeBerceuse'),    # $38 (au lieu de « Zelda sauvée »), la berceuse de Zelda
     ('duo.txt', 'musBalladeDuo'),              # $2a (au lieu du 2e générique), le duo Marine / Zelda
+    ('deesse.txt', 'musBalladeDeesse'),        # $3c (au lieu de la boutique de Sirop), la Ballade de la Déesse
+    ('lorule.txt', 'musBalladeLorule'),        # $33 (au lieu de Twinrova), Lorule Castle
 ]
+# Le boss du Terrier en rythme, façon Dance Dance Revolution (code/ages/balladeDanse.s) : cinq
+# manches, cinq morceaux de Zelda ; les flèches = les notes de la mélodie, dès le début de la
+# section donnée, sur tant de mesures. (fichier, voix, sorte, section, mesures, durée minimale d'une
+# note à frapper en unités, numéro de la musique, sa voix dans NR51 : $22 le carré 2, $44 l'onde)
+DANCE_ROUNDS = [
+    ('berceuse.txt', 'melodie', 'carre', 'A', 8, 1, 'MUS_BALLADE_BERCEUSE', 0x22),
+    ('deesse.txt', 'melodie', 'carre', 'A', 8, 1, 'MUS_BALLADE_DEESSE', 0x22),
+    ('tempetes.txt', 'melodie', 'carre', 'A', 8, 1, 'MUS_BALLADE_TEMPETES', 0x22),
+    ('gerudo.txt', 'basse', 'onde', 'A', 8, 2, 'MUS_BALLADE_GERUDO', 0x44),
+    ('lorule.txt', 'melodie', 'carre', 'A', 8, 2, 'MUS_BALLADE_LORULE', 0x22),
+]
+DANCE_MIN_GAP = 10      # images au moins entre deux flèches (sinon la seconde n'en est pas une)
+OUT_DANCE = os.path.join(ROOT, 'oracles-disasm', 'data', 'ages', 'balladeDanseCharts.s')
 # Niveaux du boss en rythme : mêmes notes à frapper que rythme.txt (vérifié)
 RHYTHM_LEVELS = ['rythme2.txt', 'rythme3.txt', 'rythme4.txt', 'rythme5.txt']
 # Boss en rythme : les notes de la mélodie à frapper (INTERAC_BALLADE_RHYTHM)
@@ -616,6 +631,61 @@ def loop_notes(path):
     return notes
 
 
+def dance_charts():
+    """Le boss du Terrier en rythme : pour chaque manche, les flèches (début en images depuis le
+    début du morceau, + 1 comme l'horloge ; la flèche, 0-3 = gauche bas haut droite, de la note la
+    plus grave à la plus aiguë ; combien de temps la mélodie s'entend après un coup juste : jusqu'à
+    la flèche suivante)."""
+    lines = ['; Généré par tools/make_music.py (DANCE_ROUNDS) : ne pas éditer à la main.', '',
+             '; .db la musique, sa voix (NR51) ; .dw ses flèches', 'balladeDanseRounds:']
+    charts = []
+    for n, (fname, voice, kind, first, nbars, mindur, music, mask) in enumerate(DANCE_ROUNDS):
+        path = os.path.join(ROOT, 'music', fname)
+        tempo, bar, sections, (intro, loop) = parse(path)
+        pos, notes, started, bars = 0.0, [], False, 0
+        for sname in intro + loop:
+            if sname == first:
+                started = True
+            sbar = SECTION_BARS.get(sname, bar)
+            evs = events(sname, voice, kind, sections[sname][voice], sbar, tempo)[0]
+            sec_pos = 0.0
+            for e in evs:
+                if e[0] != 'note':
+                    continue
+                if (started and e[1] is not None and sec_pos < (nbars - bars) * sbar - 1e-6
+                        and e[2] >= mindur - 1e-6):
+                    start = round(pos * tempo)
+                    notes.append((start + 1, round((pos + e[2]) * tempo) - start, e[1]))
+                pos += e[2]
+                sec_pos += e[2]
+            if started:
+                bars += round(sec_pos / sbar)
+                if bars >= nbars:
+                    break
+        kept = []
+        for nt in notes:
+            if not kept or nt[0] - kept[-1][0] >= DANCE_MIN_GAP:
+                kept.append(nt)
+        pitches = sorted(set(p for _, _, p in kept))
+        label = 'balladeDanseChart%d' % (n + 1)
+        lines += ['\t.db %s, $%02x' % (music, mask), '\t.dw %s' % label]
+        chart = ['; manche %d : music/%s (%s, %d mesures)' % (n + 1, fname, voice, nbars),
+                 label + ':']
+        for i, (start, dur, p) in enumerate(kept):
+            lane = pitches.index(p) * 4 // max(4, len(pitches)) if len(pitches) >= 4 \
+                else pitches.index(p) + (4 - len(pitches)) // 2
+            nxt = kept[i + 1][0] - start if i + 1 < len(kept) else dur
+            chart.append('\t.dw $%04x\n\t.db %d, $%02x ; %s %s' % (
+                start, lane, min(255, nxt), note_name(p), 'gauche bas haut droite'.split()[lane]))
+        chart += ['\t.dw $ffff', '']
+        charts += chart
+        print('boss du Terrier, manche %d (%s) : %d flèches, %.1f s' % (
+            n + 1, fname, len(kept), (kept[-1][0] - kept[0][0]) / 60))
+    lines += [''] + charts
+    with open(OUT_DANCE, 'w', encoding='utf-8', newline='\n') as f:
+        f.write('\n'.join(lines))
+
+
 def assign_rooms():
     """Musique de chaque salle : un octet par salle dans audio/ages/groupNIDs.bin."""
     for group, music, rooms in ROOM_MUSIC:
@@ -650,6 +720,7 @@ def main():
         with open(path, 'w', encoding='utf-8', newline='\n') as f:
             f.write('\n'.join(lines))
     rhythm_notes(os.path.join(ROOT, 'music', 'rythme.txt'), intros['rythme_fin.txt'])
+    dance_charts()
 
 
 if __name__ == '__main__':
