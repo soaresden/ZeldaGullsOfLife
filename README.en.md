@@ -41,7 +41,8 @@ music. And a seagull who has plenty to say.
 - ◆ **New minigames**: an island without games isn't a Zelda island. The
   showman's two minesweepers, a Pac-Man-style maze with Lynels on your heels,
   free diving, hide-and-seek, spinning-top shooting, the brass band's dance,
-  singing… and a Metal Gear-style infiltration sequence.
+  singing, a boss to beat in rhythm Dance Dance Revolution-style… and a
+  Metal Gear-style infiltration sequence.
 - ⚔ **Real temples**: one key item, puzzles built around it, and bosses with a
   lot to say. Short, dense, made to be cleared in one go.
 - ? **A twist**: we won't say a word. You'll see.

@@ -42,7 +42,8 @@ donjons, de nouvelles musiques. Et une mouette qui a son mot à dire.
 - ◆ **De nouveaux mini-jeux** : une île sans jeux, ce n'est pas une île de Zelda.
   Les deux démineurs du forain, un labyrinthe à la Pac-Man avec des Lynels aux
   trousses, la plongée en apnée, le cache-cache, le tir aux toupies, la danse de
-  la fanfare, le chant… et une séquence d'infiltration façon Metal Gear.
+  la fanfare, le chant, un boss à battre en rythme façon Dance Dance
+  Revolution… et une séquence d'infiltration façon Metal Gear.
 - ⚔ **De vrais temples** : un objet clé, des énigmes taillées pour lui, et des
   boss qui ont la langue bien pendue. Courts, denses, à finir d'une traite.
 - ? **Un rebondissement** : on ne vous dira rien. Vous verrez.
